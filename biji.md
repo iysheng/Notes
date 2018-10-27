@@ -56,3 +56,15 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ## 更新 opensource 之后，出现找不到win7启动项，需要重新更新 grub.cfg 配置文件
 ## 命令见 /etc/default/grub 文件
 ### grub2-mkconfig -o /boot/grub.d/grub.cfg
+
+## 安装常用vim插件
+### vim-plugin-NERDtree vim-plugin-powerline
+### 设置打开NERDtree的快捷键,vim ~/.vimrc;添加内容 nmap <F5> :NERDTreeToggle<cr> 设置打开NERDTree的快捷键
+### 分屏打开一个新的文件,在左侧树状图中，输入i 横向分屏打开，输入s 纵向分屏打开，输入:q关闭当前窗口
+
+## cscope 工具
+### vim 插件，默认的快捷键配置，crt + \ 然后再输入各种搜索的关键字 eg:s 表示搜索符号
+
+## find 命令使用教程
+### 匹配多个类型名的文件 find -name "*.c" -o -name "*.S"
+
