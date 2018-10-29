@@ -52,8 +52,15 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 
 ## openocd
 ### -s 选项，指定配置文件的搜索路径
-
-## 更新 opensource 之后，出现找不到win7启动项，需要重新更新 grub.cfg 配置文件
+### flash probe bank_id 探测flash
+### flash list 列出flash
+### flash erase_address addr length 擦除flash
+### flash info bank_id 列出 bank_id 的flash信息
+### flash write_bank bank_id filename offset 将文件写入到flash的指定地址
+### flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
+### mdw address [count] 显示address地址的内存，长度count
+### mw[w,b] address value [count] 修改address内存数据，长度count
+## 更新 opensource 之后，出现找不到win7启动项，需要重新更新  grub.cfg 配置文件
 ## 命令见 /etc/default/grub 文件
 ### grub2-mkconfig -o /boot/grub.d/grub.cfg
 
@@ -67,4 +74,16 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 
 ## find 命令使用教程
 ### 匹配多个类型名的文件 find -name "*.c" -o -name "*.S"
+
+## tmux 使用教程
+### ctrl-b 空格：更换排版 
+
+## sed 使用教程
+### sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加爱字母a
+### sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
+
+## shell 使用教程
+### 截取变量的某些字符串 eg:删除变量名的最后一位 CD=${AB:0:-1} 
+### 如果AB=abcd 那么CD=abc
+
 
