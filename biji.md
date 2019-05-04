@@ -86,4 +86,17 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### 截取变量的某些字符串 eg:删除变量名的最后一位 CD=${AB:0:-1} 
 ### 如果AB=abcd 那么CD=abc
 
+## git 使用笔记
+### git reset commitid filenames ：回退某个文件到某次提交
+### git reset --hard commitid ：可以撤销在本地还没有 push 的 commit
+### git branch -a 查看所有分支
+### git branch -r 查看远程分支
+### git checkout branchname 切换到某个分支
+
+## rootfs 知识要点
+### 根文件系统要有 /init 否则会报不是根文件系统的错误
+### busybox 的源码中有 rcS 等配置文件的示例
+
+
+
 
