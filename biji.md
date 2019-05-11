@@ -97,6 +97,14 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### 根文件系统要有 /init 否则会报不是根文件系统的错误
 ### busybox 的源码中有 rcS 等配置文件的示例
 
+## 好用的工具
+### vim 插件
+#### light-line
+#### 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color	
+### markdown
+#### plug 'plasticboy/vim-markdown' (备注：plugin 插件的安装路径)
 
+### 字体
+#### Fira code
 
 
