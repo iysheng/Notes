@@ -103,6 +103,11 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 #### 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color	
 ### markdown
 #### plug 'plasticboy/vim-markdown' (备注：plugin 插件的安装路径)
+### command-t
+#### 文件查找，需要安装 ruby-devel ，然后按照官方文档的手册执行 ruby extconf.rb ; make 编译出 C extersion ;并且 vim 编译的时候呀支持 ruby
+### ack.vim
+#### 类似与 grep 的搜索，需要安装 ack
+
 
 ### 字体
 #### Fira code
