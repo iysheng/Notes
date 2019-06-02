@@ -100,7 +100,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ## 好用的工具
 ### vim 插件
 #### light-line
-#### 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color	
+#### 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color (这个步骤及其重要，特别如果想要在 tmux 正常显示 gruvbox 的效果)	
 ### markdown
 #### plug 'plasticboy/vim-markdown' (备注：plugin 插件的安装路径)
 ### command-t
