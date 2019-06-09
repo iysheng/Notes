@@ -92,6 +92,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### git branch -a 查看所有分支
 ### git branch -r 查看远程分支
 ### git checkout branchname 切换到某个分支
+### git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
 
 ## rootfs 知识要点
 ### 根文件系统要有 /init 否则会报不是根文件系统的错误
