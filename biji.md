@@ -113,4 +113,6 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### 字体
 #### Fira code
 
-
+### Linux 学习笔记
+#### 使用 bc 命令实现进制之间的转换
+#### echo 'ibase=10; obase=16; 25' | bc   结果 19
