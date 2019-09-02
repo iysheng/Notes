@@ -93,6 +93,8 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### git branch -r 查看远程分支
 ### git checkout branchname 切换到某个分支
 ### git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
+### git log --stat ；// review the files modify each commit
+### git diff commitid ；// review the files modify detiles this commit
 
 ## rootfs 知识要点
 ### 根文件系统要有 /init 否则会报不是根文件系统的错误
@@ -116,3 +118,26 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### Linux 学习笔记
 #### 使用 bc 命令实现进制之间的转换
 #### echo 'ibase=10; obase=16; 25' | bc   结果 19
+
+### ubifs 使用方法
+# 创建 ubifs 镜像文件
+## 一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc
+## 关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小
+## 逻辑擦出块大小一般是物理擦出块大小 - 2 * pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 
+## 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了
+## 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录
+# 创建可以烧写到 flash 的镜像文件
+## 一般命令：ubinize -o abc.raw -m 2048 -p 128KiB -O 2048 abc.ini -v
+## 关键参数 -o：制定生成的文件名字 -m 指定最小的 io，一般是 pagesize；-p 指定物理擦除块大小，这个值就是 nand flash
+## 实际的物理擦除块大小；-O 参考网上的是 pagesize，这个后续还需要和 mkfs.ubifs 的一起分析下；abc.ini 表示产生镜像的
+## 配置文件，-v：打印提示信息
+## abc.ini 文件示例
+##[rootfs-volume]
+##mode=ubi
+##image=abc.img
+##vol_size=8MiB/* 备注这个大小要和 mkfs.ubifs 的匹配 */
+##vol_id=1
+##vol_type=dynamic
+##vol_name=arm_boot
+##vol_alignment=1
+##vol_flags=autoresize
