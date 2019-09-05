@@ -95,6 +95,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ### git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
 ### git log --stat ；// review the files modify each commit
 ### git diff commitid ；// review the files modify detiles this commit
+### git show commitid ；// 查看某一次提交修改的代码
 
 ## rootfs 知识要点
 ### 根文件系统要有 /init 否则会报不是根文件系统的错误
@@ -141,3 +142,21 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ##vol_name=arm_boot
 ##vol_alignment=1
 ##vol_flags=autoresize
+
+# 交叉编译工具链那些事情
+## 交叉编译工具链 --print-sysroot：工具链认为的根目录
+## 交叉编译工具链 --print-search-dirs：工具链会搜索的目录，包括库文件、可执行文件等等，也就是说工具链会从这些目录中搜索库或者可执行文件
+
+# Fedora 添加库和禁止、使能库
+## dnf config-manager --add-repo /etc/yum.repos.d/fedora_extras.repo
+## /* 禁止、使能库 repository ，这个库名字是在 *.repo 文件定义的 */
+## dnf config-manager --set-disabled repository
+## dnf config-manager --set-enabled repository
+
+# scp 和 ssh sshpass 命令
+## 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
+## scp filename username@serverip:/dir
+## 通过 ssh 连接 serverip，用户名是 username
+## ssh username@serverip
+## 提前将密码放到 -p 选项地方，其他和一般的 scp 命令一样
+## sshpass -p "passwdxxx" scp filename username@serverip:/dir

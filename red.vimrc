@@ -1,6 +1,6 @@
 set nu
 
-map <F4> :q!<CR>
+map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TlistToggle<CR>
 map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
@@ -8,7 +8,7 @@ map <C-b> :w!<CR>
 map <C-h> :nohl<CR>
 map <S-m> :!sh build.sh<CR>
 
-nmap <C-]>a :Ack <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>	
 
 set background=dark
 call plug#begin('~/.vim/plugged')
@@ -35,3 +35,6 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
 set noshowmode
+
+set fileencoding=utf-8
+set fileencodings=utf-8,gb18030,utf-16,big5
