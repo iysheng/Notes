@@ -160,3 +160,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 ## ssh username@serverip
 ## 提前将密码放到 -p 选项地方，其他和一般的 scp 命令一样
 ## sshpass -p "passwdxxx" scp filename username@serverip:/dir
+
+# git status 中文文件名称显示为乱码
+## git config --global core.quotepath false
+
