@@ -164,3 +164,15 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 # git status 中文文件名称显示为乱码
 ## git config --global core.quotepath false
 
+# tig 的使用说明
+## tig 是基于 ncurses-based ，命令行下图形化查看 git 仓库相关信息的工具，今天记录下学习笔记，
+## 目前未使用过的功能
+1. 查看某次 commit 和这次 commit 提交的代码修改
+2. 查看当前暂存和未存的修改（main 视图就可以查看）
+3. 增加和剔除暂存的修改（在 main 视图[tig 命令直接的视图]通过 s 按键到 status 视图，再通过 u 快捷键可以增加或者删除
+文件到暂存区，返回 main 视图可以通过 q 退回上一个视图，或者直接按键 m）
+4. 编辑 commit 并提交（在 status 视图，按键 C ，然后按键 i 编辑提交信息，然后按键 :x 可以提交了）
+5. 查看仓库的所有 tag 和分支（按键 r [branch 视图]）
+6. 查看某次提交的树形视图（在某次提交或者 tag 处，按键 t 查看）
+7. 明确了 tig 的几个视图； main 视图，tree 视图，status 视图，branch 视图
+## 
