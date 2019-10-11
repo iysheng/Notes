@@ -174,5 +174,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 4. 编辑 commit 并提交（在 status 视图，按键 C ，然后按键 i 编辑提交信息，然后按键 :x 可以提交了）
 5. 查看仓库的所有 tag 和分支（按键 r [branch 视图]）
 6. 查看某次提交的树形视图（在某次提交或者 tag 处，按键 t 查看）
-7. 明确了 tig 的几个视图； main 视图，tree 视图，status 视图，branch 视图
+7. 明确了 tig 的几个视图； main 视图，tree 视图，status 视图，stash 视图[查看所有暂存的提交，按键 c 切换到该视图，该视图一般和 status 视图配合使用]，branch 视图，log 视图[按键 l 切换到该视图]
+8. Q 直接退出 tig，q 退出到上一个视图
+9. 在查看文件时，要使用 j、k 这些按键
 ## 
