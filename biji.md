@@ -16,33 +16,31 @@
 - `zc`: close a fold your cursor is on
 - `zC`: close a fold your cursor is on recursively
 ```
-## vim 替换命令
-```
-:1,$ s/abc/&def/gc
-/* & 符号会替换为 abc，执行该命令，会将 abc 变为 abcdef
- */
 
+## vim 命令
+```
+:1,$ s/abc/&def/gc 备注：& 符号会替换为 abc，执行该命令，会将 abc 变为 abcdef
+:e 重新加载当前打开的文件
 ```
 
-# cscope 快捷键
-## openSUSE 和 fedora 带有 cscope ，可以直接从仓库安装
+## cscope 快捷键 openSUSE 和 fedora 带有 cscope ，可以直接从仓库安装
 ```
 crtl+[ 跳转到定义的地方
 crtl+] 跳转到引用该符号的地方
 crt+t 向上一级的窗口跳转
 ```
 
-# autogen.sh 需要安装的自动化工具
+## autogen.sh 需要安装的自动化工具
 ```
 sudo dnf install automake autoconf libtool
 ``` 
 
-# 在配置、编译软件的时候，导出环境变量，要用export命令，不要用set
+## 在配置、编译软件的时候，导出环境变量，要用export命令，不要用set
 ```
 eg:export CFLAGS=-static
 ```
 
-# fedora23 xfce 支持 mp3播放 audacious 很重要的一个插件如下如下所示
+## fedora23 xfce 支持 mp3播放 audacious 很重要的一个插件如下如下所示
 ```
 audacious-plugins-freeworld-mp3 
 ```
@@ -52,22 +50,25 @@ audacious-plugins-freeworld-mp3
 3. 修改MPU相关的设置，修改arch/arm/mach-stm32/soc.c 修改MPU的区域大小为32M，
  否则重定向到SDRAM的高地址之后，因为没有执行权限，系统就会崩掉。
 
-# gcc 7 编译问题
+## gcc 7 编译问题
 ```
 eg: Implicit fallthrough error
 export 对应的 CFLAGS=Wno-implicit-fallthrough
 ```
 
 ## openocd
-### -s 选项，指定配置文件的搜索路径
-### flash probe bank_id 探测flash
-### flash list 列出flash
-### flash erase_address addr length 擦除flash
-### flash info bank_id 列出 bank_id 的flash信息
-### flash write_bank bank_id filename offset 将文件写入到flash的指定地址
-### flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
-### mdw address [count] 显示address地址的内存，长度count
-### mw[w,b] address value [count] 修改address内存数据，长度count
+```
+-s 选项，指定配置文件的搜索路径
+flash probe bank_id 探测flash
+flash list 列出flash
+flash erase_address addr length 擦除flash
+flash info bank_id 列出 bank_id 的flash信息
+flash write_bank bank_id filename offset 将文件写入到flash的指定地址
+flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
+mdw address [count] 显示address地址的内存，长度count
+mw[w,b] address value [count] 修改address内存数据，长度count
+```
+
 ## 更新 opensource 之后，出现找不到win7启动项，需要重新更新  grub.cfg 配置文件
 ## 命令见 /etc/default/grub 文件
 ### grub2-mkconfig -o /boot/grub.d/grub.cfg
@@ -184,7 +185,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 10. HEAD^1 或者 HEAD^ 表示 HEAD 的父亲， HEAD^^ 或者 HEAD^1^1 父亲的父亲，HEAD~ HEAD 的父亲，HEAD~2 父亲的父亲
 11. git branch -d 分支名；删除分支，如果分支没有被 merge，那么会提示无法删除；git branch -D 分支名，强制删除分支
 12. git commit --amend ；修改最近一次提交的注释 message
-13. git rebase -i commit_id ；然后就可以修改待修改的 commit 的 message；git rebase 还可以做很多事情
+13. git rebase -i commit_id ；然后就可以修改待修改的 commit 的 message；git rebase 还可以做很多事情；记得保存 parent
 14. git diff --cached ；暂存区和 HEAD 的差异
 15. git diff ；工作区和 HEAD 的差异
 16. git diff -- 文件名；对比工作区某个文件和 HEAD 的差异
@@ -204,6 +205,7 @@ export 对应的 CFLAGS=Wno-implicit-fallthrough
 30. git remote add 远端源名称 远端源地址；添加一个远端仓库
 31. git push --set-upstream 远端仓库名 本地分支；推送本地分支到远端仓库
 32. 哑协议表示不带进度条，智能协议带进度条 file://路径名表示智能协议，单独路径名表示哑协议，ssh https http 这些都是智能协议
+33. 修改 ~/.gitconfig 文件，添加 alias 字段，可以添加命令别名
 ```
 
 ## 本地搭建 git 服务器
@@ -222,7 +224,6 @@ chmod 600 ~/.ssh/authorized_keys
 
 # tig 的使用说明
 ## tig 是基于 ncurses-based ，命令行下图形化查看 git 仓库相关信息的工具，今天记录下学习笔记，
-## 目前未使用过的功能
 1. 查看某次 commit 和这次 commit 提交的代码修改
 2. 查看当前暂存和未存的修改（main 视图就可以查看）
 3. 增加和剔除暂存的修改（在 main 视图[tig 命令直接的视图]通过 s 按键到 status 视图，再通过 u 快捷键可以增加或者删除
@@ -234,7 +235,7 @@ chmod 600 ~/.ssh/authorized_keys
 8. Q 直接退出 tig，q 退出到上一个视图
 9. 在查看文件时，要使用 j、k 这些按键
 
-##
+***
 # UNIX 环境高级编程学习笔记
 ## 第 4 章 文件和目录
 1. open 函数打开的文件名，要对包含的目录具有可执行权限位，这个位也被成为搜索位。
