@@ -26,6 +26,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
 Plug 'chazy/cscope_maps'
 "Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'vim-scripts/taglist.vim'
 Plug 'luochen1990/rainbow'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular'

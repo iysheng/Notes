@@ -29,6 +29,7 @@ gUG：从光标所在位置到文章的最后一个字符全部转换为大写
 gu1G：从光标所在位置到文章的第一个字符全部转换为小写
 guw、gue、gUw、gUe，光标后面的单词会进行大小写转换
 gu5w、gu5w、gU5w、gU5e，转换光标后的 5 个单词
+:命令行 source % 刷新配置
 ```
 
 ## cscope 快捷键 openSUSE 和 fedora 带有 cscope ，可以直接从仓库安装
@@ -252,5 +253,27 @@ chmod 600 ~/.ssh/authorized_keys
 4. 文件具有 3 个时间【ls -u 文件数据的组后访问时间；ls 文件内容的最后修改时间；ls -c 文件 i 节点的最后更改时间】；要知道文件 i 节点和文件数据内容是分开存放的。
 5. ls -lt 默认是按照文件的修改时间排序的，相应的 ls -ltu 是按照文件的访问时间排序， ls -ltc 是按照文件的 i 节点的修改时间排序 
 
-
-
+## manjaro
+1. yay package manager
+2. 安裝中文输入法：
+	1. 安装 fcitx 必要打软件包，参考 arch 的 wiki
+	```
+	sudo pacman -S fcitx fcitx-im fcitx-configtool [因为 fcitx 内置了 pinyin 中文输入发，直接选中激活就可以]
+	```
+	2. 配置环境变量，修改文件 ~/.pam_enviroment 追加内容
+	```
+	GTK_IM_MODULE=fcitx
+	QT_IM_MODULE=fcitx
+	XMODIFIERS=@im=fcitx
+	```
+	3. 配置完成后，注销系统重新登录就可以
+3. 安装图标字体 nerd-font
+	1. 下载字体文件
+	```
+	git clone https://github.com/ryanoasis/nerd-fonts.git
+	```
+	2. 建议通过打补丁的方式安装，下载的字体文件包含有 font-patcher
+	可能还需要安装一个工具 fontforge
+	```
+	./font-patcher PATH_TO_FONT [PATH_TO_FONT：表示的是字体打源路径]
+	```
