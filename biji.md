@@ -219,6 +219,9 @@ mw[w,b] address value [count] 修改address内存数据，长度count
 31. git push --set-upstream 远端仓库名 本地分支；推送本地分支到远端仓库
 32. 哑协议表示不带进度条，智能协议带进度条 file://路径名表示智能协议，单独路径名表示哑协议，ssh https http 这些都是智能协议
 33. 修改 ~/.gitconfig 文件，添加 alias 字段，可以添加命令别名
+34. git push 的时候卡住，添加了git config --global core.askpass "git-gui--askpass" 就可以解决；通过 http 或者 svn 时候，push 的时候可能会需要账     号密码，可能当时是被键入账号和密码的程序卡住了？？？
+35. git status 修改 core.quotepath 为 flase；修改为 false 可以保证大于 0x80 的字节不会以 hex 模式显示，可以解决中文乱码的问题；
+    具体细节可以参考 man git-config 搜索 quotepath
 ```
 
 ## 本地搭建 git 服务器
