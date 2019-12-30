@@ -288,7 +288,15 @@ chmod 600 ~/.ssh/authorized_keys
 4. fzf 模糊搜索开源工具
 5. ranger 终端的文件管理器
 6. ImageMagick 终端的图片查看器，指令： display + 文件名
+7. tcping 可以 ping 任意地址的任意端口的工具
+8. forgit ：A utility tool powered by fzf for using git interactively
 
 ## libevent 代码阅读笔记
 1. 数据结构 tailqueue
 2. 数据结构 list
+
+## vim 学习笔记
+1. v 到 visual 模式，通过 hjkl 选择任意字符串， y 复制、 d 删除、^ 跳转到当前行
+   首、$ 跳转到当前行尾
+2. ctrl+v 块模式，通过 hjkl 选中字符块，同样 d 删除、y 复制；shift+i 块模式下打
+   插入模式
