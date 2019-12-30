@@ -30,6 +30,10 @@ gu1G：从光标所在位置到文章的第一个字符全部转换为小写
 guw、gue、gUw、gUe，光标后面的单词会进行大小写转换
 gu5w、gu5w、gU5w、gU5e，转换光标后的 5 个单词
 :命令行 source % 刷新配置
+无需到命令行
+添加书签 ma：添加 a 书签 mb：添加 b 书签、、、、mz：添加 z 书签
+跳转到 a 书签 'a 跳转到 a 书签这一行的行首； `a 跳转到 a 书签的位置
+命令行： marks 查看所有书签
 ```
 
 ## cscope 快捷键 openSUSE 和 fedora 带有 cscope ，可以直接从仓库安装
@@ -277,3 +281,6 @@ chmod 600 ~/.ssh/authorized_keys
 	```
 	./font-patcher PATH_TO_FONT [PATH_TO_FONT：表示的是字体打源路径]
 	```
+# libevent 代码阅读笔记
+1. 数据结构 tailqueue
+2. 数据结构 list
