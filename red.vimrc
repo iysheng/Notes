@@ -36,7 +36,7 @@ call plug#end()
 
 filetype plugin on
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-let g:instant_markdown_browser = "google-chrome --new-window"
+"let g:instant_markdown_browser = "google-chrome --new-window"
 
 " vim-rainbow 自动修改括号颜色
 let g:rainbow_active = 1
