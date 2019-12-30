@@ -281,6 +281,10 @@ chmod 600 ~/.ssh/authorized_keys
 	```
 	./font-patcher PATH_TO_FONT [PATH_TO_FONT：表示的是字体打源路径]
 	```
-# libevent 代码阅读笔记
+4. fzf 模糊搜索开源工具
+5. ranger 终端的文件管理器
+6. ImageMagick 终端的图片查看器，指令： display + 文件名
+
+## libevent 代码阅读笔记
 1. 数据结构 tailqueue
 2. 数据结构 list
