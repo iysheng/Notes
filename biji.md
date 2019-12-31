@@ -219,8 +219,12 @@ mw[w,b] address value [count] 修改address内存数据，长度count
 31. git push --set-upstream 远端仓库名 本地分支；推送本地分支到远端仓库
 32. 哑协议表示不带进度条，智能协议带进度条 file://路径名表示智能协议，单独路径名表示哑协议，ssh https http 这些都是智能协议
 33. 修改 ~/.gitconfig 文件，添加 alias 字段，可以添加命令别名
-34. git push 的时候卡住，添加了git config --global core.askpass "git-gui--askpass" 就可以解决；通过 http 或者 svn 时候，push 的时候可能会需要账     号密码，可能当时是被键入账号和密码的程序卡住了？？？
-35. git status 修改 core.quotepath 为 flase；修改为 false 可以保证大于 0x80 的字节不会以 hex 模式显示，可以解决中文乱码的问题；
+34. 如果是 fork 其他人打仓库，建议添加一个 upstream 的 remote 源，可以同步更新原版的源，通过 git pull upstream/master 或者分为两个步骤：
+git fetch upstream; git merger upstream/master
+35. 提交 pull request ，需要首先将代码提交到自己 fork 后打仓库，然后在 github 上点击创建 pr，在 github 上点击 New pull request，根据步骤就好
+36. git val -l ：查看定义打 git 相关的变量; ~/.gitconfig 文件，用户定义打 git 打配置文件， [core]\n editor = vim 使用 vim 取代 默认打 nano 作为 git 打默认编辑器（提交、rebase 等时候调用的编辑器）
+37. git push 的时候卡住，添加了git config --global core.askpass "git-gui--askpass" 就可以解决；通过 http 或者 svn 时候，push 的时候可能会需要账     号密码，可能当时是被键入账号和密码的程序卡住了？？？
+38. git status 修改 core.quotepath 为 flase；修改为 false 可以保证大于 0x80 的字节不会以 hex 模式显示，可以解决中文乱码的问题；
     具体细节可以参考 man git-config 搜索 quotepath
 ```
 
@@ -287,7 +291,15 @@ chmod 600 ~/.ssh/authorized_keys
 4. fzf 模糊搜索开源工具
 5. ranger 终端的文件管理器
 6. ImageMagick 终端的图片查看器，指令： display + 文件名
+7. tcping 可以 ping 任意地址的任意端口的工具
+8. forgit ：A utility tool powered by fzf for using git interactively
 
 ## libevent 代码阅读笔记
 1. 数据结构 tailqueue
 2. 数据结构 list
+
+## vim 学习笔记
+1. v 到 visual 模式，通过 hjkl 选择任意字符串， y 复制、 d 删除、^ 跳转到当前行
+   首、$ 跳转到当前行尾
+2. ctrl+v 块模式，通过 hjkl 选中字符块，同样 d 删除、y 复制；shift+i 块模式下打
+   插入模式
