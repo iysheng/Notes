@@ -303,3 +303,8 @@ chmod 600 ~/.ssh/authorized_keys
    首、$ 跳转到当前行尾
 2. ctrl+v 块模式，通过 hjkl 选中字符块，同样 d 删除、y 复制；shift+i 块模式下打
    插入模式
+3. ultisnips vim-snippets 代码片段的插件
+
+## xfce
+1. linux 通过安装 samba-vfs-glusterfs 可以很方便的通过 xfce 官方的文件管理软件 Thunar
+打开远端 samba 共享的目录，格式： smb://192.168.0.5【备注：远端的 ip 地址】/
