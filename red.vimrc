@@ -6,7 +6,6 @@
 " ===
 " === vimbasic
 " ===
-colorscheme gruvbox
 filetype plugin on
 set nu
 set encoding=utf-8
@@ -30,7 +29,6 @@ map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
 
-set background=dark
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
@@ -51,6 +49,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 call plug#end()
+
+" ===
+" === extraconfig
+" ===
+set background=dark
+colorscheme gruvbox
 
 " ===
 " === gitgutter
