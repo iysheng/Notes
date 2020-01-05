@@ -4,29 +4,29 @@
 
 ### 跟踪、记录自己的学习笔记
 #### Linux
-* [命令学习](https://github.com/iysheng/Notes/Linux/Command.md)
-* [系统配置](https://github.com/iysheng/Notes/Linux/SysemConfig.md)
+* [命令学习](https://github.com/iysheng/Notes/blob/master/Linux/Command.md)
+* [系统配置](https://github.com/iysheng/Notes/blob/master/Linux/SystemConfig.md)
 
 ---
 
 ##### vim
-* [插件管理](https://github.com/iysheng/Notes/Vim/PlugInstall.md)
-* [命令学习](https://github.com/iysheng/Notes/Vim/Command.md)
+* [插件管理](https://github.com/iysheng/Notes/blob/master/Vim/PlugInstall.md)
+* [命令学习](https://github.com/iysheng/Notes/blob/master/Vim/Command.md)
 
 ---
 
 ##### Clanguage
-* [数据结构学习](https://github.com/iysheng/Notes/Clanguage/DataStruct.md)
+* [数据结构学习](https://github.com/iysheng/Notes/blob/master/Clanguage/DataStruct.md)
 
 ---
 
 ##### Shell
-* [命令学习](https://github.com/iysheng/Notes/Shell/Command.md)
+* [命令学习](https://github.com/iysheng/Notes/blob/master/Shell/Command.md)
 
 ---
 
 ##### Markdown
-* [语法学习](https://github.com/iysheng/Notes/Markdown/Synatax.md)
+* [语法学习](https://github.com/iysheng/Notes/blob/master/Markdown/Synatax.md)
 
 ---
 
