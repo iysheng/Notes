@@ -6,6 +6,7 @@
 #### Linux
 * [命令学习](https://github.com/iysheng/Notes/blob/master/Linux/Command.md)
 * [系统配置](https://github.com/iysheng/Notes/blob/master/Linux/SystemConfig.md)
+* [Misc](https://github.com/iysheng/Notes/blob/master/Linux/Misc.md)
 
 ---
 

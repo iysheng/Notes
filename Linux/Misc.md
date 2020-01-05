@@ -1,6 +1,6 @@
+### 琐碎笔记
 
-
-1. 好看的编程字体 [Cascadia Code](https://github.com/iysheng/Notes/Linux/Misc/Cascadia%20Code%20Nerd%20Font%20Plus%20Font%20Awesome%20Plus%20Font%20Awesome%20Extension%20Plus%20Octicons%20Plus%20Font%20Logos%20(Font%20Linux).ttf) 和 Fira code，我已经通过 nerd-font 给 [Cascadia 打了字符补丁的字体](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)上传到 github 了
+1. 好看的编程字体 Cascadia Code 和 Fira code，我已经通过 nerd-font 给 [Cascadia 打了字符补丁的字体](https://github.com/iysheng/Notes/blob/master/Linux/Misc/Cascadia%20Code%20Nerd%20Font%20Plus%20Font%20Awesome%20Plus%20Font%20Awesome%20Extension%20Plus%20Octicons%20Plus%20Font%20Logos%20(Font%20Linux).ttf)上传到 github 了
 2. fedora23 xfce 支持 mp3播放 audacious 很重要的一个插件：audacious-plugins-freeworld-mp3
 3. rootfs 知识要点
 	1. 根文件系统要有 /init 否则会报不是根文件系统的错误
