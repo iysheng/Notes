@@ -1,169 +1,129 @@
-# 下载uboot
-## git clone git://git.denx.de/u-boot.git u-boot
+![LOGO](https://media-curse.cursecdn.com/attachments/131/614/6f0789696074089cc2e2af459f56dd9c.png)
 
-# 模拟器终端tilda，下拉式的
-## 快捷键唤起终端，很炫
-
-# vim markdown插件语法
-## site:https://github.com/plasticboy/vim-markdown.git
-```
-- `zr`: reduces fold level throughout the buffer
-- `zR`: opens all folds
-- `zm`: increases fold level throughout the buffer
-- `zM`: folds everything all the way
-- `za`: open a fold your cursor is on
-- `zA`: open a fold your cursor is on recursively
-- `zc`: close a fold your cursor is on
-- `zC`: close a fold your cursor is on recursively
-```
-
-## vim 命令
-```
-:1,$ s/abc/&def/gc 备注：& 符号会替换为 abc，执行该命令，会将 abc 变为 abcdef
-:e 重新加载当前打开的文件
-无需到命令行，gU转换为大写 gu转换为小写
-eg：1gU 从光标所在行往下 1 行全部转换为大写
-gu0：从光标所在位置到改行的行首全部转换为小写
-gu$：从光标所在位置到该行的行尾部全部转换为小写
-gUG：从光标所在位置到文章的最后一个字符全部转换为大写
-gu1G：从光标所在位置到文章的第一个字符全部转换为小写
-guw、gue、gUw、gUe，光标后面的单词会进行大小写转换
-gu5w、gu5w、gU5w、gU5e，转换光标后的 5 个单词
-:命令行 source % 刷新配置
-无需到命令行
-添加书签 ma：添加 a 书签 mb：添加 b 书签、、、、mz：添加 z 书签
-跳转到 a 书签 'a 跳转到 a 书签这一行的行首； `a 跳转到 a 书签的位置
-命令行： marks 查看所有书签
+## 下载uboot
+```bash
+git clone git://git.denx.de/u-boot.git u-boot
 ```
 
 ## cscope 快捷键 openSUSE 和 fedora 带有 cscope ，可以直接从仓库安装
-```
-crtl+[ 跳转到定义的地方
-crtl+] 跳转到引用该符号的地方
-crt+t 向上一级的窗口跳转
-```
-
-## autogen.sh 需要安装的自动化工具
-```
-sudo dnf install automake autoconf libtool
-``` 
-
-## 在配置、编译软件的时候，导出环境变量，要用export命令，不要用set
-```
-eg:export CFLAGS=-static
-```
+1. crtl+[ 跳转到定义的地方
+2. crtl+] 跳转到引用该符号的地方
+3. crt+t 向上一级的窗口跳转
 
 ## fedora23 xfce 支持 mp3播放 audacious 很重要的一个插件如下如下所示
-```
-audacious-plugins-freeworld-mp3 
-```
-# 调试 2018.09 Uboot 
+1. audacious-plugins-freeworld-mp3
+
+## 调试 2018.09 Uboot
 1. 添加了deug的串口打印，直接写寄存器，修改设备树
 2. 初始化SDRAM，修改设备树 
 3. 修改MPU相关的设置，修改arch/arm/mach-stm32/soc.c 修改MPU的区域大小为32M，
  否则重定向到SDRAM的高地址之后，因为没有执行权限，系统就会崩掉。
 
-## gcc 7 编译问题
-```
-eg: Implicit fallthrough error
-export 对应的 CFLAGS=Wno-implicit-fallthrough
-```
-
 ## openocd
-```
--s 选项，指定配置文件的搜索路径
-flash probe bank_id 探测flash
-flash list 列出flash
-flash erase_address addr length 擦除flash
-flash info bank_id 列出 bank_id 的flash信息
-flash write_bank bank_id filename offset 将文件写入到flash的指定地址
-flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
-mdw address [count] 显示address地址的内存，长度count
-mw[w,b] address value [count] 修改address内存数据，长度count
-```
+1. -s 选项，指定配置文件的搜索路径
+2. flash probe bank_id 探测flash
+3. flash list 列出flash
+4. flash erase_address addr length 擦除flash
+5. flash info bank_id 列出 bank_id 的flash信息
+6. flash write_bank bank_id filename offset 将文件写入到flash的指定地址
+7. flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
+8. mdw address [count] 显示address地址的内存，长度count
+9. mw[w,b] address value [count] 修改address内存数据，长度count
 
-## 更新 opensource 之后，出现找不到win7启动项，需要重新更新  grub.cfg 配置文件
-## 命令见 /etc/default/grub 文件
-### grub2-mkconfig -o /boot/grub.d/grub.cfg
+## 通过 grub2-mkconfig 更新 grub.cfg 配置文件，自动探测开机启动项
+1. 命令见 /etc/default/grub 文件 grub2-mkconfig -o /boot/grub.d/grub.cfg
 
-## 安装常用vim插件
-### vim-plugin-NERDtree vim-plugin-powerline
-### 设置打开NERDtree的快捷键,vim ~/.vimrc;添加内容 nmap <F5> :NERDTreeToggle<cr> 设置打开NERDTree的快捷键
-### 分屏打开一个新的文件,在左侧树状图中，输入i 横向分屏打开，输入s 纵向分屏打开，输入:q关闭当前窗口
-
-## cscope 工具
-### vim 插件，默认的快捷键配置，crt + \ 然后再输入各种搜索的关键字 eg:s 表示搜索符号
 
 ## find 命令使用教程
-### 匹配多个类型名的文件 find -name "*.c" -o -name "*.S"
+1. 匹配多个类型名的文件 find -name "*.c" -o -name "*.S"
 
 ## tmux 使用教程
-### ctrl-b 空格：更换排版 
+1. ctrl-b 空格：更换排版
 
 ## sed 使用教程
-### sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加爱字母a
-### sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
+``` bash
+sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加爱字母a
+sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
+```
 
 ## shell 使用教程
-### 截取变量的某些字符串 eg:删除变量名的最后一位 CD=${AB:0:-1} 
-### 如果AB=abcd 那么CD=abc
+1. 截取变量的某些字符串 eg:删除变量名的最后一位 CD=${AB:0:-1}，如果AB=abcd 那么CD=abc
+2. bash 导出环境变量的方法 export CFLAGS=-static
 
-## git 使用笔记
-### git reset commitid filenames ：回退某个文件到某次提交
-### git reset --hard commitid ：可以撤销在本地还没有 push 的 commit
-### git branch -a 查看所有分支
-### git branch -r 查看远程分支
-### git checkout branchname 切换到某个分支
-### git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
-### git log --stat ；// review the files modify each commit
-### git diff commitid ；// review the files modify detiles this commit
-### git show commitid ；// 查看某一次提交修改的代码
 
 ## rootfs 知识要点
-### 根文件系统要有 /init 否则会报不是根文件系统的错误
-### busybox 的源码中有 rcS 等配置文件的示例
+1. 根文件系统要有 /init 否则会报不是根文件系统的错误
+2. busybox 的源码中有 rcS 等配置文件的示例
 
 ## 好用的工具
 ### vim 插件
-#### light-line
-#### 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color (这个步骤及其重要，特别如果想要在 tmux 正常显示 gruvbox 的效果)	
-### markdown
-#### plug 'plasticboy/vim-markdown' (备注：plugin 插件的安装路径)
-### command-t
-#### 文件查找，需要安装 ruby-devel ，然后按照官方文档的手册执行 ruby extconf.rb ; make 编译出 C extersion ;并且 vim 编译的时候呀支持 ruby
-### ack.vim
-#### 类似与 grep 的搜索，需要安装 ack
+1. itchyny/lightline.vim
+	1. 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color [这个步骤及其重要，特别如果想要在 tmux 正常显示 gruvbox 的效果]
+2. plasticboy/vim-markdown
+	```vim
+	zr: reduces fold level throughout the buffer
+	zR: opens all folds
+	zm: increases fold level throughout the buffer
+	zM: folds everything all the way
+	za: open a fold your cursor is on
+	zA: open a fold your cursor is on recursively
+	zc: close a fold your cursor is on
+	zC: close a fold your cursor is on recursively
+	```
+3. scrooloose/nerdtree 和 xuyuanp/nerdtree-git-plugin
+	1. 分屏打开一个新的文件,在左侧树状图中，输入i 横向分屏打开，输入s 纵向分屏打开
+4. amileszs/ack.vim 类似与 grep 的搜索，需要安装 ack
+5. suan/vim-instant-markdown
+	1. 需要设置一下火狐浏览器的配置 about:config and set dom.allow_scripts_to_close_windows to true，这样的话可以在 md 文件关闭的时候，直接退出对应的网页
+	2. 因为需要通过 npm 安装 ，需要提前修改一下阿里的源，
+	```bash
+	npm config set registry https://registry.npm.taobao.org --global
+	npm config set disturl https://npm.taobao.org/dist --global
+	```
+6. chazy/cscope_maps
+	1. 默认的快捷键配置，crt + \ 然后再输入各种搜索的关键字 eg:s 表示搜索符号
 
+### vim 语法
+1. :1,$ s/abc/&def/gc 备注：& 符号会替换为 abc，执行该命令，会将 abc 变为 abcdef
+2. :e 重新加载当前打开的文件
+3. 无需到命令行，gU转换为大写 gu转换为小写
+4. eg：1gU 从光标所在行往下 1 行全部转换为大写
+5. gu0：从光标所在位置到改行的行首全部转换为小写
+6. gu$：从光标所在位置到该行的行尾部全部转换为小写
+7. gUG：从光标所在位置到文章的最后一个字符全部转换为大写
+8. gu1G：从光标所在位置到文章的第一个字符全部转换为小写
+9. guw、gue、gUw、gUe，光标后面的单词会进行大小写转换
+10. gu5w、gu5w、gU5w、gU5e，转换光标后的 5 个单词
+11. :命令行 source % 刷新配置
+12. 无需到命令行
+13. 添加书签 ma：添加 a 书签 mb：添加 b 书签、、、、mz：添加 z 书签
+14. 跳转到 a 书签 'a 跳转到 a 书签这一行的行首； \`a 跳转到 a 书签的位置
+15. 命令行： marks 查看所有书签
 
 ### 字体
-#### Fira code
+1. Fira code
+2. Cascadia Code
 
-### Linux 学习笔记
-#### 使用 bc 命令实现进制之间的转换
-#### echo 'ibase=10; obase=16; 25' | bc   结果 19
+## Linux 学习笔记
+1. 使用 bc 命令实现进制之间的转换
+```bash
+ echo 'ibase=10; obase=16; 25' | bc   结果 19
+```
 
-### ubifs 使用方法
-# 创建 ubifs 镜像文件
-## 一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc
-## 关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小
-## 逻辑擦出块大小一般是物理擦出块大小 - 2 * pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 
-## 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了
-## 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录
-# 创建可以烧写到 flash 的镜像文件
-## 一般命令：ubinize -o abc.raw -m 2048 -p 128KiB -O 2048 abc.ini -v
-## 关键参数 -o：制定生成的文件名字 -m 指定最小的 io，一般是 pagesize；-p 指定物理擦除块大小，这个值就是 nand flash
-## 实际的物理擦除块大小；-O 参考网上的是 pagesize，这个后续还需要和 mkfs.ubifs 的一起分析下；abc.ini 表示产生镜像的
-## 配置文件，-v：打印提示信息
-## abc.ini 文件示例
-##[rootfs-volume]
-##mode=ubi
-##image=abc.img
-##vol_size=8MiB/* 备注这个大小要和 mkfs.ubifs 的匹配 */
-##vol_id=1
-##vol_type=dynamic
-##vol_name=arm_boot
-##vol_alignment=1
-##vol_flags=autoresize
+## ubifs 使用方法
+1. 创建 ubifs 镜像文件 {一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc，关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小，逻辑擦除块大小一般是物理擦出块大小 - 2 * pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录}
+2. 创建可以烧写到 flash 的镜像文件 {一般命令：ubinize -o abc.raw -m 2048 -p 128KiB -O 2048 abc.ini -v 关键参数 -o：制定生成的文件名字 -m 指定最小的 io，一般是 pagesize；-p 指定物理擦除块大小，这个值就是 nand flash 实际的物理擦除块大小；-O 参考网上的是 pagesize，这个后续还需要和 mkfs.ubifs 的一起分析下；abc.ini 表示产生镜像的配置文件，-v：打印提示信息；abc.ini 文件示例
+```
+[rootfs-volume]
+mode=ubi
+image=abc.img
+vol_size=8MiB/* 备注这个大小要和 mkfs.ubifs 的匹配 */
+vol_id=1
+vol_type=dynamic
+vol_name=arm_boot
+vol_alignment=1
+vol_flags=autoresize
+```
 
 ## 交叉编译工具链那些事情
 1. 交叉编译工具链 --print-sysroot：工具链认为的根目录
@@ -177,17 +137,15 @@ mw[w,b] address value [count] 修改address内存数据，长度count
 5. sudo dnf remove $(dnf repoquery  --installonly --latest-limit=-1 -q)
 6. figlet 工具可以将字符串图像化
 
-# scp 和 ssh sshpass 命令
-## 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
-## scp filename username@serverip:/dir
-## 通过 ssh 连接 serverip，用户名是 username
-## ssh username@serverip
-## 提前将密码放到 -p 选项地方，其他和一般的 scp 命令一样
-## sshpass -p "passwdxxx" scp filename username@serverip:/dir
+## scp 和 ssh sshpass 命令
+1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
+2. scp filename username@serverip:/dir
+3. 通过 ssh 连接 serverip，用户名是 username
+4. ssh username@serverip
+5. 提前将密码放到 -p 选项地方，其他和一般的 scp 命令一样
+6. sshpass -p "passwdxxx" scp filename username@serverip:/dir
 
-# git status 中文文件名称显示为乱码
-## git config --global core.quotepath false
-```git
+## git 使用笔记
 1. git log --oneline /* 每一个 commit 只显示一行 */
 2. git log -nx  /* 显示最近的 x 次提交 */
 3. git help --web [command] /* 在浏览器查看 git [command] 的 help 信息 */
@@ -226,9 +184,16 @@ git fetch upstream; git merger upstream/master
 35. 提交 pull request ，需要首先将代码提交到自己 fork 后打仓库，然后在 github 上点击创建 pr，在 github 上点击 New pull request，根据步骤就好
 36. git val -l ：查看定义打 git 相关的变量; ~/.gitconfig 文件，用户定义打 git 打配置文件， [core]\n editor = vim 使用 vim 取代 默认打 nano 作为 git 打默认编辑器（提交、rebase 等时候调用的编辑器）
 37. git push 的时候卡住，添加了git config --global core.askpass "git-gui--askpass" 就可以解决；通过 http 或者 svn 时候，push 的时候可能会需要账     号密码，可能当时是被键入账号和密码的程序卡住了？？？
-38. git status 修改 core.quotepath 为 flase；修改为 false 可以保证大于 0x80 的字节不会以 hex 模式显示，可以解决中文乱码的问题；
-    具体细节可以参考 man git-config 搜索 quotepath
-```
+38. git status 修改 core.quotepath 为 flase；修改为 false 可以保证大于 0x80 的字节不会以 hex 模式显示，可以解决中文乱码的问题；具体细节可以参考 man git-config 搜索 quotepath
+39. git reset commitid filenames ：回退某个文件到某次提交
+40. git reset --hard commitid ：可以撤销在本地还没有 push 的 commit
+41. git branch -a 查看所有分支
+42. git branch -r 查看远程分支
+43. git checkout branchname 切换到某个分支
+44. git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
+45. git log --stat ；// review the files modify each commit
+46. git diff commitid ；// review the files modify detiles this commit
+47. git show commitid ；// 查看某一次提交修改的代码
 
 ## 本地搭建 git 服务器
 1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
@@ -244,8 +209,7 @@ chmod 600 ~/.ssh/authorized_keys
 4. 重启 sshd 服务器
 【提示，无法连接时，可以通过命令查看 systemctl status sshd.service 无法连接的原因，一般都是 ssh 服务的原因 】
 
-# tig 的使用说明
-## tig 是基于 ncurses-based ，命令行下图形化查看 git 仓库相关信息的工具，今天记录下学习笔记，
+### tig 的使用说明，tig 是基于 ncurses-based ，命令行下图形化查看 git 仓库相关信息的工具
 1. 查看某次 commit 和这次 commit 提交的代码修改
 2. 查看当前暂存和未存的修改（main 视图就可以查看）
 3. 增加和剔除暂存的修改（在 main 视图[tig 命令直接的视图]通过 s 按键到 status 视图，再通过 u 快捷键可以增加或者删除
@@ -295,6 +259,7 @@ chmod 600 ~/.ssh/authorized_keys
 6. ImageMagick 终端的图片查看器，指令： display + 文件名
 7. tcping 可以 ping 任意地址的任意端口的工具
 8. forgit ：A utility tool powered by fzf for using git interactively
+9. 模拟器终端tilda，下拉式的
 
 ## libevent 代码阅读笔记
 1. 数据结构 tailqueue
@@ -312,9 +277,7 @@ chmod 600 ~/.ssh/authorized_keys
 打开远端 samba 共享的目录，格式： smb://192.168.0.5【备注：远端的 ip 地址】/
 
 ## dwm 窗口管理器
-1. 需要安装 xorg 相关的环境（还有一个 xinit），由于在 Fedora Server 默认启动的窗口管理器是 xdm，
-man xdm 的过程，实现登录自动到 dwm 的方法是在 home 目录下创建一个 .xsession 脚本，
-在该脚本中通过 `exec dwm` 启动 dwm 窗口管理器，并且在该脚本执行 `fctix &` 输入法程序
+1. 需要安装 xorg 相关的环境（还有一个 xinit），由于在 Fedora Server 默认启动的窗口管理器是 xdm，man xdm 的过程，实现登录自动到 dwm 的方法是在 home 目录下创建一个 .xsession 脚本，在该脚本中通过 `exec dwm` 启动 dwm 窗口管理器，并且在该脚本执行 `fctix &` 输入法程序
 2. 安装字体 wqy-*** 中文字体， Cascadia Code 字体，安装符号字体
 3. 中文输入法安装配置比较麻烦，关键在于确认 fctix 要在后台执行，已经通过命令
 imsettings-list 和 imsettings-switch 列出和选择 fctix 输入法
@@ -328,13 +291,13 @@ imsettings-list 和 imsettings-switch 列出和选择 fctix 输入法
 	1. hide_vacant_tags：隐藏没有窗口的补丁
 	2. scratchpad：画板补丁，默认是 Alt + \` 快捷键打开和关闭临时画板
 	3. vanitygaps：同一个 tag 的窗口之间预留空隙
-	4. autostart：自动启动 ~/.dwm/autostart_blocking.sh 和 ~/.dwm/autostart.sh 的补丁，一般
-	会将状态栏显示脚本放在对应的上述两个脚本，以及桌面背景设置
-	5. alpha ：背景透明，需要依赖渲染器件：比如：compton，这个工具需要提前在后台执行才可以保证
-	正常的半透明效果， st 的透明补丁类似的
+	4. autostart：自动启动 ~/.dwm/autostart_blocking.sh 和 ~/.dwm/autostart.sh 的补丁，一般会将状态栏显示脚本放在对应的上述两个脚本，以及桌面背景设置
+	5. alpha ：背景透明，需要依赖渲染器件：比如：compton，这个工具需要提前在后台执行才可以保证正常的半透明效果， st 的透明补丁类似的
 
 ## st 工具配置
 1. alpha：半透明化补丁，需要依赖渲染器件
 2. alphaFocusHighlight：基于半透明化补丁，可以突出显示正在选中的窗口
 3. ime：补丁，修复 st 下不能正常切换输入法的补丁，默认官方已经添加了该补丁
 4. scrollback：支持在 st 下实现界面回滚的补丁
+
+![I like Fedofra](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
