@@ -95,4 +95,14 @@ echo 'ibase=10; obase=16; 25' | bc   结果 19
 13. netstat 命令，查看进程监听的网络端口号，一般用法
 ```bash
 netstat -lntup # 列出所有监听服务的 socket(-l) 和对应的端口号(-n)，包括 tcp(-t) udp(-u) 以及PID/进程名称(-p)
+14. systemd 是 Linux 的系统和服务管理器;init 进程的替代品，systemctl 命令是管理 systemd 的主要工具
+```bash
+systemctl # 列出正在运行的服务
+systemctl list-units --type=service # 列出所有已加载的服务
+systemctl list-units --type=service --state=active # 列出所有已加载并且处于活动的服务
+systemctl list-units --type=service --state=running # 列出所有已加载并且正在运行的服务
+```
+15. ss 用来 dump socket 的统计信息，显示的内容类似于 netstat，但是 ss 可以显示更多 TCP 和状态信息。
+```bash
+ss -ltup # 显示正在监听(-l)的 TCP(-t) UDP(-u) 的进程信息(-p)
 ```
