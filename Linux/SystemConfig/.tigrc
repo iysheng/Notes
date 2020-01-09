@@ -1,0 +1,25 @@
+set vertical-split = vertical
+set blame-view = date:default \
+	author:abbreviated \
+	file-name:auto \
+	id:yes,color \
+	line-number:yes,interval=5 text
+set main-view = date:default \
+	author:abbreviated \
+	id:yes,color \
+	line-number:yes commit-title:yes
+set stash-view = date:default \
+	author:abbreviated \
+	id:yes,color \
+	line-number:yes commit-title:yes
+set status-view = file-name:always \
+	status:long \
+	line-number:yes
+set tree-view = \
+	author:abbreviated \
+	date:default \
+	id:yes \
+	file-name:always \
+	line-number:yes
+set diff-view = \
+	line-number:yes text
