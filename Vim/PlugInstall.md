@@ -23,7 +23,8 @@
 	npm config set disturl https://npm.taobao.org/dist --global
 	```
 6. chazy/cscope_maps
-	1. 默认的快捷键配置，crt + \ 然后再输入各种搜索的关键字 eg:s 表示搜索符号
+	1. 默认的快捷键配置，crt + \ 然后再输入各种搜索的关键字 eg:s 表示搜索符号，搜索函数名的
+	定义的时候，建议首先使用 -g 如果搜不到的时候，可以使用 -s 搜索
 	2. crtl+[ 跳转到定义的地方
 	3. crtl+] 跳转到引用该符号的地方
 	4. crt+t 向上一级的窗口跳转
