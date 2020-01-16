@@ -7,6 +7,10 @@
 	5. sudo dnf remove $(dnf repoquery  --installonly --latest-limit=-1 -q)
 	6. figlet 工具可以将字符串图像化
 	7. sudo dnf whatprovides "*A*" ，查找哪个软件包提供名称包含 A 的资源
+	7. 设置 hostname 为 red.WS
+	```bash
+        hostnamectl set-hostname red.WS
+	```
 
 2. scp 和 ssh sshpass 命令
 	1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
