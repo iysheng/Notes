@@ -6,6 +6,7 @@
 	4. dnf config-manager --set-enabled repository
 	5. sudo dnf remove $(dnf repoquery  --installonly --latest-limit=-1 -q)
 	6. figlet 工具可以将字符串图像化
+	7. sudo dnf whatprovides "*A*" ，查找哪个软件包提供名称包含 A 的资源
 
 2. scp 和 ssh sshpass 命令
 	1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
@@ -108,3 +109,4 @@ systemctl list-units --type=service --state=running # 列出所有已加载并�
 ```bash
 ss -ltup # 显示正在监听(-l)的 TCP(-t) UDP(-u) 的进程信息(-p)
 ```
+16. 修改 /etc/resolv.conf 文件修改 dns
