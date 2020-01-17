@@ -114,3 +114,8 @@ systemctl list-units --type=service --state=running # 列出所有已加载并�
 ss -ltup # 显示正在监听(-l)的 TCP(-t) UDP(-u) 的进程信息(-p)
 ```
 16. 修改 /etc/resolv.conf 文件修改 dns
+17. 远程桌面连接主要使用两种协议，第一种就是微软在 Windows上 的 RDP（Remote Desktop Protocol）协议，第二种就是 VNC（Virtual Network Console）协议，
+不过 Linux 远程桌面连接 Windows （使用 rdp 协议），需要安装工具 rdesktop，基本的用法
+```bash
+rdesktop -u 用户名 远程 windows 的 IP 地址
+```
