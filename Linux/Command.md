@@ -69,6 +69,7 @@
 	45. git log --stat ；// review the files modify each commit
 	46. git diff commitid ；// review the files modify detiles this commit
 	47. git show commitid ；// 查看某一次提交修改的代码
+	48. git commit --amend ；// 修改最近依次提交的 commit 信息
 4. 本地搭建 git 服务器
 	1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
 	2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]

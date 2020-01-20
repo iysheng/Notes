@@ -9,6 +9,11 @@ A
 
 B
 ---
+|单词|释义|
+|---|---|
+|backends|后端|
+|binary heap algorithm|二进制堆算法|
+|buggy||
 
 C
 ---
@@ -24,12 +29,16 @@ D
 |---|---|
 |dispatch|派遣|
 |deprecated|不推荐使用、抨击|
+|duration|持续时间|
+|datagram-oriented|面向数据报|
+|deferred|延期的|
 
 E
 ---
 |单词|释义|
 |---|---|
 |envelope|信封|
+|empty|清空|
 
 F
 ---
@@ -52,6 +61,7 @@ M
 |---|---|
 |monotonic|单调的|
 |mandatory|强制的|
+|manipulate|操纵|
 
 O
 ---
@@ -59,6 +69,8 @@ O
 |---|---|
 |optimal|最佳的|
 |obsolete|过时的|
+|overhead|开销|
+|one-off|一次性|
 
 P
 ---
@@ -66,6 +78,7 @@ P
 |---|---|
 |passive|被动的|
 |produce|生产|
+|penalty|刑罚|
 
 R
 ---
@@ -74,6 +87,10 @@ R
 |recipient|接收者、收信|
 |resemble|像...，类似于|
 |referred|参考|
+|retain|保留|
+|resolve|解析|
+|solve|解决|
+|retrieve|取回|
 
 S
 ---
@@ -81,15 +98,32 @@ S
 |---|---|
 |spawn|派生|
 |scale|规模、扩展|
+|be supposed to|应该|
+|stick to|坚持|
+|stall|故意拖延，失速|
 
 U
 ---
 |单词|释义|
 |---|---|
 |underscore|下划线|
+|underlay|底层|
 
 V
 ---
 |单词|释义|
 |---|---|
 |verbose|冗长的|
+
+W
+---
+|单词|释义|
+|---|---|
+|workaround|解决方法|
+
+Y
+---
+|单词|释义|
+|---|---|
+|yield|产生，让出|
+
