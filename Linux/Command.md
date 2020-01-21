@@ -128,3 +128,8 @@ rdesktop -u 用户名 远程 windows 的 IP 地址
 ```bash
 mount -o remount,rw [磁盘路径]
 ```
+19. 使用 df 查看磁盘剩余空间情况
+```bash
+df -h 以可以识别的单位直接打印出来剩余磁盘空间容量
+df -l 只显示本地磁盘的信息
+```
