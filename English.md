@@ -32,6 +32,7 @@ D
 |duration|持续时间|
 |datagram-oriented|面向数据报|
 |deferred|延期的|
+|depressed|沮丧的|
 
 E
 ---

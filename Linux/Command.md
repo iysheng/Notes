@@ -120,3 +120,7 @@ ss -ltup # 显示正在监听(-l)的 TCP(-t) UDP(-u) 的进程信息(-p)
 ```bash
 rdesktop -u 用户名 远程 windows 的 IP 地址
 ```
+18. 重新 mount 挂载为只读属性的磁盘为可读写， -o 参数表示 mount 的选项， remount 表示需要重新 mount
+```bash
+mount -o remount,rw [磁盘路径]
+```
