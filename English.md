@@ -7,6 +7,9 @@ A
 |abstract|抽象|
 |absolute|绝对的|
 |agreement|协议|
+|acknowledge|承认|
+|acknowledgement|确认|
+|archives|档案|
 
 B
 ---
@@ -25,6 +28,7 @@ C
 |contributor|贡献者|
 |copyright|版权|
 |consult|咨询|
+|compromise|妥协|
 
 D
 ---
@@ -37,6 +41,7 @@ D
 |deferred|延期的|
 |depressed|沮丧的|
 |dedicated|专用的|
+|delivery|发出|
 
 E
 ---
@@ -70,6 +75,12 @@ M
 |monotonic|单调的|
 |mandatory|强制的|
 |manipulate|操纵|
+
+N
+---
+|单词|释义|
+|---|---|
+|Nick name|昵称|
 
 O
 ---
@@ -110,6 +121,7 @@ R
 |reverse|反向的|
 |resolution|分辨率|
 |relay|中继|
+|reputation|名声、声誉|
 
 S
 ---
@@ -121,6 +133,7 @@ S
 |stick to|坚持|
 |stall|故意拖延，失速|
 |subscribe|订阅|
+|spam|垃圾邮件|
 
 U
 ---
