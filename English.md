@@ -6,6 +6,7 @@ A
 |---|---|
 |abstract|抽象|
 |absolute|绝对的|
+|agreement|协议|
 
 B
 ---
@@ -21,7 +22,9 @@ C
 |---|---|
 |closure|信封|
 |contrast|对比度|
-
+|contributor|贡献者|
+|copyright|版权|
+|consult|咨询|
 
 D
 ---
@@ -33,6 +36,7 @@ D
 |datagram-oriented|面向数据报|
 |deferred|延期的|
 |depressed|沮丧的|
+|dedicated|专用的|
 
 E
 ---
@@ -55,6 +59,9 @@ I
 |单词|释义|
 |---|---|
 |implicit|隐含的|
+|involved|涉及|
+|infrastructure|基础设施|
+|IRC(Internet Relay Chat)|网络中继聊天|
 
 M
 ---
@@ -80,6 +87,14 @@ P
 |passive|被动的|
 |produce|生产|
 |penalty|刑罚|
+|proprietary|专有|
+|polite|礼貌|
+
+Q
+---
+|单词|释义|
+|---|---|
+|quote|引用、举证、报价|
 
 R
 ---
@@ -92,6 +107,9 @@ R
 |resolve|解析|
 |solve|解决|
 |retrieve|取回|
+|reverse|反向的|
+|resolution|分辨率|
+|relay|中继|
 
 S
 ---
@@ -102,6 +120,7 @@ S
 |be supposed to|应该|
 |stick to|坚持|
 |stall|故意拖延，失速|
+|subscribe|订阅|
 
 U
 ---
@@ -109,6 +128,8 @@ U
 |---|---|
 |underscore|下划线|
 |underlay|底层|
+|update|更新|
+|upgrade|升级|
 
 V
 ---
