@@ -149,3 +149,5 @@ sudo dnf install lector
 ```bash
 xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标中键可以将赋值的内容粘贴出来
 ```
+23. ranger 终端的文件管理器
+	1. 浏览模式下，通过 o 选项打开排序选项，比如 oc 按照最后访问时间降序排序
