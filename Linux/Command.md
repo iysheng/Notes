@@ -33,7 +33,7 @@
 	10. HEAD^1 或者 HEAD^ 表示 HEAD 的父亲， HEAD^^ 或者 HEAD^1^1 父亲的父亲，HEAD~ HEAD 的父亲，HEAD~2 父亲的父亲
 	11. git branch -d 分支名；删除分支，如果分支没有被 merge，那么会提示无法删除；git branch -D 分支名，强制删除分支
 	12. git commit --amend ；修改最近一次提交的注释 message
-	13. git rebase -i commit_id ；然后就可以修改待修改的 commit 的 message；git rebase 还可以做很多事情；记得保存 parent
+	13. git rebase -i commit_id ；然后就可以修改待修改的 commit 的 message；git rebase 还可以做很多事情；记得保存 parent，其中 commit_id 可以以 HEAD 为索引进行偏移，举例 head~3 以当前 HEAD 向前推 3 个提交位 rebase 的基
 	14. git diff --cached ；暂存区和 HEAD 的差异
 	15. git diff ；工作区和 HEAD 的差异
 	16. git diff -- 文件名；对比工作区某个文件和 HEAD 的差异
@@ -135,10 +135,8 @@ df -l 只显示本地磁盘的信息
 ```
 20. 阅读 pdf 和电子书的软件
 ```
-# pdf 软件
-sudo dnf copr enable atim/yacreader
-sudo dnf install yacreader
-# 电子书
+sudo dnf copr enable atim/yacreader # pdf 软件
+sudo dnf install yacreader # 电子书
 sudo dnf copr enable bugzy/lector
 sudo dnf install lector
 ```
@@ -161,3 +159,20 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 	```bash
 	make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/**** 目录
 	```
+25. Linux LVM 文件系统一般概念
+	1. 基本概念缩写
+		1. Physical Volume = pv 物理卷
+		2. Volume Group = vg 卷组
+		3. Logical Volume = lv 逻辑卷
+	2. The physical volume commands are for adding or removing hard drives in volume groups. Volume group commands are for changing what abstracted set of physical partitions are presented to your operating in logical volumes. Logical volume commands will present the volume groups as partitions so that your operating system can use the designated space.(物理卷相关的命令是用来添加或者删除卷组的磁盘。卷组相关的命令是用来修改在逻辑卷向操作系统显示的物理分区集合。逻辑卷命令将卷组作为分区显示，以便操作系统可以使用指定空间)
+	![command](https://www.howtogeek.com/wp-content/uploads/2011/01/lvm-cheatsheet.png)
+	3. pvdisplay 查看当前 lvm 的信息
+	4. pvcreate /dev/sda[x] 创建一个物理卷
+	5. vgcreate name /dev/sda[x] 创建一个卷组
+	6. lvcreate -L 50G -n 逻辑卷名字 卷组名字 # 创建逻辑卷
+	7. mkfs.ext4 /dev/卷组名字/逻辑卷名字 # 格式化新创建的卷组为 ext4 文件系统
+	8. vgextend 卷组名字 物理磁盘 # 将物理磁盘添加到指定名字的卷组
+	9. lvextend -L大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小指定大小
+	10. lvextend -L+大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小 + 指定大小
+
+
