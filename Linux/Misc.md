@@ -83,6 +83,6 @@
 	```bash
 	# 安装 nord 色彩配置
 	set -g @plugin 'arcticicestudio/nord-tmux'
-	# 建议关闭 powerline 的箭头型符号
+	# 建议关闭 powerline 的箭头型符号，除非已经安装了 powerline 字体
 	set -g @nord_tmux_no_patched_font "1"
 	```

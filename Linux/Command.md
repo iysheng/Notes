@@ -151,3 +151,13 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 ```
 23. ranger 终端的文件管理器
 	1. 浏览模式下，通过 o 选项打开排序选项，比如 oc 按照最后访问时间降序排序
+	2. 在 st 终端模拟器下，预览图片
+	```bash
+	sudo pip3 install ueberzug # 测试发现 w3m method 使用未成功 (https://github.com/ranger/ranger/issues/1820)
+	# 安装 ueberzug 并修改 rc.config 文件，method 为 ueberzug 可以正常预览
+	```
+24. cmake 笔记
+	1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
+	```bash
+	make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/**** 目录
+	```

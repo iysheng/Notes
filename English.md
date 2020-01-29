@@ -67,6 +67,7 @@ I
 |involved|涉及|
 |infrastructure|基础设施|
 |IRC(Internet Relay Chat)|网络中继聊天|
+|inspect|检查|
 
 M
 ---
@@ -75,6 +76,7 @@ M
 |monotonic|单调的|
 |mandatory|强制的|
 |manipulate|操纵|
+|method|方法、措施|
 
 N
 ---
@@ -89,6 +91,7 @@ O
 |optimal|最佳的|
 |obsolete|过时的|
 |overhead|开销|
+|overlap|重叠|
 |one-off|一次性|
 
 P
