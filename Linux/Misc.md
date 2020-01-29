@@ -55,7 +55,8 @@
 		1. Alt + 数字，在不同的 tags 切换
 		2. Alt + Shift + 数字，将对应的串口移动到指定编号的 tag 上
 		3. Alt + Table 在最近的两个 tags 切换
-		4. Alt + i 和 Alt + d 切换窗口布局，比如说横向和纵向排布
+		4. Alt + i 和 Alt + d 分别是增加以及减少 master 区域窗口的个数
+		5. Alt + b 显示或者隐藏顶层的 tag、title 和 status 栏
 	6. dwm 的一些补丁
 		1. hide_vacant_tags：隐藏没有窗口的补丁
 		2. scratchpad：画板补丁，默认是 Alt + \` 快捷键打开和关闭临时画板
