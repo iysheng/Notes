@@ -23,7 +23,7 @@ C
 ---
 |单词|释义|
 |---|---|
-|closure|信封|
+|closure|信封、关闭、结束、闭路|
 |contrast|对比度|
 |contributor|贡献者|
 |copyright|版权|

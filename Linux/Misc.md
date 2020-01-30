@@ -78,7 +78,7 @@
 	7. flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
 	8. mdw address [count] 显示address地址的内存，长度count
 	9. mw[w,b] address value [count] 修改address内存数据，长度count
-18. tmux 一款终端分平软件
+18. tmux 一款终端分平软件 (三个基本概念：session、window、panel)
 	1. [tpm](https://github.com/tmux-plugins/tpm)：tmux 的插件管理器
 	2. nord 色彩配置，建议关闭 powerline 的箭头型符号
 	```bash
@@ -87,3 +87,5 @@
 	# 建议关闭 powerline 的箭头型符号，除非已经安装了 powerline 字体
 	set -g @nord_tmux_no_patched_font "1"
 	```
+	3. MODKEY + w # 显示当前 session 的所有 window
+	4. MODKEY + l # 跳转到最近访问的上一个 windows (l:last)
