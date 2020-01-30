@@ -31,4 +31,9 @@
 
 ---
 
+##### Books
+* [libevent](https://github.com/iysheng/Notes/blob/master/Linux/doc/LibeventBook.pdf)
+* [The Linux Programming Interface](https://github.com/iysheng/Notes/blob/master/Linux/doc/The%20Linux%20Programming%20Interface.pdf)
+* [Learning the bash Shell](https://github.com/iysheng/Notes/blob/master/Linux/doc/Learning%20the%20bash%20Shell%20-%20Unix%20Shell%20Programming.pdf)
+---
 ![Fedora](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
