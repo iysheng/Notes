@@ -49,6 +49,7 @@ E
 |---|---|
 |envelope|信封|
 |empty|清空|
+|extract|提取|
 
 F
 ---
