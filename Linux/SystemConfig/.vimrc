@@ -36,7 +36,6 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
-Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'

@@ -10,4 +10,15 @@ sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
 ```
 6. tmux 使用教程
 	1. ctrl-b 空格：更换排版
-
+7. 字符串操作符集合
+	1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 变量的内容
+	2. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
+	3. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 varname 追加 message 的信息
+	4. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
+	5. ${varname:offset:length} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始，长度为 length 的内容，varname 的第一个字符的偏移是 0
+	6. ${varible#pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
+	7. ${varible##pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
+	8. ${varible%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
+	9. ${varible%%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
+	10. ${varible/pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到第一个最长的内容，pattern 可以是表达式，如果 pattern 带有 # 符号，那么必须是在 varible 的开始处，如果带有 %，那么匹配的是 varible 的结尾处
+	11. ${varible//pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到的所有的内容，然后返回 varible，pattern 可以是表达式
