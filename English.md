@@ -29,6 +29,7 @@ C
 |copyright|版权|
 |consult|咨询|
 |compromise|妥协|
+|complement|补充，补集|
 
 D
 ---
@@ -93,6 +94,7 @@ O
 |obsolete|过时的|
 |overhead|开销|
 |overlap|重叠|
+|override|覆盖|
 |one-off|一次性|
 
 P
