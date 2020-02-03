@@ -8,7 +8,7 @@
 	6. figlet 工具可以将字符串图像化
 	7. sudo dnf whatprovides "*A*" ，查找哪个软件包提供名称包含 A 的资源
 	7. 设置 hostname 为 red.WS
-	```bash
+	``` bash
         hostnamectl set-hostname red.WS
 	```
 
@@ -83,7 +83,7 @@
 	6. 修改 sshd 的配置文件 /etc/ssh/sshd_config 修改权限 PubkeyAuthentication yes
 	7. 重启 sshd 服务器【提示，无法连接时，可以通过命令查看 systemctl status sshd.service 无法连接的原因，一般都是 ssh 服务的原因 】
 5. 使用 bc 命令实现进制之间的转换
-```bash
+``` bash
 echo 'ibase=10; obase=16; 25' | bc   结果 19
 ```
 6. tig 的使用说明，tig 是基于 ncurses-based ，命令行下图形化查看 git 仓库相关信息的工具
@@ -105,32 +105,32 @@ echo 'ibase=10; obase=16; 25' | bc   结果 19
 	1. o 选项可以配置一些 tig 选项，左右方向建可以切换对应的配置选项，目前只有 16 个选项，根据选项的提示符号，按对应的符号修改不同的选项值，建议参看 tig 的官方 manual，在 home 目录下还可以创建一个 .tigrc 配置文件初始化 tig
 	2. e 按键可以打开编辑器，可以编辑对应的文件在 status view
 13. netstat 命令，查看进程监听的网络端口号，一般用法
-```bash
+``` bash
 netstat -lntup # 列出所有监听服务的 socket(-l) 和对应的端口号(-n)，包括 tcp(-t) udp(-u) 以及PID/进程名称(-p)
 ```
 14. systemd 是 Linux 的系统和服务管理器;init 进程的替代品，systemctl 命令是管理 systemd 的主要工具
-```bash
+``` bash
 systemctl # 列出正在运行的服务
 systemctl list-units --type=service # 列出所有已加载的服务
 systemctl list-units --type=service --state=active # 列出所有已加载并且处于活动的服务
 systemctl list-units --type=service --state=running # 列出所有已加载并且正在运行的服务
 ```
 15. ss 用来 dump socket 的统计信息，显示的内容类似于 netstat，但是 ss 可以显示更多 TCP 和状态信息。
-```bash
+``` bash
 ss -ltup # 显示正在监听(-l)的 TCP(-t) UDP(-u) 的进程信息(-p)
 ```
 16. 修改 /etc/resolv.conf 文件修改 dns
 17. 远程桌面连接主要使用两种协议，第一种就是微软在 Windows上 的 RDP（Remote Desktop Protocol）协议，第二种就是 VNC（Virtual Network Console）协议，
 不过 Linux 远程桌面连接 Windows （使用 rdp 协议），需要安装工具 rdesktop，基本的用法
-```bash
+``` bash
 rdesktop -u 用户名 远程 windows 的 IP 地址
 ```
 18. 重新 mount 挂载为只读属性的磁盘为可读写， -o 参数表示 mount 的选项， remount 表示需要重新 mount
-```bash
+``` bash
 mount -o remount,rw [磁盘路径]
 ```
 19. 使用 df 查看磁盘剩余空间情况
-```bash
+``` bash
 df -h 以可以识别的单位直接打印出来剩余磁盘空间容量
 df -l 只显示本地磁盘的信息
 ```
@@ -145,7 +145,7 @@ sudo dnf install lector
 22. xlicp 复制内容，在 X 系统里面，从一个窗口复制一段文字到另一个窗口，有两套机制，分别是 Selections 和 cut buffers。
 	1. 用的 copy & paste 是利用的 cut buffers 机制;
 	2. 另外用鼠标选中一段文字，然后在另一个窗口按鼠标中键实现复制，利用的是 selections 机制。selection 又可以分为 master 和 slave selection。当用鼠标选中一段文件，这段文字就自动被复制到 master selection。然后在另一个地方按鼠标中键，就自动把 master selection 的内容粘贴出来。当你想复制少量文字的时候，两种方法都是很方便的。但是当复制大段文字的时候就挺麻烦。另外就是你可能会频繁的执行一些复制粘贴工作，不停的用鼠标选中文字，然后再粘贴。这是对手指的折磨。
-```bash
+``` bash
 xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标中键可以将赋值的内容粘贴出来
 ```
 23. ranger 终端的文件管理器
@@ -158,7 +158,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 24. cmake 笔记
 	1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
 	``` bash
-	make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/**** 目录
+	make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
 	```
 25. Linux LVM 文件系统一般概念
 	1. 基本概念缩写
@@ -175,5 +175,11 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 	8. vgextend 卷组名字 物理磁盘 # 将物理磁盘添加到指定名字的卷组
 	9. lvextend -L大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小指定大小
 	10. lvextend -L+大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小 + 指定大小
-
+26. [shutdown](https://www.computerhope.com/unix/ushutdow.htm) 命令指定关机时间
+``` bash
+sudo shutdown 21:00 # 指定当天 21:00 关机
+sudo shutdown +15 # 指定当天 15 分钟后关机
+sudo shutdown -r now # 现在重启系统
+sudo shutdown -P # 现在关闭系统，关闭电源
+```
 
