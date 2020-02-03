@@ -43,6 +43,7 @@ D
 |depressed|沮丧的|
 |dedicated|专用的|
 |delivery|发出|
+|dread|恐惧|
 
 E
 ---
@@ -70,6 +71,7 @@ I
 |infrastructure|基础设施|
 |IRC(Internet Relay Chat)|网络中继聊天|
 |inspect|检查|
+|identical|相同|
 
 M
 ---
@@ -96,6 +98,7 @@ O
 |overlap|重叠|
 |override|覆盖|
 |one-off|一次性|
+|obscure|模糊|
 
 P
 ---
@@ -106,6 +109,7 @@ P
 |penalty|刑罚|
 |proprietary|专有|
 |polite|礼貌|
+|portion|部分|
 
 Q
 ---
@@ -139,7 +143,9 @@ S
 |stick to|坚持|
 |stall|故意拖延，失速|
 |subscribe|订阅|
+|substitution|替代|
 |spam|垃圾邮件|
+|sympathize|同情、体恤|
 
 U
 ---
