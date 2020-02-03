@@ -72,6 +72,7 @@ I
 |IRC(Internet Relay Chat)|网络中继聊天|
 |inspect|检查|
 |identical|相同|
+|investigation|调查|
 
 M
 ---
@@ -110,6 +111,7 @@ P
 |proprietary|专有|
 |polite|礼貌|
 |portion|部分|
+|procedure|程序|
 
 Q
 ---
