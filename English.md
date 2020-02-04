@@ -10,6 +10,7 @@ A
 |acknowledge|承认|
 |acknowledgement|确认|
 |archives|档案|
+|arithmetic|算数的|
 
 B
 ---
@@ -52,6 +53,8 @@ E
 |envelope|信封|
 |empty|清空|
 |extract|提取|
+|exhausted|耗尽的|
+|expomentiation|求幂|
 
 F
 ---

@@ -182,4 +182,8 @@ sudo shutdown +15 # 指定当天 15 分钟后关机
 sudo shutdown -r now # 现在重启系统
 sudo shutdown -P # 现在关闭系统，关闭电源
 ```
-
+27. du -s 文件或者目录 # 显示总的占用空间大小单位 KB
+``` bash
+du -s /home/red # 显示 red 目录占用总的磁盘空间
+```
+28. echo -e 选项可以解析 \ 特殊格式字符 eg: \n 换行；-n 选项不用自动添加换行输出

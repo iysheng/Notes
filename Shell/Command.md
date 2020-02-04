@@ -40,7 +40,7 @@ shopt -u 取消设置 shell 的某一个选项
 		4. @(patternlist) 匹配 1 个匹配列表的内容
 		5. !(patternlist) 匹配除了指定匹配列表的其他内容
 11. $(UNIX command) 将 command 的命令输出作为变量的值赋值给其他变量，和 `UNIX command` （目的是向之前的 shell 兼容，eg: Bourne 和 C shell）类似
-12. cut 命令截取内容
+12. cut 命令截取内容，-d 选项指定分割符，默认是 tab
 ``` bash
 cut -f arg1 -d arg2 sth # 截取变量 sth 的内容，以 arg2 为分隔符，取第 arg1 列内容
 awk -F args '{print $arg1}' sth # 等价上述内容
@@ -122,3 +122,93 @@ awk -F args '{print $arg1}' sth # 等价上述内容
 	    $name
 	done
 	```
+14. 位置变量（比如：$1 $2 等）是只读的，不可以对位置变量赋值，但是可以通过 **shift** 移动位置变量的值
+15. 内置命令 getops 可以解析 shell 脚本的参数，如果用户输入了无效的 option， getops 会设置变量值为 ?，同时如果 getops 后跟随的内容没有以 : 开头或者设置环境变量 OPTERR 值为 0，那么还会打印错误信息格式（getops:illegal option -o ），如果一个选项带有参数，那么选项参数会保存到变量 $OPTARG， getops 会保存下一个参数的位置值到 $OPTIND
+``` bash
+while getopts ":ab:c" opt; do
+    case $opt in
+    a ) process option -a ;;
+    b ) process option -b and $OPTARG is the argument of option b ;;
+    c ) process option -c ;;
+    \?) echo "usage sth [-a] [-b arg] [-c]"
+        exit 1
+    esac
+done
+
+shift $(($OPTIND - 1))
+normal processing of arguments ...
+```
+16. declare 设置变量有效的选项， - 设置选项开启， + 设置选项关闭（-a 和 -F 选项在 bash v2.0 版本之前不支持）
+---
+|选项|意义|
+|---|---|
+|-a|变量是数组|
+|-f|只能用于函数名字|
+|-F|显示未定义的函数名字|
+|-i|变量是整形|
+|-r|变量是只读|
+|-x|标记这个是变量将通过环境导出|
+17. $((...)) 算数表达式，需要在符号包括
+---
+|选项|意义|
+|---|---|
+|++|自加|
+|--|自减|
+|+|加|
+|-|减|
+|*|乘|
+|/|除|
+|%|余|
+|**|Expomentiation(求幂)|
+|<<|左移|
+|>>|右移|
+|&|位与|
+|\||位或|
+|~|位反|
+|!|逻辑反|
+|^|位异或|
+|,|顺序计算|
+|<|小|
+|>|大|
+|<=|小等|
+|>=|大等|
+|==|等|
+|!=|不等|
+|&&|逻辑与|
+|\|\||逻辑或|
+|-lt|小|
+|-gt|大|
+|-le|小等|
+|-ge|大等|
+|-eq|等|
+|-ne|不等|
+18. let 直接给数值变量赋值
+``` bash
+let intvar=expression
+```
+19. 算数 for 循环（bash v2.04 版本之前不支持）
+``` bash
+for (( initialisation; ending condition; update))
+do
+    dosth
+done
+```
+20. 数组
+``` bash
+names[2]=alice
+names[0]=hater
+names[1]=duchess
+
+names=([2]=alice [0]=hatter [1]=duchess)
+
+names=(hatter duchess alice)
+
+# 引用一个数组的元素的语法，如果没有指定 index i 那么默认引用 ${array[0]}
+${array[i]}
+
+# @ 和 * 符号是特殊符号，区别在于 @ 以空格为分隔符 × 以 IFS 变量的第一个字符为分隔符
+${array[@]} # 引用所有赋值的变量的值
+${!array[@]} # 引用所有赋值的变量的索引
+${#array[@]} # 引用所有已赋值的变量的个数
+unset array[100] # 删除 array 数组第 101 个元素的赋值
+```
