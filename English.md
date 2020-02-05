@@ -11,6 +11,8 @@ A
 |acknowledgement|确认|
 |archives|档案|
 |arithmetic|算数的|
+|appreciate|赞赏|
+|analogous|类似的|
 
 B
 ---
@@ -19,6 +21,7 @@ B
 |backends|后端|
 |binary heap algorithm|二进制堆算法|
 |buggy||
+|brace|大括号|
 
 C
 ---
@@ -91,6 +94,7 @@ N
 |单词|释义|
 |---|---|
 |Nick name|昵称|
+|notion|概念|
 
 O
 ---
@@ -103,6 +107,7 @@ O
 |override|覆盖|
 |one-off|一次性|
 |obscure|模糊|
+|omit|忽略|
 
 P
 ---
@@ -115,12 +120,13 @@ P
 |polite|礼貌|
 |portion|部分|
 |procedure|程序|
+|preserve|保护、保留、保存|
 
 Q
 ---
 |单词|释义|
 |---|---|
-|quote|引用、举证、报价|
+|quote|引用、举证、报价、引号|
 
 R
 ---
@@ -151,6 +157,13 @@ S
 |substitution|替代|
 |spam|垃圾邮件|
 |sympathize|同情、体恤|
+|semicolons|分号|
+
+T
+---
+|单词|释义|
+|---|---|
+|tilde|波浪号|
 
 U
 ---

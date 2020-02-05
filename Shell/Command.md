@@ -206,9 +206,85 @@ names=(hatter duchess alice)
 # 引用一个数组的元素的语法，如果没有指定 index i 那么默认引用 ${array[0]}
 ${array[i]}
 
-# @ 和 * 符号是特殊符号，区别在于 @ 以空格为分隔符 × 以 IFS 变量的第一个字符为分隔符
+# @ 和 * 符号是特殊符号，区别在于 @ 以空格为分隔符 * 以 IFS 变量的第一个字符为分隔符
 ${array[@]} # 引用所有赋值的变量的值
 ${!array[@]} # 引用所有赋值的变量的索引
 ${#array[@]} # 引用所有已赋值的变量的个数
 unset array[100] # 删除 array 数组第 101 个元素的赋值
 ```
+21. IO 重定向
+---
+|符号|函数|
+|---|---|
+|\||管道|
+|> file|重定向标准输出到 file|
+|< file|重定向标准输入到 file|
+|>> file|追加重定向标准输出到 file|
+|>| file|强制重定向标准输出到 file，即使设置了 noclobber|
+|<> file|使用 file 作为标准输出和标准输出|
+|n<> file|使用 file 作为文件描述符 n 的标准输出和标准输出|
+|n > file|重定向文件描述符 n 到 file|
+|n < file|文件 file 作为文件描述符号 n 的源|
+|n >&|复制标准输出到文件描述符 n|
+|n <&|从文件描述符 n 复制标准输入|
+|&> file|**重定向标准输出和错误输出到 file**|
+|<&-|关闭标准输入|
+|>&-|关闭标准输出|
+22. **here-document** # 用来替换标准输入，label 这一段内容临时替换位上一个命令的标准输入，语法
+``` bash
+<< label1
+...
+label1
+
+# label2 前添加 - 符号，表示会删除开头的 TABs 符号
+<< -label2
+	...
+label2
+
+```
+23. 文件描述符
+``` bash
+tee logfile # tee 将标准输入复制到标准输出保存到 loggile
+```
+24. printf 和 echo 类似，但是具有更强大的格式化打印
+``` bash
+printf format-string [arguments]
+```
+	1. format-string 可以包含三个可选的选项 %flags width.precision format-specifier
+---
+|flags|描述|
+|---|---|
+||右对齐|
+|-|左对齐|
+|+|添加数值的正负|
+
+|format-specifier|描述|
+|---|---|
+|%b|解析 echo -e 格式 \n 等这类特殊符号的风格|
+25. read 函数，从终端读取值保存到变量, **IFS 变量一般是 空格、TAB、换行**，如果忽略所有变量，整个输入的一行会保存到变量 *REPLY*
+``` bash
+read var1 var2
+```
+|选项|描述|
+|---|---|
+|-a|定义的是数组|
+|-d|定义分割符|
+|-n|声明多少个字符|
+|-p|读取之前会打印一段 -p 追加的提示符|
+|-r|保留 \ 开头的转义字符|
+|-t|允许等待指定的时间（单位 s）完成输入|
+26. command blocks # 使用 { 命令 } 符号将命令包括起来，构成一个 command block，表示这里包括起来的命令具有同样的标准输入、输出、错误输出
+27. 命令行处理（shell 查找的顺序：函数 function、内置命令 build-in command、可执行文件 executable file）
+28. 如果不确认使用单引号还是双引号，建议使用单引号，除非明确需要参数、命令或者是算数替换
+---
+|表达式|值|
+|---|---|
+|$person|hatter|
+|"$person"|hatter|
+|'$person'|$person|
+|\$person|$person|
+|"$person"|hatter|
+|"'$person'"|'hatter'|
+|~red|/home/red|
+|"~red"|~red|
+|'~red'|~red|
