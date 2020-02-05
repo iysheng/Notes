@@ -108,6 +108,7 @@ O
 |one-off|一次性|
 |obscure|模糊|
 |omit|忽略|
+|overhead|开销|
 
 P
 ---
