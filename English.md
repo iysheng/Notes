@@ -13,6 +13,7 @@ A
 |arithmetic|算数的|
 |appreciate|赞赏|
 |analogous|类似的|
+|all over again|再来一次|
 
 B
 ---
@@ -34,6 +35,7 @@ C
 |consult|咨询|
 |compromise|妥协|
 |complement|补充，补集|
+|compact|紧凑的|
 
 D
 ---
@@ -58,6 +60,7 @@ E
 |extract|提取|
 |exhausted|耗尽的|
 |expomentiation|求幂|
+|emulate|仿真|
 
 F
 ---
@@ -67,18 +70,21 @@ F
 
 G
 ---
+|go through|经历|
 
 I
 ---
 |单词|释义|
 |---|---|
 |implicit|隐含的|
+|implicattion|意义|
 |involved|涉及|
 |infrastructure|基础设施|
 |IRC(Internet Relay Chat)|网络中继聊天|
 |inspect|检查|
 |identical|相同|
 |investigation|调查|
+|impose|强加|
 
 M
 ---
@@ -144,6 +150,8 @@ R
 |resolution|分辨率|
 |relay|中继|
 |reputation|名声、声誉|
+|restrict|限制|
+|refer to|参考，指|
 
 S
 ---
@@ -165,6 +173,8 @@ T
 |单词|释义|
 |---|---|
 |tilde|波浪号|
+|trivial|不重要的|
+
 
 U
 ---

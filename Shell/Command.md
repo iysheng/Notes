@@ -288,3 +288,45 @@ read var1 var2
 |~red|/home/red|
 |"~red"|~red|
 |'~red'|~red|
+29. shell 搜索顺序是 functions、build-ins、scripts 和 executables，build-ins 又可以分为 3 类：command、builtin、enable
+enable 的一些选项，可以开启和禁止内置的 builtin，这些选项在 bash v2.0 之前无效
+|选项|描述|
+---
+|-a|显示所有的 builtin，不管是否使能|
+|-d|删除所有使用 -f 添加的 builtin|
+|-f filename|从 filename 文件加载一个新的 builtin|
+|-n|禁用 built-in 或者显示所有禁用的 built-in|
+|-p|和 -a 类似显示所有的 builtin|
+|-s|限制输出到 POSIX 专门的 builtin|
+30. function 函数定义方法
+``` bash
+function funcname
+{
+
+}
+
+funcname ()
+{
+
+}
+```
+31. eval 命令，eval 会将变量的内容作为命令执行
+``` bash
+something="ls"
+eval $something # 执行 ls 命令
+
+# eval 实现将变量名的值作为新的变量的名字，获取新变量名名字的值
+person="ali"
+obj="person"
+A=$(eval echo '$'"$obj")
+echo $A # 打印的是 ali
+
+# 还有更加简单的语法，新版本的 bash 含有该 builtin
+A=${!obj} # A 的值也是 ali
+```
+32. 进程处理
+	1. job number 是 shell 赋值的
+	2. process ID 是 系统赋值的
+	3. job control
+		1. **fg** # 将一个后台 job 拉到前台，这样可以让这个 job 控制你的终端或者窗口，因此可以接收你的输入，如果只有一个后台 job，可以直接 fd 命令不加参数，如果有很多后台 jobs，那么可以通过 fg %job_id 、fg %job_name、fg pid，指定拉回哪一个后台进程到前台；jobs 命令可以列出所有的后台 jobs，jobs -l 还可以列出来 pid，jobs -p 只会列出来 pid，jobs -r 只会列出来那些正在运行的 jobs，-s 只会列出来那些已经停止的 jobs，jobs -x jobsid，可以打印出来 jobsid 对应 job 的 pid
+		2. **
