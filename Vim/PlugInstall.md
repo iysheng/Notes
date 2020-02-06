@@ -38,3 +38,6 @@
 	" ===
 	endsnippet
 	```
+8. dominikduda/vim_current_word # 高亮光标所在的 word
+9. 'gruvbox-material/vim', {'as': 'gruvbox-material'} # gruvxbox 改进配色
+10. 'majutsushi/tagbar' # 可以替换 taglist 查看 tag 的插件， 命令 TagbarToggle 切换是否显示 tag 列表

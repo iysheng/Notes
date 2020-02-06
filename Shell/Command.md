@@ -8,8 +8,7 @@
 sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加爱字母a
 sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
 ```
-6. tmux 使用教程
-	1. ctrl-b 空格：更换排版
+6. 保留
 7. 字符串操作符集合
 	1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 变量的内容
 	2. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值

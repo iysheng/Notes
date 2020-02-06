@@ -89,3 +89,5 @@
 	```
 	3. MODKEY + w # 显示当前 session 的所有 window
 	4. MODKEY + l # 跳转到最近访问的上一个 windows (l:last)
+	5. MODKEY + 空格 # 更换排版
+	6. MODKEY + s # 显示所有的 sessions

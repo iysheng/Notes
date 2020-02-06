@@ -67,6 +67,7 @@ F
 |单词|释义|
 |---|---|
 |fairness|公正的合理的|
+|facilitate|促进|
 
 G
 ---
@@ -85,6 +86,13 @@ I
 |identical|相同|
 |investigation|调查|
 |impose|强加|
+|interchangeably|可互换|
+
+L
+---
+|单词|释义|
+|---|---|
+|literal|文字|
 
 M
 ---
@@ -128,6 +136,7 @@ P
 |portion|部分|
 |procedure|程序|
 |preserve|保护、保留、保存|
+|parse|解析|
 
 Q
 ---

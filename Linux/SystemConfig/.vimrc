@@ -22,7 +22,7 @@ set colorcolumn=80
 " ===
 map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
-map <F6> :TlistToggle<CR>
+map <F6> :TagbarToggle<CR>
 map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
 map <C-b> :w!<CR>
 map <C-h> :nohl<CR>
@@ -47,7 +47,7 @@ Plug 'mileszs/ack.vim'
 Plug 'valloric/youcompleteme'
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'vim-scripts/taglist.vim'
+Plug 'majutsushi/tagbar'
 Plug 'chazy/cscope_maps'
 Plug 'luochen1990/rainbow'
 
@@ -140,13 +140,6 @@ nmap tn :InstantMarkdownStop<CR>
 " === youcompleteme
 " ===
 let g:ycm_global_ycm_extra_conf ='~/.vim/plugged/youcompleteme/third_party/ycmd/.ycm_extra_conf.py'
-
-" ===
-" === taglist
-" ===
-let Tlist_Use_SingleClick = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
 
 " ===
 " === UltiSnips
