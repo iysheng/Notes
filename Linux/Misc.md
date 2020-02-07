@@ -95,3 +95,8 @@
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
 ```
+20. 下载 github 某个用户的头像，可以直接 iysheng 的 uid 是 20969054，[查询 github 用户 uid 的网站](https://caius.github.io/github_id/)
+``` bash
+wget https://avatars.githubusercontent.com/<username>
+wget https://avatars.githubusercontent.com/iysheng # 下载 iysheng 的头像
+```

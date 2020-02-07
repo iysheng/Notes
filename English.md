@@ -80,6 +80,7 @@ F
 G
 ---
 |go through|经历|
+|gist|要领、要旨|
 
 I
 ---
