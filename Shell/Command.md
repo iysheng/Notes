@@ -328,4 +328,48 @@ A=${!obj} # A 的值也是 ali
 	2. process ID 是 系统赋值的
 	3. job control
 		1. **fg** # 将一个后台 job 拉到前台，这样可以让这个 job 控制你的终端或者窗口，因此可以接收你的输入，如果只有一个后台 job，可以直接 fd 命令不加参数，如果有很多后台 jobs，那么可以通过 fg %job_id 、fg %job_name、fg pid，指定拉回哪一个后台进程到前台；jobs 命令可以列出所有的后台 jobs，jobs -l 还可以列出来 pid，jobs -p 只会列出来 pid，jobs -r 只会列出来那些正在运行的 jobs，-s 只会列出来那些已经停止的 jobs，jobs -x jobsid，可以打印出来 jobsid 对应 job 的 pid
-		2. **
+		2. Ctrl+Z 可以将一个 job 暂停、中止， fg 可以将这个 job 拉回前台
+		3. Ctrl+C 可以将一个 job 终止，这种情况下就不可以使用 fg 将这个 job 拉回前台
+33. 信号， **stty** 命令可以修改控制键值发送不同的命令
+``` bash
+stty signame char # signame 是信号名字，char 是键值（^ 表示 Ctrl 键）
+stty intr ^X # 修改 ctrl-X 发送 INT 信号
+```
+---
+|键值|信号名|信号值|
+|---|---|---|
+|Ctrl+C|INT interrupt|2|
+|Ctrl+Z|TSTP terminal stop|20|
+|Ctrl+\|QUIT stronger version of ctrl-C，当 ctrl-C 无效时，使用 ctrl-\|3|
+34. **kill** 命令， kill 可以发送信号给任何进程，默认情况下，kill 发送的是 TERM（"terminate"，信号值是 15）信号，kill -l 可以查看所有信号名和信号值对应关系，接收到 SIGKILL 信号后，操作系统应该立即无条件终止这个进程，否则的话接收到 SIGKILL 信号的进程就会到一个奇怪的状态
+``` bash
+kill -signame pid/jobid
+```
+35. **trap** 命令捕捉信号做指定的动作
+``` bash
+trap cmd sig1 sig2 ...
+trap "" sig1 # 忽略指定的信号
+```
+36. **$$** 是当前 shell 的 PID，使用**$$**可以很好的作为临时变量文件到名字，不容易冲突，**$!** 包含了最近执行的后台 job 的 PID
+37. **wait** 等待指定所有的后台进程结束
+``` bash
+echo "adad" &
+ls /tmp
+wait # 等待所有后台进程执行完，才会继续执行
+```
+38. 进程可以分为三类 CPU-intensive：CPU 密集型、I/O-intensive：I/O 密集型、interactive 交互行
+39. **subshells**
+	1. 从 parents 继承的
+		- 当前目录
+		- 环境变量
+		- 标准输入、输出、错误输出和其他的打开的文件描述符
+		- 忽略的信号
+	2. 没有从 parents 继承的
+		- shell 变量，除了环境变量和那些定义在 .bashrc 这类环境文件的变量
+		- 没有被忽略的信号，比如说 parents shell 特殊处理的信号
+	3. 将一段 shell 代码，用括号扩起来，就可以让这段代码在 subshell 执行
+``` bash
+( sleep 10 ; echo "sth";ls /tmp) | less # sub shell
+{ sleep 10 ; echo "sth";ls /tmp} | less # function block
+```
+

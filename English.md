@@ -14,12 +14,15 @@ A
 |appreciate|赞赏|
 |analogous|类似的|
 |all over again|再来一次|
+|abnormal|异常的、不正常|
+|amend|修改|
 
 B
 ---
 |单词|释义|
 |---|---|
 |backends|后端|
+|backslash|反斜杠|
 |binary heap algorithm|二进制堆算法|
 |buggy||
 |brace|大括号|
@@ -36,6 +39,10 @@ C
 |compromise|妥协|
 |complement|补充，补集|
 |compact|紧凑的|
+|coroutines|协程|
+|contention|争夺|
+|constantly|不断的|
+|concurrency control|并发控制|
 
 D
 ---
@@ -50,6 +57,7 @@ D
 |dedicated|专用的|
 |delivery|发出|
 |dread|恐惧|
+|dozen|打，一打是 12 个|
 
 E
 ---
@@ -87,6 +95,9 @@ I
 |investigation|调查|
 |impose|强加|
 |interchangeably|可互换|
+|IPC(interprocess communication)|进程间通讯|
+|intensive|密集型|
+|issue|问题|
 
 L
 ---
@@ -109,6 +120,7 @@ N
 |---|---|
 |Nick name|昵称|
 |notion|概念|
+|nuances|细微差别|
 
 O
 ---
@@ -123,6 +135,7 @@ O
 |obscure|模糊|
 |omit|忽略|
 |overhead|开销|
+|orphan|孤儿|
 
 P
 ---
@@ -137,6 +150,7 @@ P
 |procedure|程序|
 |preserve|保护、保留、保存|
 |parse|解析|
+|parallelization|并行化|
 
 Q
 ---
@@ -161,6 +175,7 @@ R
 |reputation|名声、声誉|
 |restrict|限制|
 |refer to|参考，指|
+|roughtly speaking|粗略的说|
 
 S
 ---
@@ -176,6 +191,11 @@ S
 |spam|垃圾邮件|
 |sympathize|同情、体恤|
 |semicolons|分号|
+|suspend|暂停、中止|
+|slash|斜杠|
+|standstill|停顿|
+|subtle|微妙的|
+|subtle issue|细微的问题|
 
 T
 ---
@@ -183,7 +203,8 @@ T
 |---|---|
 |tilde|波浪号|
 |trivial|不重要的|
-
+|thrashing|颠簸|
+|to conclude|总结|
 
 U
 ---

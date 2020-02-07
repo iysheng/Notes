@@ -91,3 +91,7 @@
 	4. MODKEY + l # 跳转到最近访问的上一个 windows (l:last)
 	5. MODKEY + 空格 # 更换排版
 	6. MODKEY + s # 显示所有的 sessions
+19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
+``` bash
+CLFAGS="-I /lib64" ./configure ....
+```

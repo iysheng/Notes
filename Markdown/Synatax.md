@@ -3,7 +3,21 @@
 ---
 
 1. 插入图片
-```markdown
+``` markdown
 ![描述](图片路径)
 ![Fedora](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
+```
+2. 无序列表，使用 * 、- 、+ 作为列表标记符
+``` markdown
+* 行一
+* 行二
+- 行三
+- 行四
++ 行五
++ 行六
+```
+3. 有序列表
+``` markdown
+1. 行一
+2. 行二
 ```
