@@ -81,6 +81,7 @@ G
 ---
 |go through|经历|
 |gist|要领、要旨|
+|grasp|掌握|
 
 I
 ---
@@ -99,6 +100,7 @@ I
 |IPC(interprocess communication)|进程间通讯|
 |intensive|密集型|
 |issue|问题|
+|indentation|缩进|
 
 L
 ---
@@ -114,6 +116,7 @@ M
 |mandatory|强制的|
 |manipulate|操纵|
 |method|方法、措施|
+|material|材料，物品|
 
 N
 ---
@@ -122,6 +125,7 @@ N
 |Nick name|昵称|
 |notion|概念|
 |nuances|细微差别|
+|non-trivial|不平凡的|
 
 O
 ---
@@ -206,6 +210,7 @@ T
 |trivial|不重要的|
 |thrashing|颠簸|
 |to conclude|总结|
+|territory|领域|
 
 U
 ---

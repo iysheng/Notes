@@ -372,4 +372,9 @@ wait # 等待所有后台进程执行完，才会继续执行
 ( sleep 10 ; echo "sth";ls /tmp) | less # sub shell
 { sleep 10 ; echo "sth";ls /tmp} | less # function block
 ```
+40. 命名管道（有名管道）是一个临时的文件，就像一个有名字的管道，格式：关于一个程序的输入 <(list) ， 关于一个程序的输出 >(list)
+``` bash
+$ cmp <(prog1) <(prog2)
+输出：/dev/fd/63 /dev/fd/62 differ: byte 46, line 1 # 可以看出有名管道，临时文件 /dev/fd/63 和 /dev/fd/63
+```
 

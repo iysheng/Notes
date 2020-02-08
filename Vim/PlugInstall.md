@@ -41,3 +41,8 @@
 8. dominikduda/vim_current_word # 高亮光标所在的 word
 9. 'gruvbox-material/vim', {'as': 'gruvbox-material'} # gruvxbox 改进配色
 10. 'majutsushi/tagbar' # 可以替换 taglist 查看 tag 的插件， 命令 TagbarToggle 切换是否显示 tag 列表
+11. 自己手动编译新版本的 vim，这时候可能会出现 [Backspace 按键删除失效的问题](https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode)，需要追加如下内容到 vimrc 配置文件，新版本的 vim 一般不会读取 /etc/vimrc 配置文件导致的，还有一种方法，直接复制 /etc/vimrc 到新版本 vim 会读取配置文件的地方 i.e 一般是 /usr/local/share/vim/vimrc
+``` vimrc
+" Allow backspacing over everything in insert mode.
+set backspace=indent,eol,start
+```
