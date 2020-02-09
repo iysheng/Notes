@@ -25,3 +25,6 @@
 |x|2 个 16 进制字符（00-ff）|
 |u|4 个 16 进制字符（0000-ffff）|
 |U|8 个 16 进制字符（00000000-ffffffff）|
+19. help [command] 命令的帮助文档
+20. vim unicode 相关的命令 digraphs
+21. ctrl+] 是 vim 内置的跳转到 tag 的快捷键， ctrl + t 是内置的向后跳转， ctrl + o 是内置的向前跳转

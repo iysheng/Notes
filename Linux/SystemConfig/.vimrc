@@ -77,6 +77,11 @@ map <F2> :VimCurrentWordToggle<CR>
 " ===
 " 高亮光标所在的行
 set cursorline
+" 屏蔽掉方向键盘
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 set background=dark
 if exists('+termguicolors')
