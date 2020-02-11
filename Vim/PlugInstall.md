@@ -46,3 +46,6 @@
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 ```
+12. 'Valloric/YouCompleteMe' # 自动补全引擎， ctrl + <sapce> 手动触发补全引擎
+13. 'tpope/vim-fugitive' # vim 和 git 的包装器插件
+	1. Gblame：检查某一个文件的每一行是哪次提交的

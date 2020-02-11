@@ -8,6 +8,8 @@
 " ===
 filetype plugin on
 set nu
+set shiftwidth=4
+set tabstop=4
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,gb18030,utf-16,big5
@@ -16,6 +18,17 @@ set listchars=tab:>-,trail:-
 set list
 " 代码高亮 80 列
 set colorcolumn=80
+" ===
+" === get from fedora31 /etc/vimrc
+" ===
+set nocompatible	" Use Vim defaults (much better!)
+set bs=indent,eol,start		" allow backspacing over everything in insert mode
+"set ai			" always set autoindenting on
+"set backup		" keep a backup file
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more
+			" than 50 lines of registers
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
 
 " ===
 " === 快捷键配置
@@ -24,7 +37,7 @@ map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
 map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
-map <C-b> :w!<CR>
+map <C-i> :w!<CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
 map <S-r> :source $MYVIMRC<CR>
@@ -34,7 +47,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 
@@ -45,11 +57,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 
 Plug 'valloric/youcompleteme'
+Plug 'sjl/gundo.vim'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'majutsushi/tagbar'
 Plug 'chazy/cscope_maps'
 Plug 'luochen1990/rainbow'
+"Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -60,7 +74,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mhinz/vim-startify'
 " 高亮光标所在的 word
 Plug 'dominikduda/vim_current_word'
@@ -110,7 +123,6 @@ colorscheme gruvbox-material
 "colorscheme nord
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
-map cd :colorscheme dracula<CR>
 
 " ===
 " === gitgutter
@@ -170,4 +182,25 @@ let g:lightline = {
       \ },
       \ }
 "set noshowmode
+
+" ===
+" === indent_guides
+" ===
+" 映射切换显示 indent guides
+"nmap <silent> <Leader>g <Plug>IndentGuidesToggle
+"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+"let g:indent_guides_indent_levels = 10
+"let g:indent_guides_auto_colors = 1
+"let g:indent_guides_guide_size = 2
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#5f5f5f   ctermbg=3
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87af5f ctermbg=4
+""let g:indent_guides_enable_on_vim_startup = 1
+
+"noremap <leader>] :YcmCompleter GoTo<cr>
+" ===
+" === gundo
+" ===
+let g:gundo_prefer_python3=1
+let g:gundo_help=0
+noremap <leader>u :GundoToggle<cr>
 

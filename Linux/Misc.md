@@ -91,6 +91,8 @@
 	4. MODKEY + l # 跳转到最近访问的上一个 windows (l:last)
 	5. MODKEY + 空格 # 更换排版
 	6. MODKEY + s # 显示所有的 sessions
+	7. MODKEY + , # 修改 window 的名字
+	8. MODKEY + $ # 修改 session 的名字
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
@@ -100,3 +102,7 @@ CLFAGS="-I /lib64" ./configure ....
 wget https://avatars.githubusercontent.com/<username>
 wget https://avatars.githubusercontent.com/iysheng # 下载 iysheng 的头像
 ```
+21. gnome 带有一个全屏幕的快捷键，可以去控制中心配置这个快捷键
+22. 64 位 Fedora 编译 vim 遇到的问题
+	1. tgetent()... configure: error: NOT FOUND! 方法：LDFLAGS="$LDFLAGS -fPIC"，[这样可以 configure 配置通过，但是还是无法编译通过！！！](https://github.com/vim/vim/issues/1081)
+	2. Unknown type name ‘off64_t’ 方法：CLFAGS="-Doff64_t=__off64_t"

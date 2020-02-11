@@ -28,3 +28,25 @@
 19. help [command] 命令的帮助文档
 20. vim unicode 相关的命令 digraphs
 21. ctrl+] 是 vim 内置的跳转到 tag 的快捷键， ctrl + t 是内置的向后跳转， ctrl + o 是内置的向前跳转
+22. vim 查看启动时间
+``` bash
+vim --startuptime start.log # 查看 vim 启动时间的细节信息
+```
+23. vim 匹配空行，然后删除： \s 表示空字符
+``` vimrc
+:g/^\s*$/d
+```
+24. ctrl+w n 新建一个 window， ctrl+w x 交换两个窗口的位置， ctrl+w c 关闭这个窗口
+25. :copen 打开一个 quickfix window
+26. vimdiff 可以方便的对比两个文件的差异以及修改： vim a.c b.c
+	1. do 或者 :diffget 以对方的修改为准，覆盖自己的修改
+	2. dp 或者 :diffput 以自己的修改为准，覆盖对方的修改
+	3. [c 向后跳转到下一个不一样的地方，]c 向前跳转到下一个不一样的地方
+	4. :%diffget 全部以对方窗口文件内容为标准覆盖自己修改
+	5. :%diffput 全部以自己窗口文件为标准覆盖对方
+	6. vimdiff 支持多个文件的比较，这时候使用 diffput 和 diffget 命令，需要指定 buffer 信息
+	7. **vimdiff 作为 git 的 mergetool** ，配置
+	``` bash
+	git config --global merge.tool vimdiff
+	git mergetool # 执行冲突合并
+	```
