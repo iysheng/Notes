@@ -50,3 +50,83 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 	git config --global merge.tool vimdiff
 	git mergetool # 执行冲突合并
 	```
+27. vim s 替换命令
+	1. s/pattern/replace/[iIe] # 其中 i 表示忽略大小写， I 表示要匹配大小写 e：没有匹配到时候，也不要显示错误信息 如果格式是 :%s/pattern/replace/g # 表示的替换全文文件
+	2. 对于带有 / 的匹配可以通过转移 / 符号，或者 s+pattern+replace+ 格式
+	3. 12;/pattern1/ s/pattern2/replace/g # 从第 12 行开始，一直到第一个匹配有 pattern1 的行停止，替换这些行的 pattern 位 replace
+28. 可以使用 arglist 跨文件处理
+``` vimrc
+:arg 定义文件列表到 arglist
+:argdo 定义执行的操作
+:args 查看 arglist 的文件列表
+
+:bufdo 直接对当前 buffer 的所有文件执行动作
+```
+29. :update 命令和 :write 命令类似，但是 :update 只会 buffer 被修改的文件
+30. macro 宏使用方法
+``` vimrc
+1. q + 寄存器值 " 声明要定义的宏保存在哪里
+2. 执行一些动作 " 记录到对应的寄存器
+3. q " 标记宏定义的动作执行完成
+4. @ + 寄存器值 " 执行宏
+```
+31. vim 基本的正则表达式（可以通过 :help ordinary-atom 查看详细信息）
+---
+|符号|表示意义|
+|---|---|
+|.|除了行结束符号意外的任意字符|
+|^|行开始|
+|$|行结束|
+|\_|任意字符|
+|\<|word 开始|
+|\>|word 结束|
+32. 匹配任意字符（可以通过 :help character-classes），可以通过符号[]，创建字符集合， ^ 符号是取反
+---
+|符号|表示意义|
+|---|---|
+|\s|空格，包含 table|
+|\d|一个数字|
+|\w|一个 word|
+|\l|一个小写字母|
+|\u|一个大写字母|
+|\a|一个字母|
+|\D|所有非数字的内容|
+|\L|所有非小写字母|
+|\U|所有非大写字母|
+|\A|所有非字母|
+|\\\_x|备注：为了兼容 markdown 显示一个反斜杠和一个下划线，写了三个"\" ，实际是一个反斜杠；当前行首次出现 x(x 是 s d w 等这些替换) 转移字符的位置|
+33. 交替和分组
+---
+|符号|表示意义|
+|---|---|
+|\||交替|
+|\( \)|分组|
+``` vimrc
+" 分组的使用
+:s/\(cat\) hunting \(mice\)/\2 hunting \1/
+" 例子所示， \2 指代的是 mice  \1 指代的是 cat
+```
+34. Quantifiers or multis （量词或倍数：每一个单一的字符后根良词或者倍数，可以通过 :help multi 查看更详细信息）
+---
+|符号|表示意义|
+|---|---|
+|\*|0 或者更多，贪婪|
+|\+|1 或者更多，贪婪|
+|\{-}|1 或者更多，非贪婪|
+|\? or \=|0 或者 1 ，贪婪|
+|\{n,m}|n 到 m 个 ，贪婪|
+|\{-n,m}|n 到 m 个 ，非贪婪|
+35. magic（默认模式，大部分的转移字符都需要 \ 转义，除了 . 或者 \*）、no magic（所有的转移字符都要添加 \）、very magic（所有的非数字、字母和下划线之外的转义字符都不需要 \） 三种模式
+```
+" default magic
+:s/\(cat\) hunting \(mice\)/\2 hunting \1
+:s/\m\(cat\) hunting \(mice\)/\2 hunting \1
+" very magic
+:s/\v(cat) hunting (mice)/\2 hunting \1
+" magic
+:g/^\s*$/d
+" no magic
+:g/\M^\s*$/d
+```
+36. ctrl-r + ctrl-w ，可以在 insert 模式， :输入光标所在的 word
+37. 

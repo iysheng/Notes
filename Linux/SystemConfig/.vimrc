@@ -36,8 +36,8 @@ set ruler		" show the cursor position all the time
 map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
-map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
-map <C-i> :w!<CR>
+map <S-u> :!cscope -Rb<CR>:cs reset<CR><CR>
+noremap <C-u> :w!<CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
 map <S-r> :source $MYVIMRC<CR>
@@ -63,7 +63,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'majutsushi/tagbar'
 Plug 'chazy/cscope_maps'
 Plug 'luochen1990/rainbow'
-"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -162,8 +162,8 @@ let g:ycm_global_ycm_extra_conf ='~/.vim/plugged/youcompleteme/third_party/ycmd/
 " === UltiSnips
 " ===
 let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-e>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["$HOME.'/.vim/UltiSnips'", "UltiSnips"]
 
@@ -187,14 +187,14 @@ let g:lightline = {
 " === indent_guides
 " ===
 " 映射切换显示 indent guides
-"nmap <silent> <Leader>g <Plug>IndentGuidesToggle
-"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-"let g:indent_guides_indent_levels = 10
-"let g:indent_guides_auto_colors = 1
-"let g:indent_guides_guide_size = 2
-""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#5f5f5f   ctermbg=3
-""autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87af5f ctermbg=4
-""let g:indent_guides_enable_on_vim_startup = 1
+nmap <silent> <Leader>g <Plug>IndentGuidesToggle
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_indent_levels = 10
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 2
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#81a1c1   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#5e81ac   ctermbg=4
+"let g:indent_guides_enable_on_vim_startup = 1
 
 "noremap <leader>] :YcmCompleter GoTo<cr>
 " ===

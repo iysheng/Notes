@@ -16,6 +16,8 @@ A
 |all over again|再来一次|
 |abnormal|异常的、不正常|
 |amend|修改|
+|ambiance|气氛|
+|accustomed|习惯的|
 
 B
 ---
@@ -43,6 +45,8 @@ C
 |contention|争夺|
 |constantly|不断的|
 |concurrency control|并发控制|
+|check out|查看|
+|clutter|混乱|
 
 D
 ---
@@ -58,6 +62,7 @@ D
 |delivery|发出|
 |dread|恐惧|
 |dozen|打，一打是 12 个|
+|denote|表示|
 
 E
 ---
@@ -117,6 +122,7 @@ M
 |manipulate|操纵|
 |method|方法、措施|
 |material|材料，物品|
+|mixed|混合的|
 
 N
 ---
@@ -183,6 +189,7 @@ R
 |restrict|限制|
 |refer to|参考，指|
 |roughtly speaking|粗略的说|
+|refactor|重构|
 
 S
 ---
