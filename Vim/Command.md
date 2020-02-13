@@ -33,7 +33,7 @@
 vim --startuptime start.log # 查看 vim 启动时间的细节信息
 ```
 23. vim 匹配空行，然后删除： \s 表示空字符
-``` vimrc
+``` vim
 :g/^\s*$/d
 ```
 24. ctrl+w n 新建一个 window， ctrl+w x 交换两个窗口的位置， ctrl+w c 关闭这个窗口
@@ -55,7 +55,7 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 	2. 对于带有 / 的匹配可以通过转移 / 符号，或者 s+pattern+replace+ 格式
 	3. 12;/pattern1/ s/pattern2/replace/g # 从第 12 行开始，一直到第一个匹配有 pattern1 的行停止，替换这些行的 pattern 位 replace
 28. 可以使用 arglist 跨文件处理
-``` vimrc
+``` vim
 :arg 定义文件列表到 arglist
 :argdo 定义执行的操作
 :args 查看 arglist 的文件列表
@@ -64,17 +64,17 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 ```
 29. :update 命令和 :write 命令类似，但是 :update 只会 buffer 被修改的文件
 30. macro 宏使用方法
-``` vimrc
+``` vim
 1. q + 寄存器值 " 声明要定义的宏保存在哪里
 2. 执行一些动作 " 记录到对应的寄存器
-3. q " 标记宏定义的动作执行完成
+3. q " 标记宏定义的动作执行完成 （建议，宏的需后可以添加一个 j，表示跳转到下一行，这样当多次执行时候，可以自动切换到下一行）
 4. @ + 寄存器值 " 执行宏
 ```
 31. vim 基本的正则表达式（可以通过 :help ordinary-atom 查看详细信息）
 ---
 |符号|表示意义|
 |---|---|
-|.|除了行结束符号意外的任意字符|
+|.|**除了行结束符号之外的任意字符**|
 |^|行开始|
 |$|行结束|
 |\_|任意字符|
@@ -86,7 +86,7 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 |---|---|
 |\s|空格，包含 table|
 |\d|一个数字|
-|\w|一个 word|
+|\w|文字字符|
 |\l|一个小写字母|
 |\u|一个大写字母|
 |\a|一个字母|
@@ -101,12 +101,12 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 |---|---|
 |\||交替|
 |\( \)|分组|
-``` vimrc
+``` vim
 " 分组的使用
 :s/\(cat\) hunting \(mice\)/\2 hunting \1/
 " 例子所示， \2 指代的是 mice  \1 指代的是 cat
 ```
-34. Quantifiers or multis （量词或倍数：每一个单一的字符后根良词或者倍数，可以通过 :help multi 查看更详细信息）
+34. Quantifiers or multis （量词或倍数：每一个单一的字符后跟量词或者倍数，可以通过 :help multi 查看更详细信息）
 ---
 |符号|表示意义|
 |---|---|
@@ -128,5 +128,95 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 " no magic
 :g/\M^\s*$/d
 ```
-36. ctrl-r + ctrl-w ，可以在 insert 模式， :输入光标所在的 word
-37. 
+36. ctrl-r + ctrl-w ，可以在 command line 模式， :输入光标所在的 word
+37. 删除或者赋值的时候可以声明，将删除或者赋值的内容保存到指定的寄存器，执行动作前，线选择寄存器，这些动作要在 normal 模式执行
+``` vim
+"bdw  将删除的 word 保存到寄存器 b
+"byy  将复制的一行内容保存到寄存器 b
+```
+38. buffers 命令查看当前所有 buffers 的信息， buffer 命令切换对应的 buffer
+``` vim
+:buffers	查看当前 buffers 的信息，命令可以简写
+:buffer 参数 （参数可以是： buffer 编号、关键字等），切换编辑对应的 buffer， buffer 命令可以简写为 b
+```
+39. vim 脚本定义变量类型
+---
+|类型|描述|
+|---|---|
+|g|全局的|
+|w|vim 定义的全局的|
+|l|局部的|
+|b|当前 buffer 的|
+|w|当前 window 的|
+|t|当前 tab 的|
+|s|local to a :source'd vim script|
+|a|**函数参数**|
+40. 可以修改寄存器的值，前加 @ 符号
+``` vim
+" 修改寄存器 a 的值
+let @a = 'just for fun'
+```
+41. 可以访问 vim 的选项，前加 & 符号
+``` vim
+" 修改选项
+let &ignorecase = 1
+```
+42. vim 脚本是可以使用一般的 + - * / 数字运算符号的 并且字符串拼接可以直接使用 . 符号
+43. echom 打印的内容，可以通过 messages 命令查看打印记录
+44. vim 的逻辑运算
+---
+|符号|描述|
+|---|---|
+|&&|逻辑与|
+|\|\||逻辑或|
+|!|逻辑非|
+|==|比较两个字符串，根据 vim 配置，是否比较大小写|
+|==?|比较两个字符串，不比较大小写|
+|==#|比较两个字符串，比较大小写|
+|=~|检查是否可以匹配右侧的表达式，根据 vim 配置，是否比较大小写|
+|=~?|检查是否可以匹配右侧的表达式，不比较大小写|
+|=~#|检查是否可以匹配右侧的表达式，比较大小写|
+|!~|检查是否可以匹配右侧的表达式，根据 vim 配置，是否比较大小写|
+|!~?|检查是否可以匹配右侧的表达式，不比较大小写|
+|!~#|检查是否可以匹配右侧的表达式，比较大小写|
+45. vim 支持列表 list 和字典 dictionary
+``` vim
+" list
+let animals = {'cat', 'dog', 'pig'}
+" dictionary
+let animal_names = {
+    \ 'cat': 'Miss Cat',
+    \ 'dog': 'Mr dog'
+\}
+```
+46. 函数定义
+``` vim
+" 函数定义示例
+" ! 符号的作用时，当有多个同名函数定义存在时，不抛出错误
+function! AnDi(name)
+    echo a:name . ' say hello to you'
+    "return a:name . 'say hello to you'
+endfunction
+```
+47. execute 命令支持解析并且执行一段字符串作为 vim 命令
+``` vim
+" 执行 echo 命令打印提示信息
+execute 'echo "fly bird"'
+" 不提示打印信息 fly bird
+silent execute 'echo "fly bird"'
+```
+48. expand 函数扩展文件相关的函数
+---
+|参数|描述|
+|---|---|
+|:p|扩展整个路径|
+|:h|head(last path component removed)|
+|:t|tail(last path component only)|
+|:e|文件扩展名|
+``` vim
+" eg
+echom "file extension is " . expand("%:e") " vim
+echom "file full path is " . expand("%:p") " /tmp/a.vim
+echom "file head is " . expand("%:h") " /tmp
+echom "file tail is " . expand("%:t") " a.vim
+```

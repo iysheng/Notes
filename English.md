@@ -63,6 +63,7 @@ D
 |dread|恐惧|
 |dozen|打，一打是 12 个|
 |denote|表示|
+|donation|捐赠|
 
 E
 ---
@@ -84,6 +85,8 @@ F
 
 G
 ---
+|单词|释义|
+|---|---|
 |go through|经历|
 |gist|要领、要旨|
 |grasp|掌握|
@@ -112,6 +115,7 @@ L
 |单词|释义|
 |---|---|
 |literal|文字|
+|literal strings|文字字符串|
 
 M
 ---
@@ -123,6 +127,7 @@ M
 |method|方法、措施|
 |material|材料，物品|
 |mixed|混合的|
+|mundane|平凡|
 
 N
 ---
@@ -220,6 +225,7 @@ T
 |thrashing|颠簸|
 |to conclude|总结|
 |territory|领域|
+|transcende|超越|
 
 U
 ---
