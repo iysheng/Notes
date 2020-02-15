@@ -36,8 +36,8 @@ set ruler		" show the cursor position all the time
 map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
-map <S-u> :!cscope -Rb<CR>:cs reset<CR><CR>
 noremap <leader>w :w!<CR>
+map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
 map <S-r> :source $MYVIMRC<CR>
@@ -50,7 +50,7 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'xuyuanp/nerdtree-git-plugin'
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -65,11 +65,12 @@ Plug 'chazy/cscope_maps'
 Plug 'luochen1990/rainbow'
 Plug 'nathanaelkane/vim-indent-guides'
 
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular'
 
 Plug 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
 
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
@@ -191,9 +192,11 @@ nmap <silent> <Leader>g <Plug>IndentGuidesToggle
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_indent_levels = 10
 let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 2
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#81a1c1   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#5e81ac   ctermbg=4
+let g:indent_guides_guide_size = 1
+" nord color Frost
+" https://www.nordtheme.com/docs/colors-and-palettesh
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#5f5f5f   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87af5f ctermbg=4
 "let g:indent_guides_enable_on_vim_startup = 1
 
 "noremap <leader>] :YcmCompleter GoTo<cr>
