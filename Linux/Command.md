@@ -188,3 +188,4 @@ sudo shutdown -P # 现在关闭系统，关闭电源
 du -s /home/red # 显示 red 目录占用总的磁盘空间
 ```
 28. echo -e 选项可以解析 \ 特殊格式字符 eg: \n 换行；-n 选项不用自动添加换行输出
+29. pandoc 可以将 md 文件转换为 word 格式（包括、但不仅限于）
