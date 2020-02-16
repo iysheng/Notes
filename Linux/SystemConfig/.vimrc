@@ -36,12 +36,20 @@ set ruler		" show the cursor position all the time
 map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
+map <S-u> :!cscope -Rb<CR>:cs reset<CR><CR>
 noremap <leader>w :w!<CR>
-map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
 map <S-r> :source $MYVIMRC<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
+
+" ===
+" === vim-plug check
+" ===
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
