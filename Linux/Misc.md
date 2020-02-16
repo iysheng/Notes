@@ -93,6 +93,8 @@
 	6. MODKEY + s # 显示所有的 sessions
 	7. MODKEY + , # 修改 window 的名字
 	8. MODKEY + $ # 修改 session 的名字
+	9. MODKEY + ? # 查看支持的所有命令
+	10. MODKEY + ; # 在最近的两个 pane 之间切换
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....

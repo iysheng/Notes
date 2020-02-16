@@ -82,6 +82,7 @@ F
 |---|---|
 |fairness|公正的合理的|
 |facilitate|促进|
+|frustrate|阻挠|
 
 G
 ---
