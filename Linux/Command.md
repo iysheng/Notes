@@ -189,3 +189,7 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 ```
 28. echo -e 选项可以解析 \ 特殊格式字符 eg: \n 换行；-n 选项不用自动添加换行输出
 29. pandoc 可以将 md 文件转换为 word 格式（包括、但不仅限于）
+30. feh 可以用来修改屏幕壁纸，配合 dwm 使用，效果很好
+31. 命令行连接 wifi 的一般步骤，使用 iw 和 nmcli 工具
+	1. iw wlp4s0 scan # 扫描 wifi 信号
+	2. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，制定 SSID 和 密码
