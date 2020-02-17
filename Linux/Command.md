@@ -149,7 +149,7 @@ sudo dnf install lector
 ``` bash
 xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标中键可以将赋值的内容粘贴出来
 ```
-23. ranger 终端的文件管理器
+23. ranger 终端的文件管理器，安装成功后，需要首先执行 ranger --copy-config=all，复制所有的配置文件到 ~ 目录
 	1. 浏览模式下，通过 o 选项打开排序选项，比如 oc 按照最后访问时间降序排序
 	2. 在 st 终端模拟器下，预览图片
 	``` bash
@@ -191,5 +191,14 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 29. pandoc 可以将 md 文件转换为 word 格式（包括、但不仅限于）
 30. feh 可以用来修改屏幕壁纸，配合 dwm 使用，效果很好
 31. 命令行连接 wifi 的一般步骤，使用 iw 和 nmcli 工具
-	1. iw wlp4s0 scan # 扫描 wifi 信号
-	2. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，制定 SSID 和 密码
+	1. iw dev # 查看当前设备的网卡信息
+	2. iw 设备名字 link # 查看指定设备网卡的连接状态
+	3. iw wifi网卡的名字 scan # 扫描 wifi 信号
+	4. ip link set wifi网卡名字 up # 如果这个网卡没有 up ，那么首先 up 这个网卡
+	5. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，制定 SSID 和 密码
+32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
+	1. dnf install xdm
+	2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm
+	3. 编辑 ~/.xsession 文件，填写 exec dwm 引导 dwm 启动，重点要设置这个文件的权限为 700 ，否则会出错！！！
+	4. 编辑 vim /etc/X11/xdm/Xsetup_0 文件，可以修改登陆背景，可以使用 feh 工具！！！
+	5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果
