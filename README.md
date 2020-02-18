@@ -37,6 +37,7 @@
 * [Learning the bash Shell](https://github.com/iysheng/Notes/blob/master/Linux/doc/Learning%20the%20bash%20Shell%20-%20Unix%20Shell%20Programming.pdf)
 * [Mastering-Vim-Build-a-softwarve](https://github.com/iysheng/Notes/blob/master/Linux/doc/Mastering-Vim-Build-a-software.pdf)
 * [GNU_coding_standards](https://github.com/iysheng/Notes/blob/master/Linux/doc/GNU_coding_standards.pdf)
+* [GNU_make](https://github.com/iysheng/Notes/blob/master/Linux/doc/make.pdf)
 ---
 
 ##### Dictionary
