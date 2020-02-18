@@ -201,3 +201,13 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 	3. 编辑 ~/.xsession 文件，填写 exec dwm 引导 dwm 启动，重点要设置这个文件的权限为 700 ，否则会出错！！！
 	4. 编辑 vim /etc/X11/xdm/Xsetup_0 文件，可以修改登陆背景，可以使用 feh 工具！！！
 	5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果
+33. 解决 npm 在国内卡的问题
+	1. 直接使用 cnpm
+	``` bash
+	npm install -g cnpm --registry=https://registry.npm.taobao.org
+	```
+	2. 配置 npm 的源，使用淘宝源替换官方的 npm 源
+	``` bash
+	npm config set registry https://registry.npm.taobao.org --global
+	npm config set disturl https://npm.taobao.org/dist --global
+	```
