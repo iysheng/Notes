@@ -108,3 +108,49 @@ wget https://avatars.githubusercontent.com/iysheng # 下载 iysheng 的头像
 22. 64 位 Fedora 编译 vim 遇到的问题
 	1. tgetent()... configure: error: NOT FOUND! 方法：LDFLAGS="$LDFLAGS -fPIC"，[这样可以 configure 配置通过，但是还是无法编译通过！！！](https://github.com/vim/vim/issues/1081)
 	2. Unknown type name ‘off64_t’ 方法：CLFAGS="-Doff64_t=__off64_t"
+
+---
+### zephyr 学习笔记
+##### Porting to new board Cubieble1
+|Board    |SOC    |SOC series|SOC Family|CPU core |Architecture|
+|---------|-------|----------|----------|---------|------------|
+|Cubiebl1 |ATB1109|ATB110X   |ATB       |Cortex-M0|ARM         |
+#### 板级的配置文件放在目录 boards/arm/cubieble1
+1. 可见的配置文件（默认的配置文件，以 .config 文件配置板级）放在 **boards/ARCHITECTURE/BOARD/BOARD_defconfig**
+2. 不可见的配置文件(这个配置文件一般通过板级的宏控制，而不能在 menuconfig 配置) **boards/ARCHITECTURE/BOARD/Kconfig.defconfig**
+
+#### Kconfig Extension 不同 source 的差别描述 
+|Title|描述|
+|---|---|
+|source | 绝对路径，如果不存在对应目录的话就会出问题|
+|osource| 绝对路径，如果不存在也不会报错，类似于 -include 或者 sinclue |
+|rsource| 和 source 对比，差别是相对路径|
+
+
+#### 工程配置流程
+1. zephyr-env.sh 导出环境变量 ZEPHYR_BASE
+
+#### Cortex-M0	
+1. ARMv6-M 指令集
+2. CPUID 0x410CC200	
+3. The processor fully implements the Wait For Interrupt ( WFI ), Wait For Event ( WFE ) and
+the Send Event ( SEV ) instructions.
+4. Thread mode(这种模式下可能会使用 main stack，也可能使用processor stack,CONTROL.nPRIV
+决定线程模式是特权的（该bit==0）还是非特权的（该bit==1），复位就在线程模式，中断退出就会到线程模式)
+Is entered on Reset, and can be entered as a result of an exception return.
+Handler mode(这种模式下只会使用 main stack，这种模式类似于特权模式，中断处理在这个模式)
+Is entered as a result of an exception. The processor must be in Handler mode
+to issue an exception return.
+5. SPSEL, bit[1] Defines the stack to be used:
+0 Use SP_main as the current stack（MSP）
+1 In Thread mode, use SP_process as the current stack.（PSP）
+In Handler mode, this value is reserved
+
+#### 设备树 yaml 语法
+
+具体关于设备树的细节参看 cmake/dts.cmake
+scripts/dts/extract_dts_includes.py 创建设备树的头文件
+这个脚本会将 dts 文件（dts文件，如果没有显式定义变量 DTS_SOURCE，那么默认是 ${BOARD_DIR}/${BOARD}.dts）导出为
+zephyr/include/generated/generated_dts_board_unfixed.h
+备注：导出的过程强依赖 dts/bingds/ 目录下的 *.yaml 类型文件
+

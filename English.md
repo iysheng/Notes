@@ -83,6 +83,7 @@ F
 |fairness|公正的合理的|
 |facilitate|促进|
 |frustrate|阻挠|
+|facility|设施|
 
 G
 ---
@@ -168,6 +169,7 @@ P
 |preserve|保护、保留、保存|
 |parse|解析|
 |parallelization|并行化|
+|prohibit|禁止|
 
 Q
 ---
