@@ -83,7 +83,10 @@
 	7. 重启 sshd 服务器【提示，无法连接时，可以通过命令查看 systemctl status sshd.service 无法连接的原因，一般都是 ssh 服务的原因 】
 5. 使用 bc 命令实现进制之间的转换
 ``` bash
-echo 'ibase=10; obase=16; 25' | bc   结果 19
+# ibase 和 obase 的使用，obase 会根据 ibase 的值，解析传入的参数，并且字母必须用大写
+echo 'ibase=16; obase=10; 10' | bc   # 结果仍然是 10
+echo 'ibase=16; obase=A; 10'  | bc   # 结果变成是 16
+echo 'ibase=10; obase=16; 25' | bc   # 结果 19
 ```
 6. tig 的使用说明，tig 是基于 ncurses-based ，命令行下图形化查看 git 仓库相关信息的工具
 	1. 查看某次 commit 和这次 commit 提交的代码修改
