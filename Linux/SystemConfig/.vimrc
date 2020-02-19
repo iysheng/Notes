@@ -106,9 +106,13 @@ map <left> <nop>
 map <right> <nop>
 
 set background=dark
-if exists('+termguicolors')
-  set termguicolors
-endif
+
+" ===
+" === gruvbox-material
+" ===
+"if exists('+termguicolors')
+"  set termguicolors
+"endif
 "" 默认配置的是 medium，可选的是 hard 和 soft
 "" let g:gruvbox_material_background = 'soft'
 "" 为什么开启 italic comment 在 tmux 环境就会高亮注释内容？
