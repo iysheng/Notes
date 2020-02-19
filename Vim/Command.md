@@ -60,6 +60,10 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 :argdo 定义执行的操作
 :args 查看 arglist 的文件列表
 
+eg:
+arg *.c " 添加当前目录所有的 .c 文件
+argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
+
 :bufdo 直接对当前 buffer 的所有文件执行动作
 ```
 29. :update 命令和 :write 命令类似，但是 :update 只会 buffer 被修改的文件
@@ -220,4 +224,6 @@ echom "file full path is " . expand("%:p") " /tmp/a.vim
 echom "file head is " . expand("%:h") " /tmp
 echom "file tail is " . expand("%:t") " a.vim
 ```
-49. 编译 vim 的时候，开启 --with-x 可以使能 xterm_clipboard 剪切板
+49. 编译 vim 的时候，开启 --with-x 可以使能 xterm_clipboard 剪切板，特别的 clipboard 有两大类:
+	1. * 寄存器是系统 primary 剪切板（Mac、windows 默认的剪切板，以及在 Linux 终端，选择内容保存的剪切板），鼠标中心按键会选择这个剪切板的内容粘贴；
+	2. + 寄存器是只在 Linux 使用，实现类似 ctrl-c 和 ctrl-v 的复制粘贴效果，鼠标右键，选择粘贴选择的是这个剪切板；
