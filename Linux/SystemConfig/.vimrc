@@ -41,6 +41,12 @@ noremap <leader>w :w!<CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
 map <S-r> :source $MYVIMRC<CR>
+" 替换当前行的所有 ”\t“ 为“    ”
+map <S-s> :s/\t/    /g<CR>
+" 替换当前文件的所有 ”\t“ 为“    ”
+map <leader>s :%s/\t/    /g<CR>
+" 删除当前文件所有行结尾多余空格
+map <leader>d :%s/ \+$//g<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
 
 " ===
