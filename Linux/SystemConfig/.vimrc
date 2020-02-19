@@ -38,7 +38,7 @@ set ruler		" show the cursor position all the time
 map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
-map <S-u> :!cscope -Rb<CR>:cs reset<CR><CR>
+map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
 noremap <leader>w :w!<CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
