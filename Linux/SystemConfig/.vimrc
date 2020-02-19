@@ -7,6 +7,8 @@
 " === vimbasic
 " ===
 filetype plugin on
+" 抑制 cscope 的打印信息
+set nocscopeverbose
 set nu
 set shiftwidth=4
 set tabstop=4
@@ -47,6 +49,8 @@ map <S-s> :s/\t/    /g<CR>
 map <leader>s :%s/\t/    /g<CR>
 " 删除当前文件所有行结尾多余空格
 map <leader>d :%s/ \+$//g<CR>
+" 当前行添加 "    "
+map <leader>i :s/^/    &/g<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
 
 " ===
