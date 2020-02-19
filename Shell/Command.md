@@ -377,4 +377,22 @@ wait # 等待所有后台进程执行完，才会继续执行
 $ cmp <(prog1) <(prog2)
 输出：/dev/fd/63 /dev/fd/62 differ: byte 46, line 1 # 可以看出有名管道，临时文件 /dev/fd/63 和 /dev/fd/63
 ```
+41. grep，awk 匹配与、或、非
+``` bash
+# 或
+grep -E "pattern1|pattern2" FILE
+grep -e "pattern1" -e "pattern2" FILE
+awk '/PATTERN1|PATTERN2/' FILE
 
+# 与，指定顺序
+grep -E 'PATTERN1.*PATTERN2' FILE
+awk '/PATTERN1.*PATTERN2/' FILE
+# 与，不指定顺序
+grep -E 'PATTERN1.*PATTERN2|PATTERN2.*PATTERN1' FILE
+grep 'PATTERN1' FILE | grep 'PATTERN2'
+awk '/PATTERN1/ && /PATTERN2/' FILE
+
+# 非
+grep -v 'PATTERN1' FILE
+awk '!/PATTERN1/' FILE
+```

@@ -220,3 +220,4 @@ echom "file full path is " . expand("%:p") " /tmp/a.vim
 echom "file head is " . expand("%:h") " /tmp
 echom "file tail is " . expand("%:t") " a.vim
 ```
+49. 编译 vim 的时候，开启 --with-x 可以使能 xterm_clipboard 剪切板
