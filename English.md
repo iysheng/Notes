@@ -218,6 +218,7 @@ S
 |standstill|停顿|
 |subtle|微妙的|
 |subtle issue|细微的问题|
+|supplemental|补充|
 
 T
 ---
