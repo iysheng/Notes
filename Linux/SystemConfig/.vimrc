@@ -109,27 +109,27 @@ set background=dark
 if exists('+termguicolors')
   set termguicolors
 endif
-" 默认配置的是 medium，可选的是 hard 和 soft
-" let g:gruvbox_material_background = 'soft'
-" 为什么开启 italic comment 在 tmux 环境就会高亮注释内容？
-" https://github.com/tmux/tmux/issues/1246
-" let g:gruvbox_material_disable_italic_comment = 1
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_enable_italic = 1
-" 使能插件 current_word 高亮光标指定的 word
-let g:gruvbox_material_current_word = 'bold'
-" 默认是关闭背景透明
-"let g:gruvbox_material_transparent_background = 1
-"let g:gruvbox_material_visual = 'reverse'
-colorscheme gruvbox-material
+"" 默认配置的是 medium，可选的是 hard 和 soft
+"" let g:gruvbox_material_background = 'soft'
+"" 为什么开启 italic comment 在 tmux 环境就会高亮注释内容？
+"" https://github.com/tmux/tmux/issues/1246
+"" let g:gruvbox_material_disable_italic_comment = 1
+"let g:gruvbox_material_enable_bold = 1
+"let g:gruvbox_material_enable_italic = 1
+"" 使能插件 current_word 高亮光标指定的 word
+"let g:gruvbox_material_current_word = 'bold'
+"" 默认是关闭背景透明
+""let g:gruvbox_material_transparent_background = 1
+""let g:gruvbox_material_visual = 'reverse'
+"colorscheme gruvbox-material
 
-"let g:nord_uniform_diff_background = 1
-"let g:nord_uniform_status_lines = 1
-"let g:nord_italic_comments = 1
-"let g:nord_underline = 1
-"let g:nord_italic = 1
-"let g:nord_cursor_line_number_background = 1
-"colorscheme nord
+let g:nord_uniform_diff_background = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+let g:nord_italic = 1
+let g:nord_cursor_line_number_background = 1
+colorscheme nord
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
 
