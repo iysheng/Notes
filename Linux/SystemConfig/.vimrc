@@ -108,7 +108,7 @@ map <F2> :VimCurrentWordToggle<CR>
 " === extraconfig
 " ===
 " 高亮光标所在的行
-set cursorline
+" set cursorline
 " 屏蔽掉方向键盘
 map <up> <nop>
 map <down> <nop>
@@ -142,7 +142,7 @@ let g:nord_uniform_status_lines = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
 let g:nord_italic = 1
-let g:nord_cursor_line_number_background = 1
+let g:nord_cursor_line_number_background = 0
 colorscheme nord
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
