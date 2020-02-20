@@ -180,6 +180,9 @@ nmap tn :InstantMarkdownStop<CR>
 " === youcompleteme
 " ===
 let g:ycm_global_ycm_extra_conf ='~/.vim/plugged/youcompleteme/third_party/ycmd/.ycm_extra_conf.py'
+" 即使在注释段落，也允许代码补全
+let g:ycm_complete_in_comments = 1
+let g:ycm_disable_for_files_larger_than_kb = 4096
 
 " ===
 " === UltiSnips
