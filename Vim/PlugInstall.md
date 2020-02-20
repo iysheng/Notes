@@ -50,3 +50,5 @@ set backspace=indent,eol,start
 13. 'tpope/vim-fugitive' # vim 和 git 的包装器插件
 	1. Gblame：检查某一个文件的每一行是哪次提交的
 14. 'vim-syntastic/syntastic' # 语法检测的引擎
+15. 'ycm-core/YouCompleteMe' # youcomplete 代码补全插件
+	1. 出现问题时，调试命令 **YcmDebugInfo** ，可以提示看哪个 log 分析问题

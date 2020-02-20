@@ -214,3 +214,6 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 	npm config set registry https://registry.npm.taobao.org --global
 	npm config set disturl https://npm.taobao.org/dist --global
 	```
+34. firefox 快捷键
+	1. ctrl + w 或者 ctrl + \<F4> ：关闭当前 tab
+	2. ctrl + shift + p ：新建一个 private tab
