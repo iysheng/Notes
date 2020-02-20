@@ -227,3 +227,4 @@ echom "file tail is " . expand("%:t") " a.vim
 49. 编译 vim 的时候，开启 --with-x 可以使能 xterm_clipboard 剪切板，特别的 clipboard 有两大类:
 	1. * 寄存器是系统 primary 剪切板（Mac、windows 默认的剪切板，以及在 Linux 终端，选择内容保存的剪切板），鼠标中心按键会选择这个剪切板的内容粘贴；
 	2. + 寄存器是只在 Linux 使用，实现类似 ctrl-c 和 ctrl-v 的复制粘贴效果，鼠标右键，选择粘贴选择的是这个剪切板；
+50. 使用 marks 命令，查看定义的书签
