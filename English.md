@@ -196,6 +196,7 @@ R
 |reputation|名声、声誉|
 |restrict|限制|
 |refer to|参考，指|
+|roughly|大致|
 |roughtly speaking|粗略的说|
 |refactor|重构|
 

@@ -51,6 +51,7 @@ map <leader>s :%s/\t/    /g<CR>
 map <leader>d :%s/ \+$//g<CR>
 " 当前行添加 "    "
 map <leader>i :s/^/    &/g<CR>
+map <leader>h :s/^/extern &/g<CR>:s/$/&;/g<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
 
 " ===
