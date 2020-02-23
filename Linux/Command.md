@@ -217,3 +217,16 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 34. firefox 快捷键
 	1. ctrl + w 或者 ctrl + \<F4> ：关闭当前 tab
 	2. ctrl + shift + p ：新建一个 private tab
+35. 使用 jekyll 在 github 搭建个人博客(https://medium.com/20percentwork/creating-your-blog-for-free-using-jekyll-github-pages-dba37272730a)
+	1. 安装 gem ruby jekyll 工具
+	``` bash
+	sudo dnf install gem ruby-devel
+	gem install jekyll bundler
+	```
+	2. 创建一个工程 redblog ，并查看
+	``` bash
+	jekyll new redblog # 可以通过网址访问查看，这里可能会有权限问题
+	bundle config set path ~/redws # 指定一个用户有对应写权限的路径，再重新执行 jekyll new redblog
+	cd redblog # 切换到创建的工程的目录
+	bundle exec jekyll serve # 运行服务，然后可以通过 localhost 的 40 端口查看
+	```
