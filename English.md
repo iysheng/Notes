@@ -132,6 +132,7 @@ M
 |material|材料，物品|
 |mixed|混合的|
 |mundane|平凡|
+|multiplicative|可乘的|
 
 N
 ---
