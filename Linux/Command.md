@@ -223,13 +223,24 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 	sudo dnf install gem ruby-devel
 	gem install jekyll bundler
 	```
-	2. 创建一个工程 redblog ，并查看
+	3. 创建一个工程 redblog ，并查看
 	``` bash
 	jekyll new redblog # 可以通过网址访问查看，这里可能会有权限问题
 	bundle config set path ~/redws # 指定一个用户有对应写权限的路径，再重新执行 jekyll new redblog
 	cd redblog # 切换到创建的工程的目录
 	bundle exec jekyll serve # 运行服务，然后可以通过 localhost 的 40 端口查看
 	```
+	4. [修改 ruby 的源](https://mirrors.tuna.tsinghua.edu.cn/help/rubygems/)
+	``` bash
+	# 添加 TUNA 源并移除默认源
+    gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+    # 列出已有源
+    gem sources -l
+
+	# 替换 bundler 默认源
+	bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+	```
+	5. RubyGems 是对 Ruby 打包的打包系统，bundler Bundler 能够跟踪并安装所需的特定版本的 gem，以此来为 Ruby 项目提供一致的运行环境。Bundler 是 Ruby 依赖管理的一根救命稻草，它可以保证你所要依赖的 gem 如你所愿地出现 在开发、测试和生产环境中。
 36. 添加 30-touchpad.conf 文件到 **/etc/X11/xorg.conf.d/** 目录，可以[修复触摸板单击不识别的问题](https://docs.fedoraproject.org/en-US/quick-docs/enable-touchpad-click/)
 ``` bash
 Section "InputClass"

@@ -77,6 +77,7 @@ E
 |exhausted|耗尽的|
 |expomentiation|求幂|
 |emulate|仿真|
+|exclusive|独家的|
 
 F
 ---
@@ -113,6 +114,7 @@ I
 |intensive|密集型|
 |issue|问题|
 |indentation|缩进|
+|inclusive|包容的|
 
 L
 ---
@@ -132,6 +134,7 @@ M
 |material|材料，物品|
 |mixed|混合的|
 |mundane|平凡|
+|multiplicative|可乘的|
 
 N
 ---
