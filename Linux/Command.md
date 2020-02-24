@@ -230,3 +230,15 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 	cd redblog # 切换到创建的工程的目录
 	bundle exec jekyll serve # 运行服务，然后可以通过 localhost 的 40 端口查看
 	```
+36. 添加 30-touchpad.conf 文件到 **/etc/X11/xorg.conf.d/** 目录，可以修复触摸板单击不识别的问题
+``` bash
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "TappingButtonMap" "lrm"
+        Option "NaturalScrolling" "on"
+        Option "ScrollMethod" "edge"
+EndSection
+```
