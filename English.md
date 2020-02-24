@@ -28,6 +28,8 @@ B
 |binary heap algorithm|二进制堆算法|
 |buggy||
 |brace|大括号|
+|bootstrap|引导|
+|bootstrapping system|引导系统|
 
 C
 ---

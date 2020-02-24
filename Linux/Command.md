@@ -99,7 +99,7 @@ echo 'ibase=10; obase=16; 25' | bc   # 结果 19
 	8. Q 直接退出 tig，q 退出到上一个视图
 	9. 在查看文件时，要使用 j、k 这些按键
 	10. d 到跳转到对应选择的 diff 视图，比如某次 commit、 stage 的和 unstage 的
-7. ls -lt 默认是按照文件的修改时间排序的，相应的 ls -ltu 是按照文件的访问时间排序， ls -ltc 是按照文件的 i 节点的修改时间排序 
+7. ls -lt 默认是按照文件的修改时间排序的，相应的 ls -ltu 是按照文件的访问时间排序， ls -ltc 是按照文件的 i 节点的修改时间排序
 8. open 函数打开的文件名，要对包含的目录具有可执行权限位，这个位也被成为搜索位
 9. unlink 函数，减少文件的链接记数；rename 函数，重新命名文件或者目录
 10. ls -F 选项[在不同文件类型的文件名后添加指示器]；会在符号链接文件后加一个 @ 符号，在目录文件后加 / 符号
@@ -242,3 +242,26 @@ Section "InputClass"
         Option "ScrollMethod" "edge"
 EndSection
 ```
+37. [使用 systemd 添加一个新的服务](https://www.linode.com/docs/quick-answers/linux/start-service-at-boot/)，systemd 是最开始红帽开发 Linux 系统工具，包含用于启动和管理系统进程的引导系统。目前是大多数发行版系统的默认初始化系统。许多常用的工具比如 ssh 、 apache 都还有一个 systemd 的服务。
+	1. 创建一个系统服务，在 /lib/systemd/system 目录添加一个 test.service 文件，添加可执行权限
+    ``` bash
+	[Unit]
+	Description=Example systemd service
+	[Service]
+	Type=simple
+	ExecStart=echo "test systemd" # 填写要执行的命令
+	[Install]
+	WantedBy=graphical.target
+    ```
+	2. 开启这个服务
+	``` bash
+	sudo systemctl start test.service
+	```
+	3. 查看这个服务的状态
+	``` bash
+	sudo systemctl status test.service
+	```
+	4. 使能这个服务在每次开机时候运行
+	``` bash
+	sudo systemctl enable test.service
+	```
