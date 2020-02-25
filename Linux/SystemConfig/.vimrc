@@ -68,6 +68,9 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+Plug 'joshdick/onedark.vim'
+
+Plug 'sheerun/vim-polyglot'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -116,14 +119,13 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-set background=dark
-
 " ===
 " === gruvbox-material
 " ===
 "if exists('+termguicolors')
 "  set termguicolors
 "endif
+" set background=dark
 "" 默认配置的是 medium，可选的是 hard 和 soft
 "" let g:gruvbox_material_background = 'soft'
 "" 为什么开启 italic comment 在 tmux 环境就会高亮注释内容？
@@ -138,13 +140,23 @@ set background=dark
 ""let g:gruvbox_material_visual = 'reverse'
 "colorscheme gruvbox-material
 
-let g:nord_uniform_diff_background = 1
-let g:nord_uniform_status_lines = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
-let g:nord_italic = 1
-let g:nord_cursor_line_number_background = 0
-colorscheme nord
+"let g:nord_uniform_diff_background = 1
+"let g:nord_uniform_status_lines = 1
+"let g:nord_italic_comments = 1
+"let g:nord_underline = 1
+"let g:nord_italic = 1
+"let g:nord_cursor_line_number_background = 0
+"colorscheme nord
+
+" ===
+" ===onedark
+" ===
+if exists('+termguicolors')
+  set termguicolors
+endif
+let g:onedark_terminal_italics = 1
+colorscheme onedark
+
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
 
@@ -199,7 +211,7 @@ let g:UltiSnipsSnippetDirectories=["$HOME.'/.vim/UltiSnips'", "UltiSnips"]
 " ===
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
