@@ -78,6 +78,7 @@ E
 |expomentiation|求幂|
 |emulate|仿真|
 |exclusive|独家的|
+|emphasis|重点|
 
 F
 ---
