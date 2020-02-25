@@ -1,5 +1,4 @@
 ![LOGO](https://media-curse.cursecdn.com/attachments/131/614/6f0789696074089cc2e2af459f56dd9c.png)
-
 ---
 
 ### 跟踪、记录自己的学习笔记
@@ -38,6 +37,7 @@
 * [Mastering-Vim-Build-a-softwarve](https://github.com/iysheng/Notes/blob/master/Linux/doc/Mastering-Vim-Build-a-software.pdf)
 * [GNU_coding_standards](https://github.com/iysheng/Notes/blob/master/Linux/doc/GNU_coding_standards.pdf)
 * [GNU_make](https://github.com/iysheng/Notes/blob/master/Linux/doc/make.pdf)
+* [Go_Programming](https://github.com/iysheng/Notes/blob/master/Linux/doc/The_Go_Programming_Language.pdf)
 ---
 
 ##### Dictionary

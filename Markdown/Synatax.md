@@ -21,3 +21,8 @@
 1. 行一
 2. 行二
 ```
+4. 给文本添加超链接
+``` markdown
+[文本](web site 网址)
+[fedora org](https://getfedora.org/)
+```

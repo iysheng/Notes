@@ -99,7 +99,7 @@ echo 'ibase=10; obase=16; 25' | bc   # 结果 19
 	8. Q 直接退出 tig，q 退出到上一个视图
 	9. 在查看文件时，要使用 j、k 这些按键
 	10. d 到跳转到对应选择的 diff 视图，比如某次 commit、 stage 的和 unstage 的
-7. ls -lt 默认是按照文件的修改时间排序的，相应的 ls -ltu 是按照文件的访问时间排序， ls -ltc 是按照文件的 i 节点的修改时间排序 
+7. ls -lt 默认是按照文件的修改时间排序的，相应的 ls -ltu 是按照文件的访问时间排序， ls -ltc 是按照文件的 i 节点的修改时间排序
 8. open 函数打开的文件名，要对包含的目录具有可执行权限位，这个位也被成为搜索位
 9. unlink 函数，减少文件的链接记数；rename 函数，重新命名文件或者目录
 10. ls -F 选项[在不同文件类型的文件名后添加指示器]；会在符号链接文件后加一个 @ 符号，在目录文件后加 / 符号
@@ -217,16 +217,82 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 34. firefox 快捷键
 	1. ctrl + w 或者 ctrl + \<F4> ：关闭当前 tab
 	2. ctrl + shift + p ：新建一个 private tab
-35. 使用 jekyll 在 github 搭建个人博客(https://medium.com/20percentwork/creating-your-blog-for-free-using-jekyll-github-pages-dba37272730a)
+35. [使用 jekyll 在 github 搭建个人博客](https://medium.com/20percentwork/creating-your-blog-for-free-using-jekyll-github-pages-dba37272730a)
 	1. 安装 gem ruby jekyll 工具
 	``` bash
 	sudo dnf install gem ruby-devel
 	gem install jekyll bundler
 	```
-	2. 创建一个工程 redblog ，并查看
+	3. 创建一个工程 redblog ，并查看
 	``` bash
 	jekyll new redblog # 可以通过网址访问查看，这里可能会有权限问题
 	bundle config set path ~/redws # 指定一个用户有对应写权限的路径，再重新执行 jekyll new redblog
 	cd redblog # 切换到创建的工程的目录
 	bundle exec jekyll serve # 运行服务，然后可以通过 localhost 的 40 端口查看
+	```
+	4. [修改 ruby 的源](https://mirrors.tuna.tsinghua.edu.cn/help/rubygems/)
+	``` bash
+	# 添加 TUNA 源并移除默认源
+    gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+    # 列出已有源
+    gem sources -l
+
+	# 替换 bundler 默认源
+	bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+	```
+	5. RubyGems 是对 Ruby 打包的打包系统，bundler Bundler 能够跟踪并安装所需的特定版本的 gem，以此来为 Ruby 项目提供一致的运行环境。Bundler 是 Ruby 依赖管理的一根救命稻草，它可以保证你所要依赖的 gem 如你所愿地出现 在开发、测试和生产环境中。
+36. 添加 30-touchpad.conf 文件到 **/etc/X11/xorg.conf.d/** 目录，可以[修复触摸板单击不识别的问题](https://docs.fedoraproject.org/en-US/quick-docs/enable-touchpad-click/)
+``` bash
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "TappingButtonMap" "lrm"
+        Option "NaturalScrolling" "on"
+        Option "ScrollMethod" "edge"
+EndSection
+```
+37. [使用 systemd 添加一个新的服务](https://www.linode.com/docs/quick-answers/linux/start-service-at-boot/)，systemd 是最开始红帽开发 Linux 系统工具，包含用于启动和管理系统进程的引导系统。目前是大多数发行版系统的默认初始化系统。许多常用的工具比如 ssh 、 apache 都还有一个 systemd 的服务。
+	1. 创建一个系统服务，在 /lib/systemd/system 目录添加一个 test.service 文件，添加可执行权限
+    ``` bash
+	[Unit]
+	Description=Example systemd service
+	[Service]
+	Type=simple
+	ExecStart=echo "test systemd" # 填写要执行的命令
+	[Install]
+	WantedBy=graphical.target
+    ```
+	2. 开启这个服务
+	``` bash
+	sudo systemctl start test.service
+	```
+	3. 查看这个服务的状态
+	``` bash
+	sudo systemctl status test.service
+	```
+	4. 使能这个服务在每次开机时候运行
+	``` bash
+	sudo systemctl enable test.service
+	```
+38. [Fedora tftp 服务器搭建](https://fedoramagazine.org/how-to-set-up-a-tftp-server-on-fedora/)
+	``` bash
+	dnf install tftp-server tftp -y # 安装软件
+	cp /usr/lib/systemd/system/tftp.service /etc/systemd/system/tftp-server.service
+	cp /usr/lib/systemd/system/tftp.socket /etc/systemd/system/tftp-server.socket
+	修改 /etc/systemd/system/tftp-server.service 文件的 Requires 字段为 Requires=tftp-server.socket
+	修改 /etc/systemd/system/tftp-server.service 文件的 ExecStart 字段为 ExecStart=/usr/sbin/in.tftpd -c -p -s /var/lib/tftpboot
+	```
+	* -c 字段表示允许新文件创建
+	* -p 字段表示不需要额外的权限检查
+	* -s 字段可以改善关于索引目录的问题
+	``` bash
+	修改 Also 字段为 Also=tftp-server.socket
+	```
+	``` bash
+	systemctl daemon-reload # 重新加载 daemon 服务
+	systemctl enable --now tftp-server # 使能 tftp-server 服务
+	firewall-cmd --add-service=tftp --perm # 配置防火墙放行 tftp 服务端口
+    firewall-cmd --reload # 重新加载防火墙
 	```
