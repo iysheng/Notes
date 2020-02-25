@@ -276,3 +276,23 @@ EndSection
 	``` bash
 	sudo systemctl enable test.service
 	```
+38. [Fedora tftp 服务器搭建](https://fedoramagazine.org/how-to-set-up-a-tftp-server-on-fedora/)
+	``` bash
+	dnf install tftp-server tftp -y # 安装软件
+	cp /usr/lib/systemd/system/tftp.service /etc/systemd/system/tftp-server.service
+	cp /usr/lib/systemd/system/tftp.socket /etc/systemd/system/tftp-server.socket
+	修改 /etc/systemd/system/tftp-server.service 文件的 Requires 字段为 Requires=tftp-server.socket
+	修改 /etc/systemd/system/tftp-server.service 文件的 ExecStart 字段为 ExecStart=/usr/sbin/in.tftpd -c -p -s /var/lib/tftpboot
+	```
+	* -c 字段表示允许新文件创建
+	* -p 字段表示不需要额外的权限检查
+	* -s 字段可以改善关于索引目录的问题
+	``` bash
+	修改 Also 字段为 Also=tftp-server.socket
+	```
+	``` bash
+	systemctl daemon-reload # 重新加载 daemon 服务
+	systemctl enable --now tftp-server # 使能 tftp-server 服务
+	firewall-cmd --add-service=tftp --perm # 配置防火墙放行 tftp 服务端口
+    firewall-cmd --reload # 重新加载防火墙
+	```
