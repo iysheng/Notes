@@ -120,8 +120,11 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 |\? or \=|0 或者 1 ，贪婪|
 |\{n,m}|n 到 m 个 ，贪婪|
 |\{-n,m}|n 到 m 个 ，非贪婪|
-35. magic（默认模式，大部分的转移字符都需要 \ 转义，除了 . 或者 \*）、no magic（所有的转移字符都要添加 \）、very magic（所有的非数字、字母和下划线之外的转义字符都不需要 \） 三种模式
+``` vim
+s/adc\w*/def/gc # 匹配以 abc 开头的一个 world，使用了转移字符加量词/倍数的表达
 ```
+35. magic（默认模式，大部分的转移字符都需要 \ 转义，除了 . 或者 \*）、no magic（所有的转移字符都要添加 \）、very magic（所有的非数字、字母和下划线之外的转义字符都不需要 \） 三种模式
+``` vim
 " default magic
 :s/\(cat\) hunting \(mice\)/\2 hunting \1
 :s/\m\(cat\) hunting \(mice\)/\2 hunting \1
