@@ -234,7 +234,7 @@ let g:indent_guides_guide_size = 1
 " nord color Frost
 " https://www.nordtheme.com/docs/colors-and-palettesh
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#5f5f5f   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87af5f ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#87af5f   ctermbg=4
 "let g:indent_guides_enable_on_vim_startup = 1
 
 "noremap <leader>] :YcmCompleter GoTo<cr>
