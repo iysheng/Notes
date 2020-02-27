@@ -396,3 +396,10 @@ awk '/PATTERN1/ && /PATTERN2/' FILE
 grep -v 'PATTERN1' FILE
 awk '!/PATTERN1/' FILE
 ```
+42. 批量替换 txt 文件名的空格为下划线
+``` bash
+find $1 -name "* *.txt" -type f -print0 | \
+  while read -d $'\0' f; do 
+ 	mv -v "$f" "${f// /_}";
+done
+```
