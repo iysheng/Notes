@@ -18,6 +18,8 @@ A
 |amend|修改|
 |ambiance|气氛|
 |accustomed|习惯的|
+|attach|附加，和 detach 是反义词|
+|attached|附属的|
 
 B
 ---
@@ -66,6 +68,7 @@ D
 |dozen|打，一打是 12 个|
 |denote|表示|
 |donation|捐赠|
+|detach|分离|
 
 E
 ---
@@ -227,6 +230,7 @@ S
 |subtle issue|细微的问题|
 |supplemental|补充|
 |synonymously|同义|
+|squash|镇压|
 
 T
 ---
