@@ -20,6 +20,11 @@ A
 |accustomed|习惯的|
 |attach|附加，和 detach 是反义词|
 |attached|附属的|
+|angled|角度|
+|angled brackets|尖括号|
+|altering|改变|
+|acronyms|缩写|
+|abbreviation|缩写|
 
 B
 ---
@@ -32,6 +37,7 @@ B
 |brace|大括号|
 |bootstrap|引导|
 |bootstrapping system|引导系统|
+|bullet lists|项目符号列表|
 
 C
 ---
@@ -51,6 +57,9 @@ C
 |concurrency control|并发控制|
 |check out|查看|
 |clutter|混乱|
+|cite|引用|
+|caption|标题、字幕|
+|checkbox|复选框|
 
 D
 ---
@@ -91,6 +100,7 @@ F
 |facilitate|促进|
 |frustrate|阻挠|
 |facility|设施|
+|form|窗体，包含空间，以便填写信息|
 
 G
 ---
@@ -99,6 +109,12 @@ G
 |go through|经历|
 |gist|要领、要旨|
 |grasp|掌握|
+
+H
+---
+|单词|释义|
+|---|---|
+|headline|标题|
 
 I
 ---
@@ -119,7 +135,7 @@ I
 |issue|问题|
 |indentation|缩进|
 |inclusive|包容的|
-
+|insurance|保险|
 L
 ---
 |单词|释义|
@@ -208,6 +224,7 @@ R
 |roughly|大致|
 |roughtly speaking|粗略的说|
 |refactor|重构|
+|radio button|单选按钮|
 
 S
 ---
@@ -231,6 +248,7 @@ S
 |supplemental|补充|
 |synonymously|同义|
 |squash|镇压|
+|stock|股票|
 
 T
 ---
@@ -242,6 +260,8 @@ T
 |to conclude|总结|
 |territory|领域|
 |transcende|超越|
+|take off|脱掉|
+|transparency|透明度|
 
 U
 ---
