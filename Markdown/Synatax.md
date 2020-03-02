@@ -1,4 +1,4 @@
-![Fedora](https://browserengine.net/wp-content/uploads/1441861327mdh-logo-new.png)
+[Fedora](https://browserengine.net/wp-content/uploads/1441861327mdh-logo-new.png)
 ### MarkDown 笔记
 ---
 
@@ -25,4 +25,9 @@
 ``` markdown
 [文本](web site 网址)
 [fedora org](https://getfedora.org/)
+```
+5. 文本删除先
+``` markdown
+~~删除内容~~
+<u>下划线</u>
 ```
