@@ -297,3 +297,14 @@ EndSection
 	firewall-cmd --add-service=tftp --perm # 配置防火墙放行 tftp 服务端口
     firewall-cmd --reload # 重新加载防火墙
 	```
+39. 对比两个命令的性能工具[hyperfine](https://github.com/sharkdp/hyperfine)
+	``` bash
+	$ hyperfine --warmup 3 'fd -e jpg' 'find -iname "*.jpg"'
+	Benchmark #1: fd -e jpg
+	  Time (mean ± σ):     126.0 ms ±   1.8 ms    [User: 286.5 ms, System: 164.8 ms]
+	  Range (min … max):   123.7 ms … 130.2 ms    23 runs
+	
+	Benchmark #2: find -iname "*.jpg"
+	  Time (mean ± σ):     155.5 ms ±   1.9 ms    [User: 80.0 ms, System: 73.7 ms]
+	  Range (min … max):   153.2 ms … 159.8 ms    19 runs
+	```
