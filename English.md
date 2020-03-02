@@ -25,6 +25,7 @@ A
 |altering|改变|
 |acronyms|缩写|
 |abbreviation|缩写|
+|asset，assets|财富，资产|
 
 B
 ---
@@ -60,6 +61,7 @@ C
 |cite|引用|
 |caption|标题、字幕|
 |checkbox|复选框|
+|collections|集合，馆藏|
 
 D
 ---
@@ -225,6 +227,7 @@ R
 |roughtly speaking|粗略的说|
 |refactor|重构|
 |radio button|单选按钮|
+|render|提供|
 
 S
 ---

@@ -57,7 +57,7 @@ set backspace=indent,eol,start
 	1. 默认的触发开始按键是 ctrl-y ，可以修改变量 g:user_emmet_leader_key 的值来改变这个触发开始按键
 	2. 翻转注释按键是 ctrl-y/
 	3. 扩展一个 word 为 tag 组 ctrl-y;
-	4. 更新一个 tag， ctrl-yu ，可以在命令行底部提示输入内容，输入内容要以  开头
+	4. 更新一个 tag， ctrl-yu 可以在命令行底部提示输入内容，输入内容要以  开头
 	5. 快速创建列表
 	``` vim
 	test1
@@ -71,7 +71,7 @@ set backspace=indent,eol,start
 	    <li>test2</li>
 	    <li>test3</li>
 	</ul>
-	如果在 tag 键入的是 tag 的名字，那么显示的效果是
+	如果在 tag 栏键入的是 tag 的名字，那么显示的效果是
 	<tagname>
 		test1
 		test2
@@ -86,4 +86,5 @@ set backspace=indent,eol,start
 	11. ~~合并行，首先 J 选择多个行，然后 c-ym 合并这些行~~
 	12. 删除一个 tag 对,c-yk
 	13. 自动解析 url 地址填充到 a 这个 link element c-ya
-	13. 自动解析 url 地址填充到 a 这个 link element c-yA，这个的内容更加详细
+	14. 自动解析 url 地址填充到 a 这个 link element c-yA，这个的内容更加详细
+	15. html5 扩展为一个模板 c-y,

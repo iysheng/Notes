@@ -173,3 +173,42 @@
 	17. email input form <input type="email" name="DATE">
 	18. url input form <input type="url" name="DATE">
 8. extra markup ： 额外的标记
+
+### Jekyll 笔记
+1. liquid 模板语言，包含了三个重要的元素：
+	* objects {{ 对象 }}
+	* tags {% 标签 %} ，这个一般用来处理控制和逻辑流程
+	* filters {{ 原始内容 | 过滤器 }}
+2. Front Matter 是 YAML 的一个片段
+---
+可以填写一些内容
+number: 5 **冒号后面有一个空格很重要**
+---
+在页面引用这个 number 时，需要添加 page，比如 page.number
+3. layout
+	* content 变量，调用的 page 提供的内容
+4. include tag 可以让你引用到 \_include 目录文件的内容，使用 tags 标签
+``` html
+{% include filename under \_includes 目录 %}
+```
+5. 数据文件, Jekyll 支持 YAML，JSON，CVS 这些类型的文件，这些文件需要存放在 \_data 目录，数据文件可以将内容和代码分开存放，很好维护，引用这些数据时使用变量 **site.data.文件名（不用后缀）**
+``` yaml
+YAML 的格式要规范，空格
+- name: Home
+  link: /
+- name: About
+  link: /about.html
+```
+6. sass 是 css 的一个扩展
+7. blogging 博客，存放在目录 \_posts，可以通过变量 sites.posts 变量引用到所有的 posts 内容，可以通过 for 循环遍历所有的 posts
+``` html
+	{% for post in site.posts %}
+	<li>
+		<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+# 备注 posts.excerpt 是每一个 post 的第一段内容
+		<p>{{ post.excerpt }}</p>
+	</li>
+	{% endfor %}
+```
+8. [Jekyll 支持的变量](https://jekyllrb.com/docs/variables/)
+9. Collections 馆藏，集合，收藏集，通过根目录的配置文件 \_config.yml
