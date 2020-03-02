@@ -153,3 +153,23 @@
 	<input type="submit" name="upload" value="up"/> value attribute 是显示在提交按钮的文字
 	10. 带有图片的提交按钮
 	<input type="image" value="subs" src="图片路径" width="图片宽度" height="图片高度">
+	11. 隐藏类的窗体控件
+	<input type="hidden" name="secret" value="whatis">
+	12. button element 可以允许用户更多地添加内容到 button，可以包含其他的 element，比如 <img src="" alt=""> 添加背景图片
+	13. label element 窗体控件，可以额外给 input 控件添加标题
+	``` html
+	<label for="food">food</label>
+	<input type="radio" name="food" id="food" value="apple" />
+	14. form groups 窗体控件组
+	``` html
+	<fieldset>
+		<legend>通讯信息</legend>
+		<label for="email">email</label>
+		<input type="text" name="email" id="email" value="" />
+	</fieldset>
+	```
+	15. 窗口有效检测，需要添加 required attribute
+	16. date input form <input type="date" name="DATE">
+	17. email input form <input type="email" name="DATE">
+	18. url input form <input type="url" name="DATE">
+8. extra markup ： 额外的标记

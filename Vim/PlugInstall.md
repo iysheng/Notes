@@ -53,3 +53,37 @@ set backspace=indent,eol,start
 14. 'vim-syntastic/syntastic' # 语法检测的引擎
 15. 'ycm-core/YouCompleteMe' # youcomplete 代码补全插件
 	1. 出现问题时，调试命令 **YcmDebugInfo** ，可以提示看哪个 log 分析问题
+16. 'mattn/emmet-vim' 提高 html&css 编辑效率的插件
+	1. 默认的触发开始按键是 ctrl-y ，可以修改变量 g:user_emmet_leader_key 的值来改变这个触发开始按键
+	2. 翻转注释按键是 ctrl-y/
+	3. 扩展一个 word 为 tag 组 ctrl-y;
+	4. 更新一个 tag， ctrl-yu ，可以在命令行底部提示输入内容，输入内容要以  开头
+	5. 快速创建列表
+	``` vim
+	test1
+	test2
+	test3
+	最好是通过 visual select 的方式选择所有的 line 然后再
+	<c-y>,
+	在底部的 tag 栏键入 ul>li* 回车
+	<ul>
+	    <li>test1</li>
+	    <li>test2</li>
+	    <li>test3</li>
+	</ul>
+	如果在 tag 键入的是 tag 的名字，那么显示的效果是
+	<tagname>
+		test1
+		test2
+		test3
+	</tagname>
+	```
+	6. 选择一整个 element 的所有内容，包括 open tag 和 close tag （如果存在的话） c-yd
+	7. 选择下一个 element 的所有内容，c-yD
+	8. 跳转到下一个需要编辑的地方， c-yn
+	9. 跳转到上一个需要编辑的地方， c-yN
+	10. 获取一个 image 的大小并且，填充到 width 和 height 属性，前提一定要有一个 src 属性这个值指定好图片的路径。 c-yi
+	11. ~~合并行，首先 J 选择多个行，然后 c-ym 合并这些行~~
+	12. 删除一个 tag 对,c-yk
+	13. 自动解析 url 地址填充到 a 这个 link element c-ya
+	13. 自动解析 url 地址填充到 a 这个 link element c-yA，这个的内容更加详细

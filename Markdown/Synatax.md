@@ -26,7 +26,7 @@
 [文本](web site 网址)
 [fedora org](https://getfedora.org/)
 ```
-5. 文本删除先
+5. 文本删除线和下划线
 ``` markdown
 ~~删除内容~~
 <u>下划线</u>

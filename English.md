@@ -249,6 +249,7 @@ S
 |synonymously|同义|
 |squash|镇压|
 |stock|股票|
+|specifying|指定|
 
 T
 ---
