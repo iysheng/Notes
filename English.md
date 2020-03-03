@@ -138,6 +138,8 @@ I
 |indentation|缩进|
 |inclusive|包容的|
 |insurance|保险|
+|involve|涉及|
+
 L
 ---
 |单词|释义|
