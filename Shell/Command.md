@@ -308,6 +308,7 @@ funcname ()
 {
 
 }
+# 调用函数，直接 funcname 就可以，不用加 ()
 ```
 31. eval 命令，eval 会将变量的内容作为命令执行
 ``` bash
