@@ -212,3 +212,9 @@ YAML 的格式要规范，空格
 ```
 8. [Jekyll 支持的变量](https://jekyllrb.com/docs/variables/)
 9. Collections 馆藏，集合，收藏集，通过根目录的配置文件 \_config.yml
+10. css 给 html 的 elements 关联 rules。这些 rules 管理指定的 elements 的内容如何显示。一个 css rule 包含两部分： selector 和 declaration。 selector 指示这些规则适用的 elements，declarations 指示这些 selector 的 elements 会如何显示。 declarations 可以分为两个部分，一部分是属性，另一部分是值，通过冒号隔开。
+```html
+p {font-family:Arial;} 这就是一个 css 规则， p 是 selector，表示这个 rule 适用 p 也就是段落 element， font-family 是 declaration 的 selector， Arial 是 declaration 的 value
+h1, h2, h3 {font-family:Arial;color:yellow;} 这个 css 规则适用 h1 h2 h3 elements，表示适用 一级、二级、三级标题
+```
+11. 

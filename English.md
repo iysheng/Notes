@@ -183,6 +183,7 @@ O
 |omit|忽略|
 |overhead|开销|
 |orphan|孤儿|
+|outline|大纲，轮廓|
 
 P
 ---
