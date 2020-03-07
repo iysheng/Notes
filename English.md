@@ -62,6 +62,9 @@ C
 |caption|标题、字幕|
 |checkbox|复选框|
 |collections|集合，馆藏|
+|content|内容|
+|context|上下文|
+|CDN|content delivery network 内容分发网络|
 
 D
 ---
