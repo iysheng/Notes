@@ -80,6 +80,7 @@ D
 |denote|表示|
 |donation|捐赠|
 |detach|分离|
+|determinstic timing|确定性时机|
 
 E
 ---
@@ -253,6 +254,7 @@ S
 |squash|镇压|
 |stock|股票|
 |specifying|指定|
+|solid|坚固的|
 
 T
 ---
