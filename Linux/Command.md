@@ -192,6 +192,13 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 ```
 28. echo -e 选项可以解析 \ 特殊格式字符 eg: \n 换行；-n 选项不用自动添加换行输出
 29. pandoc 可以将 md 文件转换为 word 格式（包括、但不仅限于）
+	1. pandoc name.md -t ms -o something.pdf 将 name.md 文档转换为 pdf 文档，ms 引擎需要安装 groff 程序，测试这个 pdf 转换引擎对中文支持很不友好
+	2. pandoc name.md -t latex -o something.pdf 将 name.md 文档转换为 pdf 文档，ms 引擎需要安装 texlive 程序
+		1. 需要安装中文字体，不然转换结果也不友好，有[三种方法](https://github.com/jgm/pandoc/wiki/Pandoc-with-Chinese)可以修复这类问题:
+			* 在 md 开头添加 front matter，指定 mainfont
+			* 在 md 开头添加 front matter，指定 documentclass
+			* 命令行 pandoc -V 定义 mainfont="中文字体名称"
+		2. 通过 --pdf-engine=xelatex 指定使用 texlive 的 latex pdf 转换引擎
 30. feh 可以用来修改屏幕壁纸，配合 dwm 使用，效果很好
 31. 命令行连接 wifi 的一般步骤，使用 iw 和 nmcli 工具
 	1. iw dev # 查看当前设备的网卡信息
