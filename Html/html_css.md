@@ -237,8 +237,46 @@ body {
 	* class selector ： 类选择器，类名前需要加. .note {}
 	* ID selector ： ID 选择器，ID 前需要加 # #ID {}
 15. 如果有多个规则适用同一个 element
-	1. 如果有多个 css 规则使用同一个 element，那么优先使用后者
-	2. 如果有多个 css 规则使用同一个 element，那么优先使用范围最准确的
+	1. 如果有多个 css 规则适用同一个 element，那么优先使用后者
+	2. 如果有多个 css 规则适用同一个 element，那么优先使用范围最准确的
 	3. 可以通过在 css 的 declaration 的 value 地方添加 !important 强制这个规则的优先级高
 16. 可以直接通过给 child element 的 css 规则对应的 declaration 赋值 inherit 强制继承 parent 的 css 规则
-17. 
+17. @import 可以导入外部的 css 格式文件
+``` html
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Raleway);
+```
+18. [产生格式字体的网站][https://www.fontsquirrel.com/tools/webfont-generator]
+19. 字体
+``` html
+font-famliy:"Courier New", Courier; /* 字体名字中间有空格需要用双引号扩起来，可以罗列很多字体，一次向后搜索 */
+font-size:12px; /* 描述字体大小 */
+font-size:50%; /* 描述字体大小，浏览器默认的字体大小是 16px */
+font-size:1em; /* 描述字体大小，等价一个小写字母 m 的宽度 */
+```
+20. @font-face 可以让用户使用一个“不存在的”字体，只要指定这个字体的路径就可以
+``` html
+@font-face {
+font-family: testfont; /* 命名自定义的名称 */
+src: url('字体路径') format('truetype'),
+    url('字体路径备选') format('woff');
+}
+
+p1 {
+    font-family: testfont; /* 就可以使用自定义的字体 */
+}
+```
+21. 字体格式
+``` html
+p1 {
+font-weight: normal; /* bold */
+font-style: normal; /* italic \ oblique：字体倾斜 */
+text-transform: uppercase; /* 大写、lowercase：小写、capitalize：首字母大写 */
+text-decoration: underline; /* 下划线、overline：上划线、line-through：删除线、none：无、blink：闪烁 */
+line-height: 1.4em; /* 行高 */
+letter-spacing: 0.2em; /* 字母间距 */
+word-spacing: 1em; /* 单词间距 */
+text-align: left; /* 文本对齐， justify：占满屏幕、center：居中对齐、right：右对齐 */
+vertical-align: text-top; /* 上对齐 */
+text-indent: 20px; /* 文本缩进 */
+}
+```

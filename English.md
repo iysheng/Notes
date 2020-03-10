@@ -65,6 +65,8 @@ C
 |content|内容|
 |context|上下文|
 |CDN|content delivery network 内容分发网络|
+|corrupt|腐败的|
+|incorrupt|廉洁的|
 
 D
 ---
@@ -83,6 +85,7 @@ D
 |denote|表示|
 |donation|捐赠|
 |detach|分离|
+|decoration|装饰|
 
 E
 ---
