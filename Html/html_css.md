@@ -212,3 +212,71 @@ YAML 的格式要规范，空格
 ```
 8. [Jekyll 支持的变量](https://jekyllrb.com/docs/variables/)
 9. Collections 馆藏，集合，收藏集，通过根目录的配置文件 \_config.yml
+10. css 给 html 的 elements 关联 rules。这些 rules 管理指定的 elements 的内容如何显示。一个 css rule 包含两部分： selector 和 declaration。 selector 指示这些规则适用的 elements，declarations 指示这些 selector 的 elements 会如何显示。 declarations 可以分为两个部分，一部分是属性，另一部分是值，通过冒号隔开。
+```html
+p {font-family:Arial;} 这就是一个 css 规则， p 是 selector，表示这个 rule 适用 p 也就是段落 element， font-family 是 declaration 的 selector， Arial 是 declaration 的 value
+h1, h2, h3 {font-family:Arial;color:yellow;} 这个 css 规则适用 h1 h2 h3 elements，表示适用 一级、二级、三级标题
+```
+11. <link > 这个 element 在 html 文件来指示去哪里查找在当前页面的 css 文件，放在 head 这个 element 这里，应该具有三个 attributes：
+	1. href ： 指示这个 css 文件的路径
+	2. type ： 指定这个被 link 的文档类型，这个值应该是 text/css
+	3. rel ： 指定被 link 的文件和当前 html 的关系，这个值应该是 stylesheet
+12. 一个 html 页面可以有超过一个的 css 风格 sheet，每一个都要有一个对应的 link element
+13. style element 是 html 内部的 css，需要有一个 attribute type="text/css"
+``` html
+<head>
+<style type="text/css">
+body {
+    font-family: arial;
+}
+</head>
+```
+14. 一般的 selector 选择器类型：
+	* universal selector ： 通用选择器 * {}
+	* type selector ： 类型选择器 h1, h2, h3 {}
+	* class selector ： 类选择器，类名前需要加. .note {}
+	* ID selector ： ID 选择器，ID 前需要加 # #ID {}
+15. 如果有多个规则适用同一个 element
+	1. 如果有多个 css 规则适用同一个 element，那么优先使用后者
+	2. 如果有多个 css 规则适用同一个 element，那么优先使用范围最准确的
+	3. 可以通过在 css 的 declaration 的 value 地方添加 !important 强制这个规则的优先级高
+16. 可以直接通过给 child element 的 css 规则对应的 declaration 赋值 inherit 强制继承 parent 的 css 规则
+17. @import 可以导入外部的 css 格式文件
+``` html
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Raleway);
+```
+18. [产生格式字体的网站][https://www.fontsquirrel.com/tools/webfont-generator]
+19. 字体
+``` html
+font-famliy:"Courier New", Courier; /* 字体名字中间有空格需要用双引号扩起来，可以罗列很多字体，一次向后搜索 */
+font-size:12px; /* 描述字体大小 */
+font-size:50%; /* 描述字体大小，浏览器默认的字体大小是 16px */
+font-size:1em; /* 描述字体大小，等价一个小写字母 m 的宽度 */
+```
+20. @font-face 可以让用户使用一个“不存在的”字体，只要指定这个字体的路径就可以
+``` html
+@font-face {
+font-family: testfont; /* 命名自定义的名称 */
+src: url('字体路径') format('truetype'),
+    url('字体路径备选') format('woff');
+}
+
+p1 {
+    font-family: testfont; /* 就可以使用自定义的字体 */
+}
+```
+21. 字体格式
+``` html
+p1 {
+font-weight: normal; /* bold */
+font-style: normal; /* italic \ oblique：字体倾斜 */
+text-transform: uppercase; /* 大写、lowercase：小写、capitalize：首字母大写 */
+text-decoration: underline; /* 下划线、overline：上划线、line-through：删除线、none：无、blink：闪烁 */
+line-height: 1.4em; /* 行高 */
+letter-spacing: 0.2em; /* 字母间距 */
+word-spacing: 1em; /* 单词间距 */
+text-align: left; /* 文本对齐， justify：占满屏幕、center：居中对齐、right：右对齐 */
+vertical-align: text-top; /* 上对齐 */
+text-indent: 20px; /* 文本缩进 */
+}
+```

@@ -88,3 +88,4 @@ set backspace=indent,eol,start
 	13. 自动解析 url 地址填充到 a 这个 link element c-ya
 	14. 自动解析 url 地址填充到 a 这个 link element c-yA，这个的内容更加详细
 	15. html5 扩展为一个模板 c-y,
+17. 'prettier/vim-prettier' 格式化文件的插件，需要提前安装 yarn ， fedora 上执行 dnf install yarnpkg

@@ -62,6 +62,11 @@ C
 |caption|标题、字幕|
 |checkbox|复选框|
 |collections|集合，馆藏|
+|content|内容|
+|context|上下文|
+|CDN|content delivery network 内容分发网络|
+|corrupt|腐败的|
+|incorrupt|廉洁的|
 
 D
 ---
@@ -80,7 +85,11 @@ D
 |denote|表示|
 |donation|捐赠|
 |detach|分离|
+<<<<<<< HEAD
 |determinstic timing|确定性时机|
+=======
+|decoration|装饰|
+>>>>>>> 0cf2a4550bb05d53ed9b69ecb67e11b9d7d98967
 
 E
 ---
@@ -139,6 +148,8 @@ I
 |indentation|缩进|
 |inclusive|包容的|
 |insurance|保险|
+|involve|涉及|
+
 L
 ---
 |单词|释义|
@@ -182,6 +193,7 @@ O
 |omit|忽略|
 |overhead|开销|
 |orphan|孤儿|
+|outline|大纲，轮廓|
 
 P
 ---
