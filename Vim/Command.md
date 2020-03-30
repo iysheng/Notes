@@ -56,7 +56,7 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 	3. 12;/pattern1/ s/pattern2/replace/g # 从第 12 行开始，一直到第一个匹配有 pattern1 的行停止，替换这些行的 pattern 位 replace
 28. 可以使用 arglist 跨文件处理
 ``` vim
-:arg 定义文件列表到 arglist
+:argadd 定义文件列表到 arglist
 :argdo 定义执行的操作
 :args 查看 arglist 的文件列表
 
