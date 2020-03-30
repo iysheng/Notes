@@ -404,3 +404,15 @@ find $1 -name "* *.txt" -type f -print0 | \
  	mv -v "$f" "${f// /_}";
 done
 ```
+43. 使用内置 getops 解析传递的参数
+``` bash
+while getops "a:b:c" opt;do # : 表示这个 a 选项支持选项参数
+    case $opt in 
+        a) process a with $OPTARG;; # OPTARG 表示对应选项追加的选项参数
+        b) process b with $OPTARG;;
+        c) process c;;
+        ?) process something no exist in paramtlist;;
+    esac
+done
+shift $(($OPTIND-1)) # OPTIND 表示下一个待解析参数的索引下表，从 1 开始
+```
