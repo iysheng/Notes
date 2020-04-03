@@ -26,6 +26,7 @@ A
 |acronyms|缩写|
 |abbreviation|缩写|
 |asset，assets|财富，资产|
+|advisory|咨询|
 
 B
 ---

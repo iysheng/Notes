@@ -200,12 +200,10 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 			* 在 md 开头添加 front matter，指定 documentclass
 			* 命令行 pandoc -V 定义 mainfont="中文字体名称"
 		2. 通过 --pdf-engine=xelatex 指定使用 texlive 的 latex pdf 转换引擎
-=======
-	1. 转换包含中文的 html 到 pdf
+	3. 转换包含中文的 html 到 pdf
 	``` bash
 	pandoc a.html --pdf-engine=xelatex -V mainfont="WenQuanYi Micro Hei Mono" -o a.pdf
 	```
->>>>>>> 0cf2a4550bb05d53ed9b69ecb67e11b9d7d98967
 30. feh 可以用来修改屏幕壁纸，配合 dwm 使用，效果很好
 31. 命令行连接 wifi 的一般步骤，使用 iw 和 nmcli 工具
 	1. iw dev # 查看当前设备的网卡信息
@@ -321,4 +319,9 @@ EndSection
 	Benchmark #2: find -iname "*.jpg"
 	  Time (mean ± σ):     155.5 ms ±   1.9 ms    [User: 80.0 ms, System: 73.7 ms]
 	  Range (min … max):   153.2 ms … 159.8 ms    19 runs
+	```
+40. find 命令对匹配到的内容执行动作
+	``` bash
+	# 删除当前目录的 abc.txt 文件，结尾的 \; 符号很重要，否则会提示 exec 缺少参数
+	find . -name "abc.txt" -exec rm {} \;
 	```

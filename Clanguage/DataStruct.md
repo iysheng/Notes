@@ -20,3 +20,6 @@ int x;
 char a, b, c, d;
 } __attribute__((packed));
 ```
+
+### tmux 代码阅读笔记
+1.int flock(int fd, int operation);
