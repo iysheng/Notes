@@ -192,7 +192,6 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 ```
 28. echo -e 选项可以解析 \ 特殊格式字符 eg: \n 换行；-n 选项不用自动添加换行输出
 29. pandoc 可以将 md 文件转换为 word 格式（包括、但不仅限于）
-<<<<<<< HEAD
 	1. pandoc name.md -t ms -o something.pdf 将 name.md 文档转换为 pdf 文档，ms 引擎需要安装 groff 程序，测试这个 pdf 转换引擎对中文支持很不友好
 	2. pandoc name.md -t latex -o something.pdf 将 name.md 文档转换为 pdf 文档，ms 引擎需要安装 texlive 程序
 		1. 需要安装中文字体，不然转换结果也不友好，有[三种方法](https://github.com/jgm/pandoc/wiki/Pandoc-with-Chinese)可以修复这类问题:
@@ -324,4 +323,13 @@ EndSection
 	``` bash
 	# 删除当前目录的 abc.txt 文件，结尾的 \; 符号很重要，否则会提示 exec 缺少参数
 	find . -name "abc.txt" -exec rm {} \;
+	```
+41. firewall-cmd 防火墙管理客户端
+	``` bash
+	sudo firewall-cmd --add-port=3308/tcp # 当前 zone 开启 3308 tcp 端口
+	sudo firewall-cmd --add-port=3308/tcp --permanent # 持久开启，当前 zone 开启 3308 tcp 端口
+	sudo firewall-cmd --list-all # 列出默认的当前所在的 zone 和服务
+	sudo firewall-cmd --list-all --zone=zone的名字 # 列出指定 zone 的服务
+	sudo firewall-cmd --get-default-zone # 获取当前的 zone
+	sudo firewall-cmd --set-default-zone= # 修改默认的 zone
 	```
