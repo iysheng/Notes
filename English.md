@@ -148,6 +148,7 @@ I
 |insurance|保险|
 |involve|涉及|
 |incorrupt|廉洁的|
+|invalidate|使无效|
 
 L
 ---

@@ -333,3 +333,7 @@ EndSection
 	sudo firewall-cmd --get-default-zone # 获取当前的 zone
 	sudo firewall-cmd --set-default-zone= # 修改默认的 zone
 	```
+42. coredump 调试文件
+	``` bash
+	echo "/tmp/core-%p" > /proc/sys/kernel/core_pattern # 修改 core 文件的产生路径和命名规则
+	```
