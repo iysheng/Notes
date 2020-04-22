@@ -337,3 +337,10 @@ EndSection
 	``` bash
 	echo "/tmp/core-%p" > /proc/sys/kernel/core_pattern # 修改 core 文件的产生路径和命名规则
 	```
+43. 开启 ssh 服务
+	```
+	sudo vim /etc/ssh/ssh_config # 取消注释 Port 22 端口这行内容
+	sudo systemctl restart sshd # 重启 sshd 服务
+	sudo systemctl enable sshd # 创建开机启动
+	sudo firewall-cmd --add-port=22/tcp --permanent # 如果还是无法连接，尝试手动放开该防火墙端口
+	```
