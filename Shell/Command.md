@@ -416,3 +416,7 @@ while getops "a:b:c" opt;do # : 表示这个 a 选项支持选项参数
 done
 shift $(($OPTIND-1)) # OPTIND 表示下一个待解析参数的索引下表，从 1 开始
 ```
+44. rename 批量修改文件后缀名字
+``` bash
+rename .a .b *.a # 将所有 .a 后缀文件的名字修改为 .b
+```
