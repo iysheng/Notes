@@ -53,6 +53,11 @@ set backspace=indent,eol,start
 14. 'vim-syntastic/syntastic' # 语法检测的引擎
 15. 'ycm-core/YouCompleteMe' # youcomplete 代码补全插件
 	1. 出现问题时，调试命令 **YcmDebugInfo** ，可以提示看哪个 log 分析问题
+	2. 如果启动提示无法加载 python
+	```
+	unavailable: unable to load Python
+	```
+	可以在命令行使用命令 :py pass 调试是否可以正常运行 python 或者 :py3 pass 调试是否可以正常在 vim 加载 python3，然后根据提示的错误修复无法加载 python 的问题
 16. 'mattn/emmet-vim' 提高 html&css 编辑效率的插件
 	1. 默认的触发开始按键是 ctrl-y ，可以修改变量 g:user_emmet_leader_key 的值来改变这个触发开始按键
 	2. 翻转注释按键是 ctrl-y/
