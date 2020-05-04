@@ -49,5 +49,8 @@
 ##### Dictionary
 * [英文单词](https://github.com/iysheng/Notes/blob/master/English.md)
 
+##### Hardware
+* [Kicad](https://github.com/iysheng/Notes/blob/master/Misc/Kicad.md)
+
 ---
 ![Fedora](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
