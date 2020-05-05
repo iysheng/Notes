@@ -11,3 +11,7 @@ Pin connected to some other pins but no pin to drive it
 /usr/share/kicad/scripting/plugins
 安装 kicad 的目录 scripting/plugins
 ```
+
+3. Kicad 插件
+	1. https://github.com/openscopeproject/InteractiveHtmlBom.git 动态 bom 插件
+	2. https://github.com/NilujePerchut/kicad_scripts.git 泪滴插件
