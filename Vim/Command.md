@@ -232,4 +232,7 @@ echom "file tail is " . expand("%:t") " a.vim
 	2. + 寄存器是只在 Linux 使用，实现类似 ctrl-c 和 ctrl-v 的复制粘贴效果，鼠标右键，选择粘贴选择的是这个剪切板；
 50. 使用 marks 命令，查看定义的书签
 51. 可以在 /root 目录创建 .vim 和 .vimrc 的软链接，这样既可以节省空间，又可以同步更新 vim 的配置
-
+52. 删除匹配内容的行
+```
+:g/pattern/d
+```
