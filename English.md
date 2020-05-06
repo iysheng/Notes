@@ -149,6 +149,7 @@ I
 |involve|涉及|
 |incorrupt|廉洁的|
 |invalidate|使无效|
+|identifier|标识符|
 
 L
 ---
@@ -241,6 +242,7 @@ R
 |refactor|重构|
 |radio button|单选按钮|
 |render|提供|
+|routinely|常规的|
 
 S
 ---
@@ -267,6 +269,7 @@ S
 |stock|股票|
 |specifying|指定|
 |solid|坚固的|
+|synonym|代名词|
 
 T
 ---

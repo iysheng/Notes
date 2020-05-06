@@ -344,3 +344,10 @@ EndSection
 	sudo systemctl enable sshd # 创建开机启动
 	sudo firewall-cmd --add-port=22/tcp --permanent # 如果还是无法连接，尝试手动放开该防火墙端口
 	```
+44. pkg-config 命令可以将第三方库的库文件以及头文件所在的位置指定出来，pkg-config 通过解析 .pc 类型的文件，可以找到对应模块的第三方头文件和库文件，这时候就有一个环境变量 PKG_CONFIG_PATH 来指定 pc 文件的路径
+	``` bash
+	pkg-config --cflags glib # 列出 glib 第三方库的头文件位置，自动添加了 -I
+	pkg-config --libs glib # 列出 glib 第三方库库文件的位置，自动添加了 -L
+	pkg-config --list-all # 列出所有可以使用的包
+	```
+45. LD_LIBRARY_PATH 变量指定了程序运行时链接的动态库路径
