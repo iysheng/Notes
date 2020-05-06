@@ -149,6 +149,7 @@ I
 |involve|涉及|
 |incorrupt|廉洁的|
 |invalidate|使无效|
+|identifier|标识符|
 
 L
 ---
@@ -267,6 +268,7 @@ S
 |stock|股票|
 |specifying|指定|
 |solid|坚固的|
+|synonym|代名词|
 
 T
 ---
