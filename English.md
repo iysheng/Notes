@@ -243,6 +243,7 @@ R
 |radio button|单选按钮|
 |render|提供|
 |routinely|常规的|
+|revised|修订|
 
 S
 ---

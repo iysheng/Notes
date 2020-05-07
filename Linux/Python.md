@@ -3,8 +3,18 @@
 #### 数据类型
 1. 数字
 2. 字符和字符串
+'computer' 这个字符串索引解析，python 支持前向和后向解析
+---
+|字符|c|o|m|p|u|t|e|r|
+|---|---|---|---|---|---|---|---|---|
+|编号|0|1|2|3|4|5|6|7|
+|反向编号|-8|-7|-6|-5|-4|-3|-2|-1|
+---
+s='test_string'
+s[ startIndex : pastIndex ] 字符串索引固定范围的内容
 3. list
 4. dict **字典** 是 pyhton 的核心
+5. set 集合，集合是将列表中重复的成员去掉，仅保留一个的列表
 
 
 #### 函数相关
@@ -14,6 +24,7 @@
 ``` python
 print('just', ' for', ' fun', end='!')
 ```
+4. dir() 内置函数可以查询对应对象所有的方法
 
 #### 知识点
 1. 在 python ， class 是 type 的代名词
@@ -25,10 +36,37 @@ print('just', ' for', ' fun', end='!')
 7. 函数参数的字典变量前加 ** ，表示传递的参数是字典的所有内容，不仅仅是字典这个单独参数本身
 8. 如果循环的变量没有用到，可以省略使用 _ 符号
 9. ** 数学运算标识乘方
+10. python 是面向对象的语言
 
 #### 控制和循环
 1. for 循环
 ``` python
 for item in sequence :
 new value of accumulation = result of combining item with last value of accumulation
+```
+2. if
+``` python
+if condition:
+indentedStatementBlock
+
+
+
+if condition:
+    indentedStatementBlock
+else:
+    indentedStatementBlock1
+
+
+if condition:
+    indentedStatementBlock
+elif condition1:
+    indentedStatementBlock1
+else:
+    indentedStatementBlock2
+
+```
+3. while
+``` python
+while condition:
+    dosth
 ```
