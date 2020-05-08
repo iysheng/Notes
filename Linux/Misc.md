@@ -160,7 +160,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 放在Github的资源在国内加载速度比较慢，因此需要使用CDN加速来优化网站打开速度，jsDelivr + Github便是免费且好用的CDN，非常适合博客网站使用。[cdn](https://blog.csdn.net/qq_36759224/article/details/86936453)
 
 #### Makefile
-1. 通过 -D 选项传递宏字符串时候，需要添加转义字符 \"字符串内容\"
+1. gcc 通过 -D 选项传递宏字符串时候，需要添加转义字符 \"字符串内容\"
 2. Makefile 的条件判断
 ``` Makefile
 # arg1 和 arg2 之间不要随便添加空格
@@ -173,4 +173,8 @@ endif
 ifdef arg 或者 ifndef arg
 else
 endif
+```
+3. Makefile 执行 shell 程序
+``` Makefile
+$(shell echo "Hello World")
 ```
