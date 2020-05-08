@@ -211,6 +211,7 @@ P
 |parse|解析|
 |parallelization|并行化|
 |prohibit|禁止|
+|propose|提出|
 
 Q
 ---
@@ -271,6 +272,7 @@ S
 |specifying|指定|
 |solid|坚固的|
 |synonym|代名词|
+|session|章节|
 
 T
 ---
