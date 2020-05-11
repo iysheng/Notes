@@ -209,7 +209,7 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
 	2. iw 设备名字 link # 查看指定设备网卡的连接状态
 	3. iw wifi网卡的名字 scan # 扫描 wifi 信号
 	4. ip link set wifi网卡名字 up # 如果这个网卡没有 up ，那么首先 up 这个网卡
-	5. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，制定 SSID 和 密码
+	5. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，指定 SSID 和 密码
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
 	1. dnf install xdm
 	2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm
