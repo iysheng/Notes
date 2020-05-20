@@ -352,3 +352,11 @@ EndSection
 	```
 45. LD_LIBRARY_PATH 变量指定了程序运行时链接的动态库路径
 46. shutter 是 Fedora Workstation 内置的截屏工具
+47. Taskwarrior 是 Linux 的 TODO list 工具
+    1. [日期格式](https://taskwarrior.org/docs/dates.html)
+	2. [工具的 doc](https://taskwarrior.org/docs/)
+``` bash
+sudo dnf install task # 安装 todolist
+task learn cook due:2020-05-20T12:00:00 rc.dateformat:Y-M-DTH:N:S #task add something want todo due:Y-M-DTH:N:S rc.dateformat:Y-M-DTH:N:S
+task ID done # 完成了某一个 task
+```
