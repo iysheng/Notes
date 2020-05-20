@@ -23,3 +23,6 @@ char a, b, c, d;
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);
+
+### Misc 库函数或者系统调用 memo 记录
+1. ftruncate 裁剪文件时，文件的位置偏移并不会发生变化，所以执行完 ftruncate 函数后或者前需要手动修改下文件的偏移 lseek
