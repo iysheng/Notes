@@ -351,3 +351,4 @@ EndSection
 	pkg-config --list-all # 列出所有可以使用的包
 	```
 45. LD_LIBRARY_PATH 变量指定了程序运行时链接的动态库路径
+46. shutter 是 Fedora Workstation 内置的截屏工具
