@@ -74,6 +74,11 @@
 		2. 一般的操作说明 git pull remote_repo remote_branch
 		3. 分为两个步骤的命令 git fetch remote_repo remote_branch ；git merge remote_name/branch_name / 或者 git merge FETCH_HEAD（备注： FETCH_HEAD 指向的是最新一次的 fetch）
 	50. git send-email # 需要安装 git-email
+	51. 针对某次提交 checkout 出来一个分支，否则的话如果直接 git checkout commitid，会造成分离头指针的情况
+		``` bash
+		git branch branch_name commitid # 在某次 commitid 的时刻，创建出一个分支
+		git checkout commitid # 针对某次 commitid 直接检出，这时候就会出现分离头指针，在分离头指针的情况下，也可以再次 git branch branch_name commitid 切出来分支
+		```
 4. 本地搭建 git 服务器
 	1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
 	2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
