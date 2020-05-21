@@ -360,3 +360,7 @@ sudo dnf install task # 安装 todolist
 task learn cook due:2020-05-20T12:00:00 rc.dateformat:Y-M-DTH:N:S #task add something want todo due:Y-M-DTH:N:S rc.dateformat:Y-M-DTH:N:S
 task ID done # 完成了某一个 task
 ```
+48. 文本和目录对比工具 meld
+```
+sudo dnf install meld
+```
