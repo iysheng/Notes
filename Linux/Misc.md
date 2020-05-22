@@ -108,6 +108,7 @@ wget https://avatars.githubusercontent.com/iysheng # 下载 iysheng 的头像
 22. 64 位 Fedora 编译 vim 遇到的问题
 	1. tgetent()... configure: error: NOT FOUND! 方法：LDFLAGS="$LDFLAGS -fPIC"，[这样可以 configure 配置通过，但是还是无法编译通过！！！](https://github.com/vim/vim/issues/1081)
 	2. Unknown type name ‘off64_t’ 方法：CLFAGS="-Doff64_t=__off64_t"
+23. Linux 的控制终端由控制码、一个环境变量和一组共称为 terminfo 数据库的特殊文件实现。Linux 将每种终端类型的 terminfo 数据作为一个单独的文件存储在 terminfo 数据库目录。常见的位置是 /usr/share/terminfo/ ；terminfo 的数据格式是二进制的需要使用 infocmp 命令查看
 
 ---
 ### zephyr 学习笔记
