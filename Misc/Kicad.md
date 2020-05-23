@@ -15,3 +15,5 @@ Pin connected to some other pins but no pin to drive it
 3. Kicad 插件
 	1. https://github.com/openscopeproject/InteractiveHtmlBom.git 动态 bom 插件
 	2. https://github.com/NilujePerchut/kicad_scripts.git 泪滴插件
+
+4. 编辑器件符号时候，在修改器件的引脚列表时，可以通过选择分组名称，批量的修改引脚的类型
