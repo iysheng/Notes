@@ -360,10 +360,16 @@ EndSection
 47. Taskwarrior 是 Linux 的 TODO list 工具
     1. [日期格式](https://taskwarrior.org/docs/dates.html)
 	2. [工具的 doc](https://taskwarrior.org/docs/)
+	3. [同步 task 的方法，使用 freecinc](https://freecinc.com/generated_keys)
 ``` bash
 sudo dnf install task # 安装 todolist
 task learn cook due:2020-05-20T12:00:00 rc.dateformat:Y-M-DTH:N:S #task add something want todo due:Y-M-DTH:N:S rc.dateformat:Y-M-DTH:N:S
 task ID done # 完成了某一个 task
+# 统计任务相关的命令
+task sum # 查看当前任务的概括以及完成度
+task ghistory # 查看完成、正在进行和删除的任务的数量
+task caleandar # 查看最近任务的日历信息
+task burndown.daily
 ```
 48. 文本和目录对比工具 meld
 ```
