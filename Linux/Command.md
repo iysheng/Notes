@@ -393,6 +393,8 @@ task ID due: # 删除指定 ID 的 task 的截止日期
 task ID modify scheduled:日期 YY-MM-DD # 修改指定的 task 的调度日期，当到达指定的日期的时候，就会修改指定的 task 为 ready 状态
 task ID modify until:YY-MM-DD # 指定 ID 的任务当超过 YY-MM-DD 时会自动销毁这个任务
 # rc.dateformat 参数会影响日期格式
+task completed # 列出已经完成的 task
+task all +COMPLETED # 列出已经完成的 task
 ```
 48. 文本和目录对比工具 meld
 ```
