@@ -281,17 +281,17 @@ EndSection
     [Install]
     WantedBy=graphical.target
     ```
-    2. 开启这个服务
+    2. 使能这个服务在每次开机时候运行，或者说创建这个服务
+    ``` bash
+    sudo systemctl enable test.service
+    ```
+    3. 开启这个服务
     ``` bash
     sudo systemctl start test.service
     ```
-    3. 查看这个服务的状态
+    4. 查看这个服务的状态
     ``` bash
     sudo systemctl status test.service
-    ```
-    4. 使能这个服务在每次开机时候运行
-    ``` bash
-    sudo systemctl enable test.service
     ```
 38. [Fedora tftp 服务器搭建](https://fedoramagazine.org/how-to-set-up-a-tftp-server-on-fedora/)
     ``` bash
