@@ -369,7 +369,9 @@ task ID done # 完成了某一个 task
 task sum # 查看当前任务的概括以及完成度
 task ghistory # 查看完成、正在进行和删除的任务的数量
 task caleandar # 查看最近任务的日历信息
-task burndown.daily
+task burndown.daily # 按天图形化显示最近日期的任务概述（以火焰图的方式）
+task burndown.weekly # 按周图形化显示最近日期的任务概述（以火焰图的方式）
+task burndown.monthly # 按月图形化显示最近日期的任务概述（以火焰图的方式）
 task ID modify project:project_name # 给某个任务的添加 project，将某个 task 划分到 project
 task ID modify due:日期 # 修改某一个 task 的结束日期
 task ID modify priority:M # 修改某个任务的优先级(H M L)
