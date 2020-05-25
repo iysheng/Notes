@@ -370,6 +370,18 @@ task sum # 查看当前任务的概括以及完成度
 task ghistory # 查看完成、正在进行和删除的任务的数量
 task caleandar # 查看最近任务的日历信息
 task burndown.daily
+task ID modify project:project_name # 给某个任务的添加 project，将某个 task 划分到 project
+task ID modify due:日期 # 修改某一个 task 的结束日期
+task ID modify priority:M # 修改某个任务的优先级(H M L)
+task ID modify +tag1 +tag2 # 给指定的任务添加 TAG 信息
+task ID modify +next # 加速提高指定任务的优先级
+task ID modify depends:OTHRE_ID # 修改指定的 task 依赖 OTHER_ID 对应的 task
+task +tag list # 列出包含名称为 tag 的 task
+task -tag list # 列出没有包含名称为 tag task
+task +TAGGED list # 列出所有包含 tag 的标签
+task tags.any: list # 列出所有包含 tag 的标签
+task +DUETODAY list # 列出今天到期的所有 task，并且这个 DUETODAY 标签不可以直接添加活着删除从指定的任务，可以通过修改 taskid 的 due 参数来添加这个虚拟的 tag
+task ID info # 查看当前 task 的信息
 ```
 48. 文本和目录对比工具 meld
 ```
