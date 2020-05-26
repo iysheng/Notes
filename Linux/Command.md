@@ -395,6 +395,13 @@ task ID modify until:YY-MM-DD # 指定 ID 的任务当超过 YY-MM-DD 时会自�
 # rc.dateformat 参数会影响日期格式
 task completed # 列出已经完成的 task
 task all +COMPLETED # 列出已经完成的 task
+
+timew # timewarrior 统计时间的工具，默认 Fedora 安装是没有自动补全的，如果需要自动补全可以参考 git bash 补全，从 timewarrior 源码获取 timew-completion.bash 文件，执行 source
+timew start 'task 1' 'task 2' task3 # 开启 3 个任务并计时
+timew summary task3 # 查看 task3 的概述总结
+timew config tags.task3.description '任务三的描述'
+timew track 9:00 - 11:00 task3
+cp timew-1.3.0/ext/on-modify.timewarrior ~/.task/hooks/ # 从 timewarrior 的源码将脚本呢复制到 taskwarrior 的 hooks 目录，就可以将 timewarrior 集成到 taskwarrior
 ```
 48. 文本和目录对比工具 meld
 ```
