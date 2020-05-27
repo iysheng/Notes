@@ -27,6 +27,7 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 source /usr/share/git-core/contrib/completion/git-prompt.sh
+source /home/yangyongsheng/.timewarrior/timew-completion.bash
 # export PS1="\e[0;36m\u@\w$(__git_ps1 '[%s]')\e[0m\]\$ "
 
 # 使用 lsd 取代 ls，带有色彩显示
@@ -54,16 +55,19 @@ alias xterminal='xfce4-terminal'
 
 alias gitamend='git commit --amend'
 alias gitst='git status'
+# bat 相关的配置 https://github.com/sharkdp/bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 # powerline PS1
 # function _update_ps1() {
 #     PS1=$(powerline-shell $?)
 # }
-# 
+#
 # if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
 #     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 # fi
-# 
+#
 #source ~/.pureline/pureline ~/.pureline.conf
 # https://gist.github.com/justintv/168835
 #export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
