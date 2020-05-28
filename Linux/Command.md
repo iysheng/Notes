@@ -430,5 +430,21 @@ sudo dnf install meld
     [interactive]
         diffFilter = delta --color-only
 	```
-
+52. 设置系统时间和硬件时间， ARM Linux
+	1. 设置系统时间
+	``` bash
+	date -s "2020-05-28 09:00:00" # 设置系统时间为 2020 年 5 月 28 日 9 点 0 分 0 秒，冒号很重要
+	```
+	2. 将系统时间修改为 RTC 硬件时间
+	``` bash
+	hwclock -w # 将系统时间修改为硬件 RTC 时间
+	```
+	3. 从 RTC 硬件时间设置系统时间
+	``` bash
+	hwclock -s # 将硬件 RTC 时间修改为系统时间
+	```
+	4. 现实硬件 RTC 时间
+	``` bash
+	hwclock -r
+	```
 
