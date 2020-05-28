@@ -408,6 +408,7 @@ cp timew-1.3.0/ext/on-modify.timewarrior ~/.task/hooks/ # 从 timewarrior 的源
 sudo dnf install meld
 ```
 49. [关于 PEERDNS 参数的描述](https://support.hpe.com/hpesc/public/docDisplay?docId=mmr_kc-0110350)，[参考文件](file:///usr/share/doc/initscripts/sysconfig.txt)简单来说如果设置了 PEERDNS=yes，就会通过 dhcp 获取 dns 来修改 /etc/resolv.conf 文件，如果设置了 PEERDNS=no，就不会通过 dhclient 获取 dns 修改 resolv.conf 这个参数，而是使用 DNS1、DNS2 修改 dns
+	1. 修改的文件一般是 /etc/sysconfig/network-scripts/ifcfg-*** 
 50. [带有色彩个数输出的类 cat 工具](https://github.com/sharkdp/bat)
 	1. 安装
 	``` bash
