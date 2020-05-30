@@ -17,3 +17,4 @@ Pin connected to some other pins but no pin to drive it
 	2. https://github.com/NilujePerchut/kicad_scripts.git 泪滴插件
 
 4. 编辑器件符号时候，在修改器件的引脚列表时，可以通过选择分组名称，批量的修改引脚的类型
+5. 画总线的命名方式是 Net_name[0..5]，如果两个总线直接连在一起，比如 A[0..5] 和 B[0..5]，那么默认的是 A0 连接的 B0，以此类推，如果是 A[5..9] 和 B[0..6]，那么只有 A5 和 B5 连接、A6 和 B6 连接 在一起
