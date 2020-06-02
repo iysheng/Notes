@@ -179,3 +179,10 @@ endif
 ``` Makefile
 $(shell echo "Hello World")
 ```
+4. IRC [Beginner’s guide to IRC](https://fedoramagazine.org/beginners-guide-irc/)
+	1. account 是账户，这个是持久的
+	2. nickname 是昵称，被账户所有
+	3. identify 意味着登陆你的账户
+	4. NickServ 是一个 freenode 的服务，像一个用户那样
+	5. [注册昵称的过程1](https://freenode.net/kb/answer/registration)
+	6. [注册昵称的过程2](https://www.wikihow.com/Register-a-Nickname-on-Freenode)
