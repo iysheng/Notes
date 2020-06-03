@@ -50,7 +50,7 @@ awk -F args '{print $arg1}' sth # 等价上述内容
 		2. str1 != str2 字符串不相等
 		3. str1 < str2 str1 比 str2 小
 		4. str1 > str2 str2 比 str1 小
-		5. -n str1 str1 不为 null，并且长度比 0 大
+		5. ~~-n str1 str1 不为 null，并且长度比 0 大，但是测试这个有问题，不能呢过识别出为定义或者定义=""的变量~~
 		6. -z str1 str1 为 null，并且长度为 0
 		7. -a file 如果 file 存在
 		8. -d file 如果 file 存在并且是一个目录
@@ -227,6 +227,7 @@ unset array[100] # 删除 array 数组第 101 个元素的赋值
 |n >&|复制标准输出到文件描述符 n|
 |n <&|从文件描述符 n 复制标准输入|
 |&> file|**重定向标准输出和错误输出到 file**|
+|>& file|**重定向标准输出和错误输出到 file**|
 |<&-|关闭标准输入|
 |>&-|关闭标准输出|
 22. **here-document** # 用来替换标准输入，label 这一段内容临时替换位上一个命令的标准输入，语法

@@ -179,3 +179,32 @@ endif
 ``` Makefile
 $(shell echo "Hello World")
 ```
+4. IRC [Beginner’s guide to IRC](https://fedoramagazine.org/beginners-guide-irc/)
+    1. account 是账户，这个是持久的
+    2. nickname 是昵称，被账户所有
+    3. identify 意味着登陆你的账户
+    4. NickServ 是一个 freenode 的服务，像一个用户那样
+    5. [注册昵称的过程1](https://freenode.net/kb/answer/registration)
+    6. [注册昵称的过程2](https://www.wikihow.com/Register-a-Nickname-on-Freenode)
+5. 安装 dhcp 服务，支持客户端测试 dhcp 获取 IP
+    1. 配置 /etc/dhcp/dhcpd.conf 文件，如下示例：
+    ```
+    # dhcpd.conf
+    #
+    # Sample configuration file for ISC dhcpd
+    #
+    
+    # option definitions common to all supported networks...
+    option domain-name "redWork.com";
+    option domain-name-servers 8.8.8.8;
+    
+    default-lease-time 600;
+    max-lease-time 7200;
+    
+    subnet 192.168.100.0 netmask 255.255.255.0 {
+      range dynamic-bootp 192.168.100.99 192.168.100.210;
+      option routers 192.168.100.200;
+    }
+    ```
+    2. systemctl enable dhcpd
+    3. systemctl start dhcpd
