@@ -215,6 +215,7 @@ du -s /home/red # 显示 red 目录占用总的磁盘空间
     3. iw wifi网卡的名字 scan # 扫描 wifi 信号
     4. ip link set wifi网卡名字 up # 如果这个网卡没有 up ，那么首先 up 这个网卡
     5. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，指定 SSID 和 密码
+    6. sudo nmcli connection up enp0s20f0u2u3 # 主动执行 /etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3 配置的网卡设置，这是无法通过 sudo service NetworkManager restart 配置这个 USB 转网卡设备的曲线方法
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm

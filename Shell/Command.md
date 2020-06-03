@@ -50,7 +50,7 @@ awk -F args '{print $arg1}' sth # 等价上述内容
 		2. str1 != str2 字符串不相等
 		3. str1 < str2 str1 比 str2 小
 		4. str1 > str2 str2 比 str1 小
-		5. -n str1 str1 不为 null，并且长度比 0 大
+		5. ~~-n str1 str1 不为 null，并且长度比 0 大，但是测试这个有问题，不能呢过识别出为定义或者定义=""的变量~~
 		6. -z str1 str1 为 null，并且长度为 0
 		7. -a file 如果 file 存在
 		8. -d file 如果 file 存在并且是一个目录
