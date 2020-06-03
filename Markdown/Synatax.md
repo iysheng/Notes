@@ -2,6 +2,7 @@
 ### MarkDown 笔记
 ---
 
+<a id='jump0'>作为演示锚点，待跳转的位置</a>
 1. 插入图片
 ``` markdown
 ![描述](图片路径)
@@ -31,3 +32,9 @@
 ~~删除内容~~
 <u>下划线</u>
 ```
+6. markdown 添加锚点跳转示例：
+```
+extra code for demonstrate
+It's never too late to learn.
+```
+[跳转的触发点位](#jump0)
