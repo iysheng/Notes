@@ -38,7 +38,20 @@
 	" ===
 	endsnippet
 	```
-	3. snippets 默认对于 C 语言有一个 head 代码片段
+	3. snippets 默认对于 C 语言有一个 head 代码片段，具体可以参看文件~/.vim/plugged/vim-snippets/UltiSnips/c.snippets
+	4. 变量 UltiSnipsSnippetDirectories 可以修改 snipper 默认的搜索路径，默认的会搜索所有 runtimepath 路径的子目录，这个 snippets 的搜索路径可以指定**绝对路径**，关键字 ***snippets*** 是保留的。
+	```vim
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-snippets/UltiSnips/']
+	```
+	5. snip 支持对片段的展开和片段变量的跳转
+	```vim
+	" 设置 ctrl-e 展开代码片段，因为和 YCM tab 冲突
+    let g:UltiSnipsExpandTrigger="<c-e>"
+	" 设置向前跳转到下一个变量
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+	" 设置向后跳转到上一个变量
+    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+	```
 8. dominikduda/vim_current_word # 高亮光标所在的 word
 9. 'gruvbox-material/vim', {'as': 'gruvbox-material'} # gruvxbox 改进配色
 10. 'majutsushi/tagbar' # 可以替换 taglist 查看 tag 的插件， 命令 TagbarToggle 切换是否显示 tag 列表

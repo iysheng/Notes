@@ -94,7 +94,9 @@ Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'
 "Plug 'tpope/vim-fugitive'
 
+" 代码片段的模板仓库
 Plug 'honza/vim-snippets'
+" 代码片段引擎
 Plug 'SirVer/ultisnips'
 
 Plug 'mhinz/vim-startify'
@@ -204,7 +206,9 @@ let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=["$HOME.'/.vim/UltiSnips'", "UltiSnips"]
+" 使用'honza/vim-snippets' 默认的代码片段目录，已经同步该仓库到
+" https://gitee.com/iysheng/vim-snippets.git
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-snippets/UltiSnips/']
 
 " ===
 " === lightline
@@ -245,3 +249,5 @@ let g:gundo_prefer_python3=1
 let g:gundo_help=0
 noremap <leader>u :GundoToggle<cr>
 
+" 代码高亮 80 列
+hi ColorColumn guibg=purple
