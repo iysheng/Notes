@@ -250,4 +250,4 @@ let g:gundo_help=0
 noremap <leader>u :GundoToggle<cr>
 
 " 代码高亮 80 列
-hi ColorColumn guibg=purple
+hi ColorColumn guibg=DarkCyan
