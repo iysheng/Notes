@@ -462,3 +462,22 @@ sudo dnf install meld
 	```
 53. fd 匹配内容
 	1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
+54. mutt 工具学习
+	1. MXA 工具集合
+		1. **MUA:Mail User Agent(email client)**
+			mutttools
+			这个是邮件客户端的前端
+		2. **MTA:Mail Transport Agent(SMTP server)**
+			exim,(postfix),sendmail,qmail
+			这个是发送邮件的工具
+		3. **MDA:Mail Delivery Agent**
+			对 MTA 接收到的邮件进行派发，简单说是分到对应的目录（假如你创建了一些目录）
+		4. **MRA:Mail Retrieval Agent(POP/IMAP client)**
+			(fetchmail),getmail
+			这个是接收邮件的工具
+	2. 首先安装 mutt 然后安装 MTA
+	```
+	sudo dnf install mutt postfix
+	sudo alternatives --config mta # 修改默认的 mta 配置，可以扩展到其他默认工具配置
+	```
+	
