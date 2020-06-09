@@ -219,3 +219,4 @@ $(shell echo "Hello World")
 		3. 在后续注册 spi_driver 的时候，可以通过名称或者 id 匹配申然后执行对应的 probe，真正执行 spi 发送和接受功能的时候需要依靠 spi_master 的 transfer 成员函数；
 	3. 通过函数 spi_write_then_read 读写时，要注意写寄存器时，有些设备需要额外设置寄存器地址的高 bit 为 1 ；类似 I2C 总线一样，高 bit 表示读写？？？
 	4. 如果只写不读的时候可以使用 spi_write 函数
+7. linux APP 程序 bool 运算的头文件是 #include <stdbool.h>
