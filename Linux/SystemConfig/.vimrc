@@ -69,6 +69,8 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'joshdick/onedark.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'ajmwagar/vim-deus'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -81,6 +83,7 @@ Plug 'mileszs/ack.vim'
 Plug 'valloric/youcompleteme'
 Plug 'sjl/gundo.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'andymass/vim-matchup'
 
 Plug 'majutsushi/tagbar'
 Plug 'chazy/cscope_maps'
@@ -103,6 +106,11 @@ Plug 'mhinz/vim-startify'
 " 高亮光标所在的 word
 Plug 'dominikduda/vim_current_word'
 call plug#end()
+
+" ===
+" === match up
+" ===
+let g:loaded_matchit = 1
 
 " ===
 " === current_word plug config
@@ -151,13 +159,29 @@ map <right> <nop>
 "colorscheme nord
 
 " ===
-" ===onedark
+" === deus colorscheme
 " ===
 if exists('+termguicolors')
   set termguicolors
+  if &term =~# '^screen'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
 endif
-let g:onedark_terminal_italics = 1
-colorscheme onedark
+colorscheme deus
+
+" ===
+" ===onedark
+" ===
+"if exists('+termguicolors')
+"  set termguicolors
+"  if &term =~# '^screen'
+"    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"  endif
+"endif
+"let g:onedark_terminal_italics = 1
+"colorscheme onedark
 
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
