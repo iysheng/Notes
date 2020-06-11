@@ -480,4 +480,9 @@ sudo dnf install meld
 	sudo dnf install mutt postfix
 	sudo alternatives --config mta # 修改默认的 mta 配置，可以扩展到其他默认工具配置
 	```
-	
+55. Fedora 安装对应内核的源码
+``` bash
+sudo dnf install kernel-devel
+# 安装成功后，就会在 /usr/src/kernels 目录看到对应的内核源码
+# 国内镜像内核源码下载的源地址 https://mirror.bjtu.edu.cn/kernel/linux/kernel/
+```
