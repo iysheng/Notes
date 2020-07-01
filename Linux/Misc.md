@@ -221,7 +221,7 @@ $(shell echo "Hello World")
 	4. 如果只写不读的时候可以使用 spi_write 函数
 7. linux APP 程序 bool 运算的头文件是 #include <stdbool.h>
 8. linux driver 程序，不支持浮点出发运算时，可以使用 do_div 函数，使用长整形执行除法运算，曲线方法
-9. linux kernel 编译 doc 文档，eg：**make htmldocs**
+9. linux kernel 编译 doc 文档，eg：**make htmldocs**，编译出的文档在目录 Documentation/DocBook
 ``` bash
 $ make help | grep "doc"
 Linux kernel internal documentation in different formats:
