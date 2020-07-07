@@ -20,6 +20,13 @@ int x;
 char a, b, c, d;
 } __attribute__((packed));
 ```
+4. inline 关键字修改函数定义
+```C
+inline void func(void)
+{
+
+}
+```
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);
