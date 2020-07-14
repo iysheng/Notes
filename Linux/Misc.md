@@ -69,7 +69,7 @@
 	3. ime：补丁，修复 st 下不能正常切换输入法的补丁，默认官方已经添加了该补丁
 	4. scrollback：支持在 st 下实现界面回滚的补丁
 17. openocd
-	1. -s 选项，指定配置文件的搜索路径
+	1. -s 选项，指定配置文件的搜索路径， -f 选项指定配置文件
 	2. flash probe bank_id 探测flash
 	3. flash list 列出flash
 	4. flash erase_address addr length 擦除flash
@@ -78,6 +78,7 @@
 	7. flash write_image [erase] filename offset 将文件写入到flash的指定地址,可以选择写入之前先擦除flash
 	8. mdw address [count] 显示address地址的内存，长度count
 	9. mw[w,b] address value [count] 修改address内存数据，长度count
+	10. 擦写 flash 之前一般需要 halt 住 cpu
 18. tmux 一款终端分平软件 (三个基本概念：session、window、panel)
 	1. [tpm](https://github.com/tmux-plugins/tpm)：tmux 的插件管理器
 	2. nord 色彩配置，建议关闭 powerline 的箭头型符号

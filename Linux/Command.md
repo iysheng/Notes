@@ -487,3 +487,7 @@ sudo dnf install kernel-devel
 # 安装成功后，就会在 /usr/src/kernels 目录看到对应的内核源码
 # 国内镜像内核源码下载的源地址 https://mirror.bjtu.edu.cn/kernel/linux/kernel/
 ```
+56. file 命令
+```
+file -L 连接脚本 # 可以跟踪连接脚本，查看所连接的目标的文件属性，默认 file 连接脚本不会跟踪到连接脚本的目标
+```
