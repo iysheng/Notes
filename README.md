@@ -45,6 +45,7 @@
 * [Go_Programming](https://github.com/iysheng/Notes/blob/master/Linux/doc/The_Go_Programming_Language.pdf)
 * [html_css_design_and_build_websites](https://github.com/iysheng/Notes/blob/master/Linux/doc/html_css_design_and_build_websites.pdf)
 * [Hands-onPythonTutorial](https://github.com/iysheng/Notes/blob/master/Linux/doc/Hands-onPythonTutorial.pdf)
+* [scons-user](https://github.com/iysheng/Notes/blob/master/Linux/doc/scons-user.pdf)
 ---
 
 ##### Dictionary
