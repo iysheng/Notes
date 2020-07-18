@@ -236,3 +236,15 @@ Linux kernel internal documentation in different formats:
 ```
 10. sqlite
 	1. 通过给某一个整形的键值添加 **INTEGER PRIMARY KEY** 或者 **ROWID**，就等价将这个值作为 [rowid](https://www.sqlite.org/autoinc.html#summary)，这个值在数据表中需要是唯一的，并且当没有明确给这个值赋值时，会自动加 1。
+11. scons 构建工具，SCons 使用 SConscript 和 SConstruct 文件来组织源码结构，通常来说一个项目只有一 SConstruct，但是会有多个 SConscript。一般情况下，每个存放有源代码的子目录下都会放置一个 SConscript。
+	1. scons --target=makefile # 构建 Makefile 的编译文件
+	2. SConscript 文件可以控制源码文件的加入，并且可以指定文件的 Group。
+	3. scons 的环境分为：
+		1. 外部环境，执行 scons 的 shell 环境（针对 Linux）
+		2. 构造环境，一个 SConscript 文件创建的唯一的一个对象！！！，外部环境可以使用 os.environ 获取。一个构造环境实际上是一个拥有方法的对象。如果你想直接访问构造变量的字典，你可以使用Dictionary方法： 
+		``` python
+		env=Environment(FOO='foo', BAR='bar')
+		dict=env.Dictionary()
+		for key in ['OBJSUFFIX', 'LIBSUFFIX', 'PROGSUFFIX']:
+		print ("key=%s, value=%s"  %  (key,dict[key]))
+		```

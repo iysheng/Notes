@@ -80,6 +80,7 @@
         git checkout commitid # 针对某次 commitid 直接检出，这时候就会出现分离头指针，在分离头指针的情况下，也可以再次 git branch branch_name commitid 切出来分支
         ```
     52. git diff HEAD^ HEAD ; 将最近的一次提交打成一个补丁文件
+    53. git branch -m 旧分支名 新分支名 # 修改分支名称
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
@@ -106,6 +107,7 @@ echo 'ibase=10; obase=16; 25' | bc   # 结果 19
     8. Q 直接退出 tig，q 退出到上一个视图
     9. 在查看文件时，要使用 j、k 这些按键
     10. d 到跳转到对应选择的 diff 视图，比如某次 commit、 stage 的和 unstage 的
+    11. O 可以最大化当前窗口
 7. ls -lt 默认是按照文件的修改时间排序的，相应的 ls -ltu 是按照文件的访问时间排序， ls -ltc 是按照文件的 i 节点的修改时间排序
 8. open 函数打开的文件名，要对包含的目录具有可执行权限位，这个位也被成为搜索位
 9. unlink 函数，减少文件的链接记数；rename 函数，重新命名文件或者目录
