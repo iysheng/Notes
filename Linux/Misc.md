@@ -248,3 +248,5 @@ Linux kernel internal documentation in different formats:
 		for key in ['OBJSUFFIX', 'LIBSUFFIX', 'PROGSUFFIX']:
 		print ("key=%s, value=%s"  %  (key,dict[key]))
 		```
+12. C 语言的一些头文件
+	1. uint8_t 对应的头文件 <stdint.h>
