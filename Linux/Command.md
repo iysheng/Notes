@@ -498,3 +498,8 @@ file -L 连接脚本 # 可以跟踪连接脚本，查看所连接的目标的文
 ```
 tar -tvf *.tar # 查看指定的压缩包的文件列表
 ```
+58. **xrandr** 命令
+```
+xrandr # 现实屏幕连接的装信息
+xrandr --output 分屏 --right-of 主屏 --auto # 屏幕扩展命令
+```
