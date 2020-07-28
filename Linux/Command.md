@@ -503,3 +503,6 @@ tar -tvf *.tar # 查看指定的压缩包的文件列表
 xrandr # 现实屏幕连接的装信息
 xrandr --output 分屏 --right-of 主屏 --auto # 屏幕扩展命令
 ```
+59. gdb 调试 elf 文件
+	1. gdb + elf 文件
+		1. diassemble + 地址 # 反汇编指定地址的代码
