@@ -504,5 +504,7 @@ xrandr # 现实屏幕连接的装信息
 xrandr --output 分屏 --right-of 主屏 --auto # 屏幕扩展命令
 ```
 59. gdb 调试 elf 文件
-	1. gdb + elf 文件
-		1. diassemble + 地址 # 反汇编指定地址的代码
+    1. gdb + elf 文件
+        1. diassemble + 地址 # 反汇编指定地址的代码
+60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
+    1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
