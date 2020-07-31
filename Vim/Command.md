@@ -36,7 +36,7 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 ``` vim
 :g/^\s*$/d
 ```
-24. ctrl+w n 新建一个 window， ctrl+w x 交换两个窗口的位置， ctrl+w c 关闭这个窗口
+24. ctrl+w n 新建一个 window， ctrl+w x 交换两个窗口的位置(前提两个窗口的大小要相等)，ctrl+w r 也可以实现交换两个窗口的位置(顺时针转动窗口)，ctrl+w R(逆时针转动窗口) ctrl+w c 关闭这个窗口
 25. :copen 打开一个 quickfix window
 26. vimdiff 可以方便的对比两个文件的差异以及修改： vim a.c b.c
 	1. do 或者 :diffget 以对方的修改为准，覆盖自己的修改
