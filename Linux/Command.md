@@ -514,3 +514,11 @@ xrandr --output 分屏 --right-of 主屏 --auto # 屏幕扩展命令
 ``` bash
 echo "hello world" | sed 's/world/china/g'
 ```
+62. 安装 fcitx5 ，关键的一个地方[修改X11 的默认输入法](https://wiki.archlinux.org/index.php/Fcitx#Input_method_module)
+	1. 创建一个文件 **~/.pam_environment**
+	2. 在这个文件配置，测试配置为 fcitx 可以正常使用 fcitx5
+	```
+	GTK_IM_MODULE DEFAULT=fcitx
+	QT_IM_MODULE  DEFAULT=fcitx
+	XMODIFIERS    DEFAULT=@im=fcitx
+	```
