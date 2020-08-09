@@ -20,6 +20,11 @@
 
 ---
 
+##### Python_language
+* [读书笔记](https://github.com/iysheng/Notes/blob/master/Python_language/notes.md)
+
+---
+
 ##### Shell
 * [命令学习](https://github.com/iysheng/Notes/blob/master/Shell/Command.md)
 
