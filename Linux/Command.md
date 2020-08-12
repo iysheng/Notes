@@ -523,3 +523,14 @@ echo "hello world" | sed 's/world/china/g'
 	QT_IM_MODULE  DEFAULT=fcitx
 	XMODIFIERS    DEFAULT=@im=fcitx
 	```
+63. **xxd** 命令，二进制显示和处理文件工具
+```
+xxd -s 0x30 file # 跳过文件的前 0x30 字节内容显示
+xxd -s -0x30 file # 只显示文件的最后 0x30 字节内容
+xxd -i file # 以二进制显示文件，并直接导出到 .c 文件，作为数组的方式
+xxd -r -s count file # 在 file 文件前填充 count 字节的 0
+```
+64. **htop** 工具
+    1. M 按照内存大小排序
+    2. P 按照 CPU 占用大小排序
+    3. T 按照运行时间大小排序
