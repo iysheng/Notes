@@ -534,3 +534,10 @@ xxd -r -s count file # 在 file 文件前填充 count 字节的 0
     1. M 按照内存大小排序
     2. P 按照 CPU 占用大小排序
     3. T 按照运行时间大小排序
+65. GCC 修改字节对齐的大小
+``` C
+/* 按照字节对齐存储 */
+#pragma pack(1)
+.....
+#pragma pack()
+```
