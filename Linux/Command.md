@@ -541,3 +541,8 @@ xxd -r -s count file # 在 file 文件前填充 count 字节的 0
 .....
 #pragma pack()
 ```
+66. pacman 选项
+``` bash
+sudo pacman -Sy # 更新软件包缓存
+sudo pacman -SU # 更新包
+```
