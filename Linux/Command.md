@@ -65,7 +65,7 @@
     42. git branch -r 查看远程分支
     43. git checkout branchname 切换到某个分支
     44. git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
-    45. git log --stat ；// review the files modify each commit
+    45. git log --stat ： 查看提交记录，包含每次提交的文件列表
     46. git diff commitid ；// review the files modify detiles this commit
     47. git show commitid ；// 查看某一次提交修改的代码
     48. git commit --amend ；// 修改最近依次提交的 commit 信息
@@ -78,6 +78,7 @@
         ``` bash
         git branch branch_name commitid # 在某次 commitid 的时刻，创建出一个分支
         git checkout commitid # 针对某次 commitid 直接检出，这时候就会出现分离头指针，在分离头指针的情况下，也可以再次 git branch branch_name commitid 切出来分支
+        git checkout commitid filename # 检出指定文件的某次提交的版本
         ```
     52. git diff HEAD^ HEAD ; 将最近的一次提交打成一个补丁文件
     53. git branch -m 旧分支名 新分支名 # 修改分支名称
@@ -541,3 +542,4 @@ xxd -r -s count file # 在 file 文件前填充 count 字节的 0
 .....
 #pragma pack()
 ```
+
