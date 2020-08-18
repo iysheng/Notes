@@ -4,3 +4,9 @@
 print('a','b') # a b
 print('a','b',sep='') # ab
 ```
+2. youcompleteme 安装 python 补全引擎**python-jedi**
+```bash
+sudo pacman -S python-jed
+# 为了修改 vim 自动将当前路径添加到当前工程还需要修改 .vimrc 的配置
+```
+3. **help** 函数可以查看某一个模块的所有信息，比如定义的方法、变量等内容
