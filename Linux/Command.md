@@ -547,3 +547,9 @@ xxd -r -s count file # 在 file 文件前填充 count 字节的 0
 sudo pacman -Sy # 更新软件包缓存
 sudo pacman -SU # 更新包
 ```
+67. ckermit [记录串口终端的打印](http://www.columbia.edu/kermit/logserial.html)
+``` bash
+C-kermit> SET SESSION-LOG TEXT
+C-kermit> log session filename(待保存打印的文件名)
+C-kermit> c 连接
+```
