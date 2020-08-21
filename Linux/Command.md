@@ -85,6 +85,13 @@
     54. git submodule update --init --recursive # Download sub module command
     55. git clone --recursive reposite # recursion download sub module
     56. git rm --cached 文件路径 # 取消对指定文件的跟踪
+    57. [git submoduleed 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
+        ```
+        git submodule add -b branch_name [URL to Git Repo] # 添加子模块的跟踪路径和对应的分支
+        git submodule init # 初始化 submodule 的配置
+        1. git submodule mv [旧的子模块目录名] [新的子模块目录名] # 修改旧的子模块目录名为新的子模块目录名
+        2. git submodule sync # 同步对子模块的修改
+        ```
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
