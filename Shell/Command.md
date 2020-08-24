@@ -43,6 +43,7 @@ shopt -u 取消设置 shell 的某一个选项
 ``` bash
 cut -f arg1 -d arg2 sth # 截取变量 sth 的内容，以 arg2 为分隔符，取第 arg1 列内容
 awk -F args '{print $arg1}' sth # 等价上述内容
+awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
 ```
 13. bash 的流控 (return 只能用在函数中， exit 用来退出整个 shell 脚本)
 	1. if/else # if 只能测试退出的状态值，可以通过 [ * ]（等价 test） 或者 [[ * ]]（bash v2.05 版本之前不支持） 来配合 if 判断，在表达式前添加 ! 可以取反，[ * ] 和 [[ * ]] 之间可以添加逻辑符号，比如 && 等价 -a，|| 等价 -o
