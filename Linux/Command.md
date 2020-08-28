@@ -419,7 +419,7 @@ timew config tags.task3.description '任务三的描述'
 timew track 9:00 - 11:00 task3
 cp timew-1.3.0/ext/on-modify.timewarrior ~/.task/hooks/ # 从 timewarrior 的源码将脚本呢复制到 taskwarrior 的 hooks 目录，就可以将 timewarrior 集成到 taskwarrior
 ```
-48. 文本和目录对比工具 meld
+48. [文本和目录对比工具 meld](https://fedoramagazine.org/compare-files-with-these-graphical-diff-tools-in-fedora/)
 ``` bash
 sudo dnf install meld
 ```
@@ -560,3 +560,5 @@ C-kermit> SET SESSION-LOG TEXT
 C-kermit> log session filename(待保存打印的文件名)
 C-kermit> c 连接
 ```
+68. scons 工具学习
+	1. scons -c 清理，类似 make clean
