@@ -562,3 +562,10 @@ C-kermit> c 连接
 ```
 68. scons 工具学习
 	1. scons -c 清理，类似 make clean
+69. make 学习笔记
+	1. **wildcard** Makefile 的通配符 函数
+``` Makefile
+# 匹配 path 路径下所有的 .c 文件
+$(wildcard path/*.c)
+```
+	2. Makefile 的执行动作要用 Tab 键隔开
