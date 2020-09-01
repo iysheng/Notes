@@ -34,6 +34,12 @@ cout << 123;
 cout << uppercase << "abc"; /* ABC */
 /* 小写打印 */
 cout << nouppercase << "ABC"; /* abc */
+/* 设置以及返回浮点数的精度 */
+int precision(int n);
+int precision() const;
+/* 如果想要打印 bool 变量的 true 或者 false,那么需要 setf(boolalpha) */
+bool ok(true);
+cout << boolalpha << ok << endl;
 ```
 8. **ios** 输入输出流
 |流名称|流描述|
@@ -42,3 +48,19 @@ cout << nouppercase << "ABC"; /* abc */
 |cout| Object of class ostream to control standard output|
 |cerr| Object of class ostream to control unbuffered error output|
 |clog| Object of class ostream to control buffer|
+9. **cin** 格式化输入
+``` C++
+cin.sync(); /* 清除输入 */
+cin.clear(); /* 清除错误标志 */
+```
+10. 可以使用 **get() 和 put()**，读或者写一个单一字符
+``` C++
+char ch;
+cin.get(ch); /* 从命令行获取一个字符保存到 ch */
+cout.put(ch); /* 将 ch 字符打印出来 */
+```
+11. **>>** 符号只能读取一个单词到 string,如果想获取一整句的话，那么需要使用函数 **getline()**
+``` C++
+getline(cin, text); /* 读取一整句话，直到遇到 '\n' */
+getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
+```
