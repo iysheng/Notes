@@ -35,6 +35,8 @@ B
 |backends|后端|
 |backslash|反斜杠|
 |binary heap algorithm|二进制堆算法|
+|binary|二元|
+|binary operator|二元运算符|
 |buggy||
 |brace|大括号|
 |bootstrap|引导|
@@ -296,6 +298,8 @@ U
 |underlay|底层|
 |update|更新|
 |upgrade|升级|
+|unary|一元的|
+|unary operator|一元运算符|
 
 V
 ---
