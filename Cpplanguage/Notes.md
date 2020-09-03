@@ -144,3 +144,67 @@ float &rx = x; /* 定义了一个 x 的引用 rx */
 /* 导致的结果是 rx 变化时候， x 也会变化 */
 ```
 24. 类定义
+	1. 类成员默认是 private 类型的，除非显式声明为 public
+	2. struct 和 union 是特殊的 class,成员默认是 public 的，除非显式声明为 private
+	3. :: 是域操作符
+25. 方法
+	1. 构造方法没有 **返回值， void 都没有** ，构造方法的名称要和 **类名称一致**
+	2. 构造方法通常是 public 的，构造方法支持重载
+	3. 如果一个构造方法只有一个参数，那么可以通过 = 符号直接给这个类对象赋值，会调用到这个一个参数的构造方法
+	4. 不带参数的构造方法称为默认的构造方法，如果没有指定构造方法，编译器会创建一个默认的构造方法，但是不会使用这个隐含的默认构造方法初始化变量！！！
+	5. 析构方法，每一个类有且只有一个析构方法，并且析构方法没有参数,在 object 的生命周期结束时，会自动执行这个类的析构方法
+	6. 频繁地调用很短的方法会影响系统的性能，产生很大的开销，所以引入了 inline 方法来降低频繁调用短方法，类似定义 inline 函数, inline 方法分为显式和隐式定义
+		1. 显示定义 inline 方法
+		``` C++
+			inline void ABC::hello()
+			{
+			...
+			}
+		```
+		2. 隐式定义 inline 方法,没有 inline 关键字，定义在 class 内部
+		``` C++
+			class ABC
+			{
+    			void hello()
+    			{
+    			...
+    			}
+			}
+		```
+``` C++
+class ABC
+{
+    public:
+	ABC(int);
+	ABC(int, int);
+	void hello(void);
+	private:
+	int age;
+	int acount;
+}
+
+/* 构造函数定义 */
+ABC::ABC(int a, int b)
+{
+    age = a;
+	acount = b;
+}
+
+ABC::ABC(int a)
+{
+    age = a;
+	acount = 1;
+}
+
+ABC a(1); /* 等价 ABC a = 1; 这个构造方法只有一个参数 */
+```
+	7. Access 方法简单来说就是对 private 数据包装了一层 public 的方法，可以访问 private data 成员
+	8. 只读方法的定义是在函数声明的结尾添加 **const**
+	9. copy 构造函数方法,当一个类对象是函数参数的时候，在调用这个函数的时候，也使用了 copy 构造方法
+	``` C++
+	ABC a1(1);
+	ABC a2(a1); /* a2 对象等 a1 */
+	```
+	10. object 也可以直接赋值，使用 **=**
+	11. 类的方法通过 this 指针访问这个类 object 的所有成员
+	12. 函数可以通过返回 object 的引用或者 copy（类似是重新定义一个 object 变量返回） 来返回一个 object，也可以返回一个 object 指针
