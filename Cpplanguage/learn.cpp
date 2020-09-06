@@ -188,6 +188,53 @@ int t9()
 	return 0;
 }
 
+class A
+{
+    public:
+		virtual void lite()=0;
+		virtual void fool()
+        {
+		    cout << "A fool" << endl;
+		};
+
+		virtual ~A()
+		{
+		    cout << "A destruct" << endl;
+		};
+};
+
+class B:public A
+{
+    public:
+		virtual void lite()
+		{
+		    cout << "B lite" << endl;
+		};
+
+		virtual void fool()
+        {
+		    cout << "B fool" << endl;
+		};
+
+		virtual ~B()
+		{
+		    cout << "B destruct" << endl;
+		};
+};
+
+void t10()
+{
+    A *a = new B();
+	a->fool();
+	a->lite();
+	delete a;
+}
+
+void t11()
+{
+    B b;
+}
+
 int main()
 {
 #if 0
@@ -205,7 +252,7 @@ int main()
 	t7((float)1.1, (float)2.1, (float)3.1);
 #endif
 
-	t9();
+	t10();
 
 	return 0;
 }
