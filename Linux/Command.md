@@ -569,3 +569,7 @@ C-kermit> c 连接
 $(wildcard path/*.c)
 ```
 	2. Makefile 的执行动作要用 Tab 键隔开
+70. arch 配置 tftp 服务
+``` bash
+sudo pacman -S tftp-hpa # 安装程序
+```

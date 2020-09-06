@@ -178,6 +178,9 @@ class ABC
 	ABC(int);
 	ABC(int, int);
 	void hello(void);
+	static int num;
+	static int getnum();
+
 	private:
 	int age;
 	int acount;
@@ -208,3 +211,15 @@ ABC a(1); /* 等价 ABC a = 1; 这个构造方法只有一个参数 */
 	10. object 也可以直接赋值，使用 **=**
 	11. 类的方法通过 this 指针访问这个类 object 的所有成员
 	12. 函数可以通过返回 object 的引用或者 copy（类似是重新定义一个 object 变量返回） 来返回一个 object，也可以返回一个 object 指针
+26. 成员对象
+	1. **static** 静态成员对象对一个类来说占用的内存空间只有一份，就像成员函数一样,不管定义多少个类的 object,这个类 static 的变量仅有一份，类似在是这个类的全局变量，访问这个变量使用的是域操作符 **::**,静态变量使用在 **必须初始化（在 class 之外初始化： int Class::aount; 否则会报编译错误）**
+	``` C++
+	int ABC::num = 1;
+	```
+	2. 构造函数初始化成员可以写为：
+	``` C++
+	ABC::ABC(int a):age(a),acount(a)
+	```
+	3. 因为 static 成员变量独立 object,所属这个 class,所以如果将一个 static 便另至为 private 类型，那么需要使用 static 方法访问这个 static 变量,static 方法可以使用类的域操作符访问， ABC::getnum()
+	4. 定义在 class 的枚举，只在这个 class 可以直接使用
+27. 数组

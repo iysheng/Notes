@@ -139,6 +139,55 @@ long long t8(int a)
 	return b;
 }
 
+class ABC
+{
+	private:
+		static int count;
+
+	public:
+		int abc;
+		ABC();
+		ABC(class ABC& abc);
+		static inline int get_count()
+		{
+		    return count;
+		}
+};
+
+int ABC::count = 0;
+
+#if 0
+ABC::ABC(class ABC& pm)
+{
+	count++;
+	this->abc = pm.abc;
+}
+#else
+ABC::ABC(class ABC& pm):abc(pm.abc)
+{
+    count ++;
+}
+#endif
+
+ABC::ABC()
+{
+    count++;
+    abc = 1;
+}
+
+int t9()
+{
+    ABC A1;
+	cout << A1.abc << endl;
+	A1.abc = 2;
+	ABC A2(A1);
+	cout << A2.abc << endl;
+
+	cout << A1.get_count() << endl;
+
+	return 0;
+}
+
 int main()
 {
 #if 0
@@ -151,12 +200,12 @@ int main()
 	cout << "showpoint " << showpoint << y << endl;
 	cout << "fixed" << fixed << x << endl;
 	cout << "scientific" << scientific << x << endl;
-#endif
 
 	t7(1,2,3);
 	t7((float)1.1, (float)2.1, (float)3.1);
+#endif
 
-	cout << "factorial 20 " << t8(20) << endl;
+	t9();
 
 	return 0;
 }
