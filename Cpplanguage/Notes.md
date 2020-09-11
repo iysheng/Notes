@@ -223,23 +223,25 @@ ABC a(1); /* 等价 ABC a = 1; 这个构造方法只有一个参数 */
 	3. 因为 static 成员变量独立 object,所属这个 class,所以如果将一个 static 便另至为 private 类型，那么需要使用 static 方法访问这个 static 变量,static 方法可以使用类的域操作符访问， ABC::getnum()
 	4. 定义在 class 的枚举，只在这个 class 可以直接使用
 27. 数组
+	1. 数组的成员也可以是类的对象，这时候就称之为 class array
 28. **virtual 函数**（虚函数是 C++ 中用于实现多态(polymorphism)的机制。核心理念就是通过基类访问派生类定义的函数。）
 	``` C++
-class A
-{
-public:
-    virtual void foo() { cout << "A::foo() is called" << endl;}
-};
-
-class B: public A
-{
-public:
-    virtual void foo() { cout << "B::foo() is called" << endl;}
-};
-
-A * a= new B(); /* 动态联编!!!,一个类函数的调用不是在编译的时候确定的，是在运行的时候确定的,因为在编写代码的时候不确定被调用的是基类的函数还是哪个派生类的函数，所以被称为虚函数,虚函数只能借助 **指针和引用** 来达到多态的效果 */
-a->foo(); /* 执行的 class B 的 fool 成员函数 */ 切记动态联编只能借助指针和引用来实现，特别是在嵌入式交叉编译的时候，[~~虽然在 PC 上定义静态变量也可以，但是不要按照规范来用！！！~~]
+	class A
+	{
+	public:
+	    virtual void foo() { cout << "A::foo() is called" << endl;}
+	};
+	
+	class B: public A
+	{
+	public:
+	    virtual void foo() { cout << "B::foo() is called" << endl;}
+	};
+	
+	A * a= new B(); /* 动态联编!!!,一个类函数的调用不是在编译的时候确定的，是在运行的时候确定的,因为在编写代码的时候不确定被调用的是基类的函数还是哪个派生类的函数，所以被称为虚函数,虚函数只能借助 **指针和引用** 来达到多态的效果 */
+	a->foo(); /* 执行的 class B 的 fool 成员函数 */
 	```
+	1. 切记动态联编只能借助指针和引用来实现，特别是在嵌入式交叉编译的时候，[~~虽然在 PC 上定义静态变量也可以，但是不要按照规范来用！！！~~]
 	2. **多态** 同一代码产生不同效果
 	``` C++
 	void bar(A *a)
@@ -299,3 +301,8 @@ extern "C" void hello(void); /* 这样定义才可以正常在 C++ 函数调用�
 }
 #endif
 ```
+31. 数组和指针
+	1. 在 C++ 如果希望通过 cout 打印出 char *类型的指针保存的地址值，那么可以使用 (void *) 强制类型转换这个指针.原因是 void * 类型的对象重载了 << 操作符号，实际测试 int * 等也是可以的
+	2. **char * environ* 是系统环境变量缓冲区的头指针
+32. 文件输入和输出基础
+	1. fstream 继承 iostream， ifstream 继承 istream，ofstream 继承 ostream，需要添加 fstream 头文件

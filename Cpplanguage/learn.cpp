@@ -2,7 +2,8 @@
 #include <cmath>
 
 using namespace std;
-
+extern char ** environ;
+char **env = environ;
 void t1()
 {
     string text;
@@ -203,9 +204,65 @@ class A
 		};
 };
 
+
+#define MAX_COUNT 10
+
 class B:public A
 {
     public:
+		int exchange(int l, int b);
+		B(){cout << "B construct func" << endl;};
+		B(int i){
+			int j = 0;
+
+			if (i > MAX_COUNT)
+			{
+			    i = MAX_COUNT;
+			}
+
+			for (; j < i; j++)
+			{
+			    data[j] = rand() % 100;
+			}
+		};
+		int sort()
+		{
+			int i, j;
+
+		    for (i = 0; i < MAX_COUNT; i++)
+			{
+			    for (j = i + 1; j < MAX_COUNT; j++)
+				{
+				    if (data[i] > data[j])
+					{
+					    exchange(i, j);
+					}
+				}
+			}
+
+			return 0;
+		};
+
+		void display()
+		{
+			int i;
+			cout << "----- sort ans ----" << endl;
+		    for (i = 0; i < MAX_COUNT; i++)
+			{
+			    cout << data[i] << " ";
+			}
+
+			cout << endl;
+		}
+
+		void show_env(void)
+		{
+		    int i = 0;
+			for (; env[i] != NULL; i++)
+			{
+			    cout << env[i] << endl;
+			}
+		}
 		virtual void lite()
 		{
 		    cout << "B lite" << endl;
@@ -220,7 +277,20 @@ class B:public A
 		{
 		    cout << "B destruct" << endl;
 		};
+	private:
+		int data[MAX_COUNT];
 };
+
+int B::exchange(int l, int b)
+{
+    int temp;
+
+	temp = data[l];
+	data[l] = data[b];
+	data[b] = temp;
+
+	return 0;
+}
 
 void t10()
 {
@@ -234,6 +304,23 @@ void t11()
 {
     B b;
 }
+
+B g_b[1] = {
+    B(10),
+};
+
+void t12()
+{
+    g_b[0].fool();
+}
+
+void t13()
+{
+	g_b[0].display();
+    g_b[0].sort();
+	g_b[0].display();
+}
+
 
 int main()
 {
@@ -252,7 +339,7 @@ int main()
 	t7((float)1.1, (float)2.1, (float)3.1);
 #endif
 
-	t10();
+	g_b[0].show_env();
 
 	return 0;
 }

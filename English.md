@@ -103,6 +103,7 @@ E
 |emulate|仿真|
 |exclusive|独家的|
 |emphasis|重点|
+|encapsulate|封装|
 
 F
 ---
@@ -173,6 +174,7 @@ M
 |mixed|混合的|
 |mundane|平凡|
 |multiplicative|可乘的|
+|makes sense|有意义|
 
 N
 ---
