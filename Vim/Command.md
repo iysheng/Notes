@@ -244,3 +244,4 @@ echom "file tail is " . expand("%:t") " a.vim
 55. 对数据的增加和减少
 	1. ctrl + a 增加计数，如果在列选择模式下，使用 g 然后 ctrl + a，选中的一列会自动加 1
 	2. ctrl + x 减少计数
+56. ** vsplit 和 split ** 如果不加任何参数，那么默认会将当前正在打开的文件复制一份分屏
