@@ -573,3 +573,4 @@ $(wildcard path/*.c)
 ``` bash
 sudo pacman -S tftp-hpa # 安装程序
 ```
+71. c++split 可以转换反编译出来的 C++ 的函数名为可视的函数名
