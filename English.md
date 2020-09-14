@@ -175,6 +175,7 @@ M
 |mundane|平凡|
 |multiplicative|可乘的|
 |makes sense|有意义|
+|motivation|动机|
 
 N
 ---
