@@ -53,6 +53,8 @@ map <leader>d :%s/ \+$//g<CR>
 map <leader>i :s/^/    &/g<CR>
 map <leader>h :s/^/extern &/g<CR>:s/$/&;/g<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>s :split<CR>
+nmap <leader>v :vsplit<CR>
 
 " ===
 " === vim-plug check
