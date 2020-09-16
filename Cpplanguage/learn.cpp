@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cmath>
 
 using namespace std;
@@ -193,7 +194,7 @@ class A
 {
     public:
 		virtual void lite()=0;
-		virtual void fool()
+		void fool()
         {
 		    cout << "A fool" << endl;
 		};
@@ -210,6 +211,7 @@ class A
 class B:public A
 {
     public:
+		int b_test;
 		int exchange(int l, int b);
 		B(){cout << "B construct func" << endl;};
 		B(int i){
@@ -268,6 +270,10 @@ class B:public A
 		    cout << "B lite" << endl;
 		};
 
+		/* 不必要显式声明虚函数定义， 虚函数具有继承性，所以
+		 * 总是没有显式声明 fool 是虚函数， fool 也是虚函数
+		 * 但是他们的参数列表和返回值要和基函数保持一致
+		 * */
 		virtual void fool()
         {
 		    cout << "B fool" << endl;
@@ -277,6 +283,45 @@ class B:public A
 		{
 		    cout << "B destruct" << endl;
 		};
+
+		void fcopy(fstream &f1, ofstream &f2)
+		{
+			char buffer[512] = {0};
+			int num;
+
+		    if (!f1.is_open() || !f2.is_open())
+			{
+			    cerr << "no open f1 or f2" << endl;
+			}
+
+			/* TODO copy f1 to f2 */
+			do {
+				f1.read(buffer, 512);
+				num = f1.gcount();
+				f2.write(buffer, num);
+			} while(num == 512);
+		};
+
+		void fcopy(fstream &f1)
+		{
+			char buffer[512] = {0};
+			int num = 0;
+
+		    if (!f1.is_open())
+			{
+			    cerr << "no open f1" << endl;
+			}
+
+			f1.clear();
+			cout << f1.tellg() << "abc" << endl;
+			f1.seekg(0, f1.beg);
+			/* TODO copy f1 to screen */
+			do {
+				f1.read(buffer, 512);
+				num = f1.gcount();
+				cout.write(buffer, num);
+			} while(num == 512);
+		}
 	private:
 		int data[MAX_COUNT];
 };
@@ -322,6 +367,29 @@ void t13()
 }
 
 
+void t14()
+{
+    fstream f1("/tmp/a.c");
+    ofstream f2("/tmp/b.c");
+
+	g_b[0].fcopy(f1, f2);
+	g_b[0].fcopy(f1);
+}
+
+void t15(B &b)
+{
+   b.b_test = 1;
+}
+
+void t16()
+{
+    A *a_ptr = new B();
+
+    a_ptr->fool();
+
+    delete a_ptr;
+}
+
 int main()
 {
 #if 0
@@ -339,7 +407,7 @@ int main()
 	t7((float)1.1, (float)2.1, (float)3.1);
 #endif
 
-	g_b[0].show_env();
+    t16();
 
 	return 0;
 }

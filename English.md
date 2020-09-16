@@ -279,6 +279,8 @@ S
 |solid|坚固的|
 |synonym|代名词|
 |session|章节|
+|subscript operator|下标运算符|
+|sibling|兄弟姐妹|
 
 T
 ---
