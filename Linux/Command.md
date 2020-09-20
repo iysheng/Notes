@@ -183,6 +183,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     ``` bash
     make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
     ```
+    2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeLists.txt 文件，然后在 cmake 构建
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷

@@ -366,6 +366,15 @@ void t13()
 	g_b[0].display();
 }
 
+namespace Nameabc
+{
+    int abc;
+};
+
+namespace Nameabc
+{
+    int def;
+};
 
 void t14()
 {
