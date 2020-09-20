@@ -92,6 +92,10 @@
         1. git submodule mv [旧的子模块目录名] [新的子模块目录名] # 修改旧的子模块目录名为新的子模块目录名
         2. git submodule sync # 同步对子模块的修改
         ```
+    58. 在设置了 git mergetool 为 vimdiff 后，[在合并冲突时的一般使用方法可以参看](https://www.cnblogs.com/snake-hand/archive/2013/06/12/3133055.html) [还可以参看](https://www.dazhuanlan.com/2019/12/04/5de7cbeb6d522/?__cf_chl_jschl_tk__=eafb6a75757065654d1411064f7ece546be9e2df-1600563251-0-AaFC7OSqFZO7wzxjhGFCEy53WsqMSSymUJRzyv23xj5QLZgPE_uvd-mZ9Si6tTGfN9D0jdyrX9SD-maksubKac0rBJXemvwc146YShw8JOYmSbM0W6x0x07mtkNPx_QfAmLIL-NHMvJnoZG9pjJvLxmO8wY16wCNrWoDKOb-R_-l_91bY8AJmVFHuP4X7OgH2OxEY1qfcZGSPf9lvMJj7RaXXm3tfoZwsqW-7C7T7-beP4vcz5-ZzjsOFwOFVM7P__REvExMF6qR6nw76W9Q2TnULIk2o09kZUWY7PUlpuRW7fb-90m6_X6KmlB-_4GlLg)
+        1. 弹出的 4 个 buffer,分别为 LOCAL,BASE,REMOTE,MERGEE
+        2. LOCAL 是我们本地的分支， REMOTE 是要合并到当前分支的外部分支上的内容，BASE 是 LOCAL 和 REMOTE 两个分支的共同祖先,MERGED 合并结果，将会保存到本地 repo.
+        3. 首先需要切换到 MERGED buffer,然后根据吧需要，执行 diffget LO 或者 diffget BA 或者 diffget RE, 记得然后执行下 diffupdate 命令，或者 w! 直接保存
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
