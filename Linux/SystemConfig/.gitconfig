@@ -12,6 +12,9 @@
 [core]
 	quotepath = false
 	pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+	editor = vim
 
 [interactive]
     diffFilter = delta --color-only
+[pull]
+	rebase = false
