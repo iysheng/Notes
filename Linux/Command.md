@@ -579,3 +579,15 @@ $(wildcard path/*.c)
 sudo pacman -S tftp-hpa # 安装程序
 ```
 71. c++split 可以转换反编译出来的 C++ 的函数名为可视的函数名
+72. linux 启动级别
+```
+# 默认需要切换到图形启动等级才可以正常到 xmd 的登陆界面
+sudo systemctl set-default graphical.target
+# intel 1000 系列无线网卡驱动安装
+sudo dnf install iwl1000-firmware
+
+# systemd level 系统等级的描述
+1. multi-user.target level 2(无 nfs)
+2. multi-user.target level 3(带 nfs)
+3. graphical.target level 5
+```
