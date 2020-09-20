@@ -48,7 +48,7 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 	7. **vimdiff 作为 git 的 mergetool** ，配置
 	``` bash
 	git config --global merge.tool vimdiff
-	git mergetool # 执行冲突合并
+	git mergetool # 执行冲突合并，相关的细节[可以参看] Linux/Command.md 文件
 	```
 27. vim s 替换命令
 	1. s/pattern/replace/[iIe] # 其中 i 表示忽略大小写， I 表示要匹配大小写 e：没有匹配到时候，也不要显示错误信息 如果格式是 :%s/pattern/replace/g # 表示的替换全文文件
