@@ -592,3 +592,4 @@ sudo dnf install iwl1000-firmware
 2. multi-user.target level 3(带 nfs)
 3. graphical.target level 5
 ```
+73. [emoji 图表网站](https://emojipedia.org/)
