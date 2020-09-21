@@ -50,11 +50,13 @@ map <leader>s :%s/\t/    /g<CR>
 " 删除当前文件所有行结尾多余空格
 map <leader>d :%s/ \+$//g<CR>
 " 当前行添加 "    "
-map <leader>i :s/^/    &/g<CR>
+map <leader>t :s/^/    &/g<CR>
 map <leader>h :s/^/extern &/g<CR>:s/$/&;/g<CR>
 nmap <C-\>a :Ack <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>s :split<CR>
 nmap <leader>v :vsplit<CR>
+" C++ 源文件定义 C 语言的函数声明
+nmap <leader>c :s/^/extern "C" &/g<CR>
 
 " ===
 " === vim-plug check
