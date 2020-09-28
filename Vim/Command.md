@@ -249,3 +249,4 @@ echom "file tail is " . expand("%:t") " a.vim
 ``` bash
 ./configure --with-features=huge --enable-cscope=yes --enable-cscope=yes  --enable-python3interp=yes --with-python3-config-dir=/usr/lib64/python3.9/config-3.9-x86_64-linux-gnu
 ```
+58. 相对跳转基本的格式是 num+[j/k 好像可以省略]

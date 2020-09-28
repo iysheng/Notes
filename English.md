@@ -281,6 +281,7 @@ S
 |session|章节|
 |subscript operator|下标运算符|
 |sibling|兄弟姐妹|
+|scatter|分散|
 
 T
 ---
