@@ -531,13 +531,32 @@ xrandr --output 分屏 --right-of 主屏 --auto # 屏幕扩展命令
 echo "hello world" | sed 's/world/china/g'
 ```
 62. 安装 fcitx5 ，关键的一个地方[修改X11 的默认输入法](https://wiki.archlinux.org/index.php/Fcitx#Input_method_module)
-	1. 创建一个文件 **~/.pam_environment**
-	2. 在这个文件配置，测试配置为 fcitx 可以正常使用 fcitx5
+	1. 创建一个文件 **~/.pam_environment**，实测发现在 fedora + dwm 环境，修改的文件是 **~/.xsession** 文件，添加到处环境变量语句
+    ``` bash
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+fcitx5 &
+    ```
+	2. 如果是在 **.pam_environment** 在这个文件配置，测试配置为 fcitx 可以正常使用 fcitx5
 	```
 	GTK_IM_MODULE DEFAULT=fcitx
 	QT_IM_MODULE  DEFAULT=fcitx
 	XMODIFIERS    DEFAULT=@im=fcitx
 	```
+    3. 安装必要的包,检查可以使用 **rpm -qa** 查看所有安装的包,特别地 fcitx5-gtk 这个包如果不安装的话会导致在 firefox 环境无法使用，[只能在终端使用](https://github.com/fcitx/fcitx5/issues/123)
+    * fcitx5-data-0-0.7.20200912gitd0383bc.fc33.noarch
+    * fcitx5-0-0.7.20200912gitd0383bc.fc33.x86_64
+    * fcitx5-qt-0-0.3.20200912git02bbbf6.fc33.x86_64
+    * fcitx5-configtool-0-0.4.20200912git8f113a7.fc33.x86_64
+    * fcitx5-chewing-0-0.3.20200822git7f7ea5e.fc33.x86_64
+    * fcitx5-devel-0-0.7.20200912gitd0383bc.fc33.x86_64
+    * fcitx5-rime-0-0.4.20200912git6da82ec.fc33.x86_64
+    * fcitx5-lua-0-0.3.20200912gitff218dd.fc33.x86_64
+    * fcitx5-chinese-addons-data-0-0.3.20200912git591848d.fc33.noarch
+    * fcitx5-chinese-addons-0-0.3.20200912git591848d.fc33.x86_64
+    * fcitx5-gtk-0-0.4.20200916git8835e96.fc33.x86_64ij
 63. **xxd** 命令，二进制显示和处理文件工具
 ```
 xxd -s 0x30 file # 跳过文件的前 0x30 字节内容显示
@@ -594,3 +613,6 @@ sudo dnf install iwl1000-firmware
 3. graphical.target level 5
 ```
 73. [emoji 图表网站](https://emojipedia.org/)
+74. rpm 命令
+    1. rpm -ivh 安装软件包
+    2. rpm -qa （缺省时，查询所有安装的包,非缺省时，查询指定的包，可以使用通配符）
