@@ -190,10 +190,39 @@ int t9()
 	return 0;
 }
 
+class C
+{
+	private:
+		int cnum;
+
+	public:
+		C(){};
+		C(int c):cnum(c) {};
+		int get_cnum()
+		{
+			return cnum;
+		};
+
+		C operator+(const C& c1)
+		{
+			C c_tmp;
+
+			c_tmp.cnum = cnum * c1.cnum;
+
+			return c_tmp;
+		}
+};
+
 class A
 {
     public:
+
 		virtual void lite()=0;
+		virtual int do_hello()
+		{
+			cout << "hello" << endl;
+			return 0;
+		};
 		void fool()
         {
 		    cout << "A fool" << endl;
@@ -203,6 +232,10 @@ class A
 		{
 		    cout << "A destruct" << endl;
 		};
+		void who_say_hello()
+		{
+			cout << "It's A" << endl;
+		};
 };
 
 
@@ -210,120 +243,146 @@ class A
 
 class B:public A
 {
-    public:
-		int b_test;
-		int exchange(int l, int b);
-		B(){cout << "B construct func" << endl;};
-		B(int i){
-			int j = 0;
+public:
+	int b_test;
+	int exchange(int l, int b);
+	virtual void who_say_hello()
+	{
+		cout << "It's B" << endl;
+	};
+	void test_static_func()
+	{
+		A::do_hello();
+	};
 
-			if (i > MAX_COUNT)
-			{
-			    i = MAX_COUNT;
-			}
+	B(){cout << "B construct func" << endl;};
+	B(int i){
+		int j = 0;
 
-			for (; j < i; j++)
-			{
-			    data[j] = rand() % 100;
-			}
-		};
-		int sort()
+		if (i > MAX_COUNT)
 		{
-			int i, j;
+		    i = MAX_COUNT;
+		}
 
-		    for (i = 0; i < MAX_COUNT; i++)
+		for (; j < i; j++)
+		{
+		    data[j] = rand() % 100;
+		}
+	};
+	B operator+(B &b1)
+	{
+		B temp;
+
+		temp.bnum = bnum + b1.bnum;
+
+		return temp;
+	};
+	void setnum(int num)
+	{
+		bnum = num;
+	};
+	int getnum(void)
+	{
+		return bnum;
+	};
+	int sort()
+	{
+		int i, j;
+
+	    for (i = 0; i < MAX_COUNT; i++)
+		{
+		    for (j = i + 1; j < MAX_COUNT; j++)
 			{
-			    for (j = i + 1; j < MAX_COUNT; j++)
+			    if (data[i] > data[j])
 				{
-				    if (data[i] > data[j])
-					{
-					    exchange(i, j);
-					}
+				    exchange(i, j);
 				}
 			}
-
-			return 0;
-		};
-
-		void display()
-		{
-			int i;
-			cout << "----- sort ans ----" << endl;
-		    for (i = 0; i < MAX_COUNT; i++)
-			{
-			    cout << data[i] << " ";
-			}
-
-			cout << endl;
 		}
 
-		void show_env(void)
+		return 0;
+	};
+
+	void display()
+	{
+		int i;
+		cout << "----- sort ans ----" << endl;
+	    for (i = 0; i < MAX_COUNT; i++)
 		{
-		    int i = 0;
-			for (; env[i] != NULL; i++)
-			{
-			    cout << env[i] << endl;
-			}
+		    cout << data[i] << " ";
 		}
-		virtual void lite()
+
+		cout << endl;
+	}
+
+	void show_env(void)
+	{
+	    int i = 0;
+		for (; env[i] != NULL; i++)
 		{
-		    cout << "B lite" << endl;
-		};
-
-		/* 不必要显式声明虚函数定义， 虚函数具有继承性，所以
-		 * 总是没有显式声明 fool 是虚函数， fool 也是虚函数
-		 * 但是他们的参数列表和返回值要和基函数保持一致
-		 * */
-		virtual void fool()
-        {
-		    cout << "B fool" << endl;
-		};
-
-		virtual ~B()
-		{
-		    cout << "B destruct" << endl;
-		};
-
-		void fcopy(fstream &f1, ofstream &f2)
-		{
-			char buffer[512] = {0};
-			int num;
-
-		    if (!f1.is_open() || !f2.is_open())
-			{
-			    cerr << "no open f1 or f2" << endl;
-			}
-
-			/* TODO copy f1 to f2 */
-			do {
-				f1.read(buffer, 512);
-				num = f1.gcount();
-				f2.write(buffer, num);
-			} while(num == 512);
-		};
-
-		void fcopy(fstream &f1)
-		{
-			char buffer[512] = {0};
-			int num = 0;
-
-		    if (!f1.is_open())
-			{
-			    cerr << "no open f1" << endl;
-			}
-
-			f1.clear();
-			cout << f1.tellg() << "abc" << endl;
-			f1.seekg(0, f1.beg);
-			/* TODO copy f1 to screen */
-			do {
-				f1.read(buffer, 512);
-				num = f1.gcount();
-				cout.write(buffer, num);
-			} while(num == 512);
+		    cout << env[i] << endl;
 		}
-	private:
-		int data[MAX_COUNT];
+	}
+	virtual void lite()
+	{
+	    cout << "B lite" << endl;
+	};
+
+	/* 不必要显式声明虚函数定义， 虚函数具有继承性，所以
+	 * 总是没有显式声明 fool 是虚函数， fool 也是虚函数
+	 * 但是他们的参数列表和返回值要和基函数保持一致
+	 * */
+	virtual void fool()
+    {
+	    cout << "B fool" << endl;
+	};
+
+	virtual ~B()
+	{
+	    cout << "B destruct" << endl;
+	};
+
+	void fcopy(fstream &f1, ofstream &f2)
+	{
+		char buffer[512] = {0};
+		int num;
+
+	    if (!f1.is_open() || !f2.is_open())
+		{
+		    cerr << "no open f1 or f2" << endl;
+		}
+
+		/* TODO copy f1 to f2 */
+		do {
+			f1.read(buffer, 512);
+			num = f1.gcount();
+			f2.write(buffer, num);
+		} while(num == 512);
+	};
+
+	void fcopy(fstream &f1)
+	{
+		char buffer[512] = {0};
+		int num = 0;
+
+	    if (!f1.is_open())
+		{
+		    cerr << "no open f1" << endl;
+		}
+
+		f1.clear();
+		cout << f1.tellg() << "abc" << endl;
+		f1.seekg(0, f1.beg);
+		/* TODO copy f1 to screen */
+		do {
+			f1.read(buffer, 512);
+			num = f1.gcount();
+			cout.write(buffer, num);
+		} while(num == 512);
+	}
+private:
+	int bnum;
+	int data[MAX_COUNT];
 };
 
 int B::exchange(int l, int b)
@@ -399,6 +458,36 @@ void t16()
     delete a_ptr;
 }
 
+void t17()
+{
+	B b;
+	b.test_static_func();
+}
+
+void t18()
+{
+	C c1(2), c2(3), c3;
+
+	c3 = c1 + c2;
+
+	cout << c3.get_cnum() << endl;
+}
+
+void t19()
+{
+	B b1, b2, b3;
+
+	b1.setnum(10);
+	b2.setnum(20);
+
+	b3 = b1 + b2;
+
+	cout << "first:b3=" << b3.getnum() << endl;
+	b3 = b1.operator+(b2);
+
+	cout << "second:b3=" << b3.getnum() << endl;
+}
+
 int main()
 {
 #if 0
@@ -416,7 +505,6 @@ int main()
 	t7((float)1.1, (float)2.1, (float)3.1);
 #endif
 
-    t16();
-
+    t19();
 	return 0;
 }

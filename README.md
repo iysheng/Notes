@@ -56,6 +56,7 @@
 * [html_css_design_and_build_websites](https://github.com/iysheng/Notes/blob/master/Linux/doc/html_css_design_and_build_websites.pdf)
 * [Hands-onPythonTutorial](https://github.com/iysheng/Notes/blob/master/Linux/doc/Hands-onPythonTutorial.pdf)
 * [scons-user](https://github.com/iysheng/Notes/blob/master/Linux/doc/scons-user.pdf)
+* [computer_science](https://github.com/iysheng/Notes/blob/master/Linux/doc/Computer+System_EN.pdf)
 ---
 
 ##### Dictionary
