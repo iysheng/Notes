@@ -1,0 +1,9 @@
+[Unit]
+Description=RemoveExtra
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/remove_extra_firm.sh
+
+[Install]
+WantedBy=graphical.target

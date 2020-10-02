@@ -616,3 +616,6 @@ sudo dnf install iwl1000-firmware
 74. rpm 命令
     1. rpm -ivh 安装软件包
     2. rpm -qa （缺省时，查询所有安装的包,非缺省时，查询指定的包，可以使用通配符）
+75. 通过 systemd 创建一个服务，系统启动时候自动删除额外的资源包
+    1. 复制 [remove_extra_firm.service](https://github.com/iysheng/Notes/blob/master/Linux/Misc/remove_extra_firm.service) 到 /usr/lib/systemd/system/ 目录作为 systemd 的 unit 文件
+    2. 复制 [remove_extra_firm.sh](https://github.com/iysheng/Notes/blob/master/Linux/Misc/remove_extra_firm.sh) 到 /usr/bin/ 目录执行 **dnf remove** 动作
