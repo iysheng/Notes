@@ -70,6 +70,7 @@ C
 |CDN|content delivery network 内容分发网络|
 |corrupt|腐败的|
 |constrained|约束|
+|candidate|候选人|
 
 D
 ---
@@ -251,6 +252,7 @@ R
 |render|提供|
 |routinely|常规的|
 |revised|修订|
+|release candidate|RC，发布的候选人|
 
 S
 ---
