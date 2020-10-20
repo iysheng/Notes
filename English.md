@@ -282,6 +282,7 @@ S
 |subscript operator|下标运算符|
 |sibling|兄弟姐妹|
 |scatter|分散|
+|stipulate|规定|
 
 T
 ---
@@ -295,6 +296,7 @@ T
 |transcende|超越|
 |take off|脱掉|
 |transparency|透明度|
+|truncated|被截断|
 
 U
 ---
