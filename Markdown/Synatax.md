@@ -7,6 +7,7 @@
 ``` markdown
 ![描述](图片路径)
 ![Fedora](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
+![本地图片](本地图片的相对路径)
 ```
 2. 无序列表，使用 * 、- 、+ 作为列表标记符
 ``` markdown
