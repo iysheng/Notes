@@ -27,6 +27,7 @@ A
 |abbreviation|缩写|
 |asset，assets|财富，资产|
 |advisory|咨询|
+|autonomously|自主的|
 
 B
 ---
@@ -155,6 +156,7 @@ I
 |invalidate|使无效|
 |identifier|标识符|
 |instructor|讲师|
+|impedance|阻抗|
 
 L
 ---
@@ -253,6 +255,7 @@ R
 |routinely|常规的|
 |revised|修订|
 |release candidate|RC，发布的候选人|
+|reception|接收、接待|
 
 S
 ---

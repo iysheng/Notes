@@ -38,3 +38,7 @@ extra code for demonstrate
 It's never too late to learn.
 ```
 [跳转的触发点位](#jump0)
+
+7. todolist 列表，前面的 * 必须要
+* [ ] 未选中
+* [x] 选中
