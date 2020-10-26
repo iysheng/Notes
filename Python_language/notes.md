@@ -9,5 +9,14 @@ print('a','b',sep='') # ab
 sudo pacman -S python-jed
 # 为了修改 vim 自动将当前路径添加到当前工程还需要修改 .vimrc 的配置
 ```
-3. **help** 函数可以查看某一个模块的所有信息，比如定义的方法、变量等内容
+3. **help** 函数可以查看某一个模块的所有信息，比如定义的方法、变量等内容，help(待查询的函数)
 4. 给变量赋值前加 r，表示后续内容不需要转义，eg A=r'\t' A 的值不会被转义为 tab
+5. if 判断
+``` python
+if a == 1:
+    do sth1
+elif:
+    do sth2
+else:
+    do sth3
+```
