@@ -619,3 +619,25 @@ sudo dnf install iwl1000-firmware
 75. 通过 systemd 创建一个服务，系统启动时候自动删除额外的资源包
     1. 复制 [remove_extra_firm.service](https://github.com/iysheng/Notes/blob/master/Linux/Misc/remove_extra_firm.service) 到 /usr/lib/systemd/system/ 目录作为 systemd 的 unit 文件
     2. 复制 [remove_extra_firm.sh](https://github.com/iysheng/Notes/blob/master/Linux/Misc/remove_extra_firm.sh) 到 /usr/bin/ 目录执行 **dnf remove** 动作
+76. [通过gdb+openocd调试stm32](https://blog.csdn.net/zhengyangliu123/article/details/54934719),连接成功的效果图
+![gdb](../figures/gdb_stm32.png)
+	1. 编译对应的 elf 文件，需要添加 -g 参数添加调试信息
+	2. openocd 连接版卡
+	3. arm-none-eabi-gdb *.elf 文件
+	4. target extend-remote localhost:3333 连接设备
+	5. monitor reset 发送 reset 命令给 openocd
+	6. monitor halt 发送 halt 命令给 openocd
+	7. load 加载 gdb 启动时传递的参数
+	8. gdb 的调试命令
+		8.1 list 打印代码
+		8.2 b 添加断点
+		8.3 c 继续执行
+		8.4 s 单步执行
+		8.5 n 跳出子函数单步执行
+		8.6 finish 完成并跳出当前子函数
+		8.7 p 打印变量或者函数或者寄存器
+		8.8 info reg 查看寄存器
+		8.9 bt 查看堆栈
+		8.10 i b 查看断点
+		8.11 d index(断点的编号) 删除指定编号的断点
+	9. - 命令， 会到一个跟随现实代码的窗口
