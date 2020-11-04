@@ -28,6 +28,8 @@ A
 |asset，assets|财富，资产|
 |advisory|咨询|
 |autonomously|自主的|
+|ancillary|辅助的|
+|awkward|尴尬的|
 
 B
 ---
@@ -43,6 +45,7 @@ B
 |bootstrap|引导|
 |bootstrapping system|引导系统|
 |bullet lists|项目符号列表|
+|Boiler Plate Code|版式代码、样板代码|
 
 C
 ---
@@ -72,6 +75,7 @@ C
 |corrupt|腐败的|
 |constrained|约束|
 |candidate|候选人|
+|conventions|习俗|
 
 D
 ---
@@ -92,6 +96,7 @@ D
 |detach|分离|
 |determinstic timing|确定性时机|
 |decoration|装饰|
+|dongle|加密狗|
 
 E
 ---
@@ -130,6 +135,8 @@ H
 |单词|释义|
 |---|---|
 |headline|标题|
+|hook up|连接到|
+|handler|处理程序|
 
 I
 ---
@@ -157,6 +164,8 @@ I
 |identifier|标识符|
 |instructor|讲师|
 |impedance|阻抗|
+|intercept|侦听|
+|idiomatic|惯用的|
 
 L
 ---
@@ -164,6 +173,7 @@ L
 |---|---|
 |literal|文字|
 |literal strings|文字字符串|
+|interleave|交错|
 
 M
 ---
@@ -188,6 +198,7 @@ N
 |notion|概念|
 |nuances|细微差别|
 |non-trivial|不平凡的|
+|notably|明显地|
 
 O
 ---
@@ -204,6 +215,7 @@ O
 |overhead|开销|
 |orphan|孤儿|
 |outline|大纲，轮廓|
+|out of the box|开箱即用|
 
 P
 ---
@@ -221,6 +233,7 @@ P
 |parallelization|并行化|
 |prohibit|禁止|
 |propose|提出|
+|paranoid|多疑的、偏执的|
 
 Q
 ---
@@ -300,6 +313,8 @@ T
 |transcende|超越|
 |take off|脱掉|
 |transparency|透明度|
+|ties|打包|
+|Test Access Ports (TAPs)|JTAG 的核心|
 
 U
 ---
@@ -311,6 +326,8 @@ U
 |upgrade|升级|
 |unary|一元的|
 |unary operator|一元运算符|
+|utilization|利用率|
+|unplug power|切断电源|
 
 V
 ---
