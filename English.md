@@ -300,6 +300,7 @@ S
 |subscript operator|下标运算符|
 |sibling|兄弟姐妹|
 |scatter|分散|
+|stateless|无国际的、无状态的|
 
 T
 ---
