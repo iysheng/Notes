@@ -250,3 +250,9 @@ Linux kernel internal documentation in different formats:
 		```
 12. C 语言的一些头文件
 	1. uint8_t 对应的头文件 <stdint.h>
+13. 在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**
+	1. arm-none-eabi-gcc -ldemo $(objs) -o $@ /* 这个不可以正常连接 libdemo.a */
+	2. arm-none-eabi-gcc $(objs) -ldemo -o $@ /* 这个可以正常连接 libdemo.a */
+14. ar 打包为 .a 静态库的命令参数
+	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
+	2. ar -r libdemo.a $(objs) # 将所有的 obj 文件连接为静态库
