@@ -20,3 +20,11 @@ elif:
 else:
     do sth3
 ```
+6. python import 其他目錄的 python 文件時，首先需要將存在 python 腳本的目錄添加
+到系統的 sys 目錄，方法是 import sys 包，然後執行 sys.path.append("路徑")，然後
+再 import 包文件
+7. python 執行 linux 命令並且獲取返回值
+``` python
+ret = os.system("linux 命令")
+```
+8. python 復制文件 copyfile 函數，在包 shutil 中

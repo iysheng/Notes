@@ -242,6 +242,7 @@ Q
 |quote|引用、举证、报价、引号|
 |quick-and-dirty introduction|快速入门|
 |get the most out of|充分利用|
+|query|輪詢、詢問|
 
 R
 ---
