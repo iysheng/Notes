@@ -302,6 +302,7 @@ S
 |sibling|兄弟姐妹|
 |scatter|分散|
 |stateless|无国际的、无状态的|
+|stipulate|规定|
 
 T
 ---
@@ -317,6 +318,7 @@ T
 |transparency|透明度|
 |ties|打包|
 |Test Access Ports (TAPs)|JTAG 的核心|
+|truncated|被截断|
 
 U
 ---
