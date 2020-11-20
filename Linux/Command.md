@@ -98,6 +98,14 @@
         3. 首先需要切换到 MERGED buffer,然后根据吧需要，执行 diffget LO 或者 diffget BA 或者 diffget RE, 记得然后执行下 diffupdate 命令，或者 w! 直接保存
         4. 在多个 diff 处跳转快捷键 **]+c** 跳转到下一个 diff 处， **[+c** 跳转到上一个 diff 处
     59. git  cherry-pick commit_id,合并某次提交到当前分支
+	60. git clean 參數 （刪除那些未 git add 的文件，一般地： git clean -dfx 就可以情理所有需要清理的文件，謹慎考慮不要用 -f 強制刪除，使用 -i 確認下）
+		1. -n 顯示將要刪除的文件和目錄
+		2. -x 刪除忽略的文件
+		3. -X 僅僅刪除忽略的文件
+		4. -d 刪除目錄
+		5. -f 強制執行
+		6. -i 交互式地刪除文件，即會給你選擇是否刪除
+		7. -e 過濾掉一些不需要刪除的文件
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
