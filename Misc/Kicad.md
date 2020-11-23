@@ -22,3 +22,4 @@ Pin connected to some other pins but no pin to drive it
 6. 原理图通过点选**批注**原理图符号可以批量给器件添加编号
 7. 在画器件封装的时候，[如果焊盘只显示轮廓](https://gitee.com/KiCAD-CN/kicad-cn-forum/issues/I1JQ0U)，可以去查看下**视图->绘图模式**，是否勾选了焊盘草图，如果勾选，取消就可以了
 8. 在**编辑->编辑文本和图形属性**可以批量修改文本和器件的编号丝印大小
+9. 批量修改器件的封裝，可以使用 tools->Edit Symbols Fields，eg:效果如圖：![批量修改封裝](figures/modify_footprint.png)
