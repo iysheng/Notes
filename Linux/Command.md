@@ -651,3 +651,4 @@ sudo dnf install iwl1000-firmware
 		8.11 d index(断点的编号) 删除指定编号的断点
 	9. - 命令， 会到一个跟随现实代码的窗口
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
+78. zip -r a.zip 待壓縮的文件

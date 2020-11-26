@@ -24,3 +24,10 @@ Pin connected to some other pins but no pin to drive it
 8. 在**编辑->编辑文本和图形属性**可以批量修改文本和器件的编号丝印大小
 9. 批量修改器件的封裝，可以使用 tools->Edit Symbols Fields，eg:效果如圖: ![批量修改封裝](figures/modify_footprint.png)
 10. 選中一個位置，然後點擊**空格**，可以切換爲相對坐標，選中的點位就是相對原點
+11. kicad pcbnew 的快捷鍵
+---
+|快捷鍵|功能|
+|---|---|
+|-|切換底層和頂層|
+|v(布線中)|添加過孔|
+|x|開始布線|
