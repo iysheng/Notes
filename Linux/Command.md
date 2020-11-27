@@ -98,6 +98,8 @@
         3. 首先需要切换到 MERGED buffer,然后根据吧需要，执行 diffget LO 或者 diffget BA 或者 diffget RE, 记得然后执行下 diffupdate 命令，或者 w! 直接保存
         4. 在多个 diff 处跳转快捷键 **]+c** 跳转到下一个 diff 处， **[+c** 跳转到上一个 diff 处
     59. git  cherry-pick commit_id,合并某次提交到当前分支
+		1. git cherry-pick commit_id0..commit_id1 # 批量合並 commit_id0 ~ commit_id1 之間的所有提交，不包括 commit_id0
+		2. git cherry-pick commit_id0^..commit_id1 # 批量合並 commit_id0 ~ commit_id1 之間的提交，包括 commit_id0
 	60. git clean 參數 （刪除那些未 git add 的文件，一般地： git clean -dfx 就可以情理所有需要清理的文件，謹慎考慮不要用 -f 強制刪除，使用 -i 確認下）
 		1. -n 顯示將要刪除的文件和目錄
 		2. -x 刪除忽略的文件
