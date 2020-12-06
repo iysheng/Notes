@@ -166,6 +166,7 @@ I
 |impedance|阻抗|
 |intercept|侦听|
 |idiomatic|惯用的|
+|intend|計劃、想要|
 
 L
 ---

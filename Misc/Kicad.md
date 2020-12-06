@@ -31,3 +31,4 @@ Pin connected to some other pins but no pin to drive it
 |-|切換底層和頂層|
 |v(布線中)|添加過孔|
 |x|開始布線|
+|q|布線時打開線寬編輯|
