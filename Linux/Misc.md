@@ -256,3 +256,6 @@ Linux kernel internal documentation in different formats:
 14. ar 打包为 .a 静态库的命令参数
 	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
 	2. ar -r libdemo.a $(objs) # 将所有的 obj 文件连接为静态库
+15. RT-thread 在 Linux 環境使用 pkgs 命令，首次啓動 scons --meunconfig 會自動安裝 env 命令，source ~/.env/env.sh 命令可以導出 pkgs 命令，同時還導出了 env 命令。選中 online 的包後可以使用 pkgs --update 命令下載選中的 online 的軟件包。
+	1. pkgs --upgrade 用來更新 env 功能腳本本身和軟件包列表
+	2. pkgs --update 用來更新軟件包本身
