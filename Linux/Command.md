@@ -11,6 +11,7 @@
     ``` bash
         hostnamectl set-hostname red.WS
     ```
+    8. sudo dnf update 軟件包名稱 # 更新指定的軟件包
 
 2. scp 和 ssh sshpass 命令
     1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
@@ -600,6 +601,11 @@ C-kermit> c 连接
 ```
 68. scons 工具学习
 	1. scons -c 清理，类似 make clean
+	2. scons GetDepend 或的方法
+	``` python
+	if GetDepend('APP_SUPPORT_SCREEN_MONITOR') or GetDepend('APP_SUPPORT_WBLCD_MONITOR'):
+		do sth
+	```
 69. make 学习笔记
 	1. **wildcard** Makefile 的通配符 函数
 ``` Makefile
