@@ -76,6 +76,7 @@ C
 |constrained|约束|
 |candidate|候选人|
 |conventions|习俗|
+|comply|遵守|
 
 D
 ---
