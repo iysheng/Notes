@@ -1,6 +1,26 @@
 
 ### 記錄 Cortex-M 系列處理器的模塊學習
 
+### 系統部分
+---
+##### GD32F103
+* Unique device ID (96 bits) 帶有 96 bits 的 Unique device ID
+* 寄存器 0x4002103C 有一個 bit CEE 表示代碼執行增強
+
+### flash 部分
+---
+##### GD32F103
+gd32 的 flash 區有一個 information 區，這個區域存放的是 bootloader，這部分代碼是
+固化好的不能被修改
+|分類|page size|描述|information 區|
+|---|---|---|---|
+|GD32F10x_MD|1KB|容量在 128KB|0x1FFF F000- 0x1FFF F7FF|
+|GD32F10x_HD|2KB||0x1FFF F000- 0x1FFF F7FF|
+|GD32F10x_XD|2KB||0x1FFF E000- 0x1FFF F7FF|
+|GD32F10x_CL|2KB||0x1FFF B000- 0x1FFF F7FF|
+
+[![rhHeYt.png](https://s3.ax1x.com/2020/12/26/rhHeYt.png)](https://imgchr.com/i/rhHeYt)
+
 ### DMA 部分
 ---
 ##### GD32F103 系列
