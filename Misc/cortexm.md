@@ -21,6 +21,14 @@ gd32 的 flash 區有一個 information 區，這個區域存放的是 bootloade
 
 [![rhHeYt.png](https://s3.ax1x.com/2020/12/26/rhHeYt.png)](https://imgchr.com/i/rhHeYt)
 
+gd32 使用外部始終，系統頻率選擇 108MHz
+|總線名|頻率|
+|---|---|
+|sys|108MHz|
+|AHB|108MHz|
+|APB2|108MHz|
+|APB1|54MHz|
+
 ### DMA 部分
 ---
 ##### GD32F103 系列
@@ -41,6 +49,13 @@ gd32 的 flash 區有一個 information 區，這個區域存放的是 bootloade
 ### ADC 部分
 ---
 
+
+### TIM 部分
+---
+##### GD32F103 系列
+* TIM0 和 TIM7 在 APB2 總線，支持 4 個通道的輸入捕獲和輸出比較
+* TIM1-3 和 TIM4-6 都是在 APB1 總線
+* TIM1-4 使用 16bit 的計數， 16 bit 的分頻，有 PWM 模式，帶有自動重載，支持 4 個通道的輸入捕獲和比較
 
 
 
