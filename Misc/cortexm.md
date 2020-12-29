@@ -71,6 +71,12 @@ TCD1304 需要如下輸入來正常驅動
 * SH 移位門(定義曝光時間，)
 * ICG 曝光清零門(定義像素數據移動到移位寄存器)
 
+
+* OS 的輸出實在 1.5V ~ 3.5V 之間波動的
+* 外部信號的高電平 3V ~ 5.5V，典型值是 4V
+* 外部信號的低電平 0V ~ 0.44V，典型值是 0V
+* 電源信號 VDD 和 VAD 電平在 3V~5.5V
+
 ---
 1. SH must go high with a delay (t2) of between 100 and 1000 ns after ICG goes low.(SH 必須在 ICG 邊爲低電平後延時 100 ~ 1000ns 拉高，典型直是 500ns)
 2. SH must stay high for (t3) a minium of 1000 ns.(t3 必須保持高電平至少 1000ns，來曝光)

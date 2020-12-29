@@ -323,6 +323,8 @@ T
 |ties|打包|
 |Test Access Ports (TAPs)|JTAG 的核心|
 |truncated|被截断|
+|tantalum|鉭|
+|tantalum capacitor|鉭電容|
 
 U
 ---

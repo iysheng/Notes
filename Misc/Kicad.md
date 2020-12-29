@@ -32,3 +32,7 @@ Pin connected to some other pins but no pin to drive it
 |v(布線中)|添加過孔|
 |x|開始布線|
 |q|布線時打開線寬編輯|
+12. [庫文件搜索](https://componentsearchengine.com)，支持下載符號、封裝庫和 3D 模型
+13. kicad 不同後綴名文件類型
+	* .lib 文件， 符號文件
+	* .pretty 文件， 封裝庫文件
