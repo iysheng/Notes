@@ -39,7 +39,11 @@
 	```
 	3. 配置完成后，注销系统重新登录就可以
 8. fzf 模糊搜索开源工具
-9. ranger 终端的文件管理器
+9. ranger 终端的文件管理器，[ranger](https://github.com/ranger/ranger/wiki/Official-User-Guide) 使用 4 個主要的配置文件
+	* 全局的 commands.py ， 包含了各種功能實現
+	* 全局的 rc.conf ，設置各種配置，以及完成 key 到功能函數的綁定
+	* rifle.conf 決定了使用哪個程序打開對應的文件
+	* scope.sh shell 腳本產生一些文件預覽的效果
 10. ImageMagick 终端的图片查看器，指令： display + 文件名，w3m 也可以在终端打开图片
 11. tcping 可以 ping 任意地址的任意端口的工具
 12. forgit ：A utility tool powered by fzf for using git interactively
