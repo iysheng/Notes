@@ -170,6 +170,7 @@ I
 |intend|計劃、想要|
 |integration time|曝光時間， CCD 傳感器相關的一個概念|
 |intensity|強度|
+|inductor|電感|
 
 L
 ---
