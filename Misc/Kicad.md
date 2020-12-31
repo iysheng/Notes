@@ -36,3 +36,6 @@ Pin connected to some other pins but no pin to drive it
 13. kicad 不同後綴名文件類型
 	* .lib 文件， 符號文件
 	* .pretty 文件， 封裝庫文件
+14. l 按鍵在 PCB 設計中可以鎖定某一個器件
+15. 可以通過創建陣列的方式，快速放置安裝孔
+16. 覆銅時如果出現覆銅重疊，可以是使用覆銅優先級解決這個問題，優先級數值越大，優先級越高
