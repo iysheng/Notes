@@ -30,6 +30,7 @@ A
 |autonomously|自主的|
 |ancillary|辅助的|
 |awkward|尴尬的|
+|approximation|近似的|
 
 B
 ---
@@ -308,6 +309,7 @@ S
 |scatter|分散|
 |stateless|无国际的、无状态的|
 |stipulate|规定|
+|successive|持續的|
 
 T
 ---
