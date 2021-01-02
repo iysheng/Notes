@@ -3,10 +3,35 @@
 
 ### 系統部分
 ---
+##### Cortex-M3
+* 一個處理器核心
+* 一個 NVIC
+* 可選的 MPU
+* 四條外部總線
+	* ICode memory interface (0x00000000 to 0x1FFFFFFF)
+	* DCode memory interface (0x00000000 to 0x1FFFFFFF)
+	* System interface (0x20000000 to 0xDFFFFFFF) 和 (0xE0100000 to 0xFFFFFFFF)
+	* Private Peripheral Bus (PPB) (0xE0040000 to 0xE00FFFFF)
+* 兩種工作模式
+	* thread mode : reset 後就會到該模式，退出異常後也會進入到該模式，特權和非特權指令都可以在該模式執行
+	* handler mode : 異常後會進入到該模式
+* 兩種工作狀態
+	* thumb state：正常模式，可以執行 16 bit 和 32 bit 的 thumb 指令集
+	* debug state：調試模式
+* 特權模式對資源的訪問無限制，非特權模式只能訪問一定限度的資源
+* 總線定義
+	* Advanced High-performance Bus (AHB)-Lite
+* 寄存器描述
+---
+[![sSWCL9.png](https://s3.ax1x.com/2021/01/02/sSWCL9.png)](https://imgchr.com/i/sSWCL9)
+* 有連個 sp 寄存器，一個 sp_process 爲，另一個 sp_main 爲 handler 模式使用的棧指針， thread mode 使用的棧指針可以配置爲 sp_process 也可以配置爲 sp_main
 ##### GD32F103
 * Unique device ID (96 bits) 帶有 96 bits 的 Unique device ID
 * 寄存器 0x4002103C 有一個 bit CEE 表示代碼執行增強
-
+* 處理器有一個 NVIC
+	* 所以的異常都是在 handler 模式
+	* 異常發生時，系統狀態會自動保存到棧， （Interrupt Service Routine）ISR 執行完成後會自動從棧恢復
+	* 向量与状态保存并行获取，从而实现高效的中断输入。
 ### flash 部分
 ---
 ##### GD32F103

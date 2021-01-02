@@ -31,6 +31,7 @@ A
 |ancillary|辅助的|
 |awkward|尴尬的|
 |approximation|近似的|
+|arbitrarily|武斷的|
 
 B
 ---
@@ -99,6 +100,7 @@ D
 |determinstic timing|确定性时机|
 |decoration|装饰|
 |dongle|加密狗|
+|directive|指令|
 
 E
 ---
@@ -276,6 +278,7 @@ R
 |revised|修订|
 |release candidate|RC，发布的候选人|
 |reception|接收、接待|
+|routine|常規的、程序|
 
 S
 ---
