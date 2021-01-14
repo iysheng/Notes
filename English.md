@@ -182,6 +182,7 @@ L
 |literal|文字|
 |literal strings|文字字符串|
 |interleave|交错|
+|library|庫|
 
 M
 ---
@@ -224,6 +225,7 @@ O
 |orphan|孤儿|
 |outline|大纲，轮廓|
 |out of the box|开箱即用|
+|oblique|斜的|
 
 P
 ---
@@ -242,6 +244,7 @@ P
 |prohibit|禁止|
 |propose|提出|
 |paranoid|多疑的、偏执的|
+|permanent|永久的|
 
 Q
 ---

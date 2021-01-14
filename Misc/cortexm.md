@@ -114,6 +114,13 @@ gd32 使用外部始終，系統頻率選擇 108MHz
 * TIM0 和 TIM7 在 APB2 總線，支持 4 個通道的輸入捕獲和輸出比較
 * TIM1-3 和 TIM4-6 都是在 APB1 總線
 * TIM1-4 使用 16bit 的計數， 16 bit 的分頻，有 PWM 模式，帶有自動重載，支持 4 個通道的輸入捕獲和比較
+* 輸出比較模式的輸出時序受到 TIMERx_CAR and TIMERx_CHxCV 控制，CHxVAL 寄存器可以在執行過程修改這個值
+* 輸出 PWM 模式，需要設置 CHxCOMCTL 爲 3’b110 (PWM mode0) 或者 3’b111(PWM mode1)，可以根據 TIMERx_CAR 和 TIMERx_CHxCV 寄存器的值輸出對應的波形
+* 可以將 PWM 設置爲邊沿對齊 EAPWM 和中心對齊方式 CAPWM
+* EAPWM 的周期受 TIMERx_CAR 決定，TIMERx_CHxCV 決定佔空比，選擇 EAPWM 模式
+* CAPWM 的周期是 2*TIMERx_CAR, 佔空比是 2*TIMERx_CHxCV
+* 如果 TIMERx_CHxCV 比 TIMERx_CAR 大, 在 PWM mode0 (CHxCOMCTL==3’b110) 時候，輸出總是在激活狀態
+* 如果 TIMERx_CHxCV 等 0, 在 PWM mode0 (CHxCOMCTL==3’b110) 時候，輸出總是在未激活狀態
 
 
 

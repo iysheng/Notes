@@ -101,6 +101,7 @@
     59. git  cherry-pick commit_id,合并某次提交到当前分支
 		1. git cherry-pick commit_id0..commit_id1 # 批量合並 commit_id0 ~ commit_id1 之間的所有提交，不包括 commit_id0
 		2. git cherry-pick commit_id0^..commit_id1 # 批量合並 commit_id0 ~ commit_id1 之間的提交，包括 commit_id0
+		3. git cherry-pick --abort # 終止合並，當合並出問題時候，可以執行這個選項
 	60. git clean 參數 （刪除那些未 git add 的文件，一般地： git clean -dfx 就可以情理所有需要清理的文件，謹慎考慮不要用 -f 強制刪除，使用 -i 確認下）
 		1. -n 顯示將要刪除的文件和目錄
 		2. -x 刪除忽略的文件
