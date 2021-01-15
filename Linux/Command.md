@@ -663,3 +663,12 @@ sudo dnf install iwl1000-firmware
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
 79. chown -h red:red 軟連接名稱 # 修改軟連接的用戶需要添加 -h 參數
+80.  字體庫相關的命令
+	1. 更新字體庫
+	``` bash
+	sudo fc-cache
+	```
+	2. 列出當前支持的字體
+	``` bash
+	fc-list
+	```
