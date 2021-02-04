@@ -1,4 +1,4 @@
-![LOGO](https://media-curse.cursecdn.com/attachments/131/614/6f0789696074089cc2e2af459f56dd9c.png)
+![LOGO](figures/Notes_title.png)
 ---
 
 ### 跟踪、记录自己的学习笔记
@@ -66,4 +66,5 @@
 * [Kicad](https://github.com/iysheng/Notes/blob/master/Misc/Kicad.md)
 
 ---
-![Fedora](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
+#### If you want to contact me, please scan the wechat QR code as below
+![wechat](figures/Notes_wechat.png)
