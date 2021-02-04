@@ -381,6 +381,7 @@ $ cmp <(prog1) <(prog2)
 输出：/dev/fd/63 /dev/fd/62 differ: byte 46, line 1 # 可以看出有名管道，临时文件 /dev/fd/63 和 /dev/fd/63
 ```
 41. grep，awk 匹配与、或、非
+	* -E 表示擴展匹配規則
 ``` bash
 # 或
 grep -E "pattern1|pattern2" FILE

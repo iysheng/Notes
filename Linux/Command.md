@@ -89,6 +89,7 @@
     57. [git submoduleed 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
         ```
         git submodule add -b branch_name [URL to Git Repo] # 添加子模块的跟踪路径和对应的分支
+        git submodule add [URL to Git Repo] [path in current pro]# 添加子模块的跟踪路径到指定的路径
         git submodule init # 初始化 submodule 的配置
         1. git submodule mv [旧的子模块目录名] [新的子模块目录名] # 修改旧的子模块目录名为新的子模块目录名
         2. git submodule sync # 同步对子模块的修改
@@ -257,6 +258,15 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     3. 编辑 ~/.xsession 文件，填写 exec dwm 引导 dwm 启动，重点要设置这个文件的权限为 700 ，否则会出错！！！
     4. 编辑 vim /etc/X11/xdm/Xsetup_0 文件，可以修改登陆背景，可以使用 feh 工具！！！
     5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果
+    6. 遇到问题**PAM unable to dlopen(pam_gnome_keyring.so)**，可以通过 systemctl status xdm 来确认是否出现该问题，此时需要安装
+    ```
+    sudo dnf install gnome-keyring
+    ```
+    7. 重要的一点，针对  fedora-server 还需要修改默认的启动级别为图形化界面.
+    ```
+    sudo systemctl set-default graphical.target
+    ```
+    8. 如果仍然有问题，可以查看保存有错误文件日志的文件： ~/.xsession.errors
 33. 解决 npm 在国内卡的问题
     1. 直接使用 cnpm
     ``` bash

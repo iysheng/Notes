@@ -42,6 +42,7 @@ B
 |binary heap algorithm|二进制堆算法|
 |binary|二元|
 |binary operator|二元运算符|
+|bloated|臃腫的|
 |buggy||
 |brace|大括号|
 |bootstrap|引导|
@@ -79,6 +80,7 @@ C
 |candidate|候选人|
 |conventions|习俗|
 |comply|遵守|
+|cheat sheet|備忘單|
 
 D
 ---
@@ -115,6 +117,7 @@ E
 |exclusive|独家的|
 |emphasis|重点|
 |encapsulate|封装|
+|excerpt|摘錄|
 
 F
 ---
