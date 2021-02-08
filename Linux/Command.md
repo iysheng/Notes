@@ -12,6 +12,8 @@
         hostnamectl set-hostname red.WS
     ```
     8. sudo dnf update 軟件包名稱 # 更新指定的軟件包
+    9. sudo dnf grouplist 列出当前的软件组
+    10. dnf list glibc-\*langpack\* 列出已经安装的语言包 
 
 2. scp 和 ssh sshpass 命令
     1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
