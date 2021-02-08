@@ -32,6 +32,7 @@ A
 |awkward|尴尬的|
 |approximation|近似的|
 |arbitrarily|武斷的|
+|analytics|分析|
 
 B
 ---
@@ -81,6 +82,7 @@ C
 |conventions|习俗|
 |comply|遵守|
 |cheat sheet|備忘單|
+|Collections|收藏品|
 
 D
 ---
@@ -117,7 +119,7 @@ E
 |exclusive|独家的|
 |emphasis|重点|
 |encapsulate|封装|
-|excerpt|摘錄|
+|excerpt|摘錄，节选|
 
 F
 ---
@@ -128,6 +130,7 @@ F
 |frustrate|阻挠|
 |facility|设施|
 |form|窗体，包含空间，以便填写信息|
+|Front Matter|出版的前言、扉页|
 
 G
 ---
@@ -248,6 +251,8 @@ P
 |propose|提出|
 |paranoid|多疑的、偏执的|
 |permanent|永久的|
+|permalink|永久链接|
+|placeholders|占位符|
 
 Q
 ---
@@ -285,6 +290,7 @@ R
 |release candidate|RC，发布的候选人|
 |reception|接收、接待|
 |routine|常規的、程序|
+|resolving|解析|
 
 S
 ---
