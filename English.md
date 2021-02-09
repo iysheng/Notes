@@ -50,6 +50,9 @@ B
 |bootstrapping system|引导系统|
 |bullet lists|项目符号列表|
 |Boiler Plate Code|版式代码、样板代码|
+|bundled with|捆绑|
+|bulk|大量的|
+|bonus|奖金|
 
 C
 ---
@@ -131,6 +134,7 @@ F
 |facility|设施|
 |form|窗体，包含空间，以便填写信息|
 |Front Matter|出版的前言、扉页|
+|flattening|压扁|
 
 G
 ---
@@ -232,6 +236,7 @@ O
 |outline|大纲，轮廓|
 |out of the box|开箱即用|
 |oblique|斜的|
+|opener|开瓶器|
 
 P
 ---

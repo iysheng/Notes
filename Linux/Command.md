@@ -199,6 +199,34 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     sudo pip3 install ueberzug # 测试发现 w3m method 使用未成功 (https://github.com/ranger/ranger/issues/1820)
     # 安装 ueberzug 并修改 rc.config 文件，method 为 ueberzug 可以正常预览，还需要额外注释掉 set use_preview_script true 这一行！！！
     ```
+    3. jk 分别对应上下移动, h 为跳转到 parent 目录, l 为跳转到下一级目录
+    4. 各种文件的作用，可以使用 ranger copy-config=all 复制默认的配置文件到 ~/.config/ranger
+        * commands.py 包含了各种函数的实例
+        * rc.conf 设置各种选项，以及绑定函数的快捷键
+        * fifle.conf 决定了选不同后缀名文件的打开软件
+        * scope.sh 实现了各种类型文件预览的脚本
+    5. 打开文件并且让 ranger种类型文 选择哪一个程序打开该文件（通过 rfile），快捷键是 r
+    6. y[d,n,p] 可以不复制整个文件，需要借助 xclip
+        * yd 仅仅复制选择的目录
+        * yn 复制选中的文件名
+        * yp 复制路径
+    7. 如果移动多个文件，并且这多个文件不在同一个目录，切换目录后，需要使用 ya 或者 da，添加选中的目录
+    8. 如果同一时间工作在不仅一个目录，可以给每一个目录创建一个 tab N，然后通过 alt + N，切换到指定的 tab
+    9. 所有文件的预览在 scope.sh 脚本文件实现
+    10. ? 获取 help 信息
+        * m 打开 man page
+        * k 打开快捷键绑定列表
+        * c 打开有效的命令列表和描述
+        * s 打开配置和当前的值
+    11. I 重命名当前文件， A 重命名当前文件的后缀
+    12. :flat 命令，可以修改目录的折叠层级
+        * :flat -1 表示无限展开
+        * :flat 0 表示仅仅当前目录
+        * :flat 1 表示一级、依次类推
+    13. rager 插件集合
+        * https://github.com/cdump/ranger-devicons2 显示类型图表插件
+        * https://github.com/fdw/ranger-autojump 自动跳转的插件，打开的目录会自动添加到 autojump 数据库，然后就可以通过 autojump 根据模糊搜索跳转到对应的目录了
+    14. 添加 **set vcs_aware true** 到 ~/.config/rc.conf 文件，放开版本控制
 24. cmake 笔记
     1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
     ``` bash

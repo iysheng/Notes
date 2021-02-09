@@ -28,3 +28,5 @@ else:
 ret = os.system("linux 命令")
 ```
 8. python 復制文件 copyfile 函數，在包 shutil 中
+9. pip install pip-compile-multi # 该工具支持批量安装 python 包
+	* 可以将需要安装的 python 包写在文件 a.in，然后执行 pip-compile -U a.in 就可以批量安装所有的 a.in 的 python 包
