@@ -39,3 +39,4 @@ Pin connected to some other pins but no pin to drive it
 14. l 按鍵在 PCB 設計中可以鎖定某一個器件
 15. 可以通過創建陣列的方式，快速放置安裝孔
 16. 覆銅時如果出現覆銅重疊，可以是使用覆銅優先級解決這個問題，優先級數值越大，優先級越高
+17. 如果希望只删除链接线、或者其他某一类的对象，可以[首先全选所有的内容，然后右键鼠标，然后打开选择过滤器，勾选需要选择的内容](https://forum.kicad.info/t/how-to-delete-all-tracks-in-pcbnew/27844)，也可以 Pcbnew -> Edit -> Global Deletions。
