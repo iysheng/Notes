@@ -33,6 +33,7 @@ A
 |approximation|近似的|
 |arbitrarily|武斷的|
 |analytics|分析|
+|apparently|显然|
 
 B
 ---
@@ -86,6 +87,8 @@ C
 |comply|遵守|
 |cheat sheet|備忘單|
 |Collections|收藏品|
+|contest|比赛|
+|convince|使确信，使信服|
 
 D
 ---
@@ -135,6 +138,7 @@ F
 |form|窗体，包含空间，以便填写信息|
 |Front Matter|出版的前言、扉页|
 |flattening|压扁|
+|fulfill|完成、满足|
 
 G
 ---
@@ -218,6 +222,7 @@ N
 |nuances|细微差别|
 |non-trivial|不平凡的|
 |notably|明显地|
+|nightmare|噩梦|
 
 O
 ---

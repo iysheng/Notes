@@ -48,6 +48,65 @@
     22. git checkout -- 文件名；将工作区某个文件的变更撤销
     23. git rm 文件名；删除某一个文件
     24. git stash；暂存状态快照到“栈”
+        1. git stash show : 显示做了哪些改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
+        ``` bash
+        ▸ git stash list
+        stash@{0}: WIP on master: b2072bf02 [bsp][gd32103c-eval] Modify adc driver with LOG_x function and deselect adc driver default
+        stash@{1}: WIP on master: 80cb6aa35 [bsp][gd32103c-eval] Modify README with hwtimer supoort
+        ▸ git stash show
+        bsp/gd32103c-eval/rtconfig.py | 2 +-
+        1 file changed, 1 insertion(+), 1 deletion(-)
+        ▸ git stash show stash@{0}
+        bsp/gd32103c-eval/rtconfig.py | 2 +-
+        1 file changed, 1 insertion(+), 1 deletion(-)
+        ▸ git stash show stash@{1}
+        bsp/gd32103c-eval/.config            | 10 +++++++++-
+        bsp/gd32103c-eval/rtconfig.h         |  2 ++
+        bsp/gd32103c-eval/rtconfig.py        |  2 +-
+        components/drivers/hwtimer/hwtimer.c |  8 ++++++++
+        4 files changed, 20 insertions(+), 2 deletions(-)
+        ```
+        2. git stash show -p : 显示存储的改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
+        ``` bash
+        ▸ git stash show -p stash@{0}
+        
+        bsp/gd32103c-eval/rtconfig.py
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        ────────────────────────┐
+        if os.getenv('RTT_CC'): │
+        ────────────────────────┘
+        12
+        # EXEC_PATH is the compiler execute path, for example, CodeSourcery, Keil MDK, IAR
+        if  CROSS_TOOL == 'gcc':
+            PLATFORM    = 'gcc'
+            EXEC_PATH   = r'D:/toolchain/gnu_tools_arm_embedded/5.4_2016q3/bin'
+            EXEC_PATH   = r'/opt/arm_tools/gcc-arm-none-eabi-6_2-2016q4/bin/'
+        elif CROSS_TOOL == 'keil':
+            PLATFORM     = 'armcc'
+            EXEC_PATH     = r'C:/Keil_v5'
+        ┏─╼[yangyongsheng]╾─╼[15:49:18]╾─╼[0]
+        ┗─╼[~/just4github/rt-thread (master)]
+        ▸ git stash show -p
+        
+        bsp/gd32103c-eval/rtconfig.py
+        ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        
+        ────────────────────────┐
+        if os.getenv('RTT_CC'): │
+        ────────────────────────┘
+        12
+        # EXEC_PATH is the compiler execute path, for example, CodeSourcery, Keil MDK, IAR
+        if  CROSS_TOOL == 'gcc':
+            PLATFORM    = 'gcc'
+            EXEC_PATH   = r'D:/toolchain/gnu_tools_arm_embedded/5.4_2016q3/bin'
+            EXEC_PATH   = r'/opt/arm_tools/gcc-arm-none-eabi-6_2-2016q4/bin/'
+        elif CROSS_TOOL == 'keil':
+            PLATFORM     = 'armcc'
+            EXEC_PATH     = r'C:/Keil_v5'
+        ```
+        3. git stash drop stash@{num} : 删除指定的栈
+        4. git stash clear : 删除所有缓存的栈
     25. git stash list；查看当前“栈”的快照
     26. git stash apply；从“栈”顶恢复快照，但不删除“栈”的这个快照
     27. git stash pop；从“栈”顶恢复快照，但是会删除“栈”的这个快照
