@@ -250,3 +250,14 @@ echom "file tail is " . expand("%:t") " a.vim
 ./configure --with-features=huge --enable-cscope=yes --enable-cscope=yes  --enable-python3interp=yes --with-python3-config-dir=/usr/lib64/python3.9/config-3.9-x86_64-linux-gnu
 ```
 58. 相对跳转基本的格式是 num+[j/k 好像可以省略]
+59. . 重复上一次的命令执行
+60. 命令行模式
+	``` bash
+	<< # 减少缩进 4 个空格
+	>> # 增加缩进加 4 个空格
+	```
+61. 可视模式
+	``` bash
+	< # 减少缩进 4 个空格
+	> # 增加缩进加 4 个空格
+	```
