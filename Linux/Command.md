@@ -22,6 +22,7 @@
     4. ssh username@serverip
     5. 提前将密码放到 -p 选项地方，其他和一般的 scp 命令一样
     6. sshpass -p "passwdxxx" scp filename username@serverip:/dir
+    7. ssh -p xx user@ip /* ssh -p 参数连接指定的端口 xx */
 
 3. git 使用笔记
     1. git log --oneline /* 每一个 commit 只显示一行 */

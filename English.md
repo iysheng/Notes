@@ -89,6 +89,7 @@ C
 |Collections|收藏品|
 |contest|比赛|
 |convince|使确信，使信服|
+|check it out|检查完善|
 
 D
 ---
@@ -353,6 +354,7 @@ T
 |truncated|被截断|
 |tantalum|鉭|
 |tantalum capacitor|鉭電容|
+|then|当时|
 
 U
 ---
@@ -378,6 +380,7 @@ W
 |单词|释义|
 |---|---|
 |workaround|解决方法|
+|write up|记录，(名词)|
 
 Y
 ---
