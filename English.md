@@ -200,6 +200,7 @@ I
 |inductor|電感|
 |interfere|干扰|
 |In the meantime|在此期间|
+|is even with|和...持平|
 
 L
 ---
@@ -224,6 +225,7 @@ M
 |multiplicative|可乘的|
 |makes sense|有意义|
 |motivation|动机|
+|malfunction|故障|
 
 N
 ---

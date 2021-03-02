@@ -23,14 +23,14 @@ set colorcolumn=80
 " ===
 " === get from fedora31 /etc/vimrc
 " ===
-set nocompatible	" Use Vim defaults (much better!)
-set bs=indent,eol,start		" allow backspacing over everything in insert mode
-"set ai			" always set autoindenting on
-"set backup		" keep a backup file
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more
-			" than 50 lines of registers
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
+set nocompatible    " Use Vim defaults (much better!)
+set bs=indent,eol,start        " allow backspacing over everything in insert mode
+"set ai            " always set autoindenting on
+"set backup        " keep a backup file
+set viminfo='20,\"50    " read/write a .viminfo file, don't store more
+            " than 50 lines of registers
+set history=50        " keep 50 lines of command line history
+set ruler        " show the cursor position all the time
 
 " ===
 " === 快捷键配置
@@ -38,7 +38,13 @@ set ruler		" show the cursor position all the time
 map <F9> :q!<CR>
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
-map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
+
+if empty(glob('./cscope.files'))
+    map <C-u> :e<CR>
+else
+    map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
+endif
+
 noremap <leader>w :w!<CR>
 map <C-h> :nohl<CR>
 map <S-m> :!make clean && make<CR>
@@ -57,13 +63,15 @@ nmap <leader>s :split<CR>
 nmap <leader>v :vsplit<CR>
 " C++ 源文件定义 C 语言的函数声明
 nmap <leader>c :s/^/extern "C" &/g<CR>
+" tabprevious
+nmap gr :tabprevious<CR>
 
 " ===
 " === vim-plug check
 " ===
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -75,6 +83,7 @@ Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'joshdick/onedark.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'ajmwagar/vim-deus'
+Plug 'cocopon/iceberg.vim'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -154,13 +163,13 @@ map <right> <nop>
 ""let g:gruvbox_material_visual = 'reverse'
 "colorscheme gruvbox-material
 
-"let g:nord_uniform_diff_background = 1
-"let g:nord_uniform_status_lines = 1
-"let g:nord_italic_comments = 1
-"let g:nord_underline = 1
-"let g:nord_italic = 1
-"let g:nord_cursor_line_number_background = 0
-"colorscheme nord
+" let g:nord_uniform_diff_background = 1
+" let g:nord_uniform_status_lines = 1
+" let g:nord_italic_comments = 1
+" let g:nord_underline = 1
+" let g:nord_italic = 1
+" let g:nord_cursor_line_number_background = 0
+" colorscheme nord
 
 " ===
 " === deus colorscheme
@@ -189,11 +198,12 @@ colorscheme deus
 
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
+map cz :colorscheme zenburn<CR>
 
 " ===
 " === gitgutter
 " ===
-let g:gitgutter_max_signs = 1500
+let g:gitgutter_max_signs = 2500
 map <C-g> :GitGutterBufferToggle<CR>
 map <C-l> :GitGutterLineHighlightsToggle<CR>
 
@@ -226,6 +236,8 @@ let g:ycm_global_ycm_extra_conf ='~/.vim/plugged/youcompleteme/third_party/ycmd/
 " 即使在注释段落，也允许代码补全
 let g:ycm_complete_in_comments = 1
 let g:ycm_disable_for_files_larger_than_kb = 4096
+"let g:ycm_path_to_python_interpreter = /bin/python3
+"let g:ycm_server_python_interpreter = python3
 
 " ===
 " === UltiSnips
