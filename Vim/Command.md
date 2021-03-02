@@ -261,3 +261,6 @@ echom "file tail is " . expand("%:t") " a.vim
 	< # 减少缩进 4 个空格
 	> # 增加缩进加 4 个空格
 	```
+62. 软链接的一般操作
+	* ln -s target link_name # 创建一个指向 target 的名字为 linkname 的软链接
+	* rm link_name # 删除名字为 link_name 的软链接，切记 linkname 后不要加 / 符号，加了的话会删除软链接目录的内容

@@ -31,9 +31,10 @@ A
 |ancillary|辅助的|
 |awkward|尴尬的|
 |approximation|近似的|
-|arbitrarily|武斷的|
+|arbitrarily|武斷的，任意的|
 |analytics|分析|
 |apparently|显然|
+|afterward|之后|
 
 B
 ---
@@ -90,6 +91,10 @@ C
 |contest|比赛|
 |convince|使确信，使信服|
 |check it out|检查完善|
+|complementary|补充|
+|critical|关键的|
+|saturates|饱和|
+|criteria|标准|
 
 D
 ---
@@ -127,6 +132,7 @@ E
 |emphasis|重点|
 |encapsulate|封装|
 |excerpt|摘錄，节选|
+|exploit|开发|
 
 F
 ---
@@ -148,6 +154,7 @@ G
 |go through|经历|
 |gist|要领、要旨|
 |grasp|掌握|
+|go on to|进入|
 
 H
 ---
@@ -156,6 +163,8 @@ H
 |headline|标题|
 |hook up|连接到|
 |handler|处理程序|
+|herein|在此处|
+|hence|因此|
 
 I
 ---
@@ -189,6 +198,8 @@ I
 |integration time|曝光時間， CCD 傳感器相關的一個概念|
 |intensity|強度|
 |inductor|電感|
+|interfere|干扰|
+|In the meantime|在此期间|
 
 L
 ---
@@ -224,6 +235,8 @@ N
 |non-trivial|不平凡的|
 |notably|明显地|
 |nightmare|噩梦|
+|nagging|纠缠不休的|
+|namely|即，也就是，换句话说|
 
 O
 ---
@@ -243,6 +256,7 @@ O
 |out of the box|开箱即用|
 |oblique|斜的|
 |opener|开瓶器|
+|overload|超载、过量|
 
 P
 ---
@@ -264,6 +278,8 @@ P
 |permanent|永久的|
 |permalink|永久链接|
 |placeholders|占位符|
+|parasitic|寄生的|
+|peltier|帕尔贴，电热制冷片|
 
 Q
 ---
@@ -273,6 +289,8 @@ Q
 |quick-and-dirty introduction|快速入门|
 |get the most out of|充分利用|
 |query|輪詢、詢問|
+|qualified|合格的|
+|qualified opinion|保留意见|
 
 R
 ---
@@ -302,6 +320,8 @@ R
 |reception|接收、接待|
 |routine|常規的、程序|
 |resolving|解析|
+|rotary|旋转的|
+|radio|比率|
 
 S
 ---
@@ -336,6 +356,9 @@ S
 |stateless|无国际的、无状态的|
 |stipulate|规定|
 |successive|持續的|
+|standby|备品，备用物品|
+|suspicion|疑惑，嫌疑|
+|simultaneously|同时地|
 
 T
 ---
@@ -355,6 +378,7 @@ T
 |tantalum|鉭|
 |tantalum capacitor|鉭電容|
 |then|当时|
+|trimming|修整、切边|
 
 U
 ---
@@ -368,6 +392,8 @@ U
 |unary operator|一元运算符|
 |utilization|利用率|
 |unplug power|切断电源|
+|upside|好的一面|
+|until then|在那之前|
 
 V
 ---
@@ -381,6 +407,8 @@ W
 |---|---|
 |workaround|解决方法|
 |write up|记录，(名词)|
+|work out of the box|开箱即用|
+|wild|疯狂、无法管教|
 
 Y
 ---
