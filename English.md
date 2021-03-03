@@ -145,6 +145,7 @@ F
 |form|窗体，包含空间，以便填写信息|
 |Front Matter|出版的前言、扉页|
 |flattening|压扁|
+|flat|平的，单调的|
 |fulfill|完成、满足|
 
 G
@@ -361,6 +362,8 @@ S
 |standby|备品，备用物品|
 |suspicion|疑惑，嫌疑|
 |simultaneously|同时地|
+|skillful|巧妙地|
+|subdivide|细分|
 
 T
 ---
