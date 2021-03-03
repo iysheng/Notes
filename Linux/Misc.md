@@ -92,7 +92,7 @@
 	# 建议关闭 powerline 的箭头型符号，除非已经安装了 powerline 字体
 	set -g @nord_tmux_no_patched_font "1"
 	```
-	3. MODKEY + w # 显示当前 session 的所有 window
+	3. MODKEY + w # 显示当前所有 session 的所有 window
 	4. MODKEY + l # 跳转到最近访问的上一个 windows (l:last)
 	5. MODKEY + 空格 # 更换排版
 	6. MODKEY + s # 显示所有的 sessions
@@ -100,6 +100,7 @@
 	8. MODKEY + $ # 修改 session 的名字
 	9. MODKEY + ? # 查看支持的所有命令
 	10. MODKEY + ; # 在最近的两个 pane 之间切换
+	10. MODKEY + d # 退出当前会话，保持会话在后台
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
