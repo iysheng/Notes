@@ -781,3 +781,9 @@ sudo dnf install iwl1000-firmware
 		* gem uninstall [gemname] 删除指定的 gem 包
 		* gem uninstall [gemname] --version=[ver] 删除指定版本的 gem 包
 		* gem list [--local] 查看本机已安装的所有 gem 包
+82. [trash-cli Command Line Interface to FreeDesktop.org Trash.](https://github.com/andreafrancia/trash-cli)
+	* trash-put 将文件和目录放到回收站
+	* trash-empty 清空回收站
+	* trash-list 列出来回收站的内容
+	* trash-restore 回复一个指定的文件
+	* trash-rm 删除一些文件从回收站

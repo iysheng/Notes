@@ -381,6 +381,7 @@ T
 |tantalum capacitor|鉭電容|
 |then|当时|
 |trimming|修整、切边|
+|thereupon|因此|
 
 U
 ---
