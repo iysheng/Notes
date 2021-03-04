@@ -95,6 +95,7 @@ C
 |critical|关键的|
 |saturates|饱和|
 |criteria|标准|
+|complementary|互补的|
 
 D
 ---

@@ -11,7 +11,6 @@ then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH="/usr/local/bin:$PATH"
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -52,6 +51,7 @@ alias tma='tmux attach-session -t'
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 alias xterminal='xfce4-terminal'
+alias cat='bat'
 
 alias gitamend='git commit --amend'
 alias gitst='git status'
@@ -73,4 +73,60 @@ export MANROFFOPT="-c"
 #export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
 # export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ☀ \[\033[0m\] '
 
-export PS1='\033[0;32m┏─╼\033[0m\033[0;36m\][\u]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[\t]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[$?]\033[0m\n\033[0;32m┗─╼\033[0m\033[0;36m[\w$(__git_ps1)]\033[0m\n\033[0;36m▸\033[0m'
+export PS1='\033[0;32m┏─╼\033[0m\033[0;36m\][\u]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[\t]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[$?]\033[0m\n\033[0;32m┗─╼\033[0m\033[0;36m[\w$(__git_ps1)]\033[0m\n\033[0;36m▸\033[0m '
+
+# 导出 JRboard 环境变量， connect_server.sh cp 到 board 的时候使用
+export JRboard=192.168.100.100
+
+# 保证 deus 斜体字支持
+export TERM_ITALICS=true
+export LD_LIBRARY_PATH='/usr/local/lib':$LD_LIBRARY_PATH
+
+alias cxclip='xclip -selection clipboard'
+alias rtupcscope='scons --target=makefile --cscope'
+alias rtsmu='scons --menuconfig'
+
+alias redblog='bundle exec jekyll server'
+alias gencscope='find . -name "*.[hcSs] > cscope.files" ; cscope -bqR'
+
+alias jpo='cd ~/Projects/'
+alias jno='cd ~/RedDir/LearnProjects/Notes'
+
+if [ ! -d /.Trash ];then
+    sudo mkdir -p --parent /.Trash
+    sudo chmod a+rw /.Trash
+    sudo chmod +t /.Trash
+fi
+
+do_trash()
+{
+    trash --trash-dir=/.Trash $@
+}
+alias rtrash=do_trash
+
+do_trash_list()
+{
+    find /.Trash/info/*.trashinfo -exec cat {} + 2> /dev/null
+}
+alias rtrash-list=do_trash_list
+
+do_trash_empty()
+{
+    trash-empty --trash-dir=/.Trash $@
+}
+alias rtrash-empty=do_trash_empty
+
+do_trash_restore()
+{
+    trash-restore --trash-dir=/.Trash $@
+}
+alias rtrash-restore=do_trash_restore
+# tmux attach-session -t session_name
+do_tmux_attach()
+{
+    tmux attach-session -t $@
+}
+alias tmuxa=do_tmux_attach
+
+source ~/.env/env.sh
+source /usr/share/autojump/autojump.bash
