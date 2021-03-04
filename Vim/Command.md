@@ -264,3 +264,8 @@ echom "file tail is " . expand("%:t") " a.vim
 62. 软链接的一般操作
 	* ln -s target link_name # 创建一个指向 target 的名字为 linkname 的软链接
 	* rm link_name # 删除名字为 link_name 的软链接，切记 linkname 后不要加 / 符号，加了的话会删除软链接目录的内容
+63. 编辑寄存器
+	* 编辑寄存器保存的宏内容(以寄存器 a 为例子)
+		1.  "ap 将寄存器的内容复制出来
+		2. .... 编辑寄存器的内容
+		3. "ayy 将寄存器的内容写回到寄存器
