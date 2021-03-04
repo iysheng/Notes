@@ -227,6 +227,7 @@ M
 |makes sense|有意义|
 |motivation|动机|
 |malfunction|故障|
+|motivate|激励|
 
 N
 ---
