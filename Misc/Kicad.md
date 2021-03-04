@@ -40,3 +40,9 @@ Pin connected to some other pins but no pin to drive it
 15. 可以通過創建陣列的方式，快速放置安裝孔
 16. 覆銅時如果出現覆銅重疊，可以是使用覆銅優先級解決這個問題，優先級數值越大，優先級越高
 17. 如果希望只删除链接线、或者其他某一类的对象，可以[首先全选所有的内容，然后右键鼠标，然后打开选择过滤器，勾选需要选择的内容](https://forum.kicad.info/t/how-to-delete-all-tracks-in-pcbnew/27844)，也可以 Pcbnew -> Edit -> Global Deletions。
+18. ~ 符号在 Kicad 表示上划线
+19. 原理图可以分为多个层次图的时候
+    * 在子页面绘制的是 **hierarchical labels**
+	* 在 root 页面绘制的是 **hierarchical pins**，绘制方法有两种，一种手动、另一种自动导出，建议第二种
+		* 手动的方式，适用在先在 root 页面定义好符号，然后在子页面定义对应的 **hierarchical labels**
+		* 自动导出方式，使用在先在子页面定义了 **hierarchical labels**，然后在 root 页面导出对应的 **hierarchical pins**
