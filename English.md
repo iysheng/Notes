@@ -55,6 +55,7 @@ B
 |bundled with|捆绑|
 |bulk|大量的|
 |bonus|奖金|
+|Blob|在计算机中，指的是数据库中存储的数据段的二进制的一个域类型|
 
 C
 ---
@@ -134,6 +135,7 @@ E
 |encapsulate|封装|
 |excerpt|摘錄，节选|
 |exploit|开发|
+|exposure|曝光|
 
 F
 ---
@@ -285,6 +287,7 @@ P
 |placeholders|占位符|
 |parasitic|寄生的|
 |peltier|帕尔贴，电热制冷片|
+|presentation|介绍|
 
 Q
 ---

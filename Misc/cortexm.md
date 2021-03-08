@@ -34,6 +34,9 @@
 	* 向量与状态保存并行获取，从而实现高效的中断输入。
 ### flash 部分
 ---
+* ICP(in-circuit programming) 使用 JTAG 或者 SWD 协议将 bootloader 程序下载到 32
+* IAP(in-application programming) 使用 I/Os, USB, CAN, UART 等将程序下载到控制器，这些也需要这些控制器支持 IAP 下载程序，IAP 支持用户在程序运行的时候少些程序到 flash。尽管这样，部分应用程序还是必须提前通过 ICP 的方式烧录到 flash.
+* flash 的指令访问和数据访问都是在 AHB 总线上。
 ##### GD32F103
 gd32 的 flash 區有一個 information 區，這個區域存放的是 bootloader，這部分代碼是
 固化好的不能被修改
@@ -46,7 +49,7 @@ gd32 的 flash 區有一個 information 區，這個區域存放的是 bootloade
 
 [![rhHeYt.png](https://s3.ax1x.com/2020/12/26/rhHeYt.png)](https://imgchr.com/i/rhHeYt)
 
-gd32 使用外部始終，系統頻率選擇 108MHz
+gd32 使用外部时钟，系統頻率選擇 108MHz
 |總線名|頻率|
 |---|---|
 |sys|108MHz|
