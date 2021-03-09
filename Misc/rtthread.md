@@ -27,3 +27,13 @@
 		* Time Series 数据库：TSDB 是将数据按照时间序列进行保存，TSDB 的数据具有一个时间戳，一大段的数据以及很高的可插入以及查询特性， Time Series log(TSL) 是 TSDB 存储的每一条信息的简称
 			1. 动态保存产生的结构体数据
 			2. 记录操作日志
+
+2. [EasyLogger](https://github.com/armink/EasyLogger.git)
+	* EasyLogger 是一款超轻量级、高性能的 C/C++ 日志库，相比 log4c、zlog 这些知名的日志库， EasyLogger 功能更加简单，提供给用户的接口更少。
+	* 输出级别参考安卓，级别最高是 0(Assert)，最低是5(Verbose)
+		* 0 (A) 断言
+		* 1 (E) 错误
+		* 2 (W) 警告
+		* 3 (I) 信息
+		* 4 (D) 调试
+		* 5 (V) 详细

@@ -146,6 +146,12 @@
     52. git diff HEAD^ HEAD ; 将最近的一次提交打成一个补丁文件
     53. git branch -m 旧分支名 新分支名 # 修改分支名称
     54. git submodule update --init --recursive # Download sub module command
+        1. git submodule 列出来当前仓库引用到的所有 submodules
+        ``` bash
+        ▸ git submodule
+         cbee4e028d66e5d9cc0ef2c45656a1f9438bd319 packages/FlashDB (1.0.0-3-gcbee4e0)
+        ```
+        2. git submodule set-url <path> <newurl> 修改 path 这个 submodule 新的路径
     55. git clone --recursive reposite # recursion download sub module
     56. git rm --cached 文件路径 # 取消对指定文件的跟踪
     57. [git submoduleed 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
@@ -173,6 +179,29 @@
 		5. -f 強制執行
 		6. -i 交互式地刪除文件，即會給你選擇是否刪除
 		7. -e 過濾掉一些不需要刪除的文件
+	60. git apply {patch 文件}
+		1. git apply {patch 文件}：打 patch 有冲突无法合并时，不会打上布丁
+		2. git apply --stat {patch 文件} : 查看 patch 文件包含的改变
+		``` bash
+		▸ git apply --stat /tmp/rtc.diff
+		 bsp/gd32103c-eval/Kconfig            |    5 +
+		 bsp/gd32103c-eval/README.md          |    1
+		 bsp/gd32103c-eval/drivers/SConscript |    3 +
+		 bsp/gd32103c-eval/drivers/drv_rtc.c  |  134 ++++++++++++++++++++++++++++++++++
+		 4 files changed, 143 insertions(+)
+		```
+		3. git apply --check {patch 文件} : 检查 patch 文件格式
+		``` bash
+		▸ git apply --check /tmp/rtc.diff
+		error: patch failed: bsp/gd32103c-eval/Kconfig:97
+		error: bsp/gd32103c-eval/Kconfig: patch does not apply
+		error: patch failed: bsp/gd32103c-eval/README.md:48
+		error: bsp/gd32103c-eval/README.md: patch does not apply
+		error: patch failed: bsp/gd32103c-eval/drivers/SConscript:24
+		error: bsp/gd32103c-eval/drivers/SConscript: patch does not apply
+		```
+		4. git apply --reverse {patch 文件} ： 取消 patch 的使用，将之前已经打过的 patch 撤销
+		5. git apply --reject {patch 文件} ： 强制打 patch，有冲突的内容保存到 rej 文件
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
