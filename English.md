@@ -390,6 +390,7 @@ T
 |then|当时|
 |trimming|修整、切边|
 |thereupon|因此|
+|traversal|遍历|
 
 U
 ---
