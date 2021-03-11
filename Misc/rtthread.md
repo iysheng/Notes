@@ -39,3 +39,11 @@
 		* 3 (I) 信息
 		* 4 (D) 调试
 		* 5 (V) 详细
+
+3. [EasyFlash](https://github.com/armink/EasyFlash.git) 是 FlashDB 的初代版本
+	* EasyFlash 是一款开源的轻量级嵌入式 flash 存储器库，主要包含三大功能：
+		* ENV 快速保存产品参数，支持磨损均衡以及掉电保护
+		* IAP 在线升级
+		* Log 无需文件系统，日志可直接存储在 Flash。非常适合应用在小型不带文件系统的产品中，方便开发人员快速定位、查找系统发生崩溃或者死机的原因。同时配合 EasyLogger 一起使用，轻松实现 C 日志在 Flash 存储功能。
+
+4. [ulog_easyflash](https://github.com/armink-rtt-pkgs/ulog_easyflash.git) 是在基于 easyflash 的 ulog 插件，就是创建了一个 ulog 的后端，将 ulog 的打印信息保存到 flash.

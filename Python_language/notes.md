@@ -30,3 +30,25 @@ ret = os.system("linux 命令")
 8. python 復制文件 copyfile 函數，在包 shutil 中
 9. pip install pip-compile-multi # 该工具支持批量安装 python 包
 	* 可以将需要安装的 python 包写在文件 a.in，然后执行 pip-compile -U a.in 就可以批量安装所有的 a.in 的 python 包
+10. 注释
+	* 单行注释
+	``` python
+	# 注释语句
+	```
+	* 多行注释
+	``` python
+	'''
+	注释内容
+	'''
+	"""
+	注释内容
+	"""
+	```
+11. **numpy** 是 python 科学计算（数学）的包
+	* y = np.arange(0,0) # 创建一个空数组
+	* y = np.arange(2,3) # 创建一个 2 行 3 列的数组
+	* y = np.append(y, 123) # append 函数是在数组 y 后追加内容 123, **重点需要将返回值赋值为 y**，否则起不到追加的效果
+12. 对 str 类型变量 a 为例子
+	* a.isdigit() 判断 a 是否只包含数字
+	* a.isalpha() 判断 a 是否只包含字母
+	* a.isalnum() 判断 a 是否只包含字母或者数字
