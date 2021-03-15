@@ -12,8 +12,9 @@
         hostnamectl set-hostname red.WS
     ```
     8. sudo dnf update 軟件包名稱 # 更新指定的軟件包
-    9. sudo dnf grouplist 列出当前的软件组
-    10. dnf list glibc-\*langpack\* 列出已经安装的语言包 
+    9. sudo dnf upgrade # 升级, 和 dnf update 有相同的功能，都会更新已经安装的软件包，但是更建议使用 ```dnf upgrade``` ，因为他工作更加准确，类似 ```dnf --obsoletes update```,更新过时的软件包
+    10. sudo dnf grouplist 列出当前的软件组
+    11. dnf list glibc-\*langpack\* 列出已经安装的语言包 
 
 2. scp 和 ssh sshpass 命令
     1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
@@ -816,3 +817,21 @@ sudo dnf install iwl1000-firmware
 	* trash-list 列出来回收站的内容
 	* trash-restore 回复一个指定的文件
 	* trash-rm 删除一些文件从回收站
+83. [install fcitx chinese](https://wiki.archlinux.org/index.php/Fcitx5#Chinese)
+	1. sudo dnf install fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk
+	2. sudo dnf install fcitx5-chinese-addons
+	3. 修改环境变量以及自动启动 ```fcitx5```，编辑文件 ~/.bashrc
+	``` bash
+	### 修改环境变量
+	export GTK_IM_MODULE=fcitx
+	export QT_IM_MODULE=fcitx
+	export XMODIFIERS=@im=fcitx
+
+	#### run fcitx5
+	PIDOFFCITX=`pidof fcitx5`
+	if [ $PIDOFFCITX != '' ];then
+	    echo "fcitx is running" > /dev/null
+	else
+	    fcitx5 -d &> /dev/null
+	fi
+	```

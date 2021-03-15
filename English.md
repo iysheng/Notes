@@ -369,6 +369,7 @@ S
 |simultaneously|同时地|
 |skillful|巧妙地|
 |subdivide|细分|
+|successor|继任者|
 
 T
 ---

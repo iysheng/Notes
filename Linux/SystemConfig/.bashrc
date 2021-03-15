@@ -128,5 +128,21 @@ do_tmux_attach()
 }
 alias tmuxa=do_tmux_attach
 
+if [ -f ~/.env/env.sh ];then
 source ~/.env/env.sh
+fi
+
+if [ -f /usr/share/autojump/autojump.bash ];then
 source /usr/share/autojump/autojump.bash
+fi
+
+alias ropen_stm32='sudo openocd -f board/haixi.cfg'
+alias ropen_gd32='sudo openocd -f board/gd32.cfg'
+
+#### run fcitx5
+PIDOFFCITX=`pidof fcitx5`
+if [ $PIDOFFCITX != '' ];then
+    echo "fcitx is running" > /dev/null
+else
+    fcitx5 &
+fi
