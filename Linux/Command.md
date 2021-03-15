@@ -835,3 +835,11 @@ sudo dnf install iwl1000-firmware
 	    fcitx5 -d &> /dev/null
 	fi
 	```
+84. libreoffice 编程
+	* =A1+10 	Displays the contents of cell A1 plus 10. 求和
+	* =A1*16% 	Displays 16% of the contents of A1. 乘以 * 0.16
+	* =A1 * A2 	Displays the result of the multiplication of A1 and A2. 乘法
+	* =ROUND(A1;1) 	Displays the contents of cell A1 rounded to one decimal place.
+	* =EFFECTIVE(5%;12) 	Calculates the effective interest for 5% annual nominal interest with 12 payments a year.
+	* =B8-SUM(B10:B14) 	Calculates B8 minus the sum of the cells B10 to B14. 先求和再做差
+	* =SUM(B8;SUM(B10:B14)) 	Calculates the sum of cells B10 to B14 and adds the value to B8. 求和
