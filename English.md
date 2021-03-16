@@ -288,6 +288,7 @@ P
 |parasitic|寄生的|
 |peltier|帕尔贴，电热制冷片|
 |presentation|介绍|
+|promisor|允诺人|
 
 Q
 ---

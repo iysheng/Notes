@@ -153,7 +153,15 @@
          cbee4e028d66e5d9cc0ef2c45656a1f9438bd319 packages/FlashDB (1.0.0-3-gcbee4e0)
         ```
         2. git submodule set-url <path> <newurl> 修改 path 这个 submodule 新的路径
+        3. git submodule update <path> # 单独只更新指定 path 的 submodule,在很多 submodule 并且仓库都很大的时候建议单独 update,
     55. git clone --recursive reposite # recursion download sub module
+        1. git clone --filter=blob:none --no-checkout <url> # [下载较大的仓库的时候](https://about.gitlab.com/blog/2020/03/13/partial-clone-for-massive-repositories/)，可以使用该命令实现类似 git clone continue 的功能，会拉取 ```default branch``` 的数据，这个命令实现的是类似取消拉取大型数据？？？
+        2. git checkout <branch> # 如果要检出其他分支时，会再次自动拉取所需的内容，类似实现多次拉取的效果
+        3. git 会记录 filter 的设置，如果希望回复默认拉取完整仓库的数据，需要执行
+        ``` bash
+        git config remote.origin.promisor # true 恢复默认
+        git config remote.origin.partialclonefilter # blob:none,取消拉取大型数据？？？支持分段拉取
+        ```
     56. git rm --cached 文件路径 # 取消对指定文件的跟踪
     57. [git submoduleed 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
         ```
@@ -656,9 +664,8 @@ sudo dnf install kernel-devel
 file -L 连接脚本 # 可以跟踪连接脚本，查看所连接的目标的文件属性，默认 file 连接脚本不会跟踪到连接脚本的目标
 ```
 57. tar 命令
-```
-tar -tvf *.tar # 查看指定的压缩包的文件列表
-```
+	* tar -tvf *.tar # 查看指定的压缩包的文件列表
+	* tar -cvf a.tar 文件列表 # 创建 a.tar 的压缩包
 58. **xrandr** 命令
 ```
 xrandr # 现实屏幕连接的装信息
@@ -843,3 +850,8 @@ sudo dnf install iwl1000-firmware
 	* =EFFECTIVE(5%;12) 	Calculates the effective interest for 5% annual nominal interest with 12 payments a year.
 	* =B8-SUM(B10:B14) 	Calculates B8 minus the sum of the cells B10 to B14. 先求和再做差
 	* =SUM(B8;SUM(B10:B14)) 	Calculates the sum of cells B10 to B14 and adds the value to B8. 求和
+85. **Makefile** 语法描述
+	* ```strip``` 函数，删除开头和结尾的空格，eg: 
+	``` makefile
+	$(strip a b c ) => a b c #删除了结尾的空格
+	```
