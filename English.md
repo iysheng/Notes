@@ -35,6 +35,7 @@ A
 |analytics|分析|
 |apparently|显然|
 |afterward|之后|
+|anode|阳极|
 
 B
 ---
@@ -97,6 +98,7 @@ C
 |saturates|饱和|
 |criteria|标准|
 |complementary|互补的|
+|cathode|阴极|
 
 D
 ---
