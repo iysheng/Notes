@@ -46,3 +46,5 @@ Pin connected to some other pins but no pin to drive it
 	* 在 root 页面绘制的是 **hierarchical pins**，绘制方法有两种，一种手动、另一种自动导出，建议第二种
 		* 手动的方式，适用在先在 root 页面定义好符号，然后在子页面定义对应的 **hierarchical labels**
 		* 自动导出方式，使用在先在子页面定义了 **hierarchical labels**，然后在 root 页面导出对应的 **hierarchical pins**
+20. 器件搜索
+	* 数码管器件搜索 7seg
