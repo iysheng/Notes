@@ -48,3 +48,6 @@ Pin connected to some other pins but no pin to drive it
 		* 自动导出方式，使用在先在子页面定义了 **hierarchical labels**，然后在 root 页面导出对应的 **hierarchical pins**
 20. 器件搜索
 	* 数码管器件搜索 7seg
+21. 精确相对移动
+	* 选中器件后 ```ctrl + r``` 可以选择参考目标，做相对移动
+	* 选中器件后 ```ctrl + m``` 可以绝对移动，相对当前位置
