@@ -53,3 +53,5 @@ Pin connected to some other pins but no pin to drive it
 	* 选中器件后 ```ctrl + m``` 可以绝对移动，相对当前位置
 22. align 对齐多个器件的时候，最后选择的器件是基准
 23. Kicad 有一个层叫做 ```CrtYd``` 这个层绘制的图形必须也要封闭起来,否则会报 ```has incorrect Courtyard``` 错误
+24. 查看 Kicad 的快捷键可以参看 ```Preferences -> Hot Keys -> Export Hotkeys```
+    * F 可以快速切换当前器件放置的层
