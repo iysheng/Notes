@@ -99,6 +99,7 @@ C
 |criteria|标准|
 |complementary|互补的|
 |cathode|阴极|
+|courtyard|庭院，院子|
 
 D
 ---

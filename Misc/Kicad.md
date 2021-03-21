@@ -51,3 +51,5 @@ Pin connected to some other pins but no pin to drive it
 21. 精确相对移动
 	* 选中器件后 ```ctrl + r``` 可以选择参考目标，做相对移动
 	* 选中器件后 ```ctrl + m``` 可以绝对移动，相对当前位置
+22. align 对齐多个器件的时候，最后选择的器件是基准
+23. Kicad 有一个层叫做 ```CrtYd``` 这个层绘制的图形必须也要封闭起来,否则会报 ```has incorrect Courtyard``` 错误
