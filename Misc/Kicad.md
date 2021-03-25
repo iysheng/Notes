@@ -56,16 +56,20 @@ Pin connected to some other pins but no pin to drive it
 24. 查看 Kicad 的快捷键可以参看 ```Preferences -> Hot Keys -> Export Hotkeys```
     * F 可以快速切换当前器件放置的层
 25. Kicad 导出 geber
+    ---
 	![plot0](figures/plot0.png)
 	![plot1](figures/plot1.png)
 	![plot2](figures/plot2.png)
 26. Kicad 导出 bom 的方法
+	---
 	![bom0](figures/bom0.png)
 	---
 	使用 bom2csv 插件导出 **csv 后缀名**的文件
+    ---
 	![bom1](figures/bom1.png)
 	---
 	打开 libreoffice 打开 Text CSV 格式文件
+	---
 	![bom2](figures/bom2.png)
 	![bom3](figures/bom3.png)
 	![bom4](figures/bom4.png)
