@@ -634,6 +634,7 @@ sudo dnf install meld
 	hwclock -r
 	```
 53. fd 匹配内容
+	
 	1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
 54. mutt 工具学习
 	1. MXA 工具集合
@@ -687,6 +688,7 @@ echo "hello world" | sed 's/world/china/g'
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+	```
 
 fcitx5 &
     ```
@@ -745,6 +747,7 @@ C-kermit> c 连接
 		do sth
 	```
 69. make 学习笔记
+	
 	1. **wildcard** Makefile 的通配符 函数
 ``` Makefile
 # 匹配 path 路径下所有的 .c 文件
@@ -855,3 +858,7 @@ sudo dnf install iwl1000-firmware
 	``` makefile
 	$(strip a b c ) => a b c #删除了结尾的空格
 	```
+86. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
+	
+	* vi 模式: ```Ctrl Shift Space```
+	* 前向搜索模式```Ctrl Shift f```  后向搜索模式```Ctrl Shift b``` 搜索的目标的时候，```Enter``` 表示向前跳转，```Shift Enter``` 表示向后跳转，```Escape``` 表示退出

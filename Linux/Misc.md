@@ -264,3 +264,14 @@ Linux kernel internal documentation in different formats:
 15. RT-thread 在 Linux 環境使用 pkgs 命令，首次啓動 scons --meunconfig 會自動安裝 env 命令，source ~/.env/env.sh 命令可以導出 pkgs 命令，同時還導出了 env 命令。選中 online 的包後可以使用 pkgs --update 命令下載選中的 online 的軟件包。
 	1. pkgs --upgrade 用來更新 env 功能腳本本身和軟件包列表
 	2. pkgs --update 用來更新軟件包本身
+16. Rust 包管理 cargo
+	* 更换 cargo 的源，创建文件 ```~/.cargo/config```
+	```
+	[source.crates-io]
+	registry = "https://github.com/rust-lang/crates.io-index"
+	replace-with = 'hub'
+	#[source.ustc]
+	#registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+	[source.hub]
+	registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
+	```

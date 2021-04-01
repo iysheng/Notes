@@ -374,6 +374,7 @@ S
 |skillful|巧妙地|
 |subdivide|细分|
 |successor|继任者|
+|semantic|语义的|
 
 T
 ---
