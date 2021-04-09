@@ -334,6 +334,8 @@ R
 |resolving|解析|
 |rotary|旋转的|
 |radio|比率|
+|resume|中断后继续恢复|
+|reproduce|再生、复制|
 
 S
 ---

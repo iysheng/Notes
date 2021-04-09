@@ -7,6 +7,10 @@
 3. make 编译
 4. 因为这个单板没有连接外部晶振，所以需要修改源码配置使用内部晶振作为时钟
 5. 使用 openocd 通过 stlink-v2 接口连接硬件，烧录程序
+	1. openocd 支持的 reset 类型
+		1.1 system Reset : SRST hardware 复位信号
+		1.2 JTAG TAP Reset : TRST 硬件复位信号
+		1.3 Emulation Reset :
 ```
 
 #### 二、 組件包相關內容
