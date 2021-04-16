@@ -672,6 +672,7 @@ file -L 连接脚本 # 可以跟踪连接脚本，查看所连接的目标的文
 xrandr # 现实屏幕连接的装信息
 xrandr --output 分屏 --right-of 主屏 --auto # 屏幕扩展命令
 xrandr --output 分屏幕 --off # 關閉一個屏幕顯示
+xrandr --output 分屏幕 --brightness 0.6
 ```
 59. gdb 调试 elf 文件
     1. gdb + elf 文件

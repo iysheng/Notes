@@ -100,6 +100,7 @@ C
 |complementary|互补的|
 |cathode|阴极|
 |courtyard|庭院，院子|
+|coefficient|系数|
 
 D
 ---
