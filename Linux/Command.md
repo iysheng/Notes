@@ -211,6 +211,9 @@
 		```
 		4. git apply --reverse {patch 文件} ： 取消 patch 的使用，将之前已经打过的 patch 撤销
 		5. git apply --reject {patch 文件} ： 强制打 patch，有冲突的内容保存到 rej 文件
+	61. git log # 显示提交信息
+		1. git log --author="red" # 查找某一个作者的提交
+		2. git log --after="2021-01-02" # 显示 2021-01-02 日期之后的提交
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
