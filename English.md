@@ -337,6 +337,7 @@ R
 |radio|比率|
 |resume|中断后继续恢复|
 |reproduce|再生、复制|
+|Reduced media-independent interface: RMII|精简的 MII 接口|
 
 S
 ---
