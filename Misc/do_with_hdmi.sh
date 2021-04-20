@@ -1,12 +1,20 @@
 #!/bin/sh
 
 OUTSCREEN=`xrandr | grep " connected" | cut -f 1 -d " "`
+# define avalible device
+g_screen_device=("eDP-1", "HDMI-1", "", "")
+g_dev_index=0
 
 function extend_dispaly()
 {
+    let i=0
     for outscreen in $OUTSCREEN;do
-        if [ $outscreen != "eDP-1" ];then
-            xrandr --output $outscreen --right-of eDP-1 --auto
+        g_screen_device[$((i=i+1))]=$outscreen
+        echo $i@${g_screen_device[$i]}
+        if [ $# -gt 0 ];then
+            if [ $outscreen != "eDP-1" ];then
+                xrandr --output $outscreen --right-of eDP-1 --auto
+            fi
         fi
     done
 }
@@ -23,6 +31,7 @@ function usage ()
     echo "Usage :  $0 [options] [--]
 
     Options:
+    -n|index      Set screen device index
     -b|brightness Set brightness
     -v|version    Display script version"
 
@@ -30,18 +39,29 @@ function usage ()
 
 function set_brightness()
 {
-    echo "set brightness" $*
-    for outscreen in $OUTSCREEN;do
-        xrandr --output $outscreen --brightness $1
-    done
+    echo $g_dev_index"aaa"
+    if [ $g_dev_index -ne 0 ];then
+        echo ${g_screen_device[$g_dev_index]%,} "bbb"
+        if [ "" != ${g_screen_device[$g_dev_index]%,} ];then
+            xrandr --output ${g_screen_device[$g_dev_index]%,} --brightness $1
+        else
+            echo "Invalid screen device index:$g_dev_index"
+        fi
+    else
+        for outscreen in $OUTSCREEN;do
+            xrandr --output $outscreen --brightness $1
+        done
+    fi
 }
 
 
 function do_with_display()
 {
-    while getopts "b:v" opt
+    while getopts "n:b:vd" opt
     do
       case $opt in
+    	n|index )  extend_dispaly; g_dev_index=$OPTARG;;
+    	d|display )  extend_dispaly 1; exit 0;;
     
     	b|brightness )  set_brightness $OPTARG; exit 0   ;;
     
@@ -57,8 +77,7 @@ function do_with_display()
 
 if [ $# -gt 0 ];then
     do_with_display $*
-else
-    extend_dispaly
+    extend_dispaly $*
 fi
 
 
