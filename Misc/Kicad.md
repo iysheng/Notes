@@ -73,5 +73,9 @@ Pin connected to some other pins but no pin to drive it
 	![bom2](figures/bom2.png)
 	![bom3](figures/bom3.png)
 	![bom4](figures/bom4.png)
-
+27. [plotgitsch](https://github.com/jnavila/plotkicadsch) 是一款对比 kicad 修改差异的开源工具
+	* 对比当前工作区和 HEAD 差异 ```plotgitsch -ifirefox```
+	* 对比当前工作区和指定版本之间修改的差异 ```plotgitsch -ifirefox <rev1> ```
+	* 对比指定版本之间修改的差异 ```plotgitsch -ifirefox <rev1> <rev2>```
+	* -k 选项可以将对比的 svg 文件保存到当前工作目录
 
