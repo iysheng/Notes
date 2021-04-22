@@ -101,6 +101,7 @@ C
 |cathode|阴极|
 |courtyard|庭院，院子|
 |coefficient|系数|
+|clamp diodes|钳位二极管|
 
 D
 ---
@@ -209,6 +210,7 @@ I
 |interfere|干扰|
 |In the meantime|在此期间|
 |is even with|和...持平|
+|incorporate|包含,组成|
 
 L
 ---
