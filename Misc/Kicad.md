@@ -78,4 +78,5 @@ Pin connected to some other pins but no pin to drive it
 	* 对比当前工作区和指定版本之间修改的差异 ```plotgitsch -ifirefox <rev1> ```
 	* 对比指定版本之间修改的差异 ```plotgitsch -ifirefox <rev1> <rev2>```
 	* -k 选项可以将对比的 svg 文件保存到当前工作目录
-
+28. [LibreCAD](https://wiki.librecad.org/index.php?title=LibreCAD_Brief_Overview) 是一款开源的 2D CAD 软件
+	* 画图: 有两种方法, 鼠标和键盘

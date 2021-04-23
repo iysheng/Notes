@@ -36,6 +36,7 @@ A
 |apparently|显然|
 |afterward|之后|
 |anode|阳极|
+|adeauate|充足的|
 
 B
 ---
@@ -381,6 +382,7 @@ S
 |subdivide|细分|
 |successor|继任者|
 |semantic|语义的|
+|slope|斜坡|
 
 T
 ---

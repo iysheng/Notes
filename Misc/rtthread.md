@@ -54,7 +54,44 @@
 5. [lwip]() 嵌入式网络协议栈
 * RMII 接口定义
 ![](figures/rmii.png)
-51. [netdev](https://www.rt-thread.org/document/site/programming-manual/netdev/netdev/) 网络接口设备,又称网卡,每一个用来网络链接的设备都可以注册成网卡,为了适配更多种类的网卡,避免系统对单一网卡的依赖,RT-Thread 提供了 netdev 组件用来进行网卡管理和控制. netdev 组件的作用是解决设备多网卡链接时网络链接问题,用来统一管理各网卡信息和网络链接状态,并提供统一的网卡调试命令接口.
+* ```struct netif``` 是 lwip 协议抽象网络设备通用的 数据结构
+*  lwip 的函数列举
+	* ```lwip_socket``` 函数创建 socket
+	* ```lwip_setsockopt``` 函数配置 socket
+	* ```lwip_sendto``` 函数发送网络数据
+	* ```lwip_recvfrom``` 函数接收数据
+	* ```lwip_connect`` 函数连接服务器
+* 网络的结构体列举
+    ``` C
+    struct addrinfo {
+    int               ai_flags;      /* Input flags. */
+    int               ai_family;     /* Address family of socket. */
+    int               ai_socktype;   /* Socket type. */
+    int               ai_protocol;   /* Protocol of socket. */
+    socklen_t         ai_addrlen;    /* Length of socket address. */
+    struct sockaddr  *ai_addr;       /* Socket address of socket. */
+    char             *ai_canonname;  /* Canonical name of service location. */
+    struct addrinfo  *ai_next;       /* Pointer to next in list. */
+};
+    ```
+    ``` C
+    struct sockaddr {
+      u8_t        sa_len;
+      sa_family_t sa_family;
+      char        sa_data[14];
+    };
+    ```
+    ``` C
+    struct sockaddr_in {
+      u8_t            sin_len;
+      sa_family_t     sin_family;
+      in_port_t       sin_port;
+      struct in_addr  sin_addr;
+    #define SIN_ZERO_LEN 8
+      char            sin_zero[SIN_ZERO_LEN];
+    };
+    ```
+6. [netdev](https://www.rt-thread.org/document/site/programming-manual/netdev/netdev/) 网络接口设备,又称网卡,每一个用来网络链接的设备都可以注册成网卡,为了适配更多种类的网卡,避免系统对单一网卡的依赖,RT-Thread 提供了 netdev 组件用来进行网卡管理和控制. netdev 组件的作用是解决设备多网卡链接时网络链接问题,用来统一管理各网卡信息和网络链接状态,并提供统一的网卡调试命令接口.
 	* 协议栈是指网络中各层协议的总和,每种协议栈反应了不同的网络数据交互方式, RT-Thread 目前支持三种: LWIP(AF_INET), AT socket(AF_AT), wiznet TCP/IP 硬件协议栈(AF_WIZ).网卡的初始化和注册建立在协议簇类型上,所以每种网卡对应唯一的协议簇类型.
 	* socket 套接字描述符的创建建立在 netdedv 网卡基础上,所以每一个创建的 socket 对应唯一的网卡.
 	* 每一个网卡对应唯一的 ```struct netdev``` 结构体实例.
@@ -95,3 +132,6 @@
 		* ```netdev_is_link_up()``` 判断网卡是否 link_up
 		* ```netdev_is_internet_up()``` 判断网卡是否 internet_up
 		* ```netdev_is_dhcp_enable()``` 判断网卡是否 dhcp_enable
+	* ARP（Address Resolution Protocol）即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，即询问目标IP对应的MAC地址
+![osi](figures/osi.png)
+![osi](figures/tcpip.png)
