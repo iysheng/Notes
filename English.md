@@ -37,6 +37,8 @@ A
 |afterward|之后|
 |anode|阳极|
 |adeauate|充足的|
+|arc|弧|
+|adopt|采用|
 
 B
 ---
@@ -103,6 +105,9 @@ C
 |courtyard|庭院，院子|
 |coefficient|系数|
 |clamp diodes|钳位二极管|
+|curve|曲线|
+|coordinates|坐标|
+|Construction|建造|
 
 D
 ---
@@ -125,6 +130,10 @@ D
 |decoration|装饰|
 |dongle|加密狗|
 |directive|指令|
+|Cartesian|笛卡尔坐标,传统的 X,Y 轴坐标|
+|dragging|牵引|
+|dimension|面积|
+|detach|分离|
 
 E
 ---
@@ -133,7 +142,7 @@ E
 |envelope|信封|
 |empty|清空|
 |extract|提取|
-|exhausted|耗尽的|
+|exhausted|耗尽的,详尽的|
 |expomentiation|求幂|
 |emulate|仿真|
 |exclusive|独家的|
@@ -142,6 +151,7 @@ E
 |excerpt|摘錄，节选|
 |exploit|开发|
 |exposure|曝光|
+|entity|实体|
 
 F
 ---
@@ -296,6 +306,8 @@ P
 |peltier|帕尔贴，电热制冷片|
 |presentation|介绍|
 |promisor|允诺人|
+|polar|极坐标|
+|pirate|盗版|
 
 Q
 ---
@@ -341,6 +353,8 @@ R
 |resume|中断后继续恢复|
 |reproduce|再生、复制|
 |Reduced media-independent interface: RMII|精简的 MII 接口|
+|reference|参考文献|
+|rotate|旋转|
 
 S
 ---
@@ -383,6 +397,7 @@ S
 |successor|继任者|
 |semantic|语义的|
 |slope|斜坡|
+|sketch|素描|
 
 T
 ---
