@@ -53,6 +53,11 @@ ret = os.system("linux 命令")
 	* a.isalpha() 判断 a 是否只包含字母
 	* a.isalnum() 判断 a 是否只包含字母或者数字
 13. int(string) # 格式化 string 类型为 int
-14. 绘制图形库 matplotlib.pyplot
+	* int('12') # 默认转换为 10 进制
+	* int('12', 16) # 默认转换为 16 进制
+14. str(int) # 格式化为字符串格式
+	* str(18) # 默认以 10 进制转换
+	* hex(18) # 以 16 进制形式格式化为字符串
+15. 绘制图形库 matplotlib.pyplot
 	1. plot(x, y) # 以 x 轴和 y 轴绘制曲线图
 	2. show() 显示绘制的图形
