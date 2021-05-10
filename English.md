@@ -39,6 +39,7 @@ A
 |adeauate|充足的|
 |arc|弧|
 |adopt|采用|
+|algebra|代数|
 
 B
 ---
@@ -108,6 +109,8 @@ C
 |curve|曲线|
 |coordinates|坐标|
 |Construction|建造|
+|clarity|清晰|
+|Concatenation|串联|
 
 D
 ---
@@ -175,6 +178,7 @@ G
 |gist|要领、要旨|
 |grasp|掌握|
 |go on to|进入|
+|gradually|逐步地|
 
 H
 ---
@@ -185,6 +189,7 @@ H
 |handler|处理程序|
 |herein|在此处|
 |hence|因此|
+|handy|方便的|
 
 I
 ---
@@ -248,6 +253,7 @@ M
 |motivation|动机|
 |malfunction|故障|
 |motivate|激励|
+|mutable|可变的|
 
 N
 ---
@@ -308,6 +314,7 @@ P
 |promisor|允诺人|
 |polar|极坐标|
 |pirate|盗版|
+|paradigm|范例|
 
 Q
 ---
@@ -398,6 +405,7 @@ S
 |semantic|语义的|
 |slope|斜坡|
 |sketch|素描|
+|square brackets|方括号|
 
 T
 ---
@@ -420,6 +428,7 @@ T
 |trimming|修整、切边|
 |thereupon|因此|
 |traversal|遍历|
+|triple quotes|三引号|
 
 U
 ---
