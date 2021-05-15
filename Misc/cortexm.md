@@ -111,6 +111,42 @@ gd32 使用外部时钟，系統頻率選擇 108MHz
 	* AD 轉換完成
 	* 模擬看門狗中斷
 
+### CAN 总线部分
+---
+**CAN 2.0A 协议帧格式和对应的描述**
+![](figures/can20a.png)
+![](figures/can20ap.png)
+**CAN 2.0B 协议帧格式和对应的描述**
+![](figures/can20b.png)
+![](figures/can20bp.png)
+
+* GD32 的 can 工作模式有三种
+	1. sleep 模式, 复位之后默认进入到该模式,在改模式 CAN 的 clock 停止,处在低功耗状态,sleep 模式可以直接转到 inital 模式也可以直接转到 normal 模式
+	2. initial 模式, 当 CAN bus 的配置需要改变的时候, CAN 必须首先进入到 intial 模式.
+	3. normal 模式, normal 模式下可以和其他的 CAN 设备正常通讯, 进一步地 CAN 的通讯模式也可以分为三种:
+		1. silent 通讯模式, 该模式意味着只能接收不能发送
+		2. loopback 通讯模式, 该模式发送出去的数据直接到接收 FIFO,接收管脚直接和外部隔离开来,发送管脚可以将数据发送出去
+		3. loopback 和 silent 通讯模式, 该模式表示不能接收外部的也无法将数据发送到外部,一般用来自测
+		4. normal 通讯模式,正常可以和外部收发的模式
+* 有 3 个发送邮箱和 2 个接收 FIFO
+* 滤波器
+	* CAN 从 CAN 总线接收的数据必须要通过滤波器过滤才会确认是否可以接收.
+	* 滤波器有 14 或者 28 个 bank,每一个 bank 都有两个 32bit 的寄存器,每一个滤波器的 bank 都可以配置为 32bit 或者 16bit,32 bit 和 16 bit 对应的滤波器的帧格式为:
+![](figures/gdcan.png)
+	* 滤波器有两种模式:
+		1. 掩码模式对应的也分为 32bit 和 16bit,匹配对应 bit 位的内容要一致.
+		![](figur es/canmask32.png)
+		![](figures/canmask.png)
+		2. list 模式,这种模式直接确定的了帧 ID(32 bit 模式下需要匹配 29 bit 的 ID 位,16 bit 模式下需要匹配 SFID 的 11 bit 和 EFID 的高 2 bit),而不再是掩码方式对比.
+		![](figures/canlist.png)
+		3. 滤波器编号的方法,比如两个 bank0 和 bank1,分别设置 bank0 为 32 bit 的 mask 模式,bank1 为 list 模式,那么滤波器的编号为:
+		![](figures/canindex.png)
+		4. 滤波器可以关联到 FIFO0 或者 FIFO1, FIFO0 和 FIFO1 的滤波器器编号都是从 0 开始的.
+		5. 滤波器的优先级:
+			* 32 bit优先级比 16 bit高
+			* list 模式的优先级比 mask 高
+			* 滤波器编号越小,对应的优先级越高
+		
 ### TIM 部分
 ---
 ##### GD32F103 系列
@@ -162,3 +198,4 @@ Reading the TCD1304(讀取 TCD1304 傳感器的數據):
 The data rate of the CCD is 1/4 of fM, which means the pixels are clocked out at 0.50 MHz. The ADC in the STM32F401RE is fast enough to do 12 bit conversions at this rate. The pixel values are sent to a 16 bit array using DMA. From here they are sent to the Raspberry Pi over SPI at 16 MHz - also utilizing DMA - or through UART to a regular PC via the built-in ST-link's USB-connection.
 ( CCD 的數據速度是 1/4 的 fm。在 2MHz 輸出 fm 的情況下， 像素的數據輸出的頻率是 0.5MHz，32 的 12 bit 的ADC 足夠在這個速度下處理 AD 採樣。像素數據通過 DMA 存儲到一個 16 bit 的數組)
 The voltage of an "dark" pixel is around 3.0 V and a "white" pixel has a voltage of around 1.5 V. In other words the data is upside down.(“暗”電壓大概在 3.0V，“白”電壓大概在 1.5V，換句話說和一般的 CCD 相比，“暗”和“亮”電壓剛好顛倒)
+
