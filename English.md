@@ -287,6 +287,7 @@ O
 |oblique|斜的|
 |opener|开瓶器|
 |overload|超载、过量|
+|overall|全部的|
 
 P
 ---
