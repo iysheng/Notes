@@ -430,6 +430,7 @@ T
 |thereupon|因此|
 |traversal|遍历|
 |triple quotes|三引号|
+|threshold|阈值|
 
 U
 ---

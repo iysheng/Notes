@@ -170,13 +170,15 @@ ret = os.system("linux 命令")
 		def _test1(x, y):
 			return x * y
 		```
-		不能通过 from foo import * 导入 _test1 方法,只能通过 from foo import _test1 来导入这个方法
+		不能通过 from foo import * 导入 _test1 方法,只能通过 from foo import \_test1 来导入这个方法
 		* 作为类的属性名(成员名)或者方法名时,不希望下游的程序员直接访问该名字而导致意外覆盖这个属性,但是这种1情况只是一种命名约定, python 解释器不会对这种属性名做特殊处理.
 	2. 前后均带有双下划线 __ 的命名,一般用来特殊的方法,用来实现对象的一些行为或者功能.
+		```
 		* __new__() 方法用来创建对象
 		* __init__() 方法用来初始化对象
 		* x + y 被映射为 x.__add__(y), 序列或者字典的索引操作 x[k] 映射为 x.__getitem__(k)
 		* __len__(), __str__() 分别被内置函数 len() 和 str() 调用
+		```
 	3. 仅开头带双下划线 __ 的命名,用来对象的数据封装,以此命名的属性或者方法为类的私有属性或者私有方法.这种实现的机制并不严格,机制是通过自动变形实现的,类中所有以双下划线开头的名称 __name 都会自动变为 _类名__name 的新名称.
 	``` python
 	class Foo(object):
@@ -192,3 +194,19 @@ ret = os.system("linux 命令")
 	f.__name # 会报错
 	f._Foo__name # 可以打印
 	```
+25. python 获取命令行参数
+	* import sys ,使用 sys.argv 获取指定的命令行参数
+	``` python
+	import sys
+	print(len(sys.argv)) # 打印命令行参数的数量
+	print(sys.argv[0]) # python 脚本本身
+	```
+26. exit() 函数整个退出 python 脚本
+27. matplotlib.pyplot 库
+	1. 一般绘图
+	``` bash
+	import matplotlib.pyplot as plt
+	plt.plot(x, y, label="test demo")
+	plt.legend() # 添加曲线的描述即 legend
+	```
+	![](figures/plt_legend.png)

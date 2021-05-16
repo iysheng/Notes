@@ -135,7 +135,7 @@ gd32 使用外部时钟，系統頻率選擇 108MHz
 ![](figures/gdcan.png)
 	* 滤波器有两种模式:
 		1. 掩码模式对应的也分为 32bit 和 16bit,匹配对应 bit 位的内容要一致.
-		![](figur es/canmask32.png)
+		![](figures/canmask32.png)
 		![](figures/canmask.png)
 		2. list 模式,这种模式直接确定的了帧 ID(32 bit 模式下需要匹配 29 bit 的 ID 位,16 bit 模式下需要匹配 SFID 的 11 bit 和 EFID 的高 2 bit),而不再是掩码方式对比.
 		![](figures/canlist.png)
