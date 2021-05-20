@@ -210,3 +210,8 @@ ret = os.system("linux 命令")
 	plt.legend() # 添加曲线的描述即 legend
 	```
 	![](figures/plt_legend.png)
+28. 对小数取整的四种方法
+	* 向上取整: math.ceil()
+	* 向下取整: math.floor()
+	* 四舍五入: round()
+	* 向 0 取整: int()
