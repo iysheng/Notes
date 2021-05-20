@@ -40,6 +40,7 @@ A
 |arc|弧|
 |adopt|采用|
 |algebra|代数|
+|appreciation|理解|
 
 B
 ---
@@ -111,6 +112,7 @@ C
 |Construction|建造|
 |clarity|清晰|
 |Concatenation|串联|
+|ceil|天花板|
 
 D
 ---
@@ -137,6 +139,7 @@ D
 |dragging|牵引|
 |dimension|面积|
 |detach|分离|
+|discrete time Fourier transform|离散时间傅立叶变换|
 
 E
 ---
@@ -169,6 +172,7 @@ F
 |flattening|压扁|
 |flat|平的，单调的|
 |fulfill|完成、满足|
+|floor|地板|
 
 G
 ---
@@ -227,6 +231,7 @@ I
 |In the meantime|在此期间|
 |is even with|和...持平|
 |incorporate|包含,组成|
+|Impulse-Response|冲击响应|
 
 L
 ---
@@ -431,6 +436,9 @@ T
 |traversal|遍历|
 |triple quotes|三引号|
 |threshold|阈值|
+|transform|变换|
+|transfer function|传递函数|
+|tuple|元组|
 
 U
 ---
