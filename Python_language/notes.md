@@ -105,6 +105,14 @@ ret = os.system("linux 命令")
 	3. lists: 可以表示组织任意类型, [1, 2, 3],['right', 'wrong', 'dog'], [[1,2], [2,3]] # list 可以互相嵌套
 		* append('abc') # 直接将 'abc' 作为一个整体追加到 list 中
 		* extend('abc') # 将 'abc' 拆分为 3 部分 'a' 'b' 'c' 添加到 list 中
+		* a = [1,2,3] # 取 list 的索引 a[1:2] == [1], 还支持反向索引, a[1:-1] == [1] 左边是包含,右边不包含
+		* b = a # 通过等号赋值相当引用实际指向的同一片区域,如果希望复制一个 list 可以使用
+			* list.copy()
+			* b = a * 1
+			* b = a[:]
+			* b = list(a)
+			* b = a[x for x in a]
+			* b = copy.deepcopy(a) # 深度拷贝,需要 import copy
 	4. 特殊的变量,无,表示 nothing: None
 	5. F-strings 是新的变量类型, python3.6 引入
 	6. list 类型可以包含重复的内容,但是 set 类型就不可以,set 就是类似数学的集合,可以通过对 list 执行构造函数,提取不同的 list 成员.
@@ -123,6 +131,29 @@ ret = os.system("linux 命令")
 	* strings 和 lists 都是序列数据,分别是字符串序列和元素序列. len() 函数可以返回序列变量的长度,字符串拼接.支持乘法和加法
 	* 变量名必须以字母开头,可以包含字母\数组\下划线
 	* python 区分大小写
+	7. tuple 是元组类型,元组类型和 list 类似,但是元组类型不支持对指定索引编号的变量进行修改,但是可以将元组以一个整体进行拼接和删除,元组的定义使用的是 () 括号,而 list 使用的 [] 方括号
+		* 访问元组的方法和 list 类型,可以直接使用索引编号
+			``` python
+			a =(1,2,3)
+			a[1:]=(2,3)
+			```
+		* 元组连接组合
+			``` python
+			a = (1, 2)
+			b = (3, 4)
+			c = a + b # c =(1, 2, 3 ,4)
+			```
+		* 删除元组
+			``` python
+			a = (1,2)
+			del a
+			print (a) # NameError: name 'a' is not defined
+			```
+		* 定义元组,任意无符号的对象，以逗号隔开，默认为元组
+			``` python
+			a = 123, 'abc', 567
+			print (type(a)) # <class 'tuple'>
+			```
 21. 常见函数
 	1. type() # 返回对象类型
 	2. int(字符串) # 字符串转 int
@@ -132,6 +163,12 @@ ret = os.system("linux 命令")
 		* 默认情况下, print 会在每一行的结尾添加换行符,可以使用 end 关键字修改结尾字符内容
 		* sep 关键字作为打印参数之间的间隔
 		* 关键字的修改都要放在 print 函数的结尾处
+		* print(格式化 %(数据变量)) 示例:
+		``` python
+		print('num=%d string=%s' %(123, 'abc')) # num=123, string='abc'
+		print('num=%x string=%s' %(123, 'abc')) # hexnum=7b, string='abc'
+		print("num=%d string=%s" %(123, 'abc'))
+		```
 	6. input() 函数接收键盘输入赋值给变量
 	7. locals() 返回所有当前变量组成的字典
 	8. range(序列大小) 自动产生常规的数字序列,一般地会讲过 range() 函数的返回值 list 化,格式化到一个 list 中. range() 直接返回的是 range 类型的数据. list(range(5)) 将 range 的输出直接格式化到一个 list
@@ -215,3 +252,28 @@ ret = os.system("linux 命令")
 	* 向下取整: math.floor()
 	* 四舍五入: round()
 	* 向 0 取整: int()
+29. 获取命令行参数的两种方法
+	1. getopt
+        ``` python
+        getopt(args, shortopts, longopts=[])
+        getopt(args, options[, long_options]) -> opts, args
+        # eg test.py -l 1 -t abc 5 6 -> opts=[(-l, 1), (-t, 2)] args=[5,6]
+        opts,args = getopt.getopt(sys.argv[1:], 'l:t:', ["list=", "target="])
+        ```
+        * 当参数后跟随的是多个字符串时可以使用 str.split(字符串列表) 将字符串解析为 list 格式数据
+        ``` python
+        # eg test.py -l 'test0.txt test1.txt' -t abc 5 6 -> opts=[(-l, 'test0.txt test1.txt'), (-t, 2)] args=[5,6]
+        opts,args = getopt.getopt(sys.argv[1:], 'l:t:', ["list=", "target="])
+		for opt,param in opts:
+			if opt == 't':
+				print(str.split(param)) # ['test0.txt', 'test1.txt']
+        ```
+	2. argparse
+
+30. 使用全局变量的方法,必须在函数中使用 global 关键字声明这个全局变量
+``` python
+g_data = 0
+def print():
+	global g_data # 必须显式声明这个全局变量,否则的话会运行出错
+	print(g_data)
+```
