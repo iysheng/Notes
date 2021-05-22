@@ -121,6 +121,11 @@ ret = os.system("linux 命令")
 	b=set(a)
 	b == [1, 2, 3]
 	```
+		* 借助 set 可以提取 list 的不重复内容
+		``` python
+		a = [1,2,3,4,5,6,6,1]
+		b = list(set(a)) # [1,2,3,4,5,6]
+		```
 	* class 是 python 基本变量类型术语,用 type 命令查看时都会返回这个关键字
 	``` bash
     >>> type(1)
