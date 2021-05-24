@@ -1,5 +1,7 @@
 ### 读书笔记
-python 具有大量的内置函数,用来处理不同类型的数据.python 是面向对象的语言.每一个数据和函数都可以称之为对象.面向对象区别之前的面向过程的语言.面向过程的语言数据和方法在语言中没有关联起来.
+* python 具有大量的内置函数,用来处理不同类型的数据.python 是面向对象的语言.每一个数据和函数都可以称之为对象.面向对象区别之前的面向过程的语言.面向过程的语言数据和方法在语言中没有关联起来.
+* 当一个类型的名字作为函数调用时,这就是一个构造函数.构造函数会创建一个新的对象然后立即返回.构造函数可以添加参数.
+* 对象会有一些专门的方法和他们关联
 1. print 函数的 sep 参数，用来设置 print 的打印分隔符，默认是' '，空格
 ``` python
 print('a','b') # a b
@@ -113,6 +115,15 @@ ret = os.system("linux 命令")
 			* b = list(a)
 			* b = a[x for x in a]
 			* b = copy.deepcopy(a) # 深度拷贝,需要 import copy
+		* list 前添加 * 号表示将 list 解开为多个独立的参数传入函数
+		``` python
+		def add(num1, num2):
+			return num1 + num2
+		data = [1,2]
+		add(*data) == add(1, 2)
+		import numpy as np
+		np.arrange(*data) == np.arrange(1, 2)
+		```
 	4. 特殊的变量,无,表示 nothing: None
 	5. F-strings 是新的变量类型, python3.6 引入
 	6. list 类型可以包含重复的内容,但是 set 类型就不可以,set 就是类似数学的集合,可以通过对 list 执行构造函数,提取不同的 list 成员.
@@ -159,6 +170,7 @@ ret = os.system("linux 命令")
 			a = 123, 'abc', 567
 			print (type(a)) # <class 'tuple'>
 			```
+		* 元组前添加 *,和 list 类似,表示将元组的变量作为函数参数传入
 21. 常见函数
 	1. type() # 返回对象类型
 	2. int(字符串) # 字符串转 int
@@ -175,7 +187,7 @@ ret = os.system("linux 命令")
 		print("num=%d string=%s" %(123, 'abc'))
 		```
 	6. input() 函数接收键盘输入赋值给变量
-	7. locals() 返回所有当前变量组成的字典
+	7. locals() 返回所有当前视图变量组成的字典!!!
 	8. range(序列大小) 自动产生常规的数字序列,一般地会讲过 range() 函数的返回值 list 化,格式化到一个 list 中. range() 直接返回的是 range 类型的数据. list(range(5)) 将 range 的输出直接格式化到一个 list
 	9. count() 函数统计指定字符串出现的次数
 	``` python
@@ -196,6 +208,15 @@ ret = os.system("linux 命令")
 	fruit = dict()
 	fruit['0'] = 'apple' # 给字典填充数据
 	fruit['1'] = 'banana'
+	```
+	* 字典前加 ** 号表示将字典解开成为独立的参数作为形参,形参的名字是字典对应的 key 值
+	``` python
+	def add(x, y):
+		print(x + y)
+	data = {'a':7, 'b':6}
+	add(**data) # error 会报错,因为形参是 x 和 y,但是字典中是 a 和 b 无法匹配形参列表
+	newdata = {'x':7, 'y':6}
+	add(**newdata) # ok 等价 add(7, 6) 结果是 13
 	```
 23. 循环
 	* for 循环
@@ -258,7 +279,7 @@ ret = os.system("linux 命令")
 	* 四舍五入: round()
 	* 向 0 取整: int()
 29. 获取命令行参数的两种方法
-	1. getopt
+    1. getopt
         ``` python
         getopt(args, shortopts, longopts=[])
         getopt(args, options[, long_options]) -> opts, args
@@ -269,11 +290,11 @@ ret = os.system("linux 命令")
         ``` python
         # eg test.py -l 'test0.txt test1.txt' -t abc 5 6 -> opts=[(-l, 'test0.txt test1.txt'), (-t, 2)] args=[5,6]
         opts,args = getopt.getopt(sys.argv[1:], 'l:t:', ["list=", "target="])
-		for opt,param in opts:
-			if opt == 't':
-				print(str.split(param)) # ['test0.txt', 'test1.txt']
+        for opt,param in opts:
+            if opt == 't':
+                print(str.split(param)) # ['test0.txt', 'test1.txt']
         ```
-	2. argparse
+    2. argparse
 
 30. 使用全局变量的方法,必须在函数中使用 global 关键字声明这个全局变量
 ``` python
@@ -282,3 +303,8 @@ def print():
 	global g_data # 必须显式声明这个全局变量,否则的话会运行出错
 	print(g_data)
 ```
+31. 文件
+	* python 考虑到初始化初始化一个文件特别耗时,所以会缓存文件数据,一次性将文件所有的内容都写到文件
+	* 文件的 **write** 方法不像 printf 一样会在末尾添加 '\n' 字符.
+	* open(filenama) # 默认的方法就是 'r',所以只读文件的时候可以不添加爱 'r' 模式,会将文件的整个内容返回到一个字符串,只读模式下可以不用 close() 文件
+

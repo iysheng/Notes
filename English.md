@@ -140,6 +140,7 @@ D
 |dimension|面积|
 |detach|分离|
 |discrete time Fourier transform|离散时间傅立叶变换|
+|distinct|清晰的,有区别的|
 
 E
 ---
@@ -173,6 +174,7 @@ F
 |flat|平的，单调的|
 |fulfill|完成、满足|
 |floor|地板|
+|come full circle|绕了一圈|
 
 G
 ---
@@ -259,6 +261,7 @@ M
 |malfunction|故障|
 |motivate|激励|
 |mutable|可变的|
+|make sense|有道理,合乎情理|
 
 N
 ---
@@ -293,6 +296,7 @@ O
 |opener|开瓶器|
 |overload|超载、过量|
 |overall|全部的|
+|object Orientation|面向对象|
 
 P
 ---
@@ -368,6 +372,7 @@ R
 |Reduced media-independent interface: RMII|精简的 MII 接口|
 |reference|参考文献|
 |rotate|旋转|
+|relinquish|放弃|
 
 S
 ---
@@ -439,6 +444,7 @@ T
 |transform|变换|
 |transfer function|传递函数|
 |tuple|元组|
+|Thus far|到目前为止|
 
 U
 ---
