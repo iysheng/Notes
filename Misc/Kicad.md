@@ -40,6 +40,7 @@ Pin connected to some other pins but no pin to drive it
 |shift + Y|3D 视图查看左视图|
 |X|3D 视图查看前视图|
 |shift + X|3D 视图查看后视图|
+|TAB|45 角度旋转|
 12. [庫文件搜索](https://componentsearchengine.com)，支持下載符號、封裝庫和 3D 模型
 13. kicad 不同後綴名文件類型
 	* .lib 文件， 符號文件
