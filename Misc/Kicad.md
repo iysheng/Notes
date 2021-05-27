@@ -33,6 +33,13 @@ Pin connected to some other pins but no pin to drive it
 |v(布線中)|添加過孔|
 |x|開始布線|
 |q|布線時打開線寬編輯|
+|B|重新绘制所有铜层|
+|Z|3D 视图查看顶视图|
+|shift + Z|3D 视图查看底视图|
+|Y|3D 视图查看右视图|
+|shift + Y|3D 视图查看左视图|
+|X|3D 视图查看前视图|
+|shift + X|3D 视图查看后视图|
 12. [庫文件搜索](https://componentsearchengine.com)，支持下載符號、封裝庫和 3D 模型
 13. kicad 不同後綴名文件類型
 	* .lib 文件， 符號文件
@@ -50,11 +57,11 @@ Pin connected to some other pins but no pin to drive it
 20. 器件搜索
 	* 数码管器件搜索 7seg
 21. 精确相对移动
-	* 选中器件后 ```ctrl + r``` 可以选择参考目标，做相对移动
-	* 选中器件后 ```ctrl + m``` 可以绝对移动，相对当前位置
+	* 选中器件后 **ctrl + r** 可以选择参考目标，做相对移动
+	* 选中器件后 **ctrl + m** 可以绝对移动，相对当前位置
 22. align 对齐多个器件的时候，最后选择的器件是基准
-23. Kicad 有一个层叫做 ```CrtYd``` 这个层绘制的图形必须也要封闭起来,否则会报 ```has incorrect Courtyard``` 错误
-24. 查看 Kicad 的快捷键可以参看 ```Preferences -> Hot Keys -> Export Hotkeys```
+23. Kicad 有一个层叫做 **CrtYd** 这个层绘制的图形必须也要封闭起来,否则会报 **has incorrect Courtyard** 错误
+24. 查看 Kicad 的快捷键可以参看 **Preferences -> Hot Keys -> Export Hotkeys**
     * F 可以快速切换当前器件放置的层
 25. Kicad 导出 geber
     ---
@@ -75,15 +82,15 @@ Pin connected to some other pins but no pin to drive it
 	![bom3](figures/bom3.png)
 	![bom4](figures/bom4.png)
 27. [plotgitsch](https://github.com/jnavila/plotkicadsch) 是一款对比 kicad 修改差异的开源工具
-	* 对比当前工作区和 HEAD 差异 ```plotgitsch -ifirefox```
-	* 对比当前工作区和指定版本之间修改的差异 ```plotgitsch -ifirefox <rev1> ```
-	* 对比指定版本之间修改的差异 ```plotgitsch -ifirefox <rev1> <rev2>```
+	* 对比当前工作区和 HEAD 差异 **plotgitsch -ifirefox**
+	* 对比当前工作区和指定版本之间修改的差异 **plotgitsch -ifirefox <rev1> **
+	* 对比指定版本之间修改的差异 **plotgitsch -ifirefox <rev1> <rev2>**
 	* -k 选项可以将对比的 svg 文件保存到当前工作目录
 28. [LibreCAD](https://wiki.librecad.org/index.php?title=LibreCAD_Brief_Overview) 是一款开源的 2D CAD 软件
 	* 画图: 有两种方法, 鼠标和键盘
 	* LibreCAD supports two drawing perspectives; orthogonal(正交,一般的 2D 图像) and isometric projections(等距投影.在 2D 结构中绘制 3D 效果,可以认为是 2.5D)
-	* 相对坐标的使用需要在坐标前添加 ```@``` 符号,如果是笛卡尔坐标,也可以写作 ```x..y``` 等价 ```@x,y```
-	* 极坐标的方法是 ```100@45``` 表示 45 度 100 单位长度
+	* 相对坐标的使用需要在坐标前添加 **@** 符号,如果是笛卡尔坐标,也可以写作 **x..y** 等价 **@x,y**
+	* 极坐标的方法是 **100@45** 表示 45 度 100 单位长度
 	* entity 是几何形状,比如线\圆\弧等,这些实体组合起来构成了图
 		* pens : 描述了一个实体的外观,包括有颜色(默认内置了 16 中颜色,支持 24 bit 的 RGB 颜色)/宽度(宽度范围是 0.0mm - 2.11mm)/类型(默认的类型是实心的,还支持 DOT/Dash/Divide/Center/Border)三种属性
 		* layers : 提供了将这些实体组合起来的方法,层的使用是 libreoffice 最重要的一个特性,有点类似传统的手工草图.每一个实体只能关联到一个层
@@ -95,5 +102,10 @@ Pin connected to some other pins but no pin to drive it
 		* 鼠标从左边向右边滑动,出现蓝色的矩形,选择包含所有边框的实体,必须用这个矩形包含所有的边框; 鼠标从右边向左边滑动选择,出现绿色矩形,可以选择对应边框的实体,画出的矩形不用包含所有的边框
 	* di : 命令的对象可以是线\圆等不能是 close 的图形
 	* snap 开启后,可以用鼠标自动捕获关键点,定位更加准确
-28. 原理图绘制过程中的快捷键
-	* ```q``` 放置 no connected 符号
+28. kicad 原理图绘制的快捷鍵
+---
+|快捷鍵|功能|
+|---|---|
+|q|放置 no connected 符号|
+29. 绘制 pcb 时可以先覆铜,但是选择不显示铜层,绘制连线后再重新绘制铜层(B 快捷键)
+
