@@ -113,6 +113,8 @@ C
 |clarity|清晰|
 |Concatenation|串联|
 |ceil|天花板|
+|Compound|复合|
+|Congress|国会|
 
 D
 ---
@@ -185,6 +187,7 @@ G
 |grasp|掌握|
 |go on to|进入|
 |gradually|逐步地|
+|Graduate|毕业的|
 
 H
 ---
@@ -196,6 +199,7 @@ H
 |herein|在此处|
 |hence|因此|
 |handy|方便的|
+|Head or Tails|正面还是反面|
 
 I
 ---
@@ -297,6 +301,7 @@ O
 |overload|超载、过量|
 |overall|全部的|
 |object Orientation|面向对象|
+|obstacle|障碍|
 
 P
 ---

@@ -104,6 +104,7 @@ ret = os.system("linux 命令")
 		* split(sep) 以指定的字符拆分字符串,返回的是 list 类型
 		* join 则是相反,将 list 类型合并为字符串类型
 		* capitalize() 首字母大写,其他小写的方法
+		* list(字符串) 可以将字符串拆分为单个字符组成的 list 返回
 	3. lists: 可以表示组织任意类型, [1, 2, 3],['right', 'wrong', 'dog'], [[1,2], [2,3]] # list 可以互相嵌套
 		* append('abc') # 直接将 'abc' 作为一个整体追加到 list 中
 		* extend('abc') # 将 'abc' 拆分为 3 部分 'a' 'b' 'c' 添加到 list 中
@@ -209,7 +210,7 @@ ret = os.system("linux 命令")
 	fruit['0'] = 'apple' # 给字典填充数据
 	fruit['1'] = 'banana'
 	```
-	* 字典前加 ** 号表示将字典解开成为独立的参数作为形参,形参的名字是字典对应的 key 值
+	* 字典前加 ** 号表示将字典解开成为独立的参数作为形参,形参的名字是字典对应的 key 值 !!!
 	``` python
 	def add(x, y):
 		print(x + y)
@@ -224,6 +225,12 @@ ret = os.system("linux 命令")
 	for count in [1, 2, 3]:
 		print (count)
 	```
+	* 元组类型和循环一起使用
+	``` python
+	list4tuple=[(1, 'one'), (2, 'two')]
+	for (atuple_num, atuple_str) in list4tuple:
+		print('galaxy (%d, %s)' %(atuple_num, atuple_str))
+	```
 24. python 使用下划线进行保护变量或者方法
 	1. 单前置下划线
 		* 阻止其他 python 脚本通过 from module import * 语句导入该名字,不会被 * 号匹配
@@ -235,7 +242,7 @@ ret = os.system("linux 命令")
 		```
 		不能通过 from foo import * 导入 _test1 方法,只能通过 from foo import \_test1 来导入这个方法
 		* 作为类的属性名(成员名)或者方法名时,不希望下游的程序员直接访问该名字而导致意外覆盖这个属性,但是这种1情况只是一种命名约定, python 解释器不会对这种属性名做特殊处理.
-	2. 前后均带有双下划线 __ 的命名,一般用来特殊的方法,用来实现对象的一些行为或者功能.
+	2. 前后均带有双下划线 __ 的命名,一般用来特殊的方法,用来实现对象的一些行为或者功能.这些方法也是可以直接调用的
 		```
 		* __new__() 方法用来创建对象
 		* __init__() 方法用来初始化对象
@@ -309,3 +316,6 @@ def print():
 	* open(filenama) # 默认的方法就是 'r',所以只读文件的时候可以不添加爱 'r' 模式,会将文件的整个内容返回到一个字符串,只读模式下可以不用 close() 文件
 32. boolean 运算
 	* **in** 是一个布尔运算符号,用来判断对象是否是所属成员,对应的还有 **not in** 这个布尔元算符号
+	* 复合表达式的关键字, and / or / not
+	* python 支持  ```90 <= a <= 100 ``` 这种表达式
+33. python 对类的支持
