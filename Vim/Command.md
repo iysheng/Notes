@@ -1,4 +1,4 @@
-### vim 命令
+	## vim 命令
 1. :1,$ s/abc/&def/gc 备注：& 符号会替换为 abc，执行该命令，会将 abc 变为 abcdef
 2. :e 重新加载当前打开的文件
 3. 无需到命令行，gU转换为大写 gu转换为小写
@@ -54,6 +54,9 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 	1. s/pattern/replace/[iIe] # 其中 i 表示忽略大小写， I 表示要匹配大小写 e：没有匹配到时候，也不要显示错误信息 如果格式是 :%s/pattern/replace/g # 表示的替换全文文件
 	2. 对于带有 / 的匹配可以通过转移 / 符号，或者 s+pattern+replace+ 格式
 	3. 12;/pattern1/ s/pattern2/replace/g # 从第 12 行开始，一直到第一个匹配有 pattern1 的行停止，替换这些行的 pattern 位 replace
+	4. 如果在 replace 部分需要使用表达式,那么需要在 replace 之前添加 \=
+	5. 如果在 pattern 部分有用表达式进行匹配捕获,那么可以用 submatch() 函数指代前面捕获的内容, submatch(1) 表示匹配的第一个文本, submatch(2) 表示匹配的第二个 ... ,特别地 submatch(0) 表示匹配的整个文本
+	6. 一般地 submatch() 匹配的返回值是字符串型,需要使用函数 str2float() 转换为实数
 28. 可以使用 arglist 跨文件处理
 ``` vim
 :argadd 定义文件列表到 arglist
@@ -123,7 +126,7 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 ``` vim
 s/adc\w*/def/gc # 匹配以 abc 开头的一个 world，使用了转移字符加量词/倍数的表达
 ```
-35. magic（默认模式，大部分的转移字符都需要 \ 转义，除了 . 或者 \*）、no magic（所有的转移字符都要添加 \）、very magic（所有的非数字、字母和下划线之外的转义字符都不需要 \） 三种模式
+35. magic（默认模式，大部分的转移字符都需要 \ 转义，除了 . 或者 \*）、no magic（所有的转义字符都要添加 \）、very magic（所有的非数字、字母和下划线之外的转义字符都不需要 \） 三种模式
 ``` vim
 " default magic
 :s/\(cat\) hunting \(mice\)/\2 hunting \1

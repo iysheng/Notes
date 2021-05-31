@@ -1,4 +1,4 @@
-## 记录陌生的单词
+敲击## 记录陌生的单词
 
 A
 ---
@@ -62,6 +62,7 @@ B
 |bulk|大量的|
 |bonus|奖金|
 |Blob|在计算机中，指的是数据库中存储的数据段的二进制的一个域类型|
+|blueprint|蓝图|
 
 C
 ---
@@ -115,6 +116,8 @@ C
 |ceil|天花板|
 |Compound|复合|
 |Congress|国会|
+|craft|精心制作|
+|composition|创作|
 
 D
 ---
@@ -177,6 +180,7 @@ F
 |fulfill|完成、满足|
 |floor|地板|
 |come full circle|绕了一圈|
+|figure out|想出\解决\计算|
 
 G
 ---
@@ -200,6 +204,7 @@ H
 |hence|因此|
 |handy|方便的|
 |Head or Tails|正面还是反面|
+|hammer|敲击|
 
 I
 ---
@@ -266,6 +271,7 @@ M
 |motivate|激励|
 |mutable|可变的|
 |make sense|有道理,合乎情理|
+|minted|新生成的\富有的|
 
 N
 ---
@@ -480,6 +486,7 @@ W
 |write up|记录，(名词)|
 |work out of the box|开箱即用|
 |wild|疯狂、无法管教|
+|wired|奇怪的|
 
 Y
 ---

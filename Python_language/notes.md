@@ -317,5 +317,34 @@ def print():
 32. boolean 运算
 	* **in** 是一个布尔运算符号,用来判断对象是否是所属成员,对应的还有 **not in** 这个布尔元算符号
 	* 复合表达式的关键字, and / or / not
-	* python 支持  ```90 <= a <= 100 ``` 这种表达式
+	* python 支持  `` 90 <= a <= 100 `` 类似的这种表达式
 33. python 对类的支持
+``` python
+class demo_class(object):
+	def __init__(self):
+		self.string = 'Red demo'
+	def hello(self):
+		print(self.string)
+
+# 构造一个类的对象
+'''
+1. 首先会查找 demo_class 发现是定义的一个类
+2. 创建一个空的对象包含这个类使用 def 定义的所有方法
+3. python 会查找是否存在名称为 __init__ 的函数,如果有的话调用这个函数
+4. __init__ 参数有一个 self 参数,指向的就是对象本身的**指针**
+'''
+demo0 = demo_class()
+
+# 类的继承,括号内为基类的名字,而不再是 **object**
+class derive_demo0(demo_class):
+    def __init__(self):
+        print("hello derived class")
+
+class demo_class(object):
+    pass
+# 派生类可以直接继承自多个基类
+class derive_demo0(demo_class, demo1_class):
+    def __init__(self):
+        print("hello derived class from demo0 and demo1 ")
+```
+
