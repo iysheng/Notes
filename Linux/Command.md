@@ -32,6 +32,11 @@
     4. git cat-file -t hash 查看一个hash值表示的类型（比如说是提交、tag、、、）
     5. git cat-file -p hash 查看一个hash值的详细信息
     6. git config 的配置信息可以参看 .git 目录的 cofig 文件
+        * git config --global user.name 'iysheng' # 修改 global 配置的用户名为 iysheng
+        * git config user.name 'Yang sheng' # 修改当前仓库的用户名为 Yang sheng,当前仓库的配置会覆盖 global 的配置
+        * git config --list # 列出来当前的配置
+        * git push origin --delete branchname # 删除远端指定的分支
+        * git branch -D branchname # 删除本地指定的分支名
     7. commit 是当前工作区的一个快照，只能包含一个 tree，一个 tree 可以包含多个 tree 和 blob，tree 可以认为是目录类型，blob 是文件类型
     8. detached HEAD(分离头指针) git checkout commitid 的时候就会创建出分离头指针，分离头指针就是说 HEAD 直接指向一个 commit，没有关联到一个分支的情况，这时候需要git branch commitid 创建出一个分支，关联这次 checkout；
     9. git diff commit_id0 commit_id1 ；对比两次提交的差异, commitid[0.1] 没有必要说必须是当前分支的 commitid

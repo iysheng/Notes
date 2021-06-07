@@ -272,3 +272,6 @@ echom "file tail is " . expand("%:t") " a.vim
 		1.  "ap 将寄存器的内容复制出来
 		2. .... 编辑寄存器的内容
 		3. "ayy 将寄存器的内容写回到寄存器
+64. 命令行模式的一些命令,有关编码格式
+	1. :echo &fileencoding # 打印当前文件的编码格式
+	2. :set fileencoding=utf8 # 修改当前文件的编码格式
