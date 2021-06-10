@@ -348,4 +348,48 @@ class derive_demo0(demo_class, demo1_class):
     def __init__(self):
         print("hello derived class from demo0 and demo1 ")
 ```
-
+34. 遍历指定目录下所有目录的方法,os.walk() 返回的是一个 generator, 每一个成员是一个三维的 tuple:
+	1. os.walk() 方法
+	``` python
+    for usb_root, usb_subdirs, usb_subdir_files in os.walk('.'):
+		for subdir in usb_subdirs:
+			# 获取对应的目录
+		for subdir_files in usb_subdir_files:
+			# 获取对应目录的文件
+		# usb_root 对应的是每一次迭代的根目录
+	```
+	2. os.scandir() 方法
+35. python 中如果使用了 yield 表达式,那么这就是一个 generator function. 只有当调用generator的next方法，generator会执行到yield 表达式处，返回yield表达式的内容，然后暂停（挂起）在这个地方，所以第一次调用next打印第一句并返回“first yield”。 暂停意味着方法的局部变量，指针信息，运行环境都保存起来，直到下一次调用next方法恢复。第二次调用next之后就暂停在最后一个yield，再次调用next()方法，则会抛出StopIteration异常。并且因为 for 语句可以自动捕捉 StopIteration 异常,所以 generator(本质上是任何 iterator)较为常见的方法是在循环中使用.
+	``` python
+    def generetor_foo():
+        yield 1
+        yield 2
+    def func_fool():
+        return 1
+    for t in generator_foo():
+        print('generator:%d' %(t))
+        print('func_fool:%d' %(func_foo()))
+	```
+	结果为:
+	``` bash
+    ▸ python test_generator.py
+    generator:1
+    func_fool:1
+    generator:2
+    func_fool:1
+	```
+	一般函数和 genetrator 函数返回 generator 相比有什么区别呢:
+	* function 每次都从第一行开始执行,而 generator 从上一次 yield 的地方执行
+	* function 每调用一次返回一组/个值,而 generator 可以多次返回
+	* function 可以无数次被调用执行,但是 generator 在 yield 最后一个值或者 return 之后不能继续调用了
+	特别地函数中使用 yield 是生常 generator 的一种方式,另一种常见的方法是使用 generator expression:
+	``` python
+	times = [1,2]
+	gen = (x * x for  x in times) # generator 表达式
+	print(gen) # <generator object <genexpr> at 0x7f035b65ff90>
+	```
+36. 生成器表达式:
+	1. 生成器表达式（generator expression）也叫生成器推导式或生成器解析式，用法与列表推导式非常相似，在形式上生成器推导式使用圆括号（parentheses）作为定界符，而不是列表推导式所使用的方括号（square brackets）。
+	2. 与列表推导式最大的不同是，生成器推导式的结果是一个生成器对象。生成器对象类似于迭代器对象，具有惰性求值的特点，只在需要时生成新元素，比列表推导式具有更高的效率，空间占用非常少，尤其适合大数据处理的场合。
+	3. 使用生成器对象的元素时，可以根据需要将其转化为列表或元组，也可以使用生成器对象的next()方法或者内置函数next()进行遍历，或者直接使用for循环来遍历其中的元素。但是不管用哪种方法访问其元素，只能从前往后正向访问每个元素，不能再次访问
+	4. 已访问过的元素，也不支持使用下标访问其中的元素。当所有元素访问结束以后，如果需要重新访问其中的元素，必须重新创建该生成器对象，enumerate、filter、map、zip等其他迭代器对象也具有同样的特点。
