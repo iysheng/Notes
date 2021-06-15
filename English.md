@@ -117,7 +117,7 @@ C
 |Compound|复合|
 |Congress|国会|
 |craft|精心制作|
-|composition|创作|
+|composition|创作,组成|
 
 D
 ---
@@ -181,6 +181,7 @@ F
 |floor|地板|
 |come full circle|绕了一圈|
 |figure out|想出\解决\计算|
+|fairy tales|童话,谎言|
 
 G
 ---
@@ -384,6 +385,7 @@ R
 |reference|参考文献|
 |rotate|旋转|
 |relinquish|放弃|
+|resist|抵抗|
 
 S
 ---
@@ -456,6 +458,7 @@ T
 |transfer function|传递函数|
 |tuple|元组|
 |Thus far|到目前为止|
+|tales|故事|
 
 U
 ---
@@ -477,6 +480,7 @@ V
 |单词|释义|
 |---|---|
 |verbose|冗长的|
+|villain|恶棍\反派人物\淘气鬼|
 
 W
 ---

@@ -3,6 +3,7 @@
 * 当一个类型的名字作为函数调用时,这就是一个构造函数.构造函数会创建一个新的对象然后立即返回.构造函数可以添加参数.
 * 对象会有一些专门的方法和他们关联
 * python 默认的搜索路径, import sys, 变量 sys.path 列表对应的是一个 list
+* Most of the uses of inheritance can be simplified or replaced with composition, and multiple inheritance should be avoided at all costs.(继承的大多数用法都可以简化或者直接使用构造替代,而且应该不惜一起代价避免多重继承)
 1. print 函数的 sep 参数，用来设置 print 的打印分隔符，默认是' '，空格
 ``` python
 print('a','b') # a b
@@ -393,3 +394,50 @@ class derive_demo0(demo_class, demo1_class):
 	2. 与列表推导式最大的不同是，生成器推导式的结果是一个生成器对象。生成器对象类似于迭代器对象，具有惰性求值的特点，只在需要时生成新元素，比列表推导式具有更高的效率，空间占用非常少，尤其适合大数据处理的场合。
 	3. 使用生成器对象的元素时，可以根据需要将其转化为列表或元组，也可以使用生成器对象的next()方法或者内置函数next()进行遍历，或者直接使用for循环来遍历其中的元素。但是不管用哪种方法访问其元素，只能从前往后正向访问每个元素，不能再次访问
 	4. 已访问过的元素，也不支持使用下标访问其中的元素。当所有元素访问结束以后，如果需要重新访问其中的元素，必须重新创建该生成器对象，enumerate、filter、map、zip等其他迭代器对象也具有同样的特点。
+37. 继承: 基类和派生类之间交互有三中方法:
+    * 隐式继承(imply)
+    ``` python
+    class Parent(object):
+        def implicit(self):
+            print('PARENT implicit')
+    class Child(Parent):
+        pass
+    ```
+    * 覆盖继承(overrite)
+    ``` python
+    class Parent(object):
+        def override(self):
+            print('PARENT override')
+
+    class Child(Parent):
+        def override(self):
+            print('CHILD override')
+
+    dad = Parent()
+    son = Child()
+
+    dad.override()
+    son.override()
+    ```
+    * 改变继承(alter)
+    ``` python
+    class Parent(object):
+        def altered(self):
+            print('PARENT altered')
+
+    class Child(Parent):
+        def altered(self):
+            print('CHILD before PARENT altered')
+            # 改变继承使用 parent 的 altered
+            # 使用 super 函数调用基类的方法
+            super(Child, self).altered()
+            # python3 支持直接使用 super 函数调用基类的方法,不用加额外的参数
+            super().altered()
+            print('CHILD after PARENT altered')
+
+    dad = Parent()
+    son = Child()
+
+    dad.altered()
+    son.altered()
+    ```
