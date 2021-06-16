@@ -394,7 +394,7 @@ class derive_demo0(demo_class, demo1_class):
 	2. 与列表推导式最大的不同是，生成器推导式的结果是一个生成器对象。生成器对象类似于迭代器对象，具有惰性求值的特点，只在需要时生成新元素，比列表推导式具有更高的效率，空间占用非常少，尤其适合大数据处理的场合。
 	3. 使用生成器对象的元素时，可以根据需要将其转化为列表或元组，也可以使用生成器对象的next()方法或者内置函数next()进行遍历，或者直接使用for循环来遍历其中的元素。但是不管用哪种方法访问其元素，只能从前往后正向访问每个元素，不能再次访问
 	4. 已访问过的元素，也不支持使用下标访问其中的元素。当所有元素访问结束以后，如果需要重新访问其中的元素，必须重新创建该生成器对象，enumerate、filter、map、zip等其他迭代器对象也具有同样的特点。
-37. 继承: 基类和派生类之间交互有三中方法:
+37. 继承: 基类和派生类之间交互有三种方法:
     * 隐式继承(imply)
     ``` python
     class Parent(object):
@@ -440,4 +440,28 @@ class derive_demo0(demo_class, demo1_class):
 
     dad.altered()
     son.altered()
+    ```
+38. 多态继承
+    ``` python
+    class Fruit(object):
+        def altered(self):
+            print('FRUIT altered')
+
+    class AFruit(object):
+        def altered(self):
+            print('AFRUIT altered')
+
+    # 多态继承
+    class Apple(Fruit, AFruit):
+        def altered(self):
+            print('CHILD before altered')
+            super(Apple, self).altered()
+            super().altered()
+            print('CHILD after FRUIT altered')
+
+    f0 = Fruit()
+    a0 = Apple()
+
+    f0.altered()
+    a0.altered()
     ```
