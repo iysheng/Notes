@@ -429,7 +429,8 @@ class derive_demo0(demo_class, demo1_class):
         def altered(self):
             print('CHILD before PARENT altered')
             # 改变继承使用 parent 的 altered
-            # 使用 super 函数调用基类的方法
+            # 使用 super 函数调用基类的方法,调用 Child 类的基类,参数的类名必须是
+            # 当前类的 __mro__ 成员中的内容
             super(Child, self).altered()
             # python3 支持直接使用 super 函数调用基类的方法,不用加额外的参数
             super().altered()
@@ -465,3 +466,46 @@ class derive_demo0(demo_class, demo1_class):
     f0.altered()
     a0.altered()
     ```
+	多态继承时,如果父类包含有同名的方法.这就涉及到如何让查找父类方法的问题,即 MRO(method resoluthion order).不同 python 版本使用不同的算法实现 MRO.
+	* 在 python2 中存在两种类,一种是经典类,经典类在基类的根如果什么都不写,表示继承 xxx. 另一种是新式类,新式类的特点是基类的根是 object.在 python3 中不存在经典类了.经典类中采用的是深度优先原则.
+	* 新式类的 MRO 采用的是 C3 算法,
+	``` python
+	class A:
+		pass
+	class B(A):
+		pass
+	class C(A):
+		pass
+	class D(B, C):
+		pass
+	class E(C, A):
+		pass
+	class F(D, E):
+		pass
+	class G(E):
+		pass
+	class H(G, F):
+		pass
+	# C3 算法,可以通过类的 __mro__ 变量获取类对应的 MRO 成员变量,类型是 tuple
+	# + 表示的是 merge . merge 的原则是用每个院的头一项和后面元组的除头一项外的其他元素进行比较,看是否存在.如果存在,就从下一个元组的头一项继续找,如果找不到,就拿出来.作为 merge 的结果的一项.以此类推,直到元组之间的元素都相同了,也就不用再找了.
+	# L(H) = H + L(G) + L(F) + (G,F)
+	# L(G) = G + L(E)
+	# L(F) = F + L(D) + L(E) + (D,E)
+	# L(D) = D + L(B) + L(C) + (B,C)
+	# L(E) = E + L(C) + L(A) + (C,A)
+	# L(B) = B + L(A)
+	# L(C) = C + L(A)
+	# L(A) = A
+	#
+	# L(C) = C + A
+	# L(B) = B + A
+	# L(E) = E + (C,) + (A,) + (C,A) = E.C,A
+	# L(D) = D + (B,A) + (C,A) + (B,C) = D,B,A
+	# L(F) = F + (D,B,A) + (E,C,A) + (D,E) = F + D + (B,A) + (E,C,A) + (E) = 
+	# F + D + B + (A) + (E,C,A) + (E)
+	# F + D + B + (E,C,A) + (E)
+	# F + D + B + E + (C,A)
+	# F D B E C A
+	# L(G) = G + (E,) = G + (F,D,B,E,C,A) = G F D B E C A
+	# L(H) = H + (G,F,D,B,E,C,A) + (F,D,B,E,C,A) + (G,F) = H G F D B E C A
+	```

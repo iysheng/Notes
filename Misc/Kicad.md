@@ -109,4 +109,4 @@ Pin connected to some other pins but no pin to drive it
 |---|---|
 |q|放置 no connected 符号|
 29. 绘制 pcb 时可以先覆铜,但是选择不显示铜层,绘制连线后再重新绘制铜层(B 快捷键)
-30. kicad 倒入 Autodesk 的边框时候,建议使用 R12 版本的 dxf 文件格式
+30. kicad 导入 Autodesk 的边框时候,建议使用 R12 版本的 dxf 文件格式,可以使用 librecad 另存为 R12 版本的 dxf 文件
