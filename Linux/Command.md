@@ -339,7 +339,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     ``` bash
     make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
     ```
-    2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeLists.txt 文件，然后在 cmake 构建
+    2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeLists.txt 文件，然后再 cmake 构建
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷
@@ -872,3 +872,19 @@ sudo dnf install iwl1000-firmware
 	
 	* vi 模式: ```Ctrl Shift Space```
 	* 前向搜索模式```Ctrl Shift f```  后向搜索模式```Ctrl Shift b``` 搜索的目标的时候，```Enter``` 表示向前跳转，```Shift Enter``` 表示向后跳转，```Escape``` 表示退出
+87. [X,X11,Xorg,XServer,XClient,Xlib 概念](https://blog.csdn.net/a379039233/article/details/80782351)
+![](../Misc/figures/xwindow.png)
+* X 即 X window System,由 MIT 研发,设计哲学之一是:提供机制,而非策略.在 Unix Like 上使用的 GUI 被称为 X 或者 X11. X11 是一个软件而不是一个操作系统. X11 利用网络架构来进行图形界面的执行和绘制.较为著名的版本是 X11R6 这一版,目前大部分的 X 都是这个版本演化来的.现在大部分的发行版使用的 X 都是由 Xorg 基本会提供的 X11. X11 使用 MIT 授权.
+* Xorg 项目旨在创建和维护一个自由\可再发行并且开源的 X11. 他是一个开发源码,基于 X11 桌面所需要的基本软件.
+* Xwindow 在推出之后快速演化,在 1987 年时,已经是第 11 版本了,简称 X11.这个版本的核心协议基本稳定,不需要特别大的改动.所以目前 X window 依然是 X11.
+* X11 只定义了如何和内核通讯,如何和 Client 通讯,具体的策略依然是交给开发者自己. X window 是基于网络架构的客户端\服务器模式,基本是分成 X server 和 X client 两个组件而已.
+* X client 基于 X11 协议的客户端,X Client 最重要的工作是处理来自 X Server 的请坐,将这些动作处理成为绘图资料,再将这些绘图资料传回给 X server.
+* X server 基于 X11 协议的服务端,管理硬件设备,键盘\鼠标\显示器等.X Client 主要就是告知 X server 要绘制什么.X server 的主要功能(不论是 Xorg 或者 XFree86 都是一个 Xserver), 就是在管理 X server 所在主机上面有关显示的硬件配置.
+* Xorg 基金会, Xorg 也是一个 X server. X org 项目提供了一个 X window 的开源实现
+* X Window Manager 视窗管理员,特殊的 X client,负责管理所有的 X client 软件. XFCE\GNOME\KDS 等都是 X window manager 的具体实现.
+* Display Manager 提供登入需求,登入能够进入到 GUI 界面.
+* startx start X window system. 可以接 X Client 和 X Server 的参数.在默认的情况下(使用者尚未有 ~/.xinitrc 文件时),输入 startx,等价执行 xinit /etc/X11/xinitrc /etc/X11/xinit/xserverrc 这个指令,为什么不直接执行 xinit 而使用 startx 呢.因为必须要取得一些参数, startx 可以帮我们快速找到这些参数而不必手动输入. X window 最先要启动就是 X server, X server 启动的脚本参数是透过 /etc/X11/xinit 中的 xserverrc
+* Xlib C 语言版本的 X 接口的函数库
+* X session 指的是, X server 启动后直到 X server 关闭这段时间一切和 X 相关的动作都属于 Xsession 的内容.管理 X session 的程序成为 Display Manager, 常见的有 gdm\kdm\xdm 等.
+* 如果没有指定 DM 开机运行的话,手动启动 DM 使用的是 startx , 可以知道 startx 的作用可以看作是 DM 的一种隐形实现. 他使用 xinit 命令,分别根据 /etc/X11/xinit/xinitrc 和 /etc/X11/xinit/xserverrc 中所指定的设置唤起 X. 其中 Xserverrc 执行 Xserver 的运行任务, xinitrc 则运行 Xsession 命令. 综合来说 DM 完成三个任务:1. X server 启动, 2. X sessoion 初始化, 3. X session 管理.
+* X server 给 X Client 发送的消息叫 **Event**, XClient 向 XServer 发送的消息叫 **Request**

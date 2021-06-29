@@ -183,6 +183,7 @@ F
 |come full circle|绕了一圈|
 |figure out|想出\解决\计算|
 |fairy tales|童话,谎言|
+|frustrating|令人沮丧的|
 
 G
 ---
@@ -431,6 +432,7 @@ S
 |slope|斜坡|
 |sketch|素描|
 |square brackets|方括号|
+|skeleton|骨架|
 
 T
 ---
@@ -460,6 +462,7 @@ T
 |tuple|元组|
 |Thus far|到目前为止|
 |tales|故事|
+|toolkit|工具箱|
 
 U
 ---
@@ -498,4 +501,5 @@ Y
 |单词|释义|
 |---|---|
 |yield|产生，让出|
+|yak shaving|瞎忙|
 
