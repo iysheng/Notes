@@ -119,6 +119,7 @@ C
 |Congress|国会|
 |craft|精心制作|
 |composition|创作,组成|
+|coordinate|使协调|
 
 D
 ---
@@ -433,6 +434,7 @@ S
 |sketch|素描|
 |square brackets|方括号|
 |skeleton|骨架|
+|stipple|点画|
 
 T
 ---

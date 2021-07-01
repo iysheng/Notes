@@ -888,3 +888,12 @@ sudo dnf install iwl1000-firmware
 * X session 指的是, X server 启动后直到 X server 关闭这段时间一切和 X 相关的动作都属于 Xsession 的内容.管理 X session 的程序成为 Display Manager, 常见的有 gdm\kdm\xdm 等.
 * 如果没有指定 DM 开机运行的话,手动启动 DM 使用的是 startx , 可以知道 startx 的作用可以看作是 DM 的一种隐形实现. 他使用 xinit 命令,分别根据 /etc/X11/xinit/xinitrc 和 /etc/X11/xinit/xserverrc 中所指定的设置唤起 X. 其中 Xserverrc 执行 Xserver 的运行任务, xinitrc 则运行 Xsession 命令. 综合来说 DM 完成三个任务:1. X server 启动, 2. X sessoion 初始化, 3. X session 管理.
 * X server 给 X Client 发送的消息叫 **Event**, XClient 向 XServer 发送的消息叫 **Request**
+* xcb/Xlib 都是 X client 库的一种. 一个 window 在 X11 的协议中就是一个结构体,允许 X client 连接到 X server 在显示屏上显示一些内容,以及录入一些东西. window 很简单,包含 x,y 坐标,一个宽度 width 和高度 height.这就构成了一个 window 的边框.windows 也包含有一个定义的栈顺序,如果一个 window 在这个栈中的高位,就可以覆盖低位的 window.
+* 因为历史原因,展示一个窗口就做 mapping(MapWindow),隐藏一个窗口叫做 unmapping(UnmapWindow).值得注意的是unmapping 窗口并不会销毁这个窗口.有点类似最小化的意思.
+* 使用 xlib 基于 X window 开发程序时,需要注意一下几点:
+    1. 所有的 window 都在一个 root window 中
+    2. 所有的 sub-window 都在他的 parent window 或者被截断的
+    3. 一个 parent window 会有一个 title bar
+    4. menus, buttons, dialogue boxes 都被认为是 window
+    5. 所有的长度在屏幕都是以像素数量测量的
+    6. 每一个 window 都拥有他自己的坐标信息
