@@ -435,6 +435,8 @@ S
 |square brackets|方括号|
 |skeleton|骨架|
 |stipple|点画|
+|skim|浏览|
+|shebang|场所\住所\工作\事件|
 
 T
 ---

@@ -897,3 +897,17 @@ sudo dnf install iwl1000-firmware
     4. menus, buttons, dialogue boxes 都被认为是 window
     5. 所有的长度在屏幕都是以像素数量测量的
     6. 每一个 window 都拥有他自己的坐标信息
+* 运行 X window server 的屏幕是 root window,如果是 root window 的 chid window.那么这个 window 会包含有一个 title.
+* 在 X window,什么都是一个 window.不仅仅是 menu\button\... 等,有一个例外就是光标
+* 原始的坐标系,左上角是原点,x 轴从做向右边,y 轴从上到下边
+88. nm 工具获取文件的符号表
+    1. 小写表示为局部,大写为全局(或者说外部)
+    2. 小写的 u/v/w 是特殊的含义: u:唯一的全局符号,这是 GNU 的扩展 v: 表示这是 weak 属性的符号 w: 表示也是 weak 属性的对象,但是没有被声明 weak 属性???
+    3. U 表示未定义的符号
+    4. r 表示只读数据符号
+    5. T 表示全局代码段, t 表示本地的代码段
+ linux 下直接以 16 进制显示串口接收的内容.
+ ```
+ sudo stty -F /dev/ttyUSB0  raw speed 115200
+ sudo cat /dev/ttyUSB0 | hexdump -C
+ ```

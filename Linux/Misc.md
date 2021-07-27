@@ -100,8 +100,9 @@
 	8. MODKEY + $ # 修改 session 的名字
 	9. MODKEY + ? # 查看支持的所有命令
 	10. MODKEY + ; # 在最近的两个 pane 之间切换
-	10. MODKEY + d # 退出当前会话，保持会话在后台
-	10. MODKEY + ' # 跳转到指定编号的 window
+	11. MODKEY + d # 退出当前会话，保持会话在后台
+	12. MODKEY + ' # 跳转到指定编号的 window
+	13. MODKEY + z # 隐藏当前 window 的其他 panel
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....

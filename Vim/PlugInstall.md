@@ -31,13 +31,22 @@
 7. honza/vim-snippets SirVer/ultisnips
 	1. 代码片段插件
 	2. 基本代码片段语法
-	```vim
-	snippet vimcomm
-	" ===
-	" ===${1:title}[备注：表示接入这个代码片段的时候光标会直接跳转到这个地方，显示的提示名字是 title]
-	" ===
-	endsnippet
-	```
+	* ``extends`` 可以组合指定的文件类型的代码片段,比如 cpp.snippets 开头就有 ``extends c``
+	* ``priority`` 关键字设置当前文件类型的代码片段的优先级, 默认的优先级都是 0,数值越大优先级越高
+	* ``snippet`` 开头的一行内容标记一个代码片段的开始, ``endsnippet`` 开头的一行的内容标记代码片段的结束.代码片段开始的格式一般为:
+		```vim
+		snippet trigger_word ["description" [options]] 中括号的内容表示可有可无,如果 trigger_word 不止一个单词,中间存在空格,必须要用 \" 双引号包括起来,或者用 ! 符号包括起来,如果触发的单词有 \" 符号,那么需要用 !"单词"! 格式
+		```
+    	```vim
+    	snippet vimcomm
+    	" ===
+    	" ===${1:title}[备注：表示接入这个代码片段的时候光标会直接跳转到这个地方，显示的提示名字是 title]
+    	" ===
+    	endsnippet
+    	```
+    * ``` { $ \ `` 这些符号都有特殊的含义,如果需要插入这些符号,那么需要在开头添加 \ 符号进行转以
+	* snip 支持插入 shell/vim/python 语句
+		1. python 语句,之前需要加入 !p,同时会创建一个 ``snip`` 的 python 对象
 	3. snippets 默认对于 C 语言有一个 head 代码片段，具体可以参看文件~/.vim/plugged/vim-snippets/UltiSnips/c.snippets
 	4. 变量 UltiSnipsSnippetDirectories 可以修改 snipper 默认的搜索路径，默认的会搜索所有 runtimepath 路径的子目录，这个 snippets 的搜索路径可以指定**绝对路径**，关键字 ***snippets*** 是保留的。
 	```vim
