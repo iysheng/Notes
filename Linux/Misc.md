@@ -278,3 +278,16 @@ Linux kernel internal documentation in different formats:
 	registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
 	```
 17. google search "font name vk.com" 查找字体
+18. fedora samba 网络端口:
+    1. smbd TCP 139 和 445
+    2. nmbd UDP 137
+    3.关闭防火墙或开放服务
+    ``` bash
+    systemctl stop firewalld
+    sudo firewall-cmd --permanent --add-service=samba
+    ```
+    4.配置selinux
+    ``` bash
+    setsebool -P samba_enable_home_dirs on
+    sudo setsebool -P samba_export_all_rw on
+    ```
