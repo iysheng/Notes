@@ -33,6 +33,11 @@
 		* Time Series 数据库：TSDB 是将数据按照时间序列进行保存，TSDB 的数据具有一个时间戳，一大段的数据以及很高的可插入以及查询特性， Time Series log(TSL) 是 TSDB 存储的每一条信息的简称
 			1. 动态保存产生的结构体数据
 			2. 记录操作日志
+``` C
+fdb_err_t fdb_kvdb_init(fdb_kvdb_t db, const char *name, const char *part_name, struct fdb_default_kv *default_kv, void *user_data)
+    result = _fdb_init_ex((fdb_db_t)db, name, part_name, FDB_DB_TYPE_KV, user_data);
+
+```
 
 2. [EasyLogger](https://github.com/armink/EasyLogger.git)
 	* EasyLogger 是一款超轻量级、高性能的 C/C++ 日志库，相比 log4c、zlog 这些知名的日志库， EasyLogger 功能更加简单，提供给用户的接口更少。

@@ -37,6 +37,8 @@
         * git config --list # 列出来当前的配置
         * git push origin --delete branchname # 删除远端指定的分支
         * git branch -D branchname # 删除本地指定的分支名
+        * git config user.email iyysheng@gmail.com # 配置当前仓库的用户邮件地址
+        * git commit -s -m "commit message" # 提交信息, -s 选项可以在 commit 添加 signed off 的尾部
     7. commit 是当前工作区的一个快照，只能包含一个 tree，一个 tree 可以包含多个 tree 和 blob，tree 可以认为是目录类型，blob 是文件类型
     8. detached HEAD(分离头指针) git checkout commitid 的时候就会创建出分离头指针，分离头指针就是说 HEAD 直接指向一个 commit，没有关联到一个分支的情况，这时候需要git branch commitid 创建出一个分支，关联这次 checkout；
     9. git diff commit_id0 commit_id1 ；对比两次提交的差异, commitid[0.1] 没有必要说必须是当前分支的 commitid
@@ -330,7 +332,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
         * :flat -1 表示无限展开
         * :flat 0 表示仅仅当前目录
         * :flat 1 表示一级、依次类推
-    13. rager 插件集合
+    13. ranger 插件集合
         * https://github.com/cdump/ranger-devicons2 显示类型图表插件
         * https://github.com/fdw/ranger-autojump 自动跳转的插件，打开的目录会自动添加到 autojump 数据库，然后就可以通过 autojump 根据模糊搜索跳转到对应的目录了
     14. 添加 **set vcs_aware true** 到 ~/.config/rc.conf 文件，放开版本控制

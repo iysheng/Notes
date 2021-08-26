@@ -120,6 +120,7 @@ C
 |craft|精心制作|
 |composition|创作,组成|
 |coordinate|使协调|
+|caveat|警告,附加说明|
 
 D
 ---
@@ -247,6 +248,8 @@ I
 |is even with|和...持平|
 |incorporate|包含,组成|
 |Impulse-Response|冲击响应|
+|injection|注入|
+|intuitive|直观|
 
 L
 ---
@@ -276,6 +279,8 @@ M
 |mutable|可变的|
 |make sense|有道理,合乎情理|
 |minted|新生成的\富有的|
+|mitigation|缓解,减轻|
+|manifest|载货单|
 
 N
 ---
@@ -437,6 +442,7 @@ S
 |stipple|点画|
 |skim|浏览|
 |shebang|场所\住所\工作\事件|
+|standardize|标准化|
 
 T
 ---
