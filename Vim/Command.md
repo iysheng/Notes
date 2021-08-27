@@ -207,6 +207,11 @@ function! AnDi(name)
     echo a:name . ' say hello to you'
     "return a:name . 'say hello to you'
 endfunction
+ " 调用函数的方法
+call AnDi("Red")
+
+" 定义快捷键调用自定义的函数
+map ad :call AnDi("Red")<CR>
 ```
 47. execute 命令支持解析并且执行一段字符串作为 vim 命令
 ``` vim
@@ -275,3 +280,15 @@ echom "file tail is " . expand("%:t") " a.vim
 64. 命令行模式的一些命令,有关编码格式
 	1. :echo &fileencoding # 打印当前文件的编码格式
 	2. :set fileencoding=utf8 # 修改当前文件的编码格式
+65. 变量的不同命名空间,根据不同附加的前缀决定
+---
+|符号前缀|意义|
+|---|---|
+|b:|当前缓冲区|
+|w:|当前窗口|
+|t:|当前标签页
+|g:|全局|
+|l:|局部函数|
+|s:|局部 :source 的 vim 脚本|
+|a:|函数参数,只限在函数内使用|
+|v:|vim 预定义的全局变量|
