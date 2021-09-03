@@ -207,6 +207,13 @@ function! AnDi(name)
     echo a:name . ' say hello to you'
     "return a:name . 'say hello to you'
 endfunction
+" Hello
+function! Hello(name, ...) " ... 表示可选参数
+    echo a:name . ' say hello world to you' . a:1 . a:000[1]
+    "return a:name . 'say hello to you'
+endfunction
+" 针对可选参数, a:1 表示可选参数的第一个, 并且会将可选参数保存到 
+" a:000 这个 list
  " 调用函数的方法
 call AnDi("Red")
 
@@ -278,7 +285,7 @@ echom "file tail is " . expand("%:t") " a.vim
 		2. .... 编辑寄存器的内容
 		3. "ayy 将寄存器的内容写回到寄存器
 64. 命令行模式的一些命令,有关编码格式
-	1. :echo &fileencoding # 打印当前文件的编码格式
+	1. :echo &fileencoding # 打印当前文件的编码格式.引用系统变量前添加 & 符号
 	2. :set fileencoding=utf8 # 修改当前文件的编码格式
 65. 变量的不同命名空间,根据不同附加的前缀决定
 ---
@@ -286,9 +293,26 @@ echom "file tail is " . expand("%:t") " a.vim
 |---|---|
 |b:|当前缓冲区|
 |w:|当前窗口|
-|t:|当前标签页
+|t:|当前标签页|
 |g:|全局|
 |l:|局部函数|
 |s:|局部 :source 的 vim 脚本|
 |a:|函数参数,只限在函数内使用|
 |v:|vim 预定义的全局变量|
+66. 一次分屏开启多个 window
+	* -o 水平分割打开多个 window
+	* -O 垂直分割打开多个 window
+	* CTRL-W r/R/x 分别可以旋转 window ,以及交换 window
+67. 修改 tabline 的颜色, vim 修改颜色使用 :highlight 命令,可以根据不同的分组设备不同部件的颜色,有关 statueline 涉及到的有三处:
+``` vim
+TabLineSel - is the current (so to say) active tab label.
+TabLine - are the labels which are not currently active.
+TabLineFill - is the remaining of the tabline where there is no labels (background).
+
+" 针对支持 termguicolors 的终端,使用的是 guibg 还有 guifg 色彩配置
+" eg:
+:highlight TabLineSel guibg=#A6CC70 guifg=#707A8C ctrembg=10 ctermfg=8
+```
+68. 用户定义的函数开头字母必须要大写来区别内置的函数
+69. `let` 定义变量
+70. 

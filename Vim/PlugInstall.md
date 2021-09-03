@@ -1,4 +1,11 @@
-### vim 插件
+## [vim 插件](#plug)
+
+插件的[目录结构](https://github.com/wsdjeg/vim-plugin-dev-guide):
+- plugin : 这个是 plugin 的核心目录, 是在 vim 启动时将被载入的脚本
+- autoload : 这里面存储的是在对应插件有需要的时候自动加载的脚本,具体的还需要了解 vim 的 autoload system
+
+## [常见插件](#sets)
+
 1. itchyny/lightline.vim
 	1. 为了实现 light-line 的色彩效果，需要 export TERM=xterm-256color [这个步骤及其重要，特别如果想要在 tmux 正常显示 gruvbox 的效果]
 2. plasticboy/vim-markdown
@@ -117,3 +124,55 @@ set backspace=indent,eol,start
 	14. 自动解析 url 地址填充到 a 这个 link element c-yA，这个的内容更加详细
 	15. html5 扩展为一个模板 c-y,
 17. 'prettier/vim-prettier' 格式化文件的插件，需要提前安装 yarn ， fedora 上执行 dnf install yarnpkg
+18. 'bagrat/vim-buffet' tab 样式美化插件
+- buffers 是文件在内存中的存储表示, buffer 有三种状态: 
+	- active-buffer: 这种状态的 buffer 会显示在 window 上
+	- hidden-buffer: 这种状态的 buffer 不会显示在 window 上
+	- inactive-buffer: 这种状态的 buffer 不会显示,并且不会包含什么内容
+	- :bdelete 关闭所有关联该 buffer 的 window
+	- :bp 切换显示前一个 buffer 的内容到当前 window
+	- :bn 切换显示后一个 buffer 的内容到当前 window
+	- :bd# 删除第一个备用的缓冲区
+	- :buffers 显示所有的 buffers
+	- :ls 显示所有的 buffers
+		- # 表示备用缓冲区
+		- % 指示当前 window 的 buffer
+		- a 指示激活的 buffer, 当前 buffer 被加载并且可视
+		- h 指示隐藏的 buffer, 被加载了,但是没有显示
+		- = 指示只读的 buffer
+		- + 指示被修改过的 buffer
+		- x 指示出现读取错误的 buffer
+		- - 指示该 buffer 的 modifiable 属性为 off
+	- :ls! 可以额外显示更多特殊的 buffers
+		- u 表示 unlisted buffer
+	- :buflisted({expr}) 如果指定的编号的 buffer 存在并且 listed (设置了 'buflisted' option), 返回 TRUE
+	- unlisted-buffer 表示没有在 buffer list 列表中,不是一般用来编辑的 normal edit, 比如用来显示帮助文档,记忆一个文件名称或者标记.
+	- bufname() 返回指定 buffer 的 name 信息, name 信息在 `:ls` 命令可以查看
+	- buffer 的 index
+		- % 当前 buffer
+		- # 候补区的 buffer
+		- 0 当前 buffer
+	- fnamemodify({fname}, {mods}) 根据 mods 修改 fname
+	- filename-modifiers 文件名修饰符
+		- :p 获取 full path
+		- :h 获取文件名的 head, 会删除末尾的分割符
+		- :p:h 用来获取当前文件的路径信息
+		- :t 获取 buffer name 的文件名
+- windows 是 buffer 的可视化, 你可以为 1 个 buffer 创建多个 window, 也可以为多个 buffer 创建多个 window
+- tabs 是 windows 的集合, 多个 tab 组成了 tab pages 的概念,有关 tab 的命令
+	- :tabnew 创建新的 tab
+	- :tabc 关闭当前 tab, 当仅剩当前一个 tab 的时候,是无法关闭的
+	- :tabo 关闭其他的 tabs
+	- :tabn 跳转到下一个 tab page
+	- :tabp 跳转到上一个 tab page
+	- :tabfir 跳转到第一个 tab
+	- :tabl 跳转到最后一个 tab
+	- :tabs 列出当前所有的 tab pages
+	- 通过设置 tabline 选项可以修改 tab 的 GUI 显示,当启用 GUI 显示的时候(set termguicolors) 需要设置 guitablabel 选项
+	- 对应的 showtabline 选项只会在有多个 tab page 的时候显示
+- 涉及到的函数
+	- tabpagenr() 当前 table page 的 number , tabpagenr('$') 获取的是最后一个 table page 的 number, 根据这个 number 可以切换到对应的 tab page, 使用命令 `:tab <pagenumer>`, tab page 的 number 从 1 开始编
+	- tabpagewinnr() 缺省参数时当前 table page 的 window 的编号,否则对应编号的 table page 的 window number,特别地 tabpagewinnr('$') 返回当前 tab page 的 windows 的数量, 如果 tab page 的编号无效的话,返回 0
+	- tabpagebuflist() 返回当前 tab page 关联的所有 windows 的所有 buffer 的编号 list. 缺省的参数表示当前的 tab page,否则表示的是指定编号的 tab page, 特别地当 tab page 参数为 '$' 时,返回所有 tab page 的 buffers 的编号到一个 list
+19. 自定义函数
+	- % 表示当前编辑的文件

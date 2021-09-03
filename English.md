@@ -42,6 +42,7 @@ A
 |algebra|代数|
 |appreciation|理解|
 |aboard|在船上,上车|
+|ambiguous|模棱两可的|
 
 B
 ---
@@ -64,6 +65,7 @@ B
 |bonus|奖金|
 |Blob|在计算机中，指的是数据库中存储的数据段的二进制的一个域类型|
 |blueprint|蓝图|
+|bang|感叹号|
 
 C
 ---
@@ -121,6 +123,8 @@ C
 |composition|创作,组成|
 |coordinate|使协调|
 |caveat|警告,附加说明|
+|Cartesian|笛卡尔坐标,传统的 X,Y 轴坐标|
+|concatenated|串联|
 
 D
 ---
@@ -143,12 +147,12 @@ D
 |decoration|装饰|
 |dongle|加密狗|
 |directive|指令|
-|Cartesian|笛卡尔坐标,传统的 X,Y 轴坐标|
 |dragging|牵引|
 |dimension|面积|
 |detach|分离|
 |discrete time Fourier transform|离散时间傅立叶变换|
 |distinct|清晰的,有区别的|
+|draft|草案|
 
 E
 ---
@@ -186,6 +190,7 @@ F
 |figure out|想出\解决\计算|
 |fairy tales|童话,谎言|
 |frustrating|令人沮丧的|
+|figure out|弄清,理解,想清|
 
 G
 ---
@@ -281,6 +286,7 @@ M
 |minted|新生成的\富有的|
 |mitigation|缓解,减轻|
 |manifest|载货单|
+|modifier|修饰符|
 
 N
 ---
@@ -345,6 +351,7 @@ P
 |polar|极坐标|
 |pirate|盗版|
 |paradigm|范例|
+|plethora|过多的|
 
 Q
 ---
@@ -443,6 +450,7 @@ S
 |skim|浏览|
 |shebang|场所\住所\工作\事件|
 |standardize|标准化|
+|scratch|划痕|
 
 T
 ---
@@ -473,6 +481,7 @@ T
 |Thus far|到目前为止|
 |tales|故事|
 |toolkit|工具箱|
+|truncation|截断|
 
 U
 ---
@@ -505,6 +514,7 @@ W
 |work out of the box|开箱即用|
 |wild|疯狂、无法管教|
 |wired|奇怪的|
+|wipe|擦除|
 
 Y
 ---

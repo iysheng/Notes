@@ -170,7 +170,7 @@
         git config remote.origin.partialclonefilter # blob:none,取消拉取大型数据？？？支持分段拉取
         ```
     56. git rm --cached 文件路径 # 取消对指定文件的跟踪
-    57. [git submoduleed 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
+    57. [git submodule 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
         ```
         git submodule add -b branch_name [URL to Git Repo] # 添加子模块的跟踪路径和对应的分支
         git submodule add [URL to Git Repo] [path in current pro]# 添加子模块的跟踪路径到指定的路径
@@ -874,6 +874,7 @@ sudo dnf install iwl1000-firmware
 	
 	* vi 模式: ```Ctrl Shift Space```
 	* 前向搜索模式```Ctrl Shift f```  后向搜索模式```Ctrl Shift b``` 搜索的目标的时候，```Enter``` 表示向前跳转，```Shift Enter``` 表示向后跳转，```Escape``` 表示退出
+    * Control - 减小字体大小, Control + 增大字体大小
 87. [X,X11,Xorg,XServer,XClient,Xlib 概念](https://blog.csdn.net/a379039233/article/details/80782351)
 ![](../Misc/figures/xwindow.png)
 * X 即 X window System,由 MIT 研发,设计哲学之一是:提供机制,而非策略.在 Unix Like 上使用的 GUI 被称为 X 或者 X11. X11 是一个软件而不是一个操作系统. X11 利用网络架构来进行图形界面的执行和绘制.较为著名的版本是 X11R6 这一版,目前大部分的 X 都是这个版本演化来的.现在大部分的发行版使用的 X 都是由 Xorg 基本会提供的 X11. X11 使用 MIT 授权.
@@ -913,3 +914,17 @@ sudo dnf install iwl1000-firmware
  sudo stty -F /dev/ttyUSB0  raw speed 115200
  sudo cat /dev/ttyUSB0 | hexdump -C
  ```
+ 89. 链接脚本的 KEEP 关键字用来强制保存特定的 sections
+ ``` ld
+SECTIONS
+{
+    .text :
+    {
+        . = ALIGN(256);
+        KEEP(*(.isr_vector))  # 其中第一个 * 表示文件范围 (.isr_vector) 表示 section 的名字
+        . = . + 0x1000;
+    }
+}
+链接脚本的一般语法: <filename>(<section>)
+ ```
+    * We see that each of our symbol has a section. This is due to the fact that we compiled our firmware with the -ffunction-sections and -fdata-sections flags
