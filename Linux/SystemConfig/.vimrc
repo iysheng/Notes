@@ -32,12 +32,25 @@ set viminfo='20,\"50    " read/write a .viminfo file, don't store more
 set history=50        " keep 50 lines of command line history
 set ruler        " show the cursor position all the time
 
+function! CloseWindow()
+    if winnr() != -1
+        if winnr('$') != 1
+            clo
+        else
+            silent q
+        endif
+    endif
+endfunction
+
 " ===
 " === 快捷键配置
 " ===
-map <F9> :q!<CR>
+map <F9> :call CloseWindow()<CR> " Close the window
+map <leader>q :q!<CR> " Quit the window
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
+" 新创建一个 tab 页面
+map <F7> :tabnew<CR>
 
 if empty(glob('./cscope.files'))
     map <C-u> :e<CR>
@@ -78,12 +91,12 @@ endif
 
 " Note: Make sure the function is defined before `vim-buffet` is loaded.
 function! g:BuffetSetCustomColors()
-  hi! BuffetCurrentBuffer cterm=NONE ctermbg=3 ctermfg=1 guibg=#5C6773 guifg=#CBCCC6 
-  hi! BuffetBuffer cterm=NONE ctermbg=10 ctermfg=8 guibg=#323A4C guifg=#CBCCC6
-  hi! BuffetTab cterm=NONE ctermbg=10 ctermfg=8 guibg=#A6CC70 guifg=#707A8C
-  hi! BuffetTrunc cterm=NONE ctermbg=10 ctermfg=8 guibg=#A6CC70 guifg=#707A8C
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=3 ctermfg=1 guibg=#73d0ff guifg=#1a1f29 
+  hi! BuffetActiveBuffer cterm=NONE ctermbg=10 ctermfg=2 guibg=#2b2c34 guifg=#87d96c
+  hi! BuffetBuffer cterm=NONE ctermbg=10 ctermfg=8 guibg=#2b2c34 guifg=#CBCCC6
+  hi! BuffetTab cterm=NONE ctermbg=10 ctermfg=8 guibg=#2b2c34 guifg=#f28779
+  hi! BuffetTrunc cterm=NONE ctermbg=10 ctermfg=8 guibg=#2b2c34 guifg=#707A8C
 endfunction
-
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
@@ -317,7 +330,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-snippets/UltiSnips/'
 " ===
 set laststatus=2
 let g:lightline = {
-      \ 'enable': { 'tabline': 0 } , " 和 vim-buffet 冲突.使用 vim-buffet 的 tabline 显示
+      \ 'enable': { 'tabline': 0 } ,
       \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],

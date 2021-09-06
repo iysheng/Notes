@@ -168,7 +168,7 @@ set backspace=indent,eol,start
 		- :t 获取 buffer name 的文件名
 	- sbuffer N : 分割 window, 加载编号为 N 的 buffer 内容,缺省 N 时,加载当前文件
 	- bufexist('name') " 如果指定名称为 name 的 buffer 存在,那么返回 1
-	- bufwinnr('name') " 根据指定的 buffer 的名字.获取对应的 window 编号, 如果不存在返回 -1
+	- winnr('name') " 根据指定的 buffer 的名字.获取对应的 window 编号, 如果不存在返回 -1
 	- bufnr('name') " 获取名字为 name 的 buffer 编号
 	- :h buffer-list 查看所有 buffer 的命令
 - windows 是 buffer 的可视化, 你可以为 1 个 buffer 创建多个 window, 也可以为多个 buffer 创建多个 window
