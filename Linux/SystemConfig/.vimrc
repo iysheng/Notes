@@ -65,6 +65,8 @@ nmap <leader>v :vsplit<CR>
 nmap <leader>c :s/^/extern "C" &/g<CR>
 " tabprevious
 nmap gr :tabprevious<CR>
+" comment python code
+nmap cpy :s/^/#&/<CR>
 
 " ===
 " === vim-plug check
@@ -73,6 +75,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" Note: Make sure the function is defined before `vim-buffet` is loaded.
+function! g:BuffetSetCustomColors()
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=3 ctermfg=1 guibg=#5C6773 guifg=#CBCCC6 
+  hi! BuffetBuffer cterm=NONE ctermbg=10 ctermfg=8 guibg=#323A4C guifg=#CBCCC6
+  hi! BuffetTab cterm=NONE ctermbg=10 ctermfg=8 guibg=#A6CC70 guifg=#707A8C
+  hi! BuffetTrunc cterm=NONE ctermbg=10 ctermfg=8 guibg=#A6CC70 guifg=#707A8C
+endfunction
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
@@ -118,6 +129,9 @@ Plug 'SirVer/ultisnips'
 Plug 'mhinz/vim-startify'
 " 高亮光标所在的 word
 Plug 'dominikduda/vim_current_word'
+Plug 'Luxed/ayu-vim'
+" new tab style
+Plug 'bagrat/vim-buffet'
 call plug#end()
 
 " ===
@@ -163,25 +177,27 @@ map <right> <nop>
 ""let g:gruvbox_material_visual = 'reverse'
 "colorscheme gruvbox-material
 
-" let g:nord_uniform_diff_background = 1
-" let g:nord_uniform_status_lines = 1
-" let g:nord_italic_comments = 1
-" let g:nord_underline = 1
-" let g:nord_italic = 1
-" let g:nord_cursor_line_number_background = 0
-" colorscheme nord
+"
+"let g:nord_uniform_diff_background = 1
+"let g:nord_uniform_status_lines = 1
+"let g:nord_underline = 1
+"let g:nord_italic = 1
+"let g:nord_italic_comments = 1
+"let g:nord_cursor_line_number_background = 2
+"colorscheme nord
+"
 
 " ===
 " === deus colorscheme
 " ===
-if exists('+termguicolors')
-  set termguicolors
-  if &term =~# '^screen'
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  endif
-endif
-colorscheme deus
+"if exists('+termguicolors')"
+"  set termguicolors"
+"  if &term =~# '^screen'"
+"    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum""
+"    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""
+"  endif"
+"endif"
+"colorscheme deus"
 
 " ===
 " ===onedark
@@ -196,9 +212,51 @@ colorscheme deus
 "let g:onedark_terminal_italics = 1
 "colorscheme onedark
 
+" ===
+" === ayu colorscheme
+" ===
+function! Colorayu(mode)
+    if a:mode == "light"
+        set background=light
+        colorscheme ayu
+    elseif a:mode == "dark"
+        set background=dark
+        let g:ayucolor="mirage"
+    endif
+    let g:ayucolor="mirage"
+endfunction
+set termguicolors       " enable true colors support
+call Colorayu("dark")
+let g:ayu_italic_comment = 1 " defaults to 0.
+let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
+
+colorscheme ayu
+
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>
 map cz :colorscheme zenburn<CR>
+map cal :call Colorayu("light")<CR>
+map cad :call Colorayu("dark")<CR>
+
+" ===
+" === vim-buffet 配置
+" ===
+let g:buffet_always_show_tabline = 0
+let g:buffet_powerline_separators = 1
+let g:buffet_tab_icon = "\uf00a"
+let g:buffet_left_trunc_icon = "\uf0a8"
+let g:buffet_right_trunc_icon = "\uf0a9"
+let g:buffet_show_index = 1
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
 
 " ===
 " === gitgutter
@@ -216,9 +274,9 @@ let g:rainbow_active = 1
 " === instant markdown
 " ===
 "Uncomment to override defaults:
-"let g:instant_markdown_slow = 1
+let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
-"let g:instant_markdown_open_to_the_world = 1
+let g:instant_markdown_open_to_the_world = 1
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
@@ -226,6 +284,7 @@ let g:instant_markdown_autostart = 0
 "let g:instant_markdown_autoscroll = 0
 "let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
+let g:instant_markdown_browser = "google-chrome --new-window"
 nmap tm :InstantMarkdownPreview<CR>
 nmap tn :InstantMarkdownStop<CR>
 
@@ -238,6 +297,9 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_disable_for_files_larger_than_kb = 4096
 "let g:ycm_path_to_python_interpreter = /bin/python3
 "let g:ycm_server_python_interpreter = python3
+" 默认鼠标停止一段时间就会弹出函数原型等有关内容,取消这个功能
+"let g:ycm_auto_hover = 'CursorHold'
+let g:ycm_auto_hover = ''
 
 " ===
 " === UltiSnips
@@ -255,6 +317,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-snippets/UltiSnips/'
 " ===
 set laststatus=2
 let g:lightline = {
+      \ 'enable': { 'tabline': 0 } , " 和 vim-buffet 冲突.使用 vim-buffet 的 tabline 显示
       \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],

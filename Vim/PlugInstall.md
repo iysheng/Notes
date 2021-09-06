@@ -2,7 +2,15 @@
 
 插件的[目录结构](https://github.com/wsdjeg/vim-plugin-dev-guide):
 - plugin : 这个是 plugin 的核心目录, 是在 vim 启动时将被载入的脚本
-- autoload : 这里面存储的是在对应插件有需要的时候自动加载的脚本,具体的还需要了解 vim 的 autoload system
+- autoload : 这里面存储的是在对应插件有需要的时候自动加载的脚本,具体的还需要了解 vim 的 autoload system, 自动加载目录是我们保存插件大部分功能的地方
+	- 在该目录都可以认为是脚本库,调用的时候有特殊的语法,比如在 autoload 存在 hello.vim 脚本,里面有一个 Hey() 函数,通过 call hello#Hey() 就可以调用到这个函数
+	- 并且 autoload 目录可以进行嵌套, 比如 autoload 下存在一个子目录 welcome, welcome 中有脚本文件 hello.vim ,这时候调用的语句就变成了 call welcome#hello#Hey()
+	- 特别要注意的是定义的时候也要加上 # 符号定义函数原型, # 之前要加上脚本的名字
+		``` vim
+		function! hello#Hey()
+		endfunction
+		```
+	- 脚本库并不是 autoload 唯一的功能,还有一个功能是实现调用时加载,但是 plugin 目录下的内容是 vim 启动的时候就会加载
 
 ## [常见插件](#sets)
 
@@ -158,8 +166,14 @@ set backspace=indent,eol,start
 		- :h 获取文件名的 head, 会删除末尾的分割符
 		- :p:h 用来获取当前文件的路径信息
 		- :t 获取 buffer name 的文件名
+	- sbuffer N : 分割 window, 加载编号为 N 的 buffer 内容,缺省 N 时,加载当前文件
+	- bufexist('name') " 如果指定名称为 name 的 buffer 存在,那么返回 1
+	- bufwinnr('name') " 根据指定的 buffer 的名字.获取对应的 window 编号, 如果不存在返回 -1
+	- bufnr('name') " 获取名字为 name 的 buffer 编号
+	- :h buffer-list 查看所有 buffer 的命令
 - windows 是 buffer 的可视化, 你可以为 1 个 buffer 创建多个 window, 也可以为多个 buffer 创建多个 window
-- tabs 是 windows 的集合, 多个 tab 组成了 tab pages 的概念,有关 tab 的命令
+	- :new 新创建一个 window
+- tabs 是 windows 的集合, 多个 tab 组成了 tab pages 的概念,有关 tab 的命令, A tab is only designed to give you a different layout of windows.(tab page 仅仅是提供了 windows 的不同 layout 的视角)
 	- :tabnew 创建新的 tab
 	- :tabc 关闭当前 tab, 当仅剩当前一个 tab 的时候,是无法关闭的
 	- :tabo 关闭其他的 tabs
@@ -176,3 +190,32 @@ set backspace=indent,eol,start
 	- tabpagebuflist() 返回当前 tab page 关联的所有 windows 的所有 buffer 的编号 list. 缺省的参数表示当前的 tab page,否则表示的是指定编号的 tab page, 特别地当 tab page 参数为 '$' 时,返回所有 tab page 的 buffers 的编号到一个 list
 19. 自定义函数
 	- % 表示当前编辑的文件
+20. Number 变量可以是 10 进制, 8 进制和 16 进制
+	- :echo 123 " 10 进制
+	- :echo 023 -> 19 " 8 进制, 0 是 8 进制的开头
+	- :echo 0x10 " 16 进制
+21. string 类型也有一些区别
+	- "abc\ndef" \n 这些特殊的符号可以正常转以
+	- 'abc\ndef' \n 不会被认为是特殊的符号
+	- " 开头在 vim 脚本语言中是注释语句
+22. Funcref 是函数的引用, 这个变量的首字母也要大写
+``` vim
+function! Hello()
+endfunction
+let abc=function('Hello')
+call abc()
+```
+23. `runtimepath` 变量类似 linux 的 `PATH` 环境变量
+	- set runtimepath+=full path " 直接添加指定的路径到系统变量 runtimepath
+	- system("字符串命令") 执行 shell 命令
+24. `execute` 命令执行命令
+	- execute "normal! I" . "red"  # 执行 normal 模式的命令 I, 进入到插入模式,然后输入 red, 其中 normoal 后的 ! 表示对后面命令采用 unmapped 的意义
+	-
+35. line() 函数返回指定内容在文件的行号
+	- line('.') 当前光标所在行
+	- line('$') 文件的最后一行
+	- line('a') 标记为 a 的 mark 所在的行
+	- getline(number) " 获取第 number 行的内容并返回, 文件的行号是从 1 开始的
+36. `tabline` 选项控制 tabline 的显示效果,
+	- 每一个 status line 的条目都由 `%-0{minwid}.{maxwid}{item}` 结构组成,除了 item 之外,其他的都是可选项,一个单独的 % 符号应该表示为 %%, 最大可以定义 80 个条目, 如果以 %! 开头,那么会以后面的结果作为 option 的值
+	- %#HighLightName#ABC 以指定的配置高亮 ABC ,前面的可以认为是格式化的内容

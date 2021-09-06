@@ -293,7 +293,7 @@ echom "file tail is " . expand("%:t") " a.vim
 |---|---|
 |b:|当前缓冲区|
 |w:|当前窗口|
-|t:|当前标签页|
+|t:|当前标签页,当前的 tab page|
 |g:|全局|
 |l:|局部函数|
 |s:|局部 :source 的 vim 脚本|
@@ -315,4 +315,32 @@ TabLineFill - is the remaining of the tabline where there is no labels (backgrou
 ```
 68. 用户定义的函数开头字母必须要大写来区别内置的函数
 69. `let` 定义变量
-70. 
+70. for 语句
+``` vim
+let alist=[1,2,3]
+for a in alist
+	echo a
+endfor
+```
+71. while 语句
+``` vim
+let a = 1
+whie a
+ echo a
+ a -= 1
+endwhile
+```
+72. highlight 相关的语句
+- :hi 列出所有当前具有属性集的 highlight 分组
+- :hi {group-name} 列出这一个 highlight group
+- :hi clear 清除所有用户定义的 highlight 配置,
+- :hi clear {group-name} 清除指定的 group 的 highlight 配置
+- :verbose hi Comment 列出 comment 最后设置的文件
+- highlight 对应的有三种 terminals
+	- term 传统的 terminal (vt100/xterm)
+	- cterm 带有色彩渲染的 term (一般现在的电脑都是这样彩色的 terminal, termcap 前綴是 Co)
+	- gui
+- :hi {group-name} 列出这一个 highlight group
+73. highlink 链接颜色渲染的分组
+- :hi[!] [default] link {from-group} {to-group} # 设置一个链接 from 链接到 to
+- :hi[!] [default] link {from-group} NONE # 删除一个链接 from

@@ -191,6 +191,7 @@ F
 |fairy tales|童话,谎言|
 |frustrating|令人沮丧的|
 |figure out|弄清,理解,想清|
+|futile|傻的,无效的,徒劳的|
 
 G
 ---
@@ -255,6 +256,7 @@ I
 |Impulse-Response|冲击响应|
 |injection|注入|
 |intuitive|直观|
+|interspersed|散布,点缀|
 
 L
 ---
@@ -323,6 +325,7 @@ O
 |overall|全部的|
 |object Orientation|面向对象|
 |obstacle|障碍|
+|optimal|最佳的|
 
 P
 ---
@@ -401,6 +404,10 @@ R
 |rotate|旋转|
 |relinquish|放弃|
 |resist|抵抗|
+|rickety|摇摇欲坠的|
+|remedy|改进,补偿|
+|reconcile|调和|
+|replicate|复制|
 
 S
 ---
