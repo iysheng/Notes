@@ -43,6 +43,9 @@ A
 |appreciation|理解|
 |aboard|在船上,上车|
 |ambiguous|模棱两可的|
+|after a while|过了一会儿|
+|accent|有空音,着重强调|
+|alternative|备选的,可供替代的|
 
 B
 ---
@@ -66,6 +69,7 @@ B
 |Blob|在计算机中，指的是数据库中存储的数据段的二进制的一个域类型|
 |blueprint|蓝图|
 |bang|感叹号|
+|boilerplate|样板|
 
 C
 ---
@@ -125,6 +129,7 @@ C
 |caveat|警告,附加说明|
 |Cartesian|笛卡尔坐标,传统的 X,Y 轴坐标|
 |concatenated|串联|
+|complicated|复杂的|
 
 D
 ---
@@ -355,6 +360,7 @@ P
 |pirate|盗版|
 |paradigm|范例|
 |plethora|过多的|
+|palate|调色板|
 
 Q
 ---

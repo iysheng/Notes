@@ -34,18 +34,18 @@ set ruler        " show the cursor position all the time
 
 function! CloseWindow()
     if winnr() != -1
-        if winnr('$') != 1
-            clo
-        else
-            silent q
-        endif
+       let abufname=bufname()
+           let abufnum=bufnr(abufname)
+           if abufnum != -1
+               bd
+           endif
     endif
 endfunction
 
 " ===
 " === 快捷键配置
 " ===
-map <F9> :call CloseWindow()<CR> " Close the window
+map <F9> :silent call CloseWindow()<CR> " Close the window
 map <leader>q :q!<CR> " Quit the window
 map <F5> :NERDTreeToggle<CR>
 map <F6> :TagbarToggle<CR>
@@ -126,7 +126,7 @@ Plug 'majutsushi/tagbar'
 Plug 'chazy/cscope_maps'
 Plug 'luochen1990/rainbow'
 Plug 'nathanaelkane/vim-indent-guides'
-
+"Plug 'mattn/emmet-vim'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular'
@@ -168,6 +168,14 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+" 隐藏光标所在的行的下划线
+function! HideCursorLine()
+    hi CursorLineNr cterm=NONE
+    hi CursorLine cterm=NONE
+endfunction
+
+autocmd Colorscheme *  call HideCursorLine()
 
 " ===
 " === gruvbox-material
@@ -240,10 +248,11 @@ function! Colorayu(mode)
 endfunction
 set termguicolors       " enable true colors support
 call Colorayu("dark")
+set cursorline
 let g:ayu_italic_comment = 1 " defaults to 0.
 let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
-
 colorscheme ayu
+
 
 map cg :colorscheme gruvbox<CR>
 map cn :colorscheme nord<CR>

@@ -509,3 +509,18 @@ class derive_demo0(demo_class, demo1_class):
 	# L(G) = G + (E,) = G + (F,D,B,E,C,A) = G F D B E C A
 	# L(H) = H + (G,F,D,B,E,C,A) + (F,D,B,E,C,A) + (G,F) = H G F D B E C A
 	```
+39. 使用 numpy 包进行数据拟合
+	* numpy.polyfit 函数可以对给定的数据进行拟合,并且可以指定拟合的阶数
+	* numpy.poly1d 函数可对给定的对象进行格式化,打印出来拟合的数据格式
+	``` python
+	x=[1,2]
+	y=[10, 90]
+	func=numpy.polyfit(x, y, 1) # 一阶拟合
+	func_format=numpy.poly1d(func)
+	```
+测试结果:
+``` bash
+▸ ./test.py
+funcp=
+80 x - 70
+```

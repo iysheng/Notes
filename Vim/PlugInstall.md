@@ -169,7 +169,7 @@ set backspace=indent,eol,start
 	- sbuffer N : 分割 window, 加载编号为 N 的 buffer 内容,缺省 N 时,加载当前文件
 	- bufexist('name') " 如果指定名称为 name 的 buffer 存在,那么返回 1
 	- winnr('name') " 根据指定的 buffer 的名字.获取对应的 window 编号, 如果不存在返回 -1
-	- bufnr('name') " 获取名字为 name 的 buffer 编号
+	- bufnr('name') " 获取名字为 name 的 buffer 编号, 如果 name 为 '$' 获取最后一个 buffer 的编号
 	- :h buffer-list 查看所有 buffer 的命令
 - windows 是 buffer 的可视化, 你可以为 1 个 buffer 创建多个 window, 也可以为多个 buffer 创建多个 window
 	- :new 新创建一个 window
@@ -219,3 +219,53 @@ call abc()
 36. `tabline` 选项控制 tabline 的显示效果,
 	- 每一个 status line 的条目都由 `%-0{minwid}.{maxwid}{item}` 结构组成,除了 item 之外,其他的都是可选项,一个单独的 % 符号应该表示为 %%, 最大可以定义 80 个条目, 如果以 %! 开头,那么会以后面的结果作为 option 的值
 	- %#HighLightName#ABC 以指定的配置高亮 ABC ,前面的可以认为是格式化的内容
+37. 判断符号
+	- ==# 识别大小写的判断
+	- ==? 不识别大小写的判断
+	- =~# 正则匹配 , 识别大小写
+	- =~ 正则匹配,使用系统设置的 ignorecase 的值
+38. vim 的数据类型和对应的编号, `:help type`
+```
+Number:     0  v:t_number
+String:     1  v:t_string
+Funcref:    2  v:t_func
+List:       3  v:t_list
+Dictionary: 4  v:t_dict
+Float:      5  v:t_float
+Boolean:    6  v:t_bool (v:false and v:true)
+None:       7  v:t_none (v:null and v:none)
+Job:        8  v:t_job
+Channel:    9  v:t_channel
+Blob:      10  v:t_blob
+```
+39. vim 的模式匹配 `usr_27.txt` 
+- Ignoring case
+	- 默认情况下, vim 是大小写敏感的
+	- set noignorecase 关闭识别大小写
+	- set ignorecase smartcase 智能识别,当检测的是小写字母时,可以认为是忽略大小写,检测的包含有大写字母时会匹配大小写
+	- 如果想匹配大小写那么需要添加 \C 的前缀
+	- 如果想忽略大小写那么需要添加 \c 的前缀
+- Wrapping around the file end
+	- set nowrapscan 取消环绕
+- Offsets
+	- /pattern/数字偏移量 移动到匹配
+	- /pattern/e 移动到匹配的最后一个字符
+	- /pattern/e-1 移动到匹配的倒数第二个字符
+	- /pattern/b 移动到匹配的第一个字符
+	- /pattern/b+1 移动到匹配的第二个字符
+	- ?pattern?b+1 后向查找,移动到匹配的第二个字符
+- Matching multiple times
+	- /a* 表示匹配任意数量的 a
+	- /\(ab\)* 表示匹配任意数量的 ab
+	- /a\+ 匹配一个及以上数量的 item
+	- /ab\= 匹配一个可选的 b,即 ab 或者 a
+	- /ab\{n,m} 匹配 n 到 m 个 b
+	- /ab\{-n,m} 匹配 n 到 m 个 b,最少匹配
+	- /a.\{-}b 在 a 到 b 之间最少匹配
+	- /a.*b 在 a 到 b 之间最多匹配,贪婪匹配
+- Alternatives 备用, 可替换的
+	- or 操作符对应的是 "\|"
+- Character ranges 符号范围
+	- 如果匹配 a b c 可以使用 /a\|b\|c, 如果匹配 a - z 可以使用 /[a-z], 认为这个 list 都是孤立的字符
+	- \e 表示 <Esc>  \t 表示 <Tab>  \r 表示 <CR>  \b 表示 <BS>
+- Complemented range 避免匹配专门的字符,在匹配的开头使用 ^ 符号排除掉要匹配的内容

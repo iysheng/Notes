@@ -303,7 +303,7 @@ echom "file tail is " . expand("%:t") " a.vim
 	* -o 水平分割打开多个 window
 	* -O 垂直分割打开多个 window
 	* CTRL-W r/R/x 分别可以旋转 window ,以及交换 window
-67. 修改 tabline 的颜色, vim 修改颜色使用 :highlight 命令,可以根据不同的分组设备不同部件的颜色,有关 statueline 涉及到的有三处:
+67. 修改 tabline 的颜色, vim 修改颜色使用 :highlight 命令,可以根据不同的分组设备不同部件的颜色,有关 statusline 涉及到的有三处:
 ``` vim
 TabLineSel - is the current (so to say) active tab label.
 TabLine - are the labels which are not currently active.
@@ -358,3 +358,8 @@ endwhile
 :cmap  :cnoremap :cunmap    Command-line
 :tmap  :tnoremap :tunmap    Terminal-Job
 ```
+75. vim 中有 7 种 terms 可以用来 highlighting
+	- guifg guibg 这些是 graphical vim 的颜色配置, guifg 是 text 的颜色, guibg 是背景
+	- gui 是 text 的风格, 可以是 bold, italic, underline
+	- ctermfg, ctermbg, cterm : 个 guifg, guibg, gui 类似,但是用到 terminal 上的
+	- term
