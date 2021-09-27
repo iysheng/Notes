@@ -13,6 +13,24 @@
 		1.3 Emulation Reset :
 ```
 
+##### 关键变量配置过程
+
+* RTT_ROOT : rt-thread 系统的根目录
+* RTT_BSP : 当前 bsp 的根目录
+* SDK_ROOT : 当前配置的 SDK 的根目录, 对 32 来说,一般指的是 HAL 库 ???
+* SDK_LIB : 当前 SDK 的 lib 目录
+* variant_dir 用来设置 scons 编译的路径,默认是当前路径
+* DefineGroup 函数,添加对象到全局的 Projects 这个 list 上,简单来说就是添加要编译的文件
+
+##### 配置的流程
+
+1. 根目录的 SConstruct 文件
+2. rt-thread/tools 目录添加到系统路径
+2.1 import **building.py** 模块
+3. 使用 Environment() 方法创建一个 env 对象
+3.1 追加工具链的 PATH 路径到 env
+4. 赋值 rtconfig.BSP_LIBRARY_TYPE bsp 的库路径
+
 #### 二、 組件包相關內容
 1. RT-thread 操作系統在 Linux 的 pkgs 命令，需要使用 **source ~/.env/env.sh** 導出，然後就可以使用 pkgs 命令了， pkgs 算是一個 python 函數
 2. 軟件包 pkgs 命令相關的內容

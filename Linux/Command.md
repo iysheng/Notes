@@ -260,6 +260,7 @@ echo 'ibase=10; obase=16; 25' | bc   # 结果 19
 13. netstat 命令，查看进程监听的网络端口号，一般用法
 ``` bash
 netstat -lntup # 列出所有监听服务的 socket(-l) 和对应的端口号(-n)，包括 tcp(-t) udp(-u) 以及PID/进程名称(-p)
+netstat -rn # 列出 gateway 路由等信息
 ```
 14. systemd 是 Linux 的系统和服务管理器;init 进程的替代品，systemctl 命令是管理 systemd 的主要工具
 ``` bash
@@ -390,7 +391,9 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     3. iw wifi网卡的名字 scan # 扫描 wifi 信号
     4. ip link set wifi网卡名字 up # 如果这个网卡没有 up ，那么首先 up 这个网卡
     5. nmcli device wifi connect SSID名字 password 密码 # 链接 wifi，指定 SSID 和 密码
-    6. sudo nmcli connection up enp0s20f0u2u3 # 主动执行 /etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3 配置的网卡设置，也可以通过 sudo service NetworkManager restart 自动配置这个 USB 转网卡设备[脚本修改](#networkmanager)
+    6. sudo nmcli connection up enp0s20f0u2u3 # 主动执行之前加载的配置,配置文件一般存储在 /etc/sysconfig/network-scripts/ 目录, 比如 ifcfg-enp0s20f0u2u3 网卡设置，也可以通过 sudo service NetworkManager restart 自动配置这个 USB 转网卡设备[脚本修改](#networkmanager)
+    7. sudo nmcli connection load /etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3 # 主动加载 /etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3 配置的网卡设置, 加载之后要想生效, 还需要执行 `sudo nmcli connection up enp0s20f0u2u3` 来设置对应的网卡设备
+    8. sudo nmcli connection reload # 主动加载所有的网卡配置脚本
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm
@@ -928,3 +931,7 @@ SECTIONS
 链接脚本的一般语法: <filename>(<section>)
  ```
     * We see that each of our symbol has a section. This is due to the fact that we compiled our firmware with the -ffunction-sections and -fdata-sections flags
+90. route 工具是用来显示和配置路由相关的命令
+* route -n 显示路由信息
+* route del 可以删除指定的路由
+* route add default gw ip 信息 添加默认的路由信息

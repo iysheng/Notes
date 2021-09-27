@@ -59,7 +59,7 @@
     	" ===
     	endsnippet
     	```
-    * ``` { $ \ `` 这些符号都有特殊的含义,如果需要插入这些符号,那么需要在开头添加 \ 符号进行转以
+    * ``` { $ \ `` 这些符号都有特殊的含义,如果需要插入这些符号,那么需要在开头添加 \ 符号进行转义
 	* snip 支持插入 shell/vim/python 语句
 		1. python 语句,之前需要加入 !p,同时会创建一个 ``snip`` 的 python 对象
 	3. snippets 默认对于 C 语言有一个 head 代码片段，具体可以参看文件~/.vim/plugged/vim-snippets/UltiSnips/c.snippets
