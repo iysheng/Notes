@@ -313,6 +313,9 @@ TabLineFill - is the remaining of the tabline where there is no labels (backgrou
 " eg:
 :highlight TabLineSel guibg=#A6CC70 guifg=#707A8C ctrembg=10 ctermfg=8
 ```
+	* statusline 的 strings 描述可以包含很多个 items, 每一个 item 前都要加 %. 一般地默认的 statusline 值为: `%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P`
+		* % 表示 string 的开始
+	* statusline 可以使用函数返回值作为 string 描述显示的 item, 语法是 %!functionname()
 68. 用户定义的函数开头字母必须要大写来区别内置的函数
 69. `let` 定义变量
 70. for 语句

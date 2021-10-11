@@ -516,7 +516,11 @@ EndSection
     ``` bash
     # 删除当前目录的 abc.txt 文件，结尾的 \; 符号很重要，否则会提示 exec 缺少参数
     find . -name "abc.txt" -exec rm {} \;
+    # 将 abc/def 目录的内容打印出来,其他的 abc 目录的内容不会打印
+    find . -path "./abc/*" ! -path "./abc/def/*" -prune -o "*.c" -print
     ```
+    * -prune 参数来忽略一个完整的目录树
+    * ! 表达式, 取反
 41. firewall-cmd 防火墙管理客户端
     ``` bash
     sudo firewall-cmd --add-port=3308/tcp # 当前 zone 开启 3308 tcp 端口

@@ -125,7 +125,7 @@ ret = os.system("linux 命令")
 		data = [1,2]
 		add(*data) == add(1, 2)
 		import numpy as np
-		np.arrange(*data) == np.arrange(1, 2)
+		np.arange(*data) == np.arange(1, 2)
 		```
 	4. 特殊的变量,无,表示 nothing: None
 	5. F-strings 是新的变量类型, python3.6 引入

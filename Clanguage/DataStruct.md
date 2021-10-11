@@ -28,6 +28,7 @@ inline void func(void)
 }
 ```
 5. (void)x; /* 可以避免编译器的警告 */
+6. #pragma pack(n) 可以修改 alignment
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);
