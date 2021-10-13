@@ -176,6 +176,7 @@ E
 |exploit|开发|
 |exposure|曝光|
 |entity|实体|
+|Enumeration|枚举|
 
 F
 ---
@@ -208,6 +209,7 @@ G
 |go on to|进入|
 |gradually|逐步地|
 |Graduate|毕业的|
+|gadget|小工具|
 
 H
 ---
@@ -331,6 +333,7 @@ O
 |object Orientation|面向对象|
 |obstacle|障碍|
 |optimal|最佳的|
+|On-the-Go||
 
 P
 ---
@@ -495,6 +498,7 @@ T
 |tales|故事|
 |toolkit|工具箱|
 |truncation|截断|
+|topological information|拓扑信息|
 
 U
 ---
