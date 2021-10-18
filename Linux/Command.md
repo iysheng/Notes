@@ -729,6 +729,7 @@ fcitx5 &
     * fcitx5-chinese-addons-data-0-0.3.20200912git591848d.fc33.noarch
     * fcitx5-chinese-addons-0-0.3.20200912git591848d.fc33.x86_64
     * fcitx5-gtk-0-0.4.20200916git8835e96.fc33.x86_64ij
+    4. rpm -q --changelog package # 查看指定 package 的 change log
 63. **xxd** 命令，二进制显示和处理文件工具
 ```
 xxd -s 0x30 file # 跳过文件的前 0x30 字节内容显示
@@ -939,3 +940,10 @@ SECTIONS
 * route -n 显示路由信息
 * route del 可以删除指定的路由
 * route add default gw ip 信息 添加默认的路由信息
+91. debug kernel [dynamic printk](https://cateee.net/lkddb/web-lkddb/DYNAMIC_DEBUG.html)
+    1. mount -t debugfs none /sys/kernel/debug
+    2. 修改 dynamic_magic/control 文件来控制动态切换打印信息,可以精确到某一个 module/file/func 级别
+    eg:
+    ``` bash
+    echo -n 'module dd +p' > dynamic/control 放开 dd 模块的调试级别打印信息
+    ```
