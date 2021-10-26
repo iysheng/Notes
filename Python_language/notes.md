@@ -40,6 +40,8 @@ ret = os.system("linux 命令")
 8. python 復制文件 copyfile 函數，在包 shutil 中
 9. pip install pip-compile-multi # 该工具支持批量安装 python 包
 	* 可以将需要安装的 python 包写在文件 a.in，然后执行 pip-compile -U a.in 就可以批量安装所有的 a.in 的 python 包
+	* pip list # 可以列出已经安装的 python packages 以及他们对应的版本号
+	* print(package.__version__) # 打印软件包的版本号
 10. 注释
 	* 单行注释
 	``` python
@@ -524,3 +526,7 @@ class derive_demo0(demo_class, demo1_class):
 funcp=
 80 x - 70
 ```
+40. dearpygui 包
+	* viewport 是传统意义上的 window 的概念,在 start_dearpygui() 函数之前,必须执行: create_viewport()/setup_viewport()/show_viewport()
+	* 一旦这个 viewport 创建之后,可以使用 configure_viewport 或者其他的 set_viewport_*** 函数去配置这个 viewport
+	* primary window 会填充 viewport, 并且会随着 viewport 的 size 变化而变化, 以及会一直保持在其他 window 之后
