@@ -696,6 +696,7 @@ xrandr --output 分屏幕 --brightness 0.6
 59. gdb 调试 elf 文件
     1. gdb + elf 文件
         1. diassemble + 地址 # 反汇编指定地址的代码
+    2. gdb -ex "target remote localhost:3333"  # 执行 gdb 命令, 通过 -ex 参数传入
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串
@@ -820,6 +821,15 @@ sudo dnf install iwl1000-firmware
 		8.9 bt 查看堆栈
 		8.10 i b 查看断点
 		8.11 d index(断点的编号) 删除指定编号的断点
+        8.12 x 查看内存地址
+        8.13 set {int}0x1000=1 修改内存地址
+        8.14 info reg 查看寄存器值
+        8.15 delete 断点编号,删除指定的断点
+	    8.16 打印内存：x /nfu addr (以f格式打印n个u类型存储单元的以addr开头的内存值)
+        * f: o(octal)  x(hex) d(decimal) u(unsigned decimal) t(binary) f(float) a(address) i(instruciton) c(char) s(string)
+        * u: b(byte)  h(halfword)  w(word)  g(gaint, 8 bytes)
+        * for example: x/256xb addr,    x/256xw addr 
+        9. ~break * main + 10 # 在 main 函数起始 + 10 行位置打断点~
 	9. - 命令， 会到一个跟随现实代码的窗口
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
