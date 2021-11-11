@@ -770,12 +770,13 @@ C-kermit> c 连接
 	```
 69. make 学习笔记
 	
-	1. **wildcard** Makefile 的通配符 函数
+    1. **wildcard** Makefile 的通配符 函数
 ``` Makefile
 # 匹配 path 路径下所有的 .c 文件
 $(wildcard path/*.c)
 ```
-	2. Makefile 的执行动作要用 Tab 键隔开
+    2. Makefile 的执行动作要用 Tab 键隔开
+    3. Makefile 执行 shell 脚本,格式 $(shell pwd)
 70. arch 配置 tftp 服务
 ``` bash
 sudo pacman -S tftp-hpa # 安装程序
