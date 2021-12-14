@@ -134,7 +134,7 @@
     40. git reset --hard commitid ：可以撤销在本地还没有 push 的 commit
     41. git branch -a 查看所有分支
     42. git branch -r 查看远程分支
-    43. git checkout branchname 切换到某个分支
+    43. git checkout branchname 切换到某个分支, git checkout -f branchname 强制切换到指定分支
     44. git commit --amend  文件名；//修改某次提交的日志信息，还可以追加提交的文件
     45. git log --stat ： 查看提交记录，包含每次提交的文件列表
     46. git diff commitid ；// review the files modify detiles this commit
@@ -396,7 +396,7 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     8. sudo nmcli connection reload # 主动加载所有的网卡配置脚本
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
-    2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm
+    2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
     3. 编辑 ~/.xsession 文件，填写 exec dwm 引导 dwm 启动，重点要设置这个文件的权限为 700 ，否则会出错！！！
     4. 编辑 vim /etc/X11/xdm/Xsetup_0 文件，可以修改登陆背景，可以使用 feh 工具！！！
     5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果

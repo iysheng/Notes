@@ -29,6 +29,7 @@ source /usr/share/git-core/contrib/completion/git-prompt.sh
 source /home/yangyongsheng/.timewarrior/timew-completion.bash
 # export PS1="\e[0;36m\u@\w$(__git_ps1 '[%s]')\e[0m\]\$ "
 
+alias CD='cd'
 # 使用 lsd 取代 ls，带有色彩显示
 alias ls='lsd'
 
