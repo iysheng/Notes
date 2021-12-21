@@ -959,3 +959,12 @@ SECTIONS
     ``` bash
     echo -n 'module dd +p' > dynamic/control 放开 dd 模块的调试级别打印信息
     ```
+92. [repo](https://gerrit.googlesource.com/git-repo/) 管理大型 git 仓库
+    1. 安装
+    ``` bash
+    git clone https://gerrit-googlesource.lug.ustc.edu.cn/git-repo # 将 git-repo 路径添加到 PATH 环境变量
+    ```
+93. [tio](https://github.com/tio/tio) 一款好用的工具終端工具
+    * 支持映射特殊符號，比如 \n 直接映射到 \r\n, # tio -m INLCRNL
+    * 支持打印時間戳 # 目前在 Fedora 35 上測試異常,已經提及偶啊 [issue](https://github.com/tio/tio/issues/131)
+    * 支持日志保存 # 通過 -l 參數制定保存的日至路徑
