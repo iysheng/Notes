@@ -292,3 +292,5 @@ Linux kernel internal documentation in different formats:
     setsebool -P samba_enable_home_dirs on
     sudo setsebool -P samba_export_all_rw on
     ```
+19. 護眼色的 rgb 值 #CCE8CF RGB(204, 232, 207) 或者 #C7EDCC RGB(199, 237, 204)
+20. ld 的 --wrap 選項參數，可以對制定的符號進行包裹，eg: --wrap,malloc ， 如果當前文件中直接調用 malloc 符號但是卻沒有定義該符號，那麼會嘗試執行 __wrap_malloc 函數，如果執行的是 __real_malloc 那麼會嘗試執行 malloc 函數

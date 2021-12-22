@@ -530,3 +530,35 @@ funcp=
 	* viewport 是传统意义上的 window 的概念,在 start_dearpygui() 函数之前,必须执行: create_viewport()/setup_viewport()/show_viewport()
 	* 一旦这个 viewport 创建之后,可以使用 configure_viewport 或者其他的 set_viewport_*** 函数去配置这个 viewport
 	* primary window 会填充 viewport, 并且会随着 viewport 的 size 变化而变化, 以及会一直保持在其他 window 之后
+41. python 中文件夾想作爲一個模塊被引用，該文件夾必須要包含 __init__.py 文件，即使該文件爲空。如果此模塊想要運行，則必須要包含一個 __main__.py 文件。
+	* __init__.py 文件中一般包含了所要引用的模塊
+	``` python
+	 from robot.rebot import rebot, rebot_cli
+	 from robot.run import run, run_cli
+	 from robot.version import get_version
+	
+	# __all__ 和 __version__ 都是系統變量
+	# __all__ 表示導出包內的模塊
+	 __all__ = ['run', 'run_cli', 'rebot', 'rebot_cli']
+	 __version__ = get_version()
+	```
+	* __main__.py 文件可以理解爲一個模塊的入口函數執行模塊
+42. os.sep 是目錄的分割符
+43. python a.py 表示直接運行 a.py 腳本; python -m a.py 表示將 a 作爲一個模塊運行,此時要存在這個模塊名的目錄在 sys.path 路徑下。
+44. [python if __name__ == '__main__'該如何理解](https://blog.csdn.net/weixin_41923961/article/details/86616127)
+	* python 屬於腳本語言，是動態諸行執行的，也就是從腳本的第一行開始運行，沒有統一的入口。
+	* 一個 python 源文件除了可以被直接運行外還可以作爲模塊（也就是庫）被導入。最頂層的代碼都會被運行（python 用縮進來區分代碼層次）。實際在作爲模塊導入的時候，有一部分代碼是不希望被運行的。
+	* 創建 package 的時候(一般是一個目錄)，在文件夾下會有一個 __init__.py 文件，該文件的作用是將該目錄作爲一個 python 模塊. import 的時候會執行 __init__.py 文件
+45. parser.add_argument('-f', help="full code compilation", action='store_true') # store_true 表示如果帶有 -f 選項參數，那麼 image 爲真，否則爲假.
+46. from collections import defaultdict， 該函數使用一個工廠函數作爲參數創建一個字典。
+``` python
+A=defaultdict(list) # 如果之後在方位 A 字典的 b key， 但是 b 並不存在時會返回一個空的 list 而不是返回 KeyError
+A={} # 創建空字典，如果後續在方位 A 字典的 b key, 但是 b 不存在時，會返回 KeyError
+```
+47. python 的修飾器
+	* @property 創建只讀屬性函數，可以使用調用類參數的方法調用方法
+	* @out_path.setter # out_path 屬性可以直接調用，並且具有設置屬性
+48. 有多種方法可以修改 sys.path 變量。
+	* 導出環境變量 PYTHONPATH
+	* 在已經搜索的目錄下創建 .pth 文件，該文件中記錄搜索的路徑
+	* 直接在源碼中修改 sys.path 這個 list 變量

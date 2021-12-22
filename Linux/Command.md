@@ -1,4 +1,3 @@
-
 1. Fedora 添加库和禁止、使能库
     1. dnf config-manager --add-repo /etc/yum.repos.d/fedora_extras.repo
     2. dnf repolist 列出当前所有的 repos
@@ -968,3 +967,5 @@ SECTIONS
     * 支持映射特殊符號，比如 \n 直接映射到 \r\n, # tio -m INLCRNL
     * 支持打印時間戳 # 目前在 Fedora 35 上測試異常,已經提及偶啊 [issue](https://github.com/tio/tio/issues/131)
     * 支持日志保存 # 通過 -l 參數制定保存的日至路徑
+94. cp 命令特殊用法
+    * cp -t TARGET_DIR SOURCE0 SOURCE1 ** # 將 SOURCE0 SOURCE1 等內容全部複製到目錄 TARGET_DIR 中
