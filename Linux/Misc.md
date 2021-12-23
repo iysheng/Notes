@@ -305,5 +305,6 @@ Linux kernel internal documentation in different formats:
     * gn desc <build_dir> <targetname> # 获取指定目标的信息
     * gn 會解析 json 文件，json 文件可以使用 /* 註釋 */ 添加註釋
     * gn 可以使用 import 導入 gni 文件
+    * BUILD.gn 文件中的依赖，如果组件名称和目录一致，就可以省略具体的组件名称。eg: dir:target 如果 target 和 dir 目录一样， :target 可以省略
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
