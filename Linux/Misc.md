@@ -300,7 +300,10 @@ Linux kernel internal documentation in different formats:
     * --dotfile 默认会查找 root 目录下的 .gn 文件，如果需要明确指定该文件，那么使用 --dotfile 参数指定
         * .gn 文件会至少定义 buildconfig 变量，该变量表示的文件会被用来建立 build file 的可执行环境
         * .gn 文件一般也会定义 root 变量，定义 gn 构建的根目录
+    * gn args --list 查看有效的參數和他們的默認值
     * gn 文件中的 // 符号表示根目录
     * gn desc <build_dir> <targetname> # 获取指定目标的信息
+    * gn 會解析 json 文件，json 文件可以使用 /* 註釋 */ 添加註釋
+    * gn 可以使用 import 導入 gni 文件
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
