@@ -294,3 +294,13 @@ Linux kernel internal documentation in different formats:
     ```
 19. 護眼色的 rgb 值 #CCE8CF RGB(204, 232, 207) 或者 #C7EDCC RGB(199, 237, 204)
 20. ld 的 --wrap 選項參數，可以對制定的符號進行包裹，eg: --wrap,malloc ， 如果當前文件中直接調用 malloc 符號但是卻沒有定義該符號，那麼會嘗試執行 __wrap_malloc 函數，如果執行的是 __real_malloc 那麼會嘗試執行 malloc 函數
+21. [gn](http://weharmonyos.com/openharmony/compile/gn/docs/quick_start.html#running-gn) 用来生成 ninja 脚本
+    * BUILD.gn 一般是整个工程的入口， .gni 文件一般用来作为子模块
+    * --root 指定 gn 构建的根目录
+    * --dotfile 默认会查找 root 目录下的 .gn 文件，如果需要明确指定该文件，那么使用 --dotfile 参数指定
+        * .gn 文件会至少定义 buildconfig 变量，该变量表示的文件会被用来建立 build file 的可执行环境
+        * .gn 文件一般也会定义 root 变量，定义 gn 构建的根目录
+    * gn 文件中的 // 符号表示根目录
+    * gn desc <build_dir> <targetname> # 获取指定目标的信息
+22. ninja 替换 make 进行构建
+    * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
