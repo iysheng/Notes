@@ -306,5 +306,6 @@ Linux kernel internal documentation in different formats:
     * gn 會解析 json 文件，json 文件可以使用 /* 註釋 */ 添加註釋
     * gn 可以使用 import 導入 gni 文件
     * BUILD.gn 文件中的依赖，如果组件名称和目录一致，就可以省略具体的组件名称。eg: dir:target 如果 target 和 dir 目录一样， :target 可以省略
+    * 模板(template) 提供了一種添加到 GN 內置目標類型的方法。根本上講，模板是 GN 構建可重用功能的主要方式。模板定義在 .gni(GN import) 文件內， 這中文件可以導入 .gn 目標文件.
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
