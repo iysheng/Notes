@@ -260,8 +260,21 @@ Linux kernel internal documentation in different formats:
 12. C 语言的一些头文件
 	1. uint8_t 对应的头文件 <stdint.h>
 13. 在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**
-	1. arm-none-eabi-gcc -ldemo $(objs) -o $@ /* 这个不可以正常连接 libdemo.a */
+	1. arm-none-eabi-gcc -ldemo $(objs) -o $@ /* 这个不可以正常连接 libdemo.a *\/
 	2. arm-none-eabi-gcc $(objs) -ldemo -o $@ /* 这个可以正常连接 libdemo.a */
+	3. gcc 的一些編譯選項參數
+```
+# –start-group archives --end-group
+# 正常情况，链接的时候库文件只会按它们出现在命令行的顺序搜索一遍，
+# 如果包里有未定义的引用标号，而且该包还被放在命令行的后面,
+# 这样链接器就无法解决该标号的引用问题。通过给包分组，
+# 这些包可以被循环搜索直到所有的引用都可以解决为止。使用该选项将降低性能。
+# 只有在无法避免多个包之间互相引用的情况下才使用。
+
+
+# --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到
+# 與之相反的是 --no-whole-archive 鏈接參數
+```
 14. ar 打包为 .a 静态库的命令参数
 	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
 	2. ar -r libdemo.a $(objs) # 将所有的 obj 文件连接为静态库
@@ -295,7 +308,7 @@ Linux kernel internal documentation in different formats:
     ```
 19. 護眼色的 rgb 值 #CCE8CF RGB(204, 232, 207) 或者 #C7EDCC RGB(199, 237, 204)
 20. ld 的 --wrap 選項參數，可以對制定的符號進行包裹，eg: --wrap,malloc ， 如果當前文件中直接調用 malloc 符號但是卻沒有定義該符號，那麼會嘗試執行 __wrap_malloc 函數，如果執行的是 __real_malloc 那麼會嘗試執行 malloc 函數
-21. [gn](http://weharmonyos.com/openharmony/compile/gn/docs/quick_start.html#running-gn) 用来生成 ninja 脚本
+21. [gn](http://weharmonyos.com/openharmony/compile/gn/docs/quick_start.html#running-gn) 用来生成 ninja 脚本. [GN 的官方網址](https://gn.googlesource.com/gn/+/main/docs/reference.md)
     * BUILD.gn 一般是整个工程的入口， .gni 文件一般用来作为子模块
     * --root 指定 gn 构建的根目录
     * --dotfile 默认会查找 root 目录下的 .gn 文件，如果需要明确指定该文件，那么使用 --dotfile 参数指定
@@ -308,5 +321,6 @@ Linux kernel internal documentation in different formats:
     * gn 可以使用 import 導入 gni 文件
     * BUILD.gn 文件中的依赖，如果组件名称和目录一致，就可以省略具体的组件名称。eg: dir:target 如果 target 和 dir 目录一样， :target 可以省略
     * 模板(template) 提供了一種添加到 GN 內置目標類型的方法。根本上講，模板是 GN 構建可重用功能的主要方式。模板定義在 .gni(GN import) 文件內， 這中文件可以導入 .gn 目標文件.
+    * action() 模板類定義了一個執行腳本的目標，該模板類有一些必要的參數。outputs 和 scripts 腳本.
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
