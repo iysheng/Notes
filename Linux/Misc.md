@@ -322,5 +322,10 @@ Linux kernel internal documentation in different formats:
     * BUILD.gn 文件中的依赖，如果组件名称和目录一致，就可以省略具体的组件名称。eg: dir:target 如果 target 和 dir 目录一样， :target 可以省略
     * 模板(template) 提供了一種添加到 GN 內置目標類型的方法。根本上講，模板是 GN 構建可重用功能的主要方式。模板定義在 .gni(GN import) 文件內， 這中文件可以導入 .gn 目標文件.
     * action() 模板類定義了一個執行腳本的目標，該模板類有一些必要的參數。outputs 和 scripts 腳本.
+    * 內置變量 root_build_dir 是 build command 執行的根目錄的絕對路徑
+    * 內置變量 root_out_dir 是工具鏈輸出的根目錄的絕對路徑
+    * rebase(input, new_base=="", current_base=".") # 將 input 表示的內容，可以是 list ,轉換爲以 new_base 爲基礎的路徑描述
+        * new_base 缺省時，轉換路徑以系統絕對路徑
+        * current_base 缺省時，是相對當前路徑
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
