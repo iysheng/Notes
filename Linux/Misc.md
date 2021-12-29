@@ -104,7 +104,9 @@
 	11. MODKEY + d # 退出当前会话，保持会话在后台
 	12. MODKEY + ' # 跳转到指定编号的 window
 	13. MODKEY + z # 隐藏当前 window 的其他 panel
-	13. MODKEY + . # 移動當前的 window 位置
+	14. MODKEY + . # 移動當前的 window 位置
+	15. MODKEY + { # 交換當前 window 中的 pane 和上一個 pane
+	16. MODKEY + } # 交換當前 window 中的 pane 和下一個 pane
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
