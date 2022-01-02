@@ -308,6 +308,7 @@ Linux kernel internal documentation in different formats:
     ```
 19. 護眼色的 rgb 值 #CCE8CF RGB(204, 232, 207) 或者 #C7EDCC RGB(199, 237, 204)
 20. ld 的 --wrap 選項參數，可以對制定的符號進行包裹，eg: --wrap,malloc ， 如果當前文件中直接調用 malloc 符號但是卻沒有定義該符號，那麼會嘗試執行 __wrap_malloc 函數，如果執行的是 __real_malloc 那麼會嘗試執行 malloc 函數
+	* 交叉编译工具链的　crt0 会尝试调用用户自定义的　hardware_init_hook() software_init_hook() 然后再执行　__wrap_main() 函数
 21. [gn](http://weharmonyos.com/openharmony/compile/gn/docs/quick_start.html#running-gn) 用来生成 ninja 脚本. [GN 的官方網址](https://gn.googlesource.com/gn/+/main/docs/reference.md)
     * BUILD.gn 一般是整个工程的入口， .gni 文件一般用来作为子模块
     * --root 指定 gn 构建的根目录
@@ -329,3 +330,6 @@ Linux kernel internal documentation in different formats:
         * current_base 缺省時，是相對當前路徑
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
+23. ld 连接脚本
+    * COMMON 表示的是未初始化的全局变量, 不包含静态全局变量
+24. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 ``关键词 arch``
