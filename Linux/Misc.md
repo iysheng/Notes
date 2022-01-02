@@ -285,7 +285,7 @@ Linux kernel internal documentation in different formats:
 	2. pkgs --update 用來更新軟件包本身
 16. Rust 包管理 cargo
 	* 更换 cargo 的源，创建文件 ```~/.cargo/config```
-	```
+	``` bash
 	[source.crates-io]
 	registry = "https://github.com/rust-lang/crates.io-index"
 	replace-with = 'hub'
@@ -294,7 +294,7 @@ Linux kernel internal documentation in different formats:
 	[source.hub]
 	registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
 	```
-17. google search "font name vk.com" 查找字体
+17. google search ``font name vk.com`` 查找字体
 18. fedora samba 网络端口:
     1. smbd TCP 139 和 445
     2. nmbd UDP 137
@@ -335,3 +335,5 @@ Linux kernel internal documentation in different formats:
 23. ld 连接脚本
     * COMMON 表示的是未初始化的全局变量, 不包含静态全局变量
 24. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 ``关键词 arch``
+	* eopkg blame 包名称 # 查看包的维护者以及版本信息
+25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
