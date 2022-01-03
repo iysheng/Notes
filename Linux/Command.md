@@ -413,7 +413,7 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     ```
     8. 如果仍然有问题，可以查看保存有错误文件日志的文件： ~/.xsession.errors
     9. 修改 xdm 默认引导的串口管理器,需要修改 ~/.xinitrc 或者 ~/.xsession
-33. 解决 npm 在国内卡的问题
+33. 解决 [npm - a JavaScript package manager](https://github.com/npm/cli) 在国内卡的问题
     1. 直接使用 cnpm
     ``` bash
     npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -973,3 +973,4 @@ SECTIONS
     * 支持日志保存 # 通過 -l 參數制定保存的日至路徑
 94. cp 命令特殊用法
     * cp -t TARGET_DIR SOURCE0 SOURCE1 ** # 將 SOURCE0 SOURCE1 等內容全部複製到目錄 TARGET_DIR 中
+

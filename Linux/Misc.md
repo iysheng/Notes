@@ -276,6 +276,10 @@ Linux kernel internal documentation in different formats:
 
 # --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到
 # 與之相反的是 --no-whole-archive 鏈接參數
+
+# -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
+# -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
+# -MF 将目标的依赖重定向到指定文件名的文件中
 ```
 14. ar 打包为 .a 静态库的命令参数
 	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
