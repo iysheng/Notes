@@ -129,3 +129,6 @@ Pin connected to some other pins but no pin to drive it
     * 场效应管很高的输入阻抗非常适合作阻抗变换
     * 场效应管可以用作可变电阻
     * 场效应管可以用作电子开关
+32. **Kicad** 器件下載網址彙總
+	* [snapeda](https://www.snapeda.com) 下載 3D 模型圖時選擇 ``NX.10`` 格式的，可以較好的支持帶有顏色的 3D
+	* [componentsearchengine](https://componentsearchengine.com)

@@ -38,6 +38,7 @@
 	XMODIFIERS=@im=fcitx
 	```
 	3. 配置完成后，注销系统重新登录就可以
+	4. Ctrl+Shift+F 可以切换中文简体、繁体的切换
 8. fzf 模糊搜索开源工具
 9. ranger 终端的文件管理器，[ranger](https://github.com/ranger/ranger/wiki/Official-User-Guide) 使用 4 個主要的配置文件
 	* 全局的 commands.py ， 包含了各種功能實現
@@ -280,6 +281,8 @@ Linux kernel internal documentation in different formats:
 # -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
 # -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
 # -MF 将目标的依赖重定向到指定文件名的文件中
+
+# -Xlinker option # 傳遞參數到鏈接器, 可以使用它来提供GCC无法识别的特定于系统的链接器选项,特別地，如果傳遞的參數是多個，那麼需要通過 -Xlinker 發送多次。在使用 GNU 鏈接器的時候，常見的是 ``option=value`` 的方式
 ```
 14. ar 打包为 .a 静态库的命令参数
 	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
