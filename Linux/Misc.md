@@ -331,7 +331,7 @@ Linux kernel internal documentation in different formats:
     * action() 模板類定義了一個執行腳本的目標，該模板類有一些必要的參數。outputs 和 scripts 腳本.
     * 內置變量 root_build_dir 是 build command 執行的根目錄的絕對路徑
     * 內置變量 root_out_dir 是工具鏈輸出的根目錄的絕對路徑
-    * rebase(input, new_base=="", current_base=".") # 將 input 表示的內容，可以是 list ,轉換爲以 new_base 爲基礎的路徑描述
+    * rebase_path(input, new_base=="", current_base=".") # 將 input 表示的內容，可以是 list ,轉換爲以 new_base 爲基礎的路徑描述
         * new_base 缺省時，轉換路徑以系統絕對路徑
         * current_base 缺省時，是相對當前路徑
 22. ninja 替换 make 进行构建
