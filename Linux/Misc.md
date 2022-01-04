@@ -276,6 +276,10 @@ Linux kernel internal documentation in different formats:
 
 # --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到
 # 與之相反的是 --no-whole-archive 鏈接參數
+
+# -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
+# -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
+# -MF 将目标的依赖重定向到指定文件名的文件中
 ```
 14. ar 打包为 .a 静态库的命令参数
 	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
@@ -285,7 +289,7 @@ Linux kernel internal documentation in different formats:
 	2. pkgs --update 用來更新軟件包本身
 16. Rust 包管理 cargo
 	* 更换 cargo 的源，创建文件 ```~/.cargo/config```
-	```
+	``` bash
 	[source.crates-io]
 	registry = "https://github.com/rust-lang/crates.io-index"
 	replace-with = 'hub'
@@ -294,7 +298,7 @@ Linux kernel internal documentation in different formats:
 	[source.hub]
 	registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
 	```
-17. google search "font name vk.com" 查找字体
+17. google search ``font name vk.com`` 查找字体
 18. fedora samba 网络端口:
     1. smbd TCP 139 和 445
     2. nmbd UDP 137
@@ -310,6 +314,7 @@ Linux kernel internal documentation in different formats:
     ```
 19. 護眼色的 rgb 值 #CCE8CF RGB(204, 232, 207) 或者 #C7EDCC RGB(199, 237, 204)
 20. ld 的 --wrap 選項參數，可以對制定的符號進行包裹，eg: --wrap,malloc ， 如果當前文件中直接調用 malloc 符號但是卻沒有定義該符號，那麼會嘗試執行 __wrap_malloc 函數，如果執行的是 __real_malloc 那麼會嘗試執行 malloc 函數
+	* 交叉编译工具链的　crt0 会尝试调用用户自定义的　hardware_init_hook() software_init_hook() 然后再执行　__wrap_main() 函数
 21. [gn](http://weharmonyos.com/openharmony/compile/gn/docs/quick_start.html#running-gn) 用来生成 ninja 脚本. [GN 的官方網址](https://gn.googlesource.com/gn/+/main/docs/reference.md)
     * BUILD.gn 一般是整个工程的入口， .gni 文件一般用来作为子模块
     * --root 指定 gn 构建的根目录
@@ -331,3 +336,8 @@ Linux kernel internal documentation in different formats:
         * current_base 缺省時，是相對當前路徑
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
+23. ld 连接脚本
+    * COMMON 表示的是未初始化的全局变量, 不包含静态全局变量
+24. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 ``关键词 arch``
+	* eopkg blame 包名称 # 查看包的维护者以及版本信息
+25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
