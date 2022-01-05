@@ -367,3 +367,11 @@ endwhile
 	- gui 是 text 的风格, 可以是 bold, italic, underline
 	- ctermfg, ctermbg, cterm : 个 guifg, guibg, gui 类似,但是用到 terminal 上的
 	- term
+76. vim 的高阶替换，eg: 在包含有 ``abc`` 的行。替换 ``123`` 为 ``456``.
+``` vim
+abc 123
+def
+ghi
+123
+```
+针对上述例子，输入的命令是 ``:g/abc/p|s/123/456/g``, 首先通过 ``g/pattern/p`` 打印匹配的行，然后管道 ``|`` ，然后 ``s/123/456/g`` 替换
