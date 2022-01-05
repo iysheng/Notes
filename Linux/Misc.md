@@ -39,6 +39,7 @@
 	```
 	3. 配置完成后，注销系统重新登录就可以
 	4. Ctrl+Shift+F 可以切换中文简体、繁体的切换
+	5. [好看的皮肤 Fcitx5-Material-Color](https://github.com/hosxy/Fcitx5-Material-Color.git)
 8. fzf 模糊搜索开源工具
 9. ranger 终端的文件管理器，[ranger](https://github.com/ranger/ranger/wiki/Official-User-Guide) 使用 4 個主要的配置文件
 	* 全局的 commands.py ， 包含了各種功能實現
