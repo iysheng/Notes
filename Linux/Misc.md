@@ -266,24 +266,13 @@ Linux kernel internal documentation in different formats:
 	1. arm-none-eabi-gcc -ldemo $(objs) -o $@ /* 这个不可以正常连接 libdemo.a *\/
 	2. arm-none-eabi-gcc $(objs) -ldemo -o $@ /* 这个可以正常连接 libdemo.a */
 	3. gcc 的一些編譯選項參數
-```
-# –start-group archives --end-group
-# 正常情况，链接的时候库文件只会按它们出现在命令行的顺序搜索一遍，
-# 如果包里有未定义的引用标号，而且该包还被放在命令行的后面,
-# 这样链接器就无法解决该标号的引用问题。通过给包分组，
-# 这些包可以被循环搜索直到所有的引用都可以解决为止。使用该选项将降低性能。
-# 只有在无法避免多个包之间互相引用的情况下才使用。
-
-
-# --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到
-# 與之相反的是 --no-whole-archive 鏈接參數
-
-# -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
-# -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
-# -MF 将目标的依赖重定向到指定文件名的文件中
-
-# -Xlinker option # 傳遞參數到鏈接器, 可以使用它来提供GCC无法识别的特定于系统的链接器选项,特別地，如果傳遞的參數是多個，那麼需要通過 -Xlinker 發送多次。在使用 GNU 鏈接器的時候，常見的是 ``option=value`` 的方式
-```
+		* –start-group archives --end-group 正常情况，链接的时候库文件只会按它们出现在命令行的顺序搜索一遍，如果包里有未定义的引用标号，而且该包还被放在命令行的后面,这样链接器就无法解决该标号的引用问题。通过给包分组，这些包可以被循环搜索直到所有的引用都可以解决为止。使用该选项将降低性能。只有在无法避免多个包之间互相引用的情况下才使用。
+		* --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到，與之相反的是 --no-whole-archive 鏈接參數
+		* -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
+		* -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
+		* -MF 将目标的依赖重定向到指定文件名的文件中
+		* -Xlinker option  傳遞參數到鏈接器, 可以使用它来提供GCC无法识别的特定于系统的链接器选项,特別地，如果傳遞的參數是多個，那麼需要通過 -Xlinker 發送多次。在使用 GNU 鏈接器的時候，常見的是 ``option=value`` 的方式
+		* --specs=nosys.specs 表示使用 newlib-nano.特别地， GNU 工具链释放出来的时候会带有两个预先基于 newlib 编译出的 c 库，其中一个对应的是标准的 newlib,另一个是 newlib-nano。文件名分别是 libc.a -> libc_nano.a; libg.a -> libg_nano.a
 14. ar 打包为 .a 静态库的命令参数
 	1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
 	2. ar -r libdemo.a $(objs) # 将所有的 obj 文件连接为静态库
