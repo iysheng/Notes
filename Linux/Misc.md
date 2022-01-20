@@ -340,7 +340,7 @@ Linux kernel internal documentation in different formats:
 	2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
 	3. x0vncserver -rfbauth ~/.vnc/passwd # 开启 vncserver 服务，可以看到 vncerver 使用了 5900 端口
 	``` bash
-    ▸ x0vncserver -rfbauth ~/.vnc/passwd
+    ▸ x0vncserver -rfbauth ~/.vnc/passwdjl
     
     Thu Jan 20 09:21:05 2022
      Geometry:    Desktop geometry is set to 1280x720+0+0
@@ -350,3 +350,4 @@ Linux kernel internal documentation in different formats:
      Main:        Listening on port 5900
 	```
 	4. 在 windows 上使用客户端 **[TigerVNC Viewer](https://sourceforge.net/projects/tigervnc/)** 连接服务器，如果发现无法连接，可能是 5900 端口的防火墙没有打开，我使用的是 ufw，所以就是简单的使用 ``sudo ufw allow 5900`` 放开 5900 端口就可以了。连接的时候会提示输入密码，这时候就用到了刚才使用 vncpasswd 创建的密码。
+27. AppImage 格式文件可以在大部分的 Linux 环境执行运行，区别 deb 是 debian 的软件包格式， rpm 是 redhat 的软件包格式。如果既不支持 deb 也不支持 rpm,那么可以尝试直接下载 AppImage 格式的文件，然后给这个文件添加可执行权限，就可以直接运行了，比如果 [drawio](https://github.com/jgraph/drawio-desktop/releases/download/v16.1.2/drawio-x86_64-16.1.2.AppImage)
