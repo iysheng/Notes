@@ -988,4 +988,17 @@ SECTIONS
     * 支持日志保存 # 通過 -l 參數制定保存的日至路徑
 94. cp 命令特殊用法
     * cp -t TARGET_DIR SOURCE0 SOURCE1 ** # 將 SOURCE0 SOURCE1 等內容全部複製到目錄 TARGET_DIR 中
-
+95. [ufw](https://help.ubuntu.com/community/UFW) 是一个防火墙配置工具，列举一些常见的命令
+    * sudo eopkg install ufw # solus 安装 ufw
+    * sudo ufw enable # 开启 ufw
+    * sudo ufw disable # 关闭 ufw
+    * sudo ufw allow port # 放开指定的端口
+    * sudo ufw status # 查看 ufw 规则
+    * sudo ufw status numbered # 对 ufw 的每条规则进行编号
+    * sudo ufw delete 编号 # 删除指定编号的规则
+    * sudo ufw reload # 重新加载 ufw 规则
+    * sudo systemctl enable ufw # 创建一个开机自启动的 ufw 服务
+    * sudo systemctl disable ufw # 关闭开机自启动的 ufw 服务
+    * sudo systemctl start ufw # 启动 ufw 服务
+    * sudo systemctl stop ufw # 启动 ufw 服务
+96. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
