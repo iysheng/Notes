@@ -335,3 +335,18 @@ Linux kernel internal documentation in different formats:
 	* eopkg blame 包名称 # 查看包的维护者以及版本信息
 	* eopkg list-installed # 列出已经安装的包
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
+26. [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
+	1. sudo eopkg install tigervnc # 安装 TigerVNC
+	2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
+	3. x0vncserver -rfbauth ~/.vnc/passwd # 开启 vncserver 服务，可以看到 vncerver 使用了 5900 端口
+	``` bash
+    ▸ x0vncserver -rfbauth ~/.vnc/passwd
+    
+    Thu Jan 20 09:21:05 2022
+     Geometry:    Desktop geometry is set to 1280x720+0+0
+     XDesktop:    Using evdev codemap
+     XDesktop:
+     XDesktop:    XTest extension present - version 2.2
+     Main:        Listening on port 5900
+	```
+	4. 在 windows 上使用客户端 **[TigerVNC Viewer](https://sourceforge.net/projects/tigervnc/)** 连接服务器，如果发现无法连接，可能是 5900 端口的防火墙没有打开，我使用的是 ufw，所以就是简单的使用 ``sudo ufw allow 5900`` 放开 5900 端口就可以了。连接的时候会提示输入密码，这时候就用到了刚才使用 vncpasswd 创建的密码。

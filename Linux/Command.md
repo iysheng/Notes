@@ -835,6 +835,21 @@ sudo dnf install iwl1000-firmware
         * for example: x/256xb addr,    x/256xw addr 
         9. ~break * main + 10 # 在 main 函数起始 + 10 行位置打断点~
 	9. - 命令， 会到一个跟随现实代码的窗口
+    10. 可以通过 gdbinit 文件，创建启动脚本，执行 gdb 时候自动执行 .gdbinit 文件定义的命令，配置文件示例:
+    ``` text
+    # 需运行以下命令开启gdbinit安全配置文件
+    # echo "add-auto-load-safe-path `pwd`/.gdbinit" > ~/.gdbinit
+    #设置elf文件和连接远程服务器s
+    file /home/yangyongsheng/Projects/red_smart_led/out/smart_led.elf
+    target remote localhost:3333
+    load
+    #开启代码显示
+    tui enable
+    #设置断点
+    b main
+    #运行程序
+    j Reset_Handler
+    ```
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
 79. chown -h red:red 軟連接名稱 # 修改軟連接的用戶需要添加 -h 參數
