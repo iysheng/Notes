@@ -660,6 +660,9 @@ sudo dnf install meld
 53. fd 匹配内容
 	
 	1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
+    2. fd -e 后缀名可以匹配指定格式的文件:
+        * fd -e c -e h --full-path 路径 # 在指定的路径查找 .c 和 .h 文件
+        * fd -e c # 在当前目录查找所有的 .c 文件
 54. mutt 工具学习
 	1. MXA 工具集合
 		1. **MUA:Mail User Agent(email client)**

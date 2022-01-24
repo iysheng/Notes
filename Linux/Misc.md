@@ -415,3 +415,9 @@ Linux kernel internal documentation in different formats:
 	5. sudo systemctl status x0vncserver
 	6. sudo systemctl disable x0vncserver
 27. AppImage 格式文件可以在大部分的 Linux 环境执行运行，区别 deb 是 debian 的软件包格式， rpm 是 redhat 的软件包格式。如果既不支持 deb 也不支持 rpm,那么可以尝试直接下载 AppImage 格式的文件，然后给这个文件添加可执行权限，就可以直接运行了，比如果 [drawio](https://github.com/jgraph/drawio-desktop/releases/download/v16.1.2/drawio-x86_64-16.1.2.AppImage)
+28. putty 使用密钥连接远程 ssh 服务器教程：
+	1. 在 putty 客户端创建 ssh 密钥对
+![keygen](assets/putty_keygen.png)
+	2. 将公钥内容复制到 ssh 服务器的 ~/.ssh/authorized_keys, **重要的一点修改该文件的权限为 400**
+	3. 在 putty 中配置 session ,关键是配置登陆用户名以及私钥文件
+![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
