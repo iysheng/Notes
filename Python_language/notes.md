@@ -129,6 +129,7 @@ ret = os.system("linux 命令")
 		import numpy as np
 		np.arange(*data) == np.arange(1, 2)
 		```
+		* list 有  remove 方法可以直接删除指定的成员,如果有多个重复的成员，该函数只会删除第一个该成员
 	4. 特殊的变量,无,表示 nothing: None
 	5. F-strings 是新的变量类型, python3.6 引入
 	6. list 类型可以包含重复的内容,但是 set 类型就不可以,set 就是类似数学的集合,可以通过对 list 执行构造函数,提取不同的 list 成员.
@@ -566,3 +567,10 @@ A={} # 創建空字典，如果後續在方位 A 字典的 b key, 但是 b 不�
 	* 在已經搜索的目錄下創建 .pth 文件，該文件中記錄搜索的路徑
 	* 直接在源碼中修改 sys.path 這個 list 變量
 49. python 有单例模式，即一个类只有对象在内存中。 Singleton
+59. 打印具体异常的方法：
+```python
+try:
+     print('abc')
+except Exception as ex:  # 打印异常的具体信息
+    print("error : %s" %ex)
+```

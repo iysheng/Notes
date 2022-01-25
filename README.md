@@ -41,7 +41,9 @@
 ---
 
 ##### Html&Css
-* [语法学习](https://github.com/iysheng/Notes/blob/master/Html/html_css.md)
+* [Html 语法学习](https://github.com/iysheng/Notes/blob/master/Html/html_css.md)
+* [js 语法学习](https://github.com/iysheng/Notes/blob/master/Html/js.md)
+* [react 语法学习](https://github.com/iysheng/Notes/blob/master/Html/react.md)
 
 ---
 

@@ -225,6 +225,8 @@
         * ``git config --global core.editor "vim"``
         * ``export GIT_EDITOR=vim``
         * ``export VISUAL=vim export EDITOR="$VISUAL"``
+    64. ``git config --global url."https://hub.fastgit.xyz/".insteadOf "https://github.com/"`` 使用 cdn 加速替换 clone 路径拉取项目代码
+    65. Github 插件仓库[https://github.com/XIU2/UserScript](https://github.com/XIU2/UserScript)
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
@@ -658,6 +660,9 @@ sudo dnf install meld
 53. fd 匹配内容
 	
 	1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
+    2. fd -e 后缀名可以匹配指定格式的文件:
+        * fd -e c -e h --full-path 路径 # 在指定的路径查找 .c 和 .h 文件
+        * fd -e c # 在当前目录查找所有的 .c 文件
 54. mutt 工具学习
 	1. MXA 工具集合
 		1. **MUA:Mail User Agent(email client)**
@@ -835,6 +840,21 @@ sudo dnf install iwl1000-firmware
         * for example: x/256xb addr,    x/256xw addr 
         9. ~break * main + 10 # 在 main 函数起始 + 10 行位置打断点~
 	9. - 命令， 会到一个跟随现实代码的窗口
+    10. 可以通过 gdbinit 文件，创建启动脚本，执行 gdb 时候自动执行 .gdbinit 文件定义的命令，配置文件示例:
+    ``` text
+    # 需运行以下命令开启gdbinit安全配置文件
+    # echo "add-auto-load-safe-path `pwd`/.gdbinit" > ~/.gdbinit
+    #设置elf文件和连接远程服务器s
+    file /home/yangyongsheng/Projects/red_smart_led/out/smart_led.elf
+    target remote localhost:3333
+    load
+    #开启代码显示
+    tui enable
+    #设置断点
+    b main
+    #运行程序
+    j Reset_Handler
+    ```
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
 79. chown -h red:red 軟連接名稱 # 修改軟連接的用戶需要添加 -h 參數
@@ -973,4 +993,17 @@ SECTIONS
     * 支持日志保存 # 通過 -l 參數制定保存的日至路徑
 94. cp 命令特殊用法
     * cp -t TARGET_DIR SOURCE0 SOURCE1 ** # 將 SOURCE0 SOURCE1 等內容全部複製到目錄 TARGET_DIR 中
-
+95. [ufw](https://help.ubuntu.com/community/UFW) 是一个防火墙配置工具，列举一些常见的命令
+    * sudo eopkg install ufw # solus 安装 ufw
+    * sudo ufw enable # 开启 ufw
+    * sudo ufw disable # 关闭 ufw
+    * sudo ufw allow port # 放开指定的端口
+    * sudo ufw status # 查看 ufw 规则
+    * sudo ufw status numbered # 对 ufw 的每条规则进行编号
+    * sudo ufw delete 编号 # 删除指定编号的规则
+    * sudo ufw reload # 重新加载 ufw 规则
+    * sudo systemctl enable ufw # 创建一个开机自启动的 ufw 服务
+    * sudo systemctl disable ufw # 关闭开机自启动的 ufw 服务
+    * sudo systemctl start ufw # 启动 ufw 服务
+    * sudo systemctl stop ufw # 启动 ufw 服务
+96. ss -ntpl # solus 使用 ss 命令替换 netstat 命令

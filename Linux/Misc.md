@@ -334,3 +334,91 @@ Linux kernel internal documentation in different formats:
 24. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 ``关键词 arch``
 	* eopkg blame 包名称 # 查看包的维护者以及版本信息
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
+	* eopkg list-installed # 列出已经安装的包
+26. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
+27. [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
+	1. sudo eopkg install tigervnc # 安装 TigerVNC
+	2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
+	3. x0vncserver -rfbauth ~/.vnc/passwd # 开启 vncserver 服务，可以看到 vncerver 使用了 5900 端口
+	``` bash
+    ▸ x0vncserver -rfbauth ~/.vnc/passwdjl
+    
+    Thu Jan 20 09:21:05 2022
+     Geometry:    Desktop geometry is set to 1280x720+0+0
+     XDesktop:    Using evdev codemap
+     XDesktop:
+     XDesktop:    XTest extension present - version 2.2
+     Main:        Listening on port 5900
+	```
+	4. 在 windows 上使用客户端 **[TigerVNC Viewer](https://sourceforge.net/projects/tigervnc/)** 连接服务器，如果发现无法连接，可能是 5900 端口的防火墙没有打开，我使用的是 ufw，所以就是简单的使用 ``sudo ufw allow 5900`` 放开 5900 端口就可以了。连接的时候会提示输入密码，这时候就用到了刚才使用 vncpasswd 创建的密码。
+	5. [配置 x0vnc 服务自启动](https://github.com/TigerVNC/tigervnc/wiki/Systemd-unit-for-x0vncserver)，参照这个链接，需要微调一下才可以在 solus 上成功设置起来，具体改动为 /usr/local/bin/x0vnc.sh ：
+	``` bash
+    #! /bin/bash
+    
+    # Export an environment variable of the Display Manager
+    export XAUTHORITY="/var/run/lightdm/root/:0"
+    
+    # Start VNC server for :0 display in background
+    ## Set path to binary file
+    VNC_BIN=/usr/bin/x0vncserver
+    
+    ## Set parameters
+    PARAMS="-display :0 -SecurityTypes Vncauth"
+    if [[ -f /etc/vnc.conf ]];
+    then
+    	## Launch VNC server
+    	($VNC_BIN $PARAMS) &
+    else
+    	## Add parameters
+    	#PARAMS+=" --I-KNOW-THIS-IS-INSECURE"
+		# 建议还是添加密码验证
+    	PARAMS+=" -rfbauth /home/yangyongsheng/.vnc/passwd"
+    	
+    	## Launch VNC server
+    	($VNC_BIN $PARAMS) &
+    fi
+    # Provide clean exit code for the service
+    exit 0
+	```
+    systemd 配置脚步文件 /etc/systemd/system/x0vncserver.service
+	``` bash
+    [Unit]
+    Description=Remote desktop service (VNC) for :0 display
+    
+    # Require start of
+    Requires=display-manager.service
+    
+    # Wait for
+    After=network-online.target
+    After=display-manager.service
+    
+    [Service]
+    Type=forking
+    
+    # Set environment
+    Environment=HOME=/root
+    
+    # Start command
+    ExecStart=/usr/local/bin/x0vnc.sh
+    
+    # Restart service after session log out
+    Restart=on-failure
+    RestartSec=5
+    
+    [Install]
+    WantedBy=multi-user.target
+	```
+	操作 x0vncserver.service 的命令
+	1. sudo systemctl daemon-reload
+	2. sudo systemctl enable x0vncserver.service # 创建这个服务的软链接
+	3. sudo systemctl start x0vncserver
+	4. sudo systemctl stop x0vncserver
+	5. sudo systemctl status x0vncserver
+	6. sudo systemctl disable x0vncserver
+28. AppImage 格式文件可以在大部分的 Linux 环境执行运行，区别 deb 是 debian 的软件包格式， rpm 是 redhat 的软件包格式。如果既不支持 deb 也不支持 rpm,那么可以尝试直接下载 AppImage 格式的文件，然后给这个文件添加可执行权限，就可以直接运行了，比如果 [drawio](https://github.com/jgraph/drawio-desktop/releases/download/v16.1.2/drawio-x86_64-16.1.2.AppImage)
+29. putty 使用密钥连接远程 ssh 服务器教程：
+	1. 在 putty 客户端创建 ssh 密钥对
+![keygen](assets/putty_keygen.png)
+	2. 将公钥内容复制到 ssh 服务器的 ~/.ssh/authorized_keys, **重要的一点修改该文件的权限为 400**
+	3. 在 putty 中配置 session ,关键是配置登陆用户名以及私钥文件
+![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
