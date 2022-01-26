@@ -571,6 +571,8 @@ A={} # 創建空字典，如果後續在方位 A 字典的 b key, 但是 b 不�
 ```python
 try:
      print('abc')
-except Exception as ex:  # 打印异常的具体信息
+# 打印异常的具体信息
+except Exception as ex:
     print("error : %s" %ex)
 ```
+60. 如果安装了多个版本的 python, 希望给指定版本的 python 安装软件包，命令为：``python3.6 -m pip install <package name>`` 给指定的 python3.6 安装软件包
