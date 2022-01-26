@@ -208,6 +208,7 @@ G
 |gradually|逐步地|
 |Graduate|毕业的|
 |gadget|小工具|
+|glitch|差错，小毛病|
 
 H
 ---
