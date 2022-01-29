@@ -60,6 +60,7 @@
 * [scons-user](https://github.com/iysheng/Notes/blob/master/Linux/doc/scons-user.pdf)
 * [computer_science](https://github.com/iysheng/Notes/blob/master/Linux/doc/Computer+System_EN.pdf)
 * [GN](https://github.com/iysheng/Notes/blob/master/Linux/doc/GN_manual.pdf)
+* [Effective-Python](https://github.com/iysheng/Notes/blob/master/Linux/doc/Effective-Python.pdf)
 ---
 
 ##### Dictionary
