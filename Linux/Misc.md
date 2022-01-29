@@ -422,3 +422,5 @@ Linux kernel internal documentation in different formats:
 	2. 将公钥内容复制到 ssh 服务器的 ~/.ssh/authorized_keys, **重要的一点修改该文件的权限为 400**
 	3. 在 putty 中配置 session ,关键是配置登陆用户名以及私钥文件
 ![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
+30. 颜色号:
+	* 3f9f9f

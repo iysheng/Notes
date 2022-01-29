@@ -343,6 +343,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
         * https://github.com/fdw/ranger-autojump 自动跳转的插件，打开的目录会自动添加到 autojump 数据库，然后就可以通过 autojump 根据模糊搜索跳转到对应的目录了
             * 记得需要添加 ``autojump source /usr/share/autojump/autojump.bash &> /dev/null`` 到 ``~/.bashrc`` 文件, 否则会报 ``Please source the correct autojump file in your shell's`` 错误
     14. 添加 **set vcs_aware true** 到 ~/.config/rc.conf 文件，放开版本控制
+    15. ranger 的 S 键可以快速切换到最后浏览的目录，但是是以新开一个 shell 的方式，如果退出当前 shell，还是返回之前的目录
 24. cmake 笔记
     1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
     ``` bash
