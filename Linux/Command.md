@@ -660,11 +660,11 @@ sudo dnf install meld
 	hwclock -r
 	```
 53. fd 匹配内容
-	
 	1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
     2. fd -e 后缀名可以匹配指定格式的文件:
-        * fd -e c -e h --full-path 路径 # 在指定的路径查找 .c 和 .h 文件
+        * fd -e c -e h --search-path 路径 # 在指定的路径查找 .c 和 .h 文件
         * fd -e c # 在当前目录查找所有的 .c 文件
+    3. fd -s a.h # -s 表示搜索文件的时候，匹配大小写
 54. mutt 工具学习
 	1. MXA 工具集合
 		1. **MUA:Mail User Agent(email client)**
@@ -1009,3 +1009,4 @@ SECTIONS
     * sudo systemctl start ufw # 启动 ufw 服务
     * sudo systemctl stop ufw # 启动 ufw 服务
 96. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
+97. 7zz x 压缩包.7z # 按照路径的信息解压缩 7z 文件
