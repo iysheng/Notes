@@ -426,3 +426,8 @@ Linux kernel internal documentation in different formats:
 	* 3f9f9f
 31. sdcc 工具链，在中断函数定义时，需要在 main 之前声明这个中断函数。
 ![sdcc](assets/sdcc_int.png)
+	* --xram-loc 0x800 定义 xram 的地址起始地址
+	* --xram-size 0x100 定义 xram 的大小
+	* -Wl-bCSEG=0x100 传递参数给链接脚本，定义 CSEG 的值
+	* 编译汇编 asm 源文件时候，如果不加 -plosgff 在链接的时候会提示没有读应的 lst 文件, 编译汇编源文件时加上这个编译选项，一般是 ``sda8051 -plosgff xx.asm``
+	* --stack-size size 可以用来检查栈空间够不够 size 的大小
