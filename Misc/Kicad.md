@@ -132,3 +132,5 @@ Pin connected to some other pins but no pin to drive it
 32. **Kicad** 器件下載網址彙總
 	* [snapeda](https://www.snapeda.com) 下載 3D 模型圖時選擇 ``NX.10`` 格式的，可以較好的支持帶有顏色的 3D
 	* [componentsearchengine](https://componentsearchengine.com)
+33. 避免检查 kicad courtyard overlap
+![courtyard](figures/courtyard.png)

@@ -665,6 +665,7 @@ sudo dnf install meld
     2. fd -e 后缀名可以匹配指定格式的文件:
         * fd -e c -e h --full-path 路径 # 在指定的路径查找 .c 和 .h 文件
         * fd -e c # 在当前目录查找所有的 .c 文件
+    3. fd -s a.h # -s 表示搜索文件的时候，匹配大小写
 54. mutt 工具学习
 	1. MXA 工具集合
 		1. **MUA:Mail User Agent(email client)**
@@ -1009,13 +1010,14 @@ SECTIONS
     * sudo systemctl start ufw # 启动 ufw 服务
     * sudo systemctl stop ufw # 启动 ufw 服务
 96. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
-97. [jless](https://github.com/PaulJuliusMartinez/jless) 一款命令行解析 json 格式数据的工具，具有很好的可视化效果
-98. **json** 格式的数据语法：
+97. 7zz x 压缩包.7z # 按照路径的信息解压缩 7z 文件
+98. [jless](https://github.com/PaulJuliusMartinez/jless) 一款命令行解析 json 格式数据的工具，具有很好的可视化效果
+99. **json** 格式的数据语法：
     * 并列的数据之间用逗号 `,` 隔开
     * 映射用冒号 `:` 表示
     * 并列数据的集合(数组)用方括号 `[]` 表示
     * 映射的集合(对象)用大括号 `{}` 表示
-99. 从结构上看，所有的数据最终都可以分解成三种数据类型：
+100. 从结构上看，所有的数据最终都可以分解成三种数据类型：
     1. 标量(scalar) ，就是单独的字符串(string)或者数字(number)
     2. 序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)
     3. 映射(mapping), 名/值(Name/value), 数据有一个名称，还有一个与之相对应的值，这又称作散列(hash)或字典(dictionary)
