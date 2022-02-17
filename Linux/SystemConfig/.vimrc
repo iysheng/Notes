@@ -107,6 +107,8 @@ Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'joshdick/onedark.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'ajmwagar/vim-deus'
+Plug 'junegunn/seoul256.vim'
+Plug 'sainnhe/everforest'
 Plug 'cocopon/iceberg.vim'
 
 Plug 'sheerun/vim-polyglot'
@@ -211,14 +213,15 @@ autocmd Colorscheme *  call HideCursorLine()
 " ===
 " === deus colorscheme
 " ===
-"if exists('+termguicolors')"
-"  set termguicolors"
-"  if &term =~# '^screen'"
-"    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum""
-"    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""
-"  endif"
-"endif"
-"colorscheme deus"
+if exists('+termguicolors')
+  set termguicolors
+  if &term =~# '^screen'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+endif
+set background=dark
+colorscheme everforest
 
 " ===
 " ===onedark
@@ -236,22 +239,22 @@ autocmd Colorscheme *  call HideCursorLine()
 " ===
 " === ayu colorscheme
 " ===
-function! Colorayu(mode)
-    if a:mode == "light"
-        set background=light
-        colorscheme ayu
-    elseif a:mode == "dark"
-        set background=dark
-        let g:ayucolor="mirage"
-    endif
-    let g:ayucolor="mirage"
-endfunction
-set termguicolors       " enable true colors support
-call Colorayu("dark")
-set cursorline
-let g:ayu_italic_comment = 1 " defaults to 0.
-let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
-colorscheme ayu
+" function! Colorayu(mode)
+"     if a:mode == "light"
+"         set background=light
+"         colorscheme ayu
+"     elseif a:mode == "dark"
+"         set background=dark
+"         let g:ayucolor="mirage"
+"     endif
+"     let g:ayucolor="mirage"
+" endfunction
+" set termguicolors       " enable true colors support
+" call Colorayu("dark")
+" set cursorline
+" let g:ayu_italic_comment = 1 " defaults to 0.
+" let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
+" colorscheme ayu
 
 
 map cg :colorscheme gruvbox<CR>
@@ -340,7 +343,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-snippets/UltiSnips/'
 set laststatus=2
 let g:lightline = {
       \ 'enable': { 'tabline': 0 } ,
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'everforest',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]

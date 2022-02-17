@@ -269,3 +269,4 @@ Blob:      10  v:t_blob
 	- 如果匹配 a b c 可以使用 /a\|b\|c, 如果匹配 a - z 可以使用 /[a-z], 认为这个 list 都是孤立的字符
 	- \e 表示 <Esc>  \t 表示 <Tab>  \r 表示 <CR>  \b 表示 <BS>
 - Complemented range 避免匹配专门的字符,在匹配的开头使用 ^ 符号排除掉要匹配的内容
+40. [everforst](https://github.com/sainnhe/everforest) 一个好看的 vim 配色方案

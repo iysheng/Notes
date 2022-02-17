@@ -417,6 +417,7 @@ R
 |remedy|改进,补偿|
 |reconcile|调和|
 |replicate|复制|
+|RFU|reserved for future 为将来保留|
 
 S
 ---
