@@ -424,7 +424,7 @@ Linux kernel internal documentation in different formats:
 ![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
 30. 颜色号:
 	* 3f9f9f
-31. sdcc 工具链，在中断函数定义时，需要在 main 之前声明这个中断函数。
+31. sdcc 工具链，在中断函数定义时，需要在包含 main 函数的文件中声明这个中断函数。
 ![sdcc](assets/sdcc_int.png)
 	* --xram-loc 0x800 定义 xram 的地址起始地址
 	* --xram-size 0x100 定义 xram 的大小

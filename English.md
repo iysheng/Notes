@@ -128,6 +128,7 @@ C
 |Cartesian|笛卡尔坐标,传统的 X,Y 轴坐标|
 |concatenated|串联|
 |complicated|复杂的|
+|Compensated|补偿|
 
 D
 ---
@@ -500,6 +501,7 @@ T
 |toolkit|工具箱|
 |truncation|截断|
 |topological information|拓扑信息|
+|transceiver|收发机|
 
 U
 ---
