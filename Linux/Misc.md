@@ -431,3 +431,6 @@ Linux kernel internal documentation in different formats:
 	* -Wl-bCSEG=0x100 传递参数给链接脚本，定义 CSEG 的值
 	* 编译汇编 asm 源文件时候，如果不加 -plosgff 在链接的时候会提示没有读应的 lst 文件, 编译汇编源文件时加上这个编译选项，一般是 ``sda8051 -plosgff xx.asm``
 	* --stack-size size 可以用来检查栈空间够不够 size 的大小
+32. [drawio](https://github.com/jgraph/drawio) 好用的画图软件
+![short_key](assets/drawio_short_key.png)
+	* 回车键可以切换当前页面的显示大小, 在 Home 大小和大小之间切换
