@@ -561,6 +561,14 @@ EndSection
     1. [日期格式](https://taskwarrior.org/docs/dates.html)
     2. [工具的 doc](https://taskwarrior.org/docs/)
     3. [同步 task 的方法，使用 freecinc](https://freecinc.com/generated_keys)， [freecinc 官方网站](https://freecinc.com/)
+        ```
+        # 添加如下内容(相关的 .pem 文件在仓库中可以找到)到 ~/.taskrc
+taskd.certificate=~/.task/freecinc/freecinc_59fa7927.cert.pem
+taskd.key=~/.task/freecinc/freecinc_59fa7927.key.pem
+taskd.ca=~/.task/freecinc/freecinc_59fa7927.ca.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc\/freecinc_59fa7927\/a3d37766-d3da-459f-b923-913c33c784af
+        ```
 ``` bash
 sudo dnf install task # 安装 todolist
 task learn cook due:2020-05-20T12:00:00 rc.dateformat:Y-M-DTH:N:S #task add something want todo due:Y-M-DTH:N:S rc.dateformat:Y-M-DTH:N:S
@@ -1021,3 +1029,4 @@ SECTIONS
     1. 标量(scalar) ，就是单独的字符串(string)或者数字(number)
     2. 序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)
     3. 映射(mapping), 名/值(Name/value), 数据有一个名称，还有一个与之相对应的值，这又称作散列(hash)或字典(dictionary)
+101. [vit](https://github.com/vit-project/vit) 一款配合 taskwarrior 使用的可视化工具
