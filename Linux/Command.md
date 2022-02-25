@@ -1030,3 +1030,4 @@ SECTIONS
     2. 序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)
     3. 映射(mapping), 名/值(Name/value), 数据有一个名称，还有一个与之相对应的值，这又称作散列(hash)或字典(dictionary)
 101. [vit](https://github.com/vit-project/vit) 一款配合 taskwarrior 使用的可视化工具
+102. 修改 Linux 默认的编辑器,修改环境变量 **EDITOR** ``export EDITOR=/usr/local/bin/vim >> ~/.bashrc``
