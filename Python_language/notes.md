@@ -42,6 +42,8 @@ ret = os.system("linux 命令")
 	* 可以将需要安装的 python 包写在文件 a.in，然后执行 pip-compile -U a.in 就可以批量安装所有的 a.in 的 python 包
 	* pip list # 可以列出已经安装的 python packages 以及他们对应的版本号
 	* print(package.__version__) # 打印软件包的版本号
+	* pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package # 临时使用清华大学的源安装文件包
+	* pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple # 配置默认使用清华大学的源作为软件包
 10. 注释
 	* 单行注释
 	``` python
