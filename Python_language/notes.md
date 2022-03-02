@@ -75,6 +75,11 @@ ret = os.system("linux 命令")
 15. 绘制图形库 matplotlib.pyplot
 	1. plot(x, y) # 以 x 轴和 y 轴绘制曲线图
 	2. show() 显示绘制的图形
+	3. 左边无法显示中文时，需要加载对应的中文字库
+	``` python
+    from pylab import *
+    mpl.rcParams['font.sans-serif'] = ['Source Han Sans CN']
+	```
 16. 字符串的内容在 ''' 字符串内容 '''
 17. 字典中的变量用大括号括起来 {food}
 18. **def** 是 definition function 的缩写
