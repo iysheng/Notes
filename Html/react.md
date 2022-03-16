@@ -1,7 +1,22 @@
 ### React 框架开发腾讯连连 H5 面板
 
 #### 一些基础
-
+1. 在 JSX 语法中，可以在 {} 中放置任何有效的 javascript 表达式, 例如 1 + 1
+2. Props 具有只读性
+3. state 是私有的，并且完全被当前组件控制
+4. 使用以下方式传递到父类的构造函数中
+```
+constructor(props) {
+    super(props);    this.state = {date: new Date()};
+  }
+```
+5. Class 组件应该始终使用 props 参数来调用父类的构造函数。
+6. 组件挂载和卸载时会分别执行以下方法,这些方法是生命周期方法
+```
+  componentDidMount() {  }
+  componentWillUnmount() {  }
+```
+7. 不要直接修改 state,而是使用 this.setState({msg_value:sth}), 构造函数是唯一可以给 this.state 赋值的地方
 #### Roadmap
 
 ![h5](./assets/h5_roadmap.png)
