@@ -441,3 +441,4 @@ Linux kernel internal documentation in different formats:
 33. 为了更好的适应屏幕显示，可以手动设置 dpi,前提是要首先计算出来真实的 dpi.
 	1. xrandr 获取屏幕分辨率和尺寸信息 `xrandr | grep " connected"`，eg: `LVDS-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 174mm` 计算命令是: ``echo '1366 / 309 * 25.4'`` 结果是 **101.6**，所以可以强制设置 dpi 是 102.
 	2. ``echo 'Xft.dpi: 102' | xrdb -merge`` ，可以将这部分代码添加到全局的启动脚本。
+	3. xrdb -get Xft.dpi # 获取当前配置的 dpi 信息
