@@ -43,3 +43,25 @@ constructor(props) {
         <use xlinkHref="#icon-candou"></use>
         </svg>
 		```
+* 给自定义的 class 进行渲染
+	``` jsx
+class Demo_test_less extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="test_demo"> /* className 关联的是该控件的 format 的名称 */
+        "Hello china"
+      </div>
+    );
+  }
+}
+在对应的 less 文件中定义这个渲染的类型， 这个名字要和类中引用的 className 保持一致
+	``` less
+    .test_demo {
+        background:rgb(206,219,222);
+    }
+	``` less
+	```
