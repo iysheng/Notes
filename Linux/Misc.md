@@ -435,3 +435,5 @@ Linux kernel internal documentation in different formats:
 32. [drawio](https://github.com/jgraph/drawio) 好用的画图软件
 ![short_key](assets/drawio_short_key.png)
 	* 回车键可以切换当前页面的显示大小, 在 Home 大小和大小之间切换
+	* ctrl + shift + p # 切换显示/隐藏 format 面板
+	* ctrl + shift + k # 切换显示/隐藏 shape 面板
