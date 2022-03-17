@@ -879,6 +879,8 @@ sudo dnf install iwl1000-firmware
 	``` bash
 	fc-list
 	```
+    3. fc-match -s monospace # 列出等宽字体的优先级
+    4. **gucharmap**         - gucharmap is a featureful unicode character map
 81. Ruby 相关内容
 	1. gem  包管理命令 (gem 是 ruby 的包管理器)
 		* gem install [gemname] 安装 gem 的包
