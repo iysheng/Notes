@@ -20,6 +20,7 @@ set listchars=tab:>-,trail:-
 set list
 " 代码高亮 80 列
 set colorcolumn=80
+set cursorline
 " ===
 " === get from fedora31 /etc/vimrc
 " ===
@@ -144,9 +145,10 @@ Plug 'SirVer/ultisnips'
 Plug 'mhinz/vim-startify'
 " 高亮光标所在的 word
 Plug 'dominikduda/vim_current_word'
-Plug 'Luxed/ayu-vim'
+"Plug 'Luxed/ayu-vim'
 " new tab style
 Plug 'bagrat/vim-buffet'
+Plug 'godlygeek/tabular'
 call plug#end()
 
 " ===
@@ -221,6 +223,7 @@ if exists('+termguicolors')
   endif
 endif
 set background=dark
+let g:everforest_ui_contrast = 'high'
 colorscheme everforest
 
 " ===
@@ -325,6 +328,8 @@ let g:ycm_disable_for_files_larger_than_kb = 4096
 " 默认鼠标停止一段时间就会弹出函数原型等有关内容,取消这个功能
 "let g:ycm_auto_hover = 'CursorHold'
 let g:ycm_auto_hover = ''
+let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " ===
 " === UltiSnips
