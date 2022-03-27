@@ -157,6 +157,7 @@ D
 |discrete time Fourier transform|离散时间傅立叶变换|
 |distinct|清晰的,有区别的|
 |draft|草案|
+|delimiters|分隔符|
 
 E
 ---
@@ -176,6 +177,7 @@ E
 |exposure|曝光|
 |entity|实体|
 |Enumeration|枚举|
+|encourage|鼓励|
 
 F
 ---
@@ -197,6 +199,7 @@ F
 |frustrating|令人沮丧的|
 |figure out|弄清,理解,想清|
 |futile|傻的,无效的,徒劳的|
+|format specifier|格式限定符|
 
 G
 ---
@@ -419,6 +422,7 @@ R
 |reconcile|调和|
 |replicate|复制|
 |RFU|reserved for future 为将来保留|
+|regex|正则表达式|
 
 S
 ---
