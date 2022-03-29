@@ -44,6 +44,7 @@
 |after a while|过了一会儿|
 |accent|有空音,着重强调|
 |alternative|备选的,可供替代的|
+|approach|接近、着手处理，方式方法|
 
 B
 ---
@@ -473,6 +474,7 @@ S
 |shebang|场所\住所\工作\事件|
 |standardize|标准化|
 |scratch|划痕|
+|screencast|截屏|
 
 T
 ---
@@ -540,6 +542,7 @@ W
 |wired|奇怪的|
 |wipe|擦除|
 |wrap|包裹|
+|walkthrough|演练，走读|
 
 Y
 ---
