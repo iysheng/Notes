@@ -1035,3 +1035,4 @@ SECTIONS
 101. [vit](https://github.com/vit-project/vit) 一款配合 taskwarrior 使用的可视化工具
 102. 修改 Linux 默认的编辑器,修改环境变量 **EDITOR** ``export EDITOR=/usr/local/bin/vim >> ~/.bashrc``
 103. 64 Bit Fedora 运行 32bit 程序需要安装软件包 ``glibc.i686``
+104. [insect](https://github.com/sharkdp/insect) 一款命令行的科学计算器
