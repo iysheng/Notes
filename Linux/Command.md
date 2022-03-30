@@ -35,7 +35,7 @@
         * git config --global user.name 'iysheng' # 修改 global 配置的用户名为 iysheng
         * git config user.name 'Yang sheng' # 修改当前仓库的用户名为 Yang sheng,当前仓库的配置会覆盖 global 的配置
         * git config --list # 列出来当前的配置
-        * git push origin --delete branchname # 删除远端指定的分支
+        * git push <remote name> --delete <branch name> # 删除远端指定的分支
         * git branch -D branchname # 删除本地指定的分支名
         * git config user.email iyysheng@gmail.com # 配置当前仓库的用户邮件地址
         * git commit -s -m "commit message" # 提交信息, -s 选项可以在 commit 添加 signed off 的尾部
