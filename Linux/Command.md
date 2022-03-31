@@ -35,7 +35,7 @@
         * git config --global user.name 'iysheng' # 修改 global 配置的用户名为 iysheng
         * git config user.name 'Yang sheng' # 修改当前仓库的用户名为 Yang sheng,当前仓库的配置会覆盖 global 的配置
         * git config --list # 列出来当前的配置
-        * git push origin --delete branchname # 删除远端指定的分支
+        * git push <remote name> --delete <branch name> # 删除远端指定的分支
         * git branch -D branchname # 删除本地指定的分支名
         * git config user.email iyysheng@gmail.com # 配置当前仓库的用户邮件地址
         * git commit -s -m "commit message" # 提交信息, -s 选项可以在 commit 添加 signed off 的尾部
@@ -879,6 +879,8 @@ sudo dnf install iwl1000-firmware
 	``` bash
 	fc-list
 	```
+    3. fc-match -s monospace # 列出等宽字体的优先级
+    4. **gucharmap**         - gucharmap is a featureful unicode character map
 81. Ruby 相关内容
 	1. gem  包管理命令 (gem 是 ruby 的包管理器)
 		* gem install [gemname] 安装 gem 的包
@@ -1033,3 +1035,4 @@ SECTIONS
 101. [vit](https://github.com/vit-project/vit) 一款配合 taskwarrior 使用的可视化工具
 102. 修改 Linux 默认的编辑器,修改环境变量 **EDITOR** ``export EDITOR=/usr/local/bin/vim >> ~/.bashrc``
 103. 64 Bit Fedora 运行 32bit 程序需要安装软件包 ``glibc.i686``
+104. [insect](https://github.com/sharkdp/insect) 一款命令行的科学计算器

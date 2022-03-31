@@ -270,3 +270,9 @@ Blob:      10  v:t_blob
 	- \e 表示 <Esc>  \t 表示 <Tab>  \r 表示 <CR>  \b 表示 <BS>
 - Complemented range 避免匹配专门的字符,在匹配的开头使用 ^ 符号排除掉要匹配的内容
 40. [everforst](https://github.com/sainnhe/everforest) 一个好看的 vim 配色方案
+41. [Tabular](https://github.com/godlygeek/tabular) 代码对齐工具
+	* :Tabularize /, 以逗号前后对齐, 如果紧接着输入 :Tabularize 那么会记录上次以逗号分隔对齐，这次还是默认以逗号分隔对齐
+	* 默认是左对齐，如果需要右对齐，需要执行 :Tabularize /,/r0 如果希望中心对齐 执行 :Tabularize /,/c0
+	* :AddTabularPattern first_comma /^[^,]*\zs,/r0c0l0 可以给模式添加别名，下次执行 :Tabularize first_comma 就可以完成对第一个 , 之前的内容右对齐，之后的所有内容左对齐
+	* 建议将模式的别名放在 tabular 插件文件 Tabular.vim 文件同目录，命名为 TabularMaps.vim 文件
+	* :AddTabularPipeline 可以实现类似管道的功能

@@ -333,6 +333,7 @@ Linux kernel internal documentation in different formats:
     * COMMON 表示的是未初始化的全局变量, 不包含静态全局变量
 24. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 ``关键词 arch``
 	* eopkg blame 包名称 # 查看包的维护者以及版本信息
+	* eopkg info 包名称 # 查看包的详细信息，包括依赖等内容
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
 	* eopkg list-installed # 列出已经安装的包
 26. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
@@ -424,6 +425,7 @@ Linux kernel internal documentation in different formats:
 ![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
 30. 颜色号:
 	* 3f9f9f
+	* CBE9CF 护眼色
 31. sdcc 工具链，在中断函数定义时，需要在包含 main 函数的文件中声明这个中断函数。
 ![sdcc](assets/sdcc_int.png)
 	* --xram-loc 0x800 定义 xram 的地址起始地址
@@ -434,3 +436,9 @@ Linux kernel internal documentation in different formats:
 32. [drawio](https://github.com/jgraph/drawio) 好用的画图软件
 ![short_key](assets/drawio_short_key.png)
 	* 回车键可以切换当前页面的显示大小, 在 Home 大小和大小之间切换
+	* ctrl + shift + p # 切换显示/隐藏 format 面板
+	* ctrl + shift + k # 切换显示/隐藏 shape 面板
+33. 为了更好的适应屏幕显示，可以手动设置 dpi,前提是要首先计算出来真实的 dpi.
+	1. xrandr 获取屏幕分辨率和尺寸信息 `xrandr | grep " connected"`，eg: `LVDS-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 174mm` 计算命令是: ``echo '1366 / 309 * 25.4'`` 结果是 **101.6**，所以可以强制设置 dpi 是 102.
+	2. ``echo 'Xft.dpi: 102' | xrdb -merge`` ，可以将这部分代码添加到全局的启动脚本。
+	3. xrdb -get Xft.dpi # 获取当前配置的 dpi 信息

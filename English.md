@@ -44,6 +44,7 @@
 |after a while|过了一会儿|
 |accent|有空音,着重强调|
 |alternative|备选的,可供替代的|
+|approach|接近、着手处理，方式方法|
 
 B
 ---
@@ -157,6 +158,7 @@ D
 |discrete time Fourier transform|离散时间傅立叶变换|
 |distinct|清晰的,有区别的|
 |draft|草案|
+|delimiters|分隔符|
 
 E
 ---
@@ -176,6 +178,7 @@ E
 |exposure|曝光|
 |entity|实体|
 |Enumeration|枚举|
+|encourage|鼓励|
 
 F
 ---
@@ -197,6 +200,7 @@ F
 |frustrating|令人沮丧的|
 |figure out|弄清,理解,想清|
 |futile|傻的,无效的,徒劳的|
+|format specifier|格式限定符|
 
 G
 ---
@@ -419,6 +423,7 @@ R
 |reconcile|调和|
 |replicate|复制|
 |RFU|reserved for future 为将来保留|
+|regex|正则表达式|
 
 S
 ---
@@ -469,6 +474,7 @@ S
 |shebang|场所\住所\工作\事件|
 |standardize|标准化|
 |scratch|划痕|
+|screencast|截屏|
 
 T
 ---
@@ -536,6 +542,7 @@ W
 |wired|奇怪的|
 |wipe|擦除|
 |wrap|包裹|
+|walkthrough|演练，走读|
 
 Y
 ---
