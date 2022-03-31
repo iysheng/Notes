@@ -927,6 +927,14 @@ sudo dnf install iwl1000-firmware
 	``` makefile
 	$(strip a b c ) => a b c #删除了结尾的空格
 	```
+    * wildcard 函数进行通佩符匹配
+    ```makefile
+    ABC=$(wildcard pattern...) # 多个匹配模式之间使用空格隔开
+    ```
+    * patsubst 匹配替换
+    ``` makefile
+    DEF=$(patsubst %.c,%.o,$(wildcard *.c)) # 将所有 .c 替换为同名的 .o 并赋值给 DEF
+    ```
 86. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
 	
 	* vi 模式: ```Ctrl Shift Space```
