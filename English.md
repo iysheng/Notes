@@ -159,6 +159,7 @@ D
 |distinct|清晰的,有区别的|
 |draft|草案|
 |delimiters|分隔符|
+|dimensions|尺寸|
 
 E
 ---
@@ -201,6 +202,7 @@ F
 |figure out|弄清,理解,想清|
 |futile|傻的,无效的,徒劳的|
 |format specifier|格式限定符|
+|font ligature|字体连字|
 
 G
 ---
@@ -268,6 +270,7 @@ I
 |injection|注入|
 |intuitive|直观|
 |interspersed|散布,点缀|
+|identical|相同|
 
 L
 ---
