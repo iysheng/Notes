@@ -935,6 +935,12 @@ sudo dnf install iwl1000-firmware
     ``` makefile
     DEF=$(patsubst %.c,%.o,$(wildcard *.c)) # 将所有 .c 替换为同名的 .o 并赋值给 DEF
     ```
+    * 匹配的目标和依赖表述
+    ``` makefile
+    OBJS:=a.o b.o
+    $(OBJS):%.o:%c
+        dosth
+    ```
 86. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
 	
 	* vi 模式: ```Ctrl Shift Space```

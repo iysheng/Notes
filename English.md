@@ -342,6 +342,7 @@ O
 |optimal|最佳的|
 |On-the-Go||
 |observer|观察者|
+|occasion|场合|
 
 P
 ---
