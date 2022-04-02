@@ -93,6 +93,7 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 |符号|表示意义|
 |---|---|
 |\s|空格，包含 table|
+|\S|非空格之外的字符和 \s 正相反|
 |\d|一个数字|
 |\w|文字字符|
 |\l|一个小写字母|
