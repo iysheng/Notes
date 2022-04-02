@@ -512,6 +512,7 @@ T
 |truncation|截断|
 |topological information|拓扑信息|
 |transceiver|收发机|
+|trimming whitespace|删除空格|
 
 U
 ---

@@ -304,7 +304,7 @@ echom "file tail is " . expand("%:t") " a.vim
 |g:|全局|
 |l:|局部函数|
 |s:|局部 :source 的 vim 脚本|
-|a:|函数参数,只限在函数内使用|
+|a:|函数参数,只限在函数内使用,a:0 表示可变参数的个数，a:1 表示第一个可变参数,以此类推,最多支持到 20 个可变参数,可变参数在函数参数使用 ... 表示|
 |v:|vim 预定义的全局变量|
 66. 一次分屏开启多个 window
 	* -o 水平分割打开多个 window
@@ -388,3 +388,7 @@ sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 ```
 针对上述例子，第一行输入的命令是 ``s/sfr \(\w*\)\( = \)\(\w*\);/__sfr at(\3)\2\1;/gc``
 针对上述例子，第二行输入的命令是 ``s/sbit \(\w*\)\( = \)\(\L*\);/__sbit at(\3)\2\1;/gc`` -> __sbit at(TCON ^ 1) = TF1; \/\* --> __sbit at(0x88 + 1) P0; \*/ ，然后替换 ^ 为 + ， TCON 为 0x88. 此处不再赘述.
+77. v:
+	* v:val 在 map() 或者 filter() 配合使用，代表一个 list 或者 dictionary 当前 item 的值。
+78. map({expr1}, {expr2}) 将 expr1 中的每一个 item 通过 expr2 进行替换
+79. substitute(value, pattern, string, flags) 对 value 中匹配 pattern 
