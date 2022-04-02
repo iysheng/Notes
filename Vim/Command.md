@@ -122,6 +122,7 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 |\+|1 或者更多，贪婪|
 |\{-}|1 或者更多，非贪婪|
 |\? or \=|0 或者 1 ，贪婪|
+|\{n}|n 个|
 |\{n,m}|n 到 m 个 ，贪婪|
 |\{-n,m}|n 到 m 个 ，非贪婪|
 ``` vim
