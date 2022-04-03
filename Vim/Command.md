@@ -78,7 +78,7 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 3. q " 标记宏定义的动作执行完成 （建议，宏的需后可以添加一个 j，表示跳转到下一行，这样当多次执行时候，可以自动切换到下一行）
 4. @ + 寄存器值 " 执行宏
 ```
-31. vim 基本的正则表达式（可以通过 :help ordinary-atom 查看详细信息）
+31. vim 基本的[正则表达式](https://deerchao.cn/tutorials/regex/regex.htm)（可以通过 :help ordinary-atom 查看详细信息）
 ---
 |符号|表示意义|
 |---|---|
@@ -92,17 +92,21 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 ---
 |符号|表示意义|
 |---|---|
+|.|除了换行符号之外的任意字符|
 |\s|空格，包含 table|
-|\S|非空格之外的字符和 \s 正相反|
-|\d|一个数字|
-|\w|文字字符|
+|\d|数字|
+|\p|可打印的符号|
+|\w|文字字符,具体包括 0-9,a-z,A-Z,_ |
+|\a|一个字母|
 |\l|一个小写字母|
 |\u|一个大写字母|
-|\a|一个字母|
-|\D|所有非数字的内容|
-|\L|所有非小写字母|
-|\U|所有非大写字母|
-|\A|所有非字母|
+|\S|非空格之外的字符和 \s 正相反|
+|\D|非数字的内容|
+|\P|不可打印的符号|
+|\W|非 word 符号|
+|\A|非字母|
+|\L|非小写字母|
+|\U|非大写字母|
 |\\\_x|备注：为了兼容 markdown 显示一个反斜杠和一个下划线，写了三个"\" ，实际是一个反斜杠；当前行首次出现 x(x 是 s d w 等这些替换) 转移字符的位置|
 33. 交替和分组
 ---
@@ -130,6 +134,7 @@ argdo %s/led.h/led_base.h/ge | update " 使用 led_base.h 替换 led.h 并保存
 s/adc\w*/def/gc # 匹配以 abc 开头的一个 world，使用了转移字符加量词/倍数的表达
 ```
 35. magic（默认模式，大部分的转移字符都需要 \ 转义，除了 . 或者 \*）、no magic（所有的转义字符都要添加 \）、very magic（所有的非数字、字母和下划线之外的转义字符都不需要 \） 三种模式
+	* 后向引用，使用一个小括号指定一个子表达式后，匹配这个子表达式的文本，可以在表达式或者其他程序中作进一步处理，默认情况下每个分组都会自动创建一个组号，规则是从左到右，从 1 开始编号，以此类推
 ``` vim
 " default magic
 :s/\(cat\) hunting \(mice\)/\2 hunting \1
@@ -383,13 +388,19 @@ ghi
 ```
 针对上述例子，输入的命令是 ``:g/abc/p|s/123/456/g``, 首先通过 ``g/pattern/p`` 打印匹配的行，然后管道 ``|`` ，然后 ``s/123/456/g`` 替换
 
-``` h
+```
 sfr TCON = 0x88; /* --> __sfr at(0x81) P0; */
 sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 ```
 针对上述例子，第一行输入的命令是 ``s/sfr \(\w*\)\( = \)\(\w*\);/__sfr at(\3)\2\1;/gc``
-针对上述例子，第二行输入的命令是 ``s/sbit \(\w*\)\( = \)\(\L*\);/__sbit at(\3)\2\1;/gc`` -> __sbit at(TCON ^ 1) = TF1; \/\* --> __sbit at(0x88 + 1) P0; \*/ ，然后替换 ^ 为 + ， TCON 为 0x88. 此处不再赘述.
+针对上述例子，第二行输入的命令是 ``s/sbit \(\w*\)\( = \)\(\L*\);/__sbit at(\3)\2\1;/gc``
 77. v:
 	* v:val 在 map() 或者 filter() 配合使用，代表一个 list 或者 dictionary 当前 item 的值。
 78. map({expr1}, {expr2}) 将 expr1 中的每一个 item 通过 expr2 进行替换
 79. substitute(value, pattern, string, flags) 对 value 中匹配 pattern 
+80. vim 脚本调试方法
+	* echom 打印变量，在命令行下可以输入 :messages 查看打印的内容
+	* echo 打印内容，打印的内容不会保存到 message-history 中，也就是说无法通过命令行 :messages 查看打印的历史信息
+81. **A pattern is one or more branches(模式是一个或多个分支构成)**
+	* 模式之间的分支使用 \| 隔开
+	* 分支由一个或多个 concat 构成

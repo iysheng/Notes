@@ -45,6 +45,7 @@
 |accent|有空音,着重强调|
 |alternative|备选的,可供替代的|
 |approach|接近、着手处理，方式方法|
+|anchors|转折点，下锚，集合，标点符号|
 
 B
 ---
@@ -130,6 +131,7 @@ C
 |concatenated|串联|
 |complicated|复杂的|
 |Compensated|补偿|
+|concat|合并，合并多个字符串|
 
 D
 ---
@@ -373,6 +375,7 @@ P
 |paradigm|范例|
 |plethora|过多的|
 |palate|调色板|
+|punctuation|标点符号|
 
 Q
 ---
@@ -513,6 +516,7 @@ T
 |topological information|拓扑信息|
 |transceiver|收发机|
 |trimming whitespace|删除空格|
+|trick|诡计、技巧|
 
 U
 ---
