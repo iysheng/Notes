@@ -104,14 +104,15 @@ Pin connected to some other pins but no pin to drive it
 		* 鼠标从左边向右边滑动,出现蓝色的矩形,选择包含所有边框的实体,必须用这个矩形包含所有的边框; 鼠标从右边向左边滑动选择,出现绿色矩形,可以选择对应边框的实体,画出的矩形不用包含所有的边框
 	* di : 命令的对象可以是线\圆等不能是 close 的图形
 	* snap 开启后,可以用鼠标自动捕获关键点,定位更加准确
-28. kicad 原理图绘制的快捷鍵
+	* 选择 object 之后可以使用右键，Attributes 然后可以修改对应 object 的 layer, 或者选择 object 之后，通过左侧的 modify 图表，找到 Attributes 属性然幕后修改对应的 layer
+29. kicad 原理图绘制的快捷鍵
 ---
 |快捷鍵|功能|
 |---|---|
 |q|放置 no connected 符号|
-29. 绘制 pcb 时可以先覆铜,但是选择不显示铜层,绘制连线后再重新绘制铜层(B 快捷键)
-30. kicad 导入 Autodesk 的边框时候,建议使用 R12 版本的 dxf 文件格式,可以使用 librecad 另存为 R12 版本的 dxf 文件
-31. 场效应管(MOS 管, MOSFET)工作原理: 为保证N沟道结型场效应管能正常工作，要在栅(G)源(S)之间加负向电压，以保证反向电压要被耗尽层承受，以形成漏极电流；栅源之间负向电压越大，PN 结交界面所形成的耗尽区就越厚，导电沟道越窄，沟道电阻变大，漏极电流 iD 越小；相反，若栅源之间负向电压越小，耗尽区就越薄，导电沟道越宽，沟道电阻变小，漏极电流 iD 越大。
+30. 绘制 pcb 时可以先覆铜,但是选择不显示铜层,绘制连线后再重新绘制铜层(B 快捷键)
+31. kicad 导入 Autodesk 的边框时候,建议使用 R12 版本的 dxf 文件格式,可以使用 librecad 另存为 R12 版本的 dxf 文件
+32. 场效应管(MOS 管, MOSFET)工作原理: 为保证N沟道结型场效应管能正常工作，要在栅(G)源(S)之间加负向电压，以保证反向电压要被耗尽层承受，以形成漏极电流；栅源之间负向电压越大，PN 结交界面所形成的耗尽区就越厚，导电沟道越窄，沟道电阻变大，漏极电流 iD 越小；相反，若栅源之间负向电压越小，耗尽区就越薄，导电沟道越宽，沟道电阻变小，漏极电流 iD 越大。
 	* 结型场效应管
 	* 绝缘栅型场效应管
 		* 增强型场效应管, Vgs 为 0 时, 漏电流也为 0 的是增强型
@@ -129,8 +130,8 @@ Pin connected to some other pins but no pin to drive it
     * 场效应管很高的输入阻抗非常适合作阻抗变换
     * 场效应管可以用作可变电阻
     * 场效应管可以用作电子开关
-32. **Kicad** 器件下載網址彙總
+33. **Kicad** 器件下載網址彙總
 	* [snapeda](https://www.snapeda.com) 下載 3D 模型圖時選擇 ``NX.10`` 格式的，可以較好的支持帶有顏色的 3D
 	* [componentsearchengine](https://componentsearchengine.com)
-33. 避免检查 kicad courtyard overlap
+34. 避免检查 kicad courtyard overlap
 ![courtyard](figures/courtyard.png)
