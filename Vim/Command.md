@@ -408,3 +408,6 @@ sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 81. **A pattern is one or more branches(模式是一个或多个分支构成)**
 	* 模式之间的分支使用 \| 隔开
 	* 分支由一个或多个 concat 构成
+82. getline() 函数
+	* getline(数字)， 返回指定行号的内容
+	* getline('.')， 返回当前行的行号
