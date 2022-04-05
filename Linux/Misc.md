@@ -334,6 +334,7 @@ Linux kernel internal documentation in different formats:
 24. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 ``关键词 arch``
 	* eopkg blame 包名称 # 查看包的维护者以及版本信息
 	* eopkg info 包名称 # 查看包的详细信息，包括依赖等内容
+	* eopkg install man-pages # 安装 man 帮助信息
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
 	* eopkg list-installed # 列出已经安装的包
 26. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
