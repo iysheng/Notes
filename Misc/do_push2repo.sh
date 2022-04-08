@@ -11,7 +11,7 @@ do_push2repo()
 	fi
 	cd $1;
 	REMOE_REPOS=`git remote -v |  awk '/(push)/ && /iysheng/ {print $1}' 2> /dev/null`
-	if [ -n $REMOE_REPOS ];then
+	if [ -n '$REMOE_REPOS' ];then
 		for remote_repo in $REMOE_REPOS;do
 			git push $remote_repo `git branch | awk '{print $2}'`
 		done
