@@ -27,7 +27,7 @@ inline void func(void)
 
 }
 ```
-5. (void)x; /* 可以避免编译器的警告 */
+5. (void)x; /* 可以避免编译器的警告未使用的变量 */
 6. #pragma pack(n) 可以修改 alignment
 
 ### tmux 代码阅读笔记
