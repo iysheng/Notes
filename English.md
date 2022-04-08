@@ -482,6 +482,7 @@ S
 |standardize|标准化|
 |scratch|划痕|
 |screencast|截屏|
+|step-up|升压|
 
 T
 ---
