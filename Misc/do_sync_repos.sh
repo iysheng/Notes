@@ -72,13 +72,19 @@ do_sync_from_repos()
     done
 }
 
-while getopts "s:l:d" opt; do
+# 默认 push 当前仓库到 repo
+if [ $# -lt 1 ];then
+    do_sync_to_repos `pwd`
+	exit 0
+fi
+
+while getopts "s:l:dD" opt; do
     case $opt in
     s ) do_sync_to_repos $OPTARG;;
     l ) do_sync_from_repos $OPTARG;;
     d ) do_sync_to_repos;; # 默认就是尝试 push 默认仓库
     D ) do_sync_from_repos;; # 默认就是尝试 pull 默认仓库
-    \?) echo "usage  [-s [repo]] [-l [repo]]"
+    \?) echo "usage `basename $0` [-s [repo]] [-l [repo]]"
         exit 1
     esac
 done
