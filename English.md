@@ -183,6 +183,7 @@ E
 |entity|实体|
 |Enumeration|枚举|
 |encourage|鼓励|
+|escape character|转义字符|
 
 F
 ---

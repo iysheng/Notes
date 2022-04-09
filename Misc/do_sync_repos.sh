@@ -47,10 +47,10 @@ do_sync_to_repos()
 
     for repo in $remote_repos;do
     	if [ -d $repo ];then
-			echo -e "ready push to \033[35m$repo\033[0m"
+			echo -e "ready push to \033[35;7m$repo\033[0m"
         	do_push2repo $repo;
 		else
-			echo -e "invalid push repo:\033[31m$repo\033[0m"
+			echo -e "invalid push repo:\033[31;7m$repo\033[0m"
     	fi
     done
 }
@@ -65,18 +65,20 @@ do_sync_from_repos()
 
     for repo in $remote_repos;do
     	if [ -r $repo ];then
-			echo -e "ready pull from \033[35m$repo\033[0m"
+			echo -e "ready pull from \033[35;7m$repo\033[0m"
         	do_pull_from_repo $repo;
 		else
-			echo -e "invalid pull repo:\033[31m$repo\033[0m"
+			echo -e "invalid pull repo:\033[31;7m$repo\033[0m"
     	fi
     done
 }
 
-while getopts "s:l:" opt; do
+while getopts "s:l:d" opt; do
     case $opt in
     s ) do_sync_to_repos $OPTARG;;
     l ) do_sync_from_repos $OPTARG;;
+    d ) do_sync_to_repos;; # 默认就是尝试 push 默认仓库
+    D ) do_sync_from_repos;; # 默认就是尝试 pull 默认仓库
     \?) echo "usage  [-s [repo]] [-l [repo]]"
         exit 1
     esac
