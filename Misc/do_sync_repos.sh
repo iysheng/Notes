@@ -15,6 +15,7 @@ do_push2repo()
 	if [ -n '$REMOE_REPOS' ];then
 		for remote_repo in $REMOE_REPOS;do
 			git push $remote_repo `git branch | awk '{print $2}'`;
+			sleep 1;
 		done
     else
 		return -2
