@@ -1051,3 +1051,5 @@ SECTIONS
 102. 修改 Linux 默认的编辑器,修改环境变量 **EDITOR** ``export EDITOR=/usr/local/bin/vim >> ~/.bashrc``
 103. 64 Bit Fedora 运行 32bit 程序需要安装软件包 ``glibc.i686``
 104. [insect](https://github.com/sharkdp/insect) 一款命令行的科学计算器
+105. addr2line 调试程序
+    *  arm-none-eabi-addr2line -a 0x08009e1f -p -e *.elf # 根据指定出问题的地址，找到对应的那句代码
