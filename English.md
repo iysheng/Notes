@@ -132,6 +132,7 @@ C
 |complicated|复杂的|
 |Compensated|补偿|
 |concat|合并，合并多个字符串|
+|colon|冒号|
 
 D
 ---
@@ -387,6 +388,7 @@ Q
 |query|輪詢、詢問|
 |qualified|合格的|
 |qualified opinion|保留意见|
+|question|问号|
 
 R
 ---
