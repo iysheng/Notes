@@ -10,10 +10,11 @@ do_push2repo()
 		return -1
 	fi
 	cd $1;
+	echo -e "ready push to \033[35;7m`pwd`\033[0m"
 	REMOE_REPOS=`git remote -v |  awk '/(push)/ && /iysheng/ {print $1}' 2> /dev/null`
 	if [ -n '$REMOE_REPOS' ];then
 		for remote_repo in $REMOE_REPOS;do
-			git push $remote_repo `git branch | awk '{print $2}'`
+			git push $remote_repo `git branch | awk '{print $2}'`;
 		done
     else
 		return -2
@@ -26,11 +27,11 @@ do_pull_from_repo()
 		return -1
 	fi
 	cd $1;
-	echo $1
+	echo -e "ready pull from \033[35;7m`pwd`\033[0m"
 	REMOE_REPOS=`git remote -v | awk '/(pull)|(fetch)/ && /iysheng/ {print $1}' 2> /dev/null`
 	if [ -n '$REMOE_REPOS' ];then
 		for remote_repo in $REMOE_REPOS;do
-			git pull $remote_repo `git branch | awk '{print $2}'`
+			git pull $remote_repo `git branch | awk '{print $2}'`;
 		done
     else
 		return -2
@@ -47,7 +48,6 @@ do_sync_to_repos()
 
     for repo in $remote_repos;do
     	if [ -d $repo ];then
-			echo -e "ready push to \033[35;7m$repo\033[0m"
         	do_push2repo $repo;
 		else
 			echo -e "invalid push repo:\033[31;7m$repo\033[0m"
@@ -65,7 +65,6 @@ do_sync_from_repos()
 
     for repo in $remote_repos;do
     	if [ -r $repo ];then
-			echo -e "ready pull from \033[35;7m$repo\033[0m"
         	do_pull_from_repo $repo;
 		else
 			echo -e "invalid pull repo:\033[31;7m$repo\033[0m"
