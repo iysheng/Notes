@@ -70,6 +70,7 @@ B
 |blueprint|蓝图|
 |bang|感叹号|
 |boilerplate|样板|
+|blueprint|蓝图|
 
 C
 ---
@@ -133,6 +134,7 @@ C
 |Compensated|补偿|
 |concat|合并，合并多个字符串|
 |colon|冒号|
+|consistency|一致性|
 
 D
 ---
@@ -233,6 +235,7 @@ H
 |handy|方便的|
 |Head or Tails|正面还是反面|
 |hammer|敲击|
+|here we go|我们开始吧|
 
 I
 ---
@@ -275,6 +278,9 @@ I
 |intuitive|直观|
 |interspersed|散布,点缀|
 |identical|相同|
+|in accordance with|按照|
+|instantiate|实例化|
+|inaccurate|不准确|
 
 L
 ---
@@ -307,6 +313,7 @@ M
 |mitigation|缓解,减轻|
 |manifest|载货单|
 |modifier|修饰符|
+|minted|铸造|
 
 N
 ---
@@ -378,6 +385,7 @@ P
 |plethora|过多的|
 |palate|调色板|
 |punctuation|标点符号|
+|plain|朴素的|
 
 Q
 ---
@@ -521,6 +529,7 @@ T
 |transceiver|收发机|
 |trimming whitespace|删除空格|
 |trick|诡计、技巧|
+|theory|学说，理论|
 
 U
 ---
@@ -556,6 +565,7 @@ W
 |wipe|擦除|
 |wrap|包裹|
 |walkthrough|演练，走读|
+|weird|不寻常的，奇怪的|
 
 Y
 ---

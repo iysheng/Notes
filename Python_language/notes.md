@@ -4,6 +4,9 @@
 * 对象会有一些专门的方法和他们关联
 * python 默认的搜索路径, import sys, 变量 sys.path 列表对应的是一个 list
 * Most of the uses of inheritance can be simplified or replaced with composition, and multiple inheritance should be avoided at all costs.(继承的大多数用法都可以简化或者直接使用构造替代,而且应该不惜一起代价避免多重继承)
+* python 中有一个通用的模式,涉及到字典、module、class
+	* key-value 风格的容器
+	* 通过 key 引用非当前文件的内容
 1. print 函数的 sep 参数，用来设置 print 的打印分隔符，默认是' '，空格
 ``` python
 print('a','b') # a b
@@ -583,3 +586,62 @@ except Exception as ex:
     print("error : %s" %ex)
 ```
 60. 如果安装了多个版本的 python, 希望给指定版本的 python 安装软件包，命令为：``python3.6 -m pip install <package name>`` 给指定的 python3.6 安装软件包
+61. Module 模块, module 主要是为了一个相对较大的工程，涉及到多个文件之间互相调用。如果将所有的代码写到一个文件中，可能成千万行，阅读起来并不友善，更好的方法是将大项目拆分为多个模块，用文件夹和文件的方式管理起来，方便后期维护，这就有了 module 模块的程序代码管理方式。
+	* module 的涉及和 class 有异曲同工之处
+	* 正规的 module 中，常会看到一个 __init__.py 文件，这个文件其实就类似 class 中的 def __init__(self) 函数
+	* from 包名 import 函数集合 # 如果有多个函数时，函数名之间使用 , 隔开
+	* from 包名 import * # 表示引入指定包中的所有函数
+	* module 类似字典
+		* module 就是一个 python 的文件，包含了一些函数和变量
+		* 然后你需要 import 那个文件
+		* 最后你可以使用 . 符号引用这个 module 中的函数和变量
+	* 类又像一个 mini-module
+	* 使用类替换 module 可以根据一个类创造出多个对象
+	* 引用类又出现一个概念，叫做实例化，当你实例化一个类的时候，你就获得这个类的对象，当你实例化一个类的时候，会获得一个这个类的对象
+		1. python 寻找这个类查看是否有这个你定义的类
+		2. python 创建一个空的对象包含这个类使用 def 定义的所有函数
+		3. python 查看是否存在一个你定义的 __init__ 初始化函数，如果有调用这个函数初始化定义的空对象
+		4. 在定义的 __init__ 函数会有一个 self 形式参数，初始化这个对象有关的变量、字典等内容
+		5. 最后就会将这个对象返回
+62. 读写文件
+	* 按照行一次性读完， readlines()
+	* 每次只读取一行，readline()
+	* with open("chinese.txt", "r", encoding="gbk") as f: open 函数使用 ecoding 参数指定编码格式
+
+|模式|意义|
+|---|---|
+|w|（创建）写文本|
+|r|读文本，文件不存在会报错|
+|a|在文本最后添加|
+|wb|写二进制 binary|
+|rb|读二进制 binary|
+|ab|添加二进制|
+|w+|又可以读又可以（创建）写|
+|r+|又可以读又可以写, 文件不存在会报错|
+|a+|可读（创建）写，在文本最后添加|
+|x |创建|
+
+63. with 模式
+``` python
+with open("a.txt", "w") as f:
+    f.writelines("abc \n def \n")
+```
+	* 紧跟 with 后面的语句被求值后，返回对象的 __enter__() 方法被调用，这个方法的返回值将被赋值给as后面的变量。当with后面的代码块全部被执行完之后，将调用前面返回对象的 __exit__()方法。
+	* 特别地， __exit__ 函数原型是 __exit__(self, type, value, trace)
+64. 文件目录管理, 如果做一些系统性的东西，要处理文件输入输出等问题，大概率会用到 python 在带的 os 库
+	* 文件目录操作
+		1. os.getcwd()
+		2. os.listdir()
+		3. os.makedirs() # 该函数有一个 exist_ok 参数，默认是 False, 如果设置为 True, 那么当指定的目录存在时，不会报错，默认为 False 时，如果要创建的目录已经存在，那么再次尝试创建时就会报错
+	* 文件管理系统
+		1. os.removedirs() # 如果尝试删除的目录中不为空，那么执行这个函数时就不会报错,这个时候可以使用另一个库 shutil，shutil.rmtree() 强力删除！！！
+		2. shutil.rmtree()
+		3. os.rename()
+	* 文件目录多种检验
+		1. os.path.isfile()
+		2. os.path.exists()
+		3. os.path.isdir()
+		4. os.path.basename() # 获取文件的名字，不包含目录
+		5. os.path.dirname() # 获取文件的目录
+		6. os.path.split() # 可以将一段内容以最后一个 / 为分割符号拆分开,以 tuple(元组的形式返回)
+		7. os.path.join(str1, str2, str3 ...) # 将 str1 和 str2 拼接起来, 字符串之间会自动填充 "/" 符号, 如果有不会多填充，如果没有会填充，最后一个不会填充,如果哪一个 str 包含了一个绝对路径的符号，那么之前的内容都会舍弃，从这个绝对路径开始拼接 ！！！
