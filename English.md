@@ -73,6 +73,7 @@ B
 |bang|感叹号|
 |boilerplate|样板|
 |blueprint|蓝图|
+|brackets|方括号|
 
 C
 ---
@@ -389,6 +390,7 @@ P
 |palate|调色板|
 |punctuation|标点符号|
 |plain|朴素的|
+|parentheses|圆括号|
 
 Q
 ---
@@ -445,6 +447,7 @@ R
 |replicate|复制|
 |RFU|reserved for future 为将来保留|
 |regex|正则表达式|
+|round brackets|圆括号|
 
 S
 ---
