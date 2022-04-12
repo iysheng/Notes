@@ -645,3 +645,35 @@ with open("a.txt", "w") as f:
 		5. os.path.dirname() # 获取文件的目录
 		6. os.path.split() # 可以将一段内容以最后一个 / 为分割符号拆分开,以 tuple(元组的形式返回)
 		7. os.path.join(str1, str2, str3 ...) # 将 str1 和 str2 拼接起来, 字符串之间会自动填充 "/" 符号, 如果有不会多填充，如果没有会填充，最后一个不会填充,如果哪一个 str 包含了一个绝对路径的符号，那么之前的内容都会舍弃，从这个绝对路径开始拼接 ！！！
+65. 正则表达式 **import re** 库
+	* test_pattern = re.compile(r"正则表达式") # r 表示原生字符串
+	* test_match = test_pattern.search("待搜索的内容")
+	* test_match.group() 可以返回匹配的到内容 # grep() 方法可以返回匹配的字符串
+	* re.search(r"f(ou|i)nd", "I find you") # pattern 表示匹配 found 或者 find
+	* "中".encode("unicode-escape") #中文的 unicode 查询
+	* re.match() # 从字符的最开头匹配，找到第一个模式匹配的，简单来说，如果开头都无法匹配，那么返回的就是 None。 re.match(r"run", "I run for you") > None
+	* re.findall("返回一个不重复的 pattern 匹配列表") # re.findall(r"red|blue", "red man blue sky") -> ['red', 'blue']
+	* re.finditer() # 和 findall 的方式一样，只是用迭代器的方法使用， for item in re.finditer(r"red|blue", "red man blue sky"): print(item) -> <re.Match object; span=(0, 3), match='red'> <re.Match object; span=(8, 12), match='blue'>
+	* re.split() # 用正则分开字符串
+	* re.sub(r"a", "b", "ared") # 用正则进行替换，将 a 替换为 b 返回 bred
+	* re.subn(r"a", "b", "ared") # 用正则进行替换，将 a 替换为 b 返回结果和替换的次数 ('bred', 1) 是一个 tuple 类型的变量
+	* 使用 group 配合自定义索引的使用
+		``` python
+		for item in re.finditer(r"(?P<a>\d+)-(?P<b>\w+)", "123-abcdef-jpg"):
+			print("a:", item.group("a"), ",b:", item.group("b"))  -> 返回 a: 123 ,b: abcdef
+		```
+	* 在正则匹配过程中有一些特别的 flags,可以在 re.match()， re.findall() 等功能中使用,主要目的是方便编写正则表达式
+
+|模式|说明|
+|---|---|
+|re.I|忽略大小写|
+|re.M|多行模式，改变 '^' 和 '$' 的行为|
+|re.S|点任意匹配，改变 '.' 的行为，使 '.' 可以匹配任意字符，正常是只匹配换行符之外的任意字符|
+|re.L|字符类 \w \W \b \B \s \S 取决当前区域设定|
+|re.U|字符类 \w \W \b \B \s \S \d \D 取决 unicode 定义的字符属性有关系|
+|re.X|详细模式|
+
+		如果想用多个 flag, 需要将他们 ``|`` 起来 re.search(r"Red.", "red\n", re.S | re.I) -> <re.Match object; span=(0, 4), match='red\n'> 如果没有 ``re.I | re.S`` 是匹配不到的
+
+66. 更快地执行
+	* 如果要重复判断一个正则表达式，通常不会直接在 re.search() 函数中写 pattern, 而是先定义并使用 re.compile() 解析这个 pattern, 获取这个 ptn, 然后使用 ptn 去执行 search() 方法查找目标字符串
