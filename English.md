@@ -391,6 +391,7 @@ P
 |punctuation|标点符号|
 |plain|朴素的|
 |parentheses|圆括号|
+|prefix|前缀|
 
 Q
 ---
@@ -500,6 +501,7 @@ S
 |scratch|划痕|
 |screencast|截屏|
 |step-up|升压|
+|suffix|后缀|
 
 T
 ---
