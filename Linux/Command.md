@@ -849,7 +849,7 @@ sudo dnf install iwl1000-firmware
         8.13 set {int}0x1000=1 修改内存地址
         8.14 info reg 查看寄存器值
         8.15 delete 断点编号,删除指定的断点
-	    8.16 打印内存：x /nfu addr (以f格式打印n个u类型存储单元的以addr开头的内存值)
+	    8.16 打印内存：x /nxfu addr (以x/f/u（16 进制，浮点数，无符号）格式打印n个u类型存储单元的以addr开头的内存值)
         * f: o(octal)  x(hex) d(decimal) u(unsigned decimal) t(binary) f(float) a(address) i(instruciton) c(char) s(string)
         * u: b(byte)  h(halfword)  w(word)  g(gaint, 8 bytes)
         * for example: x/256xb addr,    x/256xw addr 
@@ -943,6 +943,17 @@ sudo dnf install iwl1000-firmware
     OBJS:=a.o b.o
     $(OBJS):%.o:%c
         dosth
+    ```
+    * VPATH 变量，所有依赖的搜索路径，VPATH 定义了一个目录的 list，对依赖搜索的时候会按照 list 定义的顺序去对应的目录中查找
+    ``` makefile
+    VPATH = src:../headers
+    foo.o:foo.c 等价 foo.o:src/foo.c
+    ```
+    * vpath 可以针对指定类型的文件指定搜索的路径
+    ``` makefile
+    vpath pattern directories #  指定 pattern 类型的文件去 directors 目录中查找
+    vpath pattern # 清除指定 pattern 类型的文件关联的搜索路径
+    vpath 清除之前定义的所有有关 pattern 和对应的搜索路径
     ```
 86. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
 	

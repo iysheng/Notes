@@ -169,6 +169,7 @@ D
 |draft|草案|
 |delimiters|分隔符|
 |dimensions|尺寸|
+|directive|指令|
 
 E
 ---

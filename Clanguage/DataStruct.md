@@ -70,3 +70,8 @@ inline void func(void)
 |13|?:|由右向左|
 |14|= += -= *= /= %= &= ^= \|= <<= >>=|由右向左|
 |15|,|由左向右|
+
+### gcc 汇编部分内容
+* .size 指令
+	* .size name, expression // 设置 name 这个符号的大小,这个指令一般用来设置函数符号大小
+* .syntax unified // 可以同时使用 arm 和 thumb 指令集???
