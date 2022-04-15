@@ -698,5 +698,39 @@ with open("a.txt", "w") as f:
 |跨语言性|只能用在 Python |可以跨多语言读写|
 |处理时间|长（需编码数据） |短（不需编码）|
 |安全性|不安全（除非你信任数据源）不同版本的python编码后的数据可能不一样 |相对安全|
+68. 异常检查和处理，一般情况，只要报错了就会终止代码执行
+	* try except 来捕捉错误
+	``` python
+	try:
+		do sth
+	except xxx as e:
+	```
+	* 使用 try except 处理多个异常， 
+	``` python
+	# 如果我们处理多种异常的方法的都是一样的，可以使用一种方法来处理多种异常，比如
+	d = {"a":123}
+	l = [1,2]
 
+	try:
+		v = d["b"]
+		l[2] = 3
+	except (KeyError, IndexError) as e: # 分别捕获字典键值不存在，以及 list 索引无效的错误
+		print("key or index error for:", e)
+	```
+	* 分开处理不同的异常
+	``` python
+	d = {"a":123}
+	l = [1,2]
 
+	try:
+		v = d["b"]
+		l[2] = 3
+	except KeyError as e: # 分别捕获字典键值不存在，以及 list 索引无效的错误
+		print("key error for:", e)
+	except IndexError as e: # 分别捕获字典键值不存在，以及 list 索引无效的错误
+		print("index error for:", e)
+	```
+	* try-except-else 没有报错的时候会执行到 else 分支
+	* try-except-finally 不管有没有报错，都会执行到 finally 分支
+	* raise 手动触发异常,能被 raise 触发的异常是有限的
+69. 单元测试 Unittest
