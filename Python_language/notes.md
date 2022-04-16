@@ -733,4 +733,234 @@ with open("a.txt", "w") as f:
 	* try-except-else 没有报错的时候会执行到 else 分支
 	* try-except-finally 不管有没有报错，都会执行到 finally 分支
 	* raise 手动触发异常,能被 raise 触发的异常是有限的
-69. 单元测试 Unittest
+
+|异常名称|描述|
+|---|---|
+|BaseException|所有异常的基类|
+|SystemExit|解释器请求退出|
+|KeyboardInterrupt|用户中断执行(通常是输入^C)|
+|Exception|常规错误的基类|
+|StopIteration|迭代器没有更多的值|
+|GeneratorExit|生成器(generator)发生异常来通知退出|
+|StandardError|所有的内建标准异常的基类|
+|ArithmeticError|所有数值计算错误的基类|
+|FloatingPointError|浮点计算错误|
+|OverflowError|数值运算超出最大限制|
+|ZeroDivisionError|除(或取模)零 (所有数据类型)|
+|AssertionError|断言语句失败|
+|AttributeError|对象没有这个属性|
+|EOFError|没有内建输入,到达EOF 标记|
+|EnvironmentError|操作系统错误的基类|
+|IOError|输入/输出操作失败|
+|OSError|操作系统错误|
+|WindowsError|系统调用失败|
+|ImportError|导入模块/对象失败|
+|LookupError|无效数据查询的基类|
+|IndexError|序列中没有此索引(index)|
+|KeyError|映射中没有这个键|
+|MemoryError|内存溢出错误(对于Python 解释器不是致命的)|
+|NameError|未声明/初始化对象 (没有属性)|
+|UnboundLocalError|访问未初始化的本地变量|
+|ReferenceError|弱引用(Weak reference)试图访问已经垃圾回收了的对象|
+|RuntimeError|一般的运行时错误|
+|NotImplementedError|尚未实现的方法|
+|SyntaxError|Python 语法错误|
+|IndentationError|缩进错误|
+|TabError|Tab 和空格混用|
+|SystemError|一般的解释器系统错误|
+|TypeError|对类型无效的操作|
+|ValueError|传入无效的参数|
+|UnicodeError|Unicode 相关的错误|
+|UnicodeDecodeError|Unicode 解码时的错误|
+|UnicodeEncodeError|Unicode 编码时错误|
+|UnicodeTranslateError|Unicode 转换时错误|
+|Warning|警告的基类|
+|DeprecationWarning|关于被弃用的特征的警告|
+|FutureWarning|关于构造将来语义会有改变的警告|
+|OverflowWarning|旧的关于自动提升为长整型(long)的警告|
+|PendingDeprecationWarning|关于特性将会被废弃的警告|
+|RuntimeWarning|可疑的运行时行为(runtime behavior)的警告|
+|SyntaxWarning|可疑的语法的警告|
+|UserWarning|用户代码生成的警告|
+
+69. 单元测试 **unittest** 组件, 单元测试就是将你的小功能模块拆开一个个测试，这样做的目的非常明确，只有你每一小步都做好，整体才不容易出错。
+70. 字符串的高级玩法
+	* % 百分号模式 (d：整数 i： 整数 f：小数 s：字符)
+		* print("hello %s!" %"china")
+		* print("%(man)s say hello %(country)s!" %{"man":"red", "country":"china"})
+		* print("%s say hello %s!" %("red", "china"))
+	* format 功能更多, format 是在 % 后发明的
+		* print("{} say hello {}!".format("red", "china")) # 简单使用 {} 作为占位符号， format 中的内容按照顺序填写
+		* print("{0} say hello {1}!  -- by {0}".format("red", "china"))
+		* print("{0} say hello {1}!  -- by {0}".format("red", "china"))
+		* print("{name} say hello {country}!  -- by {name}".format(name="red", country="china"))
+		* print("{:%} eq with {:}".format(123, 123)) # {:%} 对数据进行百分比模式格式化，{:,} 每 3 个 0就用逗号隔开，{:b} 该数字的二进制，{:d} 整形，{:f}小数模式，{:%} 百分比模式
+	* f 格式化字符串, python 3.6 之后的模式，和 format 类似
+		``` python
+		name = "red"
+        country = "china"
+		print(f"{name} say hello {country}!  -- by {name}")
+		```
+	* 修改字符串
+		* string.strip() # 去除两断的空白符
+		* string.replace() # 替换字符
+		* string.lower() # 全部小写
+		* string.upper() # 全部大写
+		* string.title() # 仅开头字母大写
+		* string.split() # 按要求分割, 根据 split 函数传入的符号对字符串进行拆分到 list 中返回
+		* ".".join([]) # 按要求合并, 在指定的 list 中加入 "." 符号
+		* string.startswith() # 判断是否为某字段开头
+		* string.endswith() # 判断是否为某字段结尾
+71. python 的偷懒用法
+	* Lambda # 当你希望定义一个功能简单，并且调用次数不多的函数的时候，可以考虑使用 lambda
+	``` python
+	add = lambda a, b: a + b
+	print(add(1, 2))
+	```
+	* for 简单循环
+	``` python
+	l = [i * 2 for i in range(10)]
+	# 等价
+	l = []
+	for i in range(10):
+		l.append(i * 2)
+	# 创造字典
+    d = {"index" + str(i): i * 2 for i in range(10)}
+	```
+	* if-else 判断 # a = 1 if true else 2
+	* for 配合 if-else 判断 # l = [i * 2 for i in range(10) if i % 2 == 0]
+	* enumerate 自动加 index
+	``` python
+	l = [1,2,3,4]
+	# count 从 5 开始自动加 1
+	for count, data in enumerate(l, start = 5):
+		print("index:%d data:%d" %(count, data))
+
+	# count 从 0 开始自动加 1
+	for count, data in enumerate(l):
+		print("index:%d data:%d" %(count, data))
+	```
+	* zip 让你同时迭代
+	``` python
+    name = ["a", "b"]
+    score = [1, 2]
+    age = [1, 2]
+    d = {}
+    
+    for i in range(2):
+        d[name[i]] = score[i]
+    
+    print(d)
+    
+	# 等价
+    for n, s in zip(name, score):
+        d[n] = s
+    
+    print(d)
+
+	# 支持同时迭代更多
+    for n, s, a in zip(name, score, age):
+        d[n] = [s, a]
+    
+    print(d)
+	```
+72. reverse & reversed # 翻转列表
+	* lista = [1,2,3] lista.reverse() # 就地翻转列表
+	* lista = [1,2,3] for i in reversed(lista): print(i) # reversed 可以用在 for 循环的翻转迭代器中
+	* lista = [1,2,3] _lista = lista[::] # 拷贝出来一给副本进行翻转
+73. 复制的**玄学**
+	* 深拷贝，deep copy 会对原始内容进行再造,特别地针对数值和字符，是直接复制, deepcopy() 方法是深拷贝
+	* 浅拷贝，shallow copy 只是拷贝原始内容的分身,比如对 class，list，字典, copy 方法就是浅拷贝,速度快
+74. 生成器，首先，循环是一个用简短语句表示重复执行过程的概念。生成器就是为循环设计的。考虑到在循环中，一般都是每次从循环中拿特定的一些数据做处理，但是无可避免的会在内存中记录这些数据，当记录的数值很多时，内存可能就吃不消了。而生成器，即现做现吃的意思。生成器的目的就是避免在内存中记录这样的一个大数据，避免将内存撑爆。生成器，只会在需要的时候生成它，生成之后就不用了，也不用再记录。
+	* yield 方法
+	``` python
+	def need_return():
+		for item in range(5):
+			if item % 2 == 0:
+				print("send item:%d out" %item)
+				yield item
+				print("came back")
+	for i in need_return():
+		print(f"catch some data:{i}")
+	```
+	* 生成器是一个函数，所以它能做函数能做的事情，比如传参数。
+	``` python
+	def need_return(ini):
+		for item in range(ini):
+			if item % 2 == 0:
+				print("send item:%d out" %item)
+				yield item
+				print("came back")
+	for i in need_return(10):
+		print(f"catch some data:{i}")
+	```
+	* 定义生成器类, 用一个类可以表示迭代器和生成器。用在生成器的两个 method： ``__iter__`` 和 ``__next__``
+	``` python
+	# 一个简单的迭代器类示例 
+    class NeedReturn(object):
+    	def __init__(self, ini = 0):
+    		self.tmp = ini
+    		self.item = 0
+    
+    	def __iter__(self):
+    		return self
+    
+    	def __next__(self):
+    		while True:
+    			if self.item == self.tmp:
+    				self.tmp *= 2
+    				return self.item
+    			self.item += 1
+    			if self.item == 300:
+    				raise StopIteration
+    
+    for i in NeedReturn(10):
+    	print(f"index:{i}")
+	```
+75. 装饰器 Decorator, 用来装饰 python 函数的东西。装饰器的好处是，给批量的函数做同样的事情。比如有一批函数都要做些前置或者后置的工作，可以统一给他们“装饰”， 用一个装饰器统一处理。
+	``` python
+    def pre_func1(fn):
+        def wrapper(name):
+			# 前向处理
+            print(f"{name} say coming.")
+			# 待修饰的函数本体执行
+            fn(name)
+			# 后向处理
+            print(f"{name} say outing.")
+			return
+        return wrapper
+	# @ 装饰器
+    @pre_func1
+    def outer_fn1(name):
+        print(f"{name} say out2")
+    
+    outer_fn1("red")
+	```
+76. python 安装和依赖管理
+	* conda 是 python 的一个管理器，它可以管理多个版本的 python, 安装 conda 有两种方式
+		1. 直接安装裸的 miniconda, 安装 conda， python， base packages 
+		2. 安装 anaconda, 在 conda 之外还要安装很多一些其他的包
+	* pip 是 python 的库管理工具，安装一个 python 就会自带一个 pip。
+		* pip install numpy==1.19.4 # 强制安装特定的版本
+		* 一般地，pip2 对应的是 python2+ 的版本， pip3 对应的是 python3+ 版本
+		* pip install -i url路径 软禁包名 # 通过执行的网址去下载指定的库
+		* pip uninstall 库名称 # 删除指定的库
+	* conda 是 pip/python 之上，想要隔离 pip 和 python 环境的组件，用 conda 来管理不同的 python
+	* conda 比 pip 更进一步，可以分项目来管理依赖和 python 版本，比如有很多项目，里面的 python 和依赖都不相同，可以用 conda 为这些项目单独管理一个 python 并隔离他们的依赖
+		* ``conda ceate --name red python=3.10.2`` # 创建一个 redman 的 python 环境
+		* ``conda env list`` # 可以查看当前有哪些环境
+		* ``conda activate redman`` # 切换到指定的环境
+	* 很多项目都会存放 ``requirements.txt`` 文件，这是一个最基础的 pip 依赖列表。可以通过 ``pip freeze > requirements.txt`` 生成这个文件
+	* 在有了 ``requirements.txt`` 这个依赖文件的条件下，可以使用 ``pip install -r requirements.txt`` 指令一次安装这些依赖.
+		* -r 表示安装根据指定的依赖文件列表中的内容那些依赖
+77. python 编辑器
+	* **Jupter Notebook** 不像一般的编辑器，这个编辑器可以将你阶段性的结果保存下来
+78. 多线程， threading 是一种让程序拥有分身效果，能处理多件事情。
+79. 多进程，针对多核处理器，多进程 multiprocessing 可以让电脑更有效率的分配人物给每一个处理器。
+80. 窗口界面开发
+	* Tkinter 是使用 python 进行界面开发的库,简单适合入门
+81. 数据三剑客
+	1. numpy # 科学运算模块
+	2. pandas # 和 numpy 类似都是科学运算模块
+	3. matplotlib # 数据可视化的好帮手
+82. 数据采集，爬虫技术

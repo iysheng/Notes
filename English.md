@@ -170,6 +170,7 @@ D
 |delimiters|分隔符|
 |dimensions|尺寸|
 |directive|指令|
+|decorator|装饰器|
 
 E
 ---
