@@ -1067,3 +1067,4 @@ SECTIONS
 104. [insect](https://github.com/sharkdp/insect) 一款命令行的科学计算器
 105. addr2line 调试程序
     *  arm-none-eabi-addr2line -a 0x08009e1f -p -e *.elf # 根据指定出问题的地址，找到对应的那句代码
+106. [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
