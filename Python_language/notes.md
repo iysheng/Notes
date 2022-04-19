@@ -964,3 +964,56 @@ with open("a.txt", "w") as f:
 	2. pandas # 和 numpy 类似都是科学运算模块
 	3. matplotlib # 数据可视化的好帮手
 82. 数据采集，爬虫技术
+83. Matplotlib, 可以绘制：
+	* 相关函数接口
+		1. plt.figure(num=1, figsize=(4,3)) # 明确画布的编号和大小
+		2. plt.xticks() # 设置 x 轴刻度
+		3. plt.yticks([1, 2, 3], [r'$red$', r'$blue$', r'$green$']) # 设置 y 轴刻度及对应的刻度名称
+		4. plt.xlim((-1, 1)) # 设置 x 轴的范围
+		5. plt.ylim((-1, 1)) # 设置 y 轴的范围
+		6. plt.gca() 获取当前坐标轴的信息
+		7. legend 图例就是帮助我们展示每一个数据对应的图像名称
+			* plt.legend(loc='upper right') # plt.legend(loc='best') 特别地 best 会自动分配最佳位置
+		8. Annotation 标注
+		9. 
+	* 线图
+	``` python
+    #!/bin/python
+    import matplotlib.pyplot as plt
+    import numpy as np
+    x = np.linspace(-1, 1, 50)
+    y = 2 * x + 1
+    # 定义一个画布
+    plt.figure()
+    # 使用 plt.plot 绘制 (x, y) 曲线
+    plt.plot(x, y)
+    # 显示图像
+    plt.show()
+	```
+	* 散点图
+	* 等高线图
+	* 条形图
+	* 柱状图
+	* 3D 图
+	* 图形动画
+84. CSV 文件是以每行使用 , 隔开作为分割符号的文件，读取 csv 文件的方法：
+	* 使用 csv 库(一般 python 自带这个库)
+	``` python
+	import csv
+
+	raw_file_list = []
+	# 渲染之后每一行都是 list 类型的
+	# 如果没有使用 csv.reader 处理，那么每一行的内容是 str 类型的
+	csvf = csv.reader(open(csv文件))
+    for line in csvf:
+        raw_file_list.append(line)
+	# 将每一行的 list append 成一个大的 list 列表
+
+    # 配合 pandas 可以将这些数据处理为一个更加可视化的类型
+	import pandas as pd
+	df = pd.DataFrame(raw_file_list)
+	print(df) # 可以看到了类似矩阵的数据结构
+	```
+85. [pandas](https://pandas.pydata.org/) 科学计算的软件包
+	* pandas.set_option('display.max_rows', None) # 设置取消显示的最大行的限制
+	* sort_values() # 根据指针的编号对 pandas 格式的数据进行重排
