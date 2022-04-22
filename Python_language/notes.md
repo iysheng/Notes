@@ -139,7 +139,7 @@ ret = os.system("linux 命令")
 		import numpy as np
 		np.arange(*data) == np.arange(1, 2)
 		```
-		* list 有  remove 方法可以直接删除指定的成员,如果有多个重复的成员，该函数只会删除第一个该成员
+		* list 有 remove 方法可以直接删除指定的成员,如果有多个重复的成员，该函数只会删除第一个该成员
 	4. 特殊的变量,无,表示 nothing: None
 	5. F-strings 是新的变量类型, python3.6 引入
 	6. list 类型可以包含重复的内容,但是 set 类型就不可以,set 就是类似数学的集合,可以通过对 list 执行构造函数,提取不同的 list 成员.
@@ -1016,4 +1016,5 @@ with open("a.txt", "w") as f:
 	```
 85. [pandas](https://pandas.pydata.org/) 科学计算的软件包
 	* pandas.set_option('display.max_rows', None) # 设置取消显示的最大行的限制
+	* pandas.set_option('display.max_info_rows', None) # 设置取消每一列的显示内容的限制
 	* sort_values() # 根据指针的编号对 pandas 格式的数据进行重排

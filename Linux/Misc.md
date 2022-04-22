@@ -26,6 +26,7 @@
 6. 交叉编译工具链那些事情
 	1. 交叉编译工具链 --print-sysroot：工具链认为的根目录
 	2. 交叉编译工具链 --print-search-dirs：工具链会搜索的目录，包括库文件、可执行文件等等，也就是说工具链会从这些目录中搜索库或者可执行文件
+		* tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
 7. 安裝中文输入法：
 	1. 安装 fcitx 必要打软件包，参考 arch 的 wiki
 	```
@@ -176,6 +177,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 
 #### Makefile
 1. gcc 通过 -D 选项传递宏字符串时候，需要添加转义字符 \"字符串内容\"
+	* -specs=文件 指定了一个可以覆盖 gcc 默认的 specs 的文件，default.specs 文件可以用命令 ``gcc -dumpspecs`` 查看, specs 文件定义了传递给 cc1 cc1plus as ld 等内容
 2. Makefile 的条件判断
 ``` Makefile
 # arg1 和 arg2 之间不要随便添加空格
@@ -261,6 +263,7 @@ Linux kernel internal documentation in different formats:
 		for key in ['OBJSUFFIX', 'LIBSUFFIX', 'PROGSUFFIX']:
 		print ("key=%s, value=%s"  %  (key,dict[key]))
 		```
+		3. scons -Q 禁止一些编译过程的打印信息，关注编译本身
 12. C 语言的一些头文件
 	1. uint8_t 对应的头文件 <stdint.h>
 13. 在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**

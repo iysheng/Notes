@@ -320,6 +320,7 @@ M
 |manifest|载货单|
 |modifier|修饰符|
 |minted|铸造|
+|mnemonics|助记符|
 
 N
 ---
