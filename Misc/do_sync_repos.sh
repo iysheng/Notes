@@ -3,6 +3,7 @@
 set -e
 
 REPOS=~/Public/telnet_32
+FORCE_PUSH=0
 
 do_push2repo()
 {
@@ -14,7 +15,11 @@ do_push2repo()
 	REMOE_REPOS=`git remote -v |  awk '/(push)/ && /iysheng/ {print $1}' 2> /dev/null`
 	if [ -n '$REMOE_REPOS' ];then
 		for remote_repo in $REMOE_REPOS;do
-			git push $remote_repo `git branch | awk '{print $2}'`;
+			if [ $FORCE_PUSH -eq 0 ]; then
+    			git push $remote_repo `git branch | awk '{print $2}'`;
+    		else
+    			git push -f $remote_repo `git branch | awk '{print $2}'`;
+			fi
 			sleep 1;
 		done
     else
@@ -73,15 +78,21 @@ do_sync_from_repos()
     done
 }
 
+do_push2repo_current_dir()
+{
+    do_sync_to_repos `pwd`
+}
+
 # 默认 push 当前仓库到 repo
 if [ $# -lt 1 ];then
-    do_sync_to_repos `pwd`
+    do_push2repo_current_dir
 	exit 0
 fi
 
-while getopts "s:l:dD" opt; do
+while getopts "s:l:dDf" opt; do
     case $opt in
     s ) do_sync_to_repos $OPTARG;;
+    f ) FORCE_PUSH=1 && do_push2repo_current_dir;;
     l ) do_sync_from_repos $OPTARG;;
     d ) do_sync_to_repos;; # 默认就是尝试 push 默认仓库
     D ) do_sync_from_repos;; # 默认就是尝试 pull 默认仓库
@@ -89,3 +100,4 @@ while getopts "s:l:dD" opt; do
         exit 1
     esac
 done
+shift $(($OPTIND-1)) # OPTIND 表示下一个待解析参数的索引下表，从 1 开始
