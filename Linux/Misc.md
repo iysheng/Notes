@@ -447,3 +447,10 @@ Linux kernel internal documentation in different formats:
 	1. xrandr 获取屏幕分辨率和尺寸信息 `xrandr | grep " connected"`，eg: `LVDS-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 174mm` 计算命令是: ``echo '1366 / 309 * 25.4'`` 结果是 **101.6**，所以可以强制设置 dpi 是 102.
 	2. ``echo 'Xft.dpi: 102' | xrdb -merge`` ，可以将这部分代码添加到全局的启动脚本。
 	3. xrdb -get Xft.dpi # 获取当前配置的 dpi 信息
+34. ARMv7-A 架构的定义了一些不同的特权执行级别
+	* 在安全状态，特权指令分为 PL1 和 PL0
+	* 在非安全状态，特权指令分为 PL2,PL1 和 PL0
+	其中：
+	* PL0 是应用程序的运行级别，也可以认为是 USER MODE,在该模式下无法修改处理器很多的配置
+	* PL1 是除了 USER MODE 和 Hyp MODE 之外的所有模式，该模式可以对处理器大部分的配置进行修改，除了一些和 Hyp 相关的配置无法修改
+	* PL2 是 Hyp MODE， 和虚拟化有关
