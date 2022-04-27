@@ -452,6 +452,7 @@ R
 |RFU|reserved for future 为将来保留|
 |regex|正则表达式|
 |round brackets|圆括号|
+|refactor|重构|
 
 S
 ---
