@@ -411,3 +411,4 @@ sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 82. getline() 函数
 	* getline(数字)， 返回指定行号的内容
 	* getline('.')， 返回当前行的行号
+83. 查看指定的快捷键的映射``:verbose map <C-a>``， 查看快捷键 control-a 的映射

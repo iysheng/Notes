@@ -75,7 +75,7 @@ ret = os.system("linux 命令")
 14. str(int) # 格式化为字符串格式
 	* str(18) # 默认以 10 进制转换
 	* hex(18) # 以 16 进制形式格式化为字符串
-15. 绘制图形库 matplotlib.pyplot
+15. 绘制图形库 [matplotlib.pyplot](https://matplotlib.org/stable/tutorials/introductory/usage.html)
 	1. plot(x, y) # 以 x 轴和 y 轴绘制曲线图
 	2. show() 显示绘制的图形
 	3. 左边无法显示中文时，需要加载对应的中文字库
@@ -83,6 +83,21 @@ ret = os.system("linux 命令")
     from pylab import *
     mpl.rcParams['font.sans-serif'] = ['Source Han Sans CN']
 	```
+	4. 涉及到的一些概念
+		* axes : 轴，一个轴可以绘制一部分图片
+		* figure : 画布
+		* axis: 坐标轴
+		* x axis label: x 坐标轴 label
+		* y axis label: y 坐标轴 label
+		* major tick label:
+		* minor tick label:
+		* major tick:
+		* minor tick:
+		* legend: 
+	5. [常用函数查询](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot)
+---
+![](https://s3.bmp.ovh/imgs/2022/04/28/0cc5fb9fe82ced5e.png)
+---
 16. 字符串的内容在 ''' 字符串内容 '''
 17. 字典中的变量用大括号括起来 {food}
 18. **def** 是 definition function 的缩写

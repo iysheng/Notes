@@ -48,6 +48,8 @@ A
 |alternative|备选的,可供替代的|
 |approach|接近、着手处理，方式方法|
 |anchors|转折点，下锚，集合，标点符号|
+|axes|象限|
+|axis|坐标轴|
 
 B
 ---
@@ -171,6 +173,7 @@ D
 |dimensions|尺寸|
 |directive|指令|
 |decorator|装饰器|
+|dumb|传统的|
 
 E
 ---
@@ -296,6 +299,7 @@ L
 |literal strings|文字字符串|
 |interleave|交错|
 |library|庫|
+|legend|图片文字说明|
 
 M
 ---
@@ -321,6 +325,8 @@ M
 |modifier|修饰符|
 |minted|铸造|
 |mnemonics|助记符|
+|metrics|度量|
+|MAE(mean absolute error)|平均绝对误差|
 
 N
 ---
@@ -407,6 +413,7 @@ Q
 |qualified|合格的|
 |qualified opinion|保留意见|
 |question|问号|
+|quantization|量子化|
 
 R
 ---
@@ -453,6 +460,8 @@ R
 |regex|正则表达式|
 |round brackets|圆括号|
 |refactor|重构|
+|RMSR(Root Mean Squared Error)|均方根误差|
+|RMS|均方根|
 
 S
 ---
