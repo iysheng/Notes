@@ -1033,3 +1033,5 @@ with open("a.txt", "w") as f:
 	* pandas.set_option('display.max_rows', None) # 设置取消显示的最大行的限制
 	* pandas.set_option('display.max_info_rows', None) # 设置取消每一列的显示内容的限制
 	* sort_values() # 根据指针的编号对 pandas 格式的数据进行重排
+	* df = pd.DataFrame(raw_list) df[0] 表示这个矩阵的第一列，可以使用  df[0].tolist() 函数将第一列转换为 list 类型
+86. **eval()** 函数计算一个表达式的结果
