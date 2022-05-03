@@ -1071,3 +1071,5 @@ SECTIONS
 106. [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
 107. tcpdump 调试网络
     * tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
+108. 交叉编译工具连查看动态库的依赖信息
+    * arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖

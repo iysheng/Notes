@@ -551,6 +551,7 @@ T
 |trimming whitespace|删除空格|
 |trick|诡计、技巧|
 |theory|学说，理论|
+|trivial|琐碎的|
 
 U
 ---
