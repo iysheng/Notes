@@ -419,7 +419,7 @@ class derive_demo0(demo_class, demo1_class):
 	* function 每次都从第一行开始执行,而 generator 从上一次 yield 的地方执行
 	* function 每调用一次返回一组/个值,而 generator 可以多次返回
 	* function 可以无数次被调用执行,但是 generator 在 yield 最后一个值或者 return 之后不能继续调用了
-	特别地函数中使用 yield 是生常 generator 的一种方式,另一种常见的方法是使用 generator expression:
+	特别地函数中使用 yield 是生成 generator 的一种方式,另一种常见的方法是使用 generator expression:
 	``` python
 	times = [1,2]
 	gen = (x * x for  x in times) # generator 表达式

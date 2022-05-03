@@ -143,6 +143,7 @@ C
 |cyclic|循环|
 |clarity|清晰的|
 |concise|简明的|
+|convolutional|卷积的|
 
 D
 ---
@@ -330,6 +331,7 @@ M
 |mnemonics|助记符|
 |metrics|度量|
 |MAE(mean absolute error)|平均绝对误差|
+|multidimensional|多维的|
 
 N
 ---
