@@ -141,6 +141,8 @@ C
 |colon|冒号|
 |consistency|一致性|
 |cyclic|循环|
+|clarity|清晰的|
+|concise|简明的|
 
 D
 ---
@@ -174,6 +176,7 @@ D
 |directive|指令|
 |decorator|装饰器|
 |dumb|传统的|
+|de-facto|事实上的|
 
 E
 ---
@@ -340,6 +343,8 @@ N
 |nightmare|噩梦|
 |nagging|纠缠不休的|
 |namely|即，也就是，换句话说|
+|neglect|忽略|
+|notation|符号|
 
 O
 ---
@@ -462,6 +467,7 @@ R
 |refactor|重构|
 |RMSR(Root Mean Squared Error)|均方根误差|
 |RMS|均方根|
+|resembles|看起来像|
 
 S
 ---

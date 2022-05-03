@@ -61,10 +61,15 @@ ret = os.system("linux 命令")
 	注释内容
 	"""
 	```
-11. **numpy** 是 python 科学计算（数学）的包
+11. **numpy** 是 python 科学计算（数学）的包, numpy 核心数据结构是 ndarray object ，概括了一种 n 维数组
 	* y = np.arange(0,0) # 创建一个空数组
 	* y = np.arange(2,3) # 创建一个 2 行 3 列的数组
 	* y = np.append(y, 123) # append 函数是在数组 y 后追加内容 123, **重点需要将返回值赋值为 y**，否则起不到追加的效果
+	* np.array(xxxxx, dtype=np.float32) # 将 xxxx 的数据转换为一个 numpy array 类型的结构并且数据类型是 np.float32
+	* np array 在创建时候就已经确认了大小，不像 list 一样，大小可变, 修改 ndarray 的 size ，会删除原始的 ndarray 创建一个新的 ndarray
+	* np array 中的所有元素都是同一类型的, 例外：可以有（Python，包括NumPy）对象的数组，从而允许不同大小的元素数组
+	* np array 可以加速对大量数据进行高级的数学运算和其他操作,通常比使用 python 内置的数组效率更高
+	* 目前越來越多的软件包使用 np array 这类数据类型,所以即要了解 python 内置的序列类型，也要知道如何使用 np 的 array 类型
 12. 对 str 类型变量 a 为例子
 	* a.isdigit() 判断 a 是否只包含数字
 	* a.isalpha() 判断 a 是否只包含字母
