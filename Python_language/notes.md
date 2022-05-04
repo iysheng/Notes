@@ -72,6 +72,7 @@ ret = os.system("linux 命令")
 	* 目前越來越多的软件包使用 np array 这类数据类型,所以即要了解 python 内置的序列类型，也要知道如何使用 np 的 array 类型
 	* 在 print np 部分的数据时，因为数据过长部分内容省略的问题，可以通过修改 threshold 扩大限制。``np.set_printoptions(threshold=sys.maxsize)``
 	* 将 numpy 数组以整形数组保存到文件中(使用 savetxt 方法)，方便 C 语言调用： ``np.savetxt('person.csv', person, fmt='%d', delimiter=',')``
+	* savetxt 还可以添加头注和脚注, ``np.savetxt('person.c', person, fmt='%d', delimiter=',', header="const unsigned char g_person_detect_model_data[]={", footer="};", comments='')`` ，使用上述命令可以直接将数据保存到数组中
 12. 对 str 类型变量 a 为例子
 	* a.isdigit() 判断 a 是否只包含数字
 	* a.isalpha() 判断 a 是否只包含字母
