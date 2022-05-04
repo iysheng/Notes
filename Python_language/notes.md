@@ -70,6 +70,7 @@ ret = os.system("linux 命令")
 	* np array 中的所有元素都是同一类型的, 例外：可以有（Python，包括NumPy）对象的数组，从而允许不同大小的元素数组
 	* np array 可以加速对大量数据进行高级的数学运算和其他操作,通常比使用 python 内置的数组效率更高
 	* 目前越來越多的软件包使用 np array 这类数据类型,所以即要了解 python 内置的序列类型，也要知道如何使用 np 的 array 类型
+	* 在 print np 部分的数据时，因为数据过长部分内容省略的问题，可以通过修改 threshold 扩大限制。``np.set_printoptions(threshold=sys.maxsize)``
 12. 对 str 类型变量 a 为例子
 	* a.isdigit() 判断 a 是否只包含数字
 	* a.isalpha() 判断 a 是否只包含字母

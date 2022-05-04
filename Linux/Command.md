@@ -1073,3 +1073,6 @@ SECTIONS
     * tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
 108. 交叉编译工具连查看动态库的依赖信息
     * arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
+109. gzip 文件解压缩
+	* gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
+	* gunzip xxx.gz  # 解压 gzip 文件

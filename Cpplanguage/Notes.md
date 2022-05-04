@@ -364,3 +364,5 @@ a3 = a2.opeartor+(a1);
 40. C++ 中定义 C 函数，方便外部函数调用
     * extern "C" void test_func(void) /*  这种方法对外部 C 文件调用比较友好,因为这样编译后，对应的函数符号还是 test_func, 如果有过个 C 函数，可以使用 extern "C" { C 函数定义 } */
     * void test_func(void) /* 如果使用这种方法定义这个函数，对应的符号名称会被重编，会变成类似 **_Z9test_func** 这样的符号，所以外部 C 文件执行通过 test_func 是调用不到这个函数的 */
+41. [模板](https://en.cppreference.com/w/cpp/language/templates)
+	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号

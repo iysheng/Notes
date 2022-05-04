@@ -199,6 +199,7 @@ E
 |Enumeration|枚举|
 |encourage|鼓励|
 |escape character|转义字符|
+|epoch|时代，纪元|
 
 F
 ---
@@ -523,6 +524,7 @@ S
 |screencast|截屏|
 |step-up|升压|
 |suffix|后缀|
+|summary|总结,概要|
 
 T
 ---
@@ -560,6 +562,7 @@ T
 |trick|诡计、技巧|
 |theory|学说，理论|
 |trivial|琐碎的|
+|topology|拓扑|
 
 U
 ---
