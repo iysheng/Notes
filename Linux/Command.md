@@ -1076,3 +1076,8 @@ SECTIONS
 109. gzip 文件解压缩
 	* gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
 	* gunzip xxx.gz  # 解压 gzip 文件
+110. [Fedora 部署 nginx 服务](https://fedoraproject.org/wiki/Nginx)
+    * 如果一直出现 403 Forbidden, 可以按照如下思路排查：
+        1. 确认下根目录是否存在，根目录的 index 文件是否存在
+        2. 关闭 selinux : ``setenforce 0``
+        3. 如果外部 ip 无法访问，内部 ip 可以访问，那么将防火墙打开对应的 80 端口，这个端口是 nginx 默认的服务端口,使用 firewall-cmd 打开防火墙端口：``sudo firewall-cmd --add-port=22/tcp``

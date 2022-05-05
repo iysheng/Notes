@@ -366,3 +366,4 @@ a3 = a2.opeartor+(a1);
     * void test_func(void) /* 如果使用这种方法定义这个函数，对应的符号名称会被重编，会变成类似 **_Z9test_func** 这样的符号，所以外部 C 文件执行通过 test_func 是调用不到这个函数的 */
 41. [模板](https://en.cppreference.com/w/cpp/language/templates)
 	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号
+42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
