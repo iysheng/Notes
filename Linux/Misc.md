@@ -458,3 +458,4 @@ Linux kernel internal documentation in different formats:
 	* shift + t 可以对选择的涂层进行变换
 	* image -> canvas size 修改画布大小
 	* image -> scale image 修改图像大小
+	* 当发现 gimp 的工具控件不见的时候， Edit -> Preferences -> Window Management -> Reset Saved Window Positions to Default Values 然后重启 gimp
