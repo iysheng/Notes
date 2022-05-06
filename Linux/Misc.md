@@ -454,3 +454,7 @@ Linux kernel internal documentation in different formats:
 	* PL0 是应用程序的运行级别，也可以认为是 USER MODE,在该模式下无法修改处理器很多的配置
 	* PL1 是除了 USER MODE 和 Hyp MODE 之外的所有模式，该模式可以对处理器大部分的配置进行修改，除了一些和 Hyp 相关的配置无法修改
 	* PL2 是 Hyp MODE， 和虚拟化有关
+35. gimp 图像编辑工具
+	* shift + t 可以对选择的涂层进行变换
+	* image -> canvas size 修改画布大小
+	* image -> scale image 修改图像大小

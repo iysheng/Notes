@@ -144,6 +144,7 @@ C
 |clarity|清晰的|
 |concise|简明的|
 |convolutional|卷积的|
+|canvas|画布|
 
 D
 ---
@@ -471,6 +472,7 @@ R
 |RMSR(Root Mean Squared Error)|均方根误差|
 |RMS|均方根|
 |resembles|看起来像|
+|raster|光栅|
 
 S
 ---
@@ -530,6 +532,7 @@ T
 ---
 |单词|释义|
 |---|---|
+|tiled|平铺|
 |tilde|波浪号|
 |trivial|不重要的|
 |thrashing|颠簸|
