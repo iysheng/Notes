@@ -46,7 +46,7 @@
     11. git branch -d 分支名；删除分支，如果分支没有被 merge，那么会提示无法删除；git branch -D 分支名，强制删除分支
     12. git commit --amend ；修改最近一次提交的注释 message
     13. git rebase -i commit_id ；然后就可以修改待修改的 commit 的 message；git rebase 还可以做很多事情；记得保存 parent，其中 commit_id 可以以 HEAD 为索引进行偏移，举例 head~3 以当前 HEAD 向前推 3 个提交位 rebase 的基
-		* 在 github 提交 pr 时可能的场景：在 commit A 提交了 pr, 经过了一段时间，远端仓库合并了一些其他的 commits, 这时候 HEAD 到了 commit B，此时如何快速将自己的 pr 修改为在  commit B 基础上的呢？可以首先 ``git fetch upstream`` 然后 ``git rebase upstream 指定分支(一般是 main 或者 master)``，这时候可能会提示有冲突，如果有冲突，解决冲突，然后执行 ``git rebase --resume`` 最后就是 ``git push 自己仓库 自己分支 -f`` 重新提交就可以了。
+		* 在 github 提交 pr 时可能的场景：在 commit A 提交了 pr, 经过了一段时间，远端仓库合并了一些其他的 commits, 这时候 HEAD 到了 commit B，此时如何快速将自己的 pr 修改为在  commit B 基础上的呢？可以首先 ``git fetch upstream`` 然后 ``git rebase upstream/指定分支(一般是 main 或者 master)``，这时候可能会提示有冲突，如果有冲突，解决冲突，然后执行 ``git rebase --resume`` 最后就是 ``git push 自己仓库 自己分支 -f`` 重新提交就可以了。
         * 使用 git rebase 可以快速修改两次提交的顺序
     14. git diff --cached ；暂存区和 HEAD 的差异
     15. git diff ；工作区和 HEAD 的差异
