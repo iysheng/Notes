@@ -264,6 +264,7 @@ Linux kernel internal documentation in different formats:
 		print ("key=%s, value=%s"  %  (key,dict[key]))
 		```
 		3. scons -Q 禁止一些编译过程的打印信息，关注编译本身
+		4. print(env['LINKFLAGS']) 可以打印出指定环境的 LINKFLAGS，还有其他的参数也可以用这个方法打印
 12. C 语言的一些头文件
 	1. uint8_t 对应的头文件 <stdint.h>
 13. 在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**
@@ -459,3 +460,4 @@ Linux kernel internal documentation in different formats:
 	* image -> canvas size 修改画布大小
 	* image -> scale image 修改图像大小
 	* 当发现 gimp 的工具控件不见的时候， Edit -> Preferences -> Window Management -> Reset Saved Window Positions to Default Values 然后重启 gimp
+36. printf 打印浮点数的时候，栈要保证 8 字节对齐, AAPCS 规则要求堆栈保持 8 字节对齐。如果不对齐，调用一般的函数也是没问题的。但是当调用需要严格遵守 AAPCS 规则的函数时可能会出错。
