@@ -50,6 +50,7 @@ A
 |anchors|转折点，下锚，集合，标点符号|
 |axes|象限|
 |axis|坐标轴|
+|accommodate|容纳|
 
 B
 ---
@@ -145,6 +146,7 @@ C
 |concise|简明的|
 |convolutional|卷积的|
 |canvas|画布|
+|caveat|警告|
 
 D
 ---
@@ -296,6 +298,12 @@ I
 |in accordance with|按照|
 |instantiate|实例化|
 |inaccurate|不准确|
+|integrity|整数检查|
+
+K
+---
+|单词|释义|
+|key-encrypting keys (KEKs)|密钥加密密钥|
 
 L
 ---
@@ -376,6 +384,9 @@ O
 |On-the-Go||
 |observer|观察者|
 |occasion|场合|
+|on-the-fly image encryption/decryption|即时镜像加密，解密|
+|outcome|结果，效果|
+|octet|八进制|
 
 P
 ---
