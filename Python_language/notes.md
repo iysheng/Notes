@@ -823,6 +823,7 @@ with open("a.txt", "w") as f:
 		name = "red"
         country = "china"
 		print(f"{name} say hello {country}!  -- by {name}")
+		print(f"0b11:d") # 前缀 0b 表示二进制，0x 表示 16 进制，d 表示转换为 10 进制，x 表示转换为 16 进制
 		```
 	* 修改字符串
 		* string.strip() # 去除两断的空白符
