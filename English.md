@@ -1,4 +1,4 @@
-## 记录陌生的单词
+# 记录陌生的单词
 
 A
 ---
@@ -77,6 +77,7 @@ B
 |boilerplate|样板|
 |blueprint|蓝图|
 |brackets|方括号|
+|bootstrap|引导程序|
 
 C
 ---
@@ -181,6 +182,7 @@ D
 |decorator|装饰器|
 |dumb|传统的|
 |de-facto|事实上的|
+|digest|摘要|
 
 E
 ---
@@ -421,6 +423,7 @@ P
 |plain|朴素的|
 |parentheses|圆括号|
 |prefix|前缀|
+|provision|为 ... 提供|
 
 Q
 ---
@@ -538,6 +541,7 @@ S
 |step-up|升压|
 |suffix|后缀|
 |summary|总结,概要|
+|sane|健全的|
 
 T
 ---
