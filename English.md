@@ -489,6 +489,7 @@ R
 |RMS|均方根|
 |resembles|看起来像|
 |raster|光栅|
+|realm|领域|
 
 S
 ---

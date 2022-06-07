@@ -358,6 +358,15 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeLists.txt 文件，然后再 cmake 构建
     3. link_libraries() 添加库的搜索路径
     4. include_directories() 添加库头文件路径
+    5. cmake -DCMAKE_TOOLCHAIN_FILE=定义工具链的文件 可以实现交叉编译。比如指定交叉编译工具链的文件示意：
+    ``` text
+set(CMAKE_SYSTEM_NAME Linux)
+
+set(TOOLCHAIN_PATH /home/red/.local/bin/m3568-sdk-v1.0.0-ga/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu)
+set(CMAKE_C_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-gcc)
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
+    ```
+    6. -DCMAKE_INSTALL_PREFIX 指定 install 路径
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷
