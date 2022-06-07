@@ -148,6 +148,8 @@ C
 |convolutional|卷积的|
 |canvas|画布|
 |caveat|警告|
+|concurrently|同时地|
+|compositor|合成、渲染|
 
 D
 ---

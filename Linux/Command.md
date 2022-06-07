@@ -356,6 +356,8 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
     ```
     2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeLists.txt 文件，然后再 cmake 构建
+    3. link_libraries() 添加库的搜索路径
+    4. include_directories() 添加库头文件路径
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷
@@ -561,6 +563,7 @@ EndSection
     pkg-config --libs glib # 列出 glib 第三方库库文件的位置，自动添加了 -L
     pkg-config --list-all # 列出所有可以使用的包
     ```
+    * PKG_CONFIG_SYSROOT_DIR 如果为空，系统会自动给交叉编译工具链时添加 sysroot 路径，这时候可以设置 PKG_CONFIG_SYSROOT_DIR=/ 来规避这个问题
 45. LD_LIBRARY_PATH 变量指定了程序运行时链接的动态库路径
 46. shutter 是 Fedora Workstation 内置的截屏工具
 47. Taskwarrior 是 Linux 的 TODO list 工具
@@ -1081,3 +1084,11 @@ SECTIONS
         1. 确认下根目录是否存在，根目录的 index 文件是否存在
         2. 关闭 selinux : ``setenforce 0``
         3. 如果外部 ip 无法访问，内部 ip 可以访问，那么将防火墙打开对应的 80 端口，这个端口是 nginx 默认的服务端口,使用 firewall-cmd 打开防火墙端口：``sudo firewall-cmd --add-port=22/tcp``
+111. [GitBlit](http://gitblit.github.io/gitblit/) 快速搭建 git 服务器
+    * [无法正常创建 tickets](https://stackoverflow.com/questions/41735685/cant-create-proposal-ticket) 需要添加 ``tickets.service = com.gitblit.tickets.BranchTicketService`` 到文件 ``data/gitblit.properties``
+    * [tickets 的使用方法](http://gitblit.com/tickets_using.html)
+        1. 标准的 tickets 可以通过 web uii 创建，包括:Bug, Enhancement, task 和 Question
+        2. proposal ticket(也就是 pr) 不能通过 web ui 创建，需要使用命令行，向指定的 ref (HEAD:refs/for/new)提交, 提交之后会返回一个 ticketid,如果后续需要追加 commit 到这个 pr,那么需要向 origin 的 ticket/{id} 这个分支提交
+112. ethtool 工具查看以及修改网卡参数
+    * ethtool eth1 查看 eth1 网卡参数
+    * ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
