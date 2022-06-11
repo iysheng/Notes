@@ -426,6 +426,7 @@ P
 |parentheses|圆括号|
 |prefix|前缀|
 |provision|为 ... 提供|
+|primitive|原始的|
 
 Q
 ---
@@ -584,6 +585,7 @@ T
 |theory|学说，理论|
 |trivial|琐碎的|
 |topology|拓扑|
+|texture|纹理|
 
 U
 ---

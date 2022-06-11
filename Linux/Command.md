@@ -1101,3 +1101,4 @@ SECTIONS
 112. ethtool 工具查看以及修改网卡参数
     * ethtool eth1 查看 eth1 网卡参数
     * ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
+113. 通过环境变量 **XDG_SESSION_TYPE** 可以查看系统使用的是 wayland 还是 X11
