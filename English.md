@@ -51,6 +51,7 @@ A
 |axes|象限|
 |axis|坐标轴|
 |accommodate|容纳|
+|acronym|首字母缩写|
 
 B
 ---
@@ -150,6 +151,7 @@ C
 |caveat|警告|
 |concurrently|同时地|
 |compositor|合成、渲染|
+|Collision|冲突|
 
 D
 ---
@@ -207,6 +209,7 @@ E
 |encourage|鼓励|
 |escape character|转义字符|
 |epoch|时代，纪元|
+|edge|边缘|
 
 F
 ---
@@ -230,6 +233,7 @@ F
 |futile|傻的,无效的,徒劳的|
 |format specifier|格式限定符|
 |font ligature|字体连字|
+|Finite State Machines (FSM)|有限状态机|
 
 G
 ---
@@ -427,6 +431,7 @@ P
 |prefix|前缀|
 |provision|为 ... 提供|
 |primitive|原始的|
+|polymorphism|多态|
 
 Q
 ---
@@ -546,6 +551,7 @@ S
 |suffix|后缀|
 |summary|总结,概要|
 |sane|健全的|
+|sparse|稀少的|
 
 T
 ---
