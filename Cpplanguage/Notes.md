@@ -367,3 +367,4 @@ a3 = a2.opeartor+(a1);
 41. [模板](https://en.cppreference.com/w/cpp/language/templates)
 	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号
 42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
+43. C++ 的 goto 语句之前不能有变量定义，否则编译时候会报错。

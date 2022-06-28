@@ -462,3 +462,7 @@ Linux kernel internal documentation in different formats:
 	* 当发现 gimp 的工具控件不见的时候， Edit -> Preferences -> Window Management -> Reset Saved Window Positions to Default Values 然后重启 gimp
 	* o 快捷键是颜色拾取器
 36. printf 打印浮点数的时候，栈要保证 8 字节对齐, AAPCS 规则要求堆栈保持 8 字节对齐。如果不对齐，调用一般的函数也是没问题的。但是当调用需要严格遵守 AAPCS 规则的函数时可能会出错。
+37. wayland weston 
+	* [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
+		* weston-touch-calibrator 列出来触摸设备
+		* weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
