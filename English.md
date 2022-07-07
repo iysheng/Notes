@@ -9,6 +9,7 @@ A
 |agreement|协议|
 |acknowledge|承认|
 |acknowledgement|确认|
+|Acknowledgments|鸣谢|
 |archives|档案|
 |arithmetic|算数的|
 |appreciate|赞赏|
