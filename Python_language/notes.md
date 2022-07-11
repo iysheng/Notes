@@ -1044,3 +1044,4 @@ with open("a.txt", "w") as f:
 	* sort_values() # 根据指针的编号对 pandas 格式的数据进行重排
 	* df = pd.DataFrame(raw_list) df[0] 表示这个矩阵的第一列，可以使用  df[0].tolist() 函数将第一列转换为 list 类型
 86. **eval()** 函数计算一个表达式的结果
+87. pillow 是 python 的图形库，``pip3 install pillow``, PIL，全称 Python Imaging Library，是 Python 平台一个功能非常强大而且简单易用的图像处理库。但是，由于 PIL 仅支持到Python 2.7，加上年久失修，于是一群志愿者在 PIL 的基础上创建了兼容 Python 3 的版本，名字叫 Pillow.
