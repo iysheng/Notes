@@ -188,6 +188,7 @@ D
 |dumb|传统的|
 |de-facto|事实上的|
 |digest|摘要|
+|distill|提取|
 
 E
 ---
@@ -211,6 +212,7 @@ E
 |escape character|转义字符|
 |epoch|时代，纪元|
 |edge|边缘|
+|eco-system|生态系统|
 
 F
 ---
@@ -235,6 +237,7 @@ F
 |format specifier|格式限定符|
 |font ligature|字体连字|
 |Finite State Machines (FSM)|有限状态机|
+|feasible|可行的|
 
 G
 ---
@@ -351,6 +354,7 @@ M
 |metrics|度量|
 |MAE(mean absolute error)|平均绝对误差|
 |multidimensional|多维的|
+|Motivation|动力，干劲|
 
 N
 ---
@@ -396,6 +400,7 @@ O
 |on-the-fly image encryption/decryption|即时镜像加密，解密|
 |outcome|结果，效果|
 |octet|八进制|
+|Over time|随着时间的推移|
 
 P
 ---
@@ -553,6 +558,7 @@ S
 |summary|总结,概要|
 |sane|健全的|
 |sparse|稀少的|
+|stated goal|既定目标|
 
 T
 ---
@@ -593,6 +599,7 @@ T
 |trivial|琐碎的|
 |topology|拓扑|
 |texture|纹理|
+|transformations|转变|
 
 U
 ---
