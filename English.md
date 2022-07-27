@@ -316,6 +316,7 @@ K
 ---
 |单词|释义|
 |key-encrypting keys (KEKs)|密钥加密密钥|
+|knob|旋钮|
 
 L
 ---
