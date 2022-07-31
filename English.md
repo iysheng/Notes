@@ -155,6 +155,8 @@ C
 |Collision|冲突|
 |caption|字幕|
 |CLZ|CLZ(Count Leading Zeros)计算高位0的数量，最高位的 1 左边 0 的数量 |
+|comma|逗号|
+|compound|复合物|
 
 D
 ---
