@@ -368,3 +368,15 @@ a3 = a2.opeartor+(a1);
 	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号
 42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
 43. C++ 的 goto 语句之前不能有变量定义，否则编译时候会报错。
+44. std::vector 实质是 C++ 的一个类，和数组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器一样，能够存放各种类型的对象。可以简单认为向量是一个能够存在任意类型的动态数组。
+    * push_back(elem) 尾部插入元素 elem
+    * pop_back() 删除最后一个元素
+    * clear() 删除容器中所有元素
+    * at(int idx) 返回 idx 索引指向的数据
+    * operator[idx] 返回 idx 索引指向的数据
+    * front() 返回容器的第一个数据就元素
+    * back() 返回容器的最后一个元素
+    * void resize (size_type n) 修改 vector 大小为 n 个元素
+    * void resize (size_type n, const value_type& val) 修改 vector 大小为 n 个元素，如果之前不足 n 个，那么使用 val 补全到 n 个
+45. auto 关键字，auto 的原理是根据后面的值，来推测前面的类型是什么, 一般用来简化变量初始化
+46. to_string(数据) 将数据转换为 string 类型

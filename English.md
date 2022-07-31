@@ -153,6 +153,8 @@ C
 |concurrently|同时地|
 |compositor|合成、渲染|
 |Collision|冲突|
+|caption|字幕|
+|CLZ|CLZ(Count Leading Zeros)计算高位0的数量，最高位的 1 左边 0 的数量 |
 
 D
 ---
@@ -311,6 +313,7 @@ I
 |instantiate|实例化|
 |inaccurate|不准确|
 |integrity|整数检查|
+|implicitly exists|隐式存在|
 
 K
 ---
@@ -560,6 +563,7 @@ S
 |sane|健全的|
 |sparse|稀少的|
 |stated goal|既定目标|
+|signature|函数原型，签名|
 
 T
 ---
@@ -601,6 +605,7 @@ T
 |topology|拓扑|
 |texture|纹理|
 |transformations|转变|
+|transactionally|事务性的|
 
 U
 ---
@@ -637,6 +642,13 @@ W
 |wrap|包裹|
 |walkthrough|演练，走读|
 |weird|不寻常的，奇怪的|
+|warranty|保修|
+
+X
+---
+|单词|释义|
+|---|---|
+|XDG|cross-desktop group|
 
 Y
 ---

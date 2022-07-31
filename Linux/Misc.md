@@ -466,3 +466,7 @@ Linux kernel internal documentation in different formats:
 	* [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
 		* weston-touch-calibrator 列出来触摸设备
 		* weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
+38. 原码、反码和补码
+    * 原码 ：最高位是符号位，0代表正数，1代表负数，非符号位为该数字绝对值的二进制。
+    * 反码：正数的反码与原码一致，负数的反码是对原码按位取反，只是最高位（符号位）不变。 
+    * 补码：正数的补码与原码一致，负数的补码是对原码按位取反加1，符号位不变。
