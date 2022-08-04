@@ -1065,11 +1065,13 @@ SECTIONS
 96. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
 97. 7zz x 压缩包.7z # 按照路径的信息解压缩 7z 文件
 98. [jless](https://github.com/PaulJuliusMartinez/jless) 一款命令行解析 json 格式数据的工具，具有很好的可视化效果
-99. **json** 格式的数据语法：
+99. **json** 格式的数据语法,映射（就是 key 和 value）, json 没有注释：
     * 并列的数据之间用逗号 `,` 隔开
-    * 映射用冒号 `:` 表示
-    * 并列数据的集合(数组)用方括号 `[]` 表示
+    * 映射用冒号 `:` 表示, 将 key 和 value 隔开
+    * 并列数据的集合(数组 arrays)用方括号 `[]` 表示
     * 映射的集合(对象)用大括号 `{}` 表示
+    * object 是 key:value 对的集合,一个 object 开头 { 结尾 }
+    * 
 100. 从结构上看，所有的数据最终都可以分解成三种数据类型：
     1. 标量(scalar) ，就是单独的字符串(string)或者数字(number)
     2. 序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)

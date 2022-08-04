@@ -404,3 +404,6 @@ a3 = a2.opeartor+(a1);
     * body 函数体，函数的具体逻辑, 重载函数 operator() 函数的函数体
 49. std::remove(begin, end, value) remove 实际是一个模板,删除 [begin, end) 之间所有等 value 的对象,返回的是指向下一个不等 val 的对象！！！
     * a b c target d target e  eg: 如果 remove target ->(整理后为) a b c d e target e -> 返回的是指向整理之后 target 的内容
+50. R"(原始字符)" raw string, 不会对原始字符进行转义, raw string 的语法 **R"delimiter( raw_characters )delimiter"** // delimiter is the end of logical entity, 其中分割符是可选的，但不可以是 / 、空格、以及() 符号.
+    * R"(Hello \n china)"
+    * R"a()")a" 这时候就用到分割符了，因为原始字符串内部包含有 )"序列，为了避免错误，就需要显示定义原始字符串的边界,但是新的编译器好像也可以自动识别，不用分割符也可以, 所以记住 R"(原始字符串就可以)"

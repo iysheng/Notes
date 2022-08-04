@@ -503,8 +503,10 @@ int main()
 
 	t7(1,2,3);
 	t7((float)1.1, (float)2.1, (float)3.1);
-#endif
 
     t19();
+#endif
+	string hello = R"(Hello \n ") china)";
+	cout << hello << endl;
 	return 0;
 }
