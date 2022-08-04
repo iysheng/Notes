@@ -378,5 +378,29 @@ a3 = a2.opeartor+(a1);
     * back() 返回容器的最后一个元素
     * void resize (size_type n) 修改 vector 大小为 n 个元素
     * void resize (size_type n, const value_type& val) 修改 vector 大小为 n 个元素，如果之前不足 n 个，那么使用 val 补全到 n 个
+    * emplace_back(args) 使用 args 参数创建一个构造函数，插入这个新的对象到尾部
+    * emplace(positon, args) 使用 args 参数创建一个构造函数，插入这个新的对象到 position 指定的位置
 45. auto 关键字，auto 的原理是根据后面的值，来推测前面的类型是什么, 一般用来简化变量初始化
 46. to_string(数据) 将数据转换为 string 类型
+47. Run-time type identification (RTTI) 运行时类型标识,通过两个操作符:
+    * typeid() 返回指定表达式的类型
+    * dynamic_cast() 转换基类到派生类,有下述三种表述方式(根据我实际测试发现，并且基类必须至少包含一个虚函数,否则会编译报错), 下述 e 必须是 type 的 public 派生类、e 或者是 type 的 public 基类，或者是和 type 类型一样。
+        1. dynamic_cast<type*>(e) // 如果转换不成功会返回 0, e 必须是一个指针
+        2. dynamic_cast<type&>(e) // 如果转换不成功会返回(抛出) std::bad_cast, e 必须是一个左值
+        3. dynamic_cast<type&&>(e) // e 一定不能是左值
+48. **lambda** 表达式,一般用来定义匿名函数,使代码更加灵活简洁。lambda 表达式，完整的表示式: [capture list](parameter list) -> return type { function body } ~~[captures]<tparams>(params)lambda-specifiers{body}~~, 可以忽略 parameter list 和返回类型，但是一定要有 capture list 和 function body. 和普通的函数不一样，lambda 表达式可能没有默认的参数。
+    * captures 捕获列表，lambda可以把上下文变量以值或引用的方式捕获，在body中直接使用。实际编译器会将写的 lambda 表达式翻译成一个类，用重载实现 operator() 函数实现。捕获列表，可以认为是这个类的 private 成员。
+        1. [] 什么也不捕获, 不会从上下文中(一般是函数的局部变量)捕获内容
+        2. [&] 按照引用的方式捕获所有变量
+        3. [=] 按值的方式捕获所有变量
+        3. [=,&a] 除了 a 之外，按值的方式捕获所有局部变量，变量 a 使用引用捕获,这里可以引用捕获多个。例如[=,&a,&b,&c]。这里注意，如果前面加了=，后面加的具体参数必须以引用的方式来捕获，否则会报错
+        4. [&,a] 除了 a 之外，按引用的方式捕获所有局部变量，变量 a 使用值的方式来捕获，这里也可以捕获多个
+        5. [a,&b] 以值的方式捕获 a,以引用的方式捕获 b，也可以捕获多个
+        6. [this] 在成员函数中，也可以直接捕获 this 指针，
+    * tparams 模板参数列表(c++20引入)，让lambda可以像模板函数一样被调用。
+    * params 参数列表，有一点需要注意，在c++14之后允许使用auto左右参数类型。参数列表可以认为是重载实现的 operator() 函数的形参列表
+    * lambda-specifiers lambda说明符， 一些可选的参数
+    * trailing-return-type 返回值类型，一般可以省略掉，由编译器来推导, 重载函数 operator() 函数的返回值
+    * body 函数体，函数的具体逻辑, 重载函数 operator() 函数的函数体
+49. std::remove(begin, end, value) remove 实际是一个模板,删除 [begin, end) 之间所有等 value 的对象,返回的是指向下一个不等 val 的对象！！！
+    * a b c target d target e  eg: 如果 remove target ->(整理后为) a b c d e target e -> 返回的是指向整理之后 target 的内容

@@ -217,6 +217,7 @@ E
 |epoch|时代，纪元|
 |edge|边缘|
 |eco-system|生态系统|
+|emplace|安放，放置|
 
 F
 ---
@@ -566,6 +567,7 @@ S
 |sparse|稀少的|
 |stated goal|既定目标|
 |signature|函数原型，签名|
+|scheme|方案|
 
 T
 ---
