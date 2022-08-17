@@ -367,6 +367,7 @@ set(CMAKE_C_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-gcc)
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
     ```
     6. -DCMAKE_INSTALL_PREFIX 指定 install 路径
+    7. FIND_PATH() 查找包含指定文件的目录
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷
@@ -1069,7 +1070,7 @@ SECTIONS
     * 并列的数据之间用逗号 `,` 隔开
     * 映射用冒号 `:` 表示, 将 key 和 value 隔开
     * 并列数据的集合(数组 arrays)用方括号 `[]` 表示
-    * 映射的集合(对象)用大括号 `{}` 表示
+    * 映射的集合(对象 object)用大括号 `{}` 表示
     * object 是 key:value 对的集合,一个 object 开头 { 结尾 }
     * 
 100. 从结构上看，所有的数据最终都可以分解成三种数据类型：

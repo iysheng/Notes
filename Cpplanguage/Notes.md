@@ -87,6 +87,7 @@ s.find("a"); /* 返回第一个字符串 a 出现的位置 */
 s.rfind("a"); /* 返回最后一个字符串 a 出现的位置 */
 s.at(0); /* 等价 s[0] ，获取字符串 s 的第一个字符 */
 ```
+    * std::to_string(xxx) 函数可以将整数转换为 string 类型
 18. **inline** 函数定义， inline 函数会在编译过程展开为多个副本，这是和一般函数最大的区别，内联函数和宏定义相比，可以进行一些规则检查
 ``` C++
 inline void hello()
@@ -407,3 +408,6 @@ a3 = a2.opeartor+(a1);
 50. R"(原始字符)" raw string, 不会对原始字符进行转义, raw string 的语法 **R"delimiter( raw_characters )delimiter"** // delimiter is the end of logical entity, 其中分割符是可选的，但不可以是 / 、空格、以及() 符号.
     * R"(Hello \n china)"
     * R"a()")a" 这时候就用到分割符了，因为原始字符串内部包含有 )"序列，为了避免错误，就需要显示定义原始字符串的边界,但是新的编译器好像也可以自动识别，不用分割符也可以, 所以记住 R"(原始字符串就可以)"
+51. printf 格式打印
+    1. %g 表示 signed double 型数据打印
+52. c++ 有 std::thread 多线程类,可以方便创建多线程

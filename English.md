@@ -409,6 +409,7 @@ O
 |outcome|结果，效果|
 |octet|八进制|
 |Over time|随着时间的推移|
+|orientation|目标，方位，定位，朝向|
 
 P
 ---
