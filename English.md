@@ -570,6 +570,7 @@ S
 |stated goal|既定目标|
 |signature|函数原型，签名|
 |scheme|方案|
+|semihosting|半宿主|
 
 T
 ---
@@ -649,6 +650,7 @@ W
 |walkthrough|演练，走读|
 |weird|不寻常的，奇怪的|
 |warranty|保修|
+|wrap|包裹,包装|
 
 X
 ---

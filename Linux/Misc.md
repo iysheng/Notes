@@ -87,6 +87,8 @@
 	8. mdw address [count] 显示address地址的内存，长度count
 	9. mw[w,b] address value [count] 修改address内存数据，长度count
 	10. 擦写 flash 之前一般需要 halt 住 cpu
+	11. 添加一个新的 chip 到 openocd
+		1. 
 18. tmux 一款终端分平软件 (三个基本概念：session、window、panel)
 	1. [tpm](https://github.com/tmux-plugins/tpm)：tmux 的插件管理器
 	2. nord 色彩配置，建议关闭 powerline 的箭头型符号

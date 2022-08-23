@@ -1108,3 +1108,12 @@ SECTIONS
 114. mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 memaid 类型的代码块来绘制
 115. weston 知识
     * **WESTON_DATA_DIR**  是定义weston 相关 app 运行资源(一些 png 图片等)的环境变量
+116. newlibc 中的 sbrk 使用链接脚本的 end 标记
+```C
+void * __attribute__((weak))
+_sbrk (ptrdiff_t incr)
+{
+  extern char   end asm ("end"); /* Defined by the linker. 使用链接脚本定义的 end 标记确定 heap 区 */
+  ...
+}
+```
