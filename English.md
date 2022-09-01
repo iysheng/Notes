@@ -571,6 +571,7 @@ S
 |signature|函数原型，签名|
 |scheme|方案|
 |semihosting|半宿主|
+|shader|着色器|
 
 T
 ---
