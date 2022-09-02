@@ -411,8 +411,37 @@ a3 = a2.opeartor+(a1);
 51. printf 格式打印
     1. %g 表示 signed double 型数据打印
 52. c++ 有 std::thread 多线程类,可以方便创建多线程
-53. std::unique_ptr 是一个类模板，包含了一个管理的对象和一个删除方法
+53. std::unique_ptr 是一个类模板(Smart Pointer)，与之对应的还有一个 std::shared_ptr，包含了一个管理的对象和一个删除方法
     * get 成员函数，返回管理的对象
 54. std::pair is a class template that provides a way to store two heterogeneous objects as a single unit.(std::pair 是一个类模板，提供了一种将两种不同的对象存储到一个单元中的方法)
     * first 成员，返回的是 pair 的第一个元素
     * second 成员，返回的是 pair 的第二个元素
+55. 类模板
+    * 既可以在类模板内部定义成员函数，也可以在类模板外部定义成员函数，且定义在类模板内的成员函数被隐式声明为内联函数
+    * 在类外部定义类模板的成员函数时，必须以 template 开始，后接类模板参数列表，和普通函数一样还要加上所属的类名，比如在类中声明的成员函数
+    ``` C++
+    template <typename T> class Blob
+    {
+        public:
+        T sum(T a, T b);
+    }
+    template <typename T>
+    T Blob<T>::sum(T a, T b)
+    {
+        return a + b;
+    }
+    ```
+    * 类模板的成员函数只有当程序用到它时才进行实例化
+    * 新标准允许为类模板定义一个类型别名：``template <typename T> using redBlob = class Blob;``
+    * 不能在类内部初始化非 const 的静态成员
+    * 因为参数名不能重用，所以一个模板参数名在一个特定的模板参数列表中只能出现一次
+    * 模板声明必须包含模板参数，可以只声明不定义模板, 并且定义时的模板参数和声明时候的模板参数名字不必一样
+    * C++ 语言假定通过作用域运算符访问的名字不是类型，因此如果我们希望使用一个模板类型参数的类型成员，必须显式告诉编译器该名字的是一个类型，这时候就需要使用关键词， **typename** 来实现, 这时候只能使用 typename
+    * 可以提供默认模板实参，即在定义模板参数时候初始化一个默认的模板参数,和模板默认实参一样，对一个模板参数来说，只有当他右侧的所有参数都有默认实参时，他才可以有默认实参数
+56. Smart Pointer (两种类型，用来智能地申请和释放动态内存，或者叫做堆区的内存)
+    * shared_ptr ： 允许多个指针指向相同的对象, 还定义了一个伴随类 weak_ptr 是 shared_ptr 的弱引用
+    * unique_ptr ： 只能允许同一个指针指向同一个对象
+    * 安全使用 smart_pointer 的方法是使用函数 make_shared() 函数给 smart pointer 变量赋值 ``std::unique_ptr<object> p1 = make_shared<object>(xxxxxx);``
+57. 通过将函数参数设置为 const 的引用，保证函数可以用于不能拷贝的类型
+58. inline 关键词放在模板参数列表之后， constexpr 也是这样，并且 constexpr 类型的函数可以将其用到 const 表达式
+59. 成员模板: 一个类可以包含本身是模板的成员函数，这种成员被成为成员模板(member template),成员模板不能是虚函数
