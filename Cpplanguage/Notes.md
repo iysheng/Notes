@@ -445,3 +445,5 @@ a3 = a2.opeartor+(a1);
 57. 通过将函数参数设置为 const 的引用，保证函数可以用于不能拷贝的类型
 58. inline 关键词放在模板参数列表之后， constexpr 也是这样，并且 constexpr 类型的函数可以将其用到 const 表达式
 59. 成员模板: 一个类可以包含本身是模板的成员函数，这种成员被成为成员模板(member template),成员模板不能是虚函数
+60. std::map 类模板: std::map<int index, string value>
+    * [] 重载的这个符号,可以获取指定的 index 的内容 ， std::pair<std::_Rb_tree_iterator<std::pair<const int, std::__cxx11::basic_string<char> > >, bool>
