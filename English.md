@@ -53,6 +53,7 @@ A
 |axis|坐标轴|
 |accommodate|容纳|
 |acronym|首字母缩写|
+|aka|又名,或者说可以叫做|
 
 B
 ---
@@ -271,6 +272,7 @@ H
 |Head or Tails|正面还是反面|
 |hammer|敲击|
 |here we go|我们开始吧|
+|helper functions|辅助函数|
 
 I
 ---
@@ -511,6 +513,8 @@ R
 |resembles|看起来像|
 |raster|光栅|
 |realm|领域|
+|react|做出反应|
+|radio button|单选按钮|
 
 S
 ---
