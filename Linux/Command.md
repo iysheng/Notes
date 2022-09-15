@@ -1118,3 +1118,5 @@ _sbrk (ptrdiff_t incr)
   ...
 }
 ```
+117. evtest 测试 /dev/input/eventX 测试对应的输入设备
+    * cat /proc/bus/input/devices  查看所有的输入设备

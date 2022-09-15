@@ -71,6 +71,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
 		22. $a -ge $b 如果 a 比 b 大或者一样
 		23. $a -gt $b 如果 a 比 b 大
 		24. $a -ne $b 如果 a 和 b 不相等
+		25. -f file 如果 file 存在，并且是一个常规的文件
 	``` bash
 	if condition # 关于 condition 这里，如果是执行一个命令，那么如果命令正常执行，则返回 0, 但是 if 会判断为真！！
 	then

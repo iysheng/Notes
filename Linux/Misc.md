@@ -468,6 +468,9 @@ Linux kernel internal documentation in different formats:
 	* [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
 		* weston-touch-calibrator 列出来触摸设备
 		* weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
+	* 调试触摸驱动
+		1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
+		2. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
 38. 原码、反码和补码
     * 原码 ：最高位是符号位，0代表正数，1代表负数，非符号位为该数字绝对值的二进制。
     * 反码：正数的反码与原码一致，负数的反码是对原码按位取反，只是最高位（符号位）不变。 
