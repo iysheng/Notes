@@ -245,6 +245,7 @@ F
 |font ligature|字体连字|
 |Finite State Machines (FSM)|有限状态机|
 |feasible|可行的|
+|formula|公式，准则|
 
 G
 ---

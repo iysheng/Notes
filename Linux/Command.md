@@ -1120,3 +1120,9 @@ _sbrk (ptrdiff_t incr)
 ```
 117. evtest 测试 /dev/input/eventX 测试对应的输入设备
     * cat /proc/bus/input/devices  查看所有的输入设备
+118. nfs 无法写入的时候，需要在 /etc/exports 文件将这个目录的权限修改,以 /tmp/abc 目录为例 ``/tmp/abc *(no_root_squash,rw,sync,no_subtree_check)``, 重点是 **no_root_squash** 这个配置
+119. ``cat /proc/sys/kernel/printk`` 会打印出来 4 个数据，分别表示：
+    1. console_loglevel ：优先级比这个高的会打印出来
+    2. default_message_loglevel ：如果 printk 没有明确指定打印级别，那么默认是这个级别
+    3. minimum_console_loglevel ：console_loglevel 可以设置的最高级别
+    4. default_console_loglevel ：console_loglevel 默认的级别
