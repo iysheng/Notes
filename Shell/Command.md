@@ -242,9 +242,15 @@ label1
 
 # label2 前添加 - 符号，表示会删除开头的 TABs 符号
 << -label2
-	...
+...
 label2
 
+# 用法示意
+cat >> a.txt << red
+hello world
+
+red
+# 就会生成 a.txt 文件，文件中包含 hello world 和一个空行
 ```
 23. 文件描述符
 ``` bash
