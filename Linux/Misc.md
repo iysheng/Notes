@@ -475,3 +475,13 @@ Linux kernel internal documentation in different formats:
     * 原码 ：最高位是符号位，0代表正数，1代表负数，非符号位为该数字绝对值的二进制。
     * 反码：正数的反码与原码一致，负数的反码是对原码按位取反，只是最高位（符号位）不变。 
     * 补码：正数的补码与原码一致，负数的补码是对原码按位取反加1，符号位不变。
+39. weston 工具在运行时会加载动态库,可以使用 chrpath 工具修改 elf 文件的 rpath 属性。具体指令为：
+	* chrpath -r <path> 可执行文件
+	* 特别注意的是，在加载动态库的时候，可以通过定义环境变量 WESTON_MODULE_MAP 来替换指定库的搜索路径：
+	``` bash
+export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
+export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
+export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
+export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
+export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
+	```
