@@ -1088,6 +1088,10 @@ SECTIONS
 106. [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
 107. tcpdump 调试网络
     * tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
+    * tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX # 过滤指定网卡、udp 格式、指定端口的数据包
+    * -XX 输出包的头部数据
+    * -vvv 打印非常详细的信息 | -vv 打印比 -vvv 稍微不详细的信息 | -v 打印比 -vv 稍微不详细的信息
+    * -nn 直接以 IP 和端口号的方式显示，而非主机名和服务名称
 108. 交叉编译工具连查看动态库的依赖信息
     * arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
 109. gzip 文件解压缩
@@ -1127,3 +1131,5 @@ _sbrk (ptrdiff_t incr)
     2. default_message_loglevel ：如果 printk 没有明确指定打印级别，那么默认是这个级别
     3. minimum_console_loglevel ：console_loglevel 可以设置的最高级别
     4. default_console_loglevel ：console_loglevel 默认的级别
+120. netcat 可以用来调试网络，作为网络串口助手类似的工具
+    * netcat -v 10.20.52.123 567 -u -p 123 # 使用源端口 123 向目标端口 567 目标 ip 10.20.52.123 发送 udp 连接

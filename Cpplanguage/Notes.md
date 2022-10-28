@@ -221,7 +221,7 @@ ABC a(1); /* 等价 ABC a = 1; 这个构造方法只有一个参数 */
 	``` C++
 	ABC::ABC(int a):age(a),acount(a)
 	```
-	3. 因为 static 成员变量独立 object,所属这个 class,所以如果将一个 static 便另至为 private 类型，那么需要使用 static 方法访问这个 static 变量,static 方法可以使用类的域操作符访问， ABC::getnum()
+	3. 因为 static 成员变量独立 object,所属这个 class,所以如果将一个 static 变量定义为 private 类型，那么需要使用 static 方法访问这个 static 变量,static 方法可以使用类的域操作符访问， ABC::getnum()
 	4. 定义在 class 的枚举，只在这个 class 可以直接使用
 27. 数组
 	1. 数组的成员也可以是类的对象，这时候就称之为 class array
@@ -465,3 +465,4 @@ a3 = a2.opeartor+(a1);
     1. 初始化类的成员对象，或者叫做成员变量
     2. 调用基类的构造函数进行初始化
 64. 可以通过是否定义 ``__cplusplus`` 宏来确定是 c++ 还是 c 语言
+65. 函数声明的尾部添加 noexcept 关键词表示这个函数不会抛出异常， 比如 ``void test(int) noexcept; // 不会抛出异常``
