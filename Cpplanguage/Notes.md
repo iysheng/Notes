@@ -466,3 +466,7 @@ a3 = a2.opeartor+(a1);
     2. 调用基类的构造函数进行初始化
 64. 可以通过是否定义 ``__cplusplus`` 宏来确定是 c++ 还是 c 语言
 65. 函数声明的尾部添加 noexcept 关键词表示这个函数不会抛出异常， 比如 ``void test(int) noexcept; // 不会抛出异常``
+66. std::chrono  是 cpp 的 一个时间库,在这个库中，处理时间有三个概念：
+	* Durations： 持续时间, 计算时间跨度，可以是分钟，小时或者毫秒, 使用的是 duration 这个类模板，有一个数量的表示和一个单位的表示，比如 10 毫秒，数量就是 10, 单位是毫秒
+	* Time points：时间点,使用的是 time_point 这个类模板
+	* Clocks: 时钟,一个描述将 time_point 转换为物理时间的框架
