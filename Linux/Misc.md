@@ -468,6 +468,14 @@ Linux kernel internal documentation in different formats:
 	* [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
 		* weston-touch-calibrator 列出来触摸设备
 		* weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
+		* 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: ``/etc/udev/rules.d/touchscreen.rules``， 该文件的内容是：
+		```
+SUBSYSTEM=="input", KERNEL=="event[0-9]*",
+
+ENV{ID_INPUT_TOUCHSCREEN}=="1",
+
+ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
+		```
 	* 调试触摸驱动
 		1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
 		2. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
