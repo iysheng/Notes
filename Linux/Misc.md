@@ -129,7 +129,22 @@ wget https://avatars.githubusercontent.com/iysheng # 下载 iysheng 的头像
 
 ---
 ### zephyr 学习笔记
-##### Porting to new board Cubieble1
+
+#### 基础知识
+zephyr 使用 cmake 来构建应用程序。构建过程分为两个阶段。第一阶段是配置阶段，执行 CMakeLists.txt 中的脚本生成可在主机上运行的构建脚本；第二阶段是构建阶段，使用配置阶段生成的构建脚本，来编译生成应用程序。
+zephyr 使用 cmake 的目标（target）概念来组织构建过程，目标可以是可执行文件、库或者生成的文件。在 zephyr 构建过程中，引入的所有源代码，都是通过包含在库目标中来实现的，包括应用程序代码。库目标是关键。
+库目标所包含的源代码都过 CMakeLists.txt 构建脚本添加：
+``` bash
+target_sources(app PRIVATE src/main.c)
+```
+上述代码定义了一个名为app的库目标(这个库目标在其他位置被定义过)被配置为包含源文件src/main.c。PRIVATE 关键字表示我们正在修改（构件库的）内部行为。如果改成 PUBLIC 会导致和 app 链接的库也包含源文件 src/main.c，一般是不需要这样的。但是在修改目标库的包含路径时，PUBLIC 关键字可能很有用。
+
+#### Zephyr CMake Package(包)
+Zephyr CMake Package(包) 非常适合创建基于 zephyr 的应用。Zephyr CMake Package(包) 确保 cmake 可以自动选择 zephyr 用来编译应用，无论是 zephyr 的集成式应用，还是 zephyr 的独立式应用。
+在开发基于 zephyr 的应用时，开发者只需要在应用目录的 CMakeLists.txt 文件开头写上 find_package(Zephyr) 即可。
+要使用 Zephyr CMake Package(包)，必须先将其导出到 CMake 用户包注册表。上述的意思是在 Cmake 用户包注册表中创建一个到当前 zephyr 的引用。
+
+#### Porting to new board Cubieble1
 |Board    |SOC    |SOC series|SOC Family|CPU core |Architecture|
 |---------|-------|----------|----------|---------|------------|
 |Cubiebl1 |ATB1109|ATB110X   |ATB       |Cortex-M0|ARM         |

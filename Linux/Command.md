@@ -356,10 +356,10 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     ``` bash
     make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
     ```
-    2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeLists.txt 文件，然后再 cmake 构建
+    2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeCache.txt 文件，然后再 cmake 构建
     3. link_directories() 添加库的搜索路径
     4. include_directories() 添加库头文件路径
-    5. cmake -DCMAKE_TOOLCHAIN_FILE=定义工具链的文件 可以实现交叉编译。比如指定交叉编译工具链的文件示意：
+    5. cmake -DCMAKE_TOOLCHAIN_FILE=定义工具链的文件可以实现交叉编译。比如指定交叉编译工具链的文件示意：
     ``` text
 set(CMAKE_SYSTEM_NAME Linux)
 
@@ -369,6 +369,9 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
     ```
     6. -DCMAKE_INSTALL_PREFIX 指定 install 路径
     7. FIND_PATH() 查找包含指定文件的目录
+    8. find_package() 有两种模式：默认地，首先使用模块模式搜索，然后才会使用配置模式搜索
+        * 模块模式： 查找 Find<package>.cmake，搜索路径是 CMAKE_MODULE_PATH，和 cmake 的安装路径
+        * 配置模式： 搜索 <lowercastPackageName>-config.cmake或<PackageName>Config.cmake文件。如果 find_package() 命令中指定了具体的版本，也会搜索  <lowercastPackageName>-config-version.cmake或<PackageName>ConfigVersion.cmake 文件，因此配置模式下通常会提供配置文件和版本文件，并且作为包的一部分一起提供给使用者。
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷
@@ -1136,4 +1139,4 @@ _sbrk (ptrdiff_t incr)
 121. iperf 工具，网络压力测试工具
     1. 服务端运行： ``iperf -u -s -i 1`` # -u 表示以 udp 模式运行 不加该参数默认是 tcp 模式，-s 表示作为客户端, 和嵌入式板卡测试时候发现，如果最后统计丢包率，可能十分不准确，这时候可以通过追加 **-i 1**，让服务端每次都打印出来速度信息
     2. 客户端运行：
-        1. ``iperf -u -c 192.168.1.5 -b 100M 0t 60 -i 2`` # -u 表示在 udp 模式下，以 100M 的速率想服务端上传数据，进行带宽测试,测试时间为 60s
+        1. ``iperf -u -c 192.168.1.5 -b 100M -t 60 -i 2`` # -u 表示在 udp 模式下，以 100M 的速率想服务端上传数据，进行带宽测试,测试时间为 60s
