@@ -373,6 +373,7 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
     8. find_package() 有两种模式：默认地，首先使用模块模式搜索，然后才会使用配置模式搜索
         * 模块模式： 查找 Find<package>.cmake，搜索路径是 CMAKE_MODULE_PATH，和 cmake 的安装路径
         * 配置模式： 搜索 <lowercastPackageName>-config.cmake或<PackageName>Config.cmake文件。如果 find_package() 命令中指定了具体的版本，也会搜索  <lowercastPackageName>-config-version.cmake或<PackageName>ConfigVersion.cmake 文件，因此配置模式下通常会提供配置文件和版本文件，并且作为包的一部分一起提供给使用者。
+    8. file(GLOB_RECURSE GUI_RESOURCES "src/GuiLite/resouce/*.cpp") # 查找指定路径下所有 cpp 文件，存储到 GUI_RESOURCES 变量中
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷
