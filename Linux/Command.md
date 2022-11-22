@@ -373,7 +373,52 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
     8. find_package() 有两种模式：默认地，首先使用模块模式搜索，然后才会使用配置模式搜索
         * 模块模式： 查找 Find<package>.cmake，搜索路径是 CMAKE_MODULE_PATH，和 cmake 的安装路径
         * 配置模式： 搜索 <lowercastPackageName>-config.cmake或<PackageName>Config.cmake文件。如果 find_package() 命令中指定了具体的版本，也会搜索  <lowercastPackageName>-config-version.cmake或<PackageName>ConfigVersion.cmake 文件，因此配置模式下通常会提供配置文件和版本文件，并且作为包的一部分一起提供给使用者。
-    8. file(GLOB_RECURSE GUI_RESOURCES "src/GuiLite/resouce/*.cpp") # 查找指定路径下所有 cpp 文件，存储到 GUI_RESOURCES 变量中
+    9. file(GLOB_RECURSE GUI_RESOURCES "src/GuiLite/resouce/*.cpp") # 查找指定路径下所有 cpp 文件，存储到 GUI_RESOURCES 变量中
+    10. execute_process() 命令,可以执行指定的命令将命令返回的结果保存到变量.
+    ``` cmake
+     execute_process(
+     COMMAND git rev-parse --short HEAD  # 获取仓库的 commitid
+     OUTPUT_VARIABLE LED3000_COMMIT_ID   # 将 commitid 保存到变量 LED3000_COMMIT_ID
+     ECHO_OUTPUT_VARIABLE                # 直接将打印同步输出到标准输出
+     OUTPUT_STRIP_TRAILING_WHITESPACE    # 去除结尾多的空格
+     ERROR_VARIABLE FAILED_GET_LED3000_COMMIT_ID # 如果命令执行出错结果保存到这给变量
+     )
+    ```
+    11. configure_file() 复制一个文件到另一个文件,并修改文件的内容
+    ``` cmake
+    configure_file(${CMAKE_SOURCE_DIR}/led3000/version.h.in # 原始文件是 version.h.in
+      ${CMAKE_SOURCE_DIR}/led3000/version.h                 # 目标文件是 version.h
+    )
+    ```
+    version.h.in 文件内容为
+    ``` txt
+#ifndef __VERSION_H__
+#define __VERSION_H__
+
+#define LED3000_MAJOR_VERSION @LED3000_MAJOR_VERSION@
+#define LED3000_MINOR_VERSION @LED3000_MINOR_VERSION@
+#define LED3000_PATCH_VERSION @LED3000_PATCH_VERSION@
+#cmakedefine LED3000_COMMIT_ID     "@LED3000_COMMIT_ID@"
+
+#endif /* ifndef __VERSION_H__ */
+    ```
+    如果 CMakeLists.txt 文件中设置:
+    set(LED3000_MAJOR_VERSION 0)
+    set(LED3000_MINOR_VERSION 1)
+    set(LED3000_PATCH_VERSION 2)
+    set(LED3000_COMMIT_ID     "abc")
+    转换之后生成的 ``version.h`` 内容为:
+    ```
+#ifndef __VERSION_H__
+#define __VERSION_H__
+
+#define LED3000_MAJOR_VERSION 0
+#define LED3000_MINOR_VERSION 1
+#define LED3000_PATCH_VERSION 2
+#define LED3000_COMMIT_ID     "abc"
+
+#endif /* ifndef __VERSION_H__ */
+    ```
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷

@@ -379,7 +379,7 @@ a3 = a2.opeartor+(a1);
     * back() 返回容器的最后一个元素
     * void resize (size_type n) 修改 vector 大小为 n 个元素
     * void resize (size_type n, const value_type& val) 修改 vector 大小为 n 个元素，如果之前不足 n 个，那么使用 val 补全到 n 个
-    * emplace_back(args) 使用 args 参数创建一个构造函数，插入这个新的对象到尾部
+    * emplace_back(args) 使用 args 参数创建一个对象，插入这个向量的尾部
     * emplace(positon, args) 使用 args 参数创建一个构造函数，插入这个新的对象到 position 指定的位置
 45. auto 关键字，auto 的原理是根据后面的值，来推测前面的类型是什么, 一般用来简化变量初始化
 46. to_string(数据) 将数据转换为 string 类型
