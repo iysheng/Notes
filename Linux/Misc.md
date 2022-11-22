@@ -510,3 +510,4 @@ export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell
 	```
 40. 如果发现在 linux 串口发送数据时，0X0A 被转换成了 0X0D 和 0X0A，那么需要修改 c_oflag &= ~ONLCR
 41. 如果发现樱桃键盘 windows 键盘无反应,FUN+F9 解锁，这是为了防止误触把几个键给锁定了。是因为樱桃键盘有两种模式,办公模式和游戏模式,在有时模式下会锁定: windows, alt+f4, alt+tab, ctrl+esc, ctrl+alt+delete 按键,切换两种模式的方法就是 **Fn + F9**
+42. gcc 中 ``__DATE__`` 和 ``__TIME__`` 分别表示编译的日期和时间
