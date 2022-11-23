@@ -138,3 +138,5 @@ Pin connected to some other pins but no pin to drive it
 	* [componentsearchengine](https://componentsearchengine.com)
 34. 避免检查 kicad courtyard overlap
 ![courtyard](figures/courtyard.png)
+35. [pcad2kicad](https://github.com/iysheng/pcad2kicad.git) 一款 ad 封装库转 kicad 封装库的工具
+	* csplit  AD.lib /ENDDEF/+1 {*} 将 kicad 的原理图库集合拆分为多个元器件符号文件,还需要继续处理,这里只是记录下使用 csplit 工具方便进行文本拆分

@@ -234,7 +234,7 @@ unset array[100] # 删除 array 数组第 101 个元素的赋值
 |>& file|**重定向标准输出和错误输出到 file**|
 |<&-|关闭标准输入|
 |>&-|关闭标准输出|
-22. **here-document** # 用来替换标准输入，label 这一段内容临时替换位上一个命令的标准输入，语法
+22. **here-document** # 用来替换标准输入，label 这一段内容临时替换为上一个命令的标准输入，语法
 ``` bash
 << label1
 ...
@@ -251,6 +251,12 @@ hello world
 
 red
 # 就会生成 a.txt 文件，文件中包含 hello world 和一个空行
+
+sed -f - a.txt > b.txt << replace
+1,1s/^/&RED/g
+replace
+# 将 a.txt 的第一行行首添加 RED,然后另存为 b.txt
+# -f - 表示紧跟的标准输入作为命令参数
 ```
 23. 文件描述符
 ``` bash
