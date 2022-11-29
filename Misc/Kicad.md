@@ -140,3 +140,5 @@ Pin connected to some other pins but no pin to drive it
 ![courtyard](figures/courtyard.png)
 35. [pcad2kicad](https://github.com/iysheng/pcad2kicad.git) 一款 ad 封装库转 kicad 封装库的工具
 	* csplit  AD.lib /ENDDEF/+1 {*} 将 kicad 的原理图库集合拆分为多个元器件符号文件,还需要继续处理,这里只是记录下使用 csplit 工具方便进行文本拆分
+36. Kicad 下绘制 power 符号,管教属性选择 **power in**, 不然的话多个 power out 符号管教连载一起会报错,但是选择 power in 的话,可以通过添加 POWER FLAG 避免 ERC 检查错误
+37. 不同的 Grid 设置会导致 ERC 检查出不同数量的警告 **symbol pin or wire end off grid**, 建议绘制原理图和元器件符号时,统一使用 50mil 的 grid 设置.
