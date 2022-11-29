@@ -1192,3 +1192,10 @@ _sbrk (ptrdiff_t incr)
     csplit 文件名 /正则表达式/[偏移]
     csplit a.txt /abc/+1
     ```
+123. ddcutil 工具可以设置外接 HDMI 显示器的亮度, 具体方法:
+``` bash
+# ddcutil detect 查看支持的显示器信息
+# ddcutil setvcp 10 50 命令码 10 表示设置亮度 50 表示设置的亮度值
+# ddcutil getvcp 10 命令码 10 表示获取亮度
+# ddcutil vcpinfo 查看显示器信息的信息
+```
