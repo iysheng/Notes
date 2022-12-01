@@ -1183,6 +1183,7 @@ _sbrk (ptrdiff_t incr)
     4. default_console_loglevel ：console_loglevel 默认的级别
 120. netcat 可以用来调试网络，作为网络串口助手类似的工具
     * netcat -v 10.20.52.123 567 -u -p 123 # 使用源端口 123 向目标端口 567 目标 ip 10.20.52.123 发送 udp 连接
+    * echo '0059000800000000' | xxd -r -p | netcat -v 10.20.52.99 123 -u -p 567 # 通过 netcat 发送 16 进制数据 0x00 0x59 ...
 121. iperf 工具，网络压力测试工具
     1. 服务端运行： ``iperf -u -s -i 1`` # -u 表示以 udp 模式运行 不加该参数默认是 tcp 模式，-s 表示作为客户端, 和嵌入式板卡测试时候发现，如果最后统计丢包率，可能十分不准确，这时候可以通过追加 **-i 1**，让服务端每次都打印出来速度信息
     2. 客户端运行：
@@ -1199,3 +1200,4 @@ _sbrk (ptrdiff_t incr)
 # ddcutil getvcp 10 命令码 10 表示获取亮度
 # ddcutil vcpinfo 查看显示器信息的信息
 ```
+123. [sokit](https://github.com/sinpolib/sokit/releases/tag/v1.3.20150507) Linux 平台图形化的 tcp/udp 调试工具

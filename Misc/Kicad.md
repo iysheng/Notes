@@ -31,6 +31,7 @@ Pin connected to some other pins but no pin to drive it
 |快捷鍵|功能|
 |---|---|
 |-|切換底層和頂層|
+|~|高亮当前网络|
 |v(布線中)|添加過孔|
 |x|開始布線|
 |q|布線時打開線寬編輯|
