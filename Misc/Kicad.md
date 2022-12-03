@@ -47,6 +47,10 @@ Pin connected to some other pins but no pin to drive it
 |shift + N|shiyong shangyige grid 的大小,修改网格大小,|
 |ctrl + 鼠标左键|高亮指定的网络|
 |u|扩展连线|
+|7|绘制单根等长线|
+|8|绘制双根差分等长线|
+|9|绘制差分等长线的单根|
+|ctrl + l|打开绘制等长线的配置界面|
 
 12. [庫文件搜索](https://componentsearchengine.com)，支持下載符號、封裝庫和 3D 模型
 13. kicad 不同後綴名文件類型
@@ -145,3 +149,4 @@ Pin connected to some other pins but no pin to drive it
 	* csplit  AD.lib /ENDDEF/+1 {*} 将 kicad 的原理图库集合拆分为多个元器件符号文件,还需要继续处理,这里只是记录下使用 csplit 工具方便进行文本拆分
 36. Kicad 下绘制 power 符号,管教属性选择 **power in**, 不然的话多个 power out 符号管教连载一起会报错,但是选择 power in 的话,可以通过添加 POWER FLAG 避免 ERC 检查错误
 37. 不同的 Grid 设置会导致 ERC 检查出不同数量的警告 **symbol pin or wire end off grid**, 建议绘制原理图和元器件符号时,统一使用 50mil 的 grid 设置.
+38. Kicad 选择一段线,在界面下方会显示这段线的长度(segment length)和这整个 **routed length**,也就是这根线所连的两端之间线的总长度,这个长度在绘制等长线的时候会使用到
