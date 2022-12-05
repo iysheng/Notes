@@ -150,3 +150,5 @@ Pin connected to some other pins but no pin to drive it
 36. Kicad 下绘制 power 符号,管教属性选择 **power in**, 不然的话多个 power out 符号管教连载一起会报错,但是选择 power in 的话,可以通过添加 POWER FLAG 避免 ERC 检查错误
 37. 不同的 Grid 设置会导致 ERC 检查出不同数量的警告 **symbol pin or wire end off grid**, 建议绘制原理图和元器件符号时,统一使用 50mil 的 grid 设置.
 38. Kicad 选择一段线,在界面下方会显示这段线的长度(segment length)和这整个 **routed length**,也就是这根线所连的两端之间线的总长度,这个长度在绘制等长线的时候会使用到
+39. Altium Designer 快捷键
+	1. shift + x 查看一段线的信息
