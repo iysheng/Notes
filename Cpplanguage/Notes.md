@@ -473,3 +473,14 @@ a3 = a2.opeartor+(a1);
 67. 函数传递引用和指针的区别:
     * 传递引用会进行类型检查,引用不可以为空,引用过程会进行类型检查,所以引用是类型安全的
     * 引用传递和指针传递都会对传入的数据内容修改
+68. 枚举类的使用
+``` cpp
+enum class animal {dog, cat};
+
+animal a0 = animal::dog;
+
+// 传统的枚举
+enum animal{dog, cat};
+
+auto a1 = dog;
+```
