@@ -511,3 +511,29 @@ export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell
 40. 如果发现在 linux 串口发送数据时，0X0A 被转换成了 0X0D 和 0X0A，那么需要修改 c_oflag &= ~ONLCR
 41. 如果发现樱桃键盘 windows 键盘无反应,FUN+F9 解锁，这是为了防止误触把几个键给锁定了。是因为樱桃键盘有两种模式,办公模式和游戏模式,在有时模式下会锁定: windows, alt+f4, alt+tab, ctrl+esc, ctrl+alt+delete 按键,切换两种模式的方法就是 **Fn + F9**
 42. gcc 中 ``__DATE__`` 和 ``__TIME__`` 分别表示编译的日期和时间
+43. fedora nfs 参数配置文件是 **/etc/exports**,
+* no_root_squash 参数表示,远端可以正常使用 root 用户挂载,如果没有这个参数,对方使用 root 用户时会变为 nobody 用户
+* async 加快传输,禁止应答
+* sync 是默认的, nfs-server 会对写入的文件发送应答
+```
+/var/lib/nfs  10.20.52.0/255.255.255.0(rw,async)
+```
+44. [SWIG](https://www.swig.org/) 是一个软件工具,实现将 C/C++ 的程序和一些更高级的语言联系到一起.支持将 C/C++ 语言和 python.
+1. swig 接口文件(一般是 .i 或者 .swg 后缀名)包含了函数和变量声明
+```
+/* File : example.i */
+/* %module 定义了变量的名字为 example */
+%module example
+
+/* %{ %} 代码块提供了插入代码的位置, 比如一些 C 的头文件 */
+%{
+/* Put headers and other declarations here */
+extern double My_variable;
+extern int    fact(int);
+extern int    my_mod(int n, int m);
+%}
+
+extern double My_variable;
+extern int    fact(int);
+extern int    my_mod(int n, int m);
+```
