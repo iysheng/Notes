@@ -73,3 +73,100 @@ $.parseJSON(g_basic_info_data); /* 將 json 格式的字符串轉換爲 JSON obj
           type: "POST" /* 請求的方法 */
       })
 ```
+* js 代码,在 html 的 <script> tags 中
+* js 代码也可以放在外部文件中, 在外部文件中的优势: 1. 拆分 html 2. 保持容易阅读 3. 缓存 js,加快响应, 还可以引用网络的 js 文件
+``` html
+<script src="demo.js"></script>
+<script src="https://www.w3schools.com/js/myScript.js"></script>
+```
+* js 的打印删除
+  1. console.log() console 调试
+  2. Writing into an HTML element, using innerHTML.
+  3. Writing into the HTML output using document.write().
+  4. Writing into an alert box, using window.alert().
+* js 会忽略空格
+* 关键词:
+  * var: 声明变量, 1995-2015 年使用这个
+  * let: 声明块变量(Declares a block variable), 2015 年后使用这个???
+  * const: 声明块常量???
+  * if:
+  * switch:
+  * for:
+  * function:声明一个函数
+    * function test_func(p1, p2) { xxxxx; }
+  * return:退出函数
+  * try:代码块的错误处理
+* 注释
+  1. // 注释代码
+  2. /* 多行注释  */
+* JavaScript Arrow Function, 有点类似 C++ 的 lambda 表示式, 定义了一种更短语句定义一个函数的语法
+  1. const decrypt = (e) => {xxxxxxx} 如果只有一个函数参数, 那么 () 符号可以省略, 等价 const decrypt = e => {xxx}
+* async 函数,使得异步操作变得更加方便,换一句话说,就是 Generator 函数的语法糖
+``` js
+function* foo(){
+    yield setTimeout(()=>{console.log("第一步耗时操作 开始执行")}, 1000)
+    yield setTimeout(()=>{console.log("第二步耗时操作 执行中")}, 2000)
+    yield setTimeout(()=>{console.log("第三步耗时操作 执行结束")}, 3000)
+}
+
+gen=foo()
+gen.next()
+gen.next()
+gen.next()
+for (let arrayElement of gen){}
+
+// async 语法糖,简写生成器的调用
+async function foo() {
+    await setTimeout(()=>{console.log("第一步耗时操作 开始执行")}, 1000)
+    await setTimeout(()=>{console.log("第二步耗时操作 执行中")}, 2000)
+    await setTimeout(()=>{console.log("第三步耗时操作 执行结束")}, 3000)
+}
+
+foo()
+```
+  1. generator 函数的执行必须依靠执行器,但是 async 函数自带执行器,即 async 函数的执行和普通函数一样,只要一行, 但是 generator 函数,需要调用 next 方法或者 for 语法
+  2. async 和 await 相比 generator 的 * 和 yield 有更好的语义, async 表示函数中有异步操作, await 表示紧跟在后面的表达式需要等待结果
+  3. async 相比 generator 有更广的使用性, await 后可以是 promise 对象和原始类型的值(数值,字符串和布尔值,会自动转为 resolved 的 promise 对象)
+  4. async 返回值是 promise 对象, 比 generator 返回的 iterator 方便,可以用 then 指定下一步操作, async 函数返回值会被 then 方法回调到
+* 使用 class 关键词创建一个类
+```
+class ClassName {
+  constructor() { ... } // 通常会创建一个构造函数
+}
+
+class Car {
+  constructor(name, year)
+  {
+    this.name = name;
+    this.year = year;
+  }
+}
+```
+* promise 是一个 js 的对象,用来连接生产者和消费者,生产者是比较耗时的代码,消费者是需要等待生产者完成之后才能执行的代码.
+``` js
+// 通过传递两个回调函数,构建了一个 Promise 对象, 两个回调函数分别对应
+// 成功执行和错误执行的回调
+let myPromise = new Promise(function(myResolve, myReject) {
+// "Producing Code" (May take some time)
+
+  myResolve(); // when successful
+  myReject();  // when error
+});
+
+// "Consuming Code" (Must wait for a fulfilled Promise)
+// myPromise 的 then 方法使用两个参数,一个用来成功的回调函数,一个是出错的回调函数
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);
+
+// 创建了一个 Promise 的对象
+let myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function() { myResolve("I love You !!"); }, 3000);
+});
+
+// 传递了一个成功的回调函数
+myPromise.then(function(value) {
+  document.getElementById("demo").innerHTML = value;
+});
+```
