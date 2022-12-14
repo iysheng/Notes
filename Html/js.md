@@ -101,33 +101,6 @@ $.parseJSON(g_basic_info_data); /* 將 json 格式的字符串轉換爲 JSON obj
   2. /* 多行注释  */
 * JavaScript Arrow Function, 有点类似 C++ 的 lambda 表示式, 定义了一种更短语句定义一个函数的语法
   1. const decrypt = (e) => {xxxxxxx} 如果只有一个函数参数, 那么 () 符号可以省略, 等价 const decrypt = e => {xxx}
-* async 函数,使得异步操作变得更加方便,换一句话说,就是 Generator 函数的语法糖
-``` js
-function* foo(){
-    yield setTimeout(()=>{console.log("第一步耗时操作 开始执行")}, 1000)
-    yield setTimeout(()=>{console.log("第二步耗时操作 执行中")}, 2000)
-    yield setTimeout(()=>{console.log("第三步耗时操作 执行结束")}, 3000)
-}
-
-gen=foo()
-gen.next()
-gen.next()
-gen.next()
-for (let arrayElement of gen){}
-
-// async 语法糖,简写生成器的调用
-async function foo() {
-    await setTimeout(()=>{console.log("第一步耗时操作 开始执行")}, 1000)
-    await setTimeout(()=>{console.log("第二步耗时操作 执行中")}, 2000)
-    await setTimeout(()=>{console.log("第三步耗时操作 执行结束")}, 3000)
-}
-
-foo()
-```
-  1. generator 函数的执行必须依靠执行器,但是 async 函数自带执行器,即 async 函数的执行和普通函数一样,只要一行, 但是 generator 函数,需要调用 next 方法或者 for 语法
-  2. async 和 await 相比 generator 的 * 和 yield 有更好的语义, async 表示函数中有异步操作, await 表示紧跟在后面的表达式需要等待结果
-  3. async 相比 generator 有更广的使用性, await 后可以是 promise 对象和原始类型的值(数值,字符串和布尔值,会自动转为 resolved 的 promise 对象)
-  4. async 返回值是 promise 对象, 比 generator 返回的 iterator 方便,可以用 then 指定下一步操作, async 函数返回值会被 then 方法回调到
 * 使用 class 关键词创建一个类
 ```
 class ClassName {
@@ -170,3 +143,47 @@ myPromise.then(function(value) {
   document.getElementById("demo").innerHTML = value;
 });
 ```
+* async 函数,使得异步操作变得更加方便,换一句话说,就是 Generator 函数的语法糖, async 创造了一个函数返回一个 Promise, await 创造了一个函数等待 Promise
+``` js
+async function myFunction() {
+  return "Hello";
+}
+
+// 等价
+function myFunction() {
+// 返回一个 Promise
+  return Promise.resolve("Hello");
+}
+
+//
+
+function* foo(){
+    yield setTimeout(()=>{console.log("第一步耗时操作 开始执行")}, 1000)
+    yield setTimeout(()=>{console.log("第二步耗时操作 执行中")}, 2000)
+    yield setTimeout(()=>{console.log("第三步耗时操作 执行结束")}, 3000)
+}
+
+gen=foo()
+gen.next()
+gen.next()
+gen.next()
+for (let arrayElement of gen){}
+
+// async 语法糖,简写生成器的调用
+async function foo() {
+    await setTimeout(()=>{console.log("第一步耗时操作 开始执行")}, 1000)
+    await setTimeout(()=>{console.log("第二步耗时操作 执行中")}, 2000)
+    await setTimeout(()=>{console.log("第三步耗时操作 执行结束")}, 3000)
+}
+
+foo()
+```
+  1. generator 函数的执行必须依靠执行器,但是 async 函数自带执行器,即 async 函数的执行和普通函数一样,只要一行, 但是 generator 函数,需要调用 next 方法或者 for 语法
+  2. async 和 await 相比 generator 的 * 和 yield 有更好的语义, async 表示函数中有异步操作, await 表示紧跟在后面的表达式需要等待结果
+  3. async 相比 generator 有更广的使用性, await 后可以是 promise 对象和原始类型的值(数值,字符串和布尔值,会自动转为 resolved 的 promise 对象)
+  4. async 返回值是 promise 对象, 比 generator 返回的 iterator 方便,可以用 then 指定下一步操作, async 函数返回值会被 then 方法回调到
+* js object, 创建 js object 的四种方法
+  1. Create a single object, using an object literal // const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+  2. 使用关键词 new // const person = new Object(); person.firstName = "John";
+  3. js 的 object 是可变的, 通过引用寻址, 如果 person 是一个 js 的 object, ``const x=person`` 不会创建一个 person 的 copy, 有点类似 c++ 引用的概念, 即变量别名.
+  4. js 中几乎所有对象都是 object
