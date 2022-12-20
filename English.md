@@ -635,6 +635,7 @@ U
 |upside|好的一面|
 |until then|在那之前|
 |underlying|底层|
+|underlying type|基础类型|
 
 V
 ---

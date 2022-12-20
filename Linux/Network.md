@@ -26,7 +26,7 @@ struct sockaddr {
     char sa_data[14];
 }
 ```
-* recvfrom 函数传递的参数 src_addr 和 addrlen ,会指向真正接收到的数据的源地址
+* recvfrom 函数传递的参数 src_addr (不为空时)和 addrlen (不为空时) ,会指向真正接收到的数据的源地址
 ```
 ssize_t recvfrom(int sockfd, void *restrict buf, size_t len, int flags,
                         struct sockaddr *restrict src_addr,
