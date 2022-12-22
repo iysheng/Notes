@@ -488,6 +488,37 @@ void t19()
 	cout << "second:b3=" << b3.getnum() << endl;
 }
 
+template <typename T> void test_sum(T a, T b)
+{
+	T c;
+	c = a + b;
+
+	cout << "sum of them is: " << c << endl;
+	// less is a template class
+	if (less<T>()(a, b))
+		cout << "a is less than b" << endl;
+	else
+		cout << "a is big than b" << endl;
+}
+
+template <typename T>
+class car
+{
+    public:
+	car(T a){m_a = a;};
+	void say_hello(void);
+
+	private:
+	T m_a;
+};
+
+template <typename T>
+void car<T>::say_hello(void)
+{
+	cout << "value is:" << m_a << endl;
+}
+
+
 int main()
 {
 #if 0
@@ -506,7 +537,14 @@ int main()
 
     t19();
 #endif
+	test_sum<int>(1, 2);
+	test_sum<float>(2.1, 1.0);
 	string hello = R"(Hello \n ") china)";
 	cout << hello << endl;
+
+	car<int> bb(1);
+
+	bb.say_hello();
+
 	return 0;
 }
