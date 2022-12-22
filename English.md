@@ -54,6 +54,7 @@ A
 |accommodate|容纳|
 |acronym|首字母缩写|
 |aka|又名,或者说可以叫做|
+|annular|环形的|
 
 B
 ---
@@ -194,6 +195,7 @@ D
 |de-facto|事实上的|
 |digest|摘要|
 |distill|提取|
+|deduced|推断|
 
 E
 ---
@@ -635,7 +637,7 @@ U
 |upside|好的一面|
 |until then|在那之前|
 |underlying|底层|
-|underlying type|基础类型|
+|underlying type|基础类型,隐藏类型|
 
 V
 ---

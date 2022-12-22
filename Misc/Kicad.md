@@ -140,7 +140,7 @@ Pin connected to some other pins but no pin to drive it
     * 场效应管很高的输入阻抗非常适合作阻抗变换
     * 场效应管可以用作可变电阻
     * 场效应管可以用作电子开关
-33. **Kicad** 器件下載網址彙總
+33. **Kicad** 器件下载网址汇总
 	* [snapeda](https://www.snapeda.com) 下載 3D 模型圖時選擇 ``NX.10`` 格式的，可以較好的支持帶有顏色的 3D
 	* [componentsearchengine](https://componentsearchengine.com)
 34. 避免检查 kicad courtyard overlap
@@ -152,3 +152,6 @@ Pin connected to some other pins but no pin to drive it
 38. Kicad 选择一段线,在界面下方会显示这段线的长度(segment length)和这整个 **routed length**,也就是这根线所连的两端之间线的总长度,这个长度在绘制等长线的时候会使用到
 39. Altium Designer 快捷键
 	1. shift + x 查看一段线的信息
+40. PCB 设计中, 孔有四种作用:电气导通,定位,散热,方便分板.孔又分为导通孔(PTH)和非导通孔(NPTH),在一般的设计中,只有 PTH 有孔环, NPTH 是不具备孔环的,在一些特殊的情况, 也会给 NPTH 孔设计孔环(这时候孔起到接地的作用).
+	* PTH 是金属化孔,一般在电路板的 PTH 孔有两种用途:一种是用来焊接 DIP 封装的元器件的管脚用的; 另一种是比较小的 PTH,俗称过孔 via(或者叫导通孔)
+	* NPTH 是非金属化孔,孔内侧没有铜,比如说用来定位的螺丝孔,一般就是 NPTH 的
