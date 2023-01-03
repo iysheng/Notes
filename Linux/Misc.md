@@ -536,3 +536,23 @@ extern int    fact(int);
 extern int    my_mod(int n, int m);
 ```
 45. Fedora 调节背光,修改文件 **/sys/class/backlight/intel_backlight/brightness** 一般选取 200 左右
+46. gnome 默认使用 wayland 作为后端,如果需要改为 X11, 需要修改文件 /etc/gdm/custom.conf, 查看 gnome 的后端命令:``loginctl show-session 2 -p Type``
+```
+# GDM configuration storage
+
+[daemon]
+# Uncomment the line below to force the login screen to use Xorg
+WaylandEnable=false
+#DefaultSession=gnome-xorg.desktop
+
+[security]
+
+[xdmcp]
+
+[chooser]
+
+[debug]
+# Uncomment the line below to turn on debugging
+#Enable=true
+
+```

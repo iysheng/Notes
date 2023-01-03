@@ -359,32 +359,17 @@ a3 = a2.opeartor+(a1);
 38. 类的类型转换，C++ 支持不同类之间类型转换、也支持类和基本的数据类型间的类型转换
 	* 转换构造函数，将其他类型转换为当前类的类型，即构造函数
 	* 转换函数，将当前类转换为其他类型，转换函数一般都定义为当前类的一个成员函数，格式一般为**operator 类型(void)const{/* TODO */}**
-	
 39. 动态内存分配，C++ 使用 new 和 delete 动态申请和释放内存，如果不 delete 那么内存会一直占用，直到程序终止， 如果 delete 一个 NULL 指针，那么 delete 什么也不做直接返回，所以 delete 的时候不用检查是否为 NULL 指针。new 不出足够多的内存的时候，会抛出异常，任何没有被捕获的异常都会导致程序终止。delete 的时候，会首先调用析构函数，然后才释放内存
 	* delete [] pArr; /* 删除一个数组的动态内存空间，[] 表示释放这整个数组的内存空间，而不单单是删除这个数组的一个对象 */
 	* new [] /* 符号，动态申请一个数组 */
-	
 40. C++ 中定义 C 函数，方便外部函数调用
-    * extern "C" void test_func(void) /*  这种方法对外部 C 文件调用比较友好,因为这样编译后，对应的函数符号还是 test_func, 如果有多个这样的 C 函数，可以使用 extern "C" { C 函数定义 } */
+    * extern "C" void test_func(void) /*  这种方法对外部 C 文件调用比较友好,因为这样编译后，对应的函数符号还是 test_func, 如果有过个 C 函数，可以使用 extern "C" { C 函数定义 } */
     * void test_func(void) /* 如果使用这种方法定义这个函数，对应的符号名称会被重编，会变成类似 **_Z9test_func** 这样的符号，所以外部 C 文件执行通过 test_func 是调用不到这个函数的 */
-    
-41. [模板](https://en.cppreference.com/w/cpp/language/templates):模板不是类或者函数本身,相反,可以理解模板是一系列的指令,告诉编译器生成类和函数.编译器从模板创建类和函数的过程叫做实例化.模板是 C++ generic programming(相反的是 OOP:object-oriented programming, 面向对象编程) 的基础.模板提供了一个创建类和函数的蓝图(或者公式).模板的参数参数列表不能为空.每一个模板参数前必须跟一个 typename 或者 class 关键字.但是因为 typename 是在模板广泛应用之后一段时间后才出现的关键词,所以一些程序还专门使用 class.
-	
-	* template < parameter-list > requires-clause(optional) declaration // <> 符号一般用在模板中，表示模板参数， 尖括号
-	* 除了定义类型模板,也可以定义非类型的模板参数,非类型的模板参数表示的是数据常量.
-	* 带有关键词 inline 和 constexpr 函数的模板定义:template < typename T > inline void test(T &a){xxx}
-	* 编译器看到模板的时候不会产生代码,只有当真正实例化模板的时候才会产生代码.
-	* 
-	
+41. [模板](https://en.cppreference.com/w/cpp/language/templates)
+	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号
 42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
-
 43. C++ 的 goto 语句之前不能有变量定义，否则编译时候会报错。
-
-44. std::vector 实质是 C++ 的一个类，和数As a result,
-    a member function of a class template has the same template parameters as the
-    class itself.
-    
-44. 组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器一样，能够存放各种类型的对象。可以简单认为 vector 是一个能够存在任意类型的动态数组。vector 是一个类模板, C++ 支持函数模板和类模板.
+44. std::vector 实质是 C++ 的一个类，和数组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器一样，能够存放各种类型的对象。可以简单认为 vector 是一个能够存在任意类型的动态数组。
     * push_back(elem) 尾部插入元素 elem
     * pop_back() 删除最后一个元素
     * clear() 删除容器中所有元素
@@ -396,18 +381,14 @@ a3 = a2.opeartor+(a1);
     * void resize (size_type n, const value_type& val) 修改 vector 大小为 n 个元素，如果之前不足 n 个，那么使用 val 补全到 n 个
     * emplace_back(args) 使用 args 参数创建一个对象，插入这个向量的尾部
     * emplace(positon, args) 使用 args 参数创建一个构造函数，插入这个新的对象到 position 指定的位置
-    
-46. auto 关键字，auto 的原理是根据后面的值，来推测前面的类型是什么, 一般用来简化变量初始化
-
-47. to_string(数据) 将数据转换为 string 类型
-
+45. auto 关键字，auto 的原理是根据后面的值，来推测前面的类型是什么, 一般用来简化变量初始化
+46. to_string(数据) 将数据转换为 string 类型
 47. Run-time type identification (RTTI) 运行时类型标识,通过两个操作符:
     * typeid() 返回指定表达式的类型
     * dynamic_cast() 转换基类到派生类,有下述三种表述方式(根据我实际测试发现，并且基类必须至少包含一个虚函数,否则会编译报错), 下述 e 必须是 type 的 public 派生类、e 或者是 type 的 public 基类，或者是和 type 类型一样。
         1. dynamic_cast<type*>(e) // 如果转换不成功会返回 0, e 必须是一个指针
         2. dynamic_cast<type&>(e) // 如果转换不成功会返回(抛出) std::bad_cast, e 必须是一个左值
         3. dynamic_cast<type&&>(e) // e 一定不能是左值
-    
 48. **lambda** 表达式,一般用来定义匿名函数,使代码更加灵活简洁。lambda 表达式，完整的表示式: [capture list](parameter list) -> return type { function body } ~~[captures]<tparams>(params)lambda-specifiers{body}~~, 可以忽略 parameter list 和返回类型，但是一定要有 capture list 和 function body. 和普通的函数不一样，lambda 表达式可能没有默认的参数。
     * captures 捕获列表，lambda可以把上下文变量以值或引用的方式捕获，在body中直接使用。实际编译器会将写的 lambda 表达式翻译成一个类，用重载实现 operator() 函数实现。捕获列表，可以认为是这个类的 private 成员。
         1. [] 什么也不捕获, 不会从上下文中(一般是函数的局部变量)捕获内容
@@ -422,26 +403,19 @@ a3 = a2.opeartor+(a1);
     * lambda-specifiers lambda说明符， 一些可选的参数
     * trailing-return-type 返回值类型，一般可以省略掉，由编译器来推导, 重载函数 operator() 函数的返回值
     * body 函数体，函数的具体逻辑, 重载函数 operator() 函数的函数体
-    
 49. std::remove(begin, end, value) remove 实际是一个模板,删除 [begin, end) 之间所有等 value 的对象,返回的是指向下一个不等 val 的对象！！！
     * a b c target d target e  eg: 如果 remove target ->(整理后为) a b c d e target e -> 返回的是指向整理之后 target 的内容
-    
 50. R"(原始字符)" raw string, 不会对原始字符进行转义, raw string 的语法 **R"delimiter( raw_characters )delimiter"** // delimiter is the end of logical entity, 其中分割符是可选的，但不可以是 / 、空格、以及() 符号.
     * R"(Hello \n china)"
     * R"a()")a" 这时候就用到分割符了，因为原始字符串内部包含有 )"序列，为了避免错误，就需要显示定义原始字符串的边界,但是新的编译器好像也可以自动识别，不用分割符也可以, 所以记住 R"(原始字符串就可以)"
-    
 51. printf 格式打印
     1. %g 表示 signed double 型数据打印
-    
-53. c++ 有 std::thread 多线程类,可以方便创建多线程
-
+52. c++ 有 std::thread 多线程类,可以方便创建多线程
 53. std::unique_ptr 是一个类模板(Smart Pointer)，与之对应的还有一个 std::shared_ptr，包含了一个管理的对象和一个删除方法
     * get 成员函数，返回管理的对象
-    
 54. std::pair is a class template that provides a way to store two heterogeneous objects as a single unit.(std::pair 是一个类模板，提供了一种将两种不同的对象存储到一个单元中的方法)
     * first 成员，返回的是 pair 的第一个元素
     * second 成员，返回的是 pair 的第二个元素
-    
 55. 类模板
     * 既可以在类模板内部定义成员函数，也可以在类模板外部定义成员函数，且定义在类模板内的成员函数被隐式声明为内联函数
     * 在类外部定义类模板的成员函数时，必须以 template 开始，后接类模板参数列表，和普通函数一样还要加上所属的类名，比如在类中声明的成员函数
@@ -464,32 +438,15 @@ a3 = a2.opeartor+(a1);
     * 模板声明必须包含模板参数，可以只声明不定义模板, 并且定义时的模板参数和声明时候的模板参数名字不必一样
     * C++ 语言假定通过作用域运算符访问的名字不是类型，因此如果我们希望使用一个模板类型参数的类型成员，必须显式告诉编译器该名字的是一个类型，这时候就需要使用关键词， **typename** 来实现, 这时候只能使用 typename
     * 可以提供默认模板实参，即在定义模板参数时候初始化一个默认的模板参数,和模板默认实参一样，对一个模板参数来说，只有当他右侧的所有参数都有默认实参时，他才可以有默认实参数
-    * 类模板的成员函数具有这个类一样的模板列表,所以可以理解为模板类的成员函数,都是模板函数
-    * 类模板中可以定义 static 函数和变量,针对 static 类型的变量,需要在类外部进行定义,定义的例子:
-    	```c++
-    	template <typename T>
-    	class Foo {
-    	    static int ctr;
-    	}
-    	
-    	template <typename T>
-    	int Foo<T>::ctr = 0;
-    	```
-    * 
 56. Smart Pointer (两种类型，用来智能地申请和释放动态内存，或者叫做堆区的内存)
     * shared_ptr ： 允许多个指针指向相同的对象, 还定义了一个伴随类 weak_ptr 是 shared_ptr 的弱引用
     * unique_ptr ： 只能允许同一个指针指向同一个对象
     * 安全使用 smart_pointer 的方法是使用函数 make_shared() 函数给 smart pointer 变量赋值 ``std::unique_ptr<object> p1 = make_shared<object>(xxxxxx);``
-    
-58. 通过将函数参数设置为 const 的引用，保证函数可以用于不能拷贝的类型
-
-59. inline 关键词放在模板参数列表之后， constexpr 也是这样，并且 constexpr 类型的函数可以将其用到 const 表达式
-
-60. 成员模板: 一个类可以包含本身是模板的成员函数，这种成员被成为成员模板(member template),成员模板不能是虚函数
-
+57. 通过将函数参数设置为 const 的引用，保证函数可以用于不能拷贝的类型
+58. inline 关键词放在模板参数列表之后， constexpr 也是这样，并且 constexpr 类型的函数可以将其用到 const 表达式
+59. 成员模板: 一个类可以包含本身是模板的成员函数，这种成员被成为成员模板(member template),成员模板不能是虚函数
 60. std::map 类模板: std::map<int index, string value>
     * [] 重载的这个符号,可以获取指定的 index 的内容 ， std::pair<std::_Rb_tree_iterator<std::pair<const int, std::__cxx11::basic_string<char> > >, bool>
-    
 61. 类特殊的构造/析构函数，一个类有五种特殊的成员函数来控制这些操作。拷贝和移动构造函数定义了当用同类型的另一个对象初始化本对象时做什么，拷贝和移动赋值运算符定义了将一个对象赋予同类型的另一个对象时做什么。以 class Foo { } 为例
     * 拷贝构造函数， Foo(const Foo&) // 拷贝构造函数的第一个参数必须是同类型的一个引用, 如果没有为一个类定义拷贝构造函数，编译器会为我们定义一个合成拷贝构造函数
         * 拷贝初始化：直接初始化时，实际上要求编译器使用函数匹配的方式来选择和我们提供的参数最匹配的构造函数，而在使用拷贝初始化时，要求编译器将右侧运算对象拷贝到正在创建的对象中，如果需要还要进行类型转换，拷贝初始化通常使用拷贝构造函数来完成。但是，如果一个类有一个移动构造函数，则拷贝初始化有时候会使用移动构造函数而非拷贝构造函数来完成。
@@ -503,42 +460,31 @@ a3 = a2.opeartor+(a1);
     * 移动构造函数
     * 移动赋值运算符
     * 析构函数：定义了此类型对象销毁时做什么
-    
-63. 重载运算符本质上是函数，其名字由 **operator 关键字后接要定义的运算符**的符号组成。因此，赋值运算符就是一个名为 operator= 的函数。**特别地，赋值运算符应该返回一个指向其左侧运算对象的引用**。和其他函数一样，运算符函数也有一个返回类型和一个参数列表。
-
+62. 重载运算符本质上是函数，其名字由 **operator 关键字后接要定义的运算符**的符号组成。因此，赋值运算符就是一个名为 operator= 的函数。**特别地，赋值运算符应该返回一个指向其左侧运算对象的引用**。和其他函数一样，运算符函数也有一个返回类型和一个参数列表。
 63. 构造函数后的冒号有两个作用：这个冒号定义的是 **member initializer list**
     1. 初始化类的成员对象，或者叫做成员变量
     2. 调用基类的构造函数进行初始化
-    
-65. 可以通过是否定义 ``__cplusplus`` 宏来确定是 c++ 还是 c 语言
-
-66. 函数声明的尾部添加 noexcept 关键词表示这个函数不会抛出异常， 比如 ``void test(int) noexcept; // 不会抛出异常``
-
+64. 可以通过是否定义 ``__cplusplus`` 宏来确定是 c++ 还是 c 语言
+65. 函数声明的尾部添加 noexcept 关键词表示这个函数不会抛出异常， 比如 ``void test(int) noexcept; // 不会抛出异常``
 66. std::chrono  是 cpp 的 一个时间库,在这个库中，处理时间有三个概念：
 	* Durations： 持续时间, 计算时间跨度，可以是分钟，小时或者毫秒, 使用的是 duration 这个类模板，有一个数量的表示和一个单位的表示，比如 10 毫秒，数量就是 10, 单位是毫秒
 	* Time points：时间点,使用的是 time_point 这个类模板
 	* Clocks: 时钟,一个描述将 time_point 转换为物理时间的框架
-	
 67. 函数传递引用和指针的区别:
     * 传递引用会进行类型检查,引用不可以为空,引用过程会进行类型检查,所以引用是类型安全的
     * 引用传递和指针传递都会对传入的数据内容修改
-    
-68. 枚举的使用,枚举可以让我们定义一个整数的集合,像类一样,一个枚举定义了一个新的数据类型.枚举是文本类型(什么是文本类型).C++定义了两种枚举类型:scoped(有范围的,枚举类, enum class{xxx} 或者 enum struct{xxx})和unscoped(无范围的,一般枚举).无范围的枚举中的名字都是具有相同的作用范围,但是有范围的枚举中的名字对外是不可见的.默认地,枚举编号从 0 开始编.但是可以手动对枚举中的成员进行编号,并且编号可以相同.有范围的枚举不能被隐式转换.新版中,可以定义枚举的类型.
+68. 枚举类的使用
 ``` cpp
 enum class animal {dog, cat};
 
 animal a0 = animal::dog;
 
-int a = animal::dog; // 错误,枚举类(有范围的枚举)不能被隐式转换
-
 // 传统的枚举
-enum new_animal{dog, cat};
+enum animal{dog, cat};
 
 auto a1 = dog;
-auto a2 = new_animal::dog; // 也可以显式声明无范围枚举的作用域
-
-// 定义枚举类型
-enum test:char {a, b, c}; // 显式声明枚举为 char 型,如果不显式声明,默认为有范围的枚举类型为 int 型,无范围的枚举类型不固定
 ```
-
-69. 定义在 class body 中的函数,默认就是隐式 inline 的
+69. map 分类
+* std::unordered_map:底层是哈希表,无序的
+* std::map:底层实现是红黑树
+* std::multimap:底层实现是红黑树
