@@ -82,6 +82,7 @@ B
 |blueprint|蓝图|
 |brackets|方括号|
 |bootstrap|引导程序|
+|Bucket|桶|
 
 C
 ---
