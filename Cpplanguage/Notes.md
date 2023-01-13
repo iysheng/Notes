@@ -370,7 +370,7 @@ a3 = a2.opeartor+(a1);
 42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
 43. C++ 的 goto 语句之前不能有变量定义，否则编译时候会报错。
 44. std::vector 实质是 C++ 的一个类，和数组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器一样，能够存放各种类型的对象。可以简单认为 vector 是一个能够存在任意类型的动态数组。
-    * push_back(elem) 尾部插入元素 elem
+    * push_back(elem) 尾部插入元素 elem, 比如原始 vector 的大小为 5, push_back 之后,大小会增加到 6
     * pop_back() 删除最后一个元素
     * clear() 删除容器中所有元素
     * at(int idx) 返回 idx 索引指向的数据
