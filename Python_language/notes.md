@@ -1048,3 +1048,5 @@ with open("a.txt", "w") as f:
 88. random 随机数
 	* random.randrange(start, stop[, step]) # 设置 range 范围
 	* random.randint(a, b) # 返回 [a, b] 之间一个整数
+89. 无穷大的表示方法: float("inf")
+90. 集合, set, 每一个元素只能出现一次
