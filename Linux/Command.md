@@ -1,5 +1,8 @@
 1. Fedora 添加库和禁止、使能库
-    1. dnf config-manager --add-repo /etc/yum.repos.d/fedora_extras.repo
+    1. dnf config-manager --add-repo /etc/yum.repos.d/fedora_extras.repo # 添加一个新的仓库
+        1. sudo dnf config-manager --set-enabled fedora-extras # 使能这个仓库源
+        2. sudo dnf config-manager --set-disabled fedora-extras # 禁止这个仓库源
+        3. sudo rm /etc/yum.repos.d/fedora_extras.repo # 删除配置文件
     2. dnf repolist 列出当前所有的 repos
     3. dnf config-manager --set-disabled repository 禁止库 repository
     4. dnf config-manager --set-enabled repository

@@ -40,6 +40,18 @@ Maskrom -> pre-loader -> Trust -> U-Boot -> kernel -> App
     * dev_ 和 ofnode_ 开头的函数支持两种 dt 访问方式
     * of_ 开头的支持 live dt 接口
     * fdtdec_ 和 fdt_ 开头的函数只支持 fdt 的接口
+8. U-Boot 中驱动模型初始化函数入口是 initf_dm
+``` C
+    board_init_f
+        initf_dm
+            dm_init_and_scan(true) // 只 bind U_BOOT_DRIVER 驱动的 .flags = 具有 DM_FLAG_PRE_RELOC 属性的 dirver
+                dm_extended_scan_fdt(gd->fdt_blob, true)
+    board_init_r
+        initr_dm
+            dm_init_and_scan(false) // 扫描重定向之后的节点
+                dm_extended_scan_fdt(gd->fdt_blob, false)
+                    /* 在这里会 probe hdmi 设备节点驱动 */
+```
 
 #### Kernel
 
