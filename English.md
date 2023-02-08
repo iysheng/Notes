@@ -453,6 +453,7 @@ P
 |provision|为 ... 提供|
 |primitive|原始的|
 |polymorphism|多态|
+|pragma|编译指示|
 
 Q
 ---
@@ -519,6 +520,7 @@ R
 |realm|领域|
 |react|做出反应|
 |radio button|单选按钮|
+|roundup|回顾,汇总|
 
 S
 ---

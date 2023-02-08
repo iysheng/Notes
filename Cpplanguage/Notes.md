@@ -491,5 +491,6 @@ auto a1 = dog;
 * std::multimap:底层实现是红黑树
 70. C++ 编译器版本控制
     * g++ -std=c++11 /* 强制使用 c++11 版本 */
+    * #pragma once   /* pragma 编译指示 */
 71. std::list<> 模板类,功能比较强大的链表类
 72. std::stack<> 模板类,栈类
