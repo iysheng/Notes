@@ -12,7 +12,7 @@ do_push2repo()
 	fi
 	cd $1;
 	echo -e "ready push to \033[35;7m`pwd`\033[0m"
-	REMOE_REPOS=`git remote -v |  awk '/(push)/ && /iysheng/ {print $1}' 2> /dev/null`
+	REMOE_REPOS=`git remote -v |  awk '/(push)/ && /iysheng|yangyongsheng/ {print $1}' 2> /dev/null`
 	if [ -n '$REMOE_REPOS' ];then
 		for remote_repo in $REMOE_REPOS;do
 			if [ $FORCE_PUSH -eq 0 ]; then

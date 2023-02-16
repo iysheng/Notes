@@ -482,13 +482,13 @@ Linux kernel internal documentation in different formats:
 		* weston-touch-calibrator 列出来触摸设备
 		* weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
 		* 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: ``/etc/udev/rules.d/touchscreen.rules``， 该文件的内容是：
-		```
-SUBSYSTEM=="input", KERNEL=="event[0-9]*",
+			``` bash
+			SUBSYSTEM=="input", KERNEL=="event[0-9]*",
 
-ENV{ID_INPUT_TOUCHSCREEN}=="1",
+			ENV{ID_INPUT_TOUCHSCREEN}=="1",
 
-ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
-		```
+			ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
+			```
 	* 调试触摸驱动
 		1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
 		2. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
@@ -499,13 +499,13 @@ ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
 39. weston 工具在运行时会加载动态库,可以使用 chrpath 工具修改 elf 文件的 rpath 属性。具体指令为：
 	* chrpath -r <path> 可执行文件
 	* 特别注意的是，在加载动态库的时候，可以通过定义环境变量 WESTON_MODULE_MAP 来替换指定库的搜索路径：
-	``` bash
-export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
-export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
-export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
-export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
-export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
-	```
+		``` bash
+		export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
+		export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
+		export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
+		export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
+		export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
+		```
 40. 如果发现在 linux 串口发送数据时，0X0A 被转换成了 0X0D 和 0X0A，那么需要修改 c_oflag &= ~ONLCR
 41. 如果发现樱桃键盘 windows 键盘无反应,FUN+F9 解锁，这是为了防止误触把几个键给锁定了。是因为樱桃键盘有两种模式,办公模式和游戏模式,在有时模式下会锁定: windows, alt+f4, alt+tab, ctrl+esc, ctrl+alt+delete 按键,切换两种模式的方法就是 **Fn + F9**
 42. gcc 中 ``__DATE__`` 和 ``__TIME__`` 分别表示编译的日期和时间
@@ -536,6 +536,7 @@ extern int    fact(int);
 extern int    my_mod(int n, int m);
 ```
 45. Fedora 调节背光,修改文件 **/sys/class/backlight/intel_backlight/brightness** 一般选取 200 左右
+	* 关闭 linux 恼人的蜂鸣器报警音,直接卸载对应的蜂鸣器驱动 ``sudo modprobe -r -v pcspkr``
 46. gnome 默认使用 wayland 作为后端,如果需要改为 X11, 需要修改文件 /etc/gdm/custom.conf, 查看 gnome 的后端命令:``loginctl show-session 2 -p Type``
 ```
 # GDM configuration storage

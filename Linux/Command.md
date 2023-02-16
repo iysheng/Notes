@@ -167,6 +167,7 @@
         ```
         2. git submodule set-url <path> <newurl> 修改 path 这个 submodule 新的路径
         3. git submodule update <path> # 单独只更新指定 path 的 submodule,在很多 submodule 并且仓库都很大的时候建议单独 update,
+        4. git submodule add <url> <path> # 添加一个 submodule
     55. git clone --recursive reposite # recursion download sub module
         1. git clone --filter=blob:none --no-checkout <url> # [下载较大的仓库的时候](https://about.gitlab.com/blog/2020/03/13/partial-clone-for-massive-repositories/)，可以使用该命令实现类似 git clone continue 的功能，会拉取 ```default branch``` 的数据，这个命令实现的是类似取消拉取大型数据？？？
         2. git checkout <branch> # 如果要检出其他分支时，会再次自动拉取所需的内容，类似实现多次拉取的效果
@@ -1165,6 +1166,21 @@ SECTIONS
     * [tickets 的使用方法](http://gitblit.com/tickets_using.html)
         1. 标准的 tickets 可以通过 web uii 创建，包括:Bug, Enhancement, task 和 Question
         2. proposal ticket(也就是 pr) 不能通过 web ui 创建，需要使用命令行，向指定的 ref (HEAD:refs/for/new)提交, 提交之后会返回一个 ticketid,如果后续需要追加 commit 到这个 pr,那么需要向 origin 的 ticket/{id} 这个分支提交
+    * 如果发现使用 ssh 生成的 key 无法直接 push 或者 poll，可以参看 [issue](https://github.com/gitblit-org/gitblit/issues/1419) 的处理方法,核心有两点：
+        1. 检查 ssh 的 key 是否匹配
+            ``` bash
+            ssh -l yangyongsheng -i ~/.ssh/id_rsa -p 12390 10.20.52.50 keys ls # 检查远端服务器的 key 的 MD5
+
+            # 检查本机的 ssh 的 md5 或者 sha256
+            ssh-keygen -l -f ~/.ssh/id_rsa -E md5
+            ssh-keygen -l -f ~/.ssh/id_rsa -E sha256
+            ```
+        2. 如过匹配可能是本机不支持 RSA 的签名算法，需要修改 ``/etc/ssh_config``， 添加如下两行的内容
+            ``` bash
+            PubkeyAcceptedKeyTypes +ssh-rsa
+            HostKeyAlgorithms +ssh-rsa
+            ```
+        3. 特别地，通过 ``ssh -v -p 12390  yangyongsheng@10.20.52.50 keys ls`` 命令可以看到更多的细节
 112. ethtool 工具查看以及修改网卡参数
     * ethtool eth1 查看 eth1 网卡参数
     * ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度

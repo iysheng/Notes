@@ -160,6 +160,8 @@ C
 |CLZ|CLZ(Count Leading Zeros)计算高位0的数量，最高位的 1 左边 0 的数量 |
 |comma|逗号|
 |compound|复合物|
+|cube|立方体|
+|cylinder|圆柱体|
 
 D
 ---
@@ -197,6 +199,7 @@ D
 |digest|摘要|
 |distill|提取|
 |deduced|推断|
+|Delegating Constructors|委托构造函数|
 
 E
 ---
@@ -582,6 +585,9 @@ S
 |scheme|方案|
 |semihosting|半宿主|
 |shader|着色器|
+|sphere|球体|
+|sanity|明智的,健全的|
+|sanity check|健全性检查|
 
 T
 ---
