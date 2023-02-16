@@ -162,6 +162,7 @@ C
 |compound|复合物|
 |cube|立方体|
 |cylinder|圆柱体|
+|constraints|限制，约束|
 
 D
 ---

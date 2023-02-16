@@ -243,6 +243,7 @@
     70. git push xxx --all # 推送所有分支(refs/heads)到远端
     71. git pull/fetch xxx --all # 拉取所有分支(refs/heads)到远端
     72. git log --pretty=oneline xxxx # 查看指定文件的所有修改历史
+    73. git describe --always --dirty --tags 命令可以打印出来详细的版本信息
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
@@ -874,6 +875,7 @@ $(wildcard path/*.c)
 ```
     2. Makefile 的执行动作要用 Tab 键隔开
     3. Makefile 执行 shell 脚本,格式 $(shell pwd)
+    4. 如果是在目标的 command 中执行 shell 命令直接 pwd 就可以
 70. arch 配置 tftp 服务
 ``` bash
 sudo pacman -S tftp-hpa # 安装程序
@@ -1021,7 +1023,7 @@ sudo dnf install iwl1000-firmware
     $(OBJS):%.o:%c
         dosth
     ```
-    * VPATH 变量，所有依赖的搜索路径，VPATH 定义了一个目录的 list，对依赖搜索的时候会按照 list 定义的顺序去对应的目录中查找
+    * VPATH 变量，所有依赖的搜索路径，VPATH 定义了一个目录的 list，对依赖搜索的时候会按照 list 定义的顺序去对应的目录中查找, 通常情况下不仅仅会在 VPATH 目录搜索依赖，还会搜索目标。
     ``` makefile
     VPATH = src:../headers
     foo.o:foo.c 等价 foo.o:src/foo.c
@@ -1031,6 +1033,15 @@ sudo dnf install iwl1000-firmware
     vpath pattern directories #  指定 pattern 类型的文件去 directors 目录中查找
     vpath pattern # 清除指定 pattern 类型的文件关联的搜索路径
     vpath 清除之前定义的所有有关 pattern 和对应的搜索路径
+    ```
+    * make 中目录搜索的过程
+    * make 的递归使用方法，表示在 makefile 中使用 make 命令，当你在一个大型系统中包含多个子目录时，使用这种方法是一个不错的选择。可以这样写：
+    ``` makefile
+    subdirs:
+        cd subdir && $(MAKE)
+    或者
+    subdirs:
+        $(MAKE) -C subdir # 执行这个动作之后会修改 CURDIR 这个环境变量为 -C 紧跟的目录
     ```
 86. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
 	
