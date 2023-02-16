@@ -919,15 +919,16 @@ sudo dnf install iwl1000-firmware
 		8.9 bt 查看堆栈
 		8.10 i b 查看断点
 		8.11 d index(断点的编号) 删除指定编号的断点
-        8.12 x 查看内存地址
-        8.13 set {int}0x1000=1 修改内存地址
-        8.14 info reg 查看寄存器值
-        8.15 delete 断点编号,删除指定的断点
-	    8.16 打印内存：x /nxfu addr (以x/f/u（16 进制，浮点数，无符号）格式打印n个u类型存储单元的以addr开头的内存值)
-        * f: o(octal)  x(hex) d(decimal) u(unsigned decimal) t(binary) f(float) a(address) i(instruciton) c(char) s(string)
-        * u: b(byte)  h(halfword)  w(word)  g(gaint, 8 bytes)
-        * for example: x/256xb addr,    x/256xw addr 
-        9. ~break * main + 10 # 在 main 函数起始 + 10 行位置打断点~
+		8.12 x 查看内存地址
+		8.13 set {int}0x1000=1 修改内存地址
+		8.14 info reg 查看寄存器值
+		8.15 delete 断点编号,删除指定的断点
+		8.16 打印内存：x /nxfu addr (以x/f/u（16 进制，浮点数，无符号）格式打印n个u类型存储单元的以addr开头的内存值)
+			* f: o(octal)  x(hex) d(decimal) u(unsigned decimal) t(binary) f(float) a(address) i(instruciton) c(char) s(string)
+			* u: b(byte)  h(halfword)  w(word)  g(gaint, 8 bytes)
+			* for example: x/256xb addr, x/256xw addr 
+		8.17 ~break * main + 10 # 在 main 函数起始 + 10 行位置打断点~
+		8.18 set $pc=xxxxx 修改寄存器的数值，需要在寄存器名称前添加 $ 符号
 	9. - 命令， 会到一个跟随现实代码的窗口
     10. 可以通过 gdbinit 文件，创建启动脚本，执行 gdb 时候自动执行 .gdbinit 文件定义的命令，配置文件示例:
     ``` text
@@ -1224,4 +1225,8 @@ _sbrk (ptrdiff_t incr)
 # ddcutil getvcp 10 命令码 10 表示获取亮度
 # ddcutil vcpinfo 查看显示器信息的信息
 ```
-123. [sokit](https://github.com/sinpolib/sokit/releases/tag/v1.3.20150507) Linux 平台图形化的 tcp/udp 调试工具
+124. [sokit](https://github.com/sinpolib/sokit/releases/tag/v1.3.20150507) Linux 平台图形化的 tcp/udp 调试工具
+125. 解决普通用户需要 sudo 权限打开 tty 设备的问题
+    1. 简单粗暴，直接 ``sudo chmod 666 /dev/ttyACM0`` # 直接修改对应设备的权限
+    2. 将用户添加到 dialog 组， ``sudo usermod -aG dialog red``, 需要重启系统？？
+    3. 修改 udev 的 rules 规则，将对应的权限修改为 666, 这种方法需要在 /etc/udev/ 目录下找到对应的规则文件
