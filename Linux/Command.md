@@ -245,6 +245,8 @@
     72. git log --pretty=oneline xxxx # 查看指定文件的所有修改历史
     73. git describe --always --dirty --tags 命令可以打印出来详细的版本信息
     74. git 使用 hook 的方法，进入 ``.git/hook`` 目录，重命名 .sample 文件，eg: 修改 pre-commit.sample 为 pre-commit，添加可执行权限就可以了
+    75. git describe --always --dirty --tags 命令可以打印出来详细的版本信息
+    76. git ls-files # 列出来跟踪的所有文件
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
