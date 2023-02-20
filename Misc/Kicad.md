@@ -156,3 +156,12 @@ Pin connected to some other pins but no pin to drive it
 	* PTH 是金属化孔,一般在电路板的 PTH 孔有两种用途:一种是用来焊接 DIP 封装的元器件的管脚用的; 另一种是比较小的 PTH,俗称过孔 via(或者叫导通孔)
 	* NPTH 是非金属化孔,孔内侧没有铜,比如说用来定位的螺丝孔,一般就是 NPTH 的
 41. windows 下如果有些插件提示需要安装一些 python 包，那么需要通过 ``KiCad 7.0 Command Prompt`` 这个工具去执行 ``python -m pip install xxxxx``，这个工具可以在开始菜单栏中找到，如果在 cmd 中执行会因为 python 的路径不同导致安装的 pip 包无法被 import
+42. AD 工程转 Kicad 的方法
+	* [Altium2kicad: 用于PCB和原理图的Altium-KiCad转换器](https://www.5axxw.com/wiki/content/d4nzrd)
+		* 提供在线版本的转换网址:[http://www2.futureware.at/KiCad/](http://www2.futureware.at/KiCad/)
+	* [KiCad 可以直接将 AD 格式的文件转换为 Kicad]
+		* File -> Import -> Non-KiCad Board File -> 文件类型中可以过滤出 PcbDoc 格式文件
+	* [元器件库转换为 KiCad 格式]
+		* [pcad2kicad](https://github.com/iysheng/pcad2kicad.git)
+	* [封装库转换为 KiCad 格式]
+		* 直接从 kicad 格式的 pcb 文件中提取
