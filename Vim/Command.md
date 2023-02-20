@@ -304,6 +304,8 @@ echom "file tail is " . expand("%:t") " a.vim
 64. 命令行模式的一些命令,有关编码格式
 	1. :echo &fileencoding # 打印当前文件的编码格式.引用系统变量前添加 & 符号
 	2. :set fileencoding=utf8 # 修改当前文件的编码格式
+	3. :set ff # 打印当前的文件格式 dos 或者 unix
+	4. :set ff=unix # 修改文件格式为 unix
 65. 变量的不同命名空间,根据不同附加的前缀决定
 ---
 |符号前缀|意义|

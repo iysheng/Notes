@@ -302,6 +302,7 @@ let g:rainbow_active = 1
 " === instant markdown
 " ===
 "Uncomment to override defaults:
+let g:vim_markdown_folding_disabled = 1
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_open_to_the_world = 1
