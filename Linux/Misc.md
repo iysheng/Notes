@@ -357,7 +357,19 @@ Linux kernel internal documentation in different formats:
 	* eopkg install man-pages # 安装 man 帮助信息
 	* eopkg list-installed # 列出已经安装的包
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
-26. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等
+26. 在 gnome 添加快捷图标的方法,快捷图标相关的文件放在目录``/usr/share/applications``,以 desktop 为后缀名文件,如果需要添加新的应用快捷图标,需要在该目录创建新的 xxx.desktop 文件,以 Typora 应用为例展示如下:
+```
+[Desktop Entry]
+Name=Typora
+GenericName=Markdown Editor Application
+Exec=Typora %F
+Terminal=false
+Type=Application
+Icon=/home/red/.local/bin/Typora115/bin/Typora-linux-x64/resources/assets/icon/icon_32x32.png
+Categories=Graphics;Science;Engineering;
+StartupNotify=true
+MimeType=application/x-extension-fcstd;
+```
 27. [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
 	1. sudo eopkg install tigervnc # 安装 TigerVNC
 	2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
@@ -440,22 +452,22 @@ Linux kernel internal documentation in different formats:
 28. AppImage 格式文件可以在大部分的 Linux 环境执行运行，区别 deb 是 debian 的软件包格式， rpm 是 redhat 的软件包格式。如果既不支持 deb 也不支持 rpm,那么可以尝试直接下载 AppImage 格式的文件，然后给这个文件添加可执行权限，就可以直接运行了，比如果 [drawio](https://github.com/jgraph/drawio-desktop/releases/download/v16.1.2/drawio-x86_64-16.1.2.AppImage)
 29. putty 使用密钥连接远程 ssh 服务器教程：
 	1. 在 putty 客户端创建 ssh 密钥对
-![keygen](assets/putty_keygen.png)
+	![keygen](assets/putty_keygen.png)
 	2. 将公钥内容复制到 ssh 服务器的 ~/.ssh/authorized_keys, **重要的一点修改该文件的权限为 400**
 	3. 在 putty 中配置 session ,关键是配置登陆用户名以及私钥文件
-![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
+	![conf0](assets/putty_conf0.png)![conf1](assets/putty_conf1.png)
 30. 颜色号:
 	* 3f9f9f
 	* CBE9CF 护眼色
 31. sdcc 工具链，在中断函数定义时，需要在包含 main 函数的文件中声明这个中断函数。
-![sdcc](assets/sdcc_int.png)
+	![sdcc](assets/sdcc_int.png)
 	* --xram-loc 0x800 定义 xram 的地址起始地址
 	* --xram-size 0x100 定义 xram 的大小
 	* -Wl-bCSEG=0x100 传递参数给链接脚本，定义 CSEG 的值
 	* 编译汇编 asm 源文件时候，如果不加 -plosgff 在链接的时候会提示没有读应的 lst 文件, 编译汇编源文件时加上这个编译选项，一般是 ``sda8051 -plosgff xx.asm``
 	* --stack-size size 可以用来检查栈空间够不够 size 的大小
 32. [drawio](https://github.com/jgraph/drawio) 好用的画图软件
-![short_key](assets/drawio_short_key.png)
+	![short_key](assets/drawio_short_key.png)
 	* 回车键可以切换当前页面的显示大小, 在 Home 大小和大小之间切换
 	* ctrl + shift + p # 切换显示/隐藏 format 面板
 	* ctrl + shift + k # 切换显示/隐藏 shape 面板
@@ -484,9 +496,9 @@ Linux kernel internal documentation in different formats:
 		* 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: ``/etc/udev/rules.d/touchscreen.rules``， 该文件的内容是：
 			``` bash
 			SUBSYSTEM=="input", KERNEL=="event[0-9]*",
-
+			
 			ENV{ID_INPUT_TOUCHSCREEN}=="1",
-
+			
 			ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
 			```
 	* 调试触摸驱动
@@ -557,3 +569,4 @@ WaylandEnable=false
 #Enable=true
 
 ```
+
