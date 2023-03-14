@@ -155,3 +155,4 @@ Pin connected to some other pins but no pin to drive it
 40. PCB 设计中, 孔有四种作用:电气导通,定位,散热,方便分板.孔又分为导通孔(PTH)和非导通孔(NPTH),在一般的设计中,只有 PTH 有孔环, NPTH 是不具备孔环的,在一些特殊的情况, 也会给 NPTH 孔设计孔环(这时候孔起到接地的作用).
 	* PTH 是金属化孔,一般在电路板的 PTH 孔有两种用途:一种是用来焊接 DIP 封装的元器件的管脚用的; 另一种是比较小的 PTH,俗称过孔 via(或者叫导通孔)
 	* NPTH 是非金属化孔,孔内侧没有铜,比如说用来定位的螺丝孔,一般就是 NPTH 的
+41. windows 下如果有些插件提示需要安装一些 python 包，那么需要通过 ``KiCad 7.0 Command Prompt`` 这个工具去执行 ``python -m pip install xxxxx``，这个工具可以在开始菜单栏中找到，如果在 cmd 中执行会因为 python 的路径不同导致安装的 pip 包无法被 import

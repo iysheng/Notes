@@ -162,6 +162,35 @@ gd32 使用外部时钟，系統頻率選擇 108MHz
 * 如果 TIMERx_CHxCV 等 0, 在 PWM mode0 (CHxCOMCTL==3’b110) 時候，輸出總是在未激活狀態
 
 
+### Debug 调试部分
+* SWD (Serial Wire Debug) 串行线调试，SCLK 和 SWDIO 完成调试，相比 JTAG 调试少了很多接口，和 ARM 最新的 CoreSight 相融合
+	* 一个 SWD 操作需要经过三个阶段：
+		1. Packet request: 外部调试主机(host)发送请求到 DP(Debug Port)
+		2. Acknowledge response: DP 发送应答到主机
+		3. Data transfer phase
+			* 数据传输阶段，需要如下任一条件满足：
+				* 针对发送 data read 和 data write 请求之后有 OK 应答
+				* The CTRL/STAT.ORUNDETECT flag is 0b1.
+			* 数据传输有两个方向，分别是读和写
+				* target 发送数据到 host， (RDATA)
+				* host 发送数据到 target,  (WDATA)
+	* Access Ports (APs), AP 通过标准的物理接口将信息发送给 DP
+		* 每一个 AP 必须有一个对应的 IR 寄存器来标记这个 AP 的特性
+		* 任何的 AP 都必须支持访问 DP
+
+### Renesas flash
+* FCU(flash control unit)
+* FACI(flash application command interface)
+* P/E(program/erase)
+* RA4M2 擦写的最小单位：
+	* 写: 128
+	* 擦：1 block (8KB/32KB)
+* Armv8-M only supports execution of T32 instructions
+
+### openocd
+	f69adafb3dd252eaf6b269b7993b29d3c78a91c8 target/arm: optimize architecture flags
+
+
 
 ### (TCD1304)[https://hackaday.io/project/9829-linear-ccd-module]
 ---

@@ -55,6 +55,7 @@ A
 |acronym|首字母缩写|
 |aka|又名,或者说可以叫做|
 |annular|环形的|
+|AP|Access Ports|
 
 B
 ---
@@ -163,6 +164,7 @@ C
 |cube|立方体|
 |cylinder|圆柱体|
 |constraints|限制，约束|
+|comparator|比较器|
 
 D
 ---
@@ -201,6 +203,7 @@ D
 |distill|提取|
 |deduced|推断|
 |Delegating Constructors|委托构造函数|
+|DP|Debug Port，调试口|
 
 E
 ---
@@ -328,6 +331,7 @@ I
 |inaccurate|不准确|
 |integrity|整数检查|
 |implicitly exists|隐式存在|
+|interrogate|询问|
 
 K
 ---
@@ -589,6 +593,7 @@ S
 |sphere|球体|
 |sanity|明智的,健全的|
 |sanity check|健全性检查|
+|SWD|Serial Wire Debug|
 
 T
 ---
@@ -631,6 +636,7 @@ T
 |texture|纹理|
 |transformations|转变|
 |transactionally|事务性的|
+|turnaround period|周转期|
 
 U
 ---
