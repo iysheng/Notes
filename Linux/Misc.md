@@ -570,3 +570,6 @@ WaylandEnable=false
 
 ```
 
+47. realpath xxx 打印解析出的路径
+
+48. signal -s 信号名称/信号值 进程pid # 发送指定信号给指定的进程
