@@ -165,3 +165,4 @@ Pin connected to some other pins but no pin to drive it
 		* [pcad2kicad](https://github.com/iysheng/pcad2kicad.git)
 	* [封装库转换为 KiCad 格式]
 		* 直接从 kicad 格式的 pcb 文件中提取
+42. Kicad7 之后,需要先在原理图的 setup 页面配置 netclass 标号,然后在 pcbnew 编辑器中对定义好的 netclass 进行规则设置,之前版本是可以直接在 pcbnew 软件中看到所有的 net 并创建 netclass 的规则设置.
