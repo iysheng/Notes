@@ -1162,8 +1162,8 @@ SECTIONS
 106. [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
 107. tcpdump 调试网络
     * tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
-    * tcpdump host 10.20.52.91 port 123 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文
-    * tcpdump host 10.20.52.91 port 123 -i enp0s20f0u3u3 -A -vvv -XX # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文,并以 16 进制详细打印报文头内容
+    * tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文
+    * tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 -A -vvv -XX # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文,并以 16 进制详细打印报文头内容
     * tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX # 过滤指定网卡、udp 格式、指定端口的数据包
     * -XX 输出包的头部数据
     * -vvv 打印非常详细的信息 | -vv 打印比 -vvv 稍微不详细的信息 | -v 打印比 -vv 稍微不详细的信息
@@ -1246,3 +1246,9 @@ _sbrk (ptrdiff_t incr)
     1. 简单粗暴，直接 ``sudo chmod 666 /dev/ttyACM0`` # 直接修改对应设备的权限
     2. 将用户添加到 dialog 组， ``sudo usermod -aG dialog red``, 需要重启系统？？
     3. 修改 udev 的 rules 规则，将对应的权限修改为 666, 这种方法需要在 /etc/udev/ 目录下找到对应的规则文件
+126. ``errno`` 工具可以方便查找错误号
+    1. errno -l # 列出所有的错误号
+    2. errno 11 # 查看 11 号错误号信息
+127. ``kill`` 命令也可以用来查看指定的信号
+    1. kill -l # 列出所有的信号量
+    2. kill -l 11 # 查看 11 号信号量的意义

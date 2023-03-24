@@ -483,7 +483,7 @@ MimeType=application/x-extension-fcstd;
 	* PL1 是除了 USER MODE 和 Hyp MODE 之外的所有模式，该模式可以对处理器大部分的配置进行修改，除了一些和 Hyp 相关的配置无法修改
 	* PL2 是 Hyp MODE， 和虚拟化有关
 35. gimp 图像编辑工具
-	* shift + t 可以对选择的涂层进行变换
+	* shift + t 可以对选择的图层进行变换
 	* image -> canvas size 修改画布大小
 	* image -> scale image 修改图像大小
 	* 当发现 gimp 的工具控件不见的时候， Edit -> Preferences -> Window Management -> Reset Saved Window Positions to Default Values 然后重启 gimp
