@@ -60,7 +60,7 @@
 	4. feh 是一个设置电脑桌面的工具
 	5. dwm 默认的一些基本操作
 		1. Alt + 数字，在不同的 tags 切换
-		2. Alt + Shift + 数字，将对应的串口移动到指定编号的 tag 上
+		2. Alt + Shift + 数字，将对应的窗口移动到指定编号的 tag 上
 		3. Alt + Table 在最近的两个 tags 切换
 		4. Alt + i 和 Alt + d 分别是增加以及减少 master 区域窗口的个数
 		5. Alt + b 显示或者隐藏顶层的 tag、title 和 status 栏
@@ -574,7 +574,7 @@ WaylandEnable=false
 
 48. signal -s 信号名称/信号值 进程pid # 发送指定信号给指定的进程
 
-49. 线程优先级, 优先级数值约高, 对应的优先级约高. 
+49. 线程优先级, 优先级数值约高, 对应的优先级约高. ``pthread_setschedparam`` 函数可以修改线程的调度策略和优先级
 	1. SCHED_OTHER 默认的调度策略,创建的所有线程的优先级默认都是0,采用分时调度的策略
 	2. SCHED_FIFO (实时线程) 优先级范围是 1 ~ 99
 	3. SCHED_RR   (实时线程) 优先级范围是 1 ~ 99, 在 SCHED_FIFO 的基础上,添加了一个最大运行时间, SCHED_RR 线程的最大运行时间,可以用函数 ``sched_rr_get_interval`` 获取, 默认的这个数值为 0.1s, 约高的 nice 等级(对应的 nice 数值本身越小,是负数),这个值约大,约不容易被抢占.相反,约低等级的 nice(nice 数值约大), 这个数值越小,越容易被抢占.
