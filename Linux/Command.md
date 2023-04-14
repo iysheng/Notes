@@ -1253,3 +1253,6 @@ _sbrk (ptrdiff_t incr)
 127. ``kill`` 命令也可以用来查看指定的信号
     1. kill -l # 列出所有的信号量
     2. kill -l 11 # 查看 11 号信号量的意义
+128. 默认创建的 socket 都是阻塞型的,但是可以通过函数 ``setsockopt(m_socket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv))`` 先
+    1. 针对多播:
+        1.1 可以通过修改设置禁止回环``setsockopt(m_socket, IPPROTO_IP, IP_MULTICAST_LOOP, &(loop_enable), sizeof(loop_enable))``,即自己发送出去的数据自己不会读回来.

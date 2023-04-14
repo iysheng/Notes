@@ -56,6 +56,7 @@ A
 |aka|又名,或者说可以叫做|
 |annular|环形的|
 |AP|Access Ports|
+|API|application programming interface|
 
 B
 ---
@@ -204,6 +205,7 @@ D
 |deduced|推断|
 |Delegating Constructors|委托构造函数|
 |DP|Debug Port，调试口|
+|datagram|电报|
 
 E
 ---
@@ -216,7 +218,7 @@ E
 |expomentiation|求幂|
 |emulate|仿真|
 |exclusive|独家的|
-|emphasis|重点|
+|emphasis|强调,重点|
 |encapsulate|封装|
 |excerpt|摘錄，节选|
 |exploit|开发|
@@ -256,6 +258,8 @@ F
 |Finite State Machines (FSM)|有限状态机|
 |feasible|可行的|
 |formula|公式，准则|
+|FSM|finite state machine:有限状态机|
+|frown|反对|
 
 G
 ---
@@ -332,6 +336,9 @@ I
 |integrity|整数检查|
 |implicitly exists|隐式存在|
 |interrogate|询问|
+|IP|Internet Protocol|
+|TCP|Transmission Control Protocol|
+|UDP|User Datagram Protocol|
 
 K
 ---
@@ -348,6 +355,7 @@ L
 |interleave|交错|
 |library|庫|
 |legend|图片文字说明|
+|landscape|风景画,风景照|
 
 M
 ---
@@ -424,6 +432,7 @@ O
 |octet|八进制|
 |Over time|随着时间的推移|
 |orientation|目标，方位，定位，朝向|
+|omission|省略|
 
 P
 ---
@@ -462,12 +471,16 @@ P
 |primitive|原始的|
 |polymorphism|多态|
 |pragma|编译指示|
+|portrait|肖像|
+|ppi|pixels per inch (ppi),网上浏览时一般是 72 ppi|
+|dpi|dots per inch (dpi),打印时一般是 300 dpi|
 
 Q
 ---
 |单词|释义|
 |---|---|
 |quote|引用、举证、报价、引号|
+|quotation|引用,引述,引文|
 |quick-and-dirty introduction|快速入门|
 |get the most out of|充分利用|
 |query|輪詢、詢問|
@@ -594,6 +607,7 @@ S
 |sanity|明智的,健全的|
 |sanity check|健全性检查|
 |SWD|Serial Wire Debug|
+|shorthand|速记|
 
 T
 ---

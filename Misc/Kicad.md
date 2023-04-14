@@ -165,4 +165,7 @@ Pin connected to some other pins but no pin to drive it
 		* [pcad2kicad](https://github.com/iysheng/pcad2kicad.git)
 	* [封装库转换为 KiCad 格式]
 		* 直接从 kicad 格式的 pcb 文件中提取
-42. Kicad7 之后,需要先在原理图的 setup 页面配置 netclass 标号,然后在 pcbnew 编辑器中对定义好的 netclass 进行规则设置,之前版本是可以直接在 pcbnew 软件中看到所有的 net 并创建 netclass 的规则设置.
+43. Kicad7 之后,需要先在原理图的 setup 页面配置 netclass 标号,然后在 pcbnew 编辑器中对定义好的 netclass 进行规则设置,之前版本是可以直接在 pcbnew 软件中看到所有的 net 并创建 netclass 的规则设置.
+44. lceda 转 Kicad 的方法:
+	1. 使用立创 eda 标准版将对应的 pcb 工程导出为 json 文件
+	2. 使用[在线转换网址](https://wokwi.com/tools/easyeda2kicad)将 json 文件转换为 kicad 版本,对应的 github 仓库路径是 [https://github.com/wokwi/easyeda2kicad](https://github.com/wokwi/easyeda2kicad)
