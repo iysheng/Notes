@@ -232,6 +232,7 @@ E
 |eco-system|生态系统|
 |emplace|安放，放置|
 |explanatory|解释|
+|end off|结束|
 
 F
 ---
