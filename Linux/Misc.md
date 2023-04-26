@@ -370,6 +370,12 @@ Categories=Graphics;Science;Engineering;
 StartupNotify=true
 MimeType=application/x-extension-fcstd;
 ```
+其中 Icon 字段,如果不跟绝对路径,那么需要将图标文件放在任意的如下目录[https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html#icons](https://developer.gnome.org/documentation/guidelines/maintainer/integrating.html#icons):
+```
+/usr/share/icons/hicolor/256x256/apps/com.example.YourApplication.png
+/usr/share/icons/hicolor/scalable/apps/com.example.YourApplication.svg
+/usr/share/icons/hicolor/symbolic/apps/com.example.YourApplication-symbolic.svg
+```
 27. [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
 	1. sudo eopkg install tigervnc # 安装 TigerVNC
 	2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
