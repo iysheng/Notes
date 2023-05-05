@@ -475,6 +475,7 @@ P
 |portrait|肖像|
 |ppi|pixels per inch (ppi),网上浏览时一般是 72 ppi|
 |dpi|dots per inch (dpi),打印时一般是 300 dpi|
+|PDU|协议数据单元,公共数据单元|
 
 Q
 ---
