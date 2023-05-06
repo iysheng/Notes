@@ -261,6 +261,7 @@ F
 |formula|公式，准则|
 |FSM|finite state machine:有限状态机|
 |frown|反对|
+|flip|快速翻转,交换,改变|
 
 G
 ---

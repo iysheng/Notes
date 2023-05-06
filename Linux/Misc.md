@@ -585,3 +585,25 @@ WaylandEnable=false
 	2. SCHED_FIFO (实时线程) 优先级范围是 1 ~ 99
 	3. SCHED_RR   (实时线程) 优先级范围是 1 ~ 99, 在 SCHED_FIFO 的基础上,添加了一个最大运行时间, SCHED_RR 线程的最大运行时间,可以用函数 ``sched_rr_get_interval`` 获取, 默认的这个数值为 0.1s, 约高的 nice 等级(对应的 nice 数值本身越小,是负数),这个值约大,约不容易被抢占.相反,约低等级的 nice(nice 数值约大), 这个数值越小,越容易被抢占.
 	4. SCHED_IDLE, SCHED_BATCH 优先级固定是 0
+
+50. 笔记本电脑合盖不休眠的配置
+``` bash
+sudo vim /etc/systemd/logind.conf
+
+找到下列条目
+#HandleLidSwitch=suspend
+
+# 这个条目有如下的配置选项
+#ignore 忽略，跳过
+#power off 关机
+#eboot 重启
+#halt 挂起
+#suspend 可暂停目前正在执行的shell。若要恢复，则必须使用SIGCONT信息。所有的进程都会暂停，但不是消失
+#hibernate 让笔记本进入休眠状态
+#hybrid-sleep 混合睡眠，主要是为台式机设计的，是睡眠和休眠的结合体，当你选择Hybird时，系统会像休眠一样把内存里的数据从头到尾复制到硬盘里 ，然后进入睡眠状态，即内存和CPU还是活动的，其他设置不活动，这样你想用电脑时就可以快速恢复到之前的状态了，笔记本一般不用这个功能。
+#lock 仅锁屏，计算机继续工作
+
+
+改成如下
+HandleLidSwitch=ignore
+```
