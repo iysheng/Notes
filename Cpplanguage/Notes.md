@@ -495,3 +495,4 @@ auto a1 = dog;
 71. std::list<> 模板类,功能比较强大的链表类
 72. std::stack<> 模板类,栈类
 73. std::chrono
+74. 针对 cpp 定义有返回值的函数，如果没有 return 语句，会出现奇怪的现象，所以一定要在函数中写上 return 返回值语句.
