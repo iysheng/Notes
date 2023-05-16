@@ -606,4 +606,6 @@ sudo vim /etc/systemd/logind.conf
 
 改成如下
 HandleLidSwitch=ignore
+为了让配置及时生效,需要执行:
+systemctl restart systemd-logind
 ```

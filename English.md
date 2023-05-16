@@ -85,6 +85,7 @@ B
 |brackets|方括号|
 |bootstrap|引导程序|
 |Bucket|桶|
+|bounded|无界的|
 
 C
 ---
@@ -166,6 +167,8 @@ C
 |cylinder|圆柱体|
 |constraints|限制，约束|
 |comparator|比较器|
+|charactering|塑造|
+|complex conjugate|复共轭|
 
 D
 ---
@@ -206,6 +209,10 @@ D
 |Delegating Constructors|委托构造函数|
 |DP|Debug Port，调试口|
 |datagram|电报|
+|damped|阻尼|
+|damped sinusoidal signal|阻尼正弦信号|
+|diverge|扩散,发散|
+|denominator coefficients|分母系数|
 
 E
 ---
@@ -233,6 +240,7 @@ E
 |emplace|安放，放置|
 |explanatory|解释|
 |end off|结束|
+|evident|显而易见|
 
 F
 ---
@@ -262,6 +270,7 @@ F
 |FSM|finite state machine:有限状态机|
 |frown|反对|
 |flip|快速翻转,交换,改变|
+|feedforward|前馈|
 
 G
 ---
@@ -338,9 +347,11 @@ I
 |integrity|整数检查|
 |implicitly exists|隐式存在|
 |interrogate|询问|
+|interchangeably|可互换的|
 |IP|Internet Protocol|
 |TCP|Transmission Control Protocol|
 |UDP|User Datagram Protocol|
+|impulse respon|脉冲响应|
 
 K
 ---
@@ -402,6 +413,7 @@ N
 |namely|即，也就是，换句话说|
 |neglect|忽略|
 |notation|符号|
+|numerator coefficients|分子系数|
 
 O
 ---
@@ -477,6 +489,7 @@ P
 |ppi|pixels per inch (ppi),网上浏览时一般是 72 ppi|
 |dpi|dots per inch (dpi),打印时一般是 300 dpi|
 |PDU|协议数据单元,公共数据单元|
+|pole|极点 zero:零点|
 
 Q
 ---
@@ -611,6 +624,7 @@ S
 |sanity check|健全性检查|
 |SWD|Serial Wire Debug|
 |shorthand|速记|
+|specifically|明确地|
 
 T
 ---
@@ -671,6 +685,7 @@ U
 |until then|在那之前|
 |underlying|底层|
 |underlying type|基础类型,隐藏类型|
+|up to the point|到目前为止|
 
 V
 ---
