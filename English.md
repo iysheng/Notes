@@ -57,6 +57,7 @@ A
 |annular|环形的|
 |AP|Access Ports|
 |API|application programming interface|
+|assess|评估|
 
 B
 ---
@@ -86,6 +87,7 @@ B
 |bootstrap|引导程序|
 |Bucket|桶|
 |bounded|无界的|
+|basis|原因,基础|
 
 C
 ---
@@ -169,6 +171,7 @@ C
 |comparator|比较器|
 |charactering|塑造|
 |complex conjugate|复共轭|
+|clear analogy|清晰的类比|
 
 D
 ---
@@ -213,6 +216,7 @@ D
 |damped sinusoidal signal|阻尼正弦信号|
 |diverge|扩散,发散|
 |denominator coefficients|分母系数|
+|differential equation|微分方程|
 
 E
 ---
@@ -241,6 +245,8 @@ E
 |explanatory|解释|
 |end off|结束|
 |evident|显而易见|
+|evaluate||
+|excite|激发|
 
 F
 ---
@@ -352,6 +358,7 @@ I
 |TCP|Transmission Control Protocol|
 |UDP|User Datagram Protocol|
 |impulse respon|脉冲响应|
+|identified|被识别,确认|
 
 K
 ---
@@ -398,6 +405,7 @@ M
 |MAE(mean absolute error)|平均绝对误差|
 |multidimensional|多维的|
 |Motivation|动力，干劲|
+|mathematical modeling|数学建模|
 
 N
 ---
@@ -490,6 +498,7 @@ P
 |dpi|dots per inch (dpi),打印时一般是 300 dpi|
 |PDU|协议数据单元,公共数据单元|
 |pole|极点 zero:零点|
+|polynomial|多项式|
 
 Q
 ---
@@ -558,6 +567,7 @@ R
 |react|做出反应|
 |radio button|单选按钮|
 |roundup|回顾,汇总|
+|review|回顾,评审|
 
 S
 ---
