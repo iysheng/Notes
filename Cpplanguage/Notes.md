@@ -222,7 +222,7 @@ ABC a(1); /* 等价 ABC a = 1; 这个构造方法只有一个参数 */
 	ABC::ABC(int a):age(a),acount(a)
 	```
 	3. 因为 static 成员变量独立 object,所属这个 class,所以如果将一个 static 变量定义为 private 类型，那么需要使用 static 方法访问这个 static 变量,static 方法可以使用类的域操作符访问， ABC::getnum()
-	4. 定义在 class 的枚举，只在这个 class 可以直接使用
+	4. 定义在 class 的枚举，只在这个 class 可以直接使用, 在这个类之外使用使前面需要添加这个 类名字::
 27. 数组
 	1. 数组的成员也可以是类的对象，这时候就称之为 class array
 28. **virtual 函数**（虚函数是 C++ 中用于实现多态(polymorphism)的机制。核心理念就是通过基类访问派生类定义的函数。）

@@ -939,6 +939,8 @@ sudo dnf install iwl1000-firmware
     ``` text
     # 需运行以下命令开启gdbinit安全配置文件
     # echo "add-auto-load-safe-path `pwd`/.gdbinit" > ~/.gdbinit
+    # 特别地,如果设置 set auto-load safe-path /
+    # 那么会使用当前目录下的 .gdbinit 文件
     #设置elf文件和连接远程服务器s
     file /home/yangyongsheng/Projects/red_smart_led/out/smart_led.elf
     target remote localhost:3333

@@ -172,6 +172,7 @@ C
 |charactering|塑造|
 |complex conjugate|复共轭|
 |clear analogy|清晰的类比|
+|criteria|标准,评判条件|
 
 D
 ---
@@ -277,6 +278,8 @@ F
 |frown|反对|
 |flip|快速翻转,交换,改变|
 |feedforward|前馈|
+|feed|提供,喂|
+|fluctuations|波动|
 
 G
 ---
@@ -290,6 +293,7 @@ G
 |Graduate|毕业的|
 |gadget|小工具|
 |glitch|差错，小毛病|
+|gradient|梯度|
 
 H
 ---
@@ -406,6 +410,7 @@ M
 |multidimensional|多维的|
 |Motivation|动力，干劲|
 |mathematical modeling|数学建模|
+|magnitude|振幅|
 
 N
 ---
@@ -568,6 +573,8 @@ R
 |radio button|单选按钮|
 |roundup|回顾,汇总|
 |review|回顾,评审|
+|residual|残差|
+|reconsider|重新考虑|
 
 S
 ---
@@ -635,6 +642,7 @@ S
 |SWD|Serial Wire Debug|
 |shorthand|速记|
 |specifically|明确地|
+|steady-state error|稳态误差|
 
 T
 ---
@@ -678,6 +686,8 @@ T
 |transformations|转变|
 |transactionally|事务性的|
 |turnaround period|周转期|
+|this way|这样|
+|transient respone|瞬态响应|
 
 U
 ---
