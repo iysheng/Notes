@@ -58,6 +58,7 @@ A
 |AP|Access Ports|
 |API|application programming interface|
 |assess|评估|
+|abrupt|突然的|
 
 B
 ---
@@ -88,6 +89,8 @@ B
 |Bucket|桶|
 |bounded|无界的|
 |basis|原因,基础|
+|be proportional to|成比例|
+|Bode Plot|波特图|
 
 C
 ---
@@ -218,6 +221,10 @@ D
 |diverge|扩散,发散|
 |denominator coefficients|分母系数|
 |differential equation|微分方程|
+|dominant|主要的|
+|decay|衰减|
+|decay rate|衰减率|
+|decibel|分贝|
 
 E
 ---
@@ -504,6 +511,7 @@ P
 |PDU|协议数据单元,公共数据单元|
 |pole|极点 zero:零点|
 |polynomial|多项式|
+|peaking time|峰值时间|
 
 Q
 ---
@@ -643,6 +651,9 @@ S
 |shorthand|速记|
 |specifically|明确地|
 |steady-state error|稳态误差|
+|significant|重要的|
+|settling|结束,解决|
+|settling time|调节时间|
 
 T
 ---
