@@ -225,6 +225,7 @@ D
 |decay|衰减|
 |decay rate|衰减率|
 |decibel|分贝|
+|deal with|讨论,应对|
 
 E
 ---
