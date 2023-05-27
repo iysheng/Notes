@@ -98,6 +98,7 @@ B
 |be proportional to|成比例|
 |Bode Plot|波特图|
 |bypass|绕过，旁路|
+|backbone|主干，基础|
 
 C
 ---
@@ -185,6 +186,7 @@ C
 |criteria|标准,评判条件|
 |CIDR|Component Identification Registers 组件ID寄存器|
 |choice|选择，抉择|
+|comment|评论，表达意见|
 
 D
 ---
@@ -746,6 +748,7 @@ U
 |underlying type|基础类型,隐藏类型|
 |up to the point|到目前为止|
 |upper limit|上限|
+|undesirable|不可取的，不受欢迎的|
 
 V
 ---
