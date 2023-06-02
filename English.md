@@ -59,6 +59,8 @@ A
 |API|application programming interface|
 |assess|评估|
 |abrupt|突然的|
+|absence|缺席|
+|ARM Debug Interface v5 Architecture Specification, ARM IHI 0031E|ARM调试接口v5版本规范|
 
 B
 ---
@@ -176,6 +178,7 @@ C
 |complex conjugate|复共轭|
 |clear analogy|清晰的类比|
 |criteria|标准,评判条件|
+|CIDR|Component Identification Registers 组件ID寄存器|
 
 D
 ---
@@ -215,6 +218,7 @@ D
 |deduced|推断|
 |Delegating Constructors|委托构造函数|
 |DP|Debug Port，调试口|
+|DPIDR|Debug Port Identification register ,调试口的 ID 寄存器|
 |datagram|电报|
 |damped|阻尼|
 |damped sinusoidal signal|阻尼正弦信号|
@@ -655,6 +659,7 @@ S
 |significant|重要的|
 |settling|结束,解决|
 |settling time|调节时间|
+|stale|旧的,不新鲜的|
 
 T
 ---

@@ -48,7 +48,7 @@
 ```
 10. USB 描述符:通过一套描述符,USB设备向USB主机描述自己的功能,属性,配置信息等标准描述符:
     1. 设备描述符(device descriptor),描述设备的类型,厂商信息,USB的协议类型,端点的包数据的最大长度等,每个USB设备**只有一个**设备描述符
-      ![](./figures/usb_dev_descriptor.png)
+        ![](./figures/usb_dev_descriptor.png)j
     
     2. 配置描述符(configuration descriptor),每个配置描述符提供了设备特定的配置,描述了设备的接口和端点的性质,供电模式和设备的耗电
     
