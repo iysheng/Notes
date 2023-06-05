@@ -1258,3 +1258,4 @@ _sbrk (ptrdiff_t incr)
 128. 默认创建的 socket 都是阻塞型的,但是可以通过函数 ``setsockopt(m_socket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv))`` 先
     1. 针对多播:
         1.1 可以通过修改设置禁止回环``setsockopt(m_socket, IPPROTO_IP, IP_MULTICAST_LOOP, &(loop_enable), sizeof(loop_enable))``,即自己发送出去的数据自己不会读回来.
+129. ``cutecom`` 一款 Linux 下的串口 GUI 工具

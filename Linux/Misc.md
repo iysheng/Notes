@@ -609,3 +609,13 @@ HandleLidSwitch=ignore
 为了让配置及时生效,需要执行:
 systemctl restart systemd-logind
 ```
+51. 设备树
+	1. 节点定义
+``` dts
+[label:] node-name[@unit-address] { /* 冒号前的内容是 label */
+[properties definitions]
+[child nodes]
+};
+```
+	2. 可以给 node 或者 property 绑定 label, label 只会出现在 dts 源码中，不会出现在最终的 dtb 文件中
+	3. 如果想引用 label, 那么需要在 label 名字前加 & 符号
