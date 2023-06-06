@@ -61,6 +61,7 @@ A
 |abrupt|突然的|
 |absence|缺席|
 |ARM Debug Interface v5 Architecture Specification, ARM IHI 0031E|ARM调试接口v5版本规范|
+|agnostic|不可知的，无关的|
 
 B
 ---

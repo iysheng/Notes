@@ -42,3 +42,5 @@ device 上的每一个 endpoint 都有一个设备分配的唯一 ID. 这个 ID 
 
 #### USB Subsystems
 
+#### 内核调试
+内核调试参数 ``initcall_debug`` 查看内核启动过程的函数调用详细信息
