@@ -619,3 +619,32 @@ systemctl restart systemd-logind
 ```
 	2. 可以给 node 或者 property 绑定 label, label 只会出现在 dts 源码中，不会出现在最终的 dtb 文件中
 	3. 如果想引用 label, 那么需要在 label 名字前加 & 符号
+52. [给 Linux 提交 pr 的方法](https://www.cnblogs.com/gmpy/p/12200609.html)
+	1. clone 源码树， 最好是根据你修改的部分查找对应的仓库路径，可以去 MAINTAINERS 文件中查找，这里以 linus 的仓库为例 eg: git clone git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git
+	2. 修改，生成补丁文件，假如是单次修改，生成补丁的命令是：``git format-patch --subject-prefix='PATCH' -i HEAD~``, 如果是系列补丁，用下面的命令：``git format-patch --cover-letter --subject-prefix='PATCH' -N #这里的N是你要提取的补丁个数``
+		1. 其中这个邮件前缀也是有一定的规范的,常见的有 PATCH（常规且正式的补丁）， RFC（不要正式提上去，希望一起讨论这个补丁，用来说明方向，看看意见）， RESEND（邮件发了好久没有回复，希望重新发）
+	3. 风格检查，``./scripts/checkpatch.pl 00*.patch``， 根据检查的错误重新修改，创建补丁，然后继续检查。
+	4. 确定邮件接受人，使用脚本解析补丁获取邮件接收人员。``$ ./scripts/get_maintainer.pl 00*.patch``, eg：
+	```
+	Jean Delvare <jdelvare@suse.com> (maintainer:HARDWARE MONITORING)
+	Guenter Roeck <linux@roeck-us.net> (maintainer:HARDWARE MONITORING)
+	Jonathan Corbet <corbet@lwn.net> (maintainer:DOCUMENTATION)
+	linux-hwmon@vger.kernel.org (open list:HARDWARE MONITORING)
+	linux-doc@vger.kernel.org (open list:DOCUMENTATION)
+	linux-kernel@vger.kernel.org (open list)
+	```
+	其中，前3个maintainer是需要发送的对象，后三个是邮件列表。它们分别在 ``git send-email`` 命令使用 -to 选项和 -cc 选项进行发送和抄送。
+	5. 使用 git send-email 命令发送补丁
+		1. 首先对 git send-email 进行配置, 以 gmail 邮箱为例
+		```
+		git config --local sendemail.smtpServer smtp.gmail.com
+		git config --local sendemail.smtpUser iyysheng@gmail.com
+		git config --local sendemail.smtpServerPort 587
+		git config --local sendemail.smtpEncryption tls
+		git config --local sendemail.smtpPass xxxxxxx 使用 gmail 的 password(不是邮箱密码哦，是专门给邮箱生成的密码，属于 APP 密码)
+		```
+		2. 发送邮件
+		```
+		git send-email --to xxx,xxx,xxx --cc yyy,yyy,yyy 000*.patch 将指定的补丁文件发送到 xxx,xxx,xxx 并抄送 yyy,yyy,yyy
+		```
+		3. 顺利的话就可以在邮件列表的网址看到自己发的 pr 了。 网址：https://lore.kernel.org/all

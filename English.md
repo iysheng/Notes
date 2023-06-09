@@ -322,6 +322,7 @@ H
 |hammer|敲击|
 |here we go|我们开始吧|
 |helper functions|辅助函数|
+|hysteresis|磁滞，滞后|
 
 I
 ---
