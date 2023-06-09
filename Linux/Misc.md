@@ -623,6 +623,7 @@ systemctl restart systemd-logind
 	1. clone 源码树， 最好是根据你修改的部分查找对应的仓库路径，可以去 MAINTAINERS 文件中查找，这里以 linus 的仓库为例 eg: git clone git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git
 	2. 修改，生成补丁文件，假如是单次修改，生成补丁的命令是：``git format-patch --subject-prefix='PATCH' -i HEAD~``, 如果是系列补丁，用下面的命令：``git format-patch --cover-letter --subject-prefix='PATCH' -N #这里的N是你要提取的补丁个数``
 		1. 其中这个邮件前缀也是有一定的规范的,常见的有 PATCH（常规且正式的补丁）， RFC（不要正式提上去，希望一起讨论这个补丁，用来说明方向，看看意见）， RESEND（邮件发了好久没有回复，希望重新发）
+		2. 如果是对补丁有阶段性的修改，比如 v2,那么可以简化执行 ``git format-patch -v2 -i HEAD~`` 生成补丁文件
 	3. 风格检查，``./scripts/checkpatch.pl 00*.patch``， 根据检查的错误重新修改，创建补丁，然后继续检查。
 	4. 确定邮件接受人，使用脚本解析补丁获取邮件接收人员。``$ ./scripts/get_maintainer.pl 00*.patch``, eg：
 	```
@@ -647,4 +648,230 @@ systemctl restart systemd-logind
 		```
 		git send-email --to xxx,xxx,xxx --cc yyy,yyy,yyy 000*.patch 将指定的补丁文件发送到 xxx,xxx,xxx 并抄送 yyy,yyy,yyy
 		```
-		3. 顺利的话就可以在邮件列表的网址看到自己发的 pr 了。 网址：https://lore.kernel.org/all
+		3. 顺利的话就可以在邮件列表的网址看到自己发的 pr 了。 网址：[https://lore.kernel.org/all](https://lore.kernel.org/all) 或者 [https://lkml.org/](https://lkml.org/)
+		4. 如果看到 pr 有评论，下一步就是要对评论进行 reply 了，这里分两种情况：
+			1. 单纯的对评论进行 reply 不涉及 patch 的更新，这时候可以使用 git send-email 进行 reply, reply 的地址可以在 https://lore.kernel.org/all 对应的 pr 中看到，比如: https://lore.kernel.org/all/20230609075510.1305-1-iyysheng@gmail.com/ 点击下面的 reply 按键，可以看到对这条消息进行 reply 的地址：
+
+			``` bash
+			git send-email \
+			--in-reply-to=20230609075510.1305-1-iyysheng@gmail.com \
+			--to=iyysheng@gmail.com \
+			--cc=corbet@lwn.net \
+			--cc=jdelvare@suse.com \
+			--cc=linux-doc@vger.kernel.org \
+			--cc=linux-hwmon@vger.kernel.org \
+			--cc=linux-kernel@vger.kernel.org \
+			--cc=linux@roeck-us.net \
+			/path/to/YOUR_REPLY
+			```
+
+			其中 ``/path/to/YOUR_REPLY`` 表示发送的消息的文本内容，重点就是这个文本改怎么填呢，这里有多种方法：
+				1. 使用 b4 工具拉取这个 pr 相关的回复，这时候需要首先使用 ``pip install b4`` 安装 ``b4`` 命令，然后使用 ``b4 mbox <message id>`` 进行拉取，具体如下：
+
+				``` bash
+				▸ b4 mbox 2023060907520230609075510.1305-1-iyysheng@gmail.com
+				Grabbing thread from lore.kernel.org/all/20230609075510.1305-1-iyysheng%40gmail.com/t.mbox.gz
+				1 messages in the thread
+				Saved ./20230609075510.1305-1-iyysheng@gmail.com.mbx
+				```
+
+				下一步就是修改这个文本的内容了，具体修改的原理可以参看[正确使用邮件列表参与开源社区的协作](https://tinylab.org/mailing-list-intro/), 以这个邮件为例，原始文件内容是：
+
+				``` bash
+				From mboxrd@z Thu Jan  1 00:00:00 1970
+				Return-Path: <linux-hwmon-owner@vger.kernel.org>
+				X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+					aws-us-west-2-korg-lkml-1.web.codeaurora.org
+				Received: from vger.kernel.org (vger.kernel.org [23.128.96.18])
+					by smtp.lore.kernel.org (Postfix) with ESMTP id 811F6C7EE2F
+					for <linux-hwmon@archiver.kernel.org>; Fri,  9 Jun 2023 07:56:48 +0000 (UTC)
+				Received: (majordomo@vger.kernel.org) by vger.kernel.org via listexpand
+				        id S239354AbjFIH4q (ORCPT <rfc822;linux-hwmon@archiver.kernel.org>);
+				        Fri, 9 Jun 2023 03:56:46 -0400
+				Received: from lindbergh.monkeyblade.net ([23.128.96.19]:34150 "EHLO
+				        lindbergh.monkeyblade.net" rhost-flags-OK-OK-OK-OK) by vger.kernel.org
+				        with ESMTP id S239473AbjFIH4a (ORCPT
+				        <rfc822;linux-hwmon@vger.kernel.org>); Fri, 9 Jun 2023 03:56:30 -0400
+				Received: from mail-lf1-x12a.google.com (mail-lf1-x12a.google.com [IPv6:2a00:1450:4864:20::12a])
+				        by lindbergh.monkeyblade.net (Postfix) with ESMTPS id 4A56A4206;
+				        Fri,  9 Jun 2023 00:56:00 -0700 (PDT)
+				Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-4f62cf9755eso1807970e87.1;
+				        Fri, 09 Jun 2023 00:56:00 -0700 (PDT)
+				DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+				        d=gmail.com; s=20221208; t=1686297354; x=1688889354;
+				        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+				         :to:from:from:to:cc:subject:date:message-id:reply-to;
+				        bh=7XDBOKDA6bfl/qmJTSZHOtCV0YaHuP39l5+ZHaqyhDE=;
+				        b=SO3wMSPRuf7Dg8JYNPq00RVBzG9EQtH+filTpzwquADZPkHN5CZSZBHmLCHYXnduiA
+				         vupVF5759/HcGksJRNsE90CQrZxj3jo0/wmVBiYr8oW4H1e7Ua0LTZ8yo3usQQZ400/5
+				         UooFVXpkq59+SkIIq/uwMHJdTbKIqmYkP4cSn75FVSaYU8UiZtqE8na4dUGq5XntIcp9
+				         L3N1BUU+E+9cz03GXpOafpGjryW3BGoPbwxHKeqL66d0RlCC0PFUUtB+WkiG1DKKqgKK
+				         LvqtOc9+oBPTA6q/BzPuuB4ZF7++s1ub39gZlInY9pLDp6/xP/nO05wLQ0PhScStteFA
+				         mwXg==
+				X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+				        d=1e100.net; s=20221208; t=1686297354; x=1688889354;
+				        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+				         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+				         :reply-to;
+				        bh=7XDBOKDA6bfl/qmJTSZHOtCV0YaHuP39l5+ZHaqyhDE=;
+				        b=cE73Bhx52eKPKSTS5IwOzdISvJ4IUNQR3bCiCsdjB04F1jcXOi7nqlFvEiJ4C2IBbI
+				         CuB5LQgWSuLsefpuYXqJ7P5dQ7llBLEl/WZmb/F/CyuX9oeOqXs65Gr1uUzq9QGASr8D
+				         u/HybdMnCkDq6G6an3nxx+SD7i98+rW2sRSMHi7l7vNME0pRAcZHtq64rmfEt9Uh/ycE
+				         qkwJBiBAYJ+lJZToDwM4M2NCF7qN1OpwqUKdC3pv41KynQcC4SHmJVsrby+pqU/2azug
+				         nbiEeBBuupBeqhb+4iO9EVxm/VaY7W+rExfEmn9z+dqvczpYZH3dZe3gzcjLNi8aw8nv
+				         7AkQ==
+				X-Gm-Message-State: AC+VfDwqbUbqSFw36wsJw3cFHa7mgjetz4ZuXqC6RnOrsqZ7vjHEC3ax
+				        K0iotmGSyIkW+/XmWZ3UXKo=
+				X-Google-Smtp-Source: ACHHUZ52DeNk/IADD/j/BqpPoRKGiHRiaSyBny/WfMinS1Vtiuxjt1HkkNvew5ltdn4YGjVqt7VtwA==
+				X-Received: by 2002:a19:6518:0:b0:4e8:c81b:1a11 with SMTP id z24-20020a196518000000b004e8c81b1a11mr428022lfb.49.1686297354332;
+				        Fri, 09 Jun 2023 00:55:54 -0700 (PDT)
+				Received: from localhost.localdomain (bba-2-50-150-163.alshamil.net.ae. [2.50.150.163])
+				        by smtp.gmail.com with ESMTPSA id n5-20020a7bcbc5000000b003f7eafe9d76sm1788703wmi.37.2023.06.09.00.55.52
+				        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+				        Fri, 09 Jun 2023 00:55:53 -0700 (PDT)
+				From: Yongsheng Yang <iyysheng@gmail.com>
+				To: jdelvare@suse.com, linux@roeck-us.net, corbet@lwn.net
+				Cc: linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+				        linux-kernel@vger.kernel.org, Yongsheng Yang <iyysheng@gmail.com>
+				Subject: [PATCH v2] Documentation/hwmon: Fix description of devm_hwmon_device_unregister()
+				Date: Fri,  9 Jun 2023 11:55:10 +0400
+				Message-ID: <20230609075510.1305-1-iyysheng@gmail.com>
+				X-Mailer: git-send-email 2.41.0.windows.1
+				MIME-Version: 1.0
+				Content-Transfer-Encoding: 8bit
+				Precedence: bulk
+				List-ID: <linux-hwmon.vger.kernel.org>
+				X-Mailing-List: linux-hwmon@vger.kernel.org
+				
+				Use devm_hwmon_device_register_with_info to replace
+				hwmon_device_register_with_info in description of
+				devm_hwmon_device_unregister.
+				
+				Signed-off-by: Yongsheng Yang <iyysheng@gmail.com>
+				---
+				 Documentation/hwmon/hwmon-kernel-api.rst | 2 +-
+				 1 file changed, 1 insertion(+), 1 deletion(-)
+				
+				diff --git a/Documentation/hwmon/hwmon-kernel-api.rst b/Documentation/hwmon/hwmon-kernel-api.rst
+				index c2d1e0299d8d..6cacf7daf25c 100644
+				--- a/Documentation/hwmon/hwmon-kernel-api.rst
+				+++ b/Documentation/hwmon/hwmon-kernel-api.rst
+				@@ -66,7 +66,7 @@ hwmon_device_register_with_info.
+				 
+				 devm_hwmon_device_unregister does not normally have to be called. It is only
+				 needed for error handling, and only needed if the driver probe fails after
+				-the call to hwmon_device_register_with_info and if the automatic (device
+				+the call to devm_hwmon_device_register_with_info and if the automatic (device
+				 managed) removal would be too late.
+				 
+				 All supported hwmon device registration functions only accept valid device
+				-- 
+				2.37.1
+				```
+
+				我们需要删除不需要的内容(删除到Subject: 这一行)，针对自己想要回复的内容前添加 ``> `` 符号，表示引用这段话。修改为：
+
+				``` bash
+				Subject: [PATCH v2] Documentation/hwmon: Fix description of devm_hwmon_device_unregister()
+				Date: Fri,  9 Jun 2023 11:55:10 +0400
+				Message-ID: <20230609075510.1305-1-iyysheng@gmail.com>
+				X-Mailer: git-send-email 2.41.0.windows.1
+				MIME-Version: 1.0
+				Content-Transfer-Encoding: 8bit
+				Precedence: bulk
+				List-ID: <linux-hwmon.vger.kernel.org>
+				X-Mailing-List: linux-hwmon@vger.kernel.org
+				
+				Use devm_hwmon_device_register_with_info to replace
+				hwmon_device_register_with_info in description of
+				devm_hwmon_device_unregister.
+				
+				Signed-off-by: Yongsheng Yang <iyysheng@gmail.com>
+				---
+				 Documentation/hwmon/hwmon-kernel-api.rst | 2 +-
+				 1 file changed, 1 insertion(+), 1 deletion(-)
+				
+				diff --git a/Documentation/hwmon/hwmon-kernel-api.rst b/Documentation/hwmon/hwmon-kernel-api.rst
+				index c2d1e0299d8d..6cacf7daf25c 100644
+				--- a/Documentation/hwmon/hwmon-kernel-api.rst
+				+++ b/Documentation/hwmon/hwmon-kernel-api.rst
+				@@ -66,7 +66,7 @@ hwmon_device_register_with_info.
+				 
+				 devm_hwmon_device_unregister does not normally have to be called. It is only
+				 needed for error handling, and only needed if the driver probe fails after
+				-the call to hwmon_device_register_with_info and if the automatic (device
+				+the call to devm_hwmon_device_register_with_info and if the automatic (device
+				 managed) removal would be too late.
+				 
+				 All supported hwmon device registration functions only accept valid device
+				-- 
+				```
+
+				下面进行微调，首先因为是对原始内容的 reply,这时候需要修改下标题即头部内容：
+
+				``` bash
+				Subject: [PATCH v2] Documentation/hwmon: Fix description of devm_hwmon_device_unregister()
+				Date: Fri,  9 Jun 2023 11:55:10 +0400
+				Message-ID: <20230609075510.1305-1-iyysheng@gmail.com>
+				X-Mailer: git-send-email 2.41.0.windows.1
+				MIME-Version: 1.0
+				Content-Transfer-Encoding: 8bit
+				Precedence: bulk
+				List-ID: <linux-hwmon.vger.kernel.org>
+				X-Mailing-List: linux-hwmon@vger.kernel.org
+				修改为
+				Subject: Re: [PATCH v2] Documentation/hwmon: Fix description of devm_hwmon_device_unregister()
+				即添加一个`` Re: ``的内容,表示 reply
+				然后删除那些不需要的行，比如说发送时间，Message-ID 等内容
+				```
+
+				因为需要引用原始文件内容（不是说一定要全部引用，可以引用部分），那么需要在引用的那一行之前添加 ``> `` 符号。进一步修改为：
+
+				``` bash
+				Subject: [PATCH v2] Documentation/hwmon: Fix description of devm_hwmon_device_unregister()
+				
+				> Use devm_hwmon_device_register_with_info to replace
+				> hwmon_device_register_with_info in description of
+				> devm_hwmon_device_unregister.
+				
+				> Signed-off-by: Yongsheng Yang <iyysheng@gmail.com>
+				> ---
+				>  Documentation/hwmon/hwmon-kernel-api.rst | 2 +-
+				>  1 file changed, 1 insertion(+), 1 deletion(-)
+				
+				> diff --git a/Documentation/hwmon/hwmon-kernel-api.rst b/Documentation/hwmon/hwmon-kernel-api.rst
+				> index c2d1e0299d8d..6cacf7daf25c 100644
+				> --- a/Documentation/hwmon/hwmon-kernel-api.rst
+				> +++ b/Documentation/hwmon/hwmon-kernel-api.rst
+				> @@ -66,7 +66,7 @@ hwmon_device_register_with_info.
+				>  
+				>  devm_hwmon_device_unregister does not normally have to be called. It is only
+				>  needed for error handling, and only needed if the driver probe fails after
+				> -the call to hwmon_device_register_with_info and if the automatic (device
+				> +the call to devm_hwmon_device_register_with_info and if the automatic (device
+				>  managed) removal would be too late.
+				>  
+				>  All supported hwmon device registration functions only accept valid device
+				> -- 
+				添加自己回复的内容...... 就可以了
+				```
+				
+				将修改后的内容保存到文件比如 a.txt 中，然后执行指令从 reply 中获取的路径发送出去就可以了：
+				
+				``` bash
+				git send-email \
+				--in-reply-to=20230609075510.1305-1-iyysheng@gmail.com \
+				--to=iyysheng@gmail.com \
+				--cc=corbet@lwn.net \
+				--cc=jdelvare@suse.com \
+				--cc=linux-doc@vger.kernel.org \
+				--cc=linux-hwmon@vger.kernel.org \
+				--cc=linux-kernel@vger.kernel.org \
+				--cc=linux@roeck-us.net \
+				a.txt
+				```
+
+				2. 直接在原始文件中点击 raw，将文本复制出来修改也是可以的。
+
+			2. 如果自己的 pr 需要修改，那么就需要重新生成 pr,这时候就需要使用命令``git format-patch -v版本 -i HEAD~``,记住这个版本是不断迭代的，比如说第二次迭代就是 -v2 ，这样以此类推。
+
