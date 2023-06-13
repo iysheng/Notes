@@ -231,6 +231,7 @@ D
 |decay rate|衰减率|
 |decibel|分贝|
 |deal with|讨论,应对|
+|dissipatable|可消散的|
 
 E
 ---
@@ -307,6 +308,7 @@ G
 |gadget|小工具|
 |glitch|差错，小毛病|
 |gradient|梯度|
+|governor|调节器|
 
 H
 ---
@@ -519,6 +521,8 @@ P
 |pole|极点 zero:零点|
 |polynomial|多项式|
 |peaking time|峰值时间|
+|proportional|比例|
+|proportional term|比例项|
 
 Q
 ---
@@ -631,7 +635,7 @@ S
 |subdivide|细分|
 |successor|继任者|
 |semantic|语义的|
-|slope|斜坡|
+|slope|斜坡,斜率|
 |sketch|素描|
 |square brackets|方括号|
 |skeleton|骨架|
@@ -707,6 +711,8 @@ T
 |turnaround period|周转期|
 |this way|这样|
 |transient respone|瞬态响应|
+|throttle|节气门，风门|
+|thermal trip|热阀门，热力阀门|
 
 U
 ---
