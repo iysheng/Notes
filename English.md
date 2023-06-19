@@ -260,8 +260,9 @@ E
 |explanatory|解释|
 |end off|结束|
 |evident|显而易见|
-|evaluate||
+|evaluate|评估|
 |excite|激发|
+|extent|程度|
 
 F
 ---
@@ -325,6 +326,7 @@ H
 |here we go|我们开始吧|
 |helper functions|辅助函数|
 |hysteresis|磁滞，滞后|
+|hanging out|闲逛|
 
 I
 ---
