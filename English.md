@@ -295,6 +295,7 @@ F
 |feedforward|前馈|
 |feed|提供,喂|
 |fluctuations|波动|
+|facilitate|促进,促使,使便利|
 
 G
 ---
@@ -398,6 +399,7 @@ L
 |library|庫|
 |legend|图片文字说明|
 |landscape|风景画,风景照|
+|lower limit|下限|
 
 M
 ---
@@ -733,6 +735,7 @@ U
 |underlying|底层|
 |underlying type|基础类型,隐藏类型|
 |up to the point|到目前为止|
+|upper limit|上限|
 
 V
 ---
