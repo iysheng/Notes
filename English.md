@@ -715,7 +715,7 @@ T
 |turnaround period|周转期|
 |this way|这样|
 |transient respone|瞬态响应|
-|throttle|节气门，风门|
+|throttle|节气门,风门,压制|
 |thermal trip|热阀门，热力阀门|
 
 U

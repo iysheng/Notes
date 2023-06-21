@@ -414,3 +414,7 @@ sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 	* getline(数字)， 返回指定行号的内容
 	* getline('.')， 返回当前行的行号
 83. 查看指定的快捷键的映射``:verbose map <C-a>``， 查看快捷键 control-a 的映射
+84. ``%`` 符号表示当前打开的文件名, ``!`` 符号是 bang 的缩略语, 表示如果之前定义了相同名称的函数，那么会强制重写这个函数。有点强制性的意味。
+85. vim 中的 Groups 概念
+	1. autocommands 可以放到一个 group 中。这对移除或者执行一个 autocommands 组是很有用的。这样就是可以
+	2. command 定义了一个命令, command! 表示强制定义这个命令
