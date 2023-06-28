@@ -872,3 +872,4 @@ systemctl restart systemd-logind
 keycode 119 = BackSpace
 ```
 设置开机自启动 ``xmodmap ~/.Xmodmap`` 就可以了.
+	* xmodmap -pk 打印 keymap table 信息
