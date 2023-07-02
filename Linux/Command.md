@@ -248,6 +248,8 @@
     74. git 使用 hook 的方法，进入 ``.git/hook`` 目录，重命名 .sample 文件，eg: 修改 pre-commit.sample 为 pre-commit，添加可执行权限就可以了
     75. git describe --always --dirty --tags 命令可以打印出来详细的版本信息
     76. git ls-files # 列出来跟踪的所有文件
+    77. git blame -L <start>,<end> 文件名 # 查看指定文件在指定的起始和结束行范围内的代码改动.
+    78. git blame -L :funcname 文件名 # 查看指定文件在指定的起始和结束行范围内的代码改动.
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
@@ -799,6 +801,7 @@ xrandr --output 分屏幕 --brightness 0.6
     1. gdb + elf 文件
         1. diassemble + 地址 # 反汇编指定地址的代码
     2. gdb -ex "target remote localhost:3333"  # 执行 gdb 命令, 通过 -ex 参数传入
+    3. set follow-fork-mode child # 打印子进程的 backtrace
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串
@@ -1260,3 +1263,5 @@ _sbrk (ptrdiff_t incr)
     1. 针对多播:
         1.1 可以通过修改设置禁止回环``setsockopt(m_socket, IPPROTO_IP, IP_MULTICAST_LOOP, &(loop_enable), sizeof(loop_enable))``,即自己发送出去的数据自己不会读回来.
 129. ``cutecom`` 一款 Linux 下的串口 GUI 工具
+130. strace 命令
+    1. strace -f -o xxx.log 命令 命令参数

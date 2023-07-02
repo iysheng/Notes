@@ -7,6 +7,7 @@
 ``` bash
 sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加爱字母a
 sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
+sed -i -e "/^#abc/{s/^#//g}" a.c : 修改 a.c 文件,在匹配 ^#abc 的行,删除开头的 # 号
 ```
 6. 保留
 7. 字符串操作符集合
@@ -510,3 +511,4 @@ echo -e "\033[文字颜色m字符串\033[0m"
 .rw-r--r--. red red 0 B Wed Mar  8 10:04:43 2023  abc_hard 硬连接
 lrwxrwxrwx. red red 3 B Wed Mar  8 10:04:52 2023  abc_soft ⇒ abc 软连接
 ```
+51. cat -n # 可以打印出来文件的行号

@@ -62,6 +62,9 @@ A
 |absence|缺席|
 |ARM Debug Interface v5 Architecture Specification, ARM IHI 0031E|ARM调试接口v5版本规范|
 |agnostic|不可知的，无关的|
+|advisable|可辅助的|
+|assumed|假定的|
+|assumes|假定|
 
 B
 ---
@@ -598,6 +601,7 @@ R
 |review|回顾,评审|
 |residual|残差|
 |reconsider|重新考虑|
+|requirements|需要的东西|
 
 S
 ---
