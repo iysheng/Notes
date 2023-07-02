@@ -867,3 +867,8 @@ systemctl restart systemd-logind
 
 53. 吉林大学学生邮箱客户端配置：
 	1. pop3 协议，服务器地址：mails.jlu.edu.cn 发送和接收均不设置安全类型。其中，发送端口 110,接收端口 25.
+54. 修改键盘重映射的方法,需要使用 xmodmap 进行重映射.比如需要将 delete 按键重映射到 backspace. 我们需要知道两个信息.一个是 delete 按键的 keycode 另一个是 delete 按键的 KEYSYMNAME.首先是 keycode 可以通过 xev 工具得到,我得到是 119.然后查看文件 ``<X11/keysymdef.h> (without the XK_ prefix)`` 找到 backspace 的 KEYSYMNAME 名字为 ``BackSpace``.最后执行 xmodmap -e "keycode 119 = BackSpace" 就可以了.如果想让开机自启动,需要使用到 xmodmap 的配置文件, 比如配置文件为 ``~/.Xmodmap``
+``` bash
+keycode 119 = BackSpace
+```
+设置开机自启动 ``xmodmap ~/.Xmodmap`` 就可以了.
