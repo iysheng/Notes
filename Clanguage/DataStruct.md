@@ -29,6 +29,7 @@ inline void func(void)
 ```
 5. (void)x; /* 可以避免编译器的警告未使用的变量 */
 6. #pragma pack(n) 可以修改 alignment
+7. crt0.o 是连接到C程序的一段启动函数集合。这里一般做一些程序 main 程序之前的准备工作。crt（C runtime）,0 表示最开始。这个.o一般由一段汇编语言编译而来。比如在这里会执行一些 C++ 的初始构造函数。
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);

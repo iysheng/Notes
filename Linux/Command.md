@@ -802,6 +802,7 @@ xrandr --output 分屏幕 --brightness 0.6
         1. diassemble + 地址 # 反汇编指定地址的代码
     2. gdb -ex "target remote localhost:3333"  # 执行 gdb 命令, 通过 -ex 参数传入
     3. set follow-fork-mode child # 打印子进程的 backtrace
+    4. info symbol 地址 # 打印地址对应的符号
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串

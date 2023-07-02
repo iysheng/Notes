@@ -235,6 +235,7 @@ D
 |decibel|分贝|
 |deal with|讨论,应对|
 |dissipatable|可消散的|
+|derivative term|微分项，导数项|
 
 E
 ---
@@ -674,6 +675,8 @@ S
 |settling|结束,解决|
 |settling time|调节时间|
 |stale|旧的,不新鲜的|
+|system requirements|系统需求|
+|frequency domain metrics|频域度量|
 
 T
 ---
