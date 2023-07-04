@@ -16,7 +16,7 @@
     8. sudo dnf update 軟件包名稱 # 更新指定的軟件包
     9. sudo dnf upgrade # 升级, 和 dnf update 有相同的功能，都会更新已经安装的软件包，但是更建议使用 ```dnf upgrade``` ，因为他工作更加准确，类似 ```dnf --obsoletes update```,更新过时的软件包
     10. sudo dnf grouplist 列出当前的软件组
-    11. dnf list glibc-\*langpack\* 列出已经安装的语言包 
+    11. dnf list glibc-\*langpack\* 列出已经安装的语言包
     12. sudo dnf repoquery -l 软件包名称，列出指定软件包名称包含的所有文件
     13. sudo dnf install xxxxx --setopt install_weak_deps=false  # 不安装指定软件的弱依赖
 
@@ -1015,7 +1015,7 @@ sudo dnf install iwl1000-firmware
 	* =B8-SUM(B10:B14) 	Calculates B8 minus the sum of the cells B10 to B14. 先求和再做差
 	* =SUM(B8;SUM(B10:B14)) 	Calculates the sum of cells B10 to B14 and adds the value to B8. 求和
 85. **Makefile** 语法描述
-	* ```strip``` 函数，删除开头和结尾的空格，eg: 
+	* ```strip``` 函数，删除开头和结尾的空格，eg:
 	``` makefile
 	$(strip a b c ) => a b c #删除了结尾的空格
 	```
@@ -1266,3 +1266,41 @@ _sbrk (ptrdiff_t incr)
 129. ``cutecom`` 一款 Linux 下的串口 GUI 工具
 130. strace 命令
     1. strace -f -o xxx.log 命令 命令参数
+131. mutt 邮件客户端配置(procmail, fetchmail, msmtp)
+    1. procmail 负责邮件转发（这里转发给 mutt, 对应的配置文件 ~/.procmail）
+    ``` bash
+	VERBOSE=yes
+	DEFAULT=/var/spool/mail/user_name
+	MAILDIR=$HOME/Mail
+	LOGFILE=$HOME/.procmail.log
+    ```
+    2. fetchmail 负责拉取邮件（从服务器拉取邮件, 对应的配置文件 ~/.fetchmailrc）,测试配置文件使用 ``fetchmail -v`` 测试
+    ``` bash
+	set daemon 60 # 在后台每隔 60s 运行一次
+	poll xxxxxxx(服务器地址) proto pop3 port 110
+	    user "xxxxxxxxxxxxx" password "xxxxx" # 用户名和密码
+	    keep # 不删除服务器的邮件
+	    mda "/usr/bin/procmail -d %T" # Mail Delivery Agent
+	    sslproto '' # ssl 协议类型，空表示无 ssl
+	mimedecode
+    ```
+    3. msmtp 负责发送邮件,对应的配置文件 ~/.msmtprc,测试使用 ``msmtp --serverinfo -d``
+    ``` bash
+	account default
+	host xxxxxxxxxx # 服务器地址
+	from xxxxxxxxxx # 用户名抬头
+	auth login
+	#auth plain
+	tls off
+	user xxxxx # 用户名
+	password xxxxx # 密码
+	logfile ~/.msmtp.log
+    ```
+    4. mutt 简单配置, ~/.muttrc
+    ``` bash
+	set sendmail="/usr/bin/msmtp"
+	set use_from=yes
+	set realname="xxxxxxxxxxxx"
+	set from=xxxxxxxxxxxxx
+	set envelope_from=yes
+    ```

@@ -97,6 +97,7 @@ B
 |basis|原因,基础|
 |be proportional to|成比例|
 |Bode Plot|波特图|
+|bypass|绕过，旁路|
 
 C
 ---
@@ -183,6 +184,7 @@ C
 |clear analogy|清晰的类比|
 |criteria|标准,评判条件|
 |CIDR|Component Identification Registers 组件ID寄存器|
+|choice|选择，抉择|
 
 D
 ---
@@ -236,6 +238,7 @@ D
 |deal with|讨论,应对|
 |dissipatable|可消散的|
 |derivative term|微分项，导数项|
+|disposal|排列，布置|
 
 E
 ---
