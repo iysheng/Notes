@@ -320,6 +320,7 @@ G
 |glitch|差错，小毛病|
 |gradient|梯度|
 |governor|调节器|
+|Gadget|小工具|
 
 H
 ---
@@ -489,6 +490,7 @@ O
 |Over time|随着时间的推移|
 |orientation|目标，方位，定位，朝向|
 |omission|省略|
+|On-The-Go|OTG|
 
 P
 ---
@@ -729,6 +731,7 @@ T
 |transient respone|瞬态响应|
 |throttle|节气门,风门,压制|
 |thermal trip|热阀门，热力阀门|
+|transaction|事务|
 
 U
 ---
