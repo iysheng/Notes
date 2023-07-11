@@ -239,6 +239,7 @@
         * git log -E --author="(Yang sheng)|(iysheng)" # 查找作者是 Yang sheng 或者 iysheng 的提交
     67. git checkout <commit> <filePath> # 可以直接检出指定文件或者文件夹
     68. git add 文件 -f # 可以强制添加被 .gitignore 忽略的文件
+        1. git add -u # 仅仅添加删除和修改的文件
     69. git push xxx --mirror # 推送所有分支(refs/****)到远端, 比 --all 推送的更多
     70. git push xxx --all # 推送所有分支(refs/heads)到远端
     71. git pull/fetch xxx --all # 拉取所有分支(refs/heads)到远端
