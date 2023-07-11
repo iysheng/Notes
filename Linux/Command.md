@@ -84,10 +84,10 @@
         2. git stash show -p : 显示存储的改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
         ``` bash
         ▸ git stash show -p stash@{0}
-        
+
         bsp/gd32103c-eval/rtconfig.py
         ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-        
+
         ────────────────────────┐
         if os.getenv('RTT_CC'): │
         ────────────────────────┘
@@ -103,10 +103,10 @@
         ┏─╼[yangyongsheng]╾─╼[15:49:18]╾─╼[0]
         ┗─╼[~/just4github/rt-thread (master)]
         ▸ git stash show -p
-        
+
         bsp/gd32103c-eval/rtconfig.py
         ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-        
+
         ────────────────────────┐
         if os.getenv('RTT_CC'): │
         ────────────────────────┘
@@ -599,7 +599,7 @@ EndSection
     Benchmark #1: fd -e jpg
       Time (mean ± σ):     126.0 ms ±   1.8 ms    [User: 286.5 ms, System: 164.8 ms]
       Range (min … max):   123.7 ms … 130.2 ms    23 runs
-    
+
     Benchmark #2: find -iname "*.jpg"
       Time (mean ± σ):     155.5 ms ±   1.9 ms    [User: 80.0 ms, System: 73.7 ms]
       Range (min … max):   153.2 ms … 159.8 ms    19 runs
@@ -701,7 +701,7 @@ cp timew-1.3.0/ext/on-modify.timewarrior ~/.task/hooks/ # 从 timewarrior 的源
 sudo dnf install meld
 ```
 49. [关于 PEERDNS 参数的描述](https://support.hpe.com/hpesc/public/docDisplay?docId=mmr_kc-0110350)，[参考文件](file:///usr/share/doc/initscripts/sysconfig.txt)简单来说如果设置了 PEERDNS=yes，就会通过 dhcp 获取 dns 来修改 /etc/resolv.conf 文件，如果设置了 PEERDNS=no，就不会通过 dhclient 获取 dns 修改 resolv.conf 这个参数，而是使用 DNS1、DNS2 修改 dns
-    1. 修改的文件一般是 /etc/sysconfig/network-scripts/ifcfg-*** 
+    1. 修改的文件一般是 /etc/sysconfig/network-scripts/ifcfg-***
     2. <a id='networkmanager'>NetworkManger 配置</a> 设置 USB 转网卡设备静态 IP 脚本文件(file:///etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3)示例：
     ```
     TYPE=Ethernet
@@ -729,7 +729,7 @@ sudo dnf install meld
     sudo dnf install git-delta # 安装
     ```
 	2. 配置 .gitconfig 文件
-	``` 
+	```
 	[core]
         pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
     [interactive]
@@ -936,7 +936,7 @@ sudo dnf install iwl1000-firmware
 		8.16 打印内存：x /nxfu addr (以x/f/u（16 进制，浮点数，无符号）格式打印n个u类型存储单元的以addr开头的内存值)
 			* f: o(octal)  x(hex) d(decimal) u(unsigned decimal) t(binary) f(float) a(address) i(instruciton) c(char) s(string)
 			* u: b(byte)  h(halfword)  w(word)  g(gaint, 8 bytes)
-			* for example: x/256xb addr, x/256xw addr 
+			* for example: x/256xb addr, x/256xw addr
 		8.17 ~break * main + 10 # 在 main 函数起始 + 10 行位置打断点~
 		8.18 set $pc=xxxxx 修改寄存器的数值，需要在寄存器名称前添加 $ 符号
 	9. - 命令， 会到一个跟随现实代码的窗口
@@ -1155,7 +1155,7 @@ SECTIONS
     * 并列数据的集合(数组 arrays)用方括号 `[]` 表示
     * 映射的集合(对象 object)用大括号 `{}` 表示
     * object 是 key:value 对的集合,一个 object 开头 { 结尾 }
-    * 
+    *
 100. 从结构上看，所有的数据最终都可以分解成三种数据类型：
     1. 标量(scalar) ，就是单独的字符串(string)或者数字(number)
     2. 序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)
@@ -1304,3 +1304,7 @@ _sbrk (ptrdiff_t incr)
 	set from=xxxxxxxxxxxxx
 	set envelope_from=yes
     ```
+132. [ftp 服务安装](https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide/servers/File_and_Print_Servers/#s1-FTP)
+    1. sudo dnf install vsftpd # 安装 ftp 服务
+    2. sudo firmwall-cmd --permanent --add-service=ftp # 放开防火墙
+    3. sudo systemctl start vsftpd.service # 开启 ftp 服务
