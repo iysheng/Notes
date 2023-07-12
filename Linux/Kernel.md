@@ -1,5 +1,11 @@
 ### 内核学习
 
+#### 内核支持使用 make 生成 cscope.files 文件
+``make ARCH=arm64 COMPILED_SOURCE=1 cscope``
+
+#### <<圈圈教你玩 USB>> 笔记
+
+USB 学习网站：http://linux-usb.sourceforge.net
 
 #### USB driver skeleton
 ![usb_core](assets/USB_core.png)

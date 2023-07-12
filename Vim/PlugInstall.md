@@ -29,6 +29,7 @@
 	```
 3. scrooloose/nerdtree 和 xuyuanp/nerdtree-git-plugin
 	1. 分屏打开一个新的文件,在左侧树状图中，输入i 横向分屏打开，输入s 纵向分屏打开
+	2. C 切换当前目录为 nerd 的根目录
 4. amileszs/ack.vim 类似与 grep 的搜索，需要安装 ack
 5. suan/vim-instant-markdown
 	1. 需要设置一下火狐浏览器的配置 about:config and set dom.allow_scripts_to_close_windows to true，这样的话可以在 md 文件关闭的时候，直接退出对应的网页

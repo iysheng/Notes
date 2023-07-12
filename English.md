@@ -65,6 +65,7 @@ A
 |advisable|可辅助的|
 |assumed|假定的|
 |assumes|假定|
+|arbitrary|任意的|
 
 B
 ---
@@ -241,6 +242,7 @@ D
 |dissipatable|可消散的|
 |derivative term|微分项，导数项|
 |disposal|排列，布置|
+|DRD|Dual-Role-Device USB 的 device 模式下的专业术语|
 
 E
 ---
@@ -305,6 +307,7 @@ F
 |feed|提供,喂|
 |fluctuations|波动|
 |facilitate|促进,促使,使便利|
+|frequency domain metrics|频域度量|
 
 G
 ---
@@ -338,6 +341,8 @@ H
 |helper functions|辅助函数|
 |hysteresis|磁滞，滞后|
 |hanging out|闲逛|
+|HCDs|Host Controller Drives 主机控制器驱动|
+|HNP||
 
 I
 ---
@@ -487,10 +492,12 @@ O
 |on-the-fly image encryption/decryption|即时镜像加密，解密|
 |outcome|结果，效果|
 |octet|八进制|
-|Over time|随着时间的推移|
+|over time|随着时间的推移|
 |orientation|目标，方位，定位，朝向|
 |omission|省略|
 |On-The-Go|OTG|
+|exploiting|利用|
+|overview|概述，概览|
 
 P
 ---
@@ -600,7 +607,7 @@ R
 |refactor|重构|
 |RMSR(Root Mean Squared Error)|均方根误差|
 |RMS|均方根|
-|resembles|看起来像|
+|resembles|复用，看起来像|
 |raster|光栅|
 |realm|领域|
 |react|做出反应|
@@ -683,7 +690,8 @@ S
 |settling time|调节时间|
 |stale|旧的,不新鲜的|
 |system requirements|系统需求|
-|frequency domain metrics|频域度量|
+|symmetric|对称|
+|SRP||
 
 T
 ---
@@ -752,6 +760,7 @@ U
 |up to the point|到目前为止|
 |upper limit|上限|
 |undesirable|不可取的，不受欢迎的|
+|UDC|USB device controller 和之对应的是 UHC（USB host controller）|
 
 V
 ---
@@ -759,6 +768,7 @@ V
 |---|---|
 |verbose|冗长的|
 |villain|恶棍\反派人物\淘气鬼|
+|Village|村子|
 
 W
 ---
