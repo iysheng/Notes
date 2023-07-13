@@ -399,24 +399,25 @@ $ cmp <(prog1) <(prog2)
 ```
 41. grep，awk 匹配与、或、非
 	* -E 表示擴展匹配規則
-``` bash
-# 或
-grep -E "pattern1|pattern2" FILE
-grep -e "pattern1" -e "pattern2" FILE
-awk '/PATTERN1|PATTERN2/' FILE
-
-# 与，指定顺序
-grep -E 'PATTERN1.*PATTERN2' FILE
-awk '/PATTERN1.*PATTERN2/' FILE
-# 与，不指定顺序
-grep -E 'PATTERN1.*PATTERN2|PATTERN2.*PATTERN1' FILE
-grep 'PATTERN1' FILE | grep 'PATTERN2'
-awk '/PATTERN1/ && /PATTERN2/ {print $0}' FILE
-
-# 非
-grep -v 'PATTERN1' FILE
-awk '!/PATTERN1/' FILE
-```
+	``` bash
+	# 或
+	grep -E "pattern1|pattern2" FILE
+	grep -e "pattern1" -e "pattern2" FILE
+	awk '/PATTERN1|PATTERN2/' FILE
+	
+	# 与，指定顺序
+	grep -E 'PATTERN1.*PATTERN2' FILE
+	awk '/PATTERN1.*PATTERN2/' FILE
+	# 与，不指定顺序
+	grep -E 'PATTERN1.*PATTERN2|PATTERN2.*PATTERN1' FILE
+	grep 'PATTERN1' FILE | grep 'PATTERN2'
+	awk '/PATTERN1/ && /PATTERN2/ {print $0}' FILE
+	
+	# 非
+	grep -v 'PATTERN1' FILE
+	awk '!/PATTERN1/' FILE
+	```
+	* -H 将匹配的文件名也打印出来
 42. 批量替换 txt 文件名的空格为下划线
 ``` bash
 find $1 -name "* *.txt" -type f -print0 | \

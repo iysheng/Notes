@@ -753,12 +753,12 @@ sudo dnf install meld
 	hwclock -r
 	```
 53. fd 匹配内容
-	
 	1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
     2. fd -e 后缀名可以匹配指定格式的文件:
         * fd -e c -e h . 路径 # 在指定的路径查找所有 .c 和 .h 后缀的文件，特别地， -e 后缀后面的 . 符号不要少，重要， 因为这个符号表示的匹配模式， . 表示任意的后缀是 c 或者 h 的文件
         * fd -e c # 在当前目录查找所有的 .c 文件，这时候可以省略 . 符号
     3. fd -s a.h # -s 表示搜索文件的时候，匹配大小写
+    4. fd xxx -x do_sth # 在 do_sth 中 {} 表示匹配的完整文件名
 54. mutt 工具学习
 	1. MXA 工具集合
 		1. **MUA:Mail User Agent(email client)**
