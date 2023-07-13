@@ -66,6 +66,7 @@ A
 |assumed|假定的|
 |assumes|假定|
 |arbitrary|任意的|
+|as a rule|通常情况下|
 
 B
 ---
@@ -126,6 +127,7 @@ C
 |content|内容|
 |context|上下文|
 |CDN|content delivery network 内容分发网络|
+|CDC|communication device class -USB 驱动开发中的通信设备类|
 |corrupt|腐败的|
 |constrained|约束|
 |candidate|候选人|

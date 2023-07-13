@@ -9,10 +9,19 @@ USB 学习网站：http://linux-usb.sourceforge.net
 
 #### USB driver skeleton
 ![usb_core](assets/USB_core.png)
+
 #### 关键概念
 * USB 是 master-slave 通讯模型.
 * USB system softwares 由两个关键部分组成: HCD(host controller driver) 和 USBD(USB driver)
 * USB 通讯中两个关键的 interconnects(互连流) 是 endpoint 和 pipe
+* USB 驱动概述
+	* UHCI(universal host control interface): 用到全速和低速, 常用到PC
+	* OHCI(open host control interface): 硬件比 UHCI 智能，所以 HCD（host controller driver）更简单
+	* EHCI(enhanced host control interface): 支持高速 USB2.0
+
+#### USB gadget
+* USB composite device: USB 复合设备，指的是一个配置（配置描述符）下包含有不止一个功能（这里对应的是接口描述符）的设备。
+
 ##### USB urbs (USB Request Blocks)
 
 ``` C
