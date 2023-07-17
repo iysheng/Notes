@@ -1308,3 +1308,4 @@ _sbrk (ptrdiff_t incr)
     1. sudo dnf install vsftpd # 安装 ftp 服务
     2. sudo firmwall-cmd --permanent --add-service=ftp # 放开防火墙
     3. sudo systemctl start vsftpd.service # 开启 ftp 服务
+133. lsof 命令查看应用程序打开的文件名，比如查找打开 /dev/ttyACM0 的进程:``sudo lsof | grep "ttyACM0"``
