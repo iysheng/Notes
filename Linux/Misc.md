@@ -357,6 +357,7 @@ Linux kernel internal documentation in different formats:
 		* eopkg info -f 包名称 # 查看包安装了哪些文件
 	* eopkg install man-pages # 安装 man 帮助信息
 	* eopkg list-installed # 列出已经安装的包
+	* eopkg search-file # 查找包含指定文件的软件包
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
 26. 在 gnome 添加快捷图标的方法,快捷图标相关的文件放在目录``/usr/share/applications``,以 desktop 为后缀名文件,如果需要添加新的应用快捷图标,需要在该目录创建新的 xxx.desktop 文件,以 Typora 应用为例展示如下:
 ```
