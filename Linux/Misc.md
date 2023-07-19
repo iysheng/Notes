@@ -584,7 +584,7 @@ WaylandEnable=false
 49. 线程优先级, 优先级数值约高, 对应的优先级约高. ``pthread_setschedparam`` 函数可以修改线程的调度策略和优先级
 	1. SCHED_OTHER 默认的调度策略,创建的所有线程的优先级默认都是0,采用分时调度的策略
 	2. SCHED_FIFO (实时线程) 优先级范围是 1 ~ 99
-	3. SCHED_RR   (实时线程) 优先级范围是 1 ~ 99, 在 SCHED_FIFO 的基础上,添加了一个最大运行时间, SCHED_RR 线程的最大运行时间,可以用函数 ``sched_rr_get_interval`` 获取, 默认的这个数值为 0.1s, 约高的 nice 等级(对应的 nice 数值本身越小,是负数),这个值约大,约不容易被抢占.相反,约低等级的 nice(nice 数值约大), 这个数值越小,越容易被抢占.
+	3. SCHED_RR   (实时线程) 优先级范围是 1 ~ 99, 在 SCHED_FIFO 的基础上,添加了一个最大运行时间, SCHED_RR 线程的最大运行时间,可以用函数 ``sched_rr_get_interval`` 获取, 默认的这个数值为 0.1s, 越高的 nice 等级(对应的 nice 数值本身越小,是负数),这个值越大,越不容易被抢占.相反,越低等级的 nice(nice 数值约大), 这个数值越小,越容易被抢占.
 	4. SCHED_IDLE, SCHED_BATCH 优先级固定是 0
 
 50. 笔记本电脑合盖不休眠的配置
