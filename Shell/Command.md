@@ -513,3 +513,10 @@ echo -e "\033[文字颜色m字符串\033[0m"
 lrwxrwxrwx. red red 3 B Wed Mar  8 10:04:52 2023  abc_soft ⇒ abc 软连接
 ```
 51. cat -n # 可以打印出来文件的行号
+52. source 命令的同义词是 . 如果你的脚本中有一些持久化的设置（即脚本退出时仍然希望它有效，那么使用 source 命令或者它的同义词命令 .），举例子，如果有一个脚本 a.sh
+``` bash
+#!/bin/sh
+
+export ABC=1
+```
+如果使用命令 ``./a.sh``， 那么执行完后再当前 shell 也不会有这个变量 ABC，但是如果你使用 ``source a.sh`` 或者 ``. a.sh``，那么执行完后，当前 shell 就会有 ABC 这个变量了。
