@@ -13,8 +13,8 @@
 	* System interface (0x20000000 to 0xDFFFFFFF) 和 (0xE0100000 to 0xFFFFFFFF)
 	* Private Peripheral Bus (PPB) (0xE0040000 to 0xE00FFFFF)
 * 兩種工作模式
-	* thread mode : reset 後就會到該模式，退出異常後也會進入到該模式，特權和非特權指令都可以在該模式執行
-	* handler mode : 異常後會進入到該模式
+	* thread mode : reset 後就會到該模式，退出異常後也會進入到該模式，特權和非特權指令都可以在該模式執行, 该模式使用 msp SP_main
+	* handler mode : 異常後會進入到該模式, 所有指令都是特权指令, 该模式使用 psp 即 SP_process
 * 兩種工作狀態
 	* thumb state：正常模式，可以執行 16 bit 和 32 bit 的 thumb 指令集
 	* debug state：調試模式
