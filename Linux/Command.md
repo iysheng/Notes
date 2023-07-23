@@ -1310,3 +1310,9 @@ _sbrk (ptrdiff_t incr)
     2. sudo firmwall-cmd --permanent --add-service=ftp # 放开防火墙
     3. sudo systemctl start vsftpd.service # 开启 ftp 服务
 133. lsof 命令查看应用程序打开的文件名，比如查找打开 /dev/ttyACM0 的进程:``sudo lsof | grep "ttyACM0"``
+134. [atftp](https://github.com/madmartin/atftp.git)　是一个新的　tftp 工具，可以替换古老的　tftp-hpa
+135. syslog 和 journalctl 工具进行日志分析
+	* journalctl 工具需要　syslog 基础
+		1. -u service_name # 查看指定服务的日志
+		2. -t --identifier=STRING # 过滤指定　identifier 的日志
+	* 
