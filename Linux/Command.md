@@ -368,6 +368,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     14. 添加 **set vcs_aware true** 到 ~/.config/rc.conf 文件，放开版本控制
     15. ranger 的 S 键可以快速切换到最后浏览的目录，但是是以新开一个 shell 的方式，如果退出当前 shell，还是返回之前的目录
     16. m+字符，打书签，这个书签是持续性的，可以使用 `+书签名再次跳转到指定的书签
+    17. dU 显示当前文件夹大小以及文件夹下内容的大小
 24. cmake 笔记
     1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
     ``` bash
@@ -1238,10 +1239,15 @@ _sbrk (ptrdiff_t incr)
     1. 服务端运行： ``iperf -u -s -i 1`` # -u 表示以 udp 模式运行 不加该参数默认是 tcp 模式，-s 表示作为客户端, 和嵌入式板卡测试时候发现，如果最后统计丢包率，可能十分不准确，这时候可以通过追加 **-i 1**，让服务端每次都打印出来速度信息
     2. 客户端运行：
         1. ``iperf -u -c 192.168.1.5 -b 100M -t 60 -i 2`` # -u 表示在 udp 模式下，以 100M 的速率想服务端上传数据，进行带宽测试,测试时间为 60s
-122. csplit 工具方便对文件按照指定的正则表达式进行拆分.
+122. 拆分文件命令介绍
+    1. csplit 工具方便对文件按照指定的正则表达式进行拆分.
     ``` bash
     csplit 文件名 /正则表达式/[偏移]
     csplit a.txt /abc/+1
+    ```
+    2. split -b 拆分大小 待拆分的文件名 文件前缀
+    ``` bash
+    split -b 1G a.bin a_split. # 就会将 a.bin 以单个文件块为 1G 大小进行拆分，默认拆分为 a_split.aa a_split.ab ...
     ```
 123. ddcutil 工具可以设置外接 HDMI 显示器的亮度, 具体方法:
 ``` bash
@@ -1315,4 +1321,4 @@ _sbrk (ptrdiff_t incr)
 	* journalctl 工具需要　syslog 基础
 		1. -u service_name # 查看指定服务的日志
 		2. -t --identifier=STRING # 过滤指定　identifier 的日志
-	* 
+136. ``nproc`` 命令可以返回 cpu 的核心数量
