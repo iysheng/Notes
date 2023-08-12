@@ -74,6 +74,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
 		24. $a -ne $b 如果 a 和 b 不相等
 		25. -f file 如果 file 存在，并且是一个常规的文件
 		26. -L file 如果 file 存在并且是一个符号连接
+		27. -h file 如果 file 存在，并且是一个符号链接, -L 类似或者叫等价
 	``` bash
 	if condition # 关于 condition 这里，如果是执行一个命令，那么如果命令正常执行，则返回 0, 但是 if 会判断为真！！
 	then
@@ -418,6 +419,7 @@ $ cmp <(prog1) <(prog2)
 	awk '!/PATTERN1/' FILE
 	```
 	* -H 将匹配的文件名也打印出来
+	* grep "\\\" 匹配的是 \ 符号
 42. 批量替换 txt 文件名的空格为下划线
 ``` bash
 find $1 -name "* *.txt" -type f -print0 | \

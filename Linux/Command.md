@@ -369,6 +369,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     15. ranger 的 S 键可以快速切换到最后浏览的目录，但是是以新开一个 shell 的方式，如果退出当前 shell，还是返回之前的目录
     16. m+字符，打书签，这个书签是持续性的，可以使用 `+书签名再次跳转到指定的书签
     17. dU 显示当前文件夹大小以及文件夹下内容的大小
+    18. zh 切换显示隐藏文件也可以用 ctrl+h
 24. cmake 笔记
     1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
     ``` bash

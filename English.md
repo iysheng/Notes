@@ -245,6 +245,7 @@ D
 |derivative term|微分项，导数项|
 |disposal|排列，布置|
 |DRD|Dual-Role-Device USB 的 device 模式下的专业术语|
+|Drawbacks|缺点|
 
 E
 ---
