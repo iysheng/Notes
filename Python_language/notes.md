@@ -47,6 +47,7 @@ ret = os.system("linux 命令")
 	* print(package.__version__) # 打印软件包的版本号
 	* pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package # 临时使用清华大学的源安装文件包
 	* pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple # 配置默认使用清华大学的源作为软件包
+	* 如果找到一个软件包的源代码，可以执行 python setup.py sdist 进行打包，然后再执行 pip install dist/xxxxx.tar.gz 安装这个软件包
 10. 注释
 	* 单行注释
 	``` python
