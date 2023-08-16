@@ -877,3 +877,4 @@ keycode 119 = BackSpace
 	* xmodmap -pk 打印 keymap table 信息
 55. dell 键盘 fn 快捷键解锁/锁定快捷键：fn+esc 切换解锁和锁定快捷键（即切换触发快捷键功能的时候是否需要加上 fn 键）
 56. 修改 ranger 的  rc.conf 文件,设置 ``set draw_borders both`` 开启 ranger 窗口的边框。
+57. 临时修改 pip 的安装源为清华源（使用 -i 选项）： ``python3.8 -m pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple``。 持久修改需要使用命令 ``python3.8 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`` 持久化修改。
