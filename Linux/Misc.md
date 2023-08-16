@@ -876,3 +876,4 @@ keycode 119 = BackSpace
 设置开机自启动 ``xmodmap ~/.Xmodmap`` 就可以了.
 	* xmodmap -pk 打印 keymap table 信息
 55. dell 键盘 fn 快捷键解锁/锁定快捷键：fn+esc 切换解锁和锁定快捷键（即切换触发快捷键功能的时候是否需要加上 fn 键）
+56. 修改 ranger 的  rc.conf 文件,设置 ``set draw_borders both`` 开启 ranger 窗口的边框。
