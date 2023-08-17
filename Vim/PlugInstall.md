@@ -97,6 +97,36 @@ set backspace=indent,eol,start
 	unavailable: unable to load Python
 	```
 	可以在命令行使用命令 :py pass 调试是否可以正常运行 python 或者 :py3 pass 调试是否可以正常在 vim 加载 python3，然后根据提示的错误修复无法加载 python 的问题
+	3. 添加 python 代码补全功能，需要如下几个步骤：
+		1. 因为 ycmd 依赖 [jedi](https://github.com/davidhalter/jedi) 作为 python 代码补全的引擎，所以首先要安装对应 python 版本的 jedi 包; ``python3.8 -m pip install jedi``
+		2. 安装了依赖后需要告诉 ycmd 相关的软件包的路径到 sys.path，即 ycmd 会索引 sys.path 中的这些 python 源文件进行自动补全,这一步可以有多种方法，最直接的方法是在当前工程的根目录创建一个 ``.ycm_extra_conf.py`` 文件，在这个文件中将需要引用的 python 源文件路径添加到环境变量 sys.path 中：
+		``` python
+		def Settings( **kwargs ):
+		  return {
+		    'sys_path': [
+				'/home/red/.local/lib/python3.8/site-packages'
+		    ]
+		  }
+		```
+		3. 第二种使用 .vimrc 文件配合设置的方法更具有持久性，首先修改 .vimrc 文件，添加如下内容
+		``` viml
+		let g:ycm_python_interpreter_path = '/usr/local/bin/python3.8'
+		let g:ycm_python_sys_path = ['/home/red/.local/lib/python3.8/site-packages']
+		let g:ycm_extra_conf_vim_data = [
+		  \  'g:ycm_python_interpreter_path',
+		  \  'g:ycm_python_sys_path'
+		  \]
+		let g:ycm_global_ycm_extra_conf = '/home/red/.vim/plugged/youcompleteme/global_extra_conf.py'
+		```
+		然后在 /home/red/.vim/plugged/youcompleteme/ 目录创建 global_extra_conf.py 文件，添加如下内容：
+		``` python
+		def Settings( **kwargs ):
+		  client_data = kwargs[ 'client_data' ]
+		  return {
+		    'interpreter_path': client_data[ 'g:ycm_python_interpreter_path' ],
+		    'sys_path': client_data[ 'g:ycm_python_sys_path' ]
+		  }
+		```
 16. 'mattn/emmet-vim' 提高 html&css 编辑效率的插件
 	1. 默认的触发开始按键是 ctrl-y ，可以修改变量 g:user_emmet_leader_key 的值来改变这个触发开始按键
 	2. 翻转注释按键是 ctrl-y/

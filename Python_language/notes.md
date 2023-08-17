@@ -1051,3 +1051,4 @@ with open("a.txt", "w") as f:
 	* random.randint(a, b) # 返回 [a, b] 之间一个整数
 89. 无穷大的表示方法: float("inf")
 90. 集合, set, 每一个元素只能出现一次
+91. print(导入的包名称)，可以查看包路径
