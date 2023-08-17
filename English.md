@@ -743,6 +743,7 @@ T
 |throttle|节气门,风门,压制|
 |thermal trip|热阀门，热力阀门|
 |transaction|事务|
+|tensor|张量，通常是指维度大于等于四维的数据|
 
 U
 ---
