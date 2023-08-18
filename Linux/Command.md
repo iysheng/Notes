@@ -1334,4 +1334,8 @@ _sbrk (ptrdiff_t incr)
 	* journalctl 工具需要　syslog 基础
 		1. -u service_name # 查看指定服务的日志
 		2. -t --identifier=STRING # 过滤指定　identifier 的日志
+		3. -x 可以额外打印更详细的日志信息
+		4. -p 指定打印的优先级别，可以跟具体的级别(1，那么会打印0和1级别的日志)以及范围（1...5）打印包括1到5之间的所有级别日志
+		5. -e 打印最后的几段日志信息
+		6. -f 持续打印
 136. ``nproc`` 命令可以返回 cpu 的核心数量
