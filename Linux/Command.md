@@ -1228,6 +1228,18 @@ _sbrk (ptrdiff_t incr)
 117. evtest 测试 /dev/input/eventX 测试对应的输入设备
     * cat /proc/bus/input/devices  查看所有的输入设备
 118. nfs 无法写入的时候，需要在 /etc/exports 文件将这个目录的权限修改,以 /tmp/abc 目录为例 ``/tmp/abc *(no_root_squash,rw,sync,no_subtree_check)``, 重点是 **no_root_squash** 这个配置
+	* sudo exportfs -v # 可以打印出来 nfs 配置的挂载目录信息（实际的配置在文件 /etc/exports）
+	* nfs 挂载不成功的时候，比如说打印: ``kernel: svc: failed to register nfsaclv2 RPC service (errno 111)``， 很可能是  /etc/netconfig 文件配置不对，找一个正确的配置就可以
+	```
+	udp6       tpi_clts      v     inet6    udp     -       -
+	tcp6       tpi_cots_ord  v     inet6    tcp     -       -
+	udp        tpi_clts      v     inet     udp     -       -
+	tcp        tpi_cots_ord  v     inet     tcp     -       -
+	rawip      tpi_raw       -     inet      -      -       -
+	local tpi_cots_ord - loopback - - -
+	unix tpi_cots_ord - loopback - - -
+	```
+	* nfs 挂载不成功的时候，检查下 rpcbind 服务是否正常运行，使用 systenmd 查看状态(systemctl status rpcbind )和 journalctl 查看日志来分析
 119. ``cat /proc/sys/kernel/printk`` 会打印出来 4 个数据，分别表示：
     1. console_loglevel ：优先级比这个高的会打印出来
     2. default_message_loglevel ：如果 printk 没有明确指定打印级别，那么默认是这个级别
