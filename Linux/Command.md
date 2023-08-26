@@ -1339,3 +1339,11 @@ _sbrk (ptrdiff_t incr)
 		5. -e 打印最后的几段日志信息
 		6. -f 持续打印
 136. ``nproc`` 命令可以返回 cpu 的核心数量
+137. [nmcli 工具链接网络](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-adding_and_configuring_a_static_ethernet_connection_with_nmcli) （这个工具够强大）
+	* ``nmcli connection add type ethernet ifname enp4s0 ip4 192.168.91.211/24 gw4 192.168.91.1`` 配置指定网卡静态 ipv4 和网关
+	* ``nmcli connection add type ethernet con-name xxxx ifname enp4s0 ip4 192.168.91.211/24 gw4 192.168.91.1`` 配置指定网卡静态 ipv4 和网关,并创建一个链接的名字配置为 xxxx
+	* ``nmcli connection modify xxxx ipv4.dns "8.8.8.8 223.5.5.5"`` # 取代原先的 dns 配置
+	* ``nmcli connection modify xxxx +ipv4.dns "8.8.8.8 223.5.5.5"`` # 追加  dns 到原先的 dns 配置
+	* ``nmcli -p connection show xxxx`` # 查看 xxxx 的详细配置
+	* ``nmcli con edit type ethernet con-name xxxx`` 交互式添加一个网络配置条目, 会将新的配置存储在 ``/etc/sysconfig/network-scripts/ifcfg-xxxx``, 但是在 Solus 上是存储在 ``/etc/NetworkManager/system-connections/``
+	* 
