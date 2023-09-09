@@ -246,6 +246,8 @@ D
 |disposal|排列，布置|
 |DRD|Dual-Role-Device USB 的 device 模式下的专业术语|
 |Drawbacks|缺点|
+|delegate|委托|
+|disturbance|干扰|
 
 E
 ---
@@ -277,6 +279,7 @@ E
 |evaluate|评估|
 |excite|激发|
 |extent|程度|
+|eigenvalues|特征值|
 
 F
 ---
@@ -744,6 +747,8 @@ T
 |thermal trip|热阀门，热力阀门|
 |transaction|事务|
 |tensor|张量，通常是指维度大于等于四维的数据|
+|transpose|转置，矩阵的转置|
+|twofold|双重的|
 
 U
 ---

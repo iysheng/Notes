@@ -62,6 +62,7 @@
     21. git reset --hard commit_id：清除最近的几次提交，将工作区和暂存区强制回退到指定的那次提交
     22. git checkout -- 文件名；将工作区某个文件的变更撤销
     23. git rm 文件名；删除某一个文件
+        1. git rm --cached xxx # 删除对指定文件的跟踪，但是不删除本地文件,并且已经跟踪的文件，是无法被 .gitignore 规则忽略的，删除跟踪后才可以
     24. git stash；暂存状态快照到“栈”
         1. git stash show : 显示做了哪些改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
         ``` bash
