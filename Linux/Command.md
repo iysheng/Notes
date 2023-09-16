@@ -438,6 +438,7 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
 
 #endif /* ifndef __VERSION_H__ */
     ```
+	12. 引用系统环境变量，格式 ``$ENV{LD_LIBRARY_PATH}``, 定义系统环境变量：``set{ENV{LD_LIBRARY_PATH} xxx}``
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
         1. Physical Volume = pv 物理卷

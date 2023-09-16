@@ -54,7 +54,7 @@ vim --startuptime start.log # 查看 vim 启动时间的细节信息
 27. vim s 替换命令
 	1. s/pattern/replace/[iIe] # 其中 i 表示忽略大小写， I 表示要匹配大小写 e：没有匹配到时候，也不要显示错误信息 如果格式是 :%s/pattern/replace/g # 表示的替换全文文件
 	2. 对于带有 / 的匹配可以通过转移 / 符号，或者 s+pattern+replace+ 格式
-	3. 12;/pattern1/ s/pattern2/replace/g # 从第 12 行开始，一直到第一个匹配有 pattern1 的行停止，替换这些行的 pattern 位 replace
+	3. 12;/pattern1/ s/pattern2/replace/g # 从第 12 行开始，一直到第一个匹配有 pattern1 的行停止，替换这些行的 pattern 为 replace
 	4. 如果在 replace 部分需要使用表达式,那么需要在 replace 之前添加 \=
 	5. 如果在 pattern 部分有用表达式进行匹配捕获,那么可以用 submatch() 函数指代前面捕获的内容, submatch(1) 表示匹配的第一个文本, submatch(2) 表示匹配的第二个 ... ,特别地 submatch(0) 表示匹配的整个文本
 	6. 一般地 submatch() 匹配的返回值是字符串型,需要使用函数 str2float() 转换为实数

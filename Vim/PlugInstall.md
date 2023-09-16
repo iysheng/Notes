@@ -307,4 +307,6 @@ Blob:      10  v:t_blob
 	* :AddTabularPattern first_comma /^[^,]*\zs,/r0c0l0 可以给模式添加别名，下次执行 :Tabularize first_comma 就可以完成对第一个 , 之前的内容右对齐，之后的所有内容左对齐
 	* 建议将模式的别名放在 tabular 插件文件 Tabular.vim 文件同目录，命名为 TabularMaps.vim 文件
 	* :AddTabularPipeline 可以实现类似管道的功能
-42. [nerdcommenter](https://github.com/preservim/nerdcommenter) vim 代码注释扩展插件
+42. [nerdcommenter](https://github.com/preservim/nerdcommenter) 代码高效注释工具
+	* ``<leader>cc`` 注释当前行, leader 一般默认是 ``\``
+	* ``<leader>c<space>`` 翻转注释/取消注释当前行, leader 一般默认是 ``\``

@@ -110,6 +110,7 @@
 	14. MODKEY + . # 移動當前的 window 位置
 	15. MODKEY + { # 交換當前 window 中的 pane 和上一個 pane
 	16. MODKEY + } # 交換當前 window 中的 pane 和下一個 pane
+	17. tmux new -s session-name # 创建一个 session-name 的会话
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
@@ -879,3 +880,6 @@ keycode 119 = BackSpace
 56. 修改 ranger 的 ``rc.conf`` 文件,设置 ``set draw_borders both`` 开启 ranger 窗口的边框。同样修改 ``rc.conf`` 设置快捷键，比如： ``map gn cd ~/Projects/Notes``, 设置快捷键 ``gn`` 切换的 Notes 目录.
 57. 临时修改 pip 的安装源为清华源（使用 -i 选项）： ``python3.8 -m pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple``。 持久修改需要使用命令 ``python3.8 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`` 持久化修改。
 58. ``sudo dmidecode`` 查看电脑的硬件信息，包括序列号（使用 grep -i serial 进行过滤）
+59. dynamic-debug 开启方式
+	* ``echo -n 'module xxx +p' > debugfs>/dynamic_debug/control`` 开启指定模块 xxx 的打印
+	* ``echo -n 'module xxx -p' > debugfs>/dynamic_debug/control`` 关闭指定模块 xxx 的打印

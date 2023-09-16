@@ -551,6 +551,7 @@ P
 |peaking time|峰值时间|
 |proportional|比例|
 |proportional term|比例项|
+|preceding|先于|
 
 Q
 ---
