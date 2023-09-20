@@ -1058,6 +1058,7 @@ sudo dnf install iwl1000-firmware
     subdirs:
         $(MAKE) -C subdir # 执行这个动作之后会修改 CURDIR 这个环境变量为 -C 紧跟的目录
     ```
+    * $(error xxxxx) # 打印出错信息，会卡在这里, 和 $(info xxxx) 类似，只不过级别不一样
 86. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
 	
 	* vi 模式: ```Ctrl Shift Space```
