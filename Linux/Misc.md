@@ -195,6 +195,8 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. gcc 通过 -D 选项传递宏字符串时候，需要添加转义字符 \"字符串内容\"
 	* -specs=文件 指定了一个可以覆盖 gcc 默认的 specs 的文件，default.specs 文件可以用命令 ``gcc -dumpspecs`` 查看, specs 文件定义了传递给 cc1 cc1plus as ld 等内容
 	* PHONY 是一个抽象的 target, 比如你想执行某些目标但是并不会真正产生一些实质的文件，这时候可以将那个目标做为 .PHONY 的依赖
+	* 编译选项 -w 表示禁止所有的警告信息, -Wunused-parameter 表示对未使用的参数打印出警告信息, -Wno-unused-parameter 表示不对未使用的参数打印警告信息
+	* 一个很有用的编译选项 --sysroot=dir 指定编译器的 sysroot 这个很重要，在链接的时候如果提示找不到一些 .o 文件，很有可能是你的 sysroot 参数不对，这时候在链接的时候添加这个选项应该就可以了，找到正确的 sysroot
 2. Makefile 的条件判断
 ``` Makefile
 # arg1 和 arg2 之间不要随便添加空格
