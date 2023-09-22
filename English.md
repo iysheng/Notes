@@ -248,6 +248,7 @@ D
 |Drawbacks|缺点|
 |delegate|委托|
 |disturbance|干扰|
+|deputy|代表，副手|
 
 E
 ---
@@ -699,6 +700,7 @@ S
 |system requirements|系统需求|
 |symmetric|对称|
 |SRP||
+|SOM|system on module,嵌入式核心板|
 
 T
 ---
