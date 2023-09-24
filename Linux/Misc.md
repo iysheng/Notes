@@ -885,3 +885,4 @@ keycode 119 = BackSpace
 59. dynamic-debug 开启方式
 	* ``echo -n 'module xxx +p' > debugfs>/dynamic_debug/control`` 开启指定模块 xxx 的打印
 	* ``echo -n 'module xxx -p' > debugfs>/dynamic_debug/control`` 关闭指定模块 xxx 的打印
+60. [LSP(language server protocol) 实现的查询网址](https://microsoft.github.io/language-server-protocol/implementors/servers/)
