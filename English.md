@@ -67,6 +67,7 @@ A
 |assumes|假定|
 |arbitrary|任意的|
 |as a rule|通常情况下|
+|artifact|手工制品，工艺品|
 
 B
 ---
