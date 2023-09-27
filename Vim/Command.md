@@ -418,3 +418,9 @@ sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 85. vim 中的 Groups 概念
 	1. autocommands 可以放到一个 group 中。这对移除或者执行一个 autocommands 组是很有用的。这样就是可以
 	2. command 定义了一个命令, command! 表示强制定义这个命令
+86. 导航快捷键盘
+	1. ctrl + o 跳转到上一次的 jump list 位置, o -> old
+	2. ctrl + i 跳转到下一次的 jump list 位置
+	3. g; 跳转到上一次修改的位置
+	4. g, 跳转到下一次修改的位置
+	5. gi 跳转到上一次 insert 模式的光标位置
