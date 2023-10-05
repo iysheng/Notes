@@ -111,6 +111,7 @@
 	15. MODKEY + { # 交換當前 window 中的 pane 和上一個 pane
 	16. MODKEY + } # 交換當前 window 中的 pane 和下一個 pane
 	17. tmux new -s session-name # 创建一个 session-name 的会话
+	19. set-window-option -g history-limit 5000
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
@@ -363,6 +364,8 @@ Linux kernel internal documentation in different formats:
 	* eopkg list-installed # 列出已经安装的包
 	* eopkg search-file # 查找包含指定文件的软件包
 25. perl 的包安装工具是 cpan. 直接 ``cpan 包名称`` 就可以安装了. eg: ``cpan Number::Bytes::Human`` 或者 ``cpan Pango`` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
+	* perl 可以通过环境变量 PERL5LIB 来添加 perl 模块/包所在路径
+	* 修改 perl 源为[清华源的参考](https://mirrors.tuna.tsinghua.edu.cn/help/CPAN/)
 26. 在 gnome 添加快捷图标的方法,快捷图标相关的文件放在目录``/usr/share/applications``,以 desktop 为后缀名文件,如果需要添加新的应用快捷图标,需要在该目录创建新的 xxx.desktop 文件,以 Typora 应用为例展示如下:
 ```
 [Desktop Entry]
@@ -886,3 +889,8 @@ keycode 119 = BackSpace
 	* ``echo -n 'module xxx +p' > debugfs>/dynamic_debug/control`` 开启指定模块 xxx 的打印
 	* ``echo -n 'module xxx -p' > debugfs>/dynamic_debug/control`` 关闭指定模块 xxx 的打印
 60. [LSP(language server protocol) 实现的查询网址](https://microsoft.github.io/language-server-protocol/implementors/servers/)
+61. tftp 出现错误，可能是 selinux 导致的权限异常
+	* ls -laZ 查看文件权限，如果异常使用 restorecon -Rv . 命令对当前文件夹的权限进行修改
+62. mount 挂载 img 文件，首先通过 fdisk 命令查看文件的偏移，然后在执行 mount 命令挂载：
+	* fdisk -l xxxx.img 查看文件偏移
+	* sudo mount -o loop,offset=文件偏移 xxxx.img 挂载路径 # 传递进文件的偏移，并挂载到指定的挂载路径

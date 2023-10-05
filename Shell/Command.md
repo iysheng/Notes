@@ -14,7 +14,7 @@ sed -i.bak -e 's|bac|def|g' /tmp/a.txt  # 将 /tmp/a.txt 备份为 /tmp/a.txt.ba
 7. 字符串操作符集合
 	1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 变量的内容
 	2. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
-	3. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 varname 追加 message 的信息
+	3. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则打印并且 varname 追加 message 的信息,这个语法用来检测变量是否定义，如果未定义，那么返回错误信息
 	4. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
 	5. ${varname:offset:length} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始，长度为 length 的内容，varname 的第一个字符的偏移是 0
 	5. ${varname:offset} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始到结尾的全部内容
@@ -180,6 +180,7 @@ normal processing of arguments ...
 |>|大|
 |<=|小等|
 |>=|大等|
+|=~|字符串满足正则表达式 eg: abc =~ ^[0-9]+$ ，检查 abc 是否全部是数字|
 |==|等|
 |!=|不等|
 |&&|逻辑与|
@@ -254,6 +255,13 @@ label2
 
 # 用法示意
 cat >> a.txt << red
+hello world
+
+red
+# 就会生成 a.txt 文件，文件中包含 hello world 和一个空行
+
+# 用法示意,上述写法和下述写法等价，及重定向的内容可以放在 << 之后
+cat << red >> a.txt
 hello world
 
 red
