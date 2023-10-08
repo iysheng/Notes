@@ -4,6 +4,7 @@ A
 ---
 |单词|释义|
 |---|---|
+|applicable|适用|
 |abstract|抽象|
 |absolute|绝对的|
 |agreement|协议|
