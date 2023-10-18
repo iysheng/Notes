@@ -369,7 +369,7 @@ a3 = a2.opeartor+(a1);
 	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号
 42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
 43. C++ 的 goto 语句之前不能有变量定义，否则编译时候会报错。
-44. std::vector 实质是 C++ 的一个类，和数组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器一样，能够存放各种类型的对象。可以简单认为 vector 是一个能够存在任意类型的动态数组。
+44. std::vector 实质是 C++ 的一个类，和数组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器或者向量一样，能够存放各种类型的对象。可以简单认为 vector 是一个能够存在任意类型的动态数组。
     * push_back(elem) 尾部插入元素 elem, 比如原始 vector 的大小为 5, push_back 之后,大小会增加到 6
     * pop_back() 删除最后一个元素
     * clear() 删除容器中所有元素
@@ -496,3 +496,4 @@ auto a1 = dog;
 72. std::stack<> 模板类,栈类
 73. std::chrono
 74. 针对 cpp 定义有返回值的函数，如果没有 return 语句，会出现奇怪的现象，所以一定要在函数中写上 return 返回值语句.
+75
