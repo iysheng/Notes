@@ -1350,3 +1350,5 @@ _sbrk (ptrdiff_t incr)
 	* ``nmcli -p connection show xxxx`` # 查看 xxxx 的详细配置
 	* ``nmcli con edit type ethernet con-name xxxx`` 交互式添加一个网络配置条目, 会将新的配置存储在 ``/etc/sysconfig/network-scripts/ifcfg-xxxx``, 但是在 Solus 上是存储在 ``/etc/NetworkManager/system-connections/``
 	* 
+138. printf 命令可视化打印
+    * printf %02x 123  # 7b
