@@ -808,6 +808,7 @@ xrandr --output 分屏幕 --brightness 0.6
     2. gdb -ex "target remote localhost:3333"  # 执行 gdb 命令, 通过 -ex 参数传入
     3. set follow-fork-mode child # 打印子进程的 backtrace
     4. info symbol 地址 # 打印地址对应的符号
+	5. gdb 烧录 flash 的方法，假如需要烧录 a.bin 文件到 flash 的 0x8001000 位置，那么需要将 bin 文件通过 xxx-objcopy 命令转存为 elf 文件，比如 a.elf 文件，再通过 load a.elf 0x8001000 指令将该文件下载到 flash 中。转存的命令为 ``arm-none-eabi-objcopy -I binary -O elf32-littlearm -S a.bin a.elf``， 其中 -I 和 -O 选项指定了平台信息，具体查看支持的平台信息请参看 arm-none-eabi-dump -i 查看。
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串

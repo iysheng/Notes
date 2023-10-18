@@ -894,3 +894,7 @@ keycode 119 = BackSpace
 62. mount 挂载 img 文件，首先通过 fdisk 命令查看文件的偏移，然后在执行 mount 命令挂载：
 	* fdisk -l xxxx.img 查看文件偏移
 	* sudo mount -o loop,offset=文件偏移 xxxx.img 挂载路径 # 传递进文件的偏移，并挂载到指定的挂载路径
+63. 使用 echo 和 xxd 配合创建 16 进制的 bin 文件：
+	* ``echo 0012 | xxd -r -ps > test.bin`` # 通过 xxd 进行转存
+	* ``echo -e -n '\x00\x12' > test.bin`` # -e 表示使能反斜杠转义， -n 表示末尾不添加行尾转换标识，直接通过 echo 进行转存
+64. 如果修改 sudo 的 PATH， 首先 ``man sudoers``， 从 man 中找到 sudo 相关的配置文件，一般是 /etc/sudoers， 但是在 Solus 上使用的是 ``/usr/share/defaults/etc/sudo/sudoers``， 修改这个文件中有关 secure_path 和 env_keep 有关的描述
