@@ -112,6 +112,7 @@
 	16. MODKEY + } # 交換當前 window 中的 pane 和下一個 pane
 	17. tmux new -s session-name # 创建一个 session-name 的会话
 	19. set-window-option -g history-limit 5000
+	20. 保存日志到文件： 1. tmux capture-pane -S -; tmux save-buffer xxx.log
 19. autoconf configure 配置源码编译时，可以直接在 configure 前赋值 CFLAGS 、 LDFLAGS 等变量
 ``` bash
 CLFAGS="-I /lib64" ./configure ....
