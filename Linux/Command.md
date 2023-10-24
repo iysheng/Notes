@@ -1353,3 +1353,8 @@ _sbrk (ptrdiff_t incr)
 	* 
 138. printf 命令可视化打印
     * printf %02x 123  # 7b
+139. 获取指定组中的数据成员： ``getent group 组名``
+``` bash
+▸ getent group dialout
+dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码：组ID：组成员
+```
