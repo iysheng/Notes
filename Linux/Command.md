@@ -6,7 +6,7 @@
     2. dnf repolist 列出当前所有的 repos
     3. dnf config-manager --set-disabled repository 禁止库 repository
     4. dnf config-manager --set-enabled repository
-    5. sudo dnf remove $(dnf repoquery  --installonly --latest-limit=-1 -q)
+    5. sudo dnf remove $(dnf repoquery  --installonly --latest-limit=-1 -q) # 也可以使用命令：sudo dnf remove --oldinstallonly
     6. figlet 工具可以将字符串图像化
     7. sudo dnf whatprovides "*A*" ，查找哪个软件包提供名称包含 A 的资源
     7. 设置 hostname 为 red.WS
