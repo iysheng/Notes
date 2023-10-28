@@ -902,3 +902,6 @@ keycode 119 = BackSpace
 	* ``echo -e -n '\x00\x12' > test.bin`` # -e 表示使能反斜杠转义， -n 表示末尾不添加行尾转换标识，直接通过 echo 进行转存
 64. 如果修改 sudo 的 PATH， 首先 ``man sudoers``， 从 man 中找到 sudo 相关的配置文件，一般是 /etc/sudoers， 但是在 Solus 上使用的是 ``/usr/share/defaults/etc/sudo/sudoers``， 修改这个文件中有关 secure_path 和 env_keep 有关的描述
 65. tty 设备打开提示权限问题。将用户添加到组： ``sudo usermod -a -G dialout <username>``， 然后 logout 再重新登陆
+66. inkscape 矢量图编辑器
+	1. 在画布上右键可以设置画布的大小
+	2. 将画布上的多个元素可以组合成 group, 然后对这个 group 进行编辑
