@@ -1055,3 +1055,8 @@ with open("a.txt", "w") as f:
 89. 无穷大的表示方法: float("inf")
 90. 集合, set, 每一个元素只能出现一次
 91. print(导入的包名称)，可以查看包路径
+92. slice 即 : 符号,表示列表截取
+	* a[start:stop] start->stop-1
+	* a[start:]     start->最后
+	* a[:stop]      0->stop-1
+	* a[:]          0->最后
