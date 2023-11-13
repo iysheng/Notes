@@ -905,4 +905,5 @@ keycode 119 = BackSpace
 66. inkscape 矢量图编辑器
 	1. 在画布上右键可以设置画布的大小
 	2. 将画布上的多个元素可以组合成 group, 然后对这个 group 进行编辑
+	3. ctrl+shift+c 将文本 path 化
 67. timedatectl 命令查看系统时间相关内容
