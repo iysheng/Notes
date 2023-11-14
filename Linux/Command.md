@@ -1358,3 +1358,5 @@ _sbrk (ptrdiff_t incr)
 ▸ getent group dialout
 dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码：组ID：组成员
 ```
+140. 使用 tr 和 dd 命令配合,生成指定大小全 0XFF 的文件 : ``tr '\000' '\377' < /dev/zero | dd of=filename bs=1024 count=1``
+    * 在文件尾部追加 0XFF, ``echo -e -n '\xff' >> filename``
