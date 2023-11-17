@@ -216,7 +216,7 @@ ret = os.system("linux 命令")
 		* 元组前添加 *,和 list 类似,表示将元组的变量作为函数参数传入
 21. 常见函数
 	1. type() # 返回对象类型
-	2. int(字符串) # 字符串转 int
+	2. int(字符串) # 字符串转 int, int(strrrr, 16) 以 16 进制转换字符串
 	3. str(整形) # 整形转字符串
 	4. 除法 / 打印浮点数据结果, // 整除,只会打印整数部分
 	5. print() 函数可以打印变量的内容
@@ -1060,3 +1060,8 @@ with open("a.txt", "w") as f:
 	* a[start:]     start->最后
 	* a[:stop]      0->stop-1
 	* a[:]          0->最后
+93. bytes 类
+	* 打印 print(xxx)
+		* print 中以16进制打印, 以 abc 列表为例, print("%02X"%abc[0])
+	* bytes 转换为 list -> abc=list(xxx) 直接使用 list 进行转换,或者说构造
+	* list 转换为 bytes -> xxx=bytes(abc) 直接使用 bytes 进行转换 abc
