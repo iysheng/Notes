@@ -348,13 +348,13 @@ ret = os.system("linux 命令")
 30. 使用全局变量的方法,必须在函数中使用 global 关键字声明这个全局变量
 ``` python
 g_data = 0
-def print():
+def print_demo():
 	global g_data # 必须显式声明这个全局变量,否则的话会运行出错
 	print(g_data)
 ```
 31. 文件
 	* python 考虑到初始化初始化一个文件特别耗时,所以会缓存文件数据,一次性将文件所有的内容都写到文件
-	* 文件的 **write** 方法不像 printf 一样会在末尾添加 '\n' 字符.
+	* 文件的 **write** 方法不像 printf 一样会在末尾添加 '\n' 字符. print 打印的时候默认都是带有换行的, print("Hello", end=''), 可以通过 end 参数取消 print 换行
 	* open(filenama) # 默认的方法就是 'r',所以只读文件的时候可以不添加爱 'r' 模式,会将文件的整个内容返回到一个字符串,只读模式下可以不用 close() 文件
 		* 'a' 參數表示以追加方式打開文件
 		* 't' 參數表示以文本方式(默認)打開文件
