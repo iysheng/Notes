@@ -51,6 +51,7 @@ ret = os.system("linux 命令")
 	* pip uninstall xxx # 卸载指定的软件包
 	* 还可以执行 ``python setup.py bdist_wheel`` 进行打包 whl 包
 	* 如果有 README，请参看 README 的描述如何正确打包！！！
+	* 如果没有安装 pip, 可以使用 ``python -m ensurepip install pip`` 来安装 pip
 10. 注释
 	* 单行注释
 	``` python

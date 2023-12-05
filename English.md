@@ -74,6 +74,7 @@ B
 ---
 |单词|释义|
 |---|---|
+|blend|结合|
 |backends|后端|
 |backslash|反斜杠|
 |binary heap algorithm|二进制堆算法|
@@ -627,6 +628,7 @@ R
 |residual|残差|
 |reconsider|重新考虑|
 |requirements|需要的东西|
+|resembles|类似|
 
 S
 ---
