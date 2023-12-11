@@ -17,6 +17,7 @@
     9. sudo dnf upgrade # 升级, 和 dnf update 有相同的功能，都会更新已经安装的软件包，但是更建议使用 ```dnf upgrade``` ，因为他工作更加准确，类似 ```dnf --obsoletes update```,更新过时的软件包
     10. sudo dnf grouplist 列出当前的软件组
     11. dnf list glibc-\*langpack\* 列出已经安装的语言包
+        11.1 dnf list installed # 列出已经安装的软件包
     12. sudo dnf repoquery -l 软件包名称，列出指定软件包名称包含的所有文件
     13. sudo dnf install xxxxx --setopt install_weak_deps=false  # 不安装指定软件的弱依赖
 
