@@ -353,6 +353,7 @@ H
 |hanging out|闲逛|
 |HCDs|Host Controller Drives 主机控制器驱动|
 |HNP||
+|hypotheses|假说|
 
 I
 ---

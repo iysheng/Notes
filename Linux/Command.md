@@ -1362,3 +1362,7 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
 ```
 140. 使用 tr 和 dd 命令配合,生成指定大小全 0XFF 的文件 : ``tr '\000' '\377' < /dev/zero | dd of=filename bs=1024 count=1``
     * 在文件尾部追加 0XFF, ``echo -e -n '\xff' >> filename``
+141. ``timedatectl`` 命令管理时区
+    1. timedatectl # 查看当前时区
+    2. timedatectl list-timezones # 列出所有可用时区
+    3. sudo timedatectl set-timezone 时区名称 # 设置指定时区名字的时区
