@@ -896,7 +896,7 @@ with open("a.txt", "w") as f:
 72. reverse & reversed # 翻转列表
 	* lista = [1,2,3] lista.reverse() # 就地翻转列表
 	* lista = [1,2,3] for i in reversed(lista): print(i) # reversed 可以用在 for 循环的翻转迭代器中
-	* lista = [1,2,3] _lista = lista[::] # 拷贝出来一给副本进行翻转
+	* lista = [1,2,3] \_lista = lista[::] # 拷贝出来一给副本进行翻转
 73. 复制的**玄学**
 	* 深拷贝，deep copy 会对原始内容进行再造,特别地针对数值和字符，是直接复制, deepcopy() 方法是深拷贝
 	* 浅拷贝，shallow copy 只是拷贝原始内容的分身,比如对 class，list，字典, copy 方法就是浅拷贝,速度快
@@ -1066,3 +1066,8 @@ with open("a.txt", "w") as f:
 		* print 中以16进制打印, 以 abc 列表为例, print("%02X"%abc[0])
 	* bytes 转换为 list -> abc=list(xxx) 直接使用 list 进行转换,或者说构造
 	* list 转换为 bytes -> xxx=bytes(abc) 直接使用 bytes 进行转换 abc
+94. python 的 venv 包可以方便创建虚拟环境，比较好用
+``` bash
+python -m venv test # 创建虚拟环境
+source ./test/bin/activate # 激活虚拟环境
+```

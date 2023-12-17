@@ -170,3 +170,4 @@ Pin connected to some other pins but no pin to drive it
 	1. 使用立创 eda 标准版将对应的 pcb 工程导出为 json 文件
 	2. 使用[在线转换网址](https://wokwi.com/tools/easyeda2kicad)将 json 文件转换为 kicad 版本,对应的 github 仓库路径是 [https://github.com/wokwi/easyeda2kicad](https://github.com/wokwi/easyeda2kicad)
 45. Kicad 的快捷键盘 ``alt + 1`` 和 ``alt + 2`` 用来快速切换两个 grid 设置.配置的路径是:``鼠标右键->Grid Settings`` 设置具体的 ``alt + 1`` 和 ``alt + 2`` 的参数.
+46. Kicad ctrl+E ，可以创建异形焊盘，将焊盘和形状融为一体。
