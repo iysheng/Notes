@@ -408,6 +408,7 @@ I
 |UDP|User Datagram Protocol|
 |impulse respon|脉冲响应|
 |identified|被识别,确认|
+|Inference|推断|
 
 K
 ---
