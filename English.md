@@ -409,6 +409,7 @@ I
 |impulse respon|脉冲响应|
 |identified|被识别,确认|
 |Inference|推断|
+|immutable|不可改变的|
 
 K
 ---

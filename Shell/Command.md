@@ -432,6 +432,7 @@ $ cmp <(prog1) <(prog2)
 	```
 	* -H 将匹配的文件名也打印出来
 	* grep "\\\" 匹配的是 \ 符号
+	* grep -o "xxx" filename | wc -l 炒着 "xxx" 在文件 filename 中出现的个数
 42. 批量替换 txt 文件名的空格为下划线
 ``` bash
 find $1 -name "* *.txt" -type f -print0 | \
