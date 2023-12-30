@@ -506,6 +506,7 @@ MimeType=application/x-extension-fcstd;
 	* image -> scale image 修改图像大小
 	* 当发现 gimp 的工具控件不见的时候， Edit -> Preferences -> Window Management -> Reset Saved Window Positions to Default Values 然后重启 gimp
 	* o 快捷键是颜色拾取器
+	* 当发现复制图片 A 到图片 B 时，图片 A 的颜色发生了变化，这种时候可能是 A 和 B 的显示模式不匹配（比如一个 RGB， 一个为 indexed..），需要修改为一样后重启软件再复制
 36. printf 打印浮点数的时候，栈要保证 8 字节对齐, AAPCS 规则要求堆栈保持 8 字节对齐。如果不对齐，调用一般的函数也是没问题的。但是当调用需要严格遵守 AAPCS 规则的函数时可能会出错。
 37. wayland weston 
 	* [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
