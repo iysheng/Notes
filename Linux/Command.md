@@ -178,6 +178,10 @@
         git config remote.origin.promisor # true 恢复默认
         git config remote.origin.partialclonefilter # blob:none,取消拉取大型数据？？？支持分段拉取
         ```
+        4. git clone --depth 1 <url> # 浅层 clone 仓库，只拉取最后一次 log 的日志
+        5. git fetch --unshallow # 拉取完成当前分支, 在浅层 clone 的基础上拉取当前分支的所有提交记录
+        6. git fetch --depth 1 origin 远程分支名称 # 浅层拉取仓库的指定分支
+        7. git checkout 远程分支名称 # 切换为指定的分支，然后再使用 git fetch --unshallow 拉取所有提交记录
     56. git rm --cached 文件路径 # 取消对指定文件的跟踪
     57. [git submodule 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
         ```
