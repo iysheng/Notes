@@ -1071,3 +1071,8 @@ with open("a.txt", "w") as f:
 python -m venv test # 创建虚拟环境
 source ./test/bin/activate # 激活虚拟环境
 ```
+95. python 查看包所在路径
+``` python
+import pcbnew
+print(pcbnew.__file__) # 可以打印出来包所在的路径
+```

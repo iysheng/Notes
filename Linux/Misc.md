@@ -908,3 +908,4 @@ keycode 119 = BackSpace
 	2. 将画布上的多个元素可以组合成 group, 然后对这个 group 进行编辑
 	3. ctrl+shift+c 将文本 path 化
 67. timedatectl 命令查看系统时间相关内容
+68. ``nmap -v -snP 192.168.91.100-105`` 扫描探测指定地址范围内的设备

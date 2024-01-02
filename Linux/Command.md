@@ -182,6 +182,7 @@
         5. git fetch --unshallow # 拉取完成当前分支, 在浅层 clone 的基础上拉取当前分支的所有提交记录
         6. git fetch --depth 1 origin 远程分支名称 # 浅层拉取仓库的指定分支
         7. git checkout 远程分支名称 # 切换为指定的分支，然后再使用 git fetch --unshallow 拉取所有提交记录
+        8. git remote set-branches origin 分支名称 # 如果当前不在这个分支的时候要执行这句话，接着才可以正常切换到这个新的分支
     56. git rm --cached 文件路径 # 取消对指定文件的跟踪
     57. [git submodule 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
         ```
@@ -1357,7 +1358,6 @@ _sbrk (ptrdiff_t incr)
 	* ``nmcli connection modify xxxx +ipv4.dns "8.8.8.8 223.5.5.5"`` # 追加  dns 到原先的 dns 配置
 	* ``nmcli -p connection show xxxx`` # 查看 xxxx 的详细配置
 	* ``nmcli con edit type ethernet con-name xxxx`` 交互式添加一个网络配置条目, 会将新的配置存储在 ``/etc/sysconfig/network-scripts/ifcfg-xxxx``, 但是在 Solus 上是存储在 ``/etc/NetworkManager/system-connections/``
-	* 
 138. printf 命令可视化打印
     * printf %02x 123  # 7b
 139. 获取指定组中的数据成员： ``getent group 组名``
