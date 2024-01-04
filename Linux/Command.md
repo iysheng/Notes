@@ -1374,3 +1374,7 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
 142. 查看 glibc 的版本：
     1. 如果是本机，可以直接运行 libc.so
     2. 如果是交叉编译，可以通过 ``strings xxx/sysroots/armv7at2hf-neon-oe-linux-gnueabi/lib/libc.so.6 | grep "^GLIBC"`` 查看
+143. 使用 gcc 编译器时使用下述宏来判断具体的版本
+    1. __GNUC__ 主版本号
+    2. __GNUC_MINOR__ 次版本号
+    3. __GNUC_PATCHLEVEL__ 补丁级号
