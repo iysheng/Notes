@@ -511,6 +511,7 @@ O
 |On-The-Go|OTG|
 |exploiting|利用|
 |overview|概述，概览|
+|oriented|定向|
 
 P
 ---
@@ -559,6 +560,9 @@ P
 |proportional|比例|
 |proportional term|比例项|
 |preceding|先于|
+|polygons|多边形|
+|Panel|面|
+|poly|多边形|
 
 Q
 ---
@@ -708,6 +712,8 @@ S
 |symmetric|对称|
 |SRP||
 |SOM|system on module,嵌入式核心板|
+|substrate|基板|
+|subtract|减去|
 
 T
 ---

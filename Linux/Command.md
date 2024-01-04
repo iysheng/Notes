@@ -1371,3 +1371,6 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
     1. timedatectl # 查看当前时区
     2. timedatectl list-timezones # 列出所有可用时区
     3. sudo timedatectl set-timezone 时区名称 # 设置指定时区名字的时区
+142. 查看 glibc 的版本：
+    1. 如果是本机，可以直接运行 libc.so
+    2. 如果是交叉编译，可以通过 ``strings xxx/sysroots/armv7at2hf-neon-oe-linux-gnueabi/lib/libc.so.6 | grep "^GLIBC"`` 查看
