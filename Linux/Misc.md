@@ -6,7 +6,7 @@
 	1. 根文件系统要有 /init 否则会报不是根文件系统的错误
 	2. busybox 的源码中有 rcS 等配置文件的示例
 4. 在 YYfish Board 调试 2018.09 Uboot
-	1. 添加了deug的串口打印，直接写寄存器，修改设备树
+	1. 添加了deug 的串口打印，直接写寄存器，修改设备树
 	2. 初始化SDRAM，修改设备树
 	3. 修改MPU相关的设置，修改arch/arm/mach-stm32/soc.c 修改MPU的区域大小为32M，否则重定向到SDRAM的高地址之后，因为没有执行权限，系统就会崩掉
 5. ubifs 使用方法
@@ -631,6 +631,32 @@ systemctl restart systemd-logind
 ```
 	2. 可以给 node 或者 property 绑定 label, label 只会出现在 dts 源码中，不会出现在最终的 dtb 文件中
 	3. 如果想引用 label, 那么需要在 label 名字前加 & 符号
+	4. overlay
+	```
+	#include <dt-bindings/gpio/gpio.h>  设备树头
+	/dts-v1/;
+	/plugin/;
+	
+	/ { 根 node, 设备树 overlay 必须要有一个根 node
+	    fragment@0 { 片段 0, 每一个片段对应一个需要修改的 node
+	        target-path = "/"; 要修改的 node 的绝对路径, 用 target-path 指定
+	        __overlay__ {
+	            foo {
+	                compatible = "custom,foo";
+	                status = "okay";
+	                gpio = <&gpio3 14 GPIO_ACTIVE_HIGH>;
+	            };
+	        };
+	    };
+	    fragment@1 { 片段 1
+	        target = <&bar>; 相对路径，&bar 表示引用 bar 这个 label 或者叫 alias, 相对路径，用 taget 指定
+	        __overlay__ { 该 __overlay__ node 表示,需要对 target 或者 target-path 指定的 node 修改的地方, 修改包括：添加新的 node, 添加新的属性，修改已有的属性
+	            my-boolean-property;
+	            status = "okay";
+	        };
+	    };
+	};
+	```
 52. [给 Linux 提交 pr 的方法](https://www.cnblogs.com/gmpy/p/12200609.html)
 	1. clone 源码树， 最好是根据你修改的部分查找对应的仓库路径，可以去 MAINTAINERS 文件中查找，这里以 linus 的仓库为例 eg: git clone git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git
 	2. 修改，生成补丁文件，假如是单次修改，生成补丁的命令是：``git format-patch --subject-prefix='PATCH' -i HEAD~``, 如果是系列补丁，用下面的命令：``git format-patch --cover-letter --subject-prefix='PATCH' -N #这里的N是你要提取的补丁个数``

@@ -563,6 +563,7 @@ P
 |polygons|多边形|
 |Panel|面|
 |poly|多边形|
+|partition line|分割线|
 
 Q
 ---
@@ -765,6 +766,7 @@ T
 |tensor|张量，通常是指维度大于等于四维的数据|
 |transpose|转置，矩阵的转置|
 |twofold|双重的|
+|tricky|棘手|
 
 U
 ---
