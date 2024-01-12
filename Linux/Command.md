@@ -1284,7 +1284,7 @@ _sbrk (ptrdiff_t incr)
 124. [sokit](https://github.com/sinpolib/sokit/releases/tag/v1.3.20150507) Linux 平台图形化的 tcp/udp 调试工具
 125. 解决普通用户需要 sudo 权限打开 tty 设备的问题
     1. 简单粗暴，直接 ``sudo chmod 666 /dev/ttyACM0`` # 直接修改对应设备的权限
-    2. 将用户添加到 dialog 组， ``sudo usermod -aG dialog red``, 需要重启系统？？
+    2. 将 red 用户添加到 dialog 组， ``sudo usermod -aG dialout red``, 不需要重启系统,将当前用户添加到 dialout 组 ``sudo usermod -a -G dialout $USER``
     3. 修改 udev 的 rules 规则，将对应的权限修改为 666, 这种方法需要在 /etc/udev/ 目录下找到对应的规则文件
 126. ``errno`` 工具可以方便查找错误号
     1. errno -l # 列出所有的错误号
