@@ -971,6 +971,8 @@ sudo dnf install iwl1000-firmware
     #运行程序
     j Reset_Handler
     ```
+    11. ``set mem inaccessible-by-default off`` 关闭 gdb 的内存访问限制
+    12. ``set debug remote 1`` 开启 gdb 的调试打印
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
 	* unzip -O 936 指定字符集来解压文件，修复有时候解压文件在 linux 显示乱码问题,或者也可以修改环境变量：UNZIP="-O CP936" 以及 ZIPINFO="-O CP936"
