@@ -33,6 +33,28 @@ inline void func(void)
 8. 宏定义中的 # 和 ## 符号，# 表示字符串化， ## 表示连词符号，特别地针对 ##，如果有连词符之前有 . 符号，那么可以省去 ## 符号。因为 ## 连词符号的意思是连接前面的字母组成新的长字母
 9. 在 gcc 中使用 asm 内联汇编的方法: __asm__("nop");
 10. ATPCS 标准规定，在 C 语言函数调用时，r0,r1,r2,r3 作为参数进行传递，所以用汇编写的函数可以放心地使用r0-r3,但是如果想要使用 r4-r11 ，这时候就要小心点了，如果在调用该汇编函数的 C 函数中没有使用到 r4-r11 还好说，如果使用到了，那么很可能程序就会出问题，所以啊，如果你用汇编写的函数使用到了 r4-r11 这些寄存器，使用之前先 push {r4,,,,} 以下，在函数的末尾在 pop {r4,,,,} 出来比较安全
+11. 可变参数的处理, va_start va_arg va_end 这些都是一些宏定义, 展开可以逐个将可变参数列表给提取出来
+* #define va_start(list,param1)   ( list = (va_list)&param1+ sizeof(param1) )
+* #define va_arg(list,mode)   ( (mode *) ( list += sizeof(mode) ) )[-1]
+* #define va_end(list) ( list = (va_list)0 )
+* 可变参数的宏 __VA_ARGS__  表示 ... 这个可变参数
+```C
+/* 示例程序 ... 表示可变参数 */
+void simple_va_fun(int i, ...)
+{
+    va_list arg_ptr;
+    int j=0;
+
+    宏展开，定义 arg_ptr, 指向第一个可变参数
+    va_start(arg_ptr, i);
+    宏展开，获取第一个可变参数的值
+    j=va_arg(arg_ptr, int);
+    宏展开，结束展开,取消 arg_ptr 初始化，设置为 0
+    va_end(arg_ptr);
+    printf("%d %d\n", i, j);
+    return;
+}
+```
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);

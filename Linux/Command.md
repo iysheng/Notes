@@ -1384,6 +1384,7 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
     2. __GNUC_MINOR__ 次版本号
     3. __GNUC_PATCHLEVEL__ 补丁级号
     4. 链接的时候，选项 -Wl,–gc-sections 表示将 -gc-sections 传递给连接器，让连接器忽视掉没有使用的符号减小生成文件的体积,但是前提是要在编译阶段添加 -ffunction-sections 和 -fdata-sections  编译选项
+    5. ATPCS 使用 r0-r3 传递参数
 144. [mpv]() Linux 下的一款播放器，支持多种播放格式
 145. ffmpeg 可以用来进行视频转换
     * 将 gnome3 默认录屏的 webm 格式转化为 mp4 格式：``ffmpeg -i input.webm -vf scale=1920x1080 output.mp4``
