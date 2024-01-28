@@ -1388,3 +1388,4 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
 144. [mpv]() Linux 下的一款播放器，支持多种播放格式
 145. ffmpeg 可以用来进行视频转换
     * 将 gnome3 默认录屏的 webm 格式转化为 mp4 格式：``ffmpeg -i input.webm -vf scale=1920x1080 output.mp4``
+    * 将录制的 mp4 格式的视频降低文件大小，可以减低 fps  ``ffmpeg -i a.mp4 -r 20 b.mp4`` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
