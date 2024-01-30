@@ -9,7 +9,7 @@
 filetype plugin on
 " 抑制 cscope 的打印信息
 set nocscopeverbose
-set nu
+set rnu
 set shiftwidth=4
 set tabstop=4
 set encoding=utf-8
@@ -135,6 +135,7 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdcommenter'
 "Plug 'tpope/vim-fugitive'
 
 " 代码片段的模板仓库
@@ -149,7 +150,13 @@ Plug 'dominikduda/vim_current_word'
 " new tab style
 Plug 'bagrat/vim-buffet'
 Plug 'godlygeek/tabular'
+Plug 'bash-lsp/bash-language-server'
 call plug#end()
+
+" ===
+" === nerd commenter
+" ===
+let g:NERDSpaceDelims = 1
 
 " ===
 " === match up
@@ -223,8 +230,11 @@ if exists('+termguicolors')
   endif
 endif
 set background=dark
-let g:everforest_ui_contrast = 'high'
+let g:everforest_ui_contrast = 'soft'
+let g:everforest_enable_italic = 0
+let g:everforest_disable_italic_comment = 1
 colorscheme everforest
+"let g:lightline.colorscheme = 'everforest'
 
 " ===
 " ===onedark
@@ -331,6 +341,18 @@ let g:ycm_disable_for_files_larger_than_kb = 4096
 let g:ycm_auto_hover = ''
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_language_server =
+            \ [
+            \   {
+            \       'name': 'bash',
+            \       'cmdline': [ 'bash-language-server', 'start' ],
+            \       'filetypes': [ 'sh' ],
+            \   }
+            \ ]
+nn <leader>jd :YcmCompleter GoToDefinition<cr>
+nn <leader>jr :YcmCompleter GoToReferences<cr>
+nn <leader>jc :YcmCompleter GoToDeclaration<cr>
+nn <leader>jf :YcmCompleter GoTo<cr>
 
 " ===
 " === UltiSnips
