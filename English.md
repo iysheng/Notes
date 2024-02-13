@@ -475,6 +475,7 @@ N
 |neglect|忽略|
 |notation|符号|
 |numerator coefficients|分子系数|
+|nibble|半字节|
 
 O
 ---
