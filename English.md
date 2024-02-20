@@ -252,6 +252,7 @@ D
 |delegate|委托|
 |disturbance|干扰|
 |deputy|代表，副手|
+|DNP|do not populate 不用贴片|
 
 E
 ---

@@ -1391,3 +1391,4 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
     * 将录制的 mp4 格式的视频降低文件大小，可以减低 fps  ``ffmpeg -i a.mp4 -r 20 b.mp4`` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
 146. nslookup 工具查看指定域名的 ip
     * nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
+147. ``sudo systemd-resolve --flush-caches`` 清空 dns 缓存
