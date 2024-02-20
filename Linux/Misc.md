@@ -935,3 +935,5 @@ keycode 119 = BackSpace
 	3. ctrl+shift+c 将文本 path 化
 67. timedatectl 命令查看系统时间相关内容
 68. ``nmap -v -snP 192.168.91.100-105`` 扫描探测指定地址范围内的设备
+69. qpdf 工具用来对 pdf 进行编辑
+	1. qpdf in.pdf --overlay water_mark.pdf --from= --repeat=1 -- out.pdf  # 将 water_mark.pdf 叠加到 in.pdf 生成 out.pdf 输出,切记要添加 ``--from= --repeat=1`` 才能保证每一页面都有水印
