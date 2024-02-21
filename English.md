@@ -285,6 +285,7 @@ E
 |excite|激发|
 |extent|程度|
 |eigenvalues|特征值|
+|extrude|挤出|
 
 F
 ---
