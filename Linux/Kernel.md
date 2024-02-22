@@ -3,6 +3,11 @@
 #### 内核支持使用 make 生成 cscope.files 文件
 ``make ARCH=arm64 COMPILED_SOURCE=1 cscope``
 
+#### 内核支持版本
+1. #include <linux/version.h>
+#define DRIVER_VERSION			KERNEL_VERSION(0X01, 0X02, 0X02)
+2. DRIVER_VERSION >> 16, DRIVER_VERSION >> 8 & 0XFF, DRIVER_VERSION & 0XFF
+
 #### <<圈圈教你玩 USB>> 笔记
 
 USB 学习网站：http://linux-usb.sourceforge.net
