@@ -1076,3 +1076,6 @@ source ./test/bin/activate # 激活虚拟环境
 import pcbnew
 print(pcbnew.__file__) # 可以打印出来包所在的路径
 ```
+96. 字符串大小写转换
+	1. "abc".upper() 转换为大写
+	2. "DEF".lower() 转换为小写
