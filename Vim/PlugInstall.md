@@ -310,3 +310,9 @@ Blob:      10  v:t_blob
 42. [nerdcommenter](https://github.com/preservim/nerdcommenter) 代码高效注释工具
 	* ``<leader>cc`` 注释当前行, leader 一般默认是 ``\``
 	* ``<leader>c<space>`` 翻转注释/取消注释当前行, leader 一般默认是 ``\``
+43. [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) vim table mode 工具,自动创建表格
+	* ``<leader>tm`` 切换是否开启 table-mode
+	* ``<leader>tdc`` 删除一列
+	* ``<leader>tdd`` 删除一行
+	* ``<leader>tic`` 添加一列
+	* let g:table_mode_delete_row_map = '<Leader>tdd'

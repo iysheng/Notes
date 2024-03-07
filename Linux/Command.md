@@ -148,21 +148,20 @@
     45. git log --stat ： 查看提交记录，包含每次提交的文件列表
     46. git diff commitid ；// review the files modify detiles this commit
     47. git show commitid ；// 查看某一次提交修改的代码
-    48. git commit --amend ；// 修改最近依次提交的 commit 信息
-    49. git pull 和 git fetch 的区别
+    48. git pull 和 git fetch 的区别
         1. 简单来说， git pull 完成了两部分的动作： git fetch 和 git merge
         2. 一般的操作说明 git pull remote_repo remote_branch
         3. 分为两个步骤的命令 git fetch remote_repo remote_branch ；git merge remote_name/branch_name / 或者 git merge FETCH_HEAD（备注： FETCH_HEAD 指向的是最新一次的 fetch）
-    50. git send-email # 需要安装 git-email
-    51. 针对某次提交 checkout 出来一个分支，否则的话如果直接 git checkout commitid，会造成分离头指针的情况
+    49. git send-email # 需要安装 git-email
+    50. 针对某次提交 checkout 出来一个分支，否则的话如果直接 git checkout commitid，会造成分离头指针的情况
         ``` bash
         git branch branch_name commitid # 在某次 commitid 的时刻，创建出一个分支
         git checkout commitid # 针对某次 commitid 直接检出，这时候就会出现分离头指针，在分离头指针的情况下，也可以再次 git branch branch_name commitid 切出来分支
         git checkout commitid filename # 检出指定文件的某次提交的版本
         ```
-    52. git diff HEAD^ HEAD ; 将最近的一次提交打成一个补丁文件
-    53. git branch -m 旧分支名 新分支名 # 修改分支名称
-    54. git submodule update --init --recursive # Download sub module command
+    51. git diff HEAD^ HEAD ; 将最近的一次提交打成一个补丁文件
+    52. git branch -m 旧分支名 新分支名 # 修改分支名称
+    53. git submodule update --init --recursive # Download sub module command
         1. git submodule 列出来当前仓库引用到的所有 submodules
         ``` bash
         ▸ git submodule
@@ -171,7 +170,7 @@
         2. git submodule set-url <path> <newurl> 修改 path 这个 submodule 新的路径
         3. git submodule update <path> # 单独只更新指定 path 的 submodule,在很多 submodule 并且仓库都很大的时候建议单独 update,
         4. git submodule add <url> <path> # 添加一个 submodule
-    55. git clone --recursive reposite # recursion download sub module
+    54. git clone --recursive reposite # recursion download sub module
         1. git clone --filter=blob:none --no-checkout <url> # [下载较大的仓库的时候](https://about.gitlab.com/blog/2020/03/13/partial-clone-for-massive-repositories/)，可以使用该命令实现类似 git clone continue 的功能，会拉取 ```default branch``` 的数据，这个命令实现的是类似取消拉取大型数据？？？
         2. git checkout <branch> # 如果要检出其他分支时，会再次自动拉取所需的内容，类似实现多次拉取的效果
         3. git 会记录 filter 的设置，如果希望回复默认拉取完整仓库的数据，需要执行
@@ -184,8 +183,8 @@
         6. git fetch --depth 1 origin 远程分支名称 # 浅层拉取仓库的指定分支
         7. git checkout 远程分支名称 # 切换为指定的分支，然后再使用 git fetch --unshallow 拉取所有提交记录
         8. git remote set-branches origin 分支名称 # 如果当前不在这个分支的时候要执行这句话，接着才可以正常切换到这个新的分支
-    56. git rm --cached 文件路径 # 取消对指定文件的跟踪
-    57. [git submodule 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
+    55. git rm --cached 文件路径 # 取消对指定文件的跟踪
+    56. [git submodule 命令的一般方法](https://www.vogella.com/tutorials/GitSubmodules/article.html)
         ```
         git submodule add -b branch_name [URL to Git Repo] # 添加子模块的跟踪路径和对应的分支
         git submodule add [URL to Git Repo] [path in current pro]# 添加子模块的跟踪路径到指定的路径
@@ -193,16 +192,16 @@
         1. git submodule mv [旧的子模块目录名] [新的子模块目录名] # 修改旧的子模块目录名为新的子模块目录名
         2. git submodule sync # 同步对子模块的修改
         ```
-    58. 在设置了 git mergetool 为 vimdiff 后，[在合并冲突时的一般使用方法可以参看](https://www.cnblogs.com/snake-hand/archive/2013/06/12/3133055.html) [还可以参看](https://www.dazhuanlan.com/2019/12/04/5de7cbeb6d522/?__cf_chl_jschl_tk__=eafb6a75757065654d1411064f7ece546be9e2df-1600563251-0-AaFC7OSqFZO7wzxjhGFCEy53WsqMSSymUJRzyv23xj5QLZgPE_uvd-mZ9Si6tTGfN9D0jdyrX9SD-maksubKac0rBJXemvwc146YShw8JOYmSbM0W6x0x07mtkNPx_QfAmLIL-NHMvJnoZG9pjJvLxmO8wY16wCNrWoDKOb-R_-l_91bY8AJmVFHuP4X7OgH2OxEY1qfcZGSPf9lvMJj7RaXXm3tfoZwsqW-7C7T7-beP4vcz5-ZzjsOFwOFVM7P__REvExMF6qR6nw76W9Q2TnULIk2o09kZUWY7PUlpuRW7fb-90m6_X6KmlB-_4GlLg)
+    57. 在设置了 git mergetool 为 vimdiff 后，[在合并冲突时的一般使用方法可以参看](https://www.cnblogs.com/snake-hand/archive/2013/06/12/3133055.html) [还可以参看](https://www.dazhuanlan.com/2019/12/04/5de7cbeb6d522/?__cf_chl_jschl_tk__=eafb6a75757065654d1411064f7ece546be9e2df-1600563251-0-AaFC7OSqFZO7wzxjhGFCEy53WsqMSSymUJRzyv23xj5QLZgPE_uvd-mZ9Si6tTGfN9D0jdyrX9SD-maksubKac0rBJXemvwc146YShw8JOYmSbM0W6x0x07mtkNPx_QfAmLIL-NHMvJnoZG9pjJvLxmO8wY16wCNrWoDKOb-R_-l_91bY8AJmVFHuP4X7OgH2OxEY1qfcZGSPf9lvMJj7RaXXm3tfoZwsqW-7C7T7-beP4vcz5-ZzjsOFwOFVM7P__REvExMF6qR6nw76W9Q2TnULIk2o09kZUWY7PUlpuRW7fb-90m6_X6KmlB-_4GlLg)
         1. 弹出的 4 个 buffer,分别为 LOCAL,BASE,REMOTE,MERGEE
         2. LOCAL 是我们本地的分支， REMOTE 是要合并到当前分支的外部分支上的内容，BASE 是 LOCAL 和 REMOTE 两个分支的共同祖先,MERGED 合并结果，将会保存到本地 repo.
         3. 首先需要切换到 MERGED buffer,然后根据吧需要，执行 diffget LO 或者 diffget BA 或者 diffget RE, 记得然后执行下 diffupdate 命令，或者 w! 直接保存
         4. 在多个 diff 处跳转快捷键 **]+c** 跳转到下一个 diff 处， **[+c** 跳转到上一个 diff 处
-    59. git  cherry-pick commit_id,合并某次提交到当前分支
+    58. git  cherry-pick commit_id,合并某次提交到当前分支
 		1. git cherry-pick commit_id0..commit_id1 # 批量合並 commit_id0 ~ commit_id1 之間的所有提交，不包括 commit_id0
 		2. git cherry-pick commit_id0^..commit_id1 # 批量合並 commit_id0 ~ commit_id1 之間的提交，包括 commit_id0
 		3. git cherry-pick --abort # 終止合並，當合並出問題時候，可以執行這個選項
-	60. git clean 參數 （刪除那些未 git add 的文件，一般地： git clean -dfx 就可以情理所有需要清理的文件，謹慎考慮不要用 -f 強制刪除，使用 -i 確認下）
+	59. git clean 參數 （刪除那些未 git add 的文件，一般地： git clean -dfx 就可以情理所有需要清理的文件，謹慎考慮不要用 -f 強制刪除，使用 -i 確認下）
 		1. -n 顯示將要刪除的文件和目錄
 		2. -x 刪除忽略的文件
 		3. -X 僅僅刪除忽略的文件
@@ -1392,3 +1391,5 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
 146. nslookup 工具查看指定域名的 ip
     * nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
 147. ``sudo systemd-resolve --flush-caches`` 清空 dns 缓存
+148. [zeal](https://github.com/zealdocs/zeal) 离线查看文档工具
+149. [imhex]() 16进制 hack 工具

@@ -172,3 +172,4 @@ Pin connected to some other pins but no pin to drive it
 45. Kicad 的快捷键盘 ``alt + 1`` 和 ``alt + 2`` 用来快速切换两个 grid 设置.配置的路径是:``鼠标右键->Grid Settings`` 设置具体的 ``alt + 1`` 和 ``alt + 2`` 的参数.
 46. Kicad ctrl+E ，可以创建异形焊盘，将焊盘和形状融为一体。
 47. 在绘制电源符号的时候，有一个关键的步骤是设置 ``symbol properties`` 中的 Reference 为 #PWR 并且不可见
+48. Kicad 的 Connector_IDC 封装库中包含了各种 JTAG 座子的封装。
