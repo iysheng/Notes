@@ -937,3 +937,4 @@ keycode 119 = BackSpace
 68. ``nmap -v -snP 192.168.91.100-105`` 扫描探测指定地址范围内的设备
 69. [qpdf](https://github.com/qpdf/qpdf) 工具用来对 pdf 进行编辑
 	1. qpdf in.pdf --overlay water_mark.pdf --from= --repeat=1 -- out.pdf  # 将 water_mark.pdf 叠加到 in.pdf 生成 out.pdf 输出,切记要添加 ``--from= --repeat=1`` 才能保证每一页面都有水印
+70. [microcom]() 串口工具,一般的嵌入式 linux 上链接的 busybox 中有这个命令可以测试串口
