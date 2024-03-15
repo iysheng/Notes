@@ -64,3 +64,7 @@ device 上的每一个 endpoint 都有一个设备分配的唯一 ID. 这个 ID 
 
 #### 内核调试
 内核调试参数 ``initcall_debug`` 查看内核启动过程的函数调用详细信息
+动态打印内核调试
+    1. 内核放开 CONFIG_DYNAMIC_DEBUG
+    2. 通过 ``echo 'file drivers/i2c/busses/i2c-imx.c +p' > /sys/kernel/debug/dynamic_debug/control`` 放开指定文件的打印
+    3. echo 8 > /proc/sys/kernel/printk 降低打印级别，可以打印出来更多的内容
