@@ -320,8 +320,9 @@ ret = os.system("linux 命令")
 	``` bash
 	import matplotlib.pyplot as plt
 	plt.plot(x, y, label="test demo")
-	plt.plot(x1, y1, label="test demo1")
-	plt.legend(labels=["demo0", "demo1"]) # 添加曲线(x,y)和(x1,y1)的描述即 legend 分别为 test demo 和 test demo1
+	plt.plot(x1, y1, '.', label="1msavg2energy") # 绘制散点图而非连线图
+	plt.legend() # 添加曲线的描述即 legend
+	plt.legend(labels=["demo0", "demo1"]) # 添加曲线(x,y)和(x1,y1)的描述即 legend 分别为 demo 和  demo1
 	```
 	![](figures/plt_legend.png)
 28. 对小数取整的四种方法
