@@ -354,7 +354,8 @@ Linux kernel internal documentation in different formats:
     * rebase_path(input, new_base=="", current_base=".") # 將 input 表示的內容，可以是 list ,轉換爲以 new_base 爲基礎的路徑描述
         * new_base 缺省時，轉換路徑以系統絕對路徑
         * current_base 缺省時，是相對當前路徑
-	* exec_script(......) 函数提供了一种执行 python 脚本的钩子函数，当所执行的脚本返回非0数值时会终止工程构建
+    * exec_script(......) 函数提供了一种执行 python 脚本的钩子函数，当所执行的脚本返回非0数值时会终止工程构建
+        * exec_script("x.py", ["arg1", "arg2"], "json") # 如果返回值是一个 list 格式，参考[pkg-config.py](https://chromium.googlesource.com/chromium/src/build/config/+/refs/heads/main/linux/pkg-config.py) 并实际测试发现 "json" 格式才可以正常转换为 GN 可以识别的 list 类型, 里面关键的内容是，使用 python3 的 json 包，执行 print(json.dumps([xxx])), 返回 json 格式的 list
 22. ninja 替换 make 进行构建
     * build.ninja 一般是构建的入口文件，类似 make 的 Makefile
 23. ld 连接脚本
