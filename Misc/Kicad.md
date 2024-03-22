@@ -173,3 +173,4 @@ Pin connected to some other pins but no pin to drive it
 46. Kicad ctrl+E ，可以创建异形焊盘，将焊盘和形状融为一体。
 47. 在绘制电源符号的时候，有一个关键的步骤是设置 ``symbol properties`` 中的 Reference 为 #PWR 并且不可见
 48. Kicad 的 Connector_IDC 封装库中包含了各种 JTAG 座子的封装。
+49. 在需要 pcb 中放置机械孔的时候，一些安装孔的符号在 ``Mechanical.kicad_sym`` 符号文件中;除了直接放置安装符号，也可以直接在 pcb 中添加机械孔的封装然后选择 ``Not in schematic`` ，这样在同步原理图更新时，这些封装也不会被删除。
