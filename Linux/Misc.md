@@ -939,3 +939,8 @@ keycode 119 = BackSpace
 69. [qpdf](https://github.com/qpdf/qpdf) 工具用来对 pdf 进行编辑
 	1. qpdf in.pdf --overlay water_mark.pdf --from= --repeat=1 -- out.pdf  # 将 water_mark.pdf 叠加到 in.pdf 生成 out.pdf 输出,切记要添加 ``--from= --repeat=1`` 才能保证每一页面都有水印
 70. [microcom]() 串口工具,一般的嵌入式 linux 上链接的 busybox 中有这个命令可以测试串口
+71. modprobe 添加一个 modprobe 的配置文件 ``man modprobe.d``, 具体该文件的编写可以参看 man 文档.
+``` bash
+install nvidia \
+/usr/sbin/insmod abc.ko
+```
