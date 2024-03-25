@@ -941,6 +941,11 @@ keycode 119 = BackSpace
 70. [microcom]() 串口工具,一般的嵌入式 linux 上链接的 busybox 中有这个命令可以测试串口
 71. modprobe 添加一个 modprobe 的配置文件 ``man modprobe.d``, 具体该文件的编写可以参看 man 文档.
 ``` bash
-install nvidia \
+install abc \
 /usr/sbin/insmod abc.ko
+```
+72. 配置启动阶段自动加载指定的驱动 ``man modules-load.d``。可以在 /etc/modules-load.d/ 目录新建一个 a.conf 文件，具体 demo 如下内容,下一次启动的时候就会自动加 modprobe abc,前提是你还要在 /lib/modprobe.d/ 目录下新建一个 abc.conf 配置文件,参考 71 的写法，协商 modprobe abc 执行的加载具体指令：
+```
+# test driver auto load demo modprobe abc
+abc
 ```
