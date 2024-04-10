@@ -949,3 +949,4 @@ install abc \
 # test driver auto load demo modprobe abc
 abc
 ```
+73. 关闭 selinux 的方法： ``sudo setenforce 0``， 有时候 samba 会出现奇怪无法正常读写文件的时候，关闭 selinux 可以解决问题。
