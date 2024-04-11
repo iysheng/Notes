@@ -960,3 +960,12 @@ sudo -u gdm dbus-run-session gsettings set org.gnome.settings-daemon.plugins.pow
 # 关闭接入电源时自动休眠
 sudo -u gdm dbus-run-session gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
 ```
+75. Linux [关闭自动休眠的强制措施](https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/)
+```
+# 关闭自动休眠等
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+# 打开自动休眠等
+sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+# 查看自动休眠状态
+sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
