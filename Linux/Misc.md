@@ -545,7 +545,8 @@ MimeType=application/x-extension-fcstd;
 * no_root_squash 参数表示,远端可以正常使用 root 用户挂载,如果没有这个参数,对方使用 root 用户时会变为 nobody 用户
 * async 加快传输,禁止应答
 * sync 是默认的, nfs-server 会对写入的文件发送应答
-```
+* 如果无法写入的时候使用这些模式 (rw,async,no_root_squash,no_subtree_check), 然后修改挂载的目录权限为 777 可以保证普通用户写入文件
+``` bash
 /var/lib/nfs  10.20.52.0/255.255.255.0(rw,async)
 ```
 44. [SWIG](https://www.swig.org/) 是一个软件工具,实现将 C/C++ 的程序和一些更高级的语言联系到一起.支持将 C/C++ 语言和 python.
@@ -950,3 +951,12 @@ install abc \
 abc
 ```
 73. 关闭 selinux 的方法： ``sudo setenforce 0``， 有时候 samba 会出现奇怪无法正常读写文件的时候，关闭 selinux 可以解决问题。
+74. 关闭 Gnome [自动休眠的配置](https://forums.fedoraforum.org/showthread.php?330586-Fedora-38-change-Systems-with-Gnome-suspend-after-15-minutes-even-when-plugged-in)
+``` bash
+# 查看参数配置
+sudo -u gdm dbus-run-session gsettings list-recursively org.gnome.settings-daemon.plugins.power | grep sleep
+# 关闭接入交流电时自动休眠
+sudo -u gdm dbus-run-session gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
+# 关闭接入电源时自动休眠
+sudo -u gdm dbus-run-session gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
+```

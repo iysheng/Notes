@@ -718,6 +718,8 @@ S
 |SOM|system on module,嵌入式核心板|
 |substrate|基板|
 |subtract|减去|
+|solder|焊料|
+|solder mask layer|阻焊层，即盖绿油的层，Kicad 中是负片|
 
 T
 ---
