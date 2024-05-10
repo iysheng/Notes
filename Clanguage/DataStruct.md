@@ -55,6 +55,7 @@ void simple_va_fun(int i, ...)
     return;
 }
 ```
+12. printf("%zu") # printf 的语法 %[parameter][flags][width][.precision][length]type，这里 z 是 length 字段，表示 size_t
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);
