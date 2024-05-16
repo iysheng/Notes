@@ -1191,6 +1191,7 @@ SECTIONS
     * tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX # 过滤指定网卡、udp 格式、指定端口的数据包
     * tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX and dst xxxx # 过滤指定网卡、udp 格式、指定端口的数据包,发送到指定设备的包,dst表示发送到指定设备
     * tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX and src xxxx # 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来的包,src表示从指定设备接收的包
+    * tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包
     * -XX 输出包的头部数据
     * -vvv 打印非常详细的信息 | -vv 打印比 -vvv 稍微不详细的信息 | -v 打印比 -vv 稍微不详细的信息
     * -nn 直接以 IP 和端口号的方式显示，而非主机名和服务名称

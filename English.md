@@ -286,6 +286,7 @@ E
 |extent|程度|
 |eigenvalues|特征值|
 |extrude|挤出|
+|emit|发射、发出|
 
 F
 ---
@@ -646,7 +647,7 @@ S
 |单词|释义|
 |---|---|
 |spawn|派生|
-|scale|规模、扩展|
+|scale|规模、扩展、标量|
 |be supposed to|应该|
 |stick to|坚持|
 |stall|故意拖延，失速|
