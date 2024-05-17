@@ -33,6 +33,8 @@
 
 3. git 使用笔记
     1. git log --oneline /* 每一个 commit 只显示一行 */
+    	* git log --pretty=oneline /* 每一个 commit 只显示一行 */
+    	* git log --pretty=ref xxx /* 查看指定 xxx 的提交，并且显示修改日期 */
     2. git log -nx  /* 显示最近的 x 次提交 */
     3. git help --web [command] /* 在浏览器查看 git [command] 的 help 信息 */
     4. git cat-file -t hash 查看一个hash值表示的类型（比如说是提交、tag、、、）
