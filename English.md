@@ -337,6 +337,7 @@ G
 |gradient|梯度|
 |governor|调节器|
 |Gadget|小工具|
+|glossary|术语|
 
 H
 ---
