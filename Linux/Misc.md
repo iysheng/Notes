@@ -970,3 +970,12 @@ sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.
 # 查看自动休眠状态
 sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
+76. Linux 操作 phy 的描述，Linux 系统的 mac 设备都有一个通用的方法对 phy 寄存器进行读写，方法如下：
+	1. 找到 phy 设备， ls -l /sys/devices/platform | grep "eth" 列出对应的 mac 设备
+	2. 进入到 /sys/devices/platform/xxxxx 对应的 mac 设备目录
+	3. 进一步列出来 mdio_bus 目录中的 phy 设备
+	4. 进入 phy 设备目录，对 phy 寄存器的读写就是操作 phy 设备目录下的 phy_registers
+	5. 读寄存器 cat phy_registers
+	6. 写 mii 寄存器，写 mii reg 0 为 0x9000：echo 0x0 0x9000 > phy_registers
+	7. 读 ext 寄存器，读 ext reg 0xc：echo 0x1e 0xc > phy_registers && cat phy_registers
+	8. 写 ext 寄存器，写 ext reg x0c 值为 0x80f6：echo 0x1e 0xc > phy_registers && echo 0x1f 0x80f6 > phy_registers
