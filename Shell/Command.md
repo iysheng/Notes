@@ -535,7 +535,11 @@ lrwxrwxrwx. red red 3 B Wed Mar  8 10:04:52 2023  abc_soft ⇒ abc 软连接
 ``` bash
 #!/bin/sh
 
-export ABC=1
+export ABC=1 # export 的变量可以被 child 进程调用。而直接赋值的则不可以，比如下述例子
+
+export LD_LIBRARY_PATH=/opt/red_lib64
+
+./abc # 如果 abc 依赖 /opt/red_lib64 的库，上述用 export 的方法 abc 可以正常执行，如果使用 LD_LIBRARY_PATH=/opt/red_lib64 的方法， abc 不能正常执行
 ```
 如果使用命令 ``./a.sh``， 那么执行完后再当前 shell 也不会有这个变量 ABC，但是如果你使用 ``source a.sh`` 或者 ``. a.sh``，那么执行完后，当前 shell 就会有 ABC 这个变量了。
 53. 大小写转换
