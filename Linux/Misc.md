@@ -991,3 +991,5 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
 	6. 写 mii 寄存器，写 mii reg 0 为 0x9000：echo 0x0 0x9000 > phy_registers
 	7. 读 ext 寄存器，读 ext reg 0xc：echo 0x1e 0xc > phy_registers && cat phy_registers
 	8. 写 ext 寄存器，写 ext reg x0c 值为 0x80f6：echo 0x1e 0xc > phy_registers && echo 0x1f 0x80f6 > phy_registers
+77. dcraw 是一个编码原始图像文件(如RAW格式)的命令行工具。
+	1. dcraw -o 4 -4 -T abc.dng # 表示将 abc.dng 修改为 ProPhoto 色彩空间, 线性 16bit tiff 文件输出,另存为 abc.tiff

@@ -11,3 +11,5 @@
 * 在 .bazelrc 文件中设置工具链条的编译选项
     1. --cxxopt=-fPIC 设置 c++ 语言编译选项
     2. --copt=-fPIC   设置 c 语言编译选项
+* 在 .bazelrc 中添加如下 entry：
+    1. ``build:demo_config --cpu=k8`` ，在使用 ``bazel --config=demo_config`` 的时候就会自动调用到这个配置项

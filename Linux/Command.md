@@ -1188,6 +1188,8 @@ SECTIONS
     *  arm-none-eabi-addr2line -a 0x08009e1f -p -e *.elf # 根据指定出问题的地址，找到对应的那句代码
 106. [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
 107. tcpdump 调试网络
+    * tcpdump -i enp0s20f0u3u3 port not 22 # 过滤来自指定网卡非 22 端口的数据
+    * tcpdump -i enp0s20f0u3u3 port not 22 -w xxx.pcap # 过滤来自指定网卡非 22 端口的数据,将抓包的数据保存到文件 xxx.pcap 文件,这个文件可以用 wireshark 分析
     * tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
     * tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文
     * tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 -A -vvv -XX # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文,并以 16 进制详细打印报文头内容
@@ -1398,3 +1400,11 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
 147. ``sudo systemd-resolve --flush-caches`` 清空 dns 缓存
 148. [zeal](https://github.com/zealdocs/zeal) 离线查看文档工具
 149. [imhex]() 16进制 hack 工具
+150. [kernelshark](https://kernelshark.org/) 图形化查看跟踪内核线程的调度切换过程,配合 trace-cmd 跟踪 sched_wakeup* , sched_switch , sched_migrate* 得到 trace.dat 文件，然后使用 kernelshark 打开这个文件分析就行。如果是嵌入式设备，可能会存在交叉编译 tarce-cmd 工具的问题，这个时候要注意几点：
+    1. 编译 [trace-cmd](git://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git) 需要依赖两个库 [libtraceevent](https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git) 和 [libtracefs](https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git)
+    2. 编译的时候,根据顺序要首先编译 libtraceevent 然后编译 libtracefs,最后编译 trace-cmd
+    3. 因为编译的时候,要使用 pkg-config 通过 .pc 文件，检索安装的库文件和头文件,所以在编译 libtraceevent , libtracefs 和 trace-cmd 的时候选择好 DESTDIR 和 PKG_CONFIG_PATH 变量(这个变量指定 pkg-config 工具检索 pc 文件的路径)
+    4. 编译 libtracevent, ``CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install``, 修改 ../build 目录下的 .pc 文件，修改 prefix 为实际的 prefix 路径
+    5. 编译 libtracefs, ``PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install`` 修改 libtracefs 相关的 .pc 文件中的 prefix 文件
+    6. 编译 trace-cmd, ``PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- LDFLAGS=-static make DESTDIR=../build install``, 这里关键的静态编译，这样的话就可以单独使用 ``trace-cmd`` 来跟踪内核
+    7. 使用 trace-cmd 抓取线程调度的示例：``trace-cmd record -e 'sched_wakeup*' -e sched_switch -e 'sched_migrate*' `` 生成 trace.dat 然后用 kernelshark 分析 trace.dat 就好了

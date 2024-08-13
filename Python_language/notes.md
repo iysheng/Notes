@@ -215,6 +215,12 @@ ret = os.system("linux 命令")
 			print (type(a)) # <class 'tuple'>
 			```
 		* 元组前添加 *,和 list 类似,表示将元组的变量作为函数参数传入
+		* 函数参数用元组类型
+			``` python
+			def test_tuple_arg(t):
+				a,b,c = t
+				xxxx
+			```
 21. 常见函数
 	1. type() # 返回对象类型
 	2. int(字符串) # 字符串转 int, int(strrrr, 16) 以 16 进制转换字符串
