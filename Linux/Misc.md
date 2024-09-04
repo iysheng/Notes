@@ -993,3 +993,5 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
 	8. 写 ext 寄存器，写 ext reg x0c 值为 0x80f6：echo 0x1e 0xc > phy_registers && echo 0x1f 0x80f6 > phy_registers
 77. dcraw 是一个编码原始图像文件(如RAW格式)的命令行工具。
 	1. dcraw -o 4 -4 -T abc.dng # 表示将 abc.dng 修改为 ProPhoto 色彩空间, 线性 16bit tiff 文件输出,另存为 abc.tiff
+78. 修改本地域名映射文件 **/etc/hosts**
+    1. ``10.20.1.1 giteee.com`` 可以将指定的 gitee.com 域名映射到 10.20.1.1 这个 ip

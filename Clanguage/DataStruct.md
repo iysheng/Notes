@@ -62,6 +62,7 @@ void simple_va_fun(int i, ...)
 
 ### Misc 库函数或者系统调用 memo 记录
 1. ftruncate 裁剪文件时，文件的位置偏移并不会发生变化，所以执行完 ftruncate 函数后或者前需要手动修改下文件的偏移 lseek
+2. socket 在执行 bind 的时候，如果传递的端口号是 0，那么绑定的是随机端口，在绑定之前，即 socket 只是创建的时候，端口默认是 0
 
 
 ### 数据结构
