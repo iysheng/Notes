@@ -49,7 +49,7 @@ source ~/.git-prompt.sh
 alias tnew='tmux new-session -s'
 alias tml='tmux list-sessions'
 alias tma='tmux attach-session -t'
-export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+# export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 alias xterminal='xfce4-terminal'
 alias cat='bat'
@@ -60,21 +60,9 @@ alias gitst='git status'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-# powerline PS1
-# function _update_ps1() {
-#     PS1=$(powerline-shell $?)
-# }
-#
-# if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-#     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-# fi
-#
-#source ~/.pureline/pureline ~/.pureline.conf
-# https://gist.github.com/justintv/168835
-#export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
-# export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ☀ \[\033[0m\] '
-
-export PS1='\033[0;32m┏─╼\033[0m\033[0;36m\][\u]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[\t]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[$?]\033[0m\n\033[0;32m┗─╼\033[0m\033[0;36m[\w$(__git_ps1)]\033[0m\n\033[0;36m▸\033[0m '
+LINUXOS=`cat /etc/os-release  | awk -F "=" '/^NAME/{print $2}' | xargs printf| awk '{print $1}'`
+export PS1='\033[0;32m┏─╼\033[0m\033[0;36m\][\u\033[0m\033[0;32m|\033[0m\033[0;36m${LINUXOS}]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[\t]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[$?]\033[0m\n\033[0;32m┗─╼\033[0m\033[0;36m[\w$(__git_ps1)]\033[0m\n\033[0;36m▸\033[0m '
+# export PS1='\033[0;32m┏─╼\033[0m\033[0;36m\][\u]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[\t]\033[0m\033[0;32m╾─╼\033[0m\033[0;36m[$?]\033[0m\n\033[0;32m┗─╼\033[0m\033[0;36m[\w$(__git_ps1)]\033[0m\n\033[0;36m▸\033[0m '
 
 # 导出 JRboard 环境变量， connect_server.sh cp 到 board 的时候使用
 export JRboard=192.168.100.100
