@@ -127,6 +127,9 @@ set backspace=indent,eol,start
 		    'sys_path': client_data[ 'g:ycm_python_sys_path' ]
 		  }
 		```
+		3. 为了跟踪项目中的所有源码文件，需要明确告诉 clangd 跟踪项目中的其他文件，有[两种方法](https://github.com/ycm-core/YouCompleteMe/issues/4265#issuecomment-2351358095)：
+			1. 使用命令生成 compile_commands.json 比如: ``bear -- make`` 这里的 make 是构建命令，或者使用 ``cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=YES -S .`` 在当前的 cmake 工程中，执行该指令可以在 build 目录下生成 compile_commands.json 文件
+			2. 直接在 vim 中打开要跳转的工程文件，让 clangd 可以索引到
 16. 'mattn/emmet-vim' 提高 html&css 编辑效率的插件
 	1. 默认的触发开始按键是 ctrl-y ，可以修改变量 g:user_emmet_leader_key 的值来改变这个触发开始按键
 	2. 翻转注释按键是 ctrl-y/
