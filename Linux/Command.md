@@ -500,6 +500,18 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     6. sudo nmcli connection up enp0s20f0u2u3 # 主动执行之前加载的配置,配置文件一般存储在 /etc/sysconfig/network-scripts/ 目录, 比如 ifcfg-enp0s20f0u2u3 网卡设置，也可以通过 sudo service NetworkManager restart 自动配置这个 USB 转网卡设备[脚本修改](#networkmanager)
     7. sudo nmcli connection load /etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3 # 主动加载 /etc/sysconfig/network-scripts/ifcfg-enp0s20f0u2u3 配置的网卡设置, 加载之后要想生效, 还需要执行 `sudo nmcli connection up enp0s20f0u2u3` 来设置对应的网卡设备
     8. sudo nmcli connection reload # 主动加载所有的网卡配置脚本
+    9. 也可以使用 wpa_supplicant 工具连接 wifi，如果连接以后发现没有获取到 ip 可能是因为没有通过 dhcp 从路由器获取到 ip:
+        1. 通过  iw dev <接口> link 查看无线连接状态，确保已经连接到
+        2. wpa_supplicant -B -i <接口> -c xxx.conf -dd # -dd 查看详细的日志信息
+        3. 手动获取 ip # udhcpc -i <接口> 或者 dhclient <接口>
+    10. 如果配置自动获取 ip 地址呢？
+        1. 创建脚本 wpa_supplicant xxxxx 连接到 wifi 之后，延时一段时间 sleep 5 然后执行 dhclient <接口> 主动获取 ip
+        2. 直接修改 /etc/network/interfaces 添加
+        ``` bash
+        auto <接口>
+        iface <接口> inet dhcp
+        ```
+        3. 使用 systemd 创建一个服务文件，关键的 ``Execstart=wpa_supplicant xxxxx 连接 wifi`` 以及 ``ExecStartPost=dhclient <接口>`` 获取动态 ip
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
