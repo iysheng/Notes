@@ -995,3 +995,9 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
 	1. dcraw -o 4 -4 -T abc.dng # 表示将 abc.dng 修改为 ProPhoto 色彩空间, 线性 16bit tiff 文件输出,另存为 abc.tiff
 78. 修改本地域名映射文件 **/etc/hosts**
     1. ``10.20.1.1 giteee.com`` 可以将指定的 gitee.com 域名映射到 10.20.1.1 这个 ip
+79. visual studio 中如果发现中文字符串编译的时候提示 ``error C2001:常量中有换行符`` 错误，原因如下：文件中有中文字符，但是文件是utf-8格式的，使用msvc编译器编译时就会产生上述错误；解决方法如下：
+    1. 将文件格式转换为 GBK 编码
+    2. 在项目里设置编译选项，/utf-8， 具体是``项目->右键属性->C/C++ -> 命令行，在下方输入框添加 /utf-8``，就会在编译时采用utf-8编码来编译
+80. visual studio 如何[去掉控制台](https://blog.csdn.net/sinat_29158831/article/details/123503032)
+    1. 链接器->系统->子系统 改为窗口(/SUBSYSTEM:WINDOWS)
+    2. 链接器->高级->入口点 改为mainCRTStartup
