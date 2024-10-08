@@ -1004,3 +1004,6 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
 81. visual studio 如何添加控制台
     1. 链接器->系统->子系统 改为窗口(/SUBSYSTEM:CONSOLE)
     2. 链接器->高级->入口点 删除该入口点内容
+82. 在线阅读 Linux 源码的网站（支持跳转）
+	1. [https://elixir.bootlin.com/](https://elixir.bootlin.com/)
+	2. [https://lxr.missinglinkelectronics.com](https://lxr.missinglinkelectronics.com)
