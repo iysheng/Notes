@@ -253,6 +253,8 @@ D
 |disturbance|干扰|
 |deputy|代表，副手|
 |DNP|do not populate 不用贴片|
+|DOM|Document Object Model，也可以作为解析 json 的一种方法|
+|SAX|Simple API for XML，也可以作为解析 json 的一种方法|
 
 E
 ---
