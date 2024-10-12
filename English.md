@@ -810,7 +810,7 @@ W
 ---
 |单词|释义|
 |---|---|
-|workaround|解决方法|
+|workaround|解决方法，变通方法|
 |write up|记录，(名词)|
 |work out of the box|开箱即用|
 |wild|疯狂、无法管教|
