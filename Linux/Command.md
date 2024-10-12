@@ -1555,3 +1555,4 @@ dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码
 155. 编译 libtracefs, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install` 修改 libtracefs 相关的 .pc 文件中的 prefix 文件
 156. 编译 trace-cmd, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- LDFLAGS=-static make DESTDIR=../build install`, 这里关键的静态编译，这样的话就可以单独使用 `trace-cmd` 来跟踪内核
 157. 使用 trace-cmd 抓取线程调度的示例：`trace-cmd record -e 'sched_wakeup*' -e sched_switch -e 'sched_migrate*' ` 生成 trace.dat 然后用 kernelshark 分析 trace.dat 就好了
+158. [sysbench](https://github.com/akopytov/sysbench) 测试 CPU 的计算能力:``sysbench --threads=1 cpu run`` 测试单核的计算能力
