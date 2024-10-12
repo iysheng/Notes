@@ -151,6 +151,7 @@ Plug 'dominikduda/vim_current_word'
 Plug 'bagrat/vim-buffet'
 Plug 'godlygeek/tabular'
 Plug 'bash-lsp/bash-language-server'
+Plug 'azabiong/vim-highlighter'
 call plug#end()
 
 " ===
@@ -407,3 +408,44 @@ noremap <leader>u :GundoToggle<cr>
 
 " 代码高亮 80 列
 hi ColorColumn guibg=DarkCyan
+
+"
+" vim-highlight
+"
+" Unicode
+" set encoding=utf-8
+
+" default key mappings
+let HiSet   = '<leader><CR>'
+let HiErase = '<leader><BS>'
+let HiClear = '<leader><C-L>'
+let HiFind  = '<leader><Tab>'
+let HiSetSL = 't<CR>'
+
+" jump key mappings
+nn <CR>  <Cmd>Hi><CR>
+nn g<CR> <Cmd>Hi<<CR>
+nn gl    <Cmd>Hi}<CR>
+nn gh    <Cmd>Hi{<CR>
+nn gj    <Cmd>Hi]<CR>
+nn gk    <Cmd>Hi[<CR>
+
+" find key mappings
+nn -        <Cmd>Hi/next<CR>
+nn _        <Cmd>Hi/previous<CR>
+nn f<Left>  <Cmd>Hi/older<CR>
+nn f<Right> <Cmd>Hi/newer<CR>
+
+" sync mode
+" let HiSyncMode = 1
+
+" command abbreviations
+ca HL Hi:load
+ca HS Hi:save
+
+" directory to store highlight files
+" let HiKeywords = '~/.config/keywords'
+
+" additional highlight colors
+" hi HiColor21 ctermfg=52  ctermbg=181 guifg=#8f5f5f guibg=#d7cfbf cterm=bold gui=bold
+" hi HiColor22 ctermfg=254 ctermbg=246 guifg=#e7efef guibg=#979797 cterm=bold gui=bold
