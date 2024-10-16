@@ -16,18 +16,7 @@ export PATH="/usr/local/bin:$PATH"
 
 export TERM=xterm-256color
 
-# 后台执行渲染进程，实现背景透明
-compton -b
-
 # User specific aliases and functions
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-
-source /usr/share/git-core/contrib/completion/git-prompt.sh
-source /home/yangyongsheng/.timewarrior/timew-completion.bash
-# export PS1="\e[0;36m\u@\w$(__git_ps1 '[%s]')\e[0m\]\$ "
 
 alias CD='cd'
 # 使用 lsd 取代 ls，带有色彩显示
@@ -41,9 +30,6 @@ alias lf='ls -F'
 # ranger config
 alias ra='ranger'
 export RANGER_LOAD_DEFAULT_RC=FALSE
-
-# git config
-source ~/.git-prompt.sh
 
 # tmux alias
 alias tnew='tmux new-session -s'
@@ -128,10 +114,14 @@ fi
 alias ropen_stm32='sudo openocd -f board/haixi.cfg'
 alias ropen_gd32='sudo openocd -f board/gd32.cfg'
 
-#### run fcitx5
-PIDOFFCITX=`pidof fcitx5`
-if [ $PIDOFFCITX != '' ];then
-    echo "fcitx is running" > /dev/null
-else
-    fcitx5 &
-fi
+md2pdf()
+{
+	if [ $# -lt 1 ] || ! [ -f $1 ];then
+		echo "No md file $1 2 pdf"
+		return
+	fi
+
+	file_name=`basename $1 | awk -F "." '{print $(NF-1)}'`
+	# echo "will convert ${1} 2 ${file_name}.pdf"
+	pandoc -f gfm -t html5 --metadata pagetitle="${1}" --css /home/redc/.local/github.css ${1} -o ${file_name}.pdf
+}
