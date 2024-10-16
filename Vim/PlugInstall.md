@@ -325,3 +325,13 @@
     -   `<leader>tdd` 删除一行
     -   `<leader>tic` 添加一列
     -   let g:table_mode_delete_row_map = '<Leader>tdd'
+34. [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) 支持 markdown 在线跨网段预览
+    ```vim
+    let g:mkdp_open_to_the_world = 1
+    let g:mkdp_refresh_slow = 1
+    let g:mkdp_port = '9090'
+    let g:mkdp_filetypes = ['markdown']
+    nmap tm :MarkdownPreview<cr>
+    nmap tn :MarkdownPreviewStop<cr>
+    nmap <C-p> :MarkdownPreviewToggle<cr>
+    ```

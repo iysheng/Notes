@@ -131,7 +131,6 @@ Plug 'luochen1990/rainbow'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'mattn/emmet-vim'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular'
 
 Plug 'airblade/vim-gitgutter'
@@ -152,6 +151,13 @@ Plug 'bagrat/vim-buffet'
 Plug 'godlygeek/tabular'
 Plug 'bash-lsp/bash-language-server'
 Plug 'azabiong/vim-highlighter'
+Plug 'easymotion/vim-easymotion'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 call plug#end()
 
 " ===
@@ -310,23 +316,16 @@ map <C-l> :GitGutterLineHighlightsToggle<CR>
 let g:rainbow_active = 1
 
 " ===
-" === instant markdown
+" === markdown-preview
 " ===
-"Uncomment to override defaults:
-let g:vim_markdown_folding_disabled = 1
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_open_to_the_world = 1
-"let g:instant_markdown_allow_unsafe_content = 1
-"let g:instant_markdown_allow_external_content = 0
-"let g:instant_markdown_mathjax = 1
-"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-"let g:instant_markdown_autoscroll = 0
-"let g:instant_markdown_port = 8888
-"let g:instant_markdown_python = 1
-let g:instant_markdown_browser = "google-chrome --new-window"
-nmap tm :InstantMarkdownPreview<CR>
-nmap tn :InstantMarkdownStop<CR>
+let g:mkdp_open_to_the_world = 1
+let g:mkdp_refresh_slow = 1
+let g:mkdp_port = '9090'
+let g:mkdp_filetypes = ['markdown']
+
+nmap tm :MarkdownPreview<cr>
+nmap tn :MarkdownPreviewStop<cr>
+nmap <C-p> :MarkdownPreviewToggle<cr>
 
 " ===
 " === youcompleteme
