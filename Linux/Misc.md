@@ -304,8 +304,8 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 12. C 语言的一些头文件
     1. uint8_t 对应的头文件 <stdint.h>
 13. 在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**
-    1. arm-none-eabi-gcc -ldemo $(objs) -o $@ /_ 这个不可以正常连接 libdemo.a _\/
-    2. arm-none-eabi-gcc $(objs) -ldemo -o $@ /_ 这个可以正常连接 libdemo.a _/
+    1. arm-none-eabi-gcc -ldemo $(objs) -o $@ // 这个不可以正常连接 libdemo.a
+    2. arm-none-eabi-gcc $(objs) -ldemo -o $@ // 这个可以正常连接 libdemo.a
     3. gcc 的一些編譯選項參數
         - –start-group archives --end-group 正常情况，链接的时候库文件只会按它们出现在命令行的顺序搜索一遍，如果包里有未定义的引用标号，而且该包还被放在命令行的后面,这样链接器就无法解决该标号的引用问题。通过给包分组，这些包可以被循环搜索直到所有的引用都可以解决为止。使用该选项将降低性能。只有在无法避免多个包之间互相引用的情况下才使用。
         - --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到，與之相反的是 --no-whole-archive 鏈接參數
