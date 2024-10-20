@@ -386,20 +386,20 @@ endwhile
 	- ctermfg, ctermbg, cterm : 个 guifg, guibg, gui 类似,但是用到 terminal 上的
 	- term
 76. vim 的高阶替换，eg: 在包含有 ``abc`` 的行。替换 ``123`` 为 ``456``.
-``` vim
-abc 123
-def
-ghi
-123
-```
-针对上述例子，输入的命令是 ``:g/abc/p|s/123/456/g``, 首先通过 ``g/pattern/p`` 打印匹配的行，然后管道 ``|`` ，然后 ``s/123/456/g`` 替换
-
-```
-sfr TCON = 0x88; /* --> __sfr at(0x81) P0; */
-sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
-```
-针对上述例子，第一行输入的命令是 ``s/sfr \(\w*\)\( = \)\(\w*\);/__sfr at(\3)\2\1;/gc``
-针对上述例子，第二行输入的命令是 ``s/sbit \(\w*\)\( = \)\(\L*\);/__sbit at(\3)\2\1;/gc``
+    ``` vim
+    abc 123
+    def
+    ghi
+    123
+    ```
+    针对上述例子，输入的命令是 ``:g/abc/p|s/123/456/g``, 首先通过 ``g/pattern/p`` 打印匹配的行，然后管道 ``|`` ，然后 ``s/123/456/g`` 替换
+    
+    ```
+    sfr TCON = 0x88; /* --> __sfr at(0x81) P0; */
+    sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
+    ```
+    针对上述例子，第一行输入的命令是 ``s/sfr \(\w*\)\( = \)\(\w*\);/__sfr at(\3)\2\1;/gc``
+    针对上述例子，第二行输入的命令是 ``s/sbit \(\w*\)\( = \)\(\L*\);/__sbit at(\3)\2\1;/gc``
 77. v:
 	* v:val 在 map() 或者 filter() 配合使用，代表一个 list 或者 dictionary 当前 item 的值。
 78. map({expr1}, {expr2}) 将 expr1 中的每一个 item 通过 expr2 进行替换
@@ -435,3 +435,11 @@ sbit TF1 = TCON ^ 1; /* --> __sbit at(0x88 + 1) P0; */
 	2. s/\d{1,}/\=submatch(0)+10/ 对匹配的数字都会加 10, 比如 50 转换完后是 60
 89. ab 替换
 	1. :ab 123 def  在文本编辑器中输入 123 会自动替换为 def
+90. 数字运算
+	``` text
+	abc 100 != 10
+	```
+	针对上述文档，再命令行模式下执行``:s/\d\{3\}/\=submatch(0)-10/`` 原文档变为
+	```text
+	abc 90 != 10
+	```
