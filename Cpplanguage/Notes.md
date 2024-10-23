@@ -595,3 +595,25 @@ getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
     3. 获取 `` set<int> abc `` 中的第一个和最后一个元素
         - 第一个元素: ``*abc.begin()``
         - 最后一个元素: ``*--abc.end()``
+    4. 使用 for 循环迭代器对 set 这类变量进行迭代，示例如下：
+        ``` C++
+        #include <set>
+        #include <iostream>
+
+        using namespace std;
+        set<int> demo4 = {1,2,3};
+        int main()
+        {
+            for (auto item:demo4)
+            {
+                cout << item << endl;
+            }
+            // 等价如下
+            for (auto i = demo4.begin(); i != demo4.end(); i++)
+            {
+                auto item = *i;
+                cout << item << endl;
+            }
+            return 0;
+        }
+        ```
