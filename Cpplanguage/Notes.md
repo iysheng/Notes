@@ -617,3 +617,34 @@ getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
             return 0;
         }
         ```
+    5. 重载 ``<<`` 符号示例：
+        ```C++
+        #include <set>
+        #include <iostream>
+        #include <string>
+
+        using namespace std;
+        struct abc{
+            string name;
+            string id;
+            int index;
+            bool operator<(const struct abc rhs) const
+            {
+                return index < rhs.index;
+            }
+        };
+        set<struct abc> demo5 = {{"RED","123",1}, {"BLUE", "abc", 0}};
+
+        ostream& operator<<(ostream &os, struct abc item)
+        {
+            return os << item.name << "->" << item.id;
+        }
+
+        int main()
+        {
+            for (auto item:demo5)
+                cout << item << endl;
+
+            return 0;
+        }
+        ```
