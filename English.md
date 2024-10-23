@@ -419,21 +419,23 @@
 
 ## K
 
-|单词|释义|
-|key-encrypting keys (KEKs)|密钥加密密钥|
-|knob|旋钮|
+| 单词                       | 释义         |
+| -------------------------- | ------------ |
+| key-encrypting keys (KEKs) | 密钥加密密钥 |
+| knob                       | 旋钮         |
 
 ## L
 
-| 单词            | 释义           |
-| --------------- | -------------- |
-| literal         | 文字           |
-| literal strings | 文字字符串     |
-| interleave      | 交错           |
-| library         | 庫             |
-| legend          | 图片文字说明   |
-| landscape       | 风景画，风景照 |
-| lower limit     | 下限           |
+| 单词            | 释义                     |
+| --------------- | ------------------------ |
+| literal         | 文字                     |
+| literal strings | 文字字符串               |
+| interleave      | 交错                     |
+| library         | 庫                       |
+| legend          | 图片文字说明             |
+| landscape       | 风景画，风景照           |
+| lower limit     | 下限                     |
+| LHS             | left-hand side，左边数据 |
 
 ## M
 
@@ -574,7 +576,6 @@
 
 ## Q
 
-=======
 | 单词                         | 释义                   |
 | ---------------------------- | ---------------------- |
 | quote                        | 引用、举证、报价、引号 |
@@ -645,6 +646,7 @@
 | reconsider                                | 重新考虑                       |
 | requirements                              | 需要的东西                     |
 | resembles                                 | 类似                           |
+| RHS                                       | right-hand side 右边数据       |
 
 ## S
 
