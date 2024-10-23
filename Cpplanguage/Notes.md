@@ -548,3 +548,50 @@ getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
 73. std::chrono
 74. 针对 cpp 定义有返回值的函数，如果没有 return 语句，会出现奇怪的现象，所以一定要在函数中写上 return 返回值语句.
 75. 初始化变量的 int def{123}; // 初始化 def 为 123；这种写法支持 C++， C 语言不支持
+76. 一些关键关键词
+    - ``decltype`` 关键词用来获取指定数据的类型
+    - ``constexpr`` 关键词用来声明一个函数，在变量是常数表达式，可以在编译过程计算结果，加快效率
+77. set 集合是一个关联容器，包含``对唯一key序列化``之后的结果，重点是 insert 到 set 之后，会自动给你排序哦。有一些关键的属性，如下：
+    1. 可以自定义集合的元素类型 ``set<struct abc>``
+    2. 可以自定义对比函数 ``std<struct abc, decltype(&funccompare)> xxx(funccompare)``， 还有一些其他写法列举如下：
+        ```C++
+        #include <set>
+        struct abc {
+            int index;
+            int counts;
+            abc(int i, int c):index(i), counts(c){};
+
+            // 注意，这里的 const 不能少，否则编译会提示重载出错，编译不通过
+            bool operator<(const abc rhs) const {return counts < rhs.counts;};
+        };
+
+        set<struct abc> demo0;
+
+        // 定义函数
+        bool compare_abc(struct abc lhs, struct abc rhs)
+        {
+            return lhs.counts < rhs.counts;
+        };
+
+        set<struct abc, decltype(&compare_abc)> demo1(compare_abc);// 必须用 demo1(compare_abc) 实例化自定义 set 类型的比较大小函数
+
+        // lambda 表达式
+        auto func1=[](struct abc lhs, struct abc rhs){ 
+            return lhs.counts < rhs.counts;
+        };
+
+        set<struct abc, decltype(func1)> demo2(func1);
+
+        // 仿函数：是一种重载了 operator() 符号的类或结构体，它可以像函数一样被调用。
+        struct def{
+        // 注意：这个 const 也不能省略，否则编译会出错
+            bool operator()(struct abc lhs, struct abc rhs) const {
+                return lhs.counts < rhs.counts;
+            };
+        };
+
+        set<struct abc, struct def> demo3;
+        ```
+    3. 获取 `` set<int> abc `` 中的第一个和最后一个元素
+        - 第一个元素: ``*abc.begin()``
+        - 最后一个元素: ``*--abc.end()``
