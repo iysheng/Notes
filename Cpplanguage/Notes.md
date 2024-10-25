@@ -428,7 +428,7 @@ getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
     -   void resize (size_type n, const value_type& val) 修改 vector 大小为 n 个元素，如果之前不足 n 个，那么使用 val 补全到 n 个
     -   emplace_back(args) 使用 args 参数创建一个对象，插入这个向量的尾部
     -   emplace(positon, args) 使用 args 参数创建一个构造函数，插入这个新的对象到 position 指定的位置
-    -   定义二维向量 r\*c 的方法: vector<vector<int> > ans(r,vector<int>(c));// 行数为:ans.size(),列数为:ans[0].size();
+    -   定义二维向量 ``r*c`` 的方法: ``vector<vector<int>> ans(r,vector<int>(c))``;// 行数为:ans.size(),列数为:ans[0].size();
 45. auto 关键字，auto 的原理是根据后面的值，来推测前面的类型是什么, 一般用来简化变量初始化
 46. to_string(数据) 将数据转换为 string 类型
 47. Run-time type identification (RTTI) 运行时类型标识,通过两个操作符:

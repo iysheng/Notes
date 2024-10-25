@@ -258,37 +258,37 @@
 
 ## E
 
-| 单词             | 释义           |
-| ---------------- | -------------- |
-| envelope         | 信封           |
-| empty            | 清空           |
-| extract          | 提取           |
-| exhausted        | 耗尽的，详尽的 |
-| expomentiation   | 求幂           |
-| emulate          | 仿真           |
-| exclusive        | 独家的         |
-| emphasis         | 强调，重点     |
-| encapsulate      | 封装           |
-| excerpt          | 摘錄，节选     |
-| exploit          | 开发           |
-| exposure         | 曝光           |
-| entity           | 实体           |
-| Enumeration      | 枚举           |
-| encourage        | 鼓励           |
-| escape character | 转义字符       |
-| epoch            | 时代，纪元     |
-| edge             | 边缘           |
-| eco-system       | 生态系统       |
-| emplace          | 安放，放置     |
-| explanatory      | 解释           |
-| end off          | 结束           |
-| evident          | 显而易见       |
-| evaluate         | 评估           |
-| excite           | 激发           |
-| extent           | 程度           |
-| eigenvalues      | 特征值         |
-| extrude          | 挤出           |
-| emit             | 发射、发出     |
+| 单词             | 释义                |
+| ---------------- | ------------------- |
+| envelope         | 信封                |
+| empty            | 清空                |
+| extract          | 提取                |
+| exhausted        | 耗尽的，详尽的      |
+| expomentiation   | 求幂                |
+| emulate          | 仿真                |
+| exclusive        | 独家的              |
+| emphasis         | 强调，重点          |
+| encapsulate      | 封装                |
+| excerpt          | 摘錄，节选          |
+| exploit          | 开发                |
+| exposure         | 曝光                |
+| entity           | 实体                |
+| Enumeration      | 枚举                |
+| encourage        | 鼓励                |
+| escape character | 转义字符            |
+| epoch            | 时代，纪元          |
+| edge             | 边缘 E,图论中的概念 |
+| eco-system       | 生态系统            |
+| emplace          | 安放，放置          |
+| explanatory      | 解释                |
+| end off          | 结束                |
+| evident          | 显而易见            |
+| evaluate         | 评估                |
+| excite           | 激发                |
+| extent           | 程度                |
+| eigenvalues      | 特征值              |
+| extrude          | 挤出                |
+| emit             | 发射、发出          |
 
 ## F
 
@@ -360,6 +360,7 @@
 | HCDs             | Host Controller Drives 主机控制器驱动 |
 | HNP              |                                       |
 | hypotheses       | 假说                                  |
+| hexagon          | 六边形                                |
 
 ## I
 
@@ -808,6 +809,7 @@
 | verbose | 冗长的                 |
 | villain | 恶棍、反派人物、淘气鬼 |
 | Village | 村子                   |
+| vertex  | 顶点 V，图论中的概念   |
 
 ## W
 
