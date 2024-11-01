@@ -444,3 +444,7 @@ endwhile
 	```text
 	abc 90 != 10
 	```
+91. 快捷记笔记
+    ``` vim
+    nmap <script>n<CR> :tabe drop /tmp/notes.md<CR> " n 回车，触发打开 notes.md 记录笔记， drop 表示如果这个文件已经打开，那么不会再次打开一遍而是直接跳到打开的文件， ~~不太好用，配合 tab 插件~~
+    ```
