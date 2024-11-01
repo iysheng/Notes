@@ -233,22 +233,22 @@
     -   :echo 023 -> 19 " 8 进制, 0 是 8 进制的开头
     -   :echo 0x10 " 16 进制
 21. string 类型也有一些区别
-    -   "abc\ndef" \n 这些特殊的符号可以正常转以
+    -   "abc\ndef" \n 这些特殊的符号可以正常转义
     -   'abc\ndef' \n 不会被认为是特殊的符号
     -   " 开头在 vim 脚本语言中是注释语句
 22. Funcref 是函数的引用, 这个变量的首字母也要大写
     ```vim
     function! Hello()
     endfunction
-    let abc=function('Hello')
+    let abc=function('Hello') " abc 会报错，因为首字母不是大写
     call abc()
     ```
 23. `runtimepath` 变量类似 linux 的 `PATH` 环境变量
     -   set runtimepath+=full path " 直接添加指定的路径到系统变量 runtimepath
     -   system("字符串命令") 执行 shell 命令
 24. `execute` 命令执行命令
-    -   execute "normal! I" . "red" # 执行 normal 模式的命令 I, 进入到插入模式,然后输入 red, 其中 normoal 后的 ! 表示对后面命令采用 unmapped 的意义
-    -
+    -   ``execute "normal! I" . "red"`` 执行 normal 模式的命令 I, 进入到插入模式,然后输入 red, 其中 normoal 后的 ! 表示对后面命令采用 unmapped 的意义
+    -   ``execute 'silent ! astyle --style=bsd % &> /dev/null' | execute 'redraw!'`` 静默执行 ``astyle --style=bsd 当前文件名`` 然后再执行 ``redraw``，否则显示会异常
 25. line() 函数返回指定内容在文件的行号
     -   line('.') 当前光标所在行
     -   line('$') 文件的最后一行

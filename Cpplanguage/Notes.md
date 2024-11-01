@@ -618,7 +618,7 @@ getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
         }
         ```
     5. 重载 ``<<`` 符号示例：
-        ```C++
+        ```cpp
         #include <set>
         #include <iostream>
         #include <string>
@@ -648,3 +648,29 @@ getline(cin, s, '.'); /* 读取一整句话，直到遇到 '.' + 回车 */
             return 0;
         }
         ```
+78. ``#include <algorithm>`` cpp 提供了一些算法模板在这个头文件中，比如 find，默认 vector 是不支持 find 的，使用模板的 find 函数可以完成查找
+    ``` cpp
+    #include <algorithm>
+    #include <iostream>
+
+    using namespace std;
+
+    vector<int> test = {1,2,3};
+
+    int main(void)
+    {
+        int i = 0;
+
+        for (; i < test.size(); i++)
+        {
+            cout << test[i] << endl;
+        }
+
+        if (test.end() != find(test.begin(), test.end(), 3))
+        {
+            cout << "catchde" << endl
+        }
+
+        return 0;
+    }
+    ```

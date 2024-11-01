@@ -231,6 +231,9 @@ call AnDi("Red")
 
 " 定义快捷键调用自定义的函数
 map ad :call AnDi("Red")<CR>
+
+" 定义快捷键调用外部命令，并且 slient 模式，不会在命令行中回显信息
+map <silent> :!astyle %<CR>
 ```
 47. execute 命令支持解析并且执行一段字符串作为 vim 命令
 ``` vim

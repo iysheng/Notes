@@ -46,6 +46,7 @@ endfunction
 " ===
 " === 快捷键配置
 " ===
+map <silent> <leader>f :!astyle --style=bsd %<CR> " format current file
 map <F9> :silent call CloseWindow()<CR> " Close the window
 map <leader>q :q!<CR> " Quit the window
 map <F5> :NERDTreeToggle<CR>
