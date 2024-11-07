@@ -690,7 +690,75 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
             };
         };
         ```
-1.  [给 Linux 提交 pr 的方法](https://www.cnblogs.com/gmpy/p/12200609.html)
+
+2. ``fit`` 文件定义 FIT 格式包的配置文件，类似 dtb 设备树语法
+    1. ``mkimage -f xxx.its yyy.img`` 常规的用法，根据 xxx.its 文件，生成 yyy.img 文件
+        ```
+        /dts-v1/;
+        / {
+            description = "U-Boot FIT source file for arm";
+        
+            images {
+                fdt {
+                    data = /incbin/("kernel/arch/arm64/boot/dts/rk3568-evb1-ddr4-v10-linux.dtb");
+                    type = "flat_dt";
+                    arch = "arm64";
+                    compression = "none";
+                    load = <0xffffff00>;
+        
+                    hash {
+                        algo = "sha256";
+                    };
+                };
+        
+                kernel {
+                    data = /incbin/("kernel/arch/arm64/boot/Image");
+                    type = "kernel";
+                    arch = "arm64";
+                    os = "linux";
+                    compression = "none";
+                    entry = <0xffffff01>;
+                    load = <0xffffff01>;
+        
+                    hash {
+                        algo = "sha256";
+                    };
+                };
+        
+                resource {
+                    data = /incbin/("kernel/resource.img");
+                    type = "multi";
+                    arch = "arm64";
+                    compression = "none";
+        
+                    hash {
+                        algo = "sha256";
+                    };
+                };
+            };
+        
+            configurations {
+                default = "conf";
+        
+                conf {
+                    rollback-index = <0x00>;
+                    fdt = "fdt";
+                    kernel = "kernel";
+                    multi = "resource";
+        
+                    signature {
+                        algo = "sha256,rsa2048";
+                        padding = "pss";
+                        key-name-hint = "dev";
+                        sign-images = "fdt", "kernel", "multi";
+                    };
+                };
+            };
+        };
+        ```
+    2. 一般地，生成 yyy.img 文件之后，通过 tftp 到内存，可以通过 bootm 命令启动这个 img
+
+3.  [给 Linux 提交 pr 的方法](https://www.cnblogs.com/gmpy/p/12200609.html)
 
     1.  clone 源码树， 最好是根据你修改的部分查找对应的仓库路径，可以去 MAINTAINERS 文件中查找，这里以 linus 的仓库为例 eg: git clone git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git
     2.  修改，生成补丁文件，假如是单次修改，生成补丁的命令是：`git format-patch --subject-prefix='PATCH' -i HEAD~`, 如果是系列补丁，用下面的命令：`git format-patch --cover-letter --subject-prefix='PATCH' -N #这里的N是你要提取的补丁个数`
