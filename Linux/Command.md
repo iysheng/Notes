@@ -1553,3 +1553,19 @@ sudo dnf install iwl1000-firmware
 1. 编译 trace-cmd, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- LDFLAGS=-static make DESTDIR=../build install`, 这里关键的静态编译，这样的话就可以单独使用 `trace-cmd` 来跟踪内核
 1. 使用 trace-cmd 抓取线程调度的示例：`trace-cmd record -e 'sched_wakeup*' -e sched_switch -e 'sched_migrate*' ` 生成 trace.dat 然后用 kernelshark 分析 trace.dat 就好了
 1. [sysbench](https://github.com/akopytov/sysbench) 测试 CPU 的计算能力:`sysbench --threads=1 cpu run` 测试单核的计算能力
+1. markdown 转 pdf，使用 pandoc 进行转换
+    1. 安装相关的软件包 : ``sudo dnf install pandoc wkhtmltopdf``
+    2. 如果有特殊的 theme 要求（从 typora 中提取的 github.css 风格文件），使用下述命令进行转换
+        ``` bash
+        md2pdf()
+        {
+        	if [ $# -lt 1 ] || ! [ -f $1 ];then
+        		echo "No md file $1 2 pdf"
+        		return
+        	fi
+
+        	file_name=`basename $1 | awk -F "." '{print $(NF-1)}'`
+        	# echo "will convert ${1} 2 ${file_name}.pdf"
+        	pandoc -f gfm -t html5 --metadata pagetitle="${1}" --css ~/.local/github.css ${1} -o ${file_name}.pdf
+        }
+        ```
