@@ -405,21 +405,22 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 
     1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
 
-    ```bash
-    make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
-    ```
+        ```bash
+        make DESTDIR=/home/yys/pctools install # 会将编译出来的文件安装到目录 /home/yys/pctools/usr/local/ 目录
+        ```
 
     2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeCache.txt 文件，然后再 cmake 构建
     3. link_directories() 添加库的搜索路径，eg: target_link_libraries(example2 nanogui) 特别指定将 nanogui 链接到 example2
     4. include_directories() 添加库头文件路径, eg: target_include_directories(example2 PRIVATE "C:/Program Files (x86)/YAML_CPP/include") 特别指定目标 example2 的头文件搜索路径
     5. cmake -DCMAKE_TOOLCHAIN_FILE=定义工具链的文件可以实现交叉编译，也可以直接 `cmake --toolchain=../cross.cmake` 使用 --toolchain 指定交叉工具链的配置文件。比如指定交叉编译工具链的文件示意：
 
-    ```text
-    set(CMAKE_SYSTEM_NAME Linux)
-    set(TOOLCHAIN_PATH /home/red/.local/bin/m3568-sdk-v1.0.0-ga/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu)
-    set(CMAKE_C_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-gcc)
-    set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
-    ```
+        ```text
+        set(CMAKE_SYSTEM_NAME Linux)
+        set(TOOLCHAIN_PATH /home/red/.local/bin/m3568-sdk-v1.0.0-ga/gcc-buildroot-9.3.0-2020.03-x86_64_aarch64-rockchip-linux-gnu)
+        set(CMAKE_C_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-gcc)
+        set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PATH}/bin/aarch64-linux-g++)
+        set(CMAKE_INSTALL_PREFIX "/tmp/haarch64_yjoy") # 必须要加上双引号，要不然无效
+        ```
 
     6. -DCMAKE_INSTALL_PREFIX 指定 install 路径
     7. FIND_PATH() 查找包含指定文件的目录
@@ -429,58 +430,59 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     9. file(GLOB_RECURSE GUI_RESOURCES "src/GuiLite/resouce/\*.cpp") # 查找指定路径下所有 cpp 文件，存储到 GUI_RESOURCES 变量中
     10. execute_process() 命令,可以执行指定的命令将命令返回的结果保存到变量.
 
-    ```cmake
-    execute_process(
-    COMMAND git rev-parse --short HEAD  # 获取仓库的 commitid
-    OUTPUT_VARIABLE LED3000_COMMIT_ID   # 将 commitid 保存到变量 LED3000_COMMIT_ID
-    ECHO_OUTPUT_VARIABLE                # 直接将打印同步输出到标准输出
-    OUTPUT_STRIP_TRAILING_WHITESPACE    # 去除结尾多的空格
-    ERROR_VARIABLE FAILED_GET_LED3000_COMMIT_ID # 如果命令执行出错结果保存到这给变量
-    )
-    ```
+        ```cmake
+        execute_process(
+        COMMAND git rev-parse --short HEAD  # 获取仓库的 commitid
+        OUTPUT_VARIABLE LED3000_COMMIT_ID   # 将 commitid 保存到变量 LED3000_COMMIT_ID
+        ECHO_OUTPUT_VARIABLE                # 直接将打印同步输出到标准输出
+        OUTPUT_STRIP_TRAILING_WHITESPACE    # 去除结尾多的空格
+        ERROR_VARIABLE FAILED_GET_LED3000_COMMIT_ID # 如果命令执行出错结果保存到这给变量
+        )
+        ```
 
     11. configure_file() 复制一个文件到另一个文件,并修改文件的内容
 
-    ```cmake
-    configure_file(${CMAKE_SOURCE_DIR}/led3000/version.h.in # 原始文件是 version.h.in
-    ${CMAKE_SOURCE_DIR}/led3000/version.h # 目标文件是 version.h
-    )
-    ```
+        ``` cmake
+        configure_file(${CMAKE_SOURCE_DIR}/led3000/version.h.in # 原始文件是 version.h.in
+        ${CMAKE_SOURCE_DIR}/led3000/version.h # 目标文件是 version.h
+        )
+        ```
 
-    其中，version.h.in 文件内容为
+        其中，version.h.in 文件内容为
 
-    ```txt
-    #ifndef **VERSION_H**
-    #define **VERSION_H**
+        ``` cmake
+        #ifndef __VERSION_H__
+        #define __VERSION_H__
+    
+        #define LED3000_MAJOR_VERSION @LED3000_MAJOR_VERSION@
+        #define LED3000_MINOR_VERSION @LED3000_MINOR_VERSION@
+        #define LED3000_PATCH_VERSION @LED3000_PATCH_VERSION@
+        #cmakedefine LED3000_COMMIT_ID "@LED3000_COMMIT_ID@"
+    
+        #endif /* ifndef __VERSION_H__ */
+        ```
 
-    #define LED3000_MAJOR_VERSION @LED3000_MAJOR_VERSION@
-    #define LED3000_MINOR_VERSION @LED3000_MINOR_VERSION@
-    #define LED3000_PATCH_VERSION @LED3000_PATCH_VERSION@
-    #cmakedefine LED3000_COMMIT_ID "@LED3000_COMMIT_ID@"
+        如果 CMakeLists.txt 文件中设置:
+        set(LED3000_MAJOR_VERSION 0)
+        set(LED3000_MINOR_VERSION 1)
+        set(LED3000_PATCH_VERSION 2)
+        set(LED3000_COMMIT_ID "abc")
+        转换之后生成的 `version.h` 内容为:
 
-    #endif /_ ifndef **VERSION_H** _/
-    ```
-
-    如果 CMakeLists.txt 文件中设置:
-    set(LED3000_MAJOR_VERSION 0)
-    set(LED3000_MINOR_VERSION 1)
-    set(LED3000_PATCH_VERSION 2)
-    set(LED3000_COMMIT_ID "abc")
-    转换之后生成的 `version.h` 内容为:
-
-    ```C
-    #ifndef **VERSION_H**
-    #define **VERSION_H**
-
-    #define LED3000_MAJOR_VERSION 0
-    #define LED3000_MINOR_VERSION 1
-    #define LED3000_PATCH_VERSION 2
-    #define LED3000_COMMIT_ID "abc"
-
-    #endif /_ ifndef **VERSION_H** _/
-    ```
+        ``` C
+        #ifndef __VERSION_H__
+        #define __VERSION_H__
+    
+        #define LED3000_MAJOR_VERSION 0
+        #define LED3000_MINOR_VERSION 1
+        #define LED3000_PATCH_VERSION 2
+        #define LED3000_COMMIT_ID "abc"
+    
+        #endif /* ifndef __VERSION_H__ */
+        ```
 
     12. 引用系统环境变量，格式 `$ENV{LD_LIBRARY_PATH}`, 定义系统环境变量：`set{ENV{LD_LIBRARY_PATH} xxx}`
+    13. ``cmake -LAH`` 可以列出来所有的变量和对应值
 
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写

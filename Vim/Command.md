@@ -157,10 +157,12 @@ s/adc\w*/def/gc # 匹配以 abc 开头的一个 world，使用了转移字符加
 "byy  将复制的一行内容保存到寄存器 b
 ```
 38. buffers 命令查看当前所有 buffers 的信息， buffer 命令切换对应的 buffer
-``` vim
-:buffers	查看当前 buffers 的信息，命令可以简写
-:buffer 参数 （参数可以是： buffer 编号、关键字等），切换编辑对应的 buffer， buffer 命令可以简写为 b
-```
+    ``` vim
+    :buffers	查看当前 buffers 的信息，命令可以简写
+    :buffers!	列出来所有隐藏的 buffer
+    :buffer 参数 （参数可以是： buffer 编号、关键字等），切换编辑对应的 buffer， buffer 命令可以简写为 b
+    ```
+	1. ``unlisted-buffer`` 在 vim 中输入 :help xxxx 出现的窗口就是 ``unlisted-buffer`` 类型的
 39. vim 脚本定义变量类型
 ---
 |类型|描述|
@@ -185,6 +187,8 @@ let &ignorecase = 1
 ```
 42. vim 脚本是可以使用一般的 + - * / 数字运算符号的 并且字符串拼接可以直接使用 . 符号
 43. echom 打印的内容，可以通过 messages 命令查看打印记录
+	1. echomsg 只能打印 string 格式的内容
+	2. echo 可以打印其他格式
 44. vim 的逻辑运算
 ---
 |符号|描述|
@@ -451,3 +455,22 @@ endwhile
     ``` vim
     nmap <script>n<CR> :tabe drop /tmp/notes.md<CR> " n 回车，触发打开 notes.md 记录笔记， drop 表示如果这个文件已经打开，那么不会再次打开一遍而是直接跳到打开的文件， ~~不太好用，配合 tab 插件~~
     ```
+1. autoload 目录下的脚本文件可以被认为是脚本库，即可以被其他脚本调用
+	1. 如果 autoload 目录下有一个 a.vim 文件，该文件中定义了函数 Hello，那么就可以通过 `` call a#Hello() `` 来调用这个函数
+	1. 此外， autoload 目录下的函数，只有在调用的时候才会加载
+1. ``glob()`` 函数进行匹配的时候只能匹配简单的通配符
+	1. ``?``  : 匹配单个字符
+	1. ``*``  : 匹配任意内容
+	1. ``**`` : 匹配任意内容，递归目录
+	1. ``[abc]`` : 匹配 'a', 'b' 和 'c'
+	1. glob('/tmp/a?.txt', 0, 1) : 匹配当前目录下通配符匹配的文件名，结果作为 list 返回
+1. 字符串的一些操作
+	1. 截取字符串的部分内容
+		``` vim
+		let xx="abcdef"
+		let yy
+		let xx=xx[0:-2] " xx = "abcde"
+		xx=xx[0:-2] " xx = "abcdef" ， 必须要用显式赋值才能更新其本身
+		yy=xx[0:-2] " xx = "abcde" ， 不是一个变量的时候就可以正常截取并赋值
+
+		```

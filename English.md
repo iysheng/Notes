@@ -648,6 +648,7 @@
 | requirements                              | 需要的东西                     |
 | resembles                                 | 类似                           |
 | RHS                                       | right-hand side 右边数据       |
+| remedy                                    | 补救                           |
 
 ## S
 
