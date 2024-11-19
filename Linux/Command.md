@@ -1387,7 +1387,7 @@ sudo dnf install iwl1000-firmware
 1. minimum_console_loglevel ：console_loglevel 可以设置的最高级别
 1. default_console_loglevel ：console_loglevel 默认的级别
 
-1. netcat 可以用来调试网络，作为网络串口助手类似的工具
+1. **netcat** 可以用来调试网络，作为网络串口助手类似的工具
 
     - netcat -v 10.20.52.123 567 -u -p 123 # 使用源端口 123 向目标端口 567 目标 ip 10.20.52.123 发送 udp 连接
     - echo '0059000800000000' | xxd -r -p | netcat -v 10.20.52.99 123 -u -p 567 # 通过 netcat 发送 16 进制数据 0x00 0x59 ...

@@ -649,6 +649,7 @@
 | resembles                                 | 类似                           |
 | RHS                                       | right-hand side 右边数据       |
 | remedy                                    | 补救                           |
+| retro                                     | 复古                           |
 
 ## S
 
