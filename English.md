@@ -574,6 +574,7 @@
 | Panel             | 面                                            |
 | poly              | 多边形                                        |
 | partition line    | 分割线                                        |
+| parallel          | 并行                                          |
 
 ## Q
 
