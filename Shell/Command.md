@@ -547,3 +547,7 @@ export LD_LIBRARY_PATH=/opt/red_lib64
 	2. ${A^}   # 将变量 A 中的首个字符转换为大写
 	3. ${b,,}  # 将变量 b 中的所有字符转换为小写
 	4. ${b,}   # 将变量 b 中的首个字符转换为小写
+54. linux 中初始化环境变量，分为两类：``login shell`` 和 ``non-login shell``
+	1. ``login shell`` 会 source 加载 ``/etc/profile``
+	2. ``no-login shell`` 会 source 加载 ``~/.bashrc``
+	3. ``/etc/profile.d/`` 目录下的所有 ``.sh`` 文件不管是 ``login-shell`` 和 ``nologin-shell`` 都会 source 加载
