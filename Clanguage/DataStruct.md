@@ -57,6 +57,7 @@ void simple_va_fun(int i, ...)
 ```
 12. printf("%zu") # printf 的语法 %[parameter][flags][width][.precision][length]type，这里 z 是 length 字段，表示 size_t
 13. ``sscanf(buffer, "%*[a-z|-] %d %d", x, y);`` 这里的 ``%*[a-z|-]`` 表示匹配任意数量的 ``a-z`` 或者 ``-`` 字符
+14. 有些数据类型是 gnu 的扩展，gcc 默认使用 ``-std=gnu89`` 或者 ```-std=gnu90``，比如 ``pthread_rwlock_t`` 数据类型，如果需要使用c99 的标准，那么需要采用 ``-std=gnu99`` 编译参数
 
 ### tmux 代码阅读笔记
 1.int flock(int fd, int operation);
