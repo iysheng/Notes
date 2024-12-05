@@ -1571,3 +1571,5 @@ sudo dnf install iwl1000-firmware
         	pandoc -f gfm -t html5 --metadata pagetitle="${1}" --css ~/.local/github.css ${1} -o ${file_name}.pdf
         }
         ```
+1. 在 fedora 上安装 ``.NET`` [Install the .NET SDK or the .NET Runtime on Fedora](https://learn.microsoft.com/en-us/dotnet/core/install/linux-fedora?tabs=dotnet9)
+    1. 一步到位： ``sudo dnf install dotnet-sdk-9.0``
