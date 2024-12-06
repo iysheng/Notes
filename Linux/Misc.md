@@ -1130,3 +1130,4 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
 82. 在线阅读 Linux 源码的网站（支持跳转）
     1.  [https://elixir.bootlin.com/](https://elixir.bootlin.com/)
     2.  [https://lxr.missinglinkelectronics.com](https://lxr.missinglinkelectronics.com)
+83. windows 内置工具计算 md5，``certutil -hashfile some_file MD5``
