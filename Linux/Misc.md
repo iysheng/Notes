@@ -1131,3 +1131,10 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
     1.  [https://elixir.bootlin.com/](https://elixir.bootlin.com/)
     2.  [https://lxr.missinglinkelectronics.com](https://lxr.missinglinkelectronics.com)
 83. windows 内置工具计算 md5，``certutil -hashfile some_file MD5``
+83. [renode](https://github.com/renode/renode) 一个嵌入式开发仿真框架，编译依赖 mono 或者 doenet，下述操作默认 renode 已经正常安装
+    1. renode --console --hide-log # 启动 renode
+    1. mach create # 创建 machine
+    1. machine LoadPlatformDescription @platforms/boards/stm32f4_discovery.repl # 加载 machine
+    1. sysbus LoadELF @/tmp/rtthread.elf # 加载测试程序
+    1. start # 启动 app
+    1. uart_connect sysbus.usart1 # 重定向串口到 console
