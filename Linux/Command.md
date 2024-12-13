@@ -1573,3 +1573,4 @@ sudo dnf install iwl1000-firmware
         ```
 1. 在 fedora 上安装 ``.NET`` [Install the .NET SDK or the .NET Runtime on Fedora](https://learn.microsoft.com/en-us/dotnet/core/install/linux-fedora?tabs=dotnet9)
     1. 一步到位： ``sudo dnf install dotnet-sdk-9.0``
+1. ``rpm2cpio anydesk_6.3.3-1_x86_64.rpm | cpio -idmv`` 解析指定的 rpm 中的文件到当前目录
