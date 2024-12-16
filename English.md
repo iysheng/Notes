@@ -731,6 +731,7 @@
 | subtract            | 减去                                 |
 | solder              | 焊料                                 |
 | solder mask layer   | 阻焊层，即盖绿油的层，Kicad 中是负片 |
+| strapping pin       | IC 设计时，配置 IC 功能的管脚定义    |
 
 ## T
 

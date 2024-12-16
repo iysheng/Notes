@@ -472,5 +472,4 @@ endwhile
 		let xx=xx[0:-2] " xx = "abcde"
 		xx=xx[0:-2] " xx = "abcdef" ， 必须要用显式赋值才能更新其本身
 		yy=xx[0:-2] " xx = "abcde" ， 不是一个变量的时候就可以正常截取并赋值
-
 		```
