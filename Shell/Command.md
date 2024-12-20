@@ -156,7 +156,7 @@ normal processing of arguments ...
 |-i|变量是整形|
 |-r|变量是只读|
 |-x|标记这个是变量将通过环境导出|
-17. $((...)) 算数表达式，需要在符号包括
+17. ``$((...))`` 算数表达式，需要在符号包括，括号中使用的变量前不需要 ``$`` 符号
 ---
 |选项|意义|
 |---|---|
@@ -180,7 +180,7 @@ normal processing of arguments ...
 |>|大|
 |<=|小等|
 |>=|大等|
-|=~|字符串满足正则表达式 eg: abc =~ ^[0-9]+$ ，检查 abc 是否全部是数字|
+|=~|字符串满足正则表达式 eg: abc =~ ^[0-9]+$ ，检查 abc 是否全部是数字，这里判断的时候使用 [[ xxx ]] 符号|
 |==|等|
 |!=|不等|
 |&&|逻辑与|
@@ -551,3 +551,4 @@ export LD_LIBRARY_PATH=/opt/red_lib64
 	1. ``login shell`` 会 source 加载 ``/etc/profile``
 	2. ``no-login shell`` 会 source 加载 ``~/.bashrc``
 	3. ``/etc/profile.d/`` 目录下的所有 ``.sh`` 文件不管是 ``login-shell`` 和 ``nologin-shell`` 都会 source 加载
+55. 如果要使用复杂的数学运算可以使用 ``bc`` 工具： ``ABC=$(echo "1 * 20 / 3" | bc)``
