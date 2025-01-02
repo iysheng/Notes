@@ -1138,3 +1138,4 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
     1. sysbus LoadELF @/tmp/rtthread.elf # 加载测试程序
     1. start # 启动 app
     1. uart_connect sysbus.usart1 # 重定向串口到 console
+83. visual studio 如何[打包工程](https://blog.csdn.net/weixin_48561041/article/details/124070383)
