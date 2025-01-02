@@ -1139,3 +1139,4 @@ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.
     1. start # 启动 app
     1. uart_connect sysbus.usart1 # 重定向串口到 console
 83. visual studio 如何[打包工程](https://blog.csdn.net/weixin_48561041/article/details/124070383)
+83. [http://www.telegraphics.net/sw/files/ICOFormat-2.1f1-win64.zip](ICOFormat) 解压之后，将文件 ICOFormat.8bi 放到  ``Plug-ins\File Formats``  目录下重启 photoshop 就可以另存为 ico 格式文件了。
