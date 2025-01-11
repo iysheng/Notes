@@ -301,6 +301,7 @@ echo 'ibase=10; obase=16; 25' | bc   # 结果 19
 ```bash
 netstat -lntup # 列出所有监听服务的 socket(-l) 和对应的端口号(-n)，包括 tcp(-t) udp(-u) 以及PID/进程名称(-p)
 netstat -rn # 列出 gateway 路由等信息
+netstat -tn | grep ESTABLISHED | grep :22 # 查看 22 端口的链接
 ```
 
 14. systemd 是 Linux 的系统和服务管理器;init 进程的替代品，systemctl 命令是管理 systemd 的主要工具
@@ -1573,4 +1574,8 @@ sudo dnf install iwl1000-firmware
         ```
 1. 在 fedora 上安装 ``.NET`` [Install the .NET SDK or the .NET Runtime on Fedora](https://learn.microsoft.com/en-us/dotnet/core/install/linux-fedora?tabs=dotnet9)
     1. 一步到位： ``sudo dnf install dotnet-sdk-9.0``
-1. ``rpm2cpio anydesk_6.3.3-1_x86_64.rpm | cpio -idmv`` 解析指定的 rpm 中的文件到当前目录
+1. ```rpm2cpio anydesk_6.3.3-1_x86_64.rpm | cpio -idmv``` 解析指定的 rpm 中的文件到当前目录
+1. [fail2ban]() 出问题可以参看解决方法
+    1. [failed-to-start-fail2ban-service](https://discussion.fedoraproject.org/t/failed-to-start-fail2ban-service/141973/8) Error connecting to fail2ban persistent database
+        1. ``sudo chmod 600 /var/lib/fail2ban/fail2ban.sqlite3``
+        1. ``sudo restorecon /var/lib/fail2ban/fail2ban.sqlite3``
