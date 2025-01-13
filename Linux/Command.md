@@ -1579,3 +1579,7 @@ sudo dnf install iwl1000-firmware
     1. [failed-to-start-fail2ban-service](https://discussion.fedoraproject.org/t/failed-to-start-fail2ban-service/141973/8) Error connecting to fail2ban persistent database
         1. ``sudo chmod 600 /var/lib/fail2ban/fail2ban.sqlite3``
         1. ``sudo restorecon /var/lib/fail2ban/fail2ban.sqlite3``
+    1. ``sudo fail3ban-client status sshd`` 查看指定服务禁用的 ip
+    1. ``sudo fail2ban-client status`` 查看使用的哪些服务开启了 fail2ban
+1. base64 工具对文件进行 ascii 编码
+    1. ``base64 -w 0 xxx.bin >yyy.bin`` # 如果不加 ``-w 0`` 默认会字节对齐导致生成的文件中多出来额外的 0X0A
