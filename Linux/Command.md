@@ -1583,3 +1583,6 @@ sudo dnf install iwl1000-firmware
     1. ``sudo fail2ban-client status`` 查看使用的哪些服务开启了 fail2ban
 1. base64 工具对文件进行 ascii 编码
     1. ``base64 -w 0 xxx.bin >yyy.bin`` # 如果不加 ``-w 0`` 默认会字节对齐导致生成的文件中多出来额外的 0X0A
+1. [RPM 打包相关](https://fedoraproject.org/wiki/How_to_create_an_RPM_package/zh-cn#%E6%9E%84%E5%BB%BA_RPM_%E5%8C%85)
+    1. rpmlint program.spec # 检查 spec 文件是否合规
+    1. rpmbuild -ba program.spec # 构建这个包

@@ -107,92 +107,93 @@
 
 ## C
 
-| 单词                | 释义                                                                 |
-| ------------------- | -------------------------------------------------------------------- |
-| closure             | 信封、关闭、结束、闭路                                               |
-| contrast            | 对比度                                                               |
-| contributor         | 贡献者                                                               |
-| copyright           | 版权                                                                 |
-| consult             | 咨询                                                                 |
-| compromise          | 妥协                                                                 |
-| complement          | 补充，补集                                                           |
-| compact             | 紧凑的                                                               |
-| coroutines          | 协程                                                                 |
-| contention          | 争夺                                                                 |
-| constantly          | 不断的                                                               |
-| concurrency control | 并发控制                                                             |
-| check out           | 查看                                                                 |
-| clutter             | 混乱                                                                 |
-| cite                | 引用                                                                 |
-| caption             | 标题、字幕                                                           |
-| checkbox            | 复选框                                                               |
-| collections         | 集合，馆藏                                                           |
-| content             | 内容                                                                 |
-| context             | 上下文                                                               |
-| CDN                 | content delivery network 内容分发网络                                |
-| CDC                 | communication device class -USB 驱动开发中的通信设备类               |
-| corrupt             | 腐败的                                                               |
-| constrained         | 约束                                                                 |
-| candidate           | 候选人                                                               |
-| conventions         | 习俗                                                                 |
-| comply              | 遵守                                                                 |
-| cheat sheet         | 備忘單                                                               |
-| Collections         | 收藏品                                                               |
-| contest             | 比赛                                                                 |
-| convince            | 使确信，使信服                                                       |
-| check it out        | 检查完善                                                             |
-| complementary       | 补充                                                                 |
-| critical            | 关键的                                                               |
-| saturates           | 饱和                                                                 |
-| criteria            | 标准                                                                 |
-| complementary       | 互补的                                                               |
-| cathode             | 阴极                                                                 |
-| courtyard           | 庭院，院子                                                           |
-| coefficient         | 系数                                                                 |
-| clamp diodes        | 钳位二极管                                                           |
-| curve               | 曲线                                                                 |
-| coordinates         | 坐标                                                                 |
-| Construction        | 建造                                                                 |
-| clarity             | 清晰                                                                 |
-| Concatenation       | 串联                                                                 |
-| ceil                | 天花板                                                               |
-| Compound            | 复合                                                                 |
-| Congress            | 国会                                                                 |
-| craft               | 精心制作                                                             |
-| composition         | 创作，组成                                                           |
-| coordinate          | 使协调                                                               |
-| caveat              | 警告，附加说明                                                       |
-| Cartesian           | 笛卡尔坐标，传统的 X,Y 轴坐标                                        |
-| concatenated        | 串联                                                                 |
-| complicated         | 复杂的                                                               |
-| Compensated         | 补偿                                                                 |
-| concat              | 合并，合并多个字符串                                                 |
-| colon               | 冒号                                                                 |
-| consistency         | 一致性                                                               |
-| cyclic              | 循环                                                                 |
-| clarity             | 清晰的                                                               |
-| concise             | 简明的                                                               |
-| convolutional       | 卷积的                                                               |
-| canvas              | 画布                                                                 |
-| caveat              | 警告                                                                 |
-| concurrently        | 同时地                                                               |
-| compositor          | 合成、渲染                                                           |
-| Collision           | 冲突                                                                 |
-| caption             | 字幕                                                                 |
-| CLZ                 | CLZ(Count Leading Zeros) 计算高位 0 的数量，最高位的 1 左边 0 的数量 |
-| comma               | 逗号                                                                 |
-| compound            | 复合物                                                               |
-| cube                | 立方体                                                               |
-| cylinder            | 圆柱体                                                               |
-| constraints         | 限制，约束                                                           |
-| comparator          | 比较器                                                               |
-| charactering        | 塑造                                                                 |
-| complex conjugate   | 复共轭                                                               |
-| clear analogy       | 清晰的类比                                                           |
-| criteria            | 标准，评判条件                                                       |
-| CIDR                | Component Identification Registers 组件 ID 寄存器                    |
-| choice              | 选择，抉择                                                           |
-| comment             | 评论，表达意见                                                       |
+| 单词                        | 释义                                                                 |
+| --------------------------- | -------------------------------------------------------------------- |
+| closure                     | 信封、关闭、结束、闭路                                               |
+| contrast                    | 对比度                                                               |
+| contributor                 | 贡献者                                                               |
+| copyright                   | 版权                                                                 |
+| consult                     | 咨询                                                                 |
+| compromise                  | 妥协                                                                 |
+| complement                  | 补充，补集                                                           |
+| compact                     | 紧凑的                                                               |
+| coroutines                  | 协程                                                                 |
+| contention                  | 争夺                                                                 |
+| constantly                  | 不断的                                                               |
+| concurrency control         | 并发控制                                                             |
+| check out                   | 查看                                                                 |
+| clutter                     | 混乱                                                                 |
+| cite                        | 引用                                                                 |
+| caption                     | 标题、字幕                                                           |
+| checkbox                    | 复选框                                                               |
+| collections                 | 集合，馆藏                                                           |
+| content                     | 内容                                                                 |
+| context                     | 上下文                                                               |
+| CDN                         | content delivery network 内容分发网络                                |
+| CDC                         | communication device class -USB 驱动开发中的通信设备类               |
+| corrupt                     | 腐败的                                                               |
+| constrained                 | 约束                                                                 |
+| candidate                   | 候选人                                                               |
+| conventions                 | 习俗                                                                 |
+| comply                      | 遵守                                                                 |
+| cheat sheet                 | 備忘單                                                               |
+| Collections                 | 收藏品                                                               |
+| contest                     | 比赛                                                                 |
+| convince                    | 使确信，使信服                                                       |
+| check it out                | 检查完善                                                             |
+| complementary               | 补充                                                                 |
+| critical                    | 关键的                                                               |
+| saturates                   | 饱和                                                                 |
+| criteria                    | 标准                                                                 |
+| complementary               | 互补的                                                               |
+| cathode                     | 阴极                                                                 |
+| courtyard                   | 庭院，院子                                                           |
+| coefficient                 | 系数                                                                 |
+| clamp diodes                | 钳位二极管                                                           |
+| curve                       | 曲线                                                                 |
+| coordinates                 | 坐标                                                                 |
+| Construction                | 建造                                                                 |
+| clarity                     | 清晰                                                                 |
+| Concatenation               | 串联                                                                 |
+| ceil                        | 天花板                                                               |
+| Compound                    | 复合                                                                 |
+| Congress                    | 国会                                                                 |
+| craft                       | 精心制作                                                             |
+| composition                 | 创作，组成                                                           |
+| coordinate                  | 使协调                                                               |
+| caveat                      | 警告，附加说明                                                       |
+| Cartesian                   | 笛卡尔坐标，传统的 X,Y 轴坐标                                        |
+| concatenated                | 串联                                                                 |
+| complicated                 | 复杂的                                                               |
+| Compensated                 | 补偿                                                                 |
+| concat                      | 合并，合并多个字符串                                                 |
+| colon                       | 冒号                                                                 |
+| consistency                 | 一致性                                                               |
+| cyclic                      | 循环                                                                 |
+| clarity                     | 清晰的                                                               |
+| concise                     | 简明的                                                               |
+| convolutional               | 卷积的                                                               |
+| canvas                      | 画布                                                                 |
+| caveat                      | 警告                                                                 |
+| concurrently                | 同时地                                                               |
+| compositor                  | 合成、渲染                                                           |
+| Collision                   | 冲突                                                                 |
+| caption                     | 字幕                                                                 |
+| CLZ                         | CLZ(Count Leading Zeros) 计算高位 0 的数量，最高位的 1 左边 0 的数量 |
+| comma                       | 逗号                                                                 |
+| compound                    | 复合物                                                               |
+| cube                        | 立方体                                                               |
+| cylinder                    | 圆柱体                                                               |
+| constraints                 | 限制，约束                                                           |
+| comparator                  | 比较器                                                               |
+| charactering                | 塑造                                                                 |
+| complex conjugate           | 复共轭                                                               |
+| clear analogy               | 清晰的类比                                                           |
+| criteria                    | 标准，评判条件                                                       |
+| CIDR                        | Component Identification Registers 组件 ID 寄存器                    |
+| choice                      | 选择，抉择                                                           |
+| comment                     | 评论，表达意见                                                       |
+| csv(Comma-Separated Values) | 逗号分隔的值                                                         |
 
 ## D
 
