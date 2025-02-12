@@ -1089,3 +1089,38 @@ print(pcbnew.__file__) # 可以打印出来包所在的路径
 96. 字符串大小写转换
 	1. "abc".upper() 转换为大写
 	2. "DEF".lower() 转换为小写
+97. [unicodedata unicode 数据库](https://docs.python.org/3/library/unicodedata.html)
+	- 是新版本的 python 的库
+	- 旧版本的 python 需要手动安装 ``pip install unicodedata2``
+	- 使用示例，替换 unicode 字符为空格
+``` python
+#!/bin/python3.8
+import unicodedata
+
+unicode_str="./configure ‐v"
+
+def unicode2ascii(text):
+    ascii_text = []
+    for char in text:
+        if ord(char) < 128:
+            ascii_text.append(char)
+        else:
+            # print("found unicode here")
+            normalized = unicodedata.normalize('NFD', char)
+            for c in normalized:
+			# Zs: （SpaceSeparator，空格分隔符 空格U+0020、制表符U+0009、换行符U+000A等）
+			# Pd: （DashPunctuation，破折号标点,比如短划线如连字符U+002D，长划线U+2014）
+			# Mn: （NonSpacingMark，非间距标记,重音符号如U+0301急性重音、变音符号如U+030A变音符）
+                if unicodedata.category(c) == 'Mn':
+                    continue
+                ascii_text.append(' ')
+                break
+
+    return ''.join(ascii_text)
+
+with open("./aaaa.sh") as f:
+    text=f.readlines()
+    for line in text:
+        ascii_str = unicode2ascii(line)
+        print(ascii_str)
+```
