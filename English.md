@@ -324,6 +324,7 @@
 | fluctuations                | 波动                            |
 | facilitate                  | 促进，促使，使便利              |
 | frequency domain metrics    | 频域度量                        |
+| fact                        | 元素                            |
 
 ## G
 
@@ -733,6 +734,7 @@
 | solder              | 焊料                                 |
 | solder mask layer   | 阻焊层，即盖绿油的层，Kicad 中是负片 |
 | strapping pin       | IC 设计时，配置 IC 功能的管脚定义    |
+| stereo              | 立体声，对应的 mono 是单声道         |
 
 ## T
 

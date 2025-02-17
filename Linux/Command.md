@@ -1540,6 +1540,7 @@ sudo dnf install iwl1000-firmware
 1. ffmpeg 可以用来进行视频转换
     - 将 gnome3 默认录屏的 webm 格式转化为 mp4 格式：`ffmpeg -i input.webm -vf scale=1920x1080 output.mp4`
     - 将录制的 mp4 格式的视频降低文件大小，可以减低 fps `ffmpeg -i a.mp4 -r 20 b.mp4` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
+    - 将 MP3 音频采样率修改为 16000 ``fmpeg -i hongdou.mp3 -ar 16000 hongdoulite.mp3``
 1. nslookup 工具查看指定域名的 ip
 
     - nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
@@ -1583,6 +1584,7 @@ sudo dnf install iwl1000-firmware
     1. ``sudo fail2ban-client status`` 查看使用的哪些服务开启了 fail2ban
 1. base64 工具对文件进行 ascii 编码
     1. ``base64 -w 0 xxx.bin >yyy.bin`` # 如果不加 ``-w 0`` 默认会字节对齐导致生成的文件中多出来额外的 0X0A
+    2. ``base64 -d xxx.txt > yyy.mp3`` # 将 xxx.txt 中存储的 base64 编码文件反解码到 yyy.mp3 文件
 1. [RPM 打包相关](https://fedoraproject.org/wiki/How_to_create_an_RPM_package/zh-cn#%E6%9E%84%E5%BB%BA_RPM_%E5%8C%85)
     1. rpmlint program.spec # 检查 spec 文件是否合规
     1. rpmbuild -ba program.spec # 构建这个包
