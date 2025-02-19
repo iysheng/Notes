@@ -46,7 +46,7 @@ endfunction
 " ===
 " === 快捷键配置
 " ===
-map <silent> <leader>f :!astyle --style=bsd %<CR> " format current file
+" map <silent> <leader>f :!astyle --style=bsd %<CR> " format current file
 map <F9> :silent call CloseWindow()<CR> " Close the window
 map <leader>q :q!<CR> " Quit the window
 map <F5> :NERDTreeToggle<CR>
@@ -54,11 +54,16 @@ map <F6> :TagbarToggle<CR>
 " 新创建一个 tab 页面
 map <F7> :tabnew<CR>
 
-if empty(glob('./cscope.files'))
-    map <C-u> :e<CR>
-else
-    map <C-u> :!cscope -Rb<CR>:cs reset<CR><CR>
-endif
+function! UpdateCscope()
+  if filereadable('./cscope.files')
+    silent let f = system('cscope -Rb')
+    silent execute 'cs reset'
+  endif
+endfunction
+
+map <C-u> :call UpdateCscope()<CR>
+
+map <leader>o :Tabularize /,/l0c1<CR> " Tabularize line
 
 noremap <leader>w :w!<CR>
 map <C-h> :nohl<CR>
@@ -131,8 +136,8 @@ Plug 'chazy/cscope_maps'
 Plug 'luochen1990/rainbow'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'mattn/emmet-vim'
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
@@ -151,7 +156,6 @@ Plug 'dominikduda/vim_current_word'
 Plug 'bagrat/vim-buffet'
 Plug 'godlygeek/tabular'
 Plug 'bash-lsp/bash-language-server'
-Plug 'azabiong/vim-highlighter'
 Plug 'easymotion/vim-easymotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
@@ -159,7 +163,26 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'azabiong/vim-highlighter'
+Plug 'iysheng/rformat', {'for' : ['cpp', 'c', 'h', 'python']}
 call plug#end()
+
+"
+" vim-highlight
+"
+" Unicode
+" default key mappings
+let HiSet   = 'f<CR>'
+let HiErase = 'f<BS>'
+let HiClear = 'f<C-L>'
+let HiFind  = 'f<Tab>'
+let HiSetSL = 't<CR>'
+
+" 跳转到下一个
+nn u<CR>  <Cmd>Hi><CR>
+" 跳转到上一个
+nn g<CR> <Cmd>Hi<<CR>
+
 
 " ===
 " === nerd commenter
@@ -195,6 +218,26 @@ function! HideCursorLine()
 endfunction
 
 autocmd Colorscheme *  call HideCursorLine()
+
+"
+" easymotion config
+"-
+" let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap f <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
 
 " ===
 " === gruvbox-material
@@ -316,6 +359,15 @@ map <C-l> :GitGutterLineHighlightsToggle<CR>
 " ===
 let g:rainbow_active = 1
 
+"Uncomment to override defaults:
+" ===
+" === vim-markdown
+" ===
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_level = 6
+
 " ===
 " === markdown-preview
 " ===
@@ -354,6 +406,7 @@ nn <leader>jd :YcmCompleter GoToDefinition<cr>
 nn <leader>jr :YcmCompleter GoToReferences<cr>
 nn <leader>jc :YcmCompleter GoToDeclaration<cr>
 nn <leader>jf :YcmCompleter GoTo<cr>
+let g:ycm_clangd_uses_ycmd_caching = 0
 
 " ===
 " === UltiSnips
@@ -409,43 +462,4 @@ noremap <leader>u :GundoToggle<cr>
 " 代码高亮 80 列
 hi ColorColumn guibg=DarkCyan
 
-"
-" vim-highlight
-"
-" Unicode
-" set encoding=utf-8
-
-" default key mappings
-let HiSet   = '<leader><CR>'
-let HiErase = '<leader><BS>'
-let HiClear = '<leader><C-L>'
-let HiFind  = '<leader><Tab>'
-let HiSetSL = 't<CR>'
-
-" jump key mappings
-nn <CR>  <Cmd>Hi><CR>
-nn g<CR> <Cmd>Hi<<CR>
-nn gl    <Cmd>Hi}<CR>
-nn gh    <Cmd>Hi{<CR>
-nn gj    <Cmd>Hi]<CR>
-nn gk    <Cmd>Hi[<CR>
-
-" find key mappings
-nn -        <Cmd>Hi/next<CR>
-nn _        <Cmd>Hi/previous<CR>
-nn f<Left>  <Cmd>Hi/older<CR>
-nn f<Right> <Cmd>Hi/newer<CR>
-
-" sync mode
-" let HiSyncMode = 1
-
-" command abbreviations
-ca HL Hi:load
-ca HS Hi:save
-
-" directory to store highlight files
-" let HiKeywords = '~/.config/keywords'
-
-" additional highlight colors
-" hi HiColor21 ctermfg=52  ctermbg=181 guifg=#8f5f5f guibg=#d7cfbf cterm=bold gui=bold
-" hi HiColor22 ctermfg=254 ctermbg=246 guifg=#e7efef guibg=#979797 cterm=bold gui=bold
+" nmap <script>n<CR> :tabe drop tmp/notes.md<CR>

@@ -69,6 +69,7 @@
 | arbitrary                                                        | 任意的                            |
 | as a rule                                                        | 通常情况下                        |
 | artifact                                                         | 手工制品，工艺品                  |
+| aggressive                                                       | 积极的                            |
 
 ## B
 
@@ -325,6 +326,7 @@
 | facilitate                  | 促进，促使，使便利              |
 | frequency domain metrics    | 频域度量                        |
 | fact                        | 元素                            |
+| feat                        | 功绩，壮举                      |
 
 ## G
 
