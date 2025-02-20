@@ -717,6 +717,21 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
         };
         ```
 
+    6. 使用 spidev 驱动配置内核 tools 目录下的 [spidev_test](toosl/spi) 工具，实现 spi 总线测试，修改设备树的时候配合 spidev 驱动添加如下节点信息:
+        ```
+        &spi0 {
+            pinctrl-names = "default";
+            pinctrl-0 = <&spi0m1_pins &spi0m1_csn1>;
+            status = "okay";
+            spidev@1 {
+                    #address-cells = <1>;
+                    #size-cells = <1>;
+                    compatible = "rockchip,spidev";
+                    spi-max-frequency = <12000000>;
+                    reg = <1>; /*  这里的 reg 表示的是片选的编号 */
+            };
+        };
+        ```
 1.  `fit` 文件定义 FIT 格式包的配置文件，类似 dtb 设备树语法
 
     1. `mkimage -f xxx.its yyy.img` 常规的用法，根据 xxx.its 文件，生成 yyy.img 文件
