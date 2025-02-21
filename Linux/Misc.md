@@ -1184,3 +1184,4 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     1. uart_connect sysbus.usart1 # 重定向串口到 console
 1.  visual studio 如何[打包工程](https://blog.csdn.net/weixin_48561041/article/details/124070383)
 1.  [http://www.telegraphics.net/sw/files/ICOFormat-2.1f1-win64.zip](ICOFormat) 解压之后，将文件 ICOFormat.8bi 放到 `Plug-ins\File Formats` 目录下重启 photoshop 就可以另存为 ico 格式文件了。
+1.  aplay 和 arecord 可以分别用来测试扬声器和麦克风，可能还要配合 alsamixer 工具选择对应的声卡。
