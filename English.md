@@ -344,6 +344,7 @@
 | governor   | 调节器       |
 | Gadget     | 小工具       |
 | glossary   | 术语         |
+| guru       | 大师         |
 
 ## H
 
@@ -526,6 +527,7 @@
 | exploiting                             | 利用                   |
 | overview                               | 概述，概览             |
 | oriented                               | 定向                   |
+| opaque                                 | 不透明的               |
 
 ## P
 
@@ -737,6 +739,7 @@
 | solder mask layer   | 阻焊层，即盖绿油的层，Kicad 中是负片 |
 | strapping pin       | IC 设计时，配置 IC 功能的管脚定义    |
 | stereo              | 立体声，对应的 mono 是单声道         |
+| senior              | 高级的                               |
 
 ## T
 

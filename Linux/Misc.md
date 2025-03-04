@@ -732,6 +732,10 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
             };
         };
         ```
+
+    7. 设备树中的 ``/omit-if-no-ref/`` 表示如果没有引用这个节点
+    8. gpiod_ 这一类函数涉及到的是新版本的基于 gpio 消费者描述符的框架，涉及到的头文件 ``linux/gpio/consumer.h`` ，需要注意的是设备树定义 gpio 节点的时候，一般的名称规范是 ``function-gpios``，这里的 function 对应 gpiod_xxx 类函数定义的名称参数。
+
 1.  `fit` 文件定义 FIT 格式包的配置文件，类似 dtb 设备树语法
 
     1. `mkimage -f xxx.its yyy.img` 常规的用法，根据 xxx.its 文件，生成 yyy.img 文件
@@ -1185,3 +1189,4 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1.  visual studio 如何[打包工程](https://blog.csdn.net/weixin_48561041/article/details/124070383)
 1.  [http://www.telegraphics.net/sw/files/ICOFormat-2.1f1-win64.zip](ICOFormat) 解压之后，将文件 ICOFormat.8bi 放到 `Plug-ins\File Formats` 目录下重启 photoshop 就可以另存为 ico 格式文件了。
 1.  aplay 和 arecord 可以分别用来测试扬声器和麦克风，可能还要配合 alsamixer 工具选择对应的声卡。
+1.  Linux 内核编译 Documents 文档生成 html 格式，方便查询。使用的命令是 ``make htmldocs``，会在 ``Documents/output`` 目录生成相关的 html 格式文档。
