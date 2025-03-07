@@ -1191,3 +1191,5 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     1. photoshop 复制一个图层，然后高斯模糊，然后新建一个蒙版，实现磨砂玻璃的效果
 1.  aplay 和 arecord 可以分别用来测试扬声器和麦克风，可能还要配合 alsamixer 工具选择对应的声卡。
 1.  Linux 内核编译 Documents 文档生成 html 格式，方便查询。使用的命令是 ``make htmldocs``，会在 ``Documents/output`` 目录生成相关的 html 格式文档。
+1.  keil 调试界面，command 窗口保存内存数据到文件 ``save data.hex 0x20000800,0x20000900``
+1.  imhex 工具的 diffing 可以对两个文件进行对比

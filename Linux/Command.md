@@ -498,10 +498,12 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     6. lvcreate -L 50G -n 逻辑卷名字 卷组名字 # 创建逻辑卷
     7. mkfs.ext4 /dev/卷组名字/逻辑卷名字 # 格式化新创建的卷组为 ext4 文件系统
     8. vgextend 卷组名字 物理磁盘 # 将物理磁盘添加到指定名字的卷组
-    9. lvextend -L大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小指定大小
-    10. lvextend -L+大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小 + 指定大小
+    9. lvextend -L 大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小指定大小
+    10. lvextend -L +大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小 + 指定大小
     11. ![一般的理解时可以参看图](https://img2020.cnblogs.com/blog/949069/202004/949069-20200416104045527-1858978940.png) 简单来说是，每一个磁盘设备对应一个物理卷 pv，然后多个 pv 可以组成一个虚拟的卷组 vg，然后会从 vg 中划分不同的逻辑卷 lv。一般挂载的时候针对的也是 lv. [详细描述可以参看](https://www.cnblogs.com/diantong/p/10554831.html)
-    12. 一般地，扩展完 lv 的空间之后会伴随着磁盘格式化，比如 fedora server 40 默认安装的 root 空间只有 15G，扩展完 lv 之后还要伴随着磁盘格式化，可以执行`lvextend -L +xxG --resizefs /dev/fedora/root`，这里添加了 `--resizefs`` 命令选项，会自动同步到文件系统，否则只是扩展了 lv 还是看不到磁盘空间变大。26. [shutdown](https://www.computerhope.com/unix/ushutdow.htm) 命令指定关机时间
+    12. 一般地，扩展完 lv 的空间之后会伴随着磁盘格式化，比如 fedora server 40 默认安装的 root 空间只有 15G，扩展完 lv 之后还要伴随着磁盘格式化，可以执行`lvextend -L +xxG --resizefs /dev/fedora/root`，这里添加了 `--resizefs`` 命令选项，会自动同步到文件系统，否则只是扩展了 lv 还是看不到磁盘空间变大。
+
+26. [shutdown](https://www.computerhope.com/unix/ushutdow.htm) 命令指定关机时间
 
 ```bash
 sudo shutdown 21:00 # 指定当天 21:00 关机
