@@ -371,7 +371,9 @@ read var1 var2
 |-f filename|从 filename 文件加载一个新的 builtin|
 |-n|禁用 built-in 或者显示所有禁用的 built-in|
 |-p|和 -a 类似显示所有的 builtin|
-|-s|限制输出到 POSIX 专门的 builtin| 30. function 函数定义方法
+|-s|限制输出到 POSIX 专门的 builtin|
+
+30. function 函数定义方法
 
 ```bash
 function funcname
