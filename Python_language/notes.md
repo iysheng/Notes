@@ -90,6 +90,14 @@ ret = os.system("linux 命令")
 14. str(int) # 格式化为字符串格式
 	* str(18) # 默认以 10 进制转换
 	* hex(18) # 以 16 进制形式格式化为字符串
+	* float 转 hex 字符串化
+		``` python
+		import struct
+		def float_format(angle):
+		packed = struct.pack('!f', angle/10.0)
+		hex_str = ''.join(f'{byte:02X}' for byte in packed)
+		return hex_str
+		```
 15. 绘制图形库 [matplotlib.pyplot](https://matplotlib.org/stable/tutorials/introductory/usage.html)
 	1. plot(x, y) # 以 x 轴和 y 轴绘制曲线图
 	2. show() 显示绘制的图形
