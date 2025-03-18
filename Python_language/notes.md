@@ -98,6 +98,13 @@ ret = os.system("linux 命令")
 		hex_str = ''.join(f'{byte:02X}' for byte in packed)
 		return hex_str
 		```
+	* int 转 hex 补齐
+		``` python
+		# 补齐 4 字节
+		j_format = 10
+		hexdata='ABAB' + '{:04X}'.format(j_format).zfill(4)
+		# 'ABAB000A'
+		```
 15. 绘制图形库 [matplotlib.pyplot](https://matplotlib.org/stable/tutorials/introductory/usage.html)
 	1. plot(x, y) # 以 x 轴和 y 轴绘制曲线图
 	2. show() 显示绘制的图形
