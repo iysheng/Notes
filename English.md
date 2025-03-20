@@ -788,6 +788,7 @@
 | throttle                 | 节气门，风门，压制                   |
 | thermal trip             | 热阀门，热力阀门                     |
 | transaction              | 事务                                 |
+| transaction layer        | 事务层                               |
 | tensor                   | 张量，通常是指维度大于等于四维的数据 |
 | transpose                | 转置，矩阵的转置                     |
 | twofold                  | 双重的                               |
