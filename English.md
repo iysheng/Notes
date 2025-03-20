@@ -121,6 +121,7 @@
 | coroutines                  | 协程                                                                 |
 | contention                  | 争夺                                                                 |
 | constantly                  | 不断的                                                               |
+| complications               | 并发                                                                 |
 | concurrency control         | 并发控制                                                             |
 | check out                   | 查看                                                                 |
 | clutter                     | 混乱                                                                 |
