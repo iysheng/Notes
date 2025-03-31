@@ -570,6 +570,12 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
         export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
         export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
         ```
+    - 修改屏幕方向,以旋转 90 为例,name 字段必须要有:
+        ```
+        [output]
+        name=LVDS-1
+        transform=rotate-90
+        ```
 1.  如果发现在 linux 串口发送数据时，0X0A 被转换成了 0X0D 和 0X0A，那么需要修改 c_oflag &= ~ONLCR
 1.  如果发现樱桃键盘 windows 键盘无反应,FUN+F9 解锁，这是为了防止误触把几个键给锁定了。是因为樱桃键盘有两种模式,办公模式和游戏模式,在有时模式下会锁定: windows, alt+f4, alt+tab, ctrl+esc, ctrl+alt+delete 按键,切换两种模式的方法就是 **Fn + F9**
 1.  gcc 中 `__DATE__` 和 `__TIME__` 分别表示编译的日期和时间
