@@ -484,6 +484,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 
     12. 引用系统环境变量，格式 `$ENV{LD_LIBRARY_PATH}`, 定义系统环境变量：`set{ENV{LD_LIBRARY_PATH} xxx}`
     13. ``cmake -LAH`` 可以列出来所有的变量和对应值
+    14. 变量 PKG_CONFIG_EXECUTABLE 定义 pkg-config 可执行文件
 
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
