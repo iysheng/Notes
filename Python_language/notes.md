@@ -344,6 +344,7 @@ ret = os.system("linux 命令")
 	import matplotlib.pyplot as plt
 	plt.plot(x, y, label="test demo")
 	plt.plot(x1, y1, '.', label="1msavg2energy") # 绘制散点图而非连线图
+	plt.axhline(y=200, color='r', linestyle='-', label="Reference Line(200dm/s)") # 添加一条水平参考线
 	plt.legend() # 添加曲线的描述即 legend
 	plt.legend(labels=["demo0", "demo1"]) # 添加曲线(x,y)和(x1,y1)的描述即 legend 分别为 demo 和  demo1
 	```
@@ -1020,7 +1021,7 @@ with open("a.txt", "w") as f:
 82. 数据采集，爬虫技术
 83. Matplotlib, 可以绘制：
 	* 相关函数接口
-		1. plt.figure(num=1, figsize=(4,3)) # 明确画布的编号和大小
+		1. plt.figure(num=1, figsize=(4,3)) # 明确画布的编号和大小,大小单位是英寸，默认是 6.4*4.8
 		2. plt.xticks() # 设置 x 轴刻度
 		3. plt.yticks([1, 2, 3], [r'$red$', r'$blue$', r'$green$']) # 设置 y 轴刻度及对应的刻度名称
 		4. plt.xlim((-1, 1)) # 设置 x 轴的范围

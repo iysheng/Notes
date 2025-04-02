@@ -7,7 +7,7 @@
 5. sed 使用教程
 
 ```bash
-sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加爱字母a
+sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加字母a
 sed -i "s/$/&b/g" filenmae :在filename的每一行的行尾添加爱字母b
 sed -i -e "/^#abc/{s/^#//g}" a.c : 修改 a.c 文件,在匹配 ^#abc 的行,删除开头的 # 号
 sed -i.bak -e 's|bac|def|g' /tmp/a.txt  # 将 /tmp/a.txt 备份为 /tmp/a.txt.bak 然后修改 /tmp/a.txt 中的 bac 为 def
