@@ -411,7 +411,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
         ```
 
     2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeCache.txt 文件，然后再 cmake 构建
-    3. link_directories() 添加库的搜索路径，eg: target_link_libraries(example2 nanogui) 特别指定将 nanogui 链接到 example2
+    3. link_directories() 添加库的搜索路径，eg: target_link_libraries(example2 nanogui) 特别指定将 nanogui 链接到 example2, 默认链接的动态库，如果是静态库，需要添加完整的名称, 并且包含绝对路径，即 ``/xx/yy/zz/libnanogui.a``
     4. include_directories() 添加库头文件路径, eg: target_include_directories(example2 PRIVATE "C:/Program Files (x86)/YAML_CPP/include") 特别指定目标 example2 的头文件搜索路径
     5. cmake -DCMAKE_TOOLCHAIN_FILE=定义工具链的文件可以实现交叉编译，也可以直接 `cmake --toolchain=../cross.cmake` 使用 --toolchain 指定交叉工具链的配置文件。比如指定交叉编译工具链的文件示意：
 

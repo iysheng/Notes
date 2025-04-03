@@ -413,6 +413,12 @@ a3 = a2.opeartor+(a1);
 51. printf 格式打印
     1. %g 表示 signed double 型数据打印
 52. c++ 有 std::thread 多线程类,可以方便创建多线程
+    ``` cpp
+    void f1(void *){};
+    void *abc=NULL;
+    std::thread t1(f1, abc); // 必须要加参数
+    t1.detach();
+    ```
 53. std::unique_ptr 是一个类模板(Smart Pointer)，与之对应的还有一个 std::shared_ptr，包含了一个管理的对象和一个删除方法
     * get 成员函数，返回管理的对象
 54. std::pair is a class template that provides a way to store two heterogeneous objects as a single unit.(std::pair 是一个类模板，提供了一种将两种不同的对象存储到一个单元中的方法)
