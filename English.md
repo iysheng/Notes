@@ -793,7 +793,7 @@
 | tensor                   | 张量，通常是指维度大于等于四维的数据 |
 | transpose                | 转置，矩阵的转置                     |
 | twofold                  | 双重的                               |
-| tricky                   | 棘手                                 |
+| tricky                   | 棘手，难办的                         |
 
 ## U
 

@@ -1551,7 +1551,8 @@ sudo dnf install iwl1000-firmware
 
 1. `sudo systemd-resolve --flush-caches` 清空 dns 缓存
 1. [zeal](https://github.com/zealdocs/zeal) 离线查看文档工具
-1. [imhex]() 16进制 hack 工具
+1. [imhex](https://github.com/WerWolv/ImHex) 16进制 hack 工具
+1. (sxiv)[https://github.com/xyb3rt/sxiv] 轻量化的图片查看器
 1. [kernelshark](https://kernelshark.org/) 图形化查看跟踪内核线程的调度切换过程,配合 trace-cmd 跟踪 sched_wakeup* , sched_switch , sched_migrate* 得到 trace.dat 文件，然后使用 kernelshark 打开这个文件分析就行。如果是嵌入式设备，可能会存在交叉编译 tarce-cmd 工具的问题，这个时候要注意几点：
 1. 编译 [trace-cmd](git://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git) 需要依赖两个库 [libtraceevent](https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git) 和 [libtracefs](https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git)
 1. 编译的时候,根据顺序要首先编译 libtraceevent 然后编译 libtracefs,最后编译 trace-cmd
@@ -1592,3 +1593,7 @@ sudo dnf install iwl1000-firmware
 1. [RPM 打包相关](https://fedoraproject.org/wiki/How_to_create_an_RPM_package/zh-cn#%E6%9E%84%E5%BB%BA_RPM_%E5%8C%85)
     1. rpmlint program.spec # 检查 spec 文件是否合规
     1. rpmbuild -ba program.spec # 构建这个包
+1. apt 类发行版查找包含指定文件的包名称
+    1. ``sudo apt install apt-file`` ，使用 apt-file 查找
+    2. ``sudo apt update``
+    3. ``apt-file search Xft.h`` ， 感觉并不好用

@@ -156,7 +156,7 @@ ret = os.system("linux 命令")
 		* 字符串支持片段截取
 		``` python
 		a = 'abcdef'
-		a[:1] == 'ab'
+		a[:1] == 'a'
 		a[1:2] == 'bc'
 		```
 		* find() 函数可以在字符串中查找指定的字符串
@@ -1140,3 +1140,5 @@ with open("./aaaa.sh") as f:
         ascii_str = unicode2ascii(line)
         print(ascii_str)
 ```
+98. tensorflow
+	* logits : 一个事件发生 / 不发生 比值的对数， 一般经过 softmax 函数转化为概率分布
