@@ -474,6 +474,7 @@
 | Motivation               | 动力，干劲       |
 | mathematical modeling    | 数学建模         |
 | magnitude                | 振幅             |
+| matrix                   | 矩阵             |
 
 ## N
 
