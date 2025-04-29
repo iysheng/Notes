@@ -1597,3 +1597,7 @@ sudo dnf install iwl1000-firmware
     1. ``sudo apt install apt-file`` ，使用 apt-file 查找
     2. ``sudo apt update``
     3. ``apt-file search Xft.h`` ， 感觉并不好用
+1. flatpak 包管理
+    1. ``flatpak list --app`` 列出安装的 flatpak 包
+    2. ``flatpak uninstall --delete-data xxx.xxx.xxx`` 卸载指定的应用程序
+    3. ``flatpak uninstall --unused`` 删除无用的运行时库，可以释放一些磁盘空间

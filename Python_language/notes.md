@@ -1143,3 +1143,9 @@ with open("./aaaa.sh") as f:
 ```
 98. tensorflow
 	* logits : 一个事件发生 / 不发生 比值的对数， 一般经过 softmax 函数转化为概率分布
+	* tf.keras.preprocessing.image.save_img('raw.png',image) # 将 numpy.ndarray 保存为 png 图片
+99. time 包,
+	``` python
+	import time
+	time.time() # 获取当前时间戳，从 1970.1.1 以来的秒数，浮点数
+	```
