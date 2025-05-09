@@ -1607,3 +1607,5 @@ sudo dnf install iwl1000-firmware
     x /tmp/aarch64_libs
     ```
 还可以检查下配置 tmpfile 的配置，执行命令 ``systemd-tmpfiles --cat-config``，还有一个命令 ``sudo systemd-tmpfiles --create /etc/tmpfiles.d/mytmp.conf`` 是应用指定的配置创建目录或者文件等。
+1. dns 解析相关内容
+    1. ``dig @NS10.DNSEXIT.COM yourdomain.com`` 通过指定的 dns 服务器 NS10.DNSEXIT.COM 服务器，查询 yourdomain.com 的 ip 地址
