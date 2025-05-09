@@ -1602,3 +1602,8 @@ sudo dnf install iwl1000-firmware
     1. ``flatpak list --app`` 列出安装的 flatpak 包
     2. ``flatpak uninstall --delete-data xxx.xxx.xxx`` 卸载指定的应用程序
     3. ``flatpak uninstall --unused`` 删除无用的运行时库，可以释放一些磁盘空间
+1. linux 会自动删除 /tmp 目录下的一些文件，如果想排除一些指定的文件，可以在 /etc/tmpfiles.d 目录下创建一个配置文件 test.conf,添加如下内容排除 /tmp/abc 目录不自动被清理
+    ``` bash
+    x /tmp/aarch64_libs
+    ```
+还可以检查下配置 tmpfile 的配置，执行命令 ``systemd-tmpfiles --cat-config``，还有一个命令 ``sudo systemd-tmpfiles --create /etc/tmpfiles.d/mytmp.conf`` 是应用指定的配置创建目录或者文件等。
