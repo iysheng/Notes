@@ -258,6 +258,7 @@
     77. git blame -L <start>,<end> 文件名 # 查看指定文件在指定的起始和结束行范围内的代码改动.
     78. git blame -L :funcname 文件名 # 查看指定文件在指定的起始和结束行范围内的代码改动.
     79. git rm --rf --cached xxxx 然后再 git add xxxx 可以解决有些第三方的软件包无法 git add 或者提示 fatal: in unpopulated submodule xxxx 的问题
+    80. git log -S "被删除的代码片段" --patch 代码片段所在的路径 # 可以快速找到在哪次提交中删除了这部分代码
 
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
