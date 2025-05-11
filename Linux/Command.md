@@ -1598,6 +1598,9 @@ sudo dnf install iwl1000-firmware
     1. ``sudo apt install apt-file`` ，使用 apt-file 查找
     2. ``sudo apt update``
     3. ``apt-file search Xft.h`` ， 感觉并不好用
+1. **conda** python 虚拟环境管理工具
+    1. ``conda create -n demo python=3.6`` 创建与一个名称是 demo 的虚拟环境
+    1. ``conda activate demo`` 激活这个虚拟环境
 1. flatpak 包管理
     1. ``flatpak list --app`` 列出安装的 flatpak 包
     2. ``flatpak uninstall --delete-data xxx.xxx.xxx`` 卸载指定的应用程序

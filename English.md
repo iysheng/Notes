@@ -423,6 +423,7 @@
 | identified                      | 被识别，确认                       |
 | Inference                       | 推断                               |
 | immutable                       | 不可改变的                         |
+| inhibite                        | 抑制                               |
 | Internal Representation(IR)     | 内部表示,内在表征                  |
 
 ## K

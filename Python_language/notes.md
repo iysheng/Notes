@@ -79,6 +79,7 @@ ret = os.system("linux 命令")
 	* 在 print np 部分的数据时，因为数据过长部分内容省略的问题，可以通过修改 threshold 扩大限制。``np.set_printoptions(threshold=sys.maxsize)``
 	* 将 numpy 数组以整形数组保存到文件中(使用 savetxt 方法)，方便 C 语言调用： ``np.savetxt('person.csv', person, fmt='%d', delimiter=',')``
 	* savetxt 还可以添加头注和脚注, ``np.savetxt('person.c', person, fmt='%d', delimiter=',', header="const unsigned char g_person_detect_model_data[]={", footer="};", comments='')`` ，使用上述命令可以直接将数据保存到数组中
+	* numpy 计算平均值
 	* numpy 对象进行赋值的时候，默认是浅拷贝，比如 a 是 numpy 对象，b=a,c=a,b和c指向的是同一份numpy对象，所以如果b改变了，c也会跟着改变，为了避免这种情况，需要使用深拷贝，c=a.copy() 这样b 和 c 指向的就不是一份内存空间了
 12. 对 str 类型变量 a 为例子
 	* a.isdigit() 判断 a 是否只包含数字
@@ -1006,6 +1007,7 @@ with open("a.txt", "w") as f:
 		* ``conda ceate --name red python=3.10.2`` # 创建一个 redman 的 python 环境
 		* ``conda env list`` # 可以查看当前有哪些环境
 		* ``conda activate redman`` # 切换到指定的环境
+		* ``conda env remove --name redman`` # 删除指定名称的虚拟环境
 	* 很多项目都会存放 ``requirements.txt`` 文件，这是一个最基础的 pip 依赖列表。可以通过 ``pip freeze > requirements.txt`` 生成这个文件
 	* 在有了 ``requirements.txt`` 这个依赖文件的条件下，可以使用 ``pip install -r requirements.txt`` 指令一次安装这些依赖.
 		* -r 表示安装根据指定的依赖文件列表中的内容那些依赖
