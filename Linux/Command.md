@@ -259,6 +259,8 @@
     78. git blame -L :funcname 文件名 # 查看指定文件在指定的起始和结束行范围内的代码改动.
     79. git rm --rf --cached xxxx 然后再 git add xxxx 可以解决有些第三方的软件包无法 git add 或者提示 fatal: in unpopulated submodule xxxx 的问题
     80. git log -S "被删除的代码片段" --patch 代码片段所在的路径 # 可以快速找到在哪次提交中删除了这部分代码
+    81. git log --pretty=oneline --since="2023-01-01" --util="2023-05-01" xxxx # 查看指定文件在``2023-01-01``日期之后到 ``2023-05-01`` 之间的所有修改历史
+    82. ``git log -S'代码片段' -- 文件路径`` 查找指定代码在哪次提交中引入的
 
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
@@ -1213,6 +1215,9 @@ sudo dnf install iwl1000-firmware
         sudo stty -F /dev/ttyUSB0  raw speed 115200
         sudo cat /dev/ttyUSB0 | hexdump -C
         ```
+
+    6. ``nm -D xxx.so`` 解析动态库中的符号表
+    7. ``nm xxx.a`` 解析静态库中的符号表
 
 90. 链接脚本的 KEEP 关键字用来强制保存特定的 sections
 
