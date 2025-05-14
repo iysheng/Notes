@@ -680,3 +680,4 @@ case "$1" in
                 exit 1
 esac
 ```
+57. 在 /etc/profile.d/ 目录下的所有文件，会在 Bourne 兼容的 shell（比如 bash），会首先执行 /etc/profile 文件，在这个 /etc/profile 文件中一般会有一段代码用来根据字母顺序依次执行 ``/etc/profile.d`` 目录下的 .sh 脚本,特别地，bash 中有可以使用类似 ``if [[ $abc =~ "/usr/local" ]];then dosth fi`` 这样的代码通过正则表达式判断 abc 变量是否包含 ``/usr/local`` 字段。
