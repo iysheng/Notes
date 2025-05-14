@@ -13,9 +13,9 @@ sed -i -e "/^#abc/{s/^#//g}" a.c : 修改 a.c 文件,在匹配 ^#abc 的行,删�
 sed -i.bak -e 's|bac|def|g' /tmp/a.txt  # 将 /tmp/a.txt 备份为 /tmp/a.txt.bak 然后修改 /tmp/a.txt 中的 bac 为 def
 ```
 
-6. 保留
-7. 字符串操作符集合
-    1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 变量的内容
+6. 保留，在阅读 conda 的 shell 脚本中，``\local \eval \return`` 前面的这些 ``\`` 表示确保这些命令直接调用的 shell 内置命令或函数，而不是可能被用户定义的别名覆盖。
+7. 字符串操作符集合(这里的 word 表示的是内容，并不是一个变量的名字)
+    1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 的内容
     2. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
     3. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则打印并且 varname 追加 message 的信息,这个语法用来检测变量是否定义，如果未定义，那么返回错误信息
     4. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
