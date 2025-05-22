@@ -1393,6 +1393,7 @@ sudo dnf install iwl1000-firmware
         unix tpi_cots_ord - loopback - - -
         ```
     * nfs 挂载不成功的时候，检查下 rpcbind 服务是否正常运行，使用 systenmd 查看状态(systemctl status rpcbind )和 journalctl 查看日志来分析
+    * [fedora 40 安装 nfs 服务器指导](https://www.server-world.info/en/note?os=Fedora_40&p=nfs&f=1)
 
 119. `cat /proc/sys/kernel/printk` 会打印出来 4 个数据，分别表示
 
