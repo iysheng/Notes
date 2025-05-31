@@ -724,6 +724,7 @@ EndSection
     pkg-config --cflags glib # 列出 glib 第三方库的头文件位置，自动添加了 -I
     pkg-config --libs glib # 列出 glib 第三方库库文件的位置，自动添加了 -L
     pkg-config --list-all # 列出所有可以使用的包
+    pkg-config --verbose libzlib
     ```
     -   PKG_CONFIG_SYSROOT_DIR 如果为空，系统会自动给交叉编译工具链时添加 sysroot 路径，这时候可以设置 PKG_CONFIG_SYSROOT_DIR=/ 来规避这个问题
     -   在 pkg-config 文件中的注释使用 `#` 开头
@@ -1621,3 +1622,5 @@ sudo dnf install iwl1000-firmware
 还可以检查下配置 tmpfile 的配置，执行命令 ``systemd-tmpfiles --cat-config``，还有一个命令 ``sudo systemd-tmpfiles --create /etc/tmpfiles.d/mytmp.conf`` 是应用指定的配置创建目录或者文件等。
 1. dns 解析相关内容
     1. ``dig @NS10.DNSEXIT.COM yourdomain.com`` 通过指定的 dns 服务器 NS10.DNSEXIT.COM 服务器，查询 yourdomain.com 的 ip 地址
+1. curl 工具下载
+    1. ``curl -LfO https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz`` # ``-L表示如果远端路径修改了，跟随新的路径继续尝试下载 -f表示有错误时不提示 -O 使用默认远端下载路径中的后缀文件，本身不做修改``
