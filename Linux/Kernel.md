@@ -68,3 +68,26 @@ device 上的每一个 endpoint 都有一个设备分配的唯一 ID. 这个 ID 
     1. 内核放开 CONFIG_DYNAMIC_DEBUG
     2. 通过 ``echo 'file drivers/i2c/busses/i2c-imx.c +p' > /sys/kernel/debug/dynamic_debug/control`` 放开指定文件的打印
     3. echo 8 > /proc/sys/kernel/printk 降低打印级别，可以打印出来更多的内容
+
+#### PWM 设备
+``` dts
+&pwm1 = {
+    pinctrl-0 = <&pwm0m0_pins>;
+    status = "okay";
+}
+```
+
+在 ``/sys/class/pwm/`` 目录下就会生成一些 pwmchipx 的目录，可以在这里调节 pwm 的周期，占空比，使能等选项单位是 ns,对了要首先导出对应的通道哦
+
+#### backlight 设备
+内核支持 backlight 调光设备,比如节点
+``` dts
+backlight {
+    compatible = "pwm-backlight";
+    pwms = <&pwm4 0 1000000 0>;
+
+    brightness-levels = <0 4 8 16 32 64 128 255>;
+    default-brightness-level = <50>;
+};
+```
+这样就会在 ``/sys/class/backlight/`` 目录下生成 backlight 节点目录,通过调节这个节点目录的 brightness 就可以调亮度了
