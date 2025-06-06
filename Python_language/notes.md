@@ -1151,3 +1151,9 @@ with open("./aaaa.sh") as f:
 	import time
 	time.time() # 获取当前时间戳，从 1970.1.1 以来的秒数，浮点数
 	```
+100. 提取文本中的 float 数据,并转存到列表,并且强制精度到小数点后 5 位
+	``` python
+	#!/bin/python
+	with open('/tmp/xxx.txt', 'r') as f:
+		float_list =  [round(float(line.strip()),5) for line in f]
+	```
