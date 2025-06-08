@@ -16,17 +16,18 @@ sed -i.bak -e 's|bac|def|g' /tmp/a.txt  # 将 /tmp/a.txt 备份为 /tmp/a.txt.ba
 6. 保留，在阅读 conda 的 shell 脚本中，``\local \eval \return`` 前面的这些 ``\`` 表示确保这些命令直接调用的 shell 内置命令或函数，而不是可能被用户定义的别名覆盖。
 7. 字符串操作符集合(这里的 word 表示的是内容，并不是一个变量的名字)
     1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 的内容
-    2. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
-    3. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则打印并且 varname 追加 message 的信息,这个语法用来检测变量是否定义，如果未定义，那么返回错误信息
-    4. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
-    5. ${varname:offset:length} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始，长度为 length 的内容，varname 的第一个字符的偏移是 0
-    6. ${varname:offset} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始到结尾的全部内容
-    7. ${varible#pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
-    8. ${varible##pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
-    9. ${varible%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
-    10. ${varible%%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
-    11. ${varible/pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到第一个最长的内容，pattern 可以是表达式，如果 pattern 带有 # 符号，那么必须是在 varible 的开始处，如果带有 %，那么匹配的是 varible 的结尾处
-    12. ${varible//pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到的所有的内容，然后返回 varible，pattern 可以是表达式
+    1. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
+    1. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则打印并且 varname 追加 message 的信息,这个语法用来检测变量是否定义，如果未定义，那么返回错误信息
+    1. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
+    1. ${varname+word} 如果 varname 存在(可以为空)，返回 word 的值，否则返回 null
+    1. ${varname:offset:length} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始，长度为 length 的内容，varname 的第一个字符的偏移是 0
+    1. ${varname:offset} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始到结尾的全部内容
+    1. ${varible#pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
+    1. ${varible##pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
+    1. ${varible%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
+    1. ${varible%%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
+    1. ${varible/pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到第一个最长的内容，pattern 可以是表达式，如果 pattern 带有 # 符号，那么必须是在 varible 的开始处，如果带有 %，那么匹配的是 varible 的结尾处
+    1. ${varible//pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到的所有的内容，然后返回 varible，pattern 可以是表达式
 8. pureline 一款 bash PS1 的优化插件
 
 ```bash

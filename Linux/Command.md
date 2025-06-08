@@ -564,7 +564,7 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
     3. 编辑 ~/.xsession 文件，填写 exec dwm 引导 dwm 启动，重点要设置这个文件的权限为 700 ，否则会出错！！！
     4. 编辑 vim /etc/X11/xdm/Xsetup_0 文件，可以修改登陆背景，可以使用 feh 工具！！！
-    5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果
+    5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果, 通过设置 ``xlogin*geometry:                650x450+5+500`` 可以修改登陆框的位置
     6. 遇到问题**PAM unable to dlopen(pam_gnome_keyring.so)**，可以通过 systemctl status xdm 来确认是否出现该问题，此时需要安装
     ```
     sudo dnf install gnome-keyring
