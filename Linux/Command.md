@@ -20,7 +20,7 @@
     9. sudo dnf upgrade # 升级, 和 dnf update 有相同的功能，都会更新已经安装的软件包，但是更建议使用 `dnf upgrade` ，因为他工作更加准确，类似 `dnf --obsoletes update`,更新过时的软件包
     10. sudo dnf grouplist 列出当前的软件组
     11. dnf list glibc-\*langpack\* 列出已经安装的语言包
-        11.1 dnf list installed # 列出已经安装的软件包
+        1. dnf list installed # 列出已经安装的软件包
     12. sudo dnf repoquery -l 软件包名称，列出指定软件包名称包含的所有文件
     13. sudo dnf install xxxxx --setopt install_weak_deps=false # 不安装指定软件的弱依赖
     14. sudo dnf update --exclude=kernel\* # 忽略内核的更新更新系统软件包
@@ -573,6 +573,7 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
         iface <接口> inet dhcp
         ```
         3. 使用 systemd 创建一个服务文件，关键的 `Execstart=wpa_supplicant xxxxx 连接 wifi` 以及 `ExecStartPost=dhclient <接口>` 获取动态 ip
+    11. 修改指定网口为 dhcp ``nmcli connection modify eth0(网卡设备名) ipv4.method auto`` 或者 ``nmcli connection modify "Wired connection 1"(链接的名字) ipv4.method auto``
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
@@ -1556,13 +1557,14 @@ sudo dnf install iwl1000-firmware
     1. timedatectl list-timezones # 列出所有可用时区
     1. sudo timedatectl set-timezone 时区名称 # 设置指定时区名字的时区
 1. 查看 glibc 的版本：
-1. 如果是本机，可以直接运行 libc.so
-1. 如果是交叉编译，可以通过 `strings xxx/sysroots/armv7at2hf-neon-oe-linux-gnueabi/lib/libc.so.6 | grep "^GLIBC"` 查看
+    1. 如果是本机，可以直接运行 libc.so
+    1. 如果是交叉编译，可以通过 `strings xxx/sysroots/armv7at2hf-neon-oe-linux-gnueabi/lib/libc.so.6 | grep "^GLIBC"` 查看
 1. 使用 gcc 编译器时使用下述宏来判断具体的版本
-1. **GNUC** 主版本号
-1. **GNUC_MINOR** 次版本号
-1. **GNUC_PATCHLEVEL** 补丁级号
-1. 链接的时候，选项 -Wl,–gc-sections 表示将 -gc-sections 传递给连接器，让连接器忽视掉没有使用的符号减小生成文件的体积,但是前提是要在编译阶段添加 -ffunction-sections 和 -fdata-sections 编译选项
+    1. **GNUC** 主版本号
+    1. **GNUC_MINOR** 次版本号
+    1. **GNUC_PATCHLEVEL** 补丁级号
+    1. 链接的时候，选项 -Wl,–gc-sections 表示将 -gc-sections 传递给连接器，让连接器忽视掉没有使用的符号减小生成文件的体积,但是前提是要在编译阶段添加 -ffunction-sections 和 -fdata-sections 编译选项
+    1. 交叉编译的时候，gcc 会根据 ``-mcpu=cortex-m3 或者 -march=armv7-m, -mthumb 或者 -marm ``自动选择合适架构的 libgcc.a 文件，特别地 ``-mcpu = -march + 针对 CPU 的优化，-march 只影响指令集，不做 cpu 优化``
 1. ATPCS 使用 r0-r3 传递参数
 1. [mpv]() Linux 下的一款播放器，支持多种播放格式
 1. ffmpeg 可以用来进行视频转换

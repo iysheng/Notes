@@ -797,6 +797,7 @@
 | transpose                | 转置，矩阵的转置                     |
 | twofold                  | 双重的                               |
 | tricky                   | 棘手，难办的                         |
+| temperature              | 温度                                 |
 
 ## U
 
