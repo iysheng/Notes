@@ -744,6 +744,7 @@
 | strapping pin       | IC 设计时，配置 IC 功能的管脚定义    |
 | stereo              | 立体声，对应的 mono 是单声道         |
 | senior              | 高级的                               |
+| scalar              | 标量的,标量                          |
 
 ## T
 
