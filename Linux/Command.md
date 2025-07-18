@@ -854,6 +854,10 @@ sudo dnf install meld
     ```bash
     hwclock -r
     ```
+    5. 查看时区信息
+    ``` bash
+    date +"%Z %z"
+    ```
 53. fd 匹配内容
     1. fd 会默认忽略隐藏文件和 .gitignore 指定忽略的文件，如果需要搜索隐藏文件和 .gitignore 指定忽略的文件，需要添加分别添加选项 -H 和 -I
     2. fd -e 后缀名可以匹配指定格式的文件:
