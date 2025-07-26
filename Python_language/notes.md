@@ -1157,3 +1157,10 @@ with open("./aaaa.sh") as f:
 	with open('/tmp/xxx.txt', 'r') as f:
 		float_list =  [round(float(line.strip()),5) for line in f]
 	```
+101. 使用 python 将 excel 转 markdown 代码
+	``` python
+	import pandas as pd
+	df=pd.read_excel('cam_commands.xlsx')
+	# markdown_table 是 str 类型的
+	markdown_table=df.to_markdown()
+	```

@@ -630,3 +630,13 @@ auto a1 = dog;
         return 0;
     }
     ```
+79. 类定义后都要添加符号 ;
+    ``` cpp
+    class a {
+
+    };
+
+    class b {
+
+    }
+    ```
