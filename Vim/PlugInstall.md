@@ -336,3 +336,9 @@
     nmap tn :MarkdownPreviewStop<cr>
     nmap <C-p> :MarkdownPreviewToggle<cr>
     ```
+35. [fidian/hexmode](https://github.com/fidian/hexmode)， 16进制编辑模式
+    ``` vim
+    let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o'
+    " 设置每组显示 8 进制的个数，默认是 2
+    " let g:hexmode_xxd_options = '-g 1'
+    ```
