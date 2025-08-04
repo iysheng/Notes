@@ -448,35 +448,36 @@
 
 ## M
 
-| 单词                     | 释义             |
-| ------------------------ | ---------------- |
-| monotonic                | 单调的           |
-| mandatory                | 强制的           |
-| manipulate               | 操纵             |
-| method                   | 方法、措施       |
-| material                 | 材料，物品       |
-| mixed                    | 混合的           |
-| mundane                  | 平凡             |
-| multiplicative           | 可乘的           |
-| makes sense              | 有意义           |
-| motivation               | 动机             |
-| malfunction              | 故障             |
-| motivate                 | 激励             |
-| mutable                  | 可变的           |
-| make sense               | 有道理，合乎情理 |
-| minted                   | 新生成的、富有的 |
-| mitigation               | 缓解，减轻       |
-| manifest                 | 载货单           |
-| modifier                 | 修饰符           |
-| minted                   | 铸造             |
-| mnemonics                | 助记符           |
-| metrics                  | 度量             |
-| MAE(mean absolute error) | 平均绝对误差     |
-| multidimensional         | 多维的           |
-| Motivation               | 动力，干劲       |
-| mathematical modeling    | 数学建模         |
-| magnitude                | 振幅             |
-| matrix                   | 矩阵             |
+| 单词                     | 释义                                                                                         |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| monotonic                | 单调的                                                                                       |
+| mandatory                | 强制的                                                                                       |
+| manipulate               | 操纵                                                                                         |
+| method                   | 方法、措施                                                                                   |
+| material                 | 材料，物品                                                                                   |
+| mixed                    | 混合的                                                                                       |
+| mundane                  | 平凡                                                                                         |
+| multiplicative           | 可乘的                                                                                       |
+| makes sense              | 有意义                                                                                       |
+| motivation               | 动机                                                                                         |
+| malfunction              | 故障                                                                                         |
+| motivate                 | 激励                                                                                         |
+| mutable                  | 可变的                                                                                       |
+| make sense               | 有道理，合乎情理                                                                             |
+| minted                   | 新生成的、富有的                                                                             |
+| mitigation               | 缓解，减轻                                                                                   |
+| manifest                 | 载货单                                                                                       |
+| modifier                 | 修饰符                                                                                       |
+| minted                   | 铸造                                                                                         |
+| mnemonics                | 助记符                                                                                       |
+| metrics                  | 度量                                                                                         |
+| MAE(mean absolute error) | 平均绝对误差                                                                                 |
+| multidimensional         | 多维的                                                                                       |
+| Motivation               | 动力，干劲                                                                                   |
+| mathematical modeling    | 数学建模                                                                                     |
+| magnitude                | 振幅                                                                                         |
+| matrix                   | 矩阵                                                                                         |
+| meta                     | 元（元编程：撰写程序A，A运行后会生成真正实现功能的B，A就是B的元程序，撰写A的过程就是元编程） |
 
 ## N
 

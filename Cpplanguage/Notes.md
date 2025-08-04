@@ -367,6 +367,7 @@ a3 = a2.opeartor+(a1);
     * void test_func(void) /* 如果使用这种方法定义这个函数，对应的符号名称会被重编，会变成类似 **_Z9test_func** 这样的符号，所以外部 C 文件执行通过 test_func 是调用不到这个函数的 */
 41. [模板](https://en.cppreference.com/w/cpp/language/templates)
 	* template < parameter-list > requires-clause(optional) declaration <> 符号一般用在模板中，表示模板参数， 尖括号
+    * 模版参数可以是整形（布尔、有无符号、指针）
 42. ``c++filt`` 可以将被 c++ 编译器编译后修改的符号名给反编译
 43. C++ 的 goto 语句之前不能有变量定义，否则编译时候会报错。
 44. std::vector 实质是 C++ 的一个类，和数组类似，但是 vector 的优势是可以动态扩展，不需考虑其内存大小。vector 是一个封装了动态大小数组的顺序容器。跟其他类型容器或者向量一样，能够存放各种类型的对象。可以简单认为 vector 是一个能够存在任意类型的动态数组。
@@ -640,3 +641,4 @@ auto a1 = dog;
 
     }
     ```
+80. [cereal](https://github.com/USCiLab/cereal) 好用的序列化库， 支持 binary， xml 和 json

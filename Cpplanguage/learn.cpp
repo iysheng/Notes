@@ -512,6 +512,8 @@ class car
 	T m_a;
 };
 
+// 外部函数实现的时候，必须完整定义模版参数，否则的话是找不到泛型 T 的符号的
+// 网上说的是 C++11 正式废弃“模板导出”这一特性
 template <typename T>
 void car<T>::say_hello(void)
 {
