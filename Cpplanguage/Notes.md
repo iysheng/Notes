@@ -422,6 +422,11 @@ a3 = a2.opeartor+(a1);
     ```
 53. std::unique_ptr 是一个类模板(Smart Pointer)，与之对应的还有一个 std::shared_ptr，包含了一个管理的对象和一个删除方法
     * get 成员函数，返回管理的对象
+    * std::unique_ptr 是一个智能指针，通过一个指针拥有和管理其他对象，还可以自动释放对象相关的资源
+    * 要创建一个 unique_ptr, 我们需要将 new() 操作符返回的指针传递给 unique_ptr 的构造函数，``std::unique_ptr<int> a(new int(5));// 使用起来比 int a =5; 要繁琐一点``
+    * std::unique_ptr 无法进行复制构造和赋值操作，只能 std::move， 可以进行移动构造(接着上述例子): ``std::unique_ptr<int> b(std::move(a));`` ，移动赋值： ``std::unique_ptr<int> c = std::move(a);``
+    * std::unique_ptr 有一个例外，可以在函数返回值中返回 std::unique_ptr
+    *
 54. std::pair is a class template that provides a way to store two heterogeneous objects as a single unit.(std::pair 是一个类模板，提供了一种将两种不同的对象存储到一个单元中的方法)
     * first 成员，返回的是 pair 的第一个元素
     * second 成员，返回的是 pair 的第二个元素
@@ -642,3 +647,10 @@ auto a1 = dog;
     }
     ```
 80. [cereal](https://github.com/USCiLab/cereal) 好用的序列化库， 支持 binary， xml 和 json
+81. 左值，右值
+    * 左值：赋值语句 = 左边的内容，代表一个地址，
+    * 右值：赋值语句 = 右边的内容，比如常数1、2.3 很明显这些内容不能放在左侧，因为没有地址（左值不仅具有左值属性还有右值属性）
+    * 左值可以当做右值使用，右值不能当做左值使用；判断一个值是左值还是右值，可以简单看下这个值是否有地址，如果能取地址就是左值，反之就是右值
+    * 左值引用：一般的引用都是左引用 ``int &a``
+    * 右值引用：必须指向右值（没有地址）的引用，右值引用一般绑定到即将销毁或者临时的对象上，右值引用无法引用一个有地址的左值 ``int &&a=10;``
+    * 右值引用的参数传递，
