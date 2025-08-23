@@ -654,3 +654,26 @@ auto a1 = dog;
     * 左值引用：一般的引用都是左引用 ``int &a``
     * 右值引用：必须指向右值（没有地址）的引用，右值引用一般绑定到即将销毁或者临时的对象上，右值引用无法引用一个有地址的左值 ``int &&a=10;``
     * 右值引用的参数传递，
+82. [using](关键词，类似 typedef)，主要有如下功能:
+    * 类型别名 : ``using int_ptr = int *;`` 对比 typedef, ``typedef int * int_ptr;``
+    * 继承构造函数 :
+        ``` cpp
+        class derived : public base {
+            public:
+            using base::base;
+        };
+        ```
+    * 模版别名：``template <typename T> using NewTemplateName = Template<T>; // NewTemplateName 是 Template 的别名``
+    * 通过 using 将基类成员引入派生类作用域：
+        ``` cpp
+        class base {
+        public:
+            void foo() {}
+        };
+
+        class derived : public base {
+        public:
+            using base::foo; // 显式引入，避免因同名函数隐藏
+            void foo(int) {} // 不影响 Base::foo(),重载
+        };
+        ```
