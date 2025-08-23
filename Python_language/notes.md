@@ -1008,6 +1008,7 @@ with open("a.txt", "w") as f:
 		* ``conda env list`` # 可以查看当前有哪些环境
 		* ``conda activate redman`` # 切换到指定的环境
 		* ``conda env remove --name redman`` # 删除指定名称的虚拟环境
+		* ``conda info --envs`` # 查看目前所有的虚拟环境，以及保存的路径
 	* 很多项目都会存放 ``requirements.txt`` 文件，这是一个最基础的 pip 依赖列表。可以通过 ``pip freeze > requirements.txt`` 生成这个文件
 	* 在有了 ``requirements.txt`` 这个依赖文件的条件下，可以使用 ``pip install -r requirements.txt`` 指令一次安装这些依赖.
 		* -r 表示安装根据指定的依赖文件列表中的内容那些依赖
@@ -1164,3 +1165,4 @@ with open("./aaaa.sh") as f:
 	# markdown_table 是 str 类型的
 	markdown_table=df.to_markdown()
 	```
+102. [markitdown](https://kkgithub.com/microsoft/markitdown.git) 转文件到 markdown 格式文件，比较合适的解决方法是参考文档，首先使用 ``conda 创建虚拟机``，然后 ``pip install -e 'packages/markitdown[all]'`` 安装工具。接着使用 ``markitdown xx.pdf -o xx.md``，将 pdf 文件转换为 md 文件.
