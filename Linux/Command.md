@@ -1081,7 +1081,9 @@ sudo dnf install iwl1000-firmware
     tui enable #设置断点
     b main #运行程序
     j Reset_Handler
-    `` 21.`set mem inaccessible-by-default off`关闭 gdb 的内存访问限制 12.`set debug remote 1` 开启 gdb 的调试打印
+    ``
+    21.`set mem inaccessible-by-default off`关闭 gdb 的内存访问限制
+    22.`set debug remote 1` 开启 gdb 的调试打印
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
     -   unzip -O 936 指定字符集来解压文件，修复有时候解压文件在 linux 显示乱码问题,或者也可以修改环境变量：UNZIP="-O CP936" 以及 ZIPINFO="-O CP936"
@@ -1645,3 +1647,73 @@ sudo dnf install iwl1000-firmware
     1. ``curl -LfO https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz`` # ``-L表示如果远端路径修改了，跟随新的路径继续尝试下载 -f表示有错误时不提示 -O 使用默认远端下载路径中的后缀文件，本身不做修改``
 1. ``meson``
     1. ``meson configure build_dir`` # 列出 build_dir 目录所有的配置项
+1. rust 工具链，国内安装
+    1.  修改镜像源
+        ``` bash
+        export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+        export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
+        ### 上述命令切换源
+        ### 下述命令进行安装
+        curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh # 进行安装
+        ```
+1. ``iptables`` 详解，常见的有4个表(raw, mangle, nat, filter)
+
+    ```
+    ┌──────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+    │          │ │           │ │           │ │           │ │           │ │           │
+    │          │ │   table   │ │  command  │ │   chain   │ │ parameter │ │  target   │
+    │          │ │           │ │           │ │           │ │           │ │           │
+    │          │ └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+    │          │ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+    │          │ │           │ │           │ │           │ │           │ │           │
+    │          │ │           │ │    -A     │ │           │ │   -p      │ │ -j ACCEPT │
+    │ iptables │ │           │ │    -D     │ │           │ │   -s      │ │ -j DROP   │
+    │          │ │           │ │    -I     │ │INPUT      │ │   -d      │ │ -j REJECT │
+    │          │ │           │ │    -R     │ │FORWARD    │ │   -i      │ │           │
+    │          │ │ -t filter │ │    -L     │ │OUTPUT     │ │   -o      │ │           │
+    │          │ │           │ │    -F     │ │PREROUTING │ │   --sport │ │           │
+    │          │ │           │ │    -Z     │ │POSTROUTING│ │   --dport │ │           │
+    │          │ │           │ │    -N     │ │           │ │    .      │ │           │
+    │          │ │           │ │    -X     │ │           │ │    .      │ │           │
+    │          │ │           │ │    -P     │ │           │ │    .      │ │           │
+    │          │ │           │ │           │ │           │ │           │ │           │
+    └──────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+
+    ┌───────┐┌─────────────────────────────────────────────────┐
+    │       ││ TCP                                             │
+    │       ││ UDP                                             │
+    │  -p   ││ ICMP                                            │
+    │       ││ A protocol name from /etc/protocols             │
+    │       ││ all                                             │
+    └───────┘└─────────────────────────────────────────────────┘
+    ┌───────┐┌─────────────────────────────────────────────────┐
+    │  -s   ││network name                                     │
+    └───────┘│                                                 │
+    ┌───────┐│                                                 │
+    │       ││Hostname                                         │
+    │  -d   ││Subnet(192.168.0.0/24;192.168.0.0/255.255.255.0  │
+    │       ││IP address                                       │
+    └───────┘└─────────────────────────────────────────────────┘
+    ┌───────┐┌─────────────────────────────────────────────────┐
+    │  -i   ││                                                 │
+    └───────┘│ Interface name(eth0)                            │
+    ┌───────┐│ Interface name ends in a"+"(eth+)               │
+    │  -o   ││                                                 │
+    └───────┘└─────────────────────────────────────────────────┘
+    ┌───────┐┌─────────────────────────────────────────────────┐
+    │--sport││ Service name                                    │
+    └───────┘│ Port number                                     │
+    ┌───────┐│ Port range(1000:1010)                           │
+    │--dport││                                                 │
+    └───────┘└─────────────────────────────────────────────────┘
+    ```
+    * ``iptables -t [table] [command](-A -D -I -R -L -F -Z -N -X -P) [chain](INPUT FORWARD OUTPUT PREROUTING POSTROUTING) [parameter](-p -s -d -i -o --sport --dport) [target](-j ACCEPT | -j DROP | -j REJECT)``
+    * ``iptables [-t 表名称] ``
+    * -A 追加规则
+    * -D 删除规则
+    * -I 插入规则
+    * -R 修改规则
+    * -L 列出
+    * -E 重命名
+    * -F 清空
