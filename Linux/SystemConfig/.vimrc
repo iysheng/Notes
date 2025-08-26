@@ -436,6 +436,10 @@ let g:lightline = {
       \ }
 "set noshowmode
 
+" nerdtree
+" 显示隐藏文件
+let g:NERDTreeShowHidden = 1
+
 " ===
 " === indent_guides
 " ===
@@ -463,3 +467,8 @@ noremap <leader>u :GundoToggle<cr>
 hi ColorColumn guibg=DarkCyan
 
 " nmap <script>n<CR> :tabe drop tmp/notes.md<CR>
+
+" fidian/hexmode
+let g:hexmode_patterns = '*.bin,*.exe,*.dat,*.o'
+" 设置每组显示 8 进制的个数，默认是 2
+" let g:hexmode_xxd_options = '-g 1'

@@ -196,6 +196,7 @@
 | choice                      | 选择，抉择                                                           |
 | comment                     | 评论，表达意见                                                       |
 | csv(Comma-Separated Values) | 逗号分隔的值                                                         |
+| chore                       | 杂务，例行工作                                                       |
 
 ## D
 
