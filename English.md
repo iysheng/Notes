@@ -748,6 +748,7 @@
 | stereo              | 立体声，对应的 mono 是单声道         |
 | senior              | 高级的                               |
 | scalar              | 标量的,标量                          |
+| stroke              | 笔画                                 |
 
 ## T
 

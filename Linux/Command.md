@@ -600,6 +600,8 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
     npm config set registry https://registry.npm.taobao.org --global
     npm config set disturl https://npm.taobao.org/dist --global
     ```
+    3. node 是
+        * ``required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },`` 这里截取的是某软件包依赖的 node 版本，关键点 ``^``(Caret Range) 表示允许次版本号和补丁版本号更新，主版本号不变，即 ``18.x.x``
 34. firefox 快捷键
     1. ctrl + w 或者 ctrl + \<F4> ：关闭当前 tab
     2. ctrl + shift + p ：新建一个 private tab
