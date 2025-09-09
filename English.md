@@ -260,6 +260,7 @@
 | DOM                             | Document Object Model，也可以作为解析 JSON 的一种方法  |
 | SAX                             | Simple API for XML，也可以作为解析 JSON 的一种方法     |
 | dummy                           | 虚假的，仿制的                                         |
+| dash                            | 破折号，-                                              |
 
 ## E
 

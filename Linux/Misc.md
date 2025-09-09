@@ -375,6 +375,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     - exec_script(......) 函数提供了一种执行 python 脚本的钩子函数，当所执行的脚本返回非0数值时会终止工程构建
         - exec_script("x.py", ["arg1", "arg2"], "json") # 如果返回值是一个 list 格式，参考[pkg-config.py](https://chromium.googlesource.com/chromium/src/build/config/+/refs/heads/main/linux/pkg-config.py) 并实际测试发现 "json" 格式才可以正常转换为 GN 可以识别的 list 类型, 里面关键的内容是，使用 python3 的 json 包，执行 print(json.dumps([xxx])), 返回 json 格式的 list
     - gn 脚本中不能用 `` \t `` 即 Tab 键需要使用空格替换，否则会提示 ``Tabs are evil``
+    - ``gn format xxx.gn``  用来格式化 gn 文件，特别地，测试 ``.gni`` 文件也可以正常 format
 1.  ninja 替换 make 进行构建
     - build.ninja 一般是构建的入口文件，类似 make 的 Makefile
 1.  ld 连接脚本
@@ -1223,3 +1224,23 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     # 停止命令
     start-stop-daemon --stop --quite --pidfile /var/run/myservice.pid
     ```
+
+---
+
+### gobject 学习笔记
+
+#### 基础知识
+
+#### 约定
+
+* PREFIX_OBJECT (obj) 返回一个类型指针
+* PREFIX_OBJECT_CLASS (klass) 返回一个类指针
+* PREFIX_IS_OBJECT (obj) 返回一个布尔类型，判断 obj 是不是 OBJECT 类型
+* PREFIX_IS_OBJECT_CLASS (klass) 返回一个布尔类型，判断 obj 是不是 OBJECT CLASS 类类型
+* PREFIX_OBJECT_GET_CLASS (obj) 获取 obj 的类类型
+* 类型名称（包括对象名称）必须至少三个字符，并以 a-z、A-Z 或“_”开头。
+* 函数方法命名约定 object_method   eg: file_save
+* 避免命名空间和其他工程冲突，再额外在最前面添加一个前缀， eg: viewer_file_save ，工程名为 viewer
+* 每个对象都必须定义两个结构：其类结构和实例结构。所有类结构都必须包含 GTypeClass 结构作为第一个成员。所有实例结构都必须包含 GTypeInstance 结构作为第一个成员。这些 C 类型的声明，来自 gtype.h
+* g_type_create_instance 创建对象
+* g_type_free_instance 释放对象
