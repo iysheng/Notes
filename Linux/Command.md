@@ -277,6 +277,7 @@
         !*.s
         ```
     85. 使用 curl 下载 gihtub 上的某次提交 diff，比如:``curl -LfO https://github.com/libffi/libffi/commit/cbfb9b4.patch``，路径格式是 `` https://github.com/libffi/libffi/commit/commitid.patch``
+    86. 还可以下载多次提交之间的所有补丁，和 ``git cherrp-pick`` 语法有点类似。下载两次提交的补丁，包括首尾:`` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c^..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch`` ， 下载两次提交之间的所有补丁，不包括首: `` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch``， 格式 `` curl -LfO https://github.com/libffi/libffi/compare/commit1^..commitid2.patch``，带有 `^` 表示包含 commit1 和 commit2 在内的所有提交补丁，不带 `^` 表示不包含 commit1 这次提交的补丁
 
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
