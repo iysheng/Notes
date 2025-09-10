@@ -276,6 +276,7 @@
         !*.S
         !*.s
         ```
+    85. 使用 curl 下载 gihtub 上的某次提交 diff，比如:``curl -LfO https://github.com/libffi/libffi/commit/cbfb9b4.patch``，路径格式是 `` https://github.com/libffi/libffi/commit/commitid.patch``
 
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
