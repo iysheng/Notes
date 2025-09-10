@@ -169,6 +169,12 @@
     14. 自动解析 url 地址填充到 a 这个 link element c-yA，这个的内容更加详细
     15. html5 扩展为一个模板 c-y,
 17. 'prettier/vim-prettier' 格式化文件的插件，需要提前安装 yarn ， fedora 上执行 dnf install yarnpkg
+    1. prettier 支持插件，首先要安装插件，其次需要在配置文件中声明这个插件，比如格式化 sh 的插件，配置文件 ``~/.prettierrc``， 然后就可以使用命令 ``prettier --write xx.sh`` 格式化 shell 脚本了
+        ``` json
+        {
+        "plugins": ["prettier-plugin-sh"]
+        }
+        ```
 18. 'bagrat/vim-buffet' tab 样式美化插件
 
 -   buffers 是文件在内存中的存储表示, buffer 有三种状态:
