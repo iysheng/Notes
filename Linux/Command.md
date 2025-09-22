@@ -1729,3 +1729,8 @@ sudo dnf install iwl1000-firmware
 1. 命令行转换16进制为 ascii 码显示
     * ``echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p | od -c``
     * ``echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p``
+1. v4l2-ctl 查看 v4l2 设备信息指令
+    * `v4l2-ctl -d /dev/videoX --list-formats-ext` 查看摄像头支持的所有格式
+    * `v4l2-ctl -d /dev/videoX --all` 查看当前的信息
+    * `v4l2-ctl -d /dev/videoX --get-fmt-video` 查看当前设置
+    * `v4l2-ctl -d /dev/videoX --info` 查看当前设备的基本信息
