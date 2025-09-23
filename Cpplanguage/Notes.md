@@ -677,3 +677,4 @@ auto a1 = dog;
             void foo(int) {} // 不影响 Base::foo(),重载
         };
         ```
+83. `static_cast<type>(xxx)` 强制将 xxx 转换为 type 类型，用来基本类型转换，编译时检查，无运行开销

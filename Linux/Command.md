@@ -1734,3 +1734,4 @@ sudo dnf install iwl1000-firmware
     * `v4l2-ctl -d /dev/videoX --all` 查看当前的信息
     * `v4l2-ctl -d /dev/videoX --get-fmt-video` 查看当前设置
     * `v4l2-ctl -d /dev/videoX --info` 查看当前设备的基本信息
+1. centos 查看安装的软件包包含的文件: `repoquery -l 包名` 或者使用 `rpm -ql 包名`
