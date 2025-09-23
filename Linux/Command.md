@@ -1734,4 +1734,7 @@ sudo dnf install iwl1000-firmware
     * `v4l2-ctl -d /dev/videoX --all` 查看当前的信息
     * `v4l2-ctl -d /dev/videoX --get-fmt-video` 查看当前设置
     * `v4l2-ctl -d /dev/videoX --info` 查看当前设备的基本信息
+    * `v4l2-ctl -d /dev/videoX --list-ctrls` 列出所有可控制项
+    * `v4l2-ctl -d /dev/videoX --set-ctrl brightness=150` 根据列出来的可控制项修改亮度为 150
+    * `v4l2-ctl -d /dev/videoX --set-fmt-video=width=1920,height=1080,pixelformat=MJPG` 修改摄像头长度和宽度分别是 1920 和 1080,分辨率是 MJPG
 1. centos 查看安装的软件包包含的文件: `repoquery -l 包名` 或者使用 `rpm -ql 包名`
