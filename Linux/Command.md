@@ -1738,3 +1738,4 @@ sudo dnf install iwl1000-firmware
     * `v4l2-ctl -d /dev/videoX --set-ctrl brightness=150` 根据列出来的可控制项修改亮度为 150
     * `v4l2-ctl -d /dev/videoX --set-fmt-video=width=1920,height=1080,pixelformat=MJPG` 修改摄像头长度和宽度分别是 1920 和 1080,分辨率是 MJPG
 1. centos 查看安装的软件包包含的文件: `repoquery -l 包名` 或者使用 `rpm -ql 包名`
+1. ``nmap -sn 192.168.1.0/24`` 探测局域网下的设备
