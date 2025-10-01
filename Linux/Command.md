@@ -72,7 +72,7 @@
     21. git reset --hard commit_id：清除最近的几次提交，将工作区和暂存区强制回退到指定的那次提交
     22. git checkout -- 文件名；将工作区某个文件的变更撤销
     23. git rm 文件名；删除某一个文件
-        1. git rm --cached xxx # 删除对指定文件的跟踪，但是不删除本地文件,并且已经跟踪的文件，是无法被 .gitignore 规则忽略的，删除跟踪后才可以
+        1. git rm --cached xxx # 删除对指定文件的跟踪，但是不删除本地文件,并且已经跟踪的文件，是无法被 .gitignore 规则忽略的，删除跟踪后才可以，针对 submodule 情景，不需要使用某个 submodule 时，需要使用这个命令删除指定的目录
     24. git stash；暂存状态快照到“栈”
 
         1. git stash show : 显示做了哪些改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
@@ -1738,4 +1738,7 @@ sudo dnf install iwl1000-firmware
     * `v4l2-ctl -d /dev/videoX --set-ctrl brightness=150` 根据列出来的可控制项修改亮度为 150
     * `v4l2-ctl -d /dev/videoX --set-fmt-video=width=1920,height=1080,pixelformat=MJPG` 修改摄像头长度和宽度分别是 1920 和 1080,分辨率是 MJPG
 1. centos 查看安装的软件包包含的文件: `repoquery -l 包名` 或者使用 `rpm -ql 包名`
-1. ``nmap -sn 192.168.1.0/24`` 探测局域网下的设备
+1. `mmv` 命令
+    1. `mmv "*.*" "#1"` 去除所有文件后缀名
+    1. `mmv "*.txt" "#1"` 去除所有 txt 文件后缀名
+    1. `mmv "*" "#1.bin"` 给所有文件添加 `.bin` 后缀名

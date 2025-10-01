@@ -334,21 +334,22 @@
 
 ## G
 
-| 单词       | 释义         |
-| ---------- | ------------ |
-| go through | 经历         |
-| gist       | 要领、要旨   |
-| grasp      | 掌握         |
-| go on to   | 进入         |
-| gradually  | 逐步地       |
-| Graduate   | 毕业的       |
-| gadget     | 小工具       |
-| glitch     | 差错，小毛病 |
-| gradient   | 梯度         |
-| governor   | 调节器       |
-| Gadget     | 小工具       |
-| glossary   | 术语         |
-| guru       | 大师         |
+| 单词       | 释义                                 |
+| ---------- | ------------------------------------ |
+| go through | 经历                                 |
+| gist       | 要领、要旨                           |
+| grasp      | 掌握                                 |
+| go on to   | 进入                                 |
+| gradually  | 逐步地                               |
+| Graduate   | 毕业的                               |
+| gadget     | 小工具                               |
+| glitch     | 差错，小毛病                         |
+| gradient   | 梯度                                 |
+| governor   | 调节器                               |
+| Gadget     | 小工具                               |
+| glossary   | 术语                                 |
+| guru       | 大师                                 |
+| genderage  | gender age，性别，年龄，人工智能领域 |
 
 ## H
 

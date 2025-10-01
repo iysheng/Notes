@@ -53,6 +53,7 @@ ret = os.system("linux 命令")
 	* 如果有 README，请参看 README 的描述如何正确打包！！！
 	* 如果没有安装 pip, 可以使用 ``python -m ensurepip install pip`` 来安装 pip
 	* ``pip install xxx.tgz`` 可以直接安装第三方包
+	* `pip3 show inspireface` 查看安装包路径以及安装包信息
 10. 注释
 	* 单行注释
 	``` python
@@ -81,6 +82,8 @@ ret = os.system("linux 命令")
 	* savetxt 还可以添加头注和脚注, ``np.savetxt('person.c', person, fmt='%d', delimiter=',', header="const unsigned char g_person_detect_model_data[]={", footer="};", comments='')`` ，使用上述命令可以直接将数据保存到数组中
 	* numpy 计算平均值
 	* numpy 对象进行赋值的时候，默认是浅拷贝，比如 a 是 numpy 对象，b=a,c=a,b和c指向的是同一份numpy对象，所以如果b改变了，c也会跟着改变，为了避免这种情况，需要使用深拷贝，c=a.copy() 这样b 和 c 指向的就不是一份内存空间了
+	* `np.mgrid[:4,:3]` 生成4行3列的坐标网格矩阵,
+	* `np.shape` 从内向外数 (最外,...,最内)
 12. 对 str 类型变量 a 为例子
 	* a.isdigit() 判断 a 是否只包含数字
 	* a.isalpha() 判断 a 是否只包含字母
@@ -187,6 +190,7 @@ ret = os.system("linux 命令")
 		np.arange(*data) == np.arange(1, 2)
 		```
 		* list 有 remove 方法可以直接删除指定的成员,如果有多个重复的成员，该函数只会删除第一个该成员
+		* list 的基本切片操作 `list[start:end:step]` 从 start 开始不包括 end
 	4. 特殊的变量,无,表示 nothing: None
 	5. F-strings 是新的变量类型, python3.6 引入
 	6. list 类型可以包含重复的内容,但是 set 类型就不可以,set 就是类似数学的集合,可以通过对 list 执行构造函数,提取不同的 list 成员.
@@ -1166,3 +1170,12 @@ with open("./aaaa.sh") as f:
 	markdown_table=df.to_markdown()
 	```
 102. [markitdown](https://kkgithub.com/microsoft/markitdown.git) 转文件到 markdown 格式文件，比较合适的解决方法是参考文档，首先使用 ``conda 创建虚拟机``，然后 ``pip install -e 'packages/markitdown[all]'`` 安装工具。接着使用 ``markitdown xx.pdf -o xx.md``，将 pdf 文件转换为 md 文件.
+103. 图像处理领域 H，W，C，N 分别表示 height, width, channel, batch（批次）
+104. `enumerate(...)` 函数返回一个枚举类的对象 `[index, value]`
+	```python
+	abc=[100,200,300]
+	for a in enumerate(abc):
+		print(a) # 0 100, 1 200, 2 300
+	```
+105. 特殊符号
+	* `//` 整除符号, `12//5=2`
