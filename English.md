@@ -104,7 +104,7 @@
 | be proportional to    | 成比例                                                     |
 | Bode Plot             | 波特图                                                     |
 | bypass                | 绕过，旁路                                                 |
-| backbone              | 主干，基础                                                 |
+| backbone              | 主干，基础，算法中，一般指基础网络结构                     |
 
 ## C
 
@@ -197,6 +197,8 @@
 | comment                     | 评论，表达意见                                                       |
 | csv(Comma-Separated Values) | 逗号分隔的值                                                         |
 | chore                       | 杂务，例行工作                                                       |
+| CFP-FP                      | Celebrities in Frontal-Profile, 名人正面、侧面数据集                 |
+| cluttered                   | 杂乱的                                                               |
 
 ## D
 
@@ -261,6 +263,7 @@
 | SAX                             | Simple API for XML，也可以作为解析 JSON 的一种方法     |
 | dummy                           | 虚假的，仿制的                                         |
 | dash                            | 破折号，-                                              |
+| delegate                        | 代表，委托                                             |
 
 ## E
 
@@ -334,6 +337,7 @@
 
 ## G
 
+<<<<<<< HEAD
 | 单词       | 释义                                 |
 | ---------- | ------------------------------------ |
 | go through | 经历                                 |
@@ -350,6 +354,24 @@
 | glossary   | 术语                                 |
 | guru       | 大师                                 |
 | genderage  | gender age，性别，年龄，人工智能领域 |
+=======
+| 单词       | 释义           |
+| ---------- | -------------- |
+| go through | 经历           |
+| gist       | 要领、要旨     |
+| grasp      | 掌握           |
+| go on to   | 进入           |
+| gradually  | 逐步地         |
+| Graduate   | 毕业的         |
+| gadget     | 小工具         |
+| glitch     | 差错，小毛病   |
+| gradient   | 梯度           |
+| governor   | 调节器         |
+| Gadget     | 小工具         |
+| glossary   | 术语           |
+| guru       | 大师           |
+| gundam     | 高达，机动战士 |
+>>>>>>> 02f4537 ([CHG][N/T] 1. add english words 2. add dnf download package describe)
 
 ## H
 
@@ -439,16 +461,17 @@
 
 ## L
 
-| 单词            | 释义                     |
-| --------------- | ------------------------ |
-| literal         | 文字                     |
-| literal strings | 文字字符串               |
-| interleave      | 交错                     |
-| library         | 庫                       |
-| legend          | 图片文字说明             |
-| landscape       | 风景画，风景照           |
-| lower limit     | 下限                     |
-| LHS             | left-hand side，左边数据 |
+| 单词            | 释义                                           |
+| --------------- | ---------------------------------------------- |
+| literal         | 文字                                           |
+| literal strings | 文字字符串                                     |
+| interleave      | 交错                                           |
+| library         | 庫                                             |
+| legend          | 图片文字说明                                   |
+| landscape       | 风景画，风景照                                 |
+| lower limit     | 下限                                           |
+| LHS             | left-hand side，左边数据                       |
+| LFW             | Labelled Fces in the Wild ，野外标记人脸数据集 |
 
 ## M
 
@@ -482,6 +505,7 @@
 | magnitude                | 振幅                                                                                         |
 | matrix                   | 矩阵                                                                                         |
 | meta                     | 元（元编程：撰写程序A，A运行后会生成真正实现功能的B，A就是B的元程序，撰写A的过程就是元编程） |
+| megatron                 | 威震天                                                                                       |
 
 ## N
 
@@ -590,6 +614,7 @@
 | poly              | 多边形                                        |
 | partition line    | 分割线                                        |
 | parallel          | 并行                                          |
+| pikachu           | 皮卡丘                                        |
 
 ## Q
 
@@ -805,6 +830,7 @@
 | twofold                  | 双重的                               |
 | tricky                   | 棘手，难办的                         |
 | temperature              | 温度                                 |
+| telemetry                | 遥测                                 |
 
 ## U
 
