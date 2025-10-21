@@ -1215,8 +1215,13 @@ sudo dnf install iwl1000-firmware
     subdirs:
         $(MAKE) -C subdir # 执行这个动作之后会修改 CURDIR 这个环境变量为 -C 紧跟的目录
     ```
-
-    - $(error xxxxx) # 打印出错信息，会卡在这里, 和 $(info xxxx) 类似，只不过级别不一样
+    -   $(error xxxxx) # 打印出错信息，会卡在这里, 和 $(info xxxx) 类似，只不过级别不一样
+    - PHONY 伪目标, 伪目标的定义是强制执行依赖对应的动作,比如纵使当前目录下有一个 clean 文件，也会强制执行 do sth
+    ``` makefile
+    .PHONY:clean
+    clean:
+        do sth
+    ```
 87. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
     - vi 模式: `Ctrl Shift Space`
     - 前向搜索模式`Ctrl Shift f` 后向搜索模式`Ctrl Shift b` 搜索的目标的时候，`Enter` 表示向前跳转，`Shift Enter` 表示向后跳转，`Escape` 表示退出
