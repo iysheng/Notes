@@ -1580,6 +1580,7 @@ sudo dnf install iwl1000-firmware
     1. **GNUC_PATCHLEVEL** 补丁级号
     1. 链接的时候，选项 -Wl,–gc-sections 表示将 -gc-sections 传递给连接器，让连接器忽视掉没有使用的符号减小生成文件的体积,但是前提是要在编译阶段添加 -ffunction-sections 和 -fdata-sections 编译选项
     1. 交叉编译的时候，gcc 会根据 ``-mcpu=cortex-m3 或者 -march=armv7-m, -mthumb 或者 -marm ``自动选择合适架构的 libgcc.a 文件，特别地 ``-mcpu = -march + 针对 CPU 的优化，-march 只影响指令集，不做 cpu 优化``
+    1. `-ffunction-sections -fdata-sections -Wl,--gc-sections` 可以实现对未使用的代码进行回收，降低大小
 1. ATPCS 使用 r0-r3 传递参数
 1. [mpv]() Linux 下的一款播放器，支持多种播放格式
 1. ffmpeg 可以用来进行视频转换
