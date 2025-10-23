@@ -1225,6 +1225,62 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     start-stop-daemon --stop --quite --pidfile /var/run/myservice.pid
     ```
 1. [web2pdfconvert](https://www.web2pdfconvert.com/) 将 web 内容转换为 pdf 文件
+1.  windows terminal 修改开启 features， 关键是添加 "fontFeatures" 这段 key-value 内容
+    ```json
+    "profiles":
+    {
+        "defaults":
+        {
+            "colorScheme": "Afterglow"
+        },
+        "list":
+        [
+          {
+            "font": {
+              "face": "RedNFFont"
+            },
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "hidden": false,
+            "name": "Windows PowerShell",
+            "fontFeatures": [
+              "liga",
+              "calt",
+              "ss01",
+              "ss02",
+              "ss03",
+              "ss04",
+              "ss05",
+              "ss06",
+              "ss07",
+              "ss08",
+              "ss09",
+              "ss10",
+              "ss11"
+            ]
+          },
+            {
+                "font":
+                {
+                    "face": "RedNFFont",
+                    "size": 12
+                },
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "font":
+                {
+                    "face": "Maple Mono NF CN"
+                },
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
+            }
+        ]
+    },
+    ```
 
 ---
 
