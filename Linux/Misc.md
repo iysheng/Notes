@@ -1225,7 +1225,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     start-stop-daemon --stop --quite --pidfile /var/run/myservice.pid
     ```
 1. [web2pdfconvert](https://www.web2pdfconvert.com/) 将 web 内容转换为 pdf 文件
-1.  windows terminal 修改开启 features， 关键是添加 "fontFeatures" 这段 key-value 内容
+1. windows terminal 修改开启 features， 关键是添加 "fontFeatures" 这段 key-value 内容, 好像不加也 ok, ``liga`` 表示连字 eg: ->，``calt`` 表示上下文替换 eg: [TODO]
     ```json
     "profiles":
     {
