@@ -1757,3 +1757,4 @@ sudo dnf install iwl1000-firmware
         1. `mmv "*.*" "#1"` 去除所有文件后缀名
         1. `mmv "*.txt" "#1"` 去除所有 txt 文件后缀名
         1. `mmv "*" "#1.bin"` 给所有文件添加 `.bin` 后缀名
+206.    `sudo fc-cache -fv` 强制清除之前的 file 文件缓存
