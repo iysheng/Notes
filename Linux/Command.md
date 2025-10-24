@@ -1,5 +1,4 @@
 1. Fedora 添加库和禁止、使能库
-
     1. dnf config-manager --add-repo /etc/yum.repos.d/fedora_extras.repo # 添加一个新的仓库
         1. sudo dnf config-manager --set-enabled fedora-extras # 使能这个仓库源
         2. sudo dnf config-manager --set-disabled fedora-extras # 禁止这个仓库源
@@ -23,11 +22,10 @@
         1. dnf list installed # 列出已经安装的软件包
     12. sudo dnf repoquery -l 软件包名称，列出指定软件包名称包含的所有文件
     13. sudo dnf install xxxxx --setopt install_weak_deps=false # 不安装指定软件的弱依赖
-    14. ``sudo dnf update --exclude=kernel*`` # 忽略内核的更新更新系统软件包
-    15. ``sudo dnf download firefox`` # 下载指定的安装包，但是不安装
+    14. `sudo dnf update --exclude=kernel*` # 忽略内核的更新更新系统软件包
+    15. `sudo dnf download firefox` # 下载指定的安装包，但是不安装
 
 2. scp 和 ssh sshpass 命令
-
     1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
     2. scp filename username@serverip:/dir
     3. 通过 ssh 连接 serverip，用户名是 username
@@ -37,7 +35,6 @@
     7. ssh -p xx user@ip ssh -p 参数连接指定的端口 xx
 
 3. git 使用笔记
-
     1. git log --oneline 每一个 commit 只显示一行
         - git log --pretty=oneline 每一个 commit 只显示一行
         - git log --pretty=ref xxx 查看指定 xxx 的提交，并且显示修改日期
@@ -75,7 +72,6 @@
     23. git rm 文件名；删除某一个文件
         1. git rm --cached xxx # 删除对指定文件的跟踪，但是不删除本地文件,并且已经跟踪的文件，是无法被 .gitignore 规则忽略的，删除跟踪后才可以，针对 submodule 情景，不需要使用某个 submodule 时，需要使用这个命令删除指定的目录
     24. git stash；暂存状态快照到“栈”
-
         1. git stash show : 显示做了哪些改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
 
         ```bash
@@ -168,6 +164,7 @@
         ▸ git submodule
          cbee4e028d66e5d9cc0ef2c45656a1f9438bd319 packages/FlashDB (1.0.0-3-gcbee4e0)
         ```
+
         2. git submodule set-url <path> <newurl> 修改 path 这个 submodule 新的路径
         3. git submodule update <path> # 单独只更新指定 path 的 submodule,在很多 submodule 并且仓库都很大的时候建议单独 update,
         4. git submodule add <url> <path> # 添加一个 submodule
@@ -179,6 +176,7 @@
         git config remote.origin.promisor # true 恢复默认
         git config remote.origin.partialclonefilter # blob:none,取消拉取大型数据？？？支持分段拉取
         ```
+
         4. git clone --depth 1 <url> # 浅层 clone 仓库，只拉取最后一次 log 的日志
         5. git fetch --unshallow # 拉取完成当前分支, 在浅层 clone 的基础上拉取当前分支的所有提交记录
         6. git fetch --depth 1 origin 远程分支名称 # 浅层拉取仓库的指定分支
@@ -221,6 +219,7 @@
          bsp/gd32103c-eval/drivers/drv_rtc.c  |  134 ++++++++++++++++++++++++++++++++++
          4 files changed, 143 insertions(+)
         ```
+
         3. git apply --check {patch 文件} : 检查 patch 文件格式
         ```bash
         ▸ git apply --check /tmp/rtc.diff
@@ -231,6 +230,7 @@
         error: patch failed: bsp/gd32103c-eval/drivers/SConscript:24
         error: bsp/gd32103c-eval/drivers/SConscript: patch does not apply
         ```
+
         4. git apply --reverse {patch 文件} ： 取消 patch 的使用，将之前已经打过的 patch 撤销
         5. git apply --reject {patch 文件} ： 强制打 patch，有冲突的内容保存到 rej 文件
     61. git log # 显示提交信息
@@ -260,10 +260,10 @@
     78. git blame -L :funcname 文件名 # 查看指定文件在指定的起始和结束行范围内的代码改动.
     79. git rm --rf --cached xxxx 然后再 git add xxxx 可以解决有些第三方的软件包无法 git add 或者提示 fatal: in unpopulated submodule xxxx 的问题
     80. git log -S "被删除的代码片段" --patch 代码片段所在的路径 # 可以快速找到在哪次提交中删除了这部分代码
-    81. git log --pretty=oneline --since="2023-01-01" --util="2023-05-01" xxxx # 查看指定文件在``2023-01-01``日期之后到 ``2023-05-01`` 之间的所有修改历史
-    82. ``git log -S'代码片段' -- 文件路径`` 查找指定代码在哪次提交中引入的
-    83. ``git ls-files`` 查找跟踪的所有文件，方便定位为什么 ``git add -f xxx`` 还是显示未跟踪 xxx 的问题,可能是已经跟踪了同名的 xxx 文件，这次又要重新跟踪 xxx 目录导致的
-    84. ``.gitignore`` 文件示例,如果想只跟踪``.c .cpp .h .S .s``等这些源文件，可以使用下面的写法
+    81. git log --pretty=oneline --since="2023-01-01" --util="2023-05-01" xxxx # 查看指定文件在`2023-01-01`日期之后到 `2023-05-01` 之间的所有修改历史
+    82. `git log -S'代码片段' -- 文件路径` 查找指定代码在哪次提交中引入的
+    83. `git ls-files` 查找跟踪的所有文件，方便定位为什么 `git add -f xxx` 还是显示未跟踪 xxx 的问题,可能是已经跟踪了同名的 xxx 文件，这次又要重新跟踪 xxx 目录导致的
+    84. `.gitignore` 文件示例,如果想只跟踪`.c .cpp .h .S .s`等这些源文件，可以使用下面的写法
         ```
         # * 表示忽略所有文件
         *
@@ -277,9 +277,9 @@
         !*.S
         !*.s
         ```
-    85. 使用 curl 下载 gihtub 上的某次提交 diff，比如:``curl -LfO https://github.com/libffi/libffi/commit/cbfb9b4.patch``，路径格式是 `` https://github.com/libffi/libffi/commit/commitid.patch``
-    86. 还可以下载多次提交之间的所有补丁，和 ``git cherrp-pick`` 语法有点类似。下载两次提交的补丁，包括首尾:`` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c^..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch`` ， 下载两次提交之间的所有补丁，不包括首: `` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch``， 格式 `` curl -LfO https://github.com/libffi/libffi/compare/commit1^..commitid2.patch``，带有 `^` 表示包含 commit1 和 commit2 在内的所有提交补丁，不带 `^` 表示不包含 commit1 这次提交的补丁
-    87. 下载 pr 是类似的操作 ``curl -LfO https://github.com/user/repo/pull/123.patch``
+    85. 使用 curl 下载 gihtub 上的某次提交 diff，比如:`curl -LfO https://github.com/libffi/libffi/commit/cbfb9b4.patch`，路径格式是 ` https://github.com/libffi/libffi/commit/commitid.patch`
+    86. 还可以下载多次提交之间的所有补丁，和 `git cherrp-pick` 语法有点类似。下载两次提交的补丁，包括首尾:` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c^..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch` ， 下载两次提交之间的所有补丁，不包括首: ` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch`， 格式 ` curl -LfO https://github.com/libffi/libffi/compare/commit1^..commitid2.patch`，带有 `^` 表示包含 commit1 和 commit2 在内的所有提交补丁，不带 `^` 表示不包含 commit1 这次提交的补丁
+    87. 下载 pr 是类似的操作 `curl -LfO https://github.com/user/repo/pull/123.patch`
 
 4. 本地搭建 git 服务器
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
@@ -381,7 +381,6 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 ```
 
 23. ranger 终端的文件管理器，安装成功后，需要首先执行 ranger --copy-config=all，复制所有的配置文件到 ~ 目录
-
     1. 浏览模式下，通过 o 选项打开排序选项，比如 oc 按照最后访问时间降序排序
     2. 在 st 终端模拟器下，预览图片
 
@@ -425,7 +424,6 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     18. zh 切换显示隐藏文件也可以用 ctrl+h
 
 24. cmake 笔记
-
     1. cmake 需要更改安装目标的时候，可以使用 DESTDIR 环境变量修改默认的安装路径，而使用 CMAKE_INSTALL_PREFIX 影响范围更广
 
         ```bash
@@ -433,7 +431,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
         ```
 
     2. cmake 在配置的时候，会存在 cache file,所以如果修改了 cmake 的配置文件再次执行 cmake 构建的时候，如果发现修改的没有效果，可以首先删除 CMakeCache.txt 文件，然后再 cmake 构建
-    3. link_directories() 添加库的搜索路径，eg: target_link_libraries(example2 nanogui) 特别指定将 nanogui 链接到 example2, 默认链接的动态库，如果是静态库，需要添加完整的名称, 并且包含绝对路径，即 ``/xx/yy/zz/libnanogui.a``
+    3. link_directories() 添加库的搜索路径，eg: target_link_libraries(example2 nanogui) 特别指定将 nanogui 链接到 example2, 默认链接的动态库，如果是静态库，需要添加完整的名称, 并且包含绝对路径，即 `/xx/yy/zz/libnanogui.a`
     4. include_directories() 添加库头文件路径, eg: target_include_directories(example2 PRIVATE "C:/Program Files (x86)/YAML_CPP/include") 特别指定目标 example2 的头文件搜索路径
     5. cmake -DCMAKE_TOOLCHAIN_FILE=定义工具链的文件可以实现交叉编译，也可以直接 `cmake --toolchain=../cross.cmake` 使用 --toolchain 指定交叉工具链的配置文件。比如指定交叉编译工具链的文件示意：
 
@@ -465,7 +463,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 
     11. configure_file() 复制一个文件到另一个文件,并修改文件的内容
 
-        ``` cmake
+        ```cmake
         configure_file(${CMAKE_SOURCE_DIR}/led3000/version.h.in # 原始文件是 version.h.in
         ${CMAKE_SOURCE_DIR}/led3000/version.h # 目标文件是 version.h
         )
@@ -473,15 +471,15 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
 
         其中，version.h.in 文件内容为
 
-        ``` cmake
+        ```cmake
         #ifndef __VERSION_H__
         #define __VERSION_H__
-    
+
         #define LED3000_MAJOR_VERSION @LED3000_MAJOR_VERSION@
         #define LED3000_MINOR_VERSION @LED3000_MINOR_VERSION@
         #define LED3000_PATCH_VERSION @LED3000_PATCH_VERSION@
         #cmakedefine LED3000_COMMIT_ID "@LED3000_COMMIT_ID@"
-    
+
         #endif /* ifndef __VERSION_H__ */
         ```
 
@@ -492,23 +490,23 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
         set(LED3000_COMMIT_ID "abc")
         转换之后生成的 `version.h` 内容为:
 
-        ``` C
+        ```C
         #ifndef __VERSION_H__
         #define __VERSION_H__
-    
+
         #define LED3000_MAJOR_VERSION 0
         #define LED3000_MINOR_VERSION 1
         #define LED3000_PATCH_VERSION 2
         #define LED3000_COMMIT_ID "abc"
-    
+
         #endif /* ifndef __VERSION_H__ */
         ```
 
     12. 引用系统环境变量，格式 `$ENV{LD_LIBRARY_PATH}`, 定义系统环境变量：`set{ENV{LD_LIBRARY_PATH} xxx}`
-    13. ``cmake -LAH`` 可以列出来所有的变量和对应值
+    13. `cmake -LAH` 可以列出来所有的变量和对应值
     14. 变量 PKG_CONFIG_EXECUTABLE 定义 pkg-config 可执行文件
-    15. cmake 创建的 make 工程，如果想要查看详细的编译过程，添加 `VERBOSE=1`， 比如 `make -j VERBOSE=1` 或者使用 ``cmake --build . --verbose``
-    16. ``pip install cmakelang`` 会安装 cmake-format 来 format CMakeLists.txt 使用指令 ``cmake-format CMakeLists.txt`` 或者 ``cmake-format -i CMakeLists.txt`` 直接修改 CMakeLists.txt
+    15. cmake 创建的 make 工程，如果想要查看详细的编译过程，添加 `VERBOSE=1`， 比如 `make -j VERBOSE=1` 或者使用 `cmake --build . --verbose`
+    16. `pip install cmakelang` 会安装 cmake-format 来 format CMakeLists.txt 使用指令 `cmake-format CMakeLists.txt` 或者 `cmake-format -i CMakeLists.txt` 直接修改 CMakeLists.txt
 
 25. Linux LVM 文件系统一般概念
     1. 基本概念缩写
@@ -527,7 +525,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
     10. lvextend -L +大小 /dev/卷组名字/逻辑卷名字 # 扩展指定逻辑卷的大小 + 指定大小
     11. ![一般的理解时可以参看图](https://img2020.cnblogs.com/blog/949069/202004/949069-20200416104045527-1858978940.png) 简单来说是，每一个磁盘设备对应一个物理卷 pv，然后多个 pv 可以组成一个虚拟的卷组 vg，然后会从 vg 中划分不同的逻辑卷 lv。一般挂载的时候针对的也是 lv. [详细描述可以参看](https://www.cnblogs.com/diantong/p/10554831.html)
     12. 一般地，扩展完 lv 的空间之后会伴随着磁盘格式化，比如 fedora server 40 默认安装的 root 空间只有 15G，扩展完 lv 之后还要伴随着磁盘格式化，可以执行`lvextend -L +xxG --resizefs /dev/fedora/root`，这里添加了 `--resizefs` 命令选项，会自动同步到文件系统，否则只是扩展了 lv 还是看不到磁盘空间变大。
-        1. 如果没有添加 `--resizefs` 选项，需要额外的步骤根据不同的文件系统扩大空间，如果是 xfs 执行 ``sudo xfs_growfs /dev/fedra/root ``； 如果是 `ext2/ext3/ext4` 执行 ``sudo resize2fs /dev/fedora/root``; 如果是 btrfs 执行 ``sudo btrfs filesystem resize max /dev/fedora/root``， 验证扩展结果 ``lvdisplay /dev/fedora/root``
+        1. 如果没有添加 `--resizefs` 选项，需要额外的步骤根据不同的文件系统扩大空间，如果是 xfs 执行 `sudo xfs_growfs /dev/fedra/root `； 如果是 `ext2/ext3/ext4` 执行 `sudo resize2fs /dev/fedora/root`; 如果是 btrfs 执行 `sudo btrfs filesystem resize max /dev/fedora/root`， 验证扩展结果 `lvdisplay /dev/fedora/root`
 
 26. [shutdown](https://www.computerhope.com/unix/ushutdow.htm) 命令指定关机时间
 
@@ -579,41 +577,46 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
         auto <接口>
         iface <接口> inet dhcp
         ```
+
         3. 使用 systemd 创建一个服务文件，关键的 `Execstart=wpa_supplicant xxxxx 连接 wifi` 以及 `ExecStartPost=dhclient <接口>` 获取动态 ip
-    11. 修改指定网口为 dhcp ``nmcli connection modify eth0(网卡设备名) ipv4.method auto`` 或者 ``nmcli connection modify "Wired connection 1"(链接的名字) ipv4.method auto``
+    11. 修改指定网口为 dhcp `nmcli connection modify eth0(网卡设备名) ipv4.method auto` 或者 `nmcli connection modify "Wired connection 1"(链接的名字) ipv4.method auto`
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
     3. 编辑 ~/.xsession 文件，填写 exec dwm 引导 dwm 启动，重点要设置这个文件的权限为 700 ，否则会出错！！！
     4. 编辑 vim /etc/X11/xdm/Xsetup_0 文件，可以修改登陆背景，可以使用 feh 工具！！！
-    5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果, 通过设置 ``xlogin*geometry:                650x450+5+500`` 可以修改登陆框的位置
+    5. 编辑 /etc/X11/xdm/Xresources 可以修改登陆界面窗口的效果, 通过设置 `xlogin*geometry:                650x450+5+500` 可以修改登陆框的位置
     6. 遇到问题**PAM unable to dlopen(pam_gnome_keyring.so)**，可以通过 systemctl status xdm 来确认是否出现该问题，此时需要安装
     ```
     sudo dnf install gnome-keyring
     ```
+
     7. 重要的一点，针对 fedora-server 还需要修改默认的启动级别为图形化界面.
     ```
     sudo systemctl set-default graphical.target
     ```
+
     8. 如果仍然有问题，可以查看保存有错误文件日志的文件： ~/.xsession.errors
     9. 修改 xdm 默认引导的串口管理器,需要修改 ~/.xinitrc 或者 ~/.xsession
 33. 解决 [npm - a JavaScript package manager](https://github.com/npm/cli) 在国内卡的问题
     1. 直接使用 cnpm
     ```bash
     npm install -g cnpm --registry=https://registry.npm.taobao.org
+    npm install -g prettier@latest # 安装最新版本的 prettier ，必须指定版本才能正确更新指定的包
     ```
+
     2. 配置 npm 的源，使用淘宝源替换官方的 npm 源
     ```bash
     npm config set registry https://registry.npm.taobao.org --global
     npm config set disturl https://npm.taobao.org/dist --global
     ```
+
     3. node 是
-        * ``required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },`` 这里截取的是某软件包依赖的 node 版本，关键点 ``^``(Caret Range) 表示允许次版本号和补丁版本号更新，主版本号不变，即 ``18.x.x``
+        - `required: { node: '^18.0.0 || ^20.0.0 || >=22.0.0' },` 这里截取的是某软件包依赖的 node 版本，关键点 `^`(Caret Range) 表示允许次版本号和补丁版本号更新，主版本号不变，即 `18.x.x`
 34. firefox 快捷键
     1. ctrl + w 或者 ctrl + \<F4> ：关闭当前 tab
     2. ctrl + shift + p ：新建一个 private tab
 35. [使用 jekyll 在 github 搭建个人博客](https://medium.com/20percentwork/creating-your-blog-for-free-using-jekyll-github-pages-dba37272730a)
-
     1. 安装 gem ruby jekyll 工具
 
     ```bash
@@ -669,14 +672,17 @@ EndSection
     [Install]
     WantedBy=graphical.target
     ```
+
     2. 使能这个服务在每次开机时候运行，或者说创建这个服务
     ```bash
     sudo systemctl enable test.service
     ```
+
     3. 开启这个服务
     ```bash
     sudo systemctl start test.service
     ```
+
     4. 查看这个服务的状态
     ```bash
     sudo systemctl status test.service
@@ -689,9 +695,10 @@ EndSection
     修改 /etc/systemd/system/tftp-server.service 文件的 Requires 字段为 Requires=tftp-server.socket
     修改 /etc/systemd/system/tftp-server.service 文件的 ExecStart 字段为 ExecStart=/usr/sbin/in.tftpd -c -p -s /var/lib/tftpboot
     ```
-    -   -c 字段表示允许新文件创建
-    -   -p 字段表示不需要额外的权限检查
-    -   -s 字段可以改善关于索引目录的问题
+
+    - -c 字段表示允许新文件创建
+    - -p 字段表示不需要额外的权限检查
+    - -s 字段可以改善关于索引目录的问题
     ```bash
     修改 Also 字段为 Also=tftp-server.socket
     ```
@@ -721,8 +728,9 @@ EndSection
     # 将 abc/def 目录的内容打印出来,其他的 abc 目录的内容不会打印
     find . -path "./abc/*" ! -path "./abc/def/*" -prune -o "*.c" -print
     ```
-    -   -prune 参数来忽略一个完整的目录树
-    -   ! 表达式, 取反
+
+    - -prune 参数来忽略一个完整的目录树
+    - ! 表达式, 取反
 41. firewall-cmd 防火墙管理客户端
     ```bash
     sudo firewall-cmd --add-port=3308/tcp # 当前 zone 开启 3308 tcp 端口
@@ -749,8 +757,9 @@ EndSection
     pkg-config --libs glib # 列出 glib 第三方库库文件的位置，自动添加了 -L
     pkg-config --list-all # 列出所有可以使用的包
     ```
-    -   PKG_CONFIG_SYSROOT_DIR 如果为空，系统会自动给交叉编译工具链时添加 sysroot 路径，这时候可以设置 PKG_CONFIG_SYSROOT_DIR=/ 来规避这个问题
-    -   在 pkg-config 文件中的注释使用 `#` 开头
+
+    - PKG_CONFIG_SYSROOT_DIR 如果为空，系统会自动给交叉编译工具链时添加 sysroot 路径，这时候可以设置 PKG_CONFIG_SYSROOT_DIR=/ 来规避这个问题
+    - 在 pkg-config 文件中的注释使用 `#` 开头
 45. LD_LIBRARY_PATH 变量指定了程序运行时链接的动态库路径
 46. shutter 是 Fedora Workstation 内置的截屏工具
 47. Taskwarrior 是 Linux 的 TODO list 工具 1. [日期格式](https://taskwarrior.org/docs/dates.html) 2. [工具的 doc](https://taskwarrior.org/docs/) 3. [同步 task 的方法，使用 freecinc](https://freecinc.com/generated_keys)， [freecinc 官方网站](https://freecinc.com/)
@@ -829,6 +838,7 @@ sudo dnf install meld
     ```bash
     sudo dnf install bat
     ```
+
     2.  配置 man 使用 bat 带有色彩的打印
     ```bashrc
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -839,6 +849,7 @@ sudo dnf install meld
     ```bash
     sudo dnf install git-delta # 安装
     ```
+
     2.  配置 .gitconfig 文件
     ```
     [core]
@@ -851,20 +862,24 @@ sudo dnf install meld
     ```bash
     date -s "2020-05-28 09:00:00" # 设置系统时间为 2020 年 5 月 28 日 9 点 0 分 0 秒，冒号很重要
     ```
+
     2.  将系统时间修改为 RTC 硬件时间
     ```bash
     hwclock -w # 将系统时间修改为硬件 RTC 时间
     ```
+
     3.  从 RTC 硬件时间设置系统时间
     ```bash
     hwclock -s # 将硬件 RTC 时间修改为系统时间
     ```
+
     4.  现实硬件 RTC 时间
     ```bash
     hwclock -r
     ```
+
     5. 查看时区信息
-    ``` bash
+    ```bash
     date +"%Z %z"
     ```
 53. fd 匹配内容
@@ -907,8 +922,8 @@ file -L 连接脚本 # 可以跟踪连接脚本，查看所连接的目标的文
 ```
 
 57. tar 命令
-    -   tar -tvf \*.tar # 查看指定的压缩包的文件列表
-    -   tar -cvf a.tar 文件列表 # 创建 a.tar 的压缩包
+    - tar -tvf \*.tar # 查看指定的压缩包的文件列表
+    - tar -cvf a.tar 文件列表 # 创建 a.tar 的压缩包
 58. **xrandr** 命令
 
 ```
@@ -935,7 +950,6 @@ echo "hello world" | sed 's/world/china/g'
 ```
 
 62. 安装 fcitx5 ，关键的一个地方[修改X11 的默认输入法](https://wiki.archlinux.org/index.php/Fcitx#Input_method_module)
-
     1. 创建一个文件 **~/.pam_environment**，实测发现在 fedora + dwm 环境，修改的文件是 **~/.xsession** 文件，添加到处环境变量语句
 
         ```bash
@@ -1012,7 +1026,6 @@ C-kermit> c 连接
     	do sth
     ```
 69. make 学习笔记
-
     1. **wildcard** Makefile 的通配符 函数
 
 ```Makefile
@@ -1091,12 +1104,12 @@ sudo dnf install iwl1000-firmware
     b main #运行程序
     j Reset_Handler
     ``
-    21.`set mem inaccessible-by-default off`关闭 gdb 的内存访问限制
-    22.`set debug remote 1` 开启 gdb 的调试打印
+21.`set mem inaccessible-by-default off`关闭 gdb 的内存访问限制
+22.`set debug remote 1` 开启 gdb 的调试打印
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
-    -   unzip -O 936 指定字符集来解压文件，修复有时候解压文件在 linux 显示乱码问题,或者也可以修改环境变量：UNZIP="-O CP936" 以及 ZIPINFO="-O CP936"
-    -   针对不支持 -O 选项的 unzip (比如 solus), 可以参考 [在官方 unzip 上打补丁](https://www.linuxfromscratch.org/blfs/view/svn/general/unzip.html), 更新 unzip
+    - unzip -O 936 指定字符集来解压文件，修复有时候解压文件在 linux 显示乱码问题,或者也可以修改环境变量：UNZIP="-O CP936" 以及 ZIPINFO="-O CP936"
+    - 针对不支持 -O 选项的 unzip (比如 solus), 可以参考 [在官方 unzip 上打补丁](https://www.linuxfromscratch.org/blfs/view/svn/general/unzip.html), 更新 unzip
 79. chown -h red:red 軟連接名稱 # 修改軟連接的用戶需要添加 -h 參數
 80. 字體庫相關的命令
 81. 更新字體庫
@@ -1116,21 +1129,20 @@ sudo dnf install iwl1000-firmware
 
 82. Ruby 相关内容
     1.  gem 包管理命令 (gem 是 ruby 的包管理器)
-        -   gem install [gemname] 安装 gem 的包
-        -   gem install -l [gemname].gem 本地安装 gem 包
-        -   gem install [gemname] --version=[ver] 安装指定版本的 gem 包
-        -   gem update 更新所有的 gem 包
-        -   gem uninstall [gemname] 删除指定的 gem 包
-        -   gem uninstall [gemname] --version=[ver] 删除指定版本的 gem 包
-        -   gem list [--local] 查看本机已安装的所有 gem 包
+        - gem install [gemname] 安装 gem 的包
+        - gem install -l [gemname].gem 本地安装 gem 包
+        - gem install [gemname] --version=[ver] 安装指定版本的 gem 包
+        - gem update 更新所有的 gem 包
+        - gem uninstall [gemname] 删除指定的 gem 包
+        - gem uninstall [gemname] --version=[ver] 删除指定版本的 gem 包
+        - gem list [--local] 查看本机已安装的所有 gem 包
 83. [trash-cli Command Line Interface to FreeDesktop.org Trash.](https://github.com/andreafrancia/trash-cli)
-    -   trash-put 将文件和目录放到回收站
-    -   trash-empty 清空回收站
-    -   trash-list 列出来回收站的内容
-    -   trash-restore 回复一个指定的文件
-    -   trash-rm 删除一些文件从回收站
+    - trash-put 将文件和目录放到回收站
+    - trash-empty 清空回收站
+    - trash-list 列出来回收站的内容
+    - trash-restore 回复一个指定的文件
+    - trash-rm 删除一些文件从回收站
 84. [install fcitx chinese](https://wiki.archlinux.org/index.php/Fcitx5#Chinese)
-
     1.  sudo dnf install fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk
     2.  sudo dnf install fcitx5-chinese-addons
     3.  修改环境变量以及自动启动 `fcitx5`，编辑文件 ~/.bashrc
@@ -1151,45 +1163,51 @@ sudo dnf install iwl1000-firmware
     ```
 
 85. libreoffice 编程
-    -   =A1+10 Displays the contents of cell A1 plus 10. 求和
-    -   =A1*16% Displays 16% of the contents of A1. 乘以 * 0.16
-    -   =A1 \* A2 Displays the result of the multiplication of A1 and A2. 乘法
-    -   =ROUND(A1;1) Displays the contents of cell A1 rounded to one decimal place.
-    -   =EFFECTIVE(5%;12) Calculates the effective interest for 5% annual nominal interest with 12 payments a year.
-    -   =B8-SUM(B10:B14) Calculates B8 minus the sum of the cells B10 to B14. 先求和再做差
-    -   =SUM(B8;SUM(B10:B14)) Calculates the sum of cells B10 to B14 and adds the value to B8. 求和
+    - =A1+10 Displays the contents of cell A1 plus 10. 求和
+    - =A1*16% Displays 16% of the contents of A1. 乘以 * 0.16
+    - =A1 \* A2 Displays the result of the multiplication of A1 and A2. 乘法
+    - =ROUND(A1;1) Displays the contents of cell A1 rounded to one decimal place.
+    - =EFFECTIVE(5%;12) Calculates the effective interest for 5% annual nominal interest with 12 payments a year.
+    - =B8-SUM(B10:B14) Calculates B8 minus the sum of the cells B10 to B14. 先求和再做差
+    - =SUM(B8;SUM(B10:B14)) Calculates the sum of cells B10 to B14 and adds the value to B8. 求和
 86. **Makefile** 语法描述
-    -   `strip` 函数，删除开头和结尾的空格，eg:
+    - `strip` 函数，删除开头和结尾的空格，eg:
     ```makefile
     $(strip a b c ) => a b c #删除了结尾的空格
     ```
-    -   wildcard 函数进行通佩符匹配
+
+    - wildcard 函数进行通佩符匹配
     ```makefile
     ABC=$(wildcard pattern...) # 多个匹配模式之间使用空格隔开
     ```
-    -   patsubst 匹配替换
+
+    - patsubst 匹配替换
     ```makefile
     DEF=$(patsubst %.c,%.o,$(wildcard *.c)) # 将所有 .c 替换为同名的 .o 并赋值给 DEF
     ```
-    -   匹配的目标和依赖表述
+
+    - 匹配的目标和依赖表述
     ```makefile
     OBJS:=a.o b.o
     $(OBJS):%.o:%c
         dosth
     ```
-    -   VPATH 变量，所有依赖的搜索路径，VPATH 定义了一个目录的 list，对依赖搜索的时候会按照 list 定义的顺序去对应的目录中查找, 通常情况下不仅仅会在 VPATH 目录搜索依赖，还会搜索目标。
+
+    - VPATH 变量，所有依赖的搜索路径，VPATH 定义了一个目录的 list，对依赖搜索的时候会按照 list 定义的顺序去对应的目录中查找, 通常情况下不仅仅会在 VPATH 目录搜索依赖，还会搜索目标。
     ```makefile
     VPATH = src:../headers
     foo.o:foo.c 等价 foo.o:src/foo.c
     ```
-    -   vpath 可以针对指定类型的文件指定搜索的路径
+
+    - vpath 可以针对指定类型的文件指定搜索的路径
     ```makefile
     vpath pattern directories #  指定 pattern 类型的文件去 directors 目录中查找
     vpath pattern # 清除指定 pattern 类型的文件关联的搜索路径
     vpath 清除之前定义的所有有关 pattern 和对应的搜索路径
     ```
-    -   make 中目录搜索的过程
-    -   make 的递归使用方法，表示在 makefile 中使用 make 命令，当你在一个大型系统中包含多个子目录时，使用这种方法是一个不错的选择。可以这样写：
+
+    - make 中目录搜索的过程
+    - make 的递归使用方法，表示在 makefile 中使用 make 命令，当你在一个大型系统中包含多个子目录时，使用这种方法是一个不错的选择。可以这样写：
     ```makefile
     subdirs:
         cd subdir && $(MAKE)
@@ -1197,42 +1215,41 @@ sudo dnf install iwl1000-firmware
     subdirs:
         $(MAKE) -C subdir # 执行这个动作之后会修改 CURDIR 这个环境变量为 -C 紧跟的目录
     ```
-    -   $(error xxxxx) # 打印出错信息，会卡在这里, 和 $(info xxxx) 类似，只不过级别不一样
-87. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
 
-    -   vi 模式: `Ctrl Shift Space`
-    -   前向搜索模式`Ctrl Shift f` 后向搜索模式`Ctrl Shift b` 搜索的目标的时候，`Enter` 表示向前跳转，`Shift Enter` 表示向后跳转，`Escape` 表示退出
-    -   Control - 减小字体大小, Control + 增大字体大小
+    - $(error xxxxx) # 打印出错信息，会卡在这里, 和 $(info xxxx) 类似，只不过级别不一样
+87. [alacritty](https://github.com/alacritty/alacritty) 一款快速的，跨平台的，openGL 的终端模拟器
+    - vi 模式: `Ctrl Shift Space`
+    - 前向搜索模式`Ctrl Shift f` 后向搜索模式`Ctrl Shift b` 搜索的目标的时候，`Enter` 表示向前跳转，`Shift Enter` 表示向后跳转，`Escape` 表示退出
+    - Control - 减小字体大小, Control + 增大字体大小
 
 88. [X,X11,Xorg,XServer,XClient,Xlib 概念](https://blog.csdn.net/a379039233/article/details/80782351)
     ![](../Misc/figures/xwindow.png)
-
-    -   X 即 X window System,由 MIT 研发,设计哲学之一是:提供机制,而非策略.在 Unix Like 上使用的 GUI 被称为 X 或者 X11. X11 是一个软件而不是一个操作系统. X11 利用网络架构来进行图形界面的执行和绘制.较为著名的版本是 X11R6 这一版,目前大部分的 X 都是这个版本演化来的.现在大部分的发行版使用的 X 都是由 Xorg 基本会提供的 X11. X11 使用 MIT 授权.
-    -   Xorg 项目旨在创建和维护一个自由\可再发行并且开源的 X11. 他是一个开发源码,基于 X11 桌面所需要的基本软件.
-    -   Xwindow 在推出之后快速演化,在 1987 年时,已经是第 11 版本了,简称 X11.这个版本的核心协议基本稳定,不需要特别大的改动.所以目前 X window 依然是 X11.
-    -   X11 只定义了如何和内核通讯,如何和 Client 通讯,具体的策略依然是交给开发者自己. X window 是基于网络架构的客户端\服务器模式,基本是分成 X server 和 X client 两个组件而已.
-    -   X client 基于 X11 协议的客户端,X Client 最重要的工作是处理来自 X Server 的请坐,将这些动作处理成为绘图资料,再将这些绘图资料传回给 X server.
-    -   X server 基于 X11 协议的服务端,管理硬件设备,键盘\鼠标\显示器等.X Client 主要就是告知 X server 要绘制什么.X server 的主要功能(不论是 Xorg 或者 XFree86 都是一个 Xserver), 就是在管理 X server 所在主机上面有关显示的硬件配置.
-    -   Xorg 基金会, Xorg 也是一个 X server. X org 项目提供了一个 X window 的开源实现
-    -   X Window Manager 视窗管理员,特殊的 X client,负责管理所有的 X client 软件. XFCE\GNOME\KDS 等都是 X window manager 的具体实现.
-    -   Display Manager 提供登入需求,登入能够进入到 GUI 界面.
-    -   startx start X window system. 可以接 X Client 和 X Server 的参数.在默认的情况下(使用者尚未有 ~/.xinitrc 文件时),输入 startx,等价执行 xinit /etc/X11/xinitrc /etc/X11/xinit/xserverrc 这个指令,为什么不直接执行 xinit 而使用 startx 呢.因为必须要取得一些参数, startx 可以帮我们快速找到这些参数而不必手动输入. X window 最先要启动就是 X server, X server 启动的脚本参数是透过 /etc/X11/xinit 中的 xserverrc
-    -   Xlib C 语言版本的 X 接口的函数库
-    -   X session 指的是, X server 启动后直到 X server 关闭这段时间一切和 X 相关的动作都属于 Xsession 的内容.管理 X session 的程序成为 Display Manager, 常见的有 gdm\kdm\xdm 等.
-    -   如果没有指定 DM 开机运行的话,手动启动 DM 使用的是 startx , 可以知道 startx 的作用可以看作是 DM 的一种隐形实现. 他使用 xinit 命令,分别根据 /etc/X11/xinit/xinitrc 和 /etc/X11/xinit/xserverrc 中所指定的设置唤起 X. 其中 Xserverrc 执行 Xserver 的运行任务, xinitrc 则运行 Xsession 命令. 综合来说 DM 完成三个任务:1. X server 启动, 2. X sessoion 初始化, 3. X session 管理.
-    -   X server 给 X Client 发送的消息叫 **Event**, XClient 向 XServer 发送的消息叫 **Request**
-    -   xcb/Xlib 都是 X client 库的一种. 一个 window 在 X11 的协议中就是一个结构体,允许 X client 连接到 X server 在显示屏上显示一些内容,以及录入一些东西. window 很简单,包含 x,y 坐标,一个宽度 width 和高度 height.这就构成了一个 window 的边框.windows 也包含有一个定义的栈顺序,如果一个 window 在这个栈中的高位,就可以覆盖低位的 window.
-    -   因为历史原因,展示一个窗口就做 mapping(MapWindow),隐藏一个窗口叫做 unmapping(UnmapWindow).值得注意的是unmapping 窗口并不会销毁这个窗口.有点类似最小化的意思.
-    -   使用 xlib 基于 X window 开发程序时,需要注意一下几点:
+    - X 即 X window System,由 MIT 研发,设计哲学之一是:提供机制,而非策略.在 Unix Like 上使用的 GUI 被称为 X 或者 X11. X11 是一个软件而不是一个操作系统. X11 利用网络架构来进行图形界面的执行和绘制.较为著名的版本是 X11R6 这一版,目前大部分的 X 都是这个版本演化来的.现在大部分的发行版使用的 X 都是由 Xorg 基本会提供的 X11. X11 使用 MIT 授权.
+    - Xorg 项目旨在创建和维护一个自由\可再发行并且开源的 X11. 他是一个开发源码,基于 X11 桌面所需要的基本软件.
+    - Xwindow 在推出之后快速演化,在 1987 年时,已经是第 11 版本了,简称 X11.这个版本的核心协议基本稳定,不需要特别大的改动.所以目前 X window 依然是 X11.
+    - X11 只定义了如何和内核通讯,如何和 Client 通讯,具体的策略依然是交给开发者自己. X window 是基于网络架构的客户端\服务器模式,基本是分成 X server 和 X client 两个组件而已.
+    - X client 基于 X11 协议的客户端,X Client 最重要的工作是处理来自 X Server 的请坐,将这些动作处理成为绘图资料,再将这些绘图资料传回给 X server.
+    - X server 基于 X11 协议的服务端,管理硬件设备,键盘\鼠标\显示器等.X Client 主要就是告知 X server 要绘制什么.X server 的主要功能(不论是 Xorg 或者 XFree86 都是一个 Xserver), 就是在管理 X server 所在主机上面有关显示的硬件配置.
+    - Xorg 基金会, Xorg 也是一个 X server. X org 项目提供了一个 X window 的开源实现
+    - X Window Manager 视窗管理员,特殊的 X client,负责管理所有的 X client 软件. XFCE\GNOME\KDS 等都是 X window manager 的具体实现.
+    - Display Manager 提供登入需求,登入能够进入到 GUI 界面.
+    - startx start X window system. 可以接 X Client 和 X Server 的参数.在默认的情况下(使用者尚未有 ~/.xinitrc 文件时),输入 startx,等价执行 xinit /etc/X11/xinitrc /etc/X11/xinit/xserverrc 这个指令,为什么不直接执行 xinit 而使用 startx 呢.因为必须要取得一些参数, startx 可以帮我们快速找到这些参数而不必手动输入. X window 最先要启动就是 X server, X server 启动的脚本参数是透过 /etc/X11/xinit 中的 xserverrc
+    - Xlib C 语言版本的 X 接口的函数库
+    - X session 指的是, X server 启动后直到 X server 关闭这段时间一切和 X 相关的动作都属于 Xsession 的内容.管理 X session 的程序成为 Display Manager, 常见的有 gdm\kdm\xdm 等.
+    - 如果没有指定 DM 开机运行的话,手动启动 DM 使用的是 startx , 可以知道 startx 的作用可以看作是 DM 的一种隐形实现. 他使用 xinit 命令,分别根据 /etc/X11/xinit/xinitrc 和 /etc/X11/xinit/xserverrc 中所指定的设置唤起 X. 其中 Xserverrc 执行 Xserver 的运行任务, xinitrc 则运行 Xsession 命令. 综合来说 DM 完成三个任务:1. X server 启动, 2. X sessoion 初始化, 3. X session 管理.
+    - X server 给 X Client 发送的消息叫 **Event**, XClient 向 XServer 发送的消息叫 **Request**
+    - xcb/Xlib 都是 X client 库的一种. 一个 window 在 X11 的协议中就是一个结构体,允许 X client 连接到 X server 在显示屏上显示一些内容,以及录入一些东西. window 很简单,包含 x,y 坐标,一个宽度 width 和高度 height.这就构成了一个 window 的边框.windows 也包含有一个定义的栈顺序,如果一个 window 在这个栈中的高位,就可以覆盖低位的 window.
+    - 因为历史原因,展示一个窗口就做 mapping(MapWindow),隐藏一个窗口叫做 unmapping(UnmapWindow).值得注意的是unmapping 窗口并不会销毁这个窗口.有点类似最小化的意思.
+    - 使用 xlib 基于 X window 开发程序时,需要注意一下几点:
         1. 所有的 window 都在一个 root window 中
         2. 所有的 sub-window 都在他的 parent window 或者被截断的
         3. 一个 parent window 会有一个 title bar
         4. menus, buttons, dialogue boxes 都被认为是 window
         5. 所有的长度在屏幕都是以像素数量测量的
         6. 每一个 window 都拥有他自己的坐标信息
-    -   运行 X window server 的屏幕是 root window,如果是 root window 的 chid window.那么这个 window 会包含有一个 title.
-    -   在 X window,什么都是一个 window.不仅仅是 menu\button\... 等,有一个例外就是光标
-    -   原始的坐标系,左上角是原点,x 轴从做向右边,y 轴从上到下边
+    - 运行 X window server 的屏幕是 root window,如果是 root window 的 chid window.那么这个 window 会包含有一个 title.
+    - 在 X window,什么都是一个 window.不仅仅是 menu\button\... 等,有一个例外就是光标
+    - 原始的坐标系,左上角是原点,x 轴从做向右边,y 轴从上到下边
 
 89. nm 工具获取文件的符号表
     1. 小写表示为局部,大写为全局(或者说外部)
@@ -1247,12 +1264,12 @@ sudo dnf install iwl1000-firmware
         sudo cat /dev/ttyUSB0 | hexdump -C
         ```
 
-    6. ``nm -D xxx.so`` 解析动态库中的符号表
-    7. ``nm xxx.a`` 解析静态库中的符号表
+    6. `nm -D xxx.so` 解析动态库中的符号表
+    7. `nm xxx.a` 解析静态库中的符号表
 
 90. 链接脚本的 KEEP 关键字用来强制保存特定的 sections
+    - eg:
 
-    * eg:
         ```ld
         SECTIONS
         {
@@ -1266,481 +1283,472 @@ sudo dnf install iwl1000-firmware
         链接脚本的一般语法: <filename>(<section>)
         ```
 
-    * We see that each of our symbol has a section. This is due to the fact that we compiled our firmware with the -ffunction-sections and -fdata-sections flags
+    - We see that each of our symbol has a section. This is due to the fact that we compiled our firmware with the -ffunction-sections and -fdata-sections flags
 
-90. route 工具是用来显示和配置路由相关的命令
+91. route 工具是用来显示和配置路由相关的命令
+    - route -n 显示路由信息
+    - route del 可以删除指定的路由
+    - route add default gw ip 信息 添加默认的路由信息
 
-    -   route -n 显示路由信息
-    -   route del 可以删除指定的路由
-    -   route add default gw ip 信息 添加默认的路由信息
-
-91. debug kernel [dynamic printk](https://cateee.net/lkddb/web-lkddb/DYNAMIC_DEBUG.html)
+92. debug kernel [dynamic printk](https://cateee.net/lkddb/web-lkddb/DYNAMIC_DEBUG.html)
     1. mount -t debugfs none /sys/kernel/debug
     2. 修改 dynamic_magic/control 文件来控制动态切换打印信息,可以精确到某一个 module/file/func 级别，eg:
         ```bash
         echo -n 'module dd +p' > dynamic/control 放开 dd 模块的调试级别打印信息
         ```
-92. [repo](https://gerrit.googlesource.com/git-repo/) 管理大型 git 仓库
+93. [repo](https://gerrit.googlesource.com/git-repo/) 管理大型 git 仓库
     1. 安装
         ```bash
         git clone https://gerrit-googlesource.lug.ustc.edu.cn/git-repo # 将 git-repo 路径添加到 PATH 环境变量
         ```
-93. [tio](https://github.com/tio/tio) 一款好用的工具終端工具
-    -   支持映射特殊符號，比如 \n 直接映射到 \r\n, # tio -m INLCRNL
-    -   支持打印時間戳 # 目前在 Fedora 35 上測試異常,已經提及偶啊 [issue](https://github.com/tio/tio/issues/131)
-    -   支持日志保存 # 通過 -l 參數制定保存的日至路徑
-94. cp 命令特殊用法
-    -   cp -t TARGET_DIR SOURCE0 SOURCE1 \*\* # 將 SOURCE0 SOURCE1 等內容全部複製到目錄 TARGET_DIR 中
-95. [ufw](https://help.ubuntu.com/community/UFW) 是一个防火墙配置工具，列举一些常见的命令
-    -   sudo eopkg install ufw # solus 安装 ufw
-    -   sudo ufw enable # 开启 ufw
-    -   sudo ufw disable # 关闭 ufw
-    -   sudo ufw allow port # 放开指定的端口
-    -   sudo ufw status # 查看 ufw 规则
-    -   sudo ufw status numbered # 对 ufw 的每条规则进行编号
-    -   sudo ufw delete 编号 # 删除指定编号的规则
-    -   sudo ufw reload # 重新加载 ufw 规则
-    -   sudo systemctl enable ufw # 创建一个开机自启动的 ufw 服务
-    -   sudo systemctl disable ufw # 关闭开机自启动的 ufw 服务
-    -   sudo systemctl start ufw # 启动 ufw 服务
-    -   sudo systemctl stop ufw # 启动 ufw 服务
-96. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
-97. 7zz x 压缩包.7z # 按照路径的信息解压缩 7z 文件
-98. [jless](https://github.com/PaulJuliusMartinez/jless) 一款命令行解析 json 格式数据的工具，具有很好的可视化效果
-99. **json** 格式的数据语法,映射（就是 key 和 value）, json 没有注释：
-    -   并列的数据之间用逗号 `,` 隔开
-    -   映射用冒号 `:` 表示, 将 key 和 value 隔开
-    -   并列数据的集合(数组 arrays)用方括号 `[]` 表示
-    -   映射的集合(对象 object)用大括号 `{}` 表示
-    -   object 是 key:value 对的集合,一个 object 开头 `{` 结尾 `}`
-100.    从结构上看，所有的数据最终都可以分解成三种数据类型
-        -   标量(scalar) ，就是单独的字符串(string)或者数字(number)
-        -   序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)
-        -   映射(mapping), 名/值(Name/value), 数据有一个名称，还有一个与之相对应的值，这又称作散列(hash)或字典(dictionary)
-101.    [vit](https://github.com/vit-project/vit) 一款配合 taskwarrior 使用的可视化工具
-102.    修改 Linux 默认的编辑器,修改环境变量 **EDITOR** `export EDITOR=/usr/local/bin/vim >> ~/.bashrc`
-103.    64 Bit Fedora 运行 32bit 程序需要安装软件包 `glibc.i686`
-104.    [insect](https://github.com/sharkdp/insect) 一款命令行的科学计算器
-105.    addr2line 调试程序
-        -   arm-none-eabi-addr2line -a 0x08009e1f -p -e \*.elf # 根据指定出问题的地址，找到对应的那句代码
-106.    [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
-107.    tcpdump 调试网络
+94. [tio](https://github.com/tio/tio) 一款好用的工具終端工具
+    - 支持映射特殊符號，比如 \n 直接映射到 \r\n, # tio -m INLCRNL
+    - 支持打印時間戳 # 目前在 Fedora 35 上測試異常,已經提及偶啊 [issue](https://github.com/tio/tio/issues/131)
+    - 支持日志保存 # 通過 -l 參數制定保存的日至路徑
+95. cp 命令特殊用法
+    - cp -t TARGET_DIR SOURCE0 SOURCE1 \*\* # 將 SOURCE0 SOURCE1 等內容全部複製到目錄 TARGET_DIR 中
+96. [ufw](https://help.ubuntu.com/community/UFW) 是一个防火墙配置工具，列举一些常见的命令
+    - sudo eopkg install ufw # solus 安装 ufw
+    - sudo ufw enable # 开启 ufw
+    - sudo ufw disable # 关闭 ufw
+    - sudo ufw allow port # 放开指定的端口
+    - sudo ufw status # 查看 ufw 规则
+    - sudo ufw status numbered # 对 ufw 的每条规则进行编号
+    - sudo ufw delete 编号 # 删除指定编号的规则
+    - sudo ufw reload # 重新加载 ufw 规则
+    - sudo systemctl enable ufw # 创建一个开机自启动的 ufw 服务
+    - sudo systemctl disable ufw # 关闭开机自启动的 ufw 服务
+    - sudo systemctl start ufw # 启动 ufw 服务
+    - sudo systemctl stop ufw # 启动 ufw 服务
+97. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
+98. 7zz x 压缩包.7z # 按照路径的信息解压缩 7z 文件
+99. [jless](https://github.com/PaulJuliusMartinez/jless) 一款命令行解析 json 格式数据的工具，具有很好的可视化效果
+100.    **json** 格式的数据语法,映射（就是 key 和 value）, json 没有注释：
+        - 并列的数据之间用逗号 `,` 隔开
+        - 映射用冒号 `:` 表示, 将 key 和 value 隔开
+        - 并列数据的集合(数组 arrays)用方括号 `[]` 表示
+        - 映射的集合(对象 object)用大括号 `{}` 表示
+        - object 是 key:value 对的集合,一个 object 开头 `{` 结尾 `}`
+101.    从结构上看，所有的数据最终都可以分解成三种数据类型
+        - 标量(scalar) ，就是单独的字符串(string)或者数字(number)
+        - 序列(sequence), 若干个相关的数据按照一定顺序并列在一起，也叫数组(array)
+        - 映射(mapping), 名/值(Name/value), 数据有一个名称，还有一个与之相对应的值，这又称作散列(hash)或字典(dictionary)
+102.    [vit](https://github.com/vit-project/vit) 一款配合 taskwarrior 使用的可视化工具
+103.    修改 Linux 默认的编辑器,修改环境变量 **EDITOR** `export EDITOR=/usr/local/bin/vim >> ~/.bashrc`
+104.    64 Bit Fedora 运行 32bit 程序需要安装软件包 `glibc.i686`
+105.    [insect](https://github.com/sharkdp/insect) 一款命令行的科学计算器
+106.    addr2line 调试程序
+        - arm-none-eabi-addr2line -a 0x08009e1f -p -e \*.elf # 根据指定出问题的地址，找到对应的那句代码
+107.    [Modpoll Modbus Master Simulator](https://www.modbusdriver.com/modpoll.html) 可以用来调试的一个 Modbus 命令行工具
+108.    tcpdump 调试网络
+        - tcpdump -i enp0s20f0u3u3 port not 22 # 过滤来自指定网卡非 22 端口的数据
+        - tcpdump -i enp0s20f0u3u3 port not 22 -w xxx.pcap # 过滤来自指定网卡非 22 端口的数据,将抓包的数据保存到文件 xxx.pcap 文件,这个文件可以用 wireshark 分析
+        - tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
+        - tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文
+        - tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 -A -vvv -XX # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文,并以 16 进制详细打印报文头内容
+        - tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX # 过滤指定网卡、udp 格式、指定端口的数据包
+        - tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX and dst xxxx # 过滤指定网卡、udp 格式、指定端口的数据包,发送到指定设备的包,dst表示发送到指定设备
+        - tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX and src xxxx # 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来的包,src表示从指定设备接收的包
+        - tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包
+        - tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX and not arp and not igmp ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包,并且过滤 arp 和 igmp 包
+        - tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX and not arp and not igmp and not 123 ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包,并且过滤 arp 和 igmp 包，并过滤掉 123 端口的 NTP（网络校时包）
+        - -XX 输出包的头部数据
+        - -vvv 打印非常详细的信息 | -vv 打印比 -vvv 稍微不详细的信息 | -v 打印比 -vv 稍微不详细的信息
+        - -nn 直接以 IP 和端口号的方式显示，而非主机名和服务名称
+        - 特殊的端口: hostmon (5355)
 
-        -   tcpdump -i enp0s20f0u3u3 port not 22 # 过滤来自指定网卡非 22 端口的数据
-        -   tcpdump -i enp0s20f0u3u3 port not 22 -w xxx.pcap # 过滤来自指定网卡非 22 端口的数据,将抓包的数据保存到文件 xxx.pcap 文件,这个文件可以用 wireshark 分析
-        -   tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
-        -   tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文
-        -   tcpdump host 10.20.52.91 and port 123 -i enp0s20f0u3u3 -A -vvv -XX # 过滤来自指定 host 指定网卡,指定 ip 和端口的数据报文,并以 16 进制详细打印报文头内容
-        -   tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX # 过滤指定网卡、udp 格式、指定端口的数据包
-        -   tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX and dst xxxx # 过滤指定网卡、udp 格式、指定端口的数据包,发送到指定设备的包,dst表示发送到指定设备
-        -   tcpdump -i enp0s20f0u3u3 udp port 5168 -A -vvv -nn -XX and src xxxx # 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来的包,src表示从指定设备接收的包
-        -   tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包
-        -   tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX and not arp and not igmp ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包,并且过滤 arp 和 igmp 包
-        -   tcpdump -i enp0s20f0u3u3 udp port 5168 and src xxxx and dst xxx -A -vvv -nn -XX and not arp and not igmp and not 123 ### 过滤指定网卡、udp 格式、指定端口的数据包,从指定设备发出来并到指定设备的包,src表示从指定设备接收的包,并且过滤 arp 和 igmp 包，并过滤掉 123 端口的 NTP（网络校时包）
-        -   -XX 输出包的头部数据
-        -   -vvv 打印非常详细的信息 | -vv 打印比 -vvv 稍微不详细的信息 | -v 打印比 -vv 稍微不详细的信息
-        -   -nn 直接以 IP 和端口号的方式显示，而非主机名和服务名称
-        -   特殊的端口: hostmon (5355)
+109.    交叉编译工具连查看动态库的依赖信息
+        - arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
 
-1. 交叉编译工具连查看动态库的依赖信息
+110.    gzip 文件解压缩
+        - gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
+        - gunzip xxx.gz # 解压 gzip 文件
 
-    - arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
+111.    [Fedora 部署 nginx 服务](https://fedoraproject.org/wiki/Nginx)
+        - 如果一直出现 403 Forbidden, 可以按照如下思路排查：
+            1. 确认下根目录是否存在，根目录的 index 文件是否存在
+            2. 关闭 selinux : `setenforce 0`
+            3. 如果外部 ip 无法访问，内部 ip 可以访问，那么将防火墙打开对应的 80 端口，这个端口是 nginx 默认的服务端口,使用 firewall-cmd 打开防火墙端口：`sudo firewall-cmd --add-port=22/tcp`
 
-1. gzip 文件解压缩
+112.    [GitBlit](http://gitblit.github.io/gitblit/) 快速搭建 git 服务器
+        - [无法正常创建 tickets](https://stackoverflow.com/questions/41735685/cant-create-proposal-ticket) 需要添加 `tickets.service = com.gitblit.tickets.BranchTicketService` 到文件 `data/gitblit.properties`
+        - [tickets 的使用方法](http://gitblit.com/tickets_using.html)
+            1. 标准的 tickets 可以通过 web uii 创建，包括:Bug, Enhancement, task 和 Question
+            2. proposal ticket(也就是 pr) 不能通过 web ui 创建，需要使用命令行，向指定的 ref (HEAD:refs/for/new)提交, 提交之后会返回一个 ticketid,如果后续需要追加 commit 到这个 pr,那么需要向 origin 的 ticket/{id} 这个分支提交
+        - 如果发现使用 ssh 生成的 key 无法直接 push 或者 poll，可以参看 [issue](https://github.com/gitblit-org/gitblit/issues/1419) 的处理方法,核心有两点：
+            1. 检查 ssh 的 key 是否匹配
 
-    - gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
-    - gunzip xxx.gz # 解压 gzip 文件
+                ```bash
+                ssh -l yangyongsheng -i ~/.ssh/id_rsa -p 12390 10.20.52.50 keys ls # 检查远端服务器的 key 的 MD5
 
-1. [Fedora 部署 nginx 服务](https://fedoraproject.org/wiki/Nginx)
+                # 检查本机的 ssh 的 md5 或者 sha256
+                ssh-keygen -l -f ~/.ssh/id_rsa -E md5
+                ssh-keygen -l -f ~/.ssh/id_rsa -E sha256
+                ```
 
-    - 如果一直出现 403 Forbidden, 可以按照如下思路排查：
-        1. 确认下根目录是否存在，根目录的 index 文件是否存在
-        2. 关闭 selinux : `setenforce 0`
-        3. 如果外部 ip 无法访问，内部 ip 可以访问，那么将防火墙打开对应的 80 端口，这个端口是 nginx 默认的服务端口,使用 firewall-cmd 打开防火墙端口：`sudo firewall-cmd --add-port=22/tcp`
+            2. 如过匹配可能是本机不支持 RSA 的签名算法，需要修改 `/etc/ssh_config`， 添加如下两行的内容
+                ```bash
+                PubkeyAcceptedKeyTypes +ssh-rsa
+                HostKeyAlgorithms +ssh-rsa
+                ```
+            3. 特别地，通过 `ssh -v -p 12390  yangyongsheng@10.20.52.50 keys ls` 命令可以看到更多的细节
 
-1. [GitBlit](http://gitblit.github.io/gitblit/) 快速搭建 git 服务器
+113.    ethtool 工具查看以及修改网卡参数
+        - ethtool eth1 查看 eth1 网卡参数
+        - ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
 
-    - [无法正常创建 tickets](https://stackoverflow.com/questions/41735685/cant-create-proposal-ticket) 需要添加 `tickets.service = com.gitblit.tickets.BranchTicketService` 到文件 `data/gitblit.properties`
-    - [tickets 的使用方法](http://gitblit.com/tickets_using.html)
-        1. 标准的 tickets 可以通过 web uii 创建，包括:Bug, Enhancement, task 和 Question
-        2. proposal ticket(也就是 pr) 不能通过 web ui 创建，需要使用命令行，向指定的 ref (HEAD:refs/for/new)提交, 提交之后会返回一个 ticketid,如果后续需要追加 commit 到这个 pr,那么需要向 origin 的 ticket/{id} 这个分支提交
-    - 如果发现使用 ssh 生成的 key 无法直接 push 或者 poll，可以参看 [issue](https://github.com/gitblit-org/gitblit/issues/1419) 的处理方法,核心有两点：
+114.    通过环境变量 **XDG_SESSION_TYPE** 可以查看系统使用的是 wayland 还是 X11
+115.    mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 memaid 类型的代码块来绘制
+116.    weston 知识
+        - **WESTON_DATA_DIR** 是定义weston 相关 app 运行资源(一些 png 图片等)的环境变量
 
-        1. 检查 ssh 的 key 是否匹配
+117.    newlibc 中的 sbrk 使用链接脚本的 end 标记
 
-            ```bash
-            ssh -l yangyongsheng -i ~/.ssh/id_rsa -p 12390 10.20.52.50 keys ls # 检查远端服务器的 key 的 MD5
-
-            # 检查本机的 ssh 的 md5 或者 sha256
-            ssh-keygen -l -f ~/.ssh/id_rsa -E md5
-            ssh-keygen -l -f ~/.ssh/id_rsa -E sha256
-            ```
-
-        2. 如过匹配可能是本机不支持 RSA 的签名算法，需要修改 `/etc/ssh_config`， 添加如下两行的内容
-            ```bash
-            PubkeyAcceptedKeyTypes +ssh-rsa
-            HostKeyAlgorithms +ssh-rsa
-            ```
-        3. 特别地，通过 `ssh -v -p 12390  yangyongsheng@10.20.52.50 keys ls` 命令可以看到更多的细节
-
-2. ethtool 工具查看以及修改网卡参数
-
-
-    * ethtool eth1 查看 eth1 网卡参数
-    * ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
-
-1. 通过环境变量 **XDG_SESSION_TYPE** 可以查看系统使用的是 wayland 还是 X11
-1. mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 memaid 类型的代码块来绘制
-1. weston 知识
-    - **WESTON_DATA_DIR**  是定义weston 相关 app 运行资源(一些 png 图片等)的环境变量
-
-1. newlibc 中的 sbrk 使用链接脚本的 end 标记
-
-    ```C
-    void * __attribute__((weak))
-    _sbrk (ptrdiff_t incr)
-    {
-      extern char   end asm ("end"); /* Defined by the linker. 使用链接脚本定义的 end 标记确定 heap 区 */
-      ...
-    }
-    ```
-
-1. evtest 测试 /dev/input/eventX 测试对应的输入设备
-
-    * cat /proc/bus/input/devices  查看所有的输入设备
-
-1. nfs 无法写入的时候，需要在 /etc/exports 文件将这个目录的权限修改,以 /tmp/abc 目录为例 `/tmp/abc *(no_root_squash,rw,sync,no_subtree_check)`, 重点是 **no_root_squash** 这个配置
-
-    * sudo exportfs -v # 可以打印出来 nfs 配置的挂载目录信息（实际的配置在文件 /etc/exports）
-    * nfs 挂载不成功的时候，比如说打印: ``kernel: svc: failed to register nfsaclv2 RPC service (errno 111)``， 很可能是  /etc/netconfig 文件配置不对，找一个正确的配置就可以
-        ``` bash
-        udp6       tpi_clts      v     inet6    udp     -       -
-        tcp6       tpi_cots_ord  v     inet6    tcp     -       -
-        udp        tpi_clts      v     inet     udp     -       -
-        tcp        tpi_cots_ord  v     inet     tcp     -       -
-        rawip      tpi_raw       -     inet      -      -       -
-        local tpi_cots_ord - loopback - - -
-        unix tpi_cots_ord - loopback - - -
-        ```
-    * nfs 挂载不成功的时候，检查下 rpcbind 服务是否正常运行，使用 systenmd 查看状态(systemctl status rpcbind )和 journalctl 查看日志来分析
-    * [fedora 40 安装 nfs 服务器指导](https://www.server-world.info/en/note?os=Fedora_40&p=nfs&f=1)
-
-119. `cat /proc/sys/kernel/printk` 会打印出来 4 个数据，分别表示
-
-1. console_loglevel ：优先级比这个高的会打印出来
-1. default_message_loglevel ：如果 printk 没有明确指定打印级别，那么默认是这个级别
-1. minimum_console_loglevel ：console_loglevel 可以设置的最高级别
-1. default_console_loglevel ：console_loglevel 默认的级别
-
-1. **netcat** 可以用来调试网络，作为网络串口助手类似的工具
-
-    - netcat -v 10.20.52.123 567 -u -p 123 # 使用源端口 123 向目标端口 567 目标 ip 10.20.52.123 发送 udp 连接
-    - echo '0059000800000000' | xxd -r -p | netcat -v 10.20.52.99 567 -u -p 123 # 通过 netcat 发送 16 进制数据 0x00 0x59 ...
-
-1. iperf 工具，网络压力测试工具
-1. 服务端运行： `iperf -u -s -i 1` # -u 表示以 udp 模式运行 不加该参数默认是 tcp 模式，-s 表示作为客户端, 和嵌入式板卡测试时候发现，如果最后统计丢包率，可能十分不准确，这时候可以通过追加 **-i 1**，让服务端每次都打印出来速度信息
-1. 客户端运行：
-    1. `iperf -u -c 192.168.1.5 -b 100M -t 60 -i 2` # -u 表示在 udp 模式下，以 100M 的速率想服务端上传数据，进行带宽测试,测试时间为 60s
-1. iperf3 工具和 iperf 类似可以用来测试网络带宽，服务端启动 `iperf3 -s` ， 客户端启动 `iperf3 -c xxx.xxx.xxx.xxx`
-1. 拆分文件命令介绍
-1. csplit 工具方便对文件按照指定的正则表达式进行拆分.
-
-    1. csplit 工具
-    ```bash
-    csplit 文件名 /正则表达式/[偏移]
-    csplit a.txt /abc/+1
-    ```
-
-    2. split 工具 split -b 拆分大小 待拆分的文件名 文件前缀
-
-    ```bash
-    split -b 1G a.bin a_split. # 就会将 a.bin 以单个文件块为 1G 大小进行拆分，默认拆分为 a_split.aa a_split.ab ...
-    ```
-
-1. ddcutil 工具可以设置外接 HDMI 显示器的亮度, 具体方法:
-
-    ```bash
-    # ddcutil detect 查看支持的显示器信息
-    # ddcutil setvcp 10 50 命令码 10 表示设置亮度 50 表示设置的亮度值
-    # ddcutil getvcp 10 命令码 10 表示获取亮度
-    # ddcutil vcpinfo 查看显示器信息的信息
-    ```
-
-1. [sokit](https://github.com/sinpolib/sokit/releases/tag/v1.3.20150507) Linux 平台图形化的 tcp/udp 调试工具
-1. 解决普通用户需要 sudo 权限打开 tty 设备的问题
-1. 简单粗暴，直接 `sudo chmod 666 /dev/ttyACM0` # 直接修改对应设备的权限
-1. 将 red 用户添加到 dialog 组， `sudo usermod -aG dialout red`, 不需要重启系统,将当前用户添加到 dialout 组 `sudo usermod -a -G dialout $USER`
-1. 修改 udev 的 rules 规则，将对应的权限修改为 666, 这种方法需要在 /etc/udev/ 目录下找到对应的规则文件
-1. `errno` 工具可以方便查找错误号
-1. errno -l # 列出所有的错误号
-1. errno 11 # 查看 11 号错误号信息
-1. `kill` 命令也可以用来查看指定的信号
-1. kill -l # 列出所有的信号量
-1. kill -l 11 # 查看 11 号信号量的意义
-1. 默认创建的 socket 都是阻塞型的,但是可以通过函数 `setsockopt(m_socket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv))` 先
-1. 针对多播:
-   1. 可以通过修改设置禁止回环`setsockopt(m_socket, IPPROTO_IP, IP_MULTICAST_LOOP, &(loop_enable), sizeof(loop_enable))`,即自己发送出去的数据自己不会读回来.
-1. `cutecom` 一款 Linux 下的串口 GUI 工具
-1. strace 命令
-1. strace -f -o xxx.log 命令 命令参数
-1. mutt 邮件客户端配置(procmail, fetchmail, msmtp)
-1. procmail 负责邮件转发（这里转发给 mutt, 对应的配置文件 ~/.procmail）
-
-    ``` bash
-    VERBOSE=yes
-    DEFAULT=/var/spool/mail/user_name
-    MAILDIR=$HOME/Mail
-    LOGFILE=$HOME/.procmail.log
-    ```
-1. fetchmail 负责拉取邮件（从服务器拉取邮件, 对应的配置文件 ~/.fetchmailrc）,测试配置文件使用 ``fetchmail -v`` 测试
-    ``` bash
-    set daemon 60 # 在后台每隔 60s 运行一次
-    poll xxxxxxx(服务器地址) proto pop3 port 110
-        user "xxxxxxxxxxxxx" password "xxxxx" # 用户名和密码
-        keep # 不删除服务器的邮件
-        mda "/usr/bin/procmail -d %T" # Mail Delivery Agent
-        sslproto '' # ssl 协议类型，空表示无 ssl
-    mimedecode
-    ```
-1. msmtp 负责发送邮件,对应的配置文件 ~/.msmtprc,测试使用 ``msmtp --serverinfo -d``
-    ``` bash
-    account default
-    host xxxxxxxxxx # 服务器地址
-    from xxxxxxxxxx # 用户名抬头
-    auth login
-    #auth plain
-    tls off
-    user xxxxx # 用户名
-    password xxxxx # 密码
-    logfile ~/.msmtp.log
-    ```
-1. mutt 简单配置, ~/.muttrc
-    ``` bash
-    set sendmail="/usr/bin/msmtp"
-    set use_from=yes
-    set realname="xxxxxxxxxxxx"
-    set from=xxxxxxxxxxxxx
-    set envelope_from=yes
-    ```
-
-1. [ftp 服务安装](https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide/servers/File_and_Print_Servers/#s1-FTP)
-1. sudo dnf install vsftpd # 安装 ftp 服务
-1. sudo firmwall-cmd --permanent --add-service=ftp # 放开防火墙
-1. sudo systemctl start vsftpd.service # 开启 ftp 服务
-1. lsof 命令查看应用程序打开的文件名，比如查找打开 /dev/ttyACM0 的进程:`sudo lsof | grep "ttyACM0"`
-1. [atftp](https://github.com/madmartin/atftp.git)　是一个新的　tftp 工具，可以替换古老的　tftp-hpa
-1. syslog 和 journalctl 工具进行日志分析
-
-    - journalctl 工具需要　syslog 基础
-        1. -u service_name # 查看指定服务的日志
-        2. -t --identifier=STRING # 过滤指定　identifier 的日志
-        3. -x 可以额外打印更详细的日志信息
-        4. -p 指定打印的优先级别，可以跟具体的级别(1，那么会打印0和1级别的日志)以及范围（1...5）打印包括1到5之间的所有级别日志
-        5. -e 打印最后的几段日志信息
-        6. -f 持续打印
-
-1. `nproc` 命令可以返回 cpu 的核心数量
-1. [nmcli 工具链接网络](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-adding_and_configuring_a_static_ethernet_connection_with_nmcli) （这个工具够强大）
-
-    - `nmcli connection add type ethernet ifname enp4s0 ip4 192.168.91.211/24 gw4 192.168.91.1` 配置指定网卡静态 ipv4 和网关
-    - `nmcli connection add type ethernet con-name xxxx ifname enp4s0 ip4 192.168.91.211/24 gw4 192.168.91.1` 配置指定网卡静态 ipv4 和网关,并创建一个链接的名字配置为 xxxx
-    - `nmcli connection modify xxxx ipv4.dns "8.8.8.8 223.5.5.5"` # 取代原先的 dns 配置
-    - `nmcli connection modify xxxx +ipv4.dns "8.8.8.8 223.5.5.5"` # 追加 dns 到原先的 dns 配置
-    - `nmcli -p connection show xxxx` # 查看 xxxx 的详细配置
-    - `nmcli con edit type ethernet con-name xxxx` 交互式添加一个网络配置条目, 会将新的配置存储在 `/etc/sysconfig/network-scripts/ifcfg-xxxx`, 但是在 Solus 上是存储在 `/etc/NetworkManager/system-connections/`
-    - `nmcli connection show` 查看存在的网络连接
-    - `nmcli connection modify enp2s0 connection.autoconnect yes` 设置指定的网络连接开机自动连接
-    - `nmcli connection show enp2s0` 查看指定连接 enp2s0 的详细信息
-
-1. printf 命令可视化打印
-
-    - printf %02x 123 # 7b
-
-1. 获取指定组中的数据成员： `getent group 组名`
-
-    ```bash
-    ▸ getent group dialout
-    dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码：组ID：组成员
-    ```
-
-1. 使用 tr 和 dd 命令配合,生成指定大小全 0XFF 的文件 : `tr '\000' '\377' < /dev/zero | dd of=filename bs=1024 count=1`
-
-    - 在文件尾部追加 0XFF, ``echo -e -n '\xff' >> filename``
-
-1. `timedatectl` 命令管理时区
-    1. timedatectl # 查看当前时区
-    1. timedatectl list-timezones # 列出所有可用时区
-    1. sudo timedatectl set-timezone 时区名称 # 设置指定时区名字的时区
-1. 查看 glibc 的版本：
-    1. 如果是本机，可以直接运行 libc.so
-    1. 如果是交叉编译，可以通过 `strings xxx/sysroots/armv7at2hf-neon-oe-linux-gnueabi/lib/libc.so.6 | grep "^GLIBC"` 查看
-1. 使用 gcc 编译器时使用下述宏来判断具体的版本
-    1. **GNUC** 主版本号
-    1. **GNUC_MINOR** 次版本号
-    1. **GNUC_PATCHLEVEL** 补丁级号
-    1. 链接的时候，选项 -Wl,–gc-sections 表示将 -gc-sections 传递给连接器，让连接器忽视掉没有使用的符号减小生成文件的体积,但是前提是要在编译阶段添加 -ffunction-sections 和 -fdata-sections 编译选项
-    1. 交叉编译的时候，gcc 会根据 ``-mcpu=cortex-m3 或者 -march=armv7-m, -mthumb 或者 -marm ``自动选择合适架构的 libgcc.a 文件，特别地 ``-mcpu = -march + 针对 CPU 的优化，-march 只影响指令集，不做 cpu 优化``
-    1. `-ffunction-sections -fdata-sections -Wl,--gc-sections` 可以实现对未使用的代码进行回收，降低大小
-1. ATPCS 使用 r0-r3 传递参数
-1. [mpv]() Linux 下的一款播放器，支持多种播放格式
-1. ffmpeg 可以用来进行视频转换
-    - 将 gnome3 默认录屏的 webm 格式转化为 mp4 格式：`ffmpeg -i input.webm -vf scale=1920x1080 output.mp4`
-    - 将录制的 mp4 格式的视频降低文件大小，可以减低 fps `ffmpeg -i a.mp4 -r 20 b.mp4` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
-    - 将 MP3 音频采样率修改为 16000 ``fmpeg -i hongdou.mp3 -ar 16000 hongdoulite.mp3``
-1. nslookup 工具查看指定域名的 ip
-
-    - nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
-
-1. `sudo systemd-resolve --flush-caches` 清空 dns 缓存
-1. [zeal](https://github.com/zealdocs/zeal) 离线查看文档工具
-1. [imhex](https://github.com/WerWolv/ImHex) 16进制 hack 工具
-1. (sxiv)[https://github.com/xyb3rt/sxiv] 轻量化的图片查看器
-1. [kernelshark](https://kernelshark.org/) 图形化查看跟踪内核线程的调度切换过程,配合 trace-cmd 跟踪 sched_wakeup* , sched_switch , sched_migrate* 得到 trace.dat 文件，然后使用 kernelshark 打开这个文件分析就行。如果是嵌入式设备，可能会存在交叉编译 tarce-cmd 工具的问题，这个时候要注意几点：
-1. 编译 [trace-cmd](git://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git) 需要依赖两个库 [libtraceevent](https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git) 和 [libtracefs](https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git)
-1. 编译的时候,根据顺序要首先编译 libtraceevent 然后编译 libtracefs,最后编译 trace-cmd
-1. 因为编译的时候,要使用 pkg-config 通过 .pc 文件，检索安装的库文件和头文件,所以在编译 libtraceevent , libtracefs 和 trace-cmd 的时候选择好 DESTDIR 和 PKG_CONFIG_PATH 变量(这个变量指定 pkg-config 工具检索 pc 文件的路径)
-1. 编译 libtracevent, `CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install`, 修改 ../build 目录下的 .pc 文件，修改 prefix 为实际的 prefix 路径
-1. 编译 libtracefs, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install` 修改 libtracefs 相关的 .pc 文件中的 prefix 文件
-1. 编译 trace-cmd, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- LDFLAGS=-static make DESTDIR=../build install`, 这里关键的静态编译，这样的话就可以单独使用 `trace-cmd` 来跟踪内核
-1. 使用 trace-cmd 抓取线程调度的示例：`trace-cmd record -e 'sched_wakeup*' -e sched_switch -e 'sched_migrate*' ` 生成 trace.dat 然后用 kernelshark 分析 trace.dat 就好了
-1. [sysbench](https://github.com/akopytov/sysbench) 测试 CPU 的计算能力:`sysbench --threads=1 cpu run` 测试单核的计算能力
-1. markdown 转 pdf，使用 pandoc 进行转换
-    1. 安装相关的软件包 : ``sudo dnf install pandoc wkhtmltopdf``
-    2. 如果有特殊的 theme 要求（从 typora 中提取的 github.css 风格文件），使用下述命令进行转换
-        ``` bash
-        md2pdf()
+        ```C
+        void * __attribute__((weak))
+        _sbrk (ptrdiff_t incr)
         {
-        	if [ $# -lt 1 ] || ! [ -f $1 ];then
-        		echo "No md file $1 2 pdf"
-        		return
-        	fi
-
-        	file_name=`basename $1 | awk -F "." '{print $(NF-1)}'`
-        	# echo "will convert ${1} 2 ${file_name}.pdf"
-        	pandoc -f gfm -t html5 --metadata pagetitle="${1}" --css ~/.local/github.css ${1} -o ${file_name}.pdf
+          extern char   end asm ("end"); /* Defined by the linker. 使用链接脚本定义的 end 标记确定 heap 区 */
+          ...
         }
         ```
-1. 在 fedora 上安装 ``.NET`` [Install the .NET SDK or the .NET Runtime on Fedora](https://learn.microsoft.com/en-us/dotnet/core/install/linux-fedora?tabs=dotnet9)
-    1. 一步到位： ``sudo dnf install dotnet-sdk-9.0``
-1. ```rpm2cpio anydesk_6.3.3-1_x86_64.rpm | cpio -idmv``` 解析指定的 rpm 中的文件到当前目录
-1. [fail2ban]() 出问题可以参看解决方法
-    1. [failed-to-start-fail2ban-service](https://discussion.fedoraproject.org/t/failed-to-start-fail2ban-service/141973/8) Error connecting to fail2ban persistent database
-        1. ``sudo chmod 600 /var/lib/fail2ban/fail2ban.sqlite3``
-        1. ``sudo restorecon /var/lib/fail2ban/fail2ban.sqlite3``
-    1. ``sudo fail3ban-client status sshd`` 查看指定服务禁用的 ip
-    1. ``sudo fail2ban-client status`` 查看使用的哪些服务开启了 fail2ban
-1. base64 工具对文件进行 ascii 编码
-    1. ``base64 -w 0 xxx.bin >yyy.bin`` # 如果不加 ``-w 0`` 默认会字节对齐导致生成的文件中多出来额外的 0X0A
-    2. ``base64 -d xxx.txt > yyy.mp3`` # 将 xxx.txt 中存储的 base64 编码文件反解码到 yyy.mp3 文件
-1. [RPM 打包相关](https://fedoraproject.org/wiki/How_to_create_an_RPM_package/zh-cn#%E6%9E%84%E5%BB%BA_RPM_%E5%8C%85)
-    1. rpmlint program.spec # 检查 spec 文件是否合规
-    1. rpmbuild -ba program.spec # 构建这个包
-1. apt 类发行版查找包含指定文件的包名称
-    1. ``sudo apt install apt-file`` ，使用 apt-file 查找
-    2. ``sudo apt update``
-    3. ``apt-file search Xft.h`` ， 感觉并不好用
-1. **conda** python 虚拟环境管理工具
-    1. ``conda create -n demo python=3.6`` 创建与一个名称是 demo 的虚拟环境
-    1. ``conda activate demo`` 激活这个虚拟环境
-1. flatpak 包管理
-    1. ``flatpak list --app`` 列出安装的 flatpak 包
-    2. ``flatpak uninstall --delete-data xxx.xxx.xxx`` 卸载指定的应用程序
-    3. ``flatpak uninstall --unused`` 删除无用的运行时库，可以释放一些磁盘空间
-1. linux 会自动删除 /tmp 目录下的一些文件，如果想排除一些指定的文件，可以在 /etc/tmpfiles.d 目录下创建一个配置文件 test.conf,添加如下内容排除 /tmp/abc 目录不自动被清理
-    ``` bash
-    x /tmp/aarch64_libs
-    ```
-还可以检查下配置 tmpfile 的配置，执行命令 ``systemd-tmpfiles --cat-config``，还有一个命令 ``sudo systemd-tmpfiles --create /etc/tmpfiles.d/mytmp.conf`` 是应用指定的配置创建目录或者文件等。
-1. dns 解析相关内容
-    1. ``dig @NS10.DNSEXIT.COM yourdomain.com`` 通过指定的 dns 服务器 NS10.DNSEXIT.COM 服务器，查询 yourdomain.com 的 ip 地址
-1. curl 工具下载
-    1. ``curl -LfO https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz`` # ``-L表示如果远端路径修改了，跟随新的路径继续尝试下载 -f表示有错误时不提示 -O 使用默认远端下载路径中的后缀文件，本身不做修改``
-1. ``meson``
-    1. ``meson configure build_dir`` # 列出 build_dir 目录所有的配置项
-1. rust 工具链，国内安装
-    1.  修改镜像源
-        ``` bash
-        export RUSTUP_DIST_SERVER="https://rsproxy.cn"
-        export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
-        ### 上述命令切换源
-        ### 下述命令进行安装
-        curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh # 进行安装
+118.    evtest 测试 /dev/input/eventX 测试对应的输入设备
+        - cat /proc/bus/input/devices 查看所有的输入设备
+
+119.    nfs 无法写入的时候，需要在 /etc/exports 文件将这个目录的权限修改,以 /tmp/abc 目录为例 `/tmp/abc *(no_root_squash,rw,sync,no_subtree_check)`, 重点是 **no_root_squash** 这个配置
+        - sudo exportfs -v # 可以打印出来 nfs 配置的挂载目录信息（实际的配置在文件 /etc/exports）
+        - nfs 挂载不成功的时候，比如说打印: `kernel: svc: failed to register nfsaclv2 RPC service (errno 111)`， 很可能是 /etc/netconfig 文件配置不对，找一个正确的配置就可以
+            ```bash
+            udp6       tpi_clts      v     inet6    udp     -       -
+            tcp6       tpi_cots_ord  v     inet6    tcp     -       -
+            udp        tpi_clts      v     inet     udp     -       -
+            tcp        tpi_cots_ord  v     inet     tcp     -       -
+            rawip      tpi_raw       -     inet      -      -       -
+            local tpi_cots_ord - loopback - - -
+            unix tpi_cots_ord - loopback - - -
+            ```
+        - nfs 挂载不成功的时候，检查下 rpcbind 服务是否正常运行，使用 systenmd 查看状态(systemctl status rpcbind )和 journalctl 查看日志来分析
+        - [fedora 40 安装 nfs 服务器指导](https://www.server-world.info/en/note?os=Fedora_40&p=nfs&f=1)
+
+120.    `cat /proc/sys/kernel/printk` 会打印出来 4 个数据，分别表示
+
+121.    console_loglevel ：优先级比这个高的会打印出来
+122.    default_message_loglevel ：如果 printk 没有明确指定打印级别，那么默认是这个级别
+123.    minimum_console_loglevel ：console_loglevel 可以设置的最高级别
+124.    default_console_loglevel ：console_loglevel 默认的级别
+
+125.    **netcat** 可以用来调试网络，作为网络串口助手类似的工具
+        - netcat -v 10.20.52.123 567 -u -p 123 # 使用源端口 123 向目标端口 567 目标 ip 10.20.52.123 发送 udp 连接
+        - echo '0059000800000000' | xxd -r -p | netcat -v 10.20.52.99 567 -u -p 123 # 通过 netcat 发送 16 进制数据 0x00 0x59 ...
+
+126.    iperf 工具，网络压力测试工具
+127.    服务端运行： `iperf -u -s -i 1` # -u 表示以 udp 模式运行 不加该参数默认是 tcp 模式，-s 表示作为客户端, 和嵌入式板卡测试时候发现，如果最后统计丢包率，可能十分不准确，这时候可以通过追加 **-i 1**，让服务端每次都打印出来速度信息
+128.    客户端运行：
+        1. `iperf -u -c 192.168.1.5 -b 100M -t 60 -i 2` # -u 表示在 udp 模式下，以 100M 的速率想服务端上传数据，进行带宽测试,测试时间为 60s
+129.    iperf3 工具和 iperf 类似可以用来测试网络带宽，服务端启动 `iperf3 -s` ， 客户端启动 `iperf3 -c xxx.xxx.xxx.xxx`
+130.    拆分文件命令介绍
+131.    csplit 工具方便对文件按照指定的正则表达式进行拆分.
+        1. csplit 工具
+
+        ```bash
+        csplit 文件名 /正则表达式/[偏移]
+        csplit a.txt /abc/+1
         ```
-1. ``iptables`` 详解，常见的有4个表(raw, mangle, nat, filter)
 
-    ```
-    ┌──────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
-    │          │ │           │ │           │ │           │ │           │ │           │
-    │          │ │   table   │ │  command  │ │   chain   │ │ parameter │ │  target   │
-    │          │ │           │ │           │ │           │ │           │ │           │
-    │          │ └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
-    │          │ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
-    │          │ │           │ │           │ │           │ │           │ │           │
-    │          │ │           │ │    -A     │ │           │ │   -p      │ │ -j ACCEPT │
-    │ iptables │ │           │ │    -D     │ │           │ │   -s      │ │ -j DROP   │
-    │          │ │           │ │    -I     │ │INPUT      │ │   -d      │ │ -j REJECT │
-    │          │ │           │ │    -R     │ │FORWARD    │ │   -i      │ │           │
-    │          │ │ -t filter │ │    -L     │ │OUTPUT     │ │   -o      │ │           │
-    │          │ │           │ │    -F     │ │PREROUTING │ │   --sport │ │           │
-    │          │ │           │ │    -Z     │ │POSTROUTING│ │   --dport │ │           │
-    │          │ │           │ │    -N     │ │           │ │    .      │ │           │
-    │          │ │           │ │    -X     │ │           │ │    .      │ │           │
-    │          │ │           │ │    -P     │ │           │ │    .      │ │           │
-    │          │ │           │ │           │ │           │ │           │ │           │
-    └──────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+        2. split 工具 split -b 拆分大小 待拆分的文件名 文件前缀
 
-    ┌───────┐┌─────────────────────────────────────────────────┐
-    │       ││ TCP                                             │
-    │       ││ UDP                                             │
-    │  -p   ││ ICMP                                            │
-    │       ││ A protocol name from /etc/protocols             │
-    │       ││ all                                             │
-    └───────┘└─────────────────────────────────────────────────┘
-    ┌───────┐┌─────────────────────────────────────────────────┐
-    │  -s   ││network name                                     │
-    └───────┘│                                                 │
-    ┌───────┐│                                                 │
-    │       ││Hostname                                         │
-    │  -d   ││Subnet(192.168.0.0/24;192.168.0.0/255.255.255.0  │
-    │       ││IP address                                       │
-    └───────┘└─────────────────────────────────────────────────┘
-    ┌───────┐┌─────────────────────────────────────────────────┐
-    │  -i   ││                                                 │
-    └───────┘│ Interface name(eth0)                            │
-    ┌───────┐│ Interface name ends in a"+"(eth+)               │
-    │  -o   ││                                                 │
-    └───────┘└─────────────────────────────────────────────────┘
-    ┌───────┐┌─────────────────────────────────────────────────┐
-    │--sport││ Service name                                    │
-    └───────┘│ Port number                                     │
-    ┌───────┐│ Port range(1000:1010)                           │
-    │--dport││                                                 │
-    └───────┘└─────────────────────────────────────────────────┘
-    ```
-    * ``iptables -t [table] [command](-A -D -I -R -L -F -Z -N -X -P) [chain](INPUT FORWARD OUTPUT PREROUTING POSTROUTING) [parameter](-p -s -d -i -o --sport --dport) [target](-j ACCEPT | -j DROP | -j REJECT)``
-    * ``iptables [-t 表名称] ``
-    * -A 追加规则
-    * -D 删除规则
-    * -I 插入规则
-    * -R 修改规则
-    * -L 列出
-    * -E 重命名
-    * -F 清空
-1. jq 是一个命令行工具格式化 json 数据格式
-1. 命令行转换16进制为 ascii 码显示
-    * ``echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p | od -c``
-    * ``echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p``
-1. v4l2-ctl 查看 v4l2 设备信息指令
-    * `v4l2-ctl -d /dev/videoX --list-formats-ext` 查看摄像头支持的所有格式
-    * `v4l2-ctl -d /dev/videoX --all` 查看当前的信息
-    * `v4l2-ctl -d /dev/videoX --get-fmt-video` 查看当前设置
-    * `v4l2-ctl -d /dev/videoX --info` 查看当前设备的基本信息
-    * `v4l2-ctl -d /dev/videoX --list-ctrls` 列出所有可控制项
-    * `v4l2-ctl -d /dev/videoX --set-ctrl brightness=150` 根据列出来的可控制项修改亮度为 150
-    * `v4l2-ctl -d /dev/videoX --set-fmt-video=width=1920,height=1080,pixelformat=MJPG` 修改摄像头长度和宽度分别是 1920 和 1080,分辨率是 MJPG
-1. centos 查看安装的软件包包含的文件: `repoquery -l 包名` 或者使用 `rpm -ql 包名`
-1. `mmv` 命令
-    1. `mmv "*.*" "#1"` 去除所有文件后缀名
-    1. `mmv "*.txt" "#1"` 去除所有 txt 文件后缀名
-    1. `mmv "*" "#1.bin"` 给所有文件添加 `.bin` 后缀名
+        ```bash
+        split -b 1G a.bin a_split. # 就会将 a.bin 以单个文件块为 1G 大小进行拆分，默认拆分为 a_split.aa a_split.ab ...
+        ```
+
+132.    ddcutil 工具可以设置外接 HDMI 显示器的亮度, 具体方法:
+
+        ```bash
+        # ddcutil detect 查看支持的显示器信息
+        # ddcutil setvcp 10 50 命令码 10 表示设置亮度 50 表示设置的亮度值
+        # ddcutil getvcp 10 命令码 10 表示获取亮度
+        # ddcutil vcpinfo 查看显示器信息的信息
+        ```
+
+133.    [sokit](https://github.com/sinpolib/sokit/releases/tag/v1.3.20150507) Linux 平台图形化的 tcp/udp 调试工具
+134.    解决普通用户需要 sudo 权限打开 tty 设备的问题
+135.    简单粗暴，直接 `sudo chmod 666 /dev/ttyACM0` # 直接修改对应设备的权限
+136.    将 red 用户添加到 dialog 组， `sudo usermod -aG dialout red`, 不需要重启系统,将当前用户添加到 dialout 组 `sudo usermod -a -G dialout $USER`
+137.    修改 udev 的 rules 规则，将对应的权限修改为 666, 这种方法需要在 /etc/udev/ 目录下找到对应的规则文件
+138.    `errno` 工具可以方便查找错误号
+139.    errno -l # 列出所有的错误号
+140.    errno 11 # 查看 11 号错误号信息
+141.    `kill` 命令也可以用来查看指定的信号
+142.    kill -l # 列出所有的信号量
+143.    kill -l 11 # 查看 11 号信号量的意义
+144.    默认创建的 socket 都是阻塞型的,但是可以通过函数 `setsockopt(m_socket, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv))` 先
+145.    针对多播:
+        1. 可以通过修改设置禁止回环`setsockopt(m_socket, IPPROTO_IP, IP_MULTICAST_LOOP, &(loop_enable), sizeof(loop_enable))`,即自己发送出去的数据自己不会读回来.
+146.    `cutecom` 一款 Linux 下的串口 GUI 工具
+147.    strace 命令
+148.    strace -f -o xxx.log 命令 命令参数
+149.    mutt 邮件客户端配置(procmail, fetchmail, msmtp)
+150.    procmail 负责邮件转发（这里转发给 mutt, 对应的配置文件 ~/.procmail）
+
+        ```bash
+        VERBOSE=yes
+        DEFAULT=/var/spool/mail/user_name
+        MAILDIR=$HOME/Mail
+        LOGFILE=$HOME/.procmail.log
+        ```
+
+151.    fetchmail 负责拉取邮件（从服务器拉取邮件, 对应的配置文件 ~/.fetchmailrc）,测试配置文件使用 `fetchmail -v` 测试
+        ```bash
+        set daemon 60 # 在后台每隔 60s 运行一次
+        poll xxxxxxx(服务器地址) proto pop3 port 110
+            user "xxxxxxxxxxxxx" password "xxxxx" # 用户名和密码
+            keep # 不删除服务器的邮件
+            mda "/usr/bin/procmail -d %T" # Mail Delivery Agent
+            sslproto '' # ssl 协议类型，空表示无 ssl
+        mimedecode
+        ```
+152.    msmtp 负责发送邮件,对应的配置文件 ~/.msmtprc,测试使用 `msmtp --serverinfo -d`
+        ```bash
+        account default
+        host xxxxxxxxxx # 服务器地址
+        from xxxxxxxxxx # 用户名抬头
+        auth login
+        #auth plain
+        tls off
+        user xxxxx # 用户名
+        password xxxxx # 密码
+        logfile ~/.msmtp.log
+        ```
+153.    mutt 简单配置, ~/.muttrc
+
+        ```bash
+        set sendmail="/usr/bin/msmtp"
+        set use_from=yes
+        set realname="xxxxxxxxxxxx"
+        set from=xxxxxxxxxxxxx
+        set envelope_from=yes
+        ```
+
+154.    [ftp 服务安装](https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide/servers/File_and_Print_Servers/#s1-FTP)
+155.    sudo dnf install vsftpd # 安装 ftp 服务
+156.    sudo firmwall-cmd --permanent --add-service=ftp # 放开防火墙
+157.    sudo systemctl start vsftpd.service # 开启 ftp 服务
+158.    lsof 命令查看应用程序打开的文件名，比如查找打开 /dev/ttyACM0 的进程:`sudo lsof | grep "ttyACM0"`
+159.    [atftp](https://github.com/madmartin/atftp.git)　是一个新的　tftp 工具，可以替换古老的　tftp-hpa
+160.    syslog 和 journalctl 工具进行日志分析
+        - journalctl 工具需要　syslog 基础
+            1. -u service_name # 查看指定服务的日志
+            2. -t --identifier=STRING # 过滤指定　identifier 的日志
+            3. -x 可以额外打印更详细的日志信息
+            4. -p 指定打印的优先级别，可以跟具体的级别(1，那么会打印0和1级别的日志)以及范围（1...5）打印包括1到5之间的所有级别日志
+            5. -e 打印最后的几段日志信息
+            6. -f 持续打印
+
+161.    `nproc` 命令可以返回 cpu 的核心数量
+162.    [nmcli 工具链接网络](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-adding_and_configuring_a_static_ethernet_connection_with_nmcli) （这个工具够强大）
+        - `nmcli connection add type ethernet ifname enp4s0 ip4 192.168.91.211/24 gw4 192.168.91.1` 配置指定网卡静态 ipv4 和网关
+        - `nmcli connection add type ethernet con-name xxxx ifname enp4s0 ip4 192.168.91.211/24 gw4 192.168.91.1` 配置指定网卡静态 ipv4 和网关,并创建一个链接的名字配置为 xxxx
+        - `nmcli connection modify xxxx ipv4.dns "8.8.8.8 223.5.5.5"` # 取代原先的 dns 配置
+        - `nmcli connection modify xxxx +ipv4.dns "8.8.8.8 223.5.5.5"` # 追加 dns 到原先的 dns 配置
+        - `nmcli -p connection show xxxx` # 查看 xxxx 的详细配置
+        - `nmcli con edit type ethernet con-name xxxx` 交互式添加一个网络配置条目, 会将新的配置存储在 `/etc/sysconfig/network-scripts/ifcfg-xxxx`, 但是在 Solus 上是存储在 `/etc/NetworkManager/system-connections/`
+        - `nmcli connection show` 查看存在的网络连接
+        - `nmcli connection modify enp2s0 connection.autoconnect yes` 设置指定的网络连接开机自动连接
+        - `nmcli connection show enp2s0` 查看指定连接 enp2s0 的详细信息
+
+163.    printf 命令可视化打印
+        - printf %02x 123 # 7b
+
+164.    获取指定组中的数据成员： `getent group 组名`
+
+        ```bash
+        ▸ getent group dialout
+        dialout:x:18:red # 查找 dialout 组的成员，字段分别是 组名：密码：组ID：组成员
+        ```
+
+165.    使用 tr 和 dd 命令配合,生成指定大小全 0XFF 的文件 : `tr '\000' '\377' < /dev/zero | dd of=filename bs=1024 count=1`
+        - 在文件尾部追加 0XFF, `echo -e -n '\xff' >> filename`
+
+166.    `timedatectl` 命令管理时区
+        1. timedatectl # 查看当前时区
+        1. timedatectl list-timezones # 列出所有可用时区
+        1. sudo timedatectl set-timezone 时区名称 # 设置指定时区名字的时区
+167.    查看 glibc 的版本：
+        1. 如果是本机，可以直接运行 libc.so
+        1. 如果是交叉编译，可以通过 `strings xxx/sysroots/armv7at2hf-neon-oe-linux-gnueabi/lib/libc.so.6 | grep "^GLIBC"` 查看
+168.    使用 gcc 编译器时使用下述宏来判断具体的版本
+        1. **GNUC** 主版本号
+        1. **GNUC_MINOR** 次版本号
+        1. **GNUC_PATCHLEVEL** 补丁级号
+        1. 链接的时候，选项 -Wl,–gc-sections 表示将 -gc-sections 传递给连接器，让连接器忽视掉没有使用的符号减小生成文件的体积,但是前提是要在编译阶段添加 -ffunction-sections 和 -fdata-sections 编译选项
+        1. 交叉编译的时候，gcc 会根据 `-mcpu=cortex-m3 或者 -march=armv7-m, -mthumb 或者 -marm `自动选择合适架构的 libgcc.a 文件，特别地 `-mcpu = -march + 针对 CPU 的优化，-march 只影响指令集，不做 cpu 优化`
+        1. `-ffunction-sections -fdata-sections -Wl,--gc-sections` 可以实现对未使用的代码进行回收，降低大小
+169.    ATPCS 使用 r0-r3 传递参数
+170.    [mpv]() Linux 下的一款播放器，支持多种播放格式
+171.    ffmpeg 可以用来进行视频转换
+        - 将 gnome3 默认录屏的 webm 格式转化为 mp4 格式：`ffmpeg -i input.webm -vf scale=1920x1080 output.mp4`
+        - 将录制的 mp4 格式的视频降低文件大小，可以减低 fps `ffmpeg -i a.mp4 -r 20 b.mp4` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
+        - 将 MP3 音频采样率修改为 16000 `fmpeg -i hongdou.mp3 -ar 16000 hongdoulite.mp3`
+172.    nslookup 工具查看指定域名的 ip
+        - nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
+
+173.    `sudo systemd-resolve --flush-caches` 清空 dns 缓存
+174.    [zeal](https://github.com/zealdocs/zeal) 离线查看文档工具
+175.    [imhex](https://github.com/WerWolv/ImHex) 16进制 hack 工具
+176.    (sxiv)[https://github.com/xyb3rt/sxiv] 轻量化的图片查看器
+177.    [kernelshark](https://kernelshark.org/) 图形化查看跟踪内核线程的调度切换过程,配合 trace-cmd 跟踪 sched_wakeup* , sched_switch , sched_migrate* 得到 trace.dat 文件，然后使用 kernelshark 打开这个文件分析就行。如果是嵌入式设备，可能会存在交叉编译 tarce-cmd 工具的问题，这个时候要注意几点：
+178.    编译 [trace-cmd](git://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git) 需要依赖两个库 [libtraceevent](https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git) 和 [libtracefs](https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git)
+179.    编译的时候,根据顺序要首先编译 libtraceevent 然后编译 libtracefs,最后编译 trace-cmd
+180.    因为编译的时候,要使用 pkg-config 通过 .pc 文件，检索安装的库文件和头文件,所以在编译 libtraceevent , libtracefs 和 trace-cmd 的时候选择好 DESTDIR 和 PKG_CONFIG_PATH 变量(这个变量指定 pkg-config 工具检索 pc 文件的路径)
+181.    编译 libtracevent, `CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install`, 修改 ../build 目录下的 .pc 文件，修改 prefix 为实际的 prefix 路径
+182.    编译 libtracefs, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- make DESTDIR=../build install` 修改 libtracefs 相关的 .pc 文件中的 prefix 文件
+183.    编译 trace-cmd, `PKG_CONFIG_PATH=../build/usr/local/lib64/pkgconfig CC=aarch64-linux-gnu-gcc CROSS_COMPILE=aarch64-linux-gnu- LDFLAGS=-static make DESTDIR=../build install`, 这里关键的静态编译，这样的话就可以单独使用 `trace-cmd` 来跟踪内核
+184.    使用 trace-cmd 抓取线程调度的示例：`trace-cmd record -e 'sched_wakeup*' -e sched_switch -e 'sched_migrate*' ` 生成 trace.dat 然后用 kernelshark 分析 trace.dat 就好了
+185.    [sysbench](https://github.com/akopytov/sysbench) 测试 CPU 的计算能力:`sysbench --threads=1 cpu run` 测试单核的计算能力
+186.    markdown 转 pdf，使用 pandoc 进行转换
+        1. 安装相关的软件包 : `sudo dnf install pandoc wkhtmltopdf`
+        2. 如果有特殊的 theme 要求（从 typora 中提取的 github.css 风格文件），使用下述命令进行转换
+
+            ```bash
+            md2pdf()
+            {
+            	if [ $# -lt 1 ] || ! [ -f $1 ];then
+            		echo "No md file $1 2 pdf"
+            		return
+            	fi
+
+            	file_name=`basename $1 | awk -F "." '{print $(NF-1)}'`
+            	# echo "will convert ${1} 2 ${file_name}.pdf"
+            	pandoc -f gfm -t html5 --metadata pagetitle="${1}" --css ~/.local/github.css ${1} -o ${file_name}.pdf
+            }
+            ```
+
+187.    在 fedora 上安装 `.NET` [Install the .NET SDK or the .NET Runtime on Fedora](https://learn.microsoft.com/en-us/dotnet/core/install/linux-fedora?tabs=dotnet9)
+        1. 一步到位： `sudo dnf install dotnet-sdk-9.0`
+188.    `rpm2cpio anydesk_6.3.3-1_x86_64.rpm | cpio -idmv` 解析指定的 rpm 中的文件到当前目录
+189.    [fail2ban]() 出问题可以参看解决方法
+        1. [failed-to-start-fail2ban-service](https://discussion.fedoraproject.org/t/failed-to-start-fail2ban-service/141973/8) Error connecting to fail2ban persistent database
+            1. `sudo chmod 600 /var/lib/fail2ban/fail2ban.sqlite3`
+            1. `sudo restorecon /var/lib/fail2ban/fail2ban.sqlite3`
+        1. `sudo fail3ban-client status sshd` 查看指定服务禁用的 ip
+        1. `sudo fail2ban-client status` 查看使用的哪些服务开启了 fail2ban
+190.    base64 工具对文件进行 ascii 编码
+        1. `base64 -w 0 xxx.bin >yyy.bin` # 如果不加 `-w 0` 默认会字节对齐导致生成的文件中多出来额外的 0X0A
+        2. `base64 -d xxx.txt > yyy.mp3` # 将 xxx.txt 中存储的 base64 编码文件反解码到 yyy.mp3 文件
+191.    [RPM 打包相关](https://fedoraproject.org/wiki/How_to_create_an_RPM_package/zh-cn#%E6%9E%84%E5%BB%BA_RPM_%E5%8C%85)
+        1. rpmlint program.spec # 检查 spec 文件是否合规
+        1. rpmbuild -ba program.spec # 构建这个包
+192.    apt 类发行版查找包含指定文件的包名称
+        1. `sudo apt install apt-file` ，使用 apt-file 查找
+        2. `sudo apt update`
+        3. `apt-file search Xft.h` ， 感觉并不好用
+193.    **conda** python 虚拟环境管理工具
+        1. `conda create -n demo python=3.6` 创建与一个名称是 demo 的虚拟环境
+        1. `conda activate demo` 激活这个虚拟环境
+194.    flatpak 包管理
+        1. `flatpak list --app` 列出安装的 flatpak 包
+        2. `flatpak uninstall --delete-data xxx.xxx.xxx` 卸载指定的应用程序
+        3. `flatpak uninstall --unused` 删除无用的运行时库，可以释放一些磁盘空间
+195.    linux 会自动删除 /tmp 目录下的一些文件，如果想排除一些指定的文件，可以在 /etc/tmpfiles.d 目录下创建一个配置文件 test.conf,添加如下内容排除 /tmp/abc 目录不自动被清理
+        `bash
+    x /tmp/aarch64_libs
+   `
+        还可以检查下配置 tmpfile 的配置，执行命令 `systemd-tmpfiles --cat-config`，还有一个命令 `sudo systemd-tmpfiles --create /etc/tmpfiles.d/mytmp.conf` 是应用指定的配置创建目录或者文件等。
+196.    dns 解析相关内容
+        1. `dig @NS10.DNSEXIT.COM yourdomain.com` 通过指定的 dns 服务器 NS10.DNSEXIT.COM 服务器，查询 yourdomain.com 的 ip 地址
+197.    curl 工具下载
+        1. `curl -LfO https://dl.radxa.com/orion/o6/images/debian/orion-o6-debian12-desktop-arm64-b6.iso.gz` # `-L表示如果远端路径修改了，跟随新的路径继续尝试下载 -f表示有错误时不提示 -O 使用默认远端下载路径中的后缀文件，本身不做修改`
+198.    `meson`
+        1. `meson configure build_dir` # 列出 build_dir 目录所有的配置项
+199.    rust 工具链，国内安装
+        1.  修改镜像源
+
+            ```bash
+            export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+            export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
+            ### 上述命令切换源
+            ### 下述命令进行安装
+            curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh # 进行安装
+            ```
+
+200.    `iptables` 详解，常见的有4个表(raw, mangle, nat, filter)
+
+        ```
+        ┌──────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+        │          │ │           │ │           │ │           │ │           │ │           │
+        │          │ │   table   │ │  command  │ │   chain   │ │ parameter │ │  target   │
+        │          │ │           │ │           │ │           │ │           │ │           │
+        │          │ └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+        │          │ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+        │          │ │           │ │           │ │           │ │           │ │           │
+        │          │ │           │ │    -A     │ │           │ │   -p      │ │ -j ACCEPT │
+        │ iptables │ │           │ │    -D     │ │           │ │   -s      │ │ -j DROP   │
+        │          │ │           │ │    -I     │ │INPUT      │ │   -d      │ │ -j REJECT │
+        │          │ │           │ │    -R     │ │FORWARD    │ │   -i      │ │           │
+        │          │ │ -t filter │ │    -L     │ │OUTPUT     │ │   -o      │ │           │
+        │          │ │           │ │    -F     │ │PREROUTING │ │   --sport │ │           │
+        │          │ │           │ │    -Z     │ │POSTROUTING│ │   --dport │ │           │
+        │          │ │           │ │    -N     │ │           │ │    .      │ │           │
+        │          │ │           │ │    -X     │ │           │ │    .      │ │           │
+        │          │ │           │ │    -P     │ │           │ │    .      │ │           │
+        │          │ │           │ │           │ │           │ │           │ │           │
+        └──────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+
+        ┌───────┐┌─────────────────────────────────────────────────┐
+        │       ││ TCP                                             │
+        │       ││ UDP                                             │
+        │  -p   ││ ICMP                                            │
+        │       ││ A protocol name from /etc/protocols             │
+        │       ││ all                                             │
+        └───────┘└─────────────────────────────────────────────────┘
+        ┌───────┐┌─────────────────────────────────────────────────┐
+        │  -s   ││network name                                     │
+        └───────┘│                                                 │
+        ┌───────┐│                                                 │
+        │       ││Hostname                                         │
+        │  -d   ││Subnet(192.168.0.0/24;192.168.0.0/255.255.255.0  │
+        │       ││IP address                                       │
+        └───────┘└─────────────────────────────────────────────────┘
+        ┌───────┐┌─────────────────────────────────────────────────┐
+        │  -i   ││                                                 │
+        └───────┘│ Interface name(eth0)                            │
+        ┌───────┐│ Interface name ends in a"+"(eth+)               │
+        │  -o   ││                                                 │
+        └───────┘└─────────────────────────────────────────────────┘
+        ┌───────┐┌─────────────────────────────────────────────────┐
+        │--sport││ Service name                                    │
+        └───────┘│ Port number                                     │
+        ┌───────┐│ Port range(1000:1010)                           │
+        │--dport││                                                 │
+        └───────┘└─────────────────────────────────────────────────┘
+        ```
+
+        - `iptables -t [table] [command](-A -D -I -R -L -F -Z -N -X -P) [chain](INPUT FORWARD OUTPUT PREROUTING POSTROUTING) [parameter](-p -s -d -i -o --sport --dport) [target](-j ACCEPT | -j DROP | -j REJECT)`
+        - `iptables [-t 表名称] `
+        - -A 追加规则
+        - -D 删除规则
+        - -I 插入规则
+        - -R 修改规则
+        - -L 列出
+        - -E 重命名
+        - -F 清空
+
+201.    jq 是一个命令行工具格式化 json 数据格式
+202.    命令行转换16进制为 ascii 码显示
+        - `echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p | od -c`
+        - `echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p`
+203.    v4l2-ctl 查看 v4l2 设备信息指令
+        - `v4l2-ctl -d /dev/videoX --list-formats-ext` 查看摄像头支持的所有格式
+        - `v4l2-ctl -d /dev/videoX --all` 查看当前的信息
+        - `v4l2-ctl -d /dev/videoX --get-fmt-video` 查看当前设置
+        - `v4l2-ctl -d /dev/videoX --info` 查看当前设备的基本信息
+        - `v4l2-ctl -d /dev/videoX --list-ctrls` 列出所有可控制项
+        - `v4l2-ctl -d /dev/videoX --set-ctrl brightness=150` 根据列出来的可控制项修改亮度为 150
+        - `v4l2-ctl -d /dev/videoX --set-fmt-video=width=1920,height=1080,pixelformat=MJPG` 修改摄像头长度和宽度分别是 1920 和 1080,分辨率是 MJPG
+204.    centos 查看安装的软件包包含的文件: `repoquery -l 包名` 或者使用 `rpm -ql 包名`
+205.    `mmv` 命令
+        1. `mmv "*.*" "#1"` 去除所有文件后缀名
+        1. `mmv "*.txt" "#1"` 去除所有 txt 文件后缀名
+        1. `mmv "*" "#1.bin"` 给所有文件添加 `.bin` 后缀名
