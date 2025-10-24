@@ -563,3 +563,9 @@ endwhile
     :%!xxd -r
     :w
     ```
+96. `!=` 表示完全不等， `!=#` 表示忽略大小写的判断
+    ```vim
+    if &filetype !=# 'json'
+    finish
+    endif
+    ```
