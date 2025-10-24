@@ -3,50 +3,50 @@
 1. 好看的编程字体 Cascadia Code 和 Fira code，我已经通过 nerd-font 给 [Cascadia 打了字符补丁的字体](<https://github.com/iysheng/Notes/blob/master/Linux/Misc/Cascadia%20Code%20Nerd%20Font%20Plus%20Font%20Awesome%20Plus%20Font%20Awesome%20Extension%20Plus%20Octicons%20Plus%20Font%20Logos%20(Font%20Linux).ttf>)上传到 github 了
 2. fedora23 xfce 支持 mp3播放 audacious 很重要的一个插件：audacious-plugins-freeworld-mp3
 3. rootfs 知识要点
-   1. 根文件系统要有 /init 否则会报不是根文件系统的错误
-   2. busybox 的源码中有 rcS 等配置文件的示例
+    1. 根文件系统要有 /init 否则会报不是根文件系统的错误
+    2. busybox 的源码中有 rcS 等配置文件的示例
 4. 在 YYfish Board 调试 2018.09 Uboot
-   1. 添加了deug 的串口打印，直接写寄存器，修改设备树
-   2. 初始化SDRAM，修改设备树
-   3. 修改MPU相关的设置，修改arch/arm/mach-stm32/soc.c 修改MPU的区域大小为32M，否则重定向到SDRAM的高地址之后，因为没有执行权限，系统就会崩掉
+    1. 添加了deug 的串口打印，直接写寄存器，修改设备树
+    2. 初始化SDRAM，修改设备树
+    3. 修改MPU相关的设置，修改arch/arm/mach-stm32/soc.c 修改MPU的区域大小为32M，否则重定向到SDRAM的高地址之后，因为没有执行权限，系统就会崩掉
 5. ubifs 使用方法
-   1. 创建 ubifs 镜像文件 {一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc，关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小，逻辑擦除块大小一般是物理擦出块大小 - 2 \* pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录}
-   2. 创建可以烧写到 flash 的镜像文件 {一般命令：ubinize -o abc.raw -m 2048 -p 128KiB -O 2048 abc.ini -v 关键参数 -o：制定生成的文件名字 -m 指定最小的 io，一般是 pagesize；-p 指定物理擦除块大小，这个值就是 nand flash 实际的物理擦除块大小；-O 参考网上的是 pagesize，这个后续还需要和 mkfs.ubifs 的一起分析下；abc.ini 表示产生镜像的配置文件，-v：打印提示信息；abc.ini 文件示例
-      ```text
-      [rootfs-volume]
-      mode=ubi
-      image=abc.img
-      vol_size=8MiB/* 备注这个大小要和 mkfs.ubifs 的匹配 */
-      vol_id=1
-      vol_type=dynamic
-      vol_name=arm_boot
-      vol_alignment=1
-      vol_flags=autoresize
-      ```
+    1. 创建 ubifs 镜像文件 {一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc，关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小，逻辑擦除块大小一般是物理擦出块大小 - 2 \* pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录}
+    2. 创建可以烧写到 flash 的镜像文件 {一般命令：ubinize -o abc.raw -m 2048 -p 128KiB -O 2048 abc.ini -v 关键参数 -o：制定生成的文件名字 -m 指定最小的 io，一般是 pagesize；-p 指定物理擦除块大小，这个值就是 nand flash 实际的物理擦除块大小；-O 参考网上的是 pagesize，这个后续还需要和 mkfs.ubifs 的一起分析下；abc.ini 表示产生镜像的配置文件，-v：打印提示信息；abc.ini 文件示例
+        ```text
+        [rootfs-volume]
+        mode=ubi
+        image=abc.img
+        vol_size=8MiB/* 备注这个大小要和 mkfs.ubifs 的匹配 */
+        vol_id=1
+        vol_type=dynamic
+        vol_name=arm_boot
+        vol_alignment=1
+        vol_flags=autoresize
+        ```
 6. 交叉编译工具链那些事情
-   1. 交叉编译工具链 --print-sysroot：工具链认为的根目录
-   2. 交叉编译工具链 --print-search-dirs：工具链会搜索的目录，包括库文件、可执行文件等等，也就是说工具链会从这些目录中搜索库或者可执行文件
-      - tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
+    1. 交叉编译工具链 --print-sysroot：工具链认为的根目录
+    2. 交叉编译工具链 --print-search-dirs：工具链会搜索的目录，包括库文件、可执行文件等等，也就是说工具链会从这些目录中搜索库或者可执行文件
+        - tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
 7. 安裝中文输入法：
-   1. 安装 fcitx 必要打软件包，参考 arch 的 wiki
-      ```bash
-      sudo dnf install fcitx fcitx-im fcitx-configtool fcitx-** 拼音相关的软件包
-      ```
-   2. 配置环境变量，修改文件 ~/.bashrc 添加内容
-      ```bash
-      GTK_IM_MODULE=fcitx
-      QT_IM_MODULE=fcitx
-      XMODIFIERS=@im=fcitx
-      ```
-   3. 配置完成后，注销系统重新登录就可以
-   4. Ctrl+Shift+F 可以切换中文简体、繁体的切换
-   5. [好看的皮肤 Fcitx5-Material-Color](https://github.com/hosxy/Fcitx5-Material-Color.git)
+    1. 安装 fcitx 必要打软件包，参考 arch 的 wiki
+        ```bash
+        sudo dnf install fcitx fcitx-im fcitx-configtool fcitx-** 拼音相关的软件包
+        ```
+    2. 配置环境变量，修改文件 ~/.bashrc 添加内容
+        ```bash
+        GTK_IM_MODULE=fcitx
+        QT_IM_MODULE=fcitx
+        XMODIFIERS=@im=fcitx
+        ```
+    3. 配置完成后，注销系统重新登录就可以
+    4. Ctrl+Shift+F 可以切换中文简体、繁体的切换
+    5. [好看的皮肤 Fcitx5-Material-Color](https://github.com/hosxy/Fcitx5-Material-Color.git)
 8. fzf 模糊搜索开源工具
 9. ranger 终端的文件管理器，[ranger](https://github.com/ranger/ranger/wiki/Official-User-Guide) 使用 4 個主要的配置文件
-   - 全局的 commands.py ， 包含了各種功能實現
-   - 全局的 rc.conf ，設置各種配置，以及完成 key 到功能函數的綁定
-   - rifle.conf 決定了使用哪個程序打開對應的文件
-   - scope.sh shell 腳本產生一些文件預覽的效果
+    - 全局的 commands.py ， 包含了各種功能實現
+    - 全局的 rc.conf ，設置各種配置，以及完成 key 到功能函數的綁定
+    - rifle.conf 決定了使用哪個程序打開對應的文件
+    - scope.sh shell 腳本產生一些文件預覽的效果
 10. ImageMagick 终端的图片查看器，指令： display + 文件名，w3m 也可以在终端打开图片
 11. tcping 可以 ping 任意地址的任意端口的工具
 12. forgit ：A utility tool powered by fzf for using git interactively
@@ -59,18 +59,18 @@
        imsettings-list 和 imsettings-switch 列出和选择 fctix 输入法
     4. feh 是一个设置电脑桌面的工具
     5. dwm 默认的一些基本操作
-       1. Alt + 数字，在不同的 tags 切换
-       2. Alt + Shift + 数字，将对应的窗口移动到指定编号的 tag 上
-       3. Alt + Table 在最近的两个 tags 切换
-       4. Alt + i 和 Alt + d 分别是增加以及减少 master 区域窗口的个数
-       5. Alt + b 显示或者隐藏顶层的 tag、title 和 status 栏
-       6. Alt + shift + space 全屏当前的窗口
+        1. Alt + 数字，在不同的 tags 切换
+        2. Alt + Shift + 数字，将对应的窗口移动到指定编号的 tag 上
+        3. Alt + Table 在最近的两个 tags 切换
+        4. Alt + i 和 Alt + d 分别是增加以及减少 master 区域窗口的个数
+        5. Alt + b 显示或者隐藏顶层的 tag、title 和 status 栏
+        6. Alt + shift + space 全屏当前的窗口
     6. dwm 的一些补丁
-       1. hide_vacant_tags：隐藏没有窗口的补丁
-       2. scratchpad：画板补丁，默认是 Alt + \` 快捷键打开和关闭临时画板
-       3. vanitygaps：同一个 tag 的窗口之间预留空隙
-       4. autostart：自动启动 ~/.dwm/autostart_blocking.sh 和 ~/.dwm/autostart.sh 的补丁，一般会将状态栏显示脚本放在对应的上述两个脚本，以及桌面背景设置
-       5. alpha ：背景透明，需要依赖渲染器件：比如：compton，这个工具需要提前在后台执行才可以保证正常的半透明效果， st 的透明补丁类似的
+        1. hide_vacant_tags：隐藏没有窗口的补丁
+        2. scratchpad：画板补丁，默认是 Alt + \` 快捷键打开和关闭临时画板
+        3. vanitygaps：同一个 tag 的窗口之间预留空隙
+        4. autostart：自动启动 ~/.dwm/autostart_blocking.sh 和 ~/.dwm/autostart.sh 的补丁，一般会将状态栏显示脚本放在对应的上述两个脚本，以及桌面背景设置
+        5. alpha ：背景透明，需要依赖渲染器件：比如：compton，这个工具需要提前在后台执行才可以保证正常的半透明效果， st 的透明补丁类似的
 16. st 工具配置
     1. alpha：半透明化补丁，需要依赖渲染器件
     2. alphaFocusHighlight：基于半透明化补丁，可以突出显示正在选中的窗口
@@ -90,12 +90,12 @@
 18. tmux 一款终端分平软件 (三个基本概念：session、window、panel)
     1. [tpm](https://github.com/tmux-plugins/tpm)：tmux 的插件管理器
     2. nord 色彩配置，建议关闭 powerline 的箭头型符号
-       ```bash
-       # 安装 nord 色彩配置
-       set -g @plugin 'arcticicestudio/nord-tmux'
-       # 建议关闭 powerline 的箭头型符号，除非已经安装了 powerline 字体
-       set -g @nord_tmux_no_patched_font "1"
-       ```
+        ```bash
+        # 安装 nord 色彩配置
+        set -g @plugin 'arcticicestudio/nord-tmux'
+        # 建议关闭 powerline 的箭头型符号，除非已经安装了 powerline 字体
+        set -g @nord_tmux_no_patched_font "1"
+        ```
     3. MODKEY + w # 显示当前所有 session 的所有 window
     4. MODKEY + l # 跳转到最近访问的上一个 windows (l:last)
     5. MODKEY + 空格 # 更换排版
@@ -206,29 +206,29 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 #### Makefile
 
 1. gcc 通过 -D 选项传递宏字符串时候，需要添加转义字符 \"字符串内容\"
-   - -specs=文件 指定了一个可以覆盖 gcc 默认的 specs 的文件，default.specs 文件可以用命令 `gcc -dumpspecs` 查看, specs 文件定义了传递给 cc1 cc1plus as ld 等内容
-   - PHONY 是一个抽象的 target, 比如你想执行某些目标但是并不会真正产生一些实质的文件，这时候可以将那个目标做为 .PHONY 的依赖
-   - 编译选项 -w 表示禁止所有的警告信息, -Wunused-parameter 表示对未使用的参数打印出警告信息, -Wno-unused-parameter 表示不对未使用的参数打印警告信息
-   - 一个很有用的编译选项 --sysroot=dir 指定编译器的 sysroot 这个很重要，在链接的时候如果提示找不到一些 .o 文件，很有可能是你的 sysroot 参数不对，这时候在链接的时候添加这个选项应该就可以了，找到正确的 sysroot
+    - -specs=文件 指定了一个可以覆盖 gcc 默认的 specs 的文件，default.specs 文件可以用命令 `gcc -dumpspecs` 查看, specs 文件定义了传递给 cc1 cc1plus as ld 等内容
+    - PHONY 是一个抽象的 target, 比如你想执行某些目标但是并不会真正产生一些实质的文件，这时候可以将那个目标做为 .PHONY 的依赖
+    - 编译选项 -w 表示禁止所有的警告信息, -Wunused-parameter 表示对未使用的参数打印出警告信息, -Wno-unused-parameter 表示不对未使用的参数打印警告信息
+    - 一个很有用的编译选项 --sysroot=dir 指定编译器的 sysroot 这个很重要，在链接的时候如果提示找不到一些 .o 文件，很有可能是你的 sysroot 参数不对，这时候在链接的时候添加这个选项应该就可以了，找到正确的 sysroot
 2. Makefile 的条件判断
 
-   ```Makefile
-   # arg1 和 arg2 之间不要随便添加空格
-   # 判断两个参数是否相等
-   ifeq (arg1,arg2) ifneq(arg1,arg2)
-   else
-   endif
+    ```Makefile
+    # arg1 和 arg2 之间不要随便添加空格
+    # 判断两个参数是否相等
+    ifeq (arg1,arg2) ifneq(arg1,arg2)
+    else
+    endif
 
-   # 判断 arg 是否定义
-   ifdef arg 或者 ifndef arg
-   else
-   endif
-   ```
+    # 判断 arg 是否定义
+    ifdef arg 或者 ifndef arg
+    else
+    endif
+    ```
 
 3. Makefile 执行 shell 程序
-   ```Makefile
-   $(shell echo "Hello World")
-   ```
+    ```Makefile
+    $(shell echo "Hello World")
+    ```
 
 #### Misc
 
@@ -240,40 +240,39 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     5. [注册昵称的过程1](https://freenode.net/kb/answer/registration)
     6. [注册昵称的过程2](https://www.wikihow.com/Register-a-Nickname-on-Freenode)
 1.  安装 dhcp 服务，支持客户端测试 dhcp 获取 IP
-
     1. 配置 /etc/dhcp/dhcpd.conf 文件，如下示例：
 
-       ```
-       # dhcpd.conf
-       #
-       # Sample configuration file for ISC dhcpd
-       #
+        ```
+        # dhcpd.conf
+        #
+        # Sample configuration file for ISC dhcpd
+        #
 
-       # option definitions common to all supported networks...
-       option domain-name "redWork.com";
-       option domain-name-servers 8.8.8.8;
+        # option definitions common to all supported networks...
+        option domain-name "redWork.com";
+        option domain-name-servers 8.8.8.8;
 
-       default-lease-time 600;
-       max-lease-time 7200;
+        default-lease-time 600;
+        max-lease-time 7200;
 
-       subnet 192.168.100.0 netmask 255.255.255.0 {
-         range dynamic-bootp 192.168.100.99 192.168.100.210;
-         option routers 192.168.100.200;
-       }
-       ```
+        subnet 192.168.100.0 netmask 255.255.255.0 {
+          range dynamic-bootp 192.168.100.99 192.168.100.210;
+          option routers 192.168.100.200;
+        }
+        ```
 
     2. systemctl enable dhcpd
     3. systemctl start dhcpd
 
 1.  内核的 spi 驱动框架
     1. 关键的几个结构体抽象：
-       1. struct spi_master：spi 控制器本身的抽象；
-       2. struct spi_device：spi 设备，如果没有外接 spi 设备时，那么就可以认为是 spi 控制器的代理，会通过对应的 spi_driver 即 driver/spi/spidev.c 这个源码注册的 name 是 "spidev" 的驱动完成 probe，就会注册对应的 spi 的字符设备，通过这个字符设备可以直接和 spi 控制器通信，具体的是通过 ioctl 完成数据的收发；
-       3. struct spi_driver：spi 设备的驱动，通过函数 spi_register 来注册这个驱动到 spi 总线
+        1. struct spi_master：spi 控制器本身的抽象；
+        2. struct spi_device：spi 设备，如果没有外接 spi 设备时，那么就可以认为是 spi 控制器的代理，会通过对应的 spi_driver 即 driver/spi/spidev.c 这个源码注册的 name 是 "spidev" 的驱动完成 probe，就会注册对应的 spi 的字符设备，通过这个字符设备可以直接和 spi 控制器通信，具体的是通过 ioctl 完成数据的收发；
+        3. struct spi_driver：spi 设备的驱动，通过函数 spi_register 来注册这个驱动到 spi 总线
     2. spi 控制器初始化的一般流程：
-       1. 定义 platform_device 设备，包含控制器对应的 mem、irq、dma 等类型的资源；
-       2. 注册对应的 platform_driver 驱动，在 probe 函数中会首先申请 spi_master 的内存空间，然后注册，在函数 spi_register_master 注册这个 master 的时候，通过 scan_boardinfo 函数会遍历设备定义的 spi_board_info 实例（这个表的注册依靠函数 spi_register_board_info），展开为 spi_device 实例，这个实例会关联到这个 master，在后续 driver probe 的时候，可以通过 master 找到对应的读写 spi 的方法，（挂在 spi_bus 上），然后注册到内核；
-       3. 在后续注册 spi_driver 的时候，可以通过名称或者 id 匹配申然后执行对应的 probe，真正执行 spi 发送和接受功能的时候需要依靠 spi_master 的 transfer 成员函数；
+        1. 定义 platform_device 设备，包含控制器对应的 mem、irq、dma 等类型的资源；
+        2. 注册对应的 platform_driver 驱动，在 probe 函数中会首先申请 spi_master 的内存空间，然后注册，在函数 spi_register_master 注册这个 master 的时候，通过 scan_boardinfo 函数会遍历设备定义的 spi_board_info 实例（这个表的注册依靠函数 spi_register_board_info），展开为 spi_device 实例，这个实例会关联到这个 master，在后续 driver probe 的时候，可以通过 master 找到对应的读写 spi 的方法，（挂在 spi_bus 上），然后注册到内核；
+        3. 在后续注册 spi_driver 的时候，可以通过名称或者 id 匹配申然后执行对应的 probe，真正执行 spi 发送和接受功能的时候需要依靠 spi_master 的 transfer 成员函数；
     3. 通过函数 spi_write_then_read 读写时，要注意写寄存器时，有些设备需要额外设置寄存器地址的高 bit 为 1 ；类似 I2C 总线一样，高 bit 表示读写？？？
     4. 如果只写不读的时候可以使用 spi_write 函数
 1.  linux APP 程序 bool 运算的头文件是 #include <stdbool.h>
@@ -296,31 +295,31 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     1. scons --target=makefile # 构建 Makefile 的编译文件
     2. SConscript 文件可以控制源码文件的加入，并且可以指定文件的 Group。
     3. scons 的环境分为：
-       1. 外部环境，执行 scons 的 shell 环境（针对 Linux）
-       2. 构造环境，一个 SConscript 文件创建的唯一的一个对象！！！，外部环境可以使用 os.environ 获取。一个构造环境实际上是一个拥有方法的对象。如果你想直接访问构造变量的字典，你可以使用Dictionary方法：
-          ```python
-          env=Environment(FOO='foo', BAR='bar')
-          dict=env.Dictionary()
-          for key in ['OBJSUFFIX', 'LIBSUFFIX', 'PROGSUFFIX']:
-          print ("key=%s, value=%s"  %  (key,dict[key]))
-          ```
-       3. scons -Q 禁止一些编译过程的打印信息，关注编译本身
-       4. print(env['LINKFLAGS']) 可以打印出指定环境的 LINKFLAGS，还有其他的参数也可以用这个方法打印
+        1. 外部环境，执行 scons 的 shell 环境（针对 Linux）
+        2. 构造环境，一个 SConscript 文件创建的唯一的一个对象！！！，外部环境可以使用 os.environ 获取。一个构造环境实际上是一个拥有方法的对象。如果你想直接访问构造变量的字典，你可以使用Dictionary方法：
+            ```python
+            env=Environment(FOO='foo', BAR='bar')
+            dict=env.Dictionary()
+            for key in ['OBJSUFFIX', 'LIBSUFFIX', 'PROGSUFFIX']:
+            print ("key=%s, value=%s"  %  (key,dict[key]))
+            ```
+        3. scons -Q 禁止一些编译过程的打印信息，关注编译本身
+        4. print(env['LINKFLAGS']) 可以打印出指定环境的 LINKFLAGS，还有其他的参数也可以用这个方法打印
 1.  C 语言的一些头文件
     1. uint8_t 对应的头文件 <stdint.h>
 1.  在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**
     1. arm-none-eabi-gcc -ldemo $(objs) -o $@ // 这个不可以正常连接 libdemo.a
     2. arm-none-eabi-gcc $(objs) -ldemo -o $@ // 这个可以正常连接 libdemo.a
     3. gcc 的一些編譯選項參數
-       - –start-group archives --end-group 正常情况，链接的时候库文件只会按它们出现在命令行的顺序搜索一遍，如果包里有未定义的引用标号，而且该包还被放在命令行的后面,这样链接器就无法解决该标号的引用问题。通过给包分组，这些包可以被循环搜索直到所有的引用都可以解决为止。使用该选项将降低性能。只有在无法避免多个包之间互相引用的情况下才使用。
-       - --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到，與之相反的是 --no-whole-archive 鏈接參數
-       - -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
-       - -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
-       - -MF 将目标的依赖重定向到指定文件名的文件中
-       - -Xlinker option 傳遞參數到鏈接器, 可以使用它来提供GCC无法识别的特定于系统的链接器选项,特別地，如果傳遞的參數是多個，那麼需要通過 -Xlinker 發送多次。在使用 GNU 鏈接器的時候，常見的是 `option=value` 的方式
-       - [--specs=nosys.specs](https://launchpadlibrarian.net/170926122/readme.txt) 表示使用 newlib-nano.特别地， GNU 工具链释放出来的时候会带有两个预先基于 newlib 编译出的 c 库，其中一个对应的是标准的 newlib,另一个是 newlib-nano。文件名分别是 libc.a -> libc_nano.a; libg.a -> libg_nano.a
-       - -print-search-dirs 打印搜索的目录
-       - -Wl OPTION 传递 OPTION 参数给链接器
+        - –start-group archives --end-group 正常情况，链接的时候库文件只会按它们出现在命令行的顺序搜索一遍，如果包里有未定义的引用标号，而且该包还被放在命令行的后面,这样链接器就无法解决该标号的引用问题。通过给包分组，这些包可以被循环搜索直到所有的引用都可以解决为止。使用该选项将降低性能。只有在无法避免多个包之间互相引用的情况下才使用。
+        - --whole-archive 表示將後續的文件的符號都鏈接進來，而不管是否使用到，與之相反的是 --no-whole-archive 鏈接參數
+        - -M 生成目标的依赖到 .d 文件, 不会忽略系统路径的头文件
+        - -MMD/-MM 生成目标的依赖到 .d 文件, 忽略系统路径的头文件
+        - -MF 将目标的依赖重定向到指定文件名的文件中
+        - -Xlinker option 傳遞參數到鏈接器, 可以使用它来提供GCC无法识别的特定于系统的链接器选项,特別地，如果傳遞的參數是多個，那麼需要通過 -Xlinker 發送多次。在使用 GNU 鏈接器的時候，常見的是 `option=value` 的方式
+        - [--specs=nosys.specs](https://launchpadlibrarian.net/170926122/readme.txt) 表示使用 newlib-nano.特别地， GNU 工具链释放出来的时候会带有两个预先基于 newlib 编译出的 c 库，其中一个对应的是标准的 newlib,另一个是 newlib-nano。文件名分别是 libc.a -> libc_nano.a; libg.a -> libg_nano.a
+        - -print-search-dirs 打印搜索的目录
+        - -Wl OPTION 传递 OPTION 参数给链接器
 1.  ar 打包为 .a 静态库的命令参数
     1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
     2. ar -r libdemo.a $(objs) # 将所有的 obj 文件连接为静态库
@@ -329,23 +328,23 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     2. pkgs --update 用來更新軟件包本身
 1.  Rust 包管理 cargo
     - 更换 cargo 的源，创建文件 `~/.cargo/config`
-      ```bash
-      [source.crates-io]
-      registry = "https://github.com/rust-lang/crates.io-index"
-      replace-with = 'hub'
-      #[source.ustc]
-      #registry = "https://mirrors.ustc.edu.cn/crates.io-index"
-      [source.hub]
-      registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
-      ```
+        ```bash
+        [source.crates-io]
+        registry = "https://github.com/rust-lang/crates.io-index"
+        replace-with = 'hub'
+        #[source.ustc]
+        #registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+        [source.hub]
+        registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
+        ```
 1.  google search `font name vk.com` 查找字体
 1.  fedora samba 网络端口:
     1. smbd TCP 139 和 445
     2. nmbd UDP 137 3.关闭防火墙或开放服务
-       ```bash
-       systemctl stop firewalld
-       sudo firewall-cmd --permanent --add-service=samba
-       ```
+        ```bash
+        systemctl stop firewalld
+        sudo firewall-cmd --permanent --add-service=samba
+        ```
 
 ````
 1.配置selinux
@@ -361,8 +360,8 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     - BUILD.gn 一般是整个工程的入口， .gni 文件一般用来作为子模块
     - --root 指定 gn 构建的根目录
     - --dotfile 默认会查找 root 目录下的 .gn 文件，如果需要明确指定该文件，那么使用 --dotfile 参数指定
-      - .gn 文件会至少定义 buildconfig 变量，该变量表示的文件会被用来建立 build file 的可执行环境
-      - .gn 文件一般也会定义 root 变量，定义 gn 构建的根目录
+        - .gn 文件会至少定义 buildconfig 变量，该变量表示的文件会被用来建立 build file 的可执行环境
+        - .gn 文件一般也会定义 root 变量，定义 gn 构建的根目录
     - gn args --list 查看有效的參數和他們的默認值
     - gn 文件中的 // 符号表示根目录
     - gn desc <build_dir> <targetname> # 获取指定目标的信息
@@ -374,10 +373,10 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     - 內置變量 root_build_dir 是 build command 執行的根目錄的絕對路徑
     - 內置變量 root_out_dir 是工具鏈輸出的根目錄的絕對路徑
     - rebase_path(input, new_base=="", current_base=".") # 將 input 表示的內容，可以是 list ,轉換爲以 new_base 爲基礎的路徑描述
-      - new_base 缺省時，轉換路徑以系統絕對路徑
-      - current_base 缺省時，是相對當前路徑
+        - new_base 缺省時，轉換路徑以系統絕對路徑
+        - current_base 缺省時，是相對當前路徑
     - exec_script(......) 函数提供了一种执行 python 脚本的钩子函数，当所执行的脚本返回非0数值时会终止工程构建
-      - exec_script("x.py", ["arg1", "arg2"], "json") # 如果返回值是一个 list 格式，参考[pkg-config.py](https://chromium.googlesource.com/chromium/src/build/config/+/refs/heads/main/linux/pkg-config.py) 并实际测试发现 "json" 格式才可以正常转换为 GN 可以识别的 list 类型, 里面关键的内容是，使用 python3 的 json 包，执行 print(json.dumps([xxx])), 返回 json 格式的 list
+        - exec_script("x.py", ["arg1", "arg2"], "json") # 如果返回值是一个 list 格式，参考[pkg-config.py](https://chromium.googlesource.com/chromium/src/build/config/+/refs/heads/main/linux/pkg-config.py) 并实际测试发现 "json" 格式才可以正常转换为 GN 可以识别的 list 类型, 里面关键的内容是，使用 python3 的 json 包，执行 print(json.dumps([xxx])), 返回 json 格式的 list
     - gn 脚本中不能用 `\t` 即 Tab 键需要使用空格替换，否则会提示 `Tabs are evil`
     - `gn format xxx.gn` 用来格式化 gn 文件，特别地，测试 `.gni` 文件也可以正常 format
 1.  ninja 替换 make 进行构建
@@ -387,7 +386,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1.  [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 `关键词 arch`
     - eopkg blame 包名称 # 查看包的维护者以及版本信息
     - eopkg info 包名称 # 查看包的详细信息，包括依赖等内容
-      - eopkg info -f 包名称 # 查看包安装了哪些文件
+        - eopkg info -f 包名称 # 查看包安装了哪些文件
     - eopkg install man-pages # 安装 man 帮助信息
     - eopkg list-installed # 列出已经安装的包
     - eopkg search-file # 查找包含指定文件的软件包
@@ -414,92 +413,90 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     /usr/share/icons/hicolor/symbolic/apps/com.example.YourApplication-symbolic.svg
     ```
 1.  [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
-
     1. sudo eopkg install tigervnc # 安装 TigerVNC
     2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
     3. x0vncserver -rfbauth ~/.vnc/passwd # 开启 vncserver 服务，可以看到 vncerver 使用了 5900 端口
 
-       ```bash
-       ▸ x0vncserver -rfbauth ~/.vnc/passwdjl
+        ```bash
+        ▸ x0vncserver -rfbauth ~/.vnc/passwdjl
 
-       Thu Jan 20 09:21:05 2022
-        Geometry:    Desktop geometry is set to 1280x720+0+0
-        XDesktop:    Using evdev codemap
-        XDesktop:
-        XDesktop:    XTest extension present - version 2.2
-        Main:        Listening on port 5900
-       ```
+        Thu Jan 20 09:21:05 2022
+         Geometry:    Desktop geometry is set to 1280x720+0+0
+         XDesktop:    Using evdev codemap
+         XDesktop:
+         XDesktop:    XTest extension present - version 2.2
+         Main:        Listening on port 5900
+        ```
 
     4. 在 windows 上使用客户端 **[TigerVNC Viewer](https://sourceforge.net/projects/tigervnc/)** 连接服务器，如果发现无法连接，可能是 5900 端口的防火墙没有打开，我使用的是 ufw，所以就是简单的使用 `sudo ufw allow 5900` 放开 5900 端口就可以了。连接的时候会提示输入密码，这时候就用到了刚才使用 vncpasswd 创建的密码。
     5. [配置 x0vnc 服务自启动](https://github.com/TigerVNC/tigervnc/wiki/Systemd-unit-for-x0vncserver)，参照这个链接，需要微调一下才可以在 solus 上成功设置起来，具体改动为 /usr/local/bin/x0vnc.sh ：
 
-       ```bash
-       #! /bin/bash
+        ```bash
+        #! /bin/bash
 
-       # Export an environment variable of the Display Manager
-       export XAUTHORITY="/var/run/lightdm/root/:0"
+        # Export an environment variable of the Display Manager
+        export XAUTHORITY="/var/run/lightdm/root/:0"
 
-       # Start VNC server for :0 display in background
-       ## Set path to binary file
-       VNC_BIN=/usr/bin/x0vncserver
+        # Start VNC server for :0 display in background
+        ## Set path to binary file
+        VNC_BIN=/usr/bin/x0vncserver
 
-       ## Set parameters
-       PARAMS="-display :0 -SecurityTypes Vncauth"
-       if [[ -f /etc/vnc.conf ]];
-       then
-       	## Launch VNC server
-       	($VNC_BIN $PARAMS) &
-       else
-       	## Add parameters
-       	#PARAMS+=" --I-KNOW-THIS-IS-INSECURE"
-       	# 建议还是添加密码验证
-       	PARAMS+=" -rfbauth /home/yangyongsheng/.vnc/passwd"
+        ## Set parameters
+        PARAMS="-display :0 -SecurityTypes Vncauth"
+        if [[ -f /etc/vnc.conf ]];
+        then
+        	## Launch VNC server
+        	($VNC_BIN $PARAMS) &
+        else
+        	## Add parameters
+        	#PARAMS+=" --I-KNOW-THIS-IS-INSECURE"
+        	# 建议还是添加密码验证
+        	PARAMS+=" -rfbauth /home/yangyongsheng/.vnc/passwd"
 
-       	## Launch VNC server
-       	($VNC_BIN $PARAMS) &
-       fi
-       # Provide clean exit code for the service
-       exit 0
-       ```
+        	## Launch VNC server
+        	($VNC_BIN $PARAMS) &
+        fi
+        # Provide clean exit code for the service
+        exit 0
+        ```
 
-       systemd 配置脚步文件 /etc/systemd/system/x0vncserver.service
+        systemd 配置脚步文件 /etc/systemd/system/x0vncserver.service
 
-       ```bash
-       [Unit]
-       Description=Remote desktop service (VNC) for :0 display
+        ```bash
+        [Unit]
+        Description=Remote desktop service (VNC) for :0 display
 
-       # Require start of
-       Requires=display-manager.service
+        # Require start of
+        Requires=display-manager.service
 
-       # Wait for
-       After=network-online.target
-       After=display-manager.service
+        # Wait for
+        After=network-online.target
+        After=display-manager.service
 
-       [Service]
-       Type=forking
+        [Service]
+        Type=forking
 
-       # Set environment
-       Environment=HOME=/root
+        # Set environment
+        Environment=HOME=/root
 
-       # Start command
-       ExecStart=/usr/local/bin/x0vnc.sh
+        # Start command
+        ExecStart=/usr/local/bin/x0vnc.sh
 
-       # Restart service after session log out
-       Restart=on-failure
-       RestartSec=5
+        # Restart service after session log out
+        Restart=on-failure
+        RestartSec=5
 
-       [Install]
-       WantedBy=multi-user.target
-       ```
+        [Install]
+        WantedBy=multi-user.target
+        ```
 
-       操作 x0vncserver.service 的命令:
-
-       1. sudo systemctl daemon-reload
-       2. sudo systemctl enable x0vncserver.service # 创建这个服务的软链接
-       3. sudo systemctl start x0vncserver
-       4. sudo systemctl stop x0vncserver
-       5. sudo systemctl status x0vncserver
-       6. sudo systemctl disable x0vncserver
+        操作 x0vncserver.service 的命令:
+        1. sudo systemctl daemon-reload
+        2. sudo systemctl enable x0vncserver.service # 创建这个服务的软链接
+        3. sudo systemctl start x0vncserver
+        4. sudo systemctl stop x0vncserver
+        5. sudo systemctl status x0vncserver
+        6. sudo systemctl disable x0vncserver
 
 1.  AppImage 格式文件可以在大部分的 Linux 环境执行运行，区别 deb 是 debian 的软件包格式， rpm 是 redhat 的软件包格式。如果既不支持 deb 也不支持 rpm,那么可以尝试直接下载 AppImage 格式的文件，然后给这个文件添加可执行权限，就可以直接运行了，比如 [drawio](https://github.com/jgraph/drawio-desktop/releases/download/v16.1.2/drawio-x86_64-16.1.2.AppImage)
 1.  putty 使用密钥连接远程 ssh 服务器教程：
@@ -543,25 +540,22 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     - 当发现复制图片 A 到图片 B 时，图片 A 的颜色发生了变化，这种时候可能是 A 和 B 的显示模式不匹配（比如一个 RGB， 一个为 indexed..），需要修改为一样后重启软件再复制
 1.  printf 打印浮点数的时候，栈要保证 8 字节对齐, AAPCS 规则要求堆栈保持 8 字节对齐。如果不对齐，调用一般的函数也是没问题的。但是当调用需要严格遵守 AAPCS 规则的函数时可能会出错。
 1.  wayland weston
-
     - [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
+        - weston-touch-calibrator 列出来触摸设备
+        - weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
+        - 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: `/etc/udev/rules.d/touchscreen.rules`， 该文件的内容是：
 
-      - weston-touch-calibrator 列出来触摸设备
-      - weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
-      - 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: `/etc/udev/rules.d/touchscreen.rules`， 该文件的内容是：
+            ```bash
+            SUBSYSTEM=="input", KERNEL=="event[0-9]*",
 
-        ```bash
-        SUBSYSTEM=="input", KERNEL=="event[0-9]*",
+            ENV{ID_INPUT_TOUCHSCREEN}=="1",
 
-        ENV{ID_INPUT_TOUCHSCREEN}=="1",
-
-        ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
-        ```
+            ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
+            ```
 
     - 调试触摸驱动
-
-      1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
-      2. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
+        1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
+        2. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
 
     - 调试 wayland, 可以放开环境变量 `export WAYLAND_DEBUG=1` 使能 wayland 调试信息
 
@@ -572,31 +566,30 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1.  weston 工具在运行时会加载动态库,可以使用 chrpath 工具修改 elf 文件的 rpath 属性。具体指令为：
     - chrpath -r <path> 可执行文件
     - 特别注意的是，在加载动态库的时候，可以通过定义环境变量 WESTON_MODULE_MAP 来替换指定库的搜索路径：
-      ```bash
-      export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
-      export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
-      export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
-      export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
-      export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
-      ```
+        ```bash
+        export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
+        export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
+        export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
+        export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
+        export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
+        ```
     - 修改屏幕方向,以旋转 90 为例,name 字段必须要有:
-      ```
-      [output]
-      name=LVDS-1
-      transform=rotate-90
-      ```
+        ```
+        [output]
+        name=LVDS-1
+        transform=rotate-90
+        ```
 1.  如果发现在 linux 串口发送数据时，0X0A 被转换成了 0X0D 和 0X0A，那么需要修改 c_oflag &= ~ONLCR
 1.  如果发现樱桃键盘 windows 键盘无反应,FUN+F9 解锁，这是为了防止误触把几个键给锁定了。是因为樱桃键盘有两种模式,办公模式和游戏模式,在有时模式下会锁定: windows, alt+f4, alt+tab, ctrl+esc, ctrl+alt+delete 按键,切换两种模式的方法就是 **Fn + F9**
 1.  gcc 中 `__DATE__` 和 `__TIME__` 分别表示编译的日期和时间
 1.  fedora nfs 参数配置文件是 **/etc/exports**,
-
     - no_root_squash 参数表示,远端可以正常使用 root 用户挂载,如果没有这个参数,对方使用 root 用户时会变为 nobody 用户
     - async 加快传输,禁止应答
     - sync 是默认的, nfs-server 会对写入的文件发送应答
     - 如果无法写入的时候使用这些模式 (rw,async,no_root_squash,no_subtree_check), 然后修改挂载的目录权限为 777 可以保证普通用户写入文件
-      ```bash
-      /var/lib/nfs  10.20.52.0/255.255.255.0(rw,async)
-      ```
+        ```bash
+        /var/lib/nfs  10.20.52.0/255.255.255.0(rw,async)
+        ```
 
 1.  [SWIG](https://www.swig.org/) 是一个软件工具,实现将 C/C++ 的程序和一些更高级的语言联系到一起.支持将 C/C++ 语言和 python.
 1.  swig 接口文件(一般是 .i 或者 .swg 后缀名)包含了函数和变量声明
@@ -648,7 +641,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1.  signal -s 信号名称/信号值 进程pid # 发送指定信号给指定的进程
 
 1.  线程优先级, 优先级数值约高, 对应的优先级约高. `pthread_setschedparam` 函数可以修改线程的调度策略和优先级
-
     1. SCHED_OTHER 默认的调度策略,创建的所有线程的优先级默认都是0,采用分时调度的策略
     2. SCHED_FIFO (实时线程) 优先级范围是 1 ~ 99
     3. SCHED_RR (实时线程) 优先级范围是 1 ~ 99, 在 SCHED_FIFO 的基础上,添加了一个最大运行时间, SCHED_RR 线程的最大运行时间,可以用函数 `sched_rr_get_interval` 获取, 默认的这个数值为 0.1s, 越高的 nice 等级(对应的 nice 数值本身越小,是负数),这个值越大,越不容易被抢占.相反,越低等级的 nice(nice 数值约大), 这个数值越小,越容易被抢占.
@@ -680,151 +672,148 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     ```
 
 1.  设备树
-
     1. 节点定义
-       ```dts
-       [label:] node-name[@unit-address] { /* 冒号前的内容是 label */
-       [properties definitions]
-       [child nodes]
-       };
-       ```
+        ```dts
+        [label:] node-name[@unit-address] { /* 冒号前的内容是 label */
+        [properties definitions]
+        [child nodes]
+        };
+        ```
     2. 可以给 node 或者 property 绑定 label, label 只会出现在 dts 源码中，不会出现在最终的 dtb 文件中
     3. 如果想引用 label, 那么需要在 label 名字前加 & 符号
     4. overlay
 
-       ```
-       #include <dt-bindings/gpio/gpio.h>  设备树头
-       /dts-v1/;
-       /plugin/;
+        ```
+        #include <dt-bindings/gpio/gpio.h>  设备树头
+        /dts-v1/;
+        /plugin/;
 
-       / { 根 node, 设备树 overlay 必须要有一个根 node
-           fragment@0 { 片段 0, 每一个片段对应一个需要修改的 node
-               target-path = "/"; 要修改的 node 的绝对路径, 用 target-path 指定
-               __overlay__ {
-                   foo {
-                       compatible = "custom,foo";
-                       status = "okay";
-                       gpio = <&gpio3 14 GPIO_ACTIVE_HIGH>;
-                   };
-               };
-           };
-           fragment@1 { 片段 1
-               target = <&bar>; 相对路径，&bar 表示引用 bar 这个 label 或者叫 alias, 相对路径，用 taget 指定
-               __overlay__ { 该 __overlay__ node 表示,需要对 target 或者 target-path 指定的 node 修改的地方, 修改包括：添加新的 node, 添加新的属性，修改已有的属性
-                   my-boolean-property;
-                   status = "okay";
-               };
-           };
-       };
-       ```
+        / { 根 node, 设备树 overlay 必须要有一个根 node
+            fragment@0 { 片段 0, 每一个片段对应一个需要修改的 node
+                target-path = "/"; 要修改的 node 的绝对路径, 用 target-path 指定
+                __overlay__ {
+                    foo {
+                        compatible = "custom,foo";
+                        status = "okay";
+                        gpio = <&gpio3 14 GPIO_ACTIVE_HIGH>;
+                    };
+                };
+            };
+            fragment@1 { 片段 1
+                target = <&bar>; 相对路径，&bar 表示引用 bar 这个 label 或者叫 alias, 相对路径，用 taget 指定
+                __overlay__ { 该 __overlay__ node 表示,需要对 target 或者 target-path 指定的 node 修改的地方, 修改包括：添加新的 node, 添加新的属性，修改已有的属性
+                    my-boolean-property;
+                    status = "okay";
+                };
+            };
+        };
+        ```
 
     5. 直接修改部分管脚为 gpio， 这里以 rockchip 平台为例，设置 gpio3 PC2 和 gpio3 PC3 为 gpio
 
-       ```
-       &pinctrl {
-           gpio3 {
-                   status = "okay";
-                   gpio3-pins {
-                           rockchip,pins =
-                                   <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>,
-                                   <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_up>;
-                   };
-           };
-       };
-       ```
+        ```
+        &pinctrl {
+            gpio3 {
+                    status = "okay";
+                    gpio3-pins {
+                            rockchip,pins =
+                                    <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>,
+                                    <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_up>;
+                    };
+            };
+        };
+        ```
 
     6. 使用 spidev 驱动配置内核 tools 目录下的 [spidev_test](toosl/spi) 工具，实现 spi 总线测试，修改设备树的时候配合 spidev 驱动添加如下节点信息，使用测试命令`./spidev_test -D /dev/spidev0.1 -l -p "123" -v` 可以测试自回环功能:
 
-       ```
-       &spi0 {
-           pinctrl-names = "default";
-           pinctrl-0 = <&spi0m1_pins &spi0m1_csn1>;
-           status = "okay";
-           spidev@1 {
-                   #address-cells = <1>;
-                   #size-cells = <1>;
-                   compatible = "rockchip,spidev";
-                   spi-max-frequency = <12000000>;
-                   reg = <1>; /*  这里的 reg 表示的是片选的编号 */
-           };
-       };
-       ```
+        ```
+        &spi0 {
+            pinctrl-names = "default";
+            pinctrl-0 = <&spi0m1_pins &spi0m1_csn1>;
+            status = "okay";
+            spidev@1 {
+                    #address-cells = <1>;
+                    #size-cells = <1>;
+                    compatible = "rockchip,spidev";
+                    spi-max-frequency = <12000000>;
+                    reg = <1>; /*  这里的 reg 表示的是片选的编号 */
+            };
+        };
+        ```
 
     7. 设备树中的 `/omit-if-no-ref/` 表示如果没有引用这个节点
     8. gpiod\_ 这一类函数涉及到的是新版本的基于 gpio 消费者描述符的框架，涉及到的头文件 `linux/gpio/consumer.h` ，需要注意的是设备树定义 gpio 节点的时候，一般的名称规范是 `function-gpios`，这里的 function 对应 gpiod_xxx 类函数定义的名称参数。
 
 1.  `fit` 文件定义 FIT 格式包的配置文件，类似 dtb 设备树语法
-
     1. `mkimage -f xxx.its yyy.img` 常规的用法，根据 xxx.its 文件，生成 yyy.img 文件
 
-       ```
-       /dts-v1/;
-       / {
-           description = "U-Boot FIT source file for arm";
+        ```
+        /dts-v1/;
+        / {
+            description = "U-Boot FIT source file for arm";
 
-           images {
-               fdt {
-                   data = /incbin/("kernel/arch/arm64/boot/dts/rk3568-evb1-ddr4-v10-linux.dtb");
-                   type = "flat_dt";
-                   arch = "arm64";
-                   compression = "none";
-                   load = <0xffffff00>;
+            images {
+                fdt {
+                    data = /incbin/("kernel/arch/arm64/boot/dts/rk3568-evb1-ddr4-v10-linux.dtb");
+                    type = "flat_dt";
+                    arch = "arm64";
+                    compression = "none";
+                    load = <0xffffff00>;
 
-                   hash {
-                       algo = "sha256";
-                   };
-               };
+                    hash {
+                        algo = "sha256";
+                    };
+                };
 
-               kernel {
-                   data = /incbin/("kernel/arch/arm64/boot/Image");
-                   type = "kernel";
-                   arch = "arm64";
-                   os = "linux";
-                   compression = "none";
-                   entry = <0xffffff01>;
-                   load = <0xffffff01>;
+                kernel {
+                    data = /incbin/("kernel/arch/arm64/boot/Image");
+                    type = "kernel";
+                    arch = "arm64";
+                    os = "linux";
+                    compression = "none";
+                    entry = <0xffffff01>;
+                    load = <0xffffff01>;
 
-                   hash {
-                       algo = "sha256";
-                   };
-               };
+                    hash {
+                        algo = "sha256";
+                    };
+                };
 
-               resource {
-                   data = /incbin/("kernel/resource.img");
-                   type = "multi";
-                   arch = "arm64";
-                   compression = "none";
+                resource {
+                    data = /incbin/("kernel/resource.img");
+                    type = "multi";
+                    arch = "arm64";
+                    compression = "none";
 
-                   hash {
-                       algo = "sha256";
-                   };
-               };
-           };
+                    hash {
+                        algo = "sha256";
+                    };
+                };
+            };
 
-           configurations {
-               default = "conf";
+            configurations {
+                default = "conf";
 
-               conf {
-                   rollback-index = <0x00>;
-                   fdt = "fdt";
-                   kernel = "kernel";
-                   multi = "resource";
+                conf {
+                    rollback-index = <0x00>;
+                    fdt = "fdt";
+                    kernel = "kernel";
+                    multi = "resource";
 
-                   signature {
-                       algo = "sha256,rsa2048";
-                       padding = "pss";
-                       key-name-hint = "dev";
-                       sign-images = "fdt", "kernel", "multi";
-                   };
-               };
-           };
-       };
-       ```
+                    signature {
+                        algo = "sha256,rsa2048";
+                        padding = "pss";
+                        key-name-hint = "dev";
+                        sign-images = "fdt", "kernel", "multi";
+                    };
+                };
+            };
+        };
+        ```
 
     2. 一般地，生成 yyy.img 文件之后，通过 tftp 到内存，可以通过 bootm 命令启动这个 img
 
 1.  [给 Linux 提交 pr 的方法](https://www.cnblogs.com/gmpy/p/12200609.html)
-
     1.  clone 源码树， 最好是根据你修改的部分查找对应的仓库路径，可以去 MAINTAINERS 文件中查找，这里以 linus 的仓库为例 eg: git clone git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git
     2.  修改，生成补丁文件，假如是单次修改，生成补丁的命令是：`git format-patch --subject-prefix='PATCH' -i HEAD~`, 如果是系列补丁，用下面的命令：`git format-patch --cover-letter --subject-prefix='PATCH' -N #这里的N是你要提取的补丁个数`
         1. 其中这个邮件前缀也是有一定的规范的,常见的有 PATCH（常规且正式的补丁）， RFC（不要正式提上去，希望一起讨论这个补丁，用来说明方向，看看意见）， RESEND（邮件发了好久没有回复，希望重新发）
@@ -844,7 +833,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
         其中，前3个maintainer是需要发送的对象，后三个是邮件列表。它们分别在 `git send-email` 命令使用 -to 选项和 -cc 选项进行发送和抄送。
 
     5.  使用 git send-email 命令发送补丁
-
         1.  首先对 git send-email 进行配置, 以 gmail 邮箱为例
             ```bash
             git config --local sendemail.smtpServer smtp.gmail.com
@@ -859,7 +847,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
             ```
         3.  顺利的话就可以在邮件列表的网址看到自己发的 pr 了。 网址：[https://lore.kernel.org/all](https://lore.kernel.org/all) 或者 [https://lkml.org/](https://lkml.org/)
         4.  如果看到 pr 有评论，下一步就是要对评论进行 reply 了，这里分两种情况：
-
             1.  单纯的对评论进行 reply 不涉及 patch 的更新，这时候可以使用 git send-email 进行 reply, reply 的地址可以在 https://lore.kernel.org/all 对应的 pr 中看到，比如: https://lore.kernel.org/all/20230609075510.1305-1-iyysheng@gmail.com/ 点击下面的 reply 按键，可以看到对这条消息进行 reply 的地址：
 
                 ```bash
@@ -876,7 +863,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
                 ```
 
                 其中 `/path/to/YOUR_REPLY` 表示发送的消息的文本内容，重点就是这个文本改怎么填呢，这里有多种方法：
-
                 1.  使用 b4 工具拉取这个 pr 相关的回复，这时候需要首先使用 `pip install b4` 安装 `b4` 命令，然后使用 `b4 mbox <message id>` 进行拉取，具体如下：
 
                         ``` bash
@@ -1121,13 +1107,13 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     6. 节点工具（N），用来选择路径
     7. 选择对象，选择路径的布尔运算，并集、
     8. 裁剪图像的步骤：
-       1. 使用 Inkscape 打开需要编辑的图片文件；
-       2. 创建矩形为需要裁剪的大小；
-       3. 按住shift键，首先选中矩形，再选中目标图片；
-       4. 右键“设置裁剪”即可。
-       5. 点击"文件 - >文档属性 - >缩放页面到内容 - >缩放页面到内容或选区"
+        1. 使用 Inkscape 打开需要编辑的图片文件；
+        2. 创建矩形为需要裁剪的大小；
+        3. 按住shift键，首先选中矩形，再选中目标图片；
+        4. 右键“设置裁剪”即可。
+        5. 点击"文件 - >文档属性 - >缩放页面到内容 - >缩放页面到内容或选区"
     9. 处理彩色图为灰度图
-       1. 旋转彩色图，然后点击滤镜->颜色->灰阶（红：0.23 绿：0.59 蓝：0.11）
+        1. 旋转彩色图，然后点击滤镜->颜色->灰阶（红：0.23 绿：0.59 蓝：0.11）
 1.  timedatectl 命令查看系统时间相关内容
 1.  `nmap -v -snP 192.168.91.100-105` 扫描探测指定地址范围内的设备
 1.  [qpdf](https://github.com/qpdf/qpdf) 工具用来对 pdf 进行编辑
