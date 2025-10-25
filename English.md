@@ -138,7 +138,8 @@
 | candidate                   | 候选人                                                               |
 | conventions                 | 习俗                                                                 |
 | comply                      | 遵守                                                                 |
-| cheat sheet                 | 備忘單                                                               |
+| cheat                       | 欺骗                                                                 |
+| cheat sheet                 | 備忘單,速查表                                                        |
 | Collections                 | 收藏品                                                               |
 | contest                     | 比赛                                                                 |
 | convince                    | 使确信，使信服                                                       |
@@ -337,7 +338,6 @@
 
 ## G
 
-<<<<<<< HEAD
 | 单词       | 释义                                 |
 | ---------- | ------------------------------------ |
 | go through | 经历                                 |
@@ -354,24 +354,7 @@
 | glossary   | 术语                                 |
 | guru       | 大师                                 |
 | genderage  | gender age，性别，年龄，人工智能领域 |
-=======
-| 单词       | 释义           |
-| ---------- | -------------- |
-| go through | 经历           |
-| gist       | 要领、要旨     |
-| grasp      | 掌握           |
-| go on to   | 进入           |
-| gradually  | 逐步地         |
-| Graduate   | 毕业的         |
-| gadget     | 小工具         |
-| glitch     | 差错，小毛病   |
-| gradient   | 梯度           |
-| governor   | 调节器         |
-| Gadget     | 小工具         |
-| glossary   | 术语           |
-| guru       | 大师           |
-| gundam     | 高达，机动战士 |
->>>>>>> 02f4537 ([CHG][N/T] 1. add english words 2. add dnf download package describe)
+| gundam     | 高达，机动战士                       |
 
 ## H
 
