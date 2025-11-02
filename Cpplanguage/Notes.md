@@ -407,6 +407,7 @@ a3 = a2.opeartor+(a1);
     * lambda-specifiers lambda说明符， 一些可选的参数
     * trailing-return-type 返回值类型，一般可以省略掉，由编译器来推导, 重载函数 operator() 函数的返回值
     * body 函数体，函数的具体逻辑, 重载函数 operator() 函数的函数体
+    * lambda 表示式使用 ``[](std::string &str)->int{return 1;}`` 针对带有返回值的函数，使用 ``-> return type`` 关联返回值
 49. std::remove(begin, end, value) remove 实际是一个模板,删除 [begin, end) 之间所有等 value 的对象,返回的是指向下一个不等 val 的对象！！！
     * a b c target d target e  eg: 如果 remove target ->(整理后为) a b c d e target e -> 返回的是指向整理之后 target 的内容
 50. R"(原始字符)" raw string, 不会对原始字符进行转义, raw string 的语法 **R"delimiter( raw_characters )delimiter"** // delimiter is the end of logical entity, 其中分割符是可选的，但不可以是 / 、空格、以及() 符号.
