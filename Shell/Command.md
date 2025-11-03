@@ -13,7 +13,7 @@ sed -i -e "/^#abc/{s/^#//g}" a.c : 修改 a.c 文件,在匹配 ^#abc 的行,删�
 sed -i.bak -e 's|bac|def|g' /tmp/a.txt  # 将 /tmp/a.txt 备份为 /tmp/a.txt.bak 然后修改 /tmp/a.txt 中的 bac 为 def
 ```
 
-6. 保留，在阅读 conda 的 shell 脚本中，``\local \eval \return`` 前面的这些 ``\`` 表示确保这些命令直接调用的 shell 内置命令或函数，而不是可能被用户定义的别名覆盖。
+6. 保留，在阅读 conda 的 shell 脚本中，`\local \eval \return` 前面的这些 `\` 表示确保这些命令直接调用的 shell 内置命令或函数，而不是可能被用户定义的别名覆盖。
 7. 字符串操作符集合(这里的 word 表示的是内容，并不是一个变量的名字)
     1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 的内容
     1. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
@@ -43,12 +43,12 @@ git clone https://github.com/chris-marsh/pureline.git
     shopt -u 取消设置 shell 的某一个选项
     ```
 
-	1. 如果 extglob 选项开启，那么可以使能扩展模式匹配，扩展模式的各种模式通过 | 符号隔开
-    	1. *(patternlist) 匹配 >= 0 个匹配列表的内容
-    	2. +(patternlist) 匹配 >= 1 个匹配列表的内容
-    	3. ?(patternlist) 匹配 0 或者 1 个匹配列表的内容
-    	4. @(patternlist) 匹配 1 个匹配列表的内容
-    	5. !(patternlist) 匹配除了指定匹配列表的其他内容
+    1. 如果 extglob 选项开启，那么可以使能扩展模式匹配，扩展模式的各种模式通过 | 符号隔开
+        1. \*(patternlist) 匹配 >= 0 个匹配列表的内容
+        2. +(patternlist) 匹配 >= 1 个匹配列表的内容
+        3. ?(patternlist) 匹配 0 或者 1 个匹配列表的内容
+        4. @(patternlist) 匹配 1 个匹配列表的内容
+        5. !(patternlist) 匹配除了指定匹配列表的其他内容
 
 11. $(UNIX command) 将 command 的命令输出作为变量的值赋值给其他变量，和 `UNIX command` （目的是向之前的 shell 兼容，eg: Bourne 和 C shell）类似
 12. cut 命令截取内容，-d 选项指定分割符，默认是 tab
@@ -60,7 +60,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
 ```
 
 13. bash 的流控 (return 只能用在函数中,并且返回值只能是正数， exit 用来退出整个 shell 脚本)
-    1.  if/else # if 只能测试退出的状态值，可以通过 ``[ * ]``（等价 test） 或者 ``[[*]]``（bash v2.05 版本之前不支持） 来配合 if 判断，在表达式前添加 ! 可以取反，``[ * ]`` 和 ``[[*]]`` 之间可以添加逻辑符号，比如 && 等价 -a，|| 等价 -o
+    1.  if/else # if 只能测试退出的状态值，可以通过 `[ * ]`（等价 test） 或者 `[[*]]`（bash v2.05 版本之前不支持） 来配合 if 判断，在表达式前添加 ! 可以取反，`[ * ]` 和 `[[*]]` 之间可以添加逻辑符号，比如 && 等价 -a，|| 等价 -o
         1. str1 = str2 字符串相等
         2. str1 != str2 字符串不相等
         3. str1 < str2 str1 比 str2 小
@@ -88,6 +88,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
         25. -f file 如果 file 存在，并且是一个常规的文件
         26. -L file 如果 file 存在并且是一个符号连接
         27. -h file 如果 file 存在，并且是一个符号链接, -L 类似或者叫等价
+
     ```bash
     if condition # 关于 condition 这里，如果是执行一个命令，那么如果命令正常执行，则返回 0, 但是 if 会判断为真！！
     then
@@ -96,7 +97,9 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     [else dosth]
     fi
     ```
+
     2.  for # IFS 变量可以修改 for 指定列表的分割符
+
     ```bash
     for name [in list]
     do
@@ -104,21 +107,27 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
         $name
     done
     ```
+
     3.  while # condition 和 if 类似
+
     ```bash
     while condition
     do
     dosth
     done
     ```
+
     4.  until # 可以简单认为 until 是 while 的反向，直到成功执行 command 命令才会停止
+
     ```bash
     until command;
     do
     dosth
     done
     ```
+
     5.  case # pattern 可以通过 | 符号分割出来一些匹配列表
+
     ```bash
     case expression
     in
@@ -131,7 +140,9 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     ...
     esac
     ```
+
     6.  select # 仅在 Korn shell 和 bash（1.14 版本之前的不支持 select） 存在，PS3 是 select 的提示符，修改该值可以修改 select 语句的提示符，select 语句会打印出一个菜单列表，等待用户输入一个数字，保存用户输入的数字到内置变量 REPLY，并且保存对应的条目到 select 指定的变量，然后执行语句，循环直到遇到 break、或者 exit，ctrl-D 也可以直接退出 select 循环
+
     ```bash
     select name [in list]
     do
@@ -139,6 +150,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
         $name
     done
     ```
+
 14. 位置变量（比如：$1 $2 等）是只读的，不可以对位置变量赋值，但是可以通过 **shift** 移动位置变量的值
 15. 内置命令 getops 可以解析 shell 脚本的参数，如果用户输入了无效的 option， getops 会设置变量值为 ?，同时如果 getops 后跟随的内容没有以 : 开头或者设置环境变量 OPTERR 值为 0，那么还会打印错误信息格式（getops:illegal option -o ），如果一个选项带有参数，那么选项参数会保存到变量 $OPTARG， getops 会保存下一个参数的位置值到 $OPTIND
 
@@ -254,7 +266,7 @@ unset array[100] # 删除 array 数组第 101 个元素的赋值
 
 | 符号     | 函数                                            |
 | -------- | ----------------------------------------------- |
-| |        | 管道                                            |
+| \|       | 管道                                            |
 | > file   | 重定向标准输出到 file                           |
 | < file   | 重定向标准输入到 file                           |
 | >> file  | 追加重定向标准输出到 file                       |
@@ -421,10 +433,10 @@ stty intr ^X # 修改 ctrl-X 发送 INT 信号
 
 ---
 
-| 键值                                                                    | 信号名             | 信号值 |
-| ----------------------------------------------------------------------- | ------------------ | ------ |
-| Ctrl+C                                                                  | INT interrupt      | 2      |
-| Ctrl+Z                                                                  | TSTP terminal stop | 20     |
+| 键值   | 信号名             | 信号值 |
+| ------ | ------------------ | ------ |
+| Ctrl+C | INT interrupt      | 2      |
+| Ctrl+Z | TSTP terminal stop | 20     |
 
 34. **kill** 命令， kill 可以发送信号给任何进程，默认情况下，kill 发送的是 TERM（"terminate"，信号值是 15）信号，kill -l 可以查看所有信号名和信号值对应关系，接收到 SIGKILL 信号后，操作系统应该立即无条件终止这个进程，否则的话接收到 SIGKILL 信号的进程就会到一个奇怪的状态
 
@@ -451,13 +463,13 @@ wait # 等待所有后台进程执行完，才会继续执行
 38. 进程可以分为三类 CPU-intensive：CPU 密集型、I/O-intensive：I/O 密集型、interactive 交互行
 39. **subshells**
     1.  从 parents 继承的
-        -   当前目录
-        -   环境变量
-        -   标准输入、输出、错误输出和其他的打开的文件描述符
-        -   忽略的信号
+        - 当前目录
+        - 环境变量
+        - 标准输入、输出、错误输出和其他的打开的文件描述符
+        - 忽略的信号
     2.  没有从 parents 继承的
-        -   shell 变量，除了环境变量和那些定义在 .bashrc 这类环境文件的变量
-        -   没有被忽略的信号，比如说 parents shell 特殊处理的信号
+        - shell 变量，除了环境变量和那些定义在 .bashrc 这类环境文件的变量
+        - 没有被忽略的信号，比如说 parents shell 特殊处理的信号
     3.  将一段 shell 代码，用括号扩起来，就可以让这段代码在 subshell 执行
 
 ```bash
@@ -473,8 +485,7 @@ $ cmp <(prog1) <(prog2)
 ```
 
 41. grep，awk 匹配与、或、非
-
-    -   -E 表示擴展匹配規則
+    - -E 表示擴展匹配規則
 
     ```bash
     # 或
@@ -495,9 +506,9 @@ $ cmp <(prog1) <(prog2)
     awk '!/PATTERN1/' FILE
     ```
 
-    -   -H 将匹配的文件名也打印出来
-    -   grep "\\\" 匹配的是 \ 符号
-    -   grep -o "xxx" filename | wc -l 炒着 "xxx" 在文件 filename 中出现的个数
+    - -H 将匹配的文件名也打印出来
+    - grep "\\\" 匹配的是 \ 符号
+    - grep -o "xxx" filename | wc -l 炒着 "xxx" 在文件 filename 中出现的个数
 
 42. 批量替换 txt 文件名的空格为下划线
 
@@ -573,27 +584,27 @@ echo -e "\033[文字颜色m字符串\033[0m"
 | 隐藏         | 8        |
 
 46. grep
-    -   -a 选项，可以强制将匹配到的内容打印出来，不管是不是 text 文本
-    -   -H 选项，强制打印文件名称，如果传递的参数本来就是多个文件，那么这个参数可以不加
-    -   -o 选项,只打印匹配的内容
-    -   -h 选项,不打印文件名
+    - -a 选项，可以强制将匹配到的内容打印出来，不管是不是 text 文本
+    - -H 选项，强制打印文件名称，如果传递的参数本来就是多个文件，那么这个参数可以不加
+    - -o 选项,只打印匹配的内容
+    - -h 选项,不打印文件名
 47. shell 脚本的参数释义
-    -   $0 当前脚本的文件名
-    -   $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
-    -   $# 传递给脚本或函数的参数个数。作用领域在最外层
-    -   $\* 传递给脚本或函数的所有参数。
-    -   $@ 传递给脚本或函数的所有参数。
-    -   $* 和 $@ 的区别, $* 将其他参数作为一个参数传递，$@将其他参数作为多个参数传递
-    -   $? 上个命令的退出状态，或函数的返回值。
-    -   $$ 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
+    - $0 当前脚本的文件名
+    - $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
+    - $# 传递给脚本或函数的参数个数。作用领域在最外层
+    - $\* 传递给脚本或函数的所有参数。
+    - $@ 传递给脚本或函数的所有参数。
+    - $* 和 $@ 的区别, $* 将其他参数作为一个参数传递，$@将其他参数作为多个参数传递
+    - $? 上个命令的退出状态，或函数的返回值。
+    - $$ 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
 48. set -e # 表示後續 shell 語句任意一條出錯就會退出腳本執行
-    - ``set --`` # 表示清空之前的位置参数，以便从头开始处理新的输入或参数集
-    - ``set -f`` # 用于在 bash 脚本中禁用文件名通配符功能
-    - ``set +f`` # 用于在 bash 脚本中重新启用文件名通配符功能
-    - ``set -x`` # 开启调试打印
-    - ``set +x`` # 关闭调试打印
+    - `set --` # 表示清空之前的位置参数，以便从头开始处理新的输入或参数集
+    - `set -f` # 用于在 bash 脚本中禁用文件名通配符功能
+    - `set +f` # 用于在 bash 脚本中重新启用文件名通配符功能
+    - `set -x` # 开启调试打印
+    - `set +x` # 关闭调试打印
 49. awk
-    -   `awk '!a[$0]++'` 可以去除重复值,真牛！！！, $0 表示整行， $1 表示第一列,依次类推
+    - `awk '!a[$0]++'` 可以去除重复值,真牛！！！, $0 表示整行， $1 表示第一列,依次类推
         ```text 解析过程
         <1>："!" 即非。
           <2>：a[$0]，以$0为数据下标，建立数组a
@@ -602,9 +613,11 @@ echo -e "\033[文字颜色m字符串\033[0m"
           此时将先求!a[$0]的值（也是整个式子的值，即为非空 true ,将影响后续动作，执行默认的print)
           然后对a[$0]进行+1，a[$0] 加1后为1，当下次出现时a[$0]即不为空，表达式结果为非真 false，即不打印
         ```
-    -   awk -v ABC=123 '{print ABC}' # 通过添加 -v 选项可以传递参数到 awk 中，并且引用这个变量的时候不需要在之前添加 $ 符号
-    -   awk '{print 'ABC'}' # 或者通过 '' 符号
-    -   awk '{printf("%x,%s", 10, "abc")}' # 支持 printf 函数格式化打印，可以打印出来 16 进制以及字符串等格式
+    - awk -v ABC=123 '{print ABC}' # 通过添加 -v 选项可以传递参数到 awk 中，并且引用这个变量的时候不需要在之前添加 $ 符号
+    - awk '{print 'ABC'}' # 或者通过 '' 符号
+    - awk '{printf("%x,%s", 10, "abc")}' # 支持 printf 函数格式化打印，可以打印出来 16 进制以及字符串等格式
+    - `awk '{printf "[%3d] %s\n", length($0), $0}' file_abc` 打印 file_abc 文件每行和每行的字符长度
+    - `awk 'length($0) > 10' file_abc` 过滤 file_abc 文件中超过 10 字符长度的行内容
 50. `ls -l` 以 - 开头的是硬连接,以 l 开头的是软连接
 
 ```bash
@@ -619,33 +632,34 @@ lrwxrwxrwx. red red 3 B Wed Mar  8 10:04:52 2023  abc_soft ⇒ abc 软连接
 
     ```bash
     #!/bin/sh
-    
+
     export ABC=1 # export 的变量可以被 child 进程调用。而直接赋值的则不可以，比如下述例子
-    
+
     export LD_LIBRARY_PATH=/opt/red_lib64
-    
+
     ./abc # 如果 abc 依赖 /opt/red_lib64 的库，上述用 export 的方法 abc 可以正常执行，如果使用 LD_LIBRARY_PATH=/opt/red_lib64 的方法， abc 不能正常执行
     ```
 
-	如果使用命令 `./a.sh`， 那么执行完后再当前 shell 也不会有这个变量 ABC，但是如果你使用 `source a.sh` 或者 `. a.sh`，那么执行完后，当前 shell 就会有 ABC 这个变量了。
+    如果使用命令 `./a.sh`， 那么执行完后再当前 shell 也不会有这个变量 ABC，但是如果你使用 `source a.sh` 或者 `. a.sh`，那么执行完后，当前 shell 就会有 ABC 这个变量了。
 
 53. 大小写转换
-	1. ${A^^}  # 将变量 A 中的所有字符转换为大写
-	1. ${A^}   # 将变量 A 中的首个字符转换为大写
-	1. ${b,,}  # 将变量 b 中的所有字符转换为小写
-	1. ${b,}   # 将变量 b 中的首个字符转换为小写
+    1.  ${A^^} # 将变量 A 中的所有字符转换为大写
+    1.  ${A^} # 将变量 A 中的首个字符转换为大写
+    1.  ${b,,} # 将变量 b 中的所有字符转换为小写
+    1.  ${b,} # 将变量 b 中的首个字符转换为小写
 
-54. linux 中初始化环境变量，分为两类：``login shell`` 和 ``non-login shell``
-	1. ``login shell`` 会 source 加载 ``/etc/profile``
-	2. ``no-login shell`` 会 source 加载 ``~/.bashrc``
-	3. ``/etc/profile.d/`` 目录下的所有 ``.sh`` 文件不管是 ``login-shell`` 和 ``nologin-shell`` 都会 source 加载
-55. 如果要使用复杂的数学运算可以使用 ``bc`` 工具： ``ABC=$(echo "1 \* 20 / 3" | bc)``
-56. ``start-stop-daemon`` 管理自启动脚本，主要用来启动和停止守护进程（daemon）。
-``` bash
+54. linux 中初始化环境变量，分为两类：`login shell` 和 `non-login shell`
+    1.  `login shell` 会 source 加载 `/etc/profile`
+    2.  `no-login shell` 会 source 加载 `~/.bashrc`
+    3.  `/etc/profile.d/` 目录下的所有 `.sh` 文件不管是 `login-shell` 和 `nologin-shell` 都会 source 加载
+55. 如果要使用复杂的数学运算可以使用 `bc` 工具： `ABC=$(echo "1 \* 20 / 3" | bc)`
+56. `start-stop-daemon` 管理自启动脚本，主要用来启动和停止守护进程（daemon）。
+
+```bash
 #!/bin/sh
 
 NAME=guard_dir
-DAEMON=/usr/bin/guard_dir_size.sh 
+DAEMON=/usr/bin/guard_dir_size.sh
 PIDFILE=/var/run/$NAME.pid
 DAEMON_ARGS="-d /opt/images_dir -r 20"
 
@@ -681,4 +695,5 @@ case "$1" in
                 exit 1
 esac
 ```
-57. 在 /etc/profile.d/ 目录下的所有文件，会在 Bourne 兼容的 shell（比如 bash），会首先执行 /etc/profile 文件，在这个 /etc/profile 文件中一般会有一段代码用来根据字母顺序依次执行 ``/etc/profile.d`` 目录下的 .sh 脚本,特别地，bash 中有可以使用类似 ``if [[ $abc =~ "/usr/local" ]];then dosth fi`` 这样的代码通过正则表达式判断 abc 变量是否包含 ``/usr/local`` 字段。
+
+57. 在 /etc/profile.d/ 目录下的所有文件，会在 Bourne 兼容的 shell（比如 bash），会首先执行 /etc/profile 文件，在这个 /etc/profile 文件中一般会有一段代码用来根据字母顺序依次执行 `/etc/profile.d` 目录下的 .sh 脚本,特别地，bash 中有可以使用类似 `if [[ $abc =~ "/usr/local" ]];then dosth fi` 这样的代码通过正则表达式判断 abc 变量是否包含 `/usr/local` 字段。
