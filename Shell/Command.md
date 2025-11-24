@@ -115,6 +115,10 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     do
     dosth
     done
+
+    while :;do
+    dosth # 这里的 while : 表示一直判断为真
+    done
     ```
 
     4.  until # 可以简单认为 until 是 while 的反向，直到成功执行 command 命令才会停止
