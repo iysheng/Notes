@@ -925,6 +925,14 @@ with open("a.txt", "w") as f:
     
     print(d)
 	```
+	* 遍历一个类的对象所有属性，并打印属性内容
+	``` python
+    for attr_name in dir(abc):
+        if not attr_name.startswith('__'): # 判断是否是内置属性
+            attr_value=getattr(abc, attr_name)
+            if not callable(attr_value):
+                print(f"{attr_name}:{attr_value}")
+	```
 72. reverse & reversed # 翻转列表
 	* lista = [1,2,3] lista.reverse() # 就地翻转列表
 	* lista = [1,2,3] for i in reversed(lista): print(i) # reversed 可以用在 for 循环的翻转迭代器中
