@@ -815,6 +815,7 @@
 | tricky                   | 棘手，难办的                         |
 | temperature              | 温度                                 |
 | telemetry                | 遥测                                 |
+| TL,DL                    | 太长了，读不下去了                   |
 
 ## U
 
