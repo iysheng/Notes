@@ -569,3 +569,37 @@ endwhile
     finish
     endif
     ```
+97. 自定义新类型文件扩展，以及语法高亮，这里以 gn 为例：
+    ``` bash
+    
+    VIM_DIR="$HOME/.vim"
+    
+    # 创建目录
+    mkdir -p "$VIM_DIR/ftdetect"
+    mkdir -p "$VIM_DIR/syntax"
+    mkdir -p "$VIM_DIR/ftplugin"
+    
+    # 创建文件类型检测
+    cat > "$VIM_DIR/ftdetect/gn.vim" << 'EOF'
+    autocmd BufNewFile,BufRead *.gn  set filetype=gn
+    autocmd BufNewFile,BufRead *.gni set filetype=gn
+    EOF
+    
+    # 创建基本语法文件（简化版）
+    cat > "$VIM_DIR/syntax/gn.vim" << 'EOF'
+    if exists("b:current_syntax")
+        finish
+    endif
+    
+    syntax keyword gnKeyword if else foreach import template source_set static_library executable config
+    syntax keyword gnKeyword deps sources configs defines include_dirs
+    syntax match gnComment "#.*$"
+    syntax region gnString start=/"/ skip=/\\"/ end=/"/
+    
+    highlight link gnKeyword Keyword
+    highlight link gnComment Comment
+    highlight link gnString String
+    
+    let b:current_syntax = "gn"
+    EOF
+    ```
