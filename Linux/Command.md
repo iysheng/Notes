@@ -1758,7 +1758,3 @@ sudo dnf install iwl1000-firmware
         1. `mmv "*.txt" "#1"` 去除所有 txt 文件后缀名
         1. `mmv "*" "#1.bin"` 给所有文件添加 `.bin` 后缀名
 206.    `sudo fc-cache -fv` 强制清除之前的 file 文件缓存
-207. gnome desktop 桌面环境存放 Icon 的目录:
-    1. ``系统级：/usr/share/icons/<主题>/ 或 /usr/share/pixmaps/``
-    2. ``用户级：~/.local/share/icons/<主题>/``
-    3. 为了及时更新，添加或者修改了 Icon 后可以使用命令 ``sudo update-desktop-database`` 强制刷新缓存

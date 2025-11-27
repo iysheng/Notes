@@ -413,6 +413,11 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     /usr/share/icons/hicolor/scalable/apps/com.example.YourApplication.svg
     /usr/share/icons/hicolor/symbolic/apps/com.example.YourApplication-symbolic.svg
     ```
+    gnome desktop 桌面环境存放 Icon 的目录:
+        1. ``系统级：/usr/share/icons/<主题>/ 或 /usr/share/pixmaps/``
+        2. ``用户级：~/.local/share/icons/<主题>/``
+        3. 为了及时更新，添加或者修改了 Icon 后可以使用命令 ``sudo update-desktop-database`` 强制刷新缓存
+
 1.  [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
     1. sudo eopkg install tigervnc # 安装 TigerVNC
     2. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
