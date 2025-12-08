@@ -443,7 +443,7 @@ xlicp -i file # 复制 file 文件的内容到 X master session，使用鼠标�
         set(CMAKE_INSTALL_PREFIX "/tmp/haarch64_yjoy") # 必须要加上双引号，要不然无效
         ```
 
-    6. -DCMAKE_INSTALL_PREFIX 指定 install 路径
+    6. -DCMAKE_INSTALL_PREFIX 指定 install 路径，或者 ``make install DESTDIR=/tmp/abc``
     7. FIND_PATH() 查找包含指定文件的目录
     8. find_package() 有两种模式：默认地，首先使用模块模式搜索，然后才会使用配置模式搜索
         - 模块模式： 查找 Find<package>.cmake，搜索路径是 CMAKE_MODULE_PATH，和 cmake 的安装路径

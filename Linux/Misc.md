@@ -129,6 +129,9 @@
     2. Unknown type name ‘off64_t’ 方法：CLFAGS="-Doff64_t=\_\_off64_t"
 23. Linux 的控制终端由控制码、一个环境变量和一组共称为 terminfo 数据库的特殊文件实现。Linux 将每种终端类型的 terminfo 数据作为一个单独的文件存储在 terminfo 数据库目录。常见的位置是 /usr/share/terminfo/ ；terminfo 的数据格式是二进制的需要使用 infocmp 命令查看
 
+23. onlyoffice 笔记
+    1. 设置单元格格式为 text, `ctrl+1` 快捷键调出来设置框
+    2. 双击列边框和行边框，自动修改列宽或者行宽
 ---
 
 ### zephyr 学习笔记
