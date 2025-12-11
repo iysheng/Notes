@@ -1758,3 +1758,25 @@ sudo dnf install iwl1000-firmware
         1. `mmv "*.txt" "#1"` 去除所有 txt 文件后缀名
         1. `mmv "*" "#1.bin"` 给所有文件添加 `.bin` 后缀名
 206.    `sudo fc-cache -fv` 强制清除之前的 file 文件缓存
+207. gpg key 使用
+    1. gpg --full-generate-key # 创建 gpg key,根据提示选择创建选项
+    2. gpg --list-secret-keys --keyid-format LONG # 列出已有的 gpg key
+        ``` bash
+        ▸ gpg --list-secret-keys --keyid-format LONG
+        /home/red/.gnupg/pubring.kbx
+        ----------------------------
+        sec   rsa4096/A86B812A06ED4AD9 2025-12-09 [SC] [expires: 2027-12-09]
+              042089D6A429B696454F397DA86B812A06ED4AD9
+        uid                 [ultimate] Yang Sheng <iysheng@163.com>
+        ssb   rsa4096/146398D7CADDEE02 2025-12-09 [E] [expires: 2027-12-09]
+        ```
+        其中，sec 表示公钥，rsa4096 表示 RSA 算法，4096 位长度，2025-12-09 表示创建日期
+        [SC] 表示 S 签名，C 认证
+        042xxxxx 表示密钥指纹
+        uid 表示用户 ID
+        [ultimate] 表示信任级别
+        sub: 子密钥，用于加密(E表示加密)
+    3. gpg --armor --export <KEY-ID> # KEY-ID 对应 A86B812A06ED4AD9，导出公钥
+208. [uvx](https://docs.astral.sh/uv/) 是一个用 Rust 编写的极速 Python 包管理器和项目管理工具，由 Astral 开发。它旨在成为 pip、pip-tools、pipx、poetry、pyenv 等工具的现代化替代品，提供统一、快速、可靠的 Python 项目管理体验。
+    1. uvx ty # 运行 ty, ty 是一个极其快速的 Python 类型检查器和语言服务器，用 Rust 编写
+    2. uvx black xxx.py # 使用 black 格式化 xxx.py
