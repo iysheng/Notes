@@ -281,12 +281,12 @@
     86. 还可以下载多次提交之间的所有补丁，和 `git cherrp-pick` 语法有点类似。下载两次提交的补丁，包括首尾:` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c^..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch` ， 下载两次提交之间的所有补丁，不包括首: ` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch`， 格式 ` curl -LfO https://github.com/libffi/libffi/compare/commit1^..commitid2.patch`，带有 `^` 表示包含 commit1 和 commit2 在内的所有提交补丁，不带 `^` 表示不包含 commit1 这次提交的补丁
     87. 下载 pr 是类似的操作 `curl -LfO https://github.com/user/repo/pull/123.patch`
 
-4. 本地搭建 git 服务器
+4. 本地搭建 git 服务器，还可以使用其他第三方服务搭建 git 服务器，比如 [forgejo](https://forgejo.org/)
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
     2. chmod 755 ~ [备注：关于目录 .ssh/ 和文件.ssh/authorized_keys 的权限需要严格按照这个权限，否则无法正常通过密钥文件验证，但是，测试的时候，还是可以通过 systemctl status sshd.service 查看]
     3. chmod 700 ~/.ssh
     4. chmod 600 ~/.ssh/authorized_keys
-    5. 将用户的公钥追加到文件 ~/.ssh/authorized_keys
+    5. 将用户的公钥追加到文件 ~/.ssh/authorized_keys，这样修改之后这个用户也可以直接使用 ssh xx@yy 方式免密码直接连接服务器
     6. 修改 sshd 的配置文件 /etc/ssh/sshd_config 修改权限 PubkeyAuthentication yes
     7. 重启 sshd 服务器【提示，无法连接时，可以通过命令查看 systemctl status sshd.service 无法连接的原因，一般都是 ssh 服务的原因 】
 5. 使用 bc 命令实现进制之间的转换
