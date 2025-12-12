@@ -51,6 +51,9 @@
         - git branch -D branchname # 删除本地指定的分支名
         - git config user.email iyysheng@gmail.com # 配置当前仓库的用户邮件地址
         - git commit -s -m "commit message" # 提交信息, -s 选项可以在 commit 添加 signed off 的尾部
+        - git log -1 --format=%B  <commit-hash> # 查看指定 commit-hash 的提交信息
+        - git log -1 --format=%B  <commit-hash> > xxx.file # 查看指定 commit-hash 的提交信息,导出到 xxx.file
+        - git commit -F xxx.file # 使用 xxx.file 中的信息作为这次 message 提交的信息
     7. commit 是当前工作区的一个快照，只能包含一个 tree，一个 tree 可以包含多个 tree 和 blob，tree 可以认为是目录类型，blob 是文件类型
     8. detached HEAD(分离头指针) git checkout commitid 的时候就会创建出分离头指针，分离头指针就是说 HEAD 直接指向一个 commit，没有关联到一个分支的情况，这时候需要git branch commitid 创建出一个分支，关联这次 checkout；
     9. git diff commit_id0 commit_id1 ；对比两次提交的差异, commitid[0.1] 没有必要说必须是当前分支的 commitid
