@@ -24,6 +24,7 @@
     13. sudo dnf install xxxxx --setopt install_weak_deps=false # 不安装指定软件的弱依赖
     14. `sudo dnf update --exclude=kernel*` # 忽略内核的更新更新系统软件包
     15. `sudo dnf download firefox` # 下载指定的安装包，但是不安装
+    16. `sudo dnf install kernel-devel-matched kernel-headers` # 安装内核开发头文件
 
 2. scp 和 ssh sshpass 命令
     1. 复制 filename 到 serverip 设备的 dir 目录，键入该命令会提示输入 username 的密码
