@@ -88,6 +88,8 @@ s.rfind("a"); /* 返回最后一个字符串 a 出现的位置 */
 s.at(0); /* 等价 s[0] ，获取字符串 s 的第一个字符 */
 ```
     * std::to_string(xxx) 函数可以将整数转换为 string 类型
+    * std::stoi("12") 函数可以将 string 转换为整数
+    * std::string abc; abc.empty(); // empty() 判断字符串是否为空
 18. **inline** 函数定义， inline 函数会在编译过程展开为多个副本，这是和一般函数最大的区别，内联函数和宏定义相比，可以进行一些规则检查
 ``` C++
 inline void hello()

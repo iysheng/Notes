@@ -302,39 +302,40 @@
 
 ## F
 
-| 单词                        | 释义                            |
-| --------------------------- | ------------------------------- |
-| fairness                    | 公正的合理的                    |
-| facilitate                  | 促进                            |
-| frustrate                   | 阻挠                            |
-| facility                    | 设施                            |
-| form                        | 窗体，包含空间，以便填写信息    |
-| Front Matter                | 出版的前言、扉页                |
-| flattening                  | 压扁                            |
-| flat                        | 平的，单调的                    |
-| fulfill                     | 完成、满足                      |
-| floor                       | 地板                            |
-| come full circle            | 绕了一圈                        |
-| figure out                  | 想出、解决、计算                |
-| fairy tales                 | 童话，谎言                      |
-| frustrating                 | 令人沮丧的                      |
-| figure out                  | 弄清，理解，想清                |
-| futile                      | 傻的，无效的，徒劳的            |
-| format specifier            | 格式限定符                      |
-| font ligature               | 字体连字                        |
-| Finite State Machines (FSM) | 有限状态机                      |
-| feasible                    | 可行的                          |
-| formula                     | 公式，准则                      |
-| FSM                         | finite state machine:有限状态机 |
-| frown                       | 反对                            |
-| flip                        | 快速翻转，交换，改变            |
-| feedforward                 | 前馈                            |
-| feed                        | 提供，喂                        |
-| fluctuations                | 波动                            |
-| facilitate                  | 促进，促使，使便利              |
-| frequency domain metrics    | 频域度量                        |
-| fact                        | 元素                            |
-| feat                        | 功绩，壮举                      |
+| 单词                        | 释义                                |
+| --------------------------- | ----------------------------------- |
+| fairness                    | 公正的合理的                        |
+| facilitate                  | 促进                                |
+| frustrate                   | 阻挠                                |
+| facility                    | 设施                                |
+| form                        | 窗体，包含空间，以便填写信息        |
+| Front Matter                | 出版的前言、扉页                    |
+| flattening                  | 压扁                                |
+| flat                        | 平的，单调的                        |
+| fulfill                     | 完成、满足                          |
+| floor                       | 地板                                |
+| come full circle            | 绕了一圈                            |
+| figure out                  | 想出、解决、计算                    |
+| fairy tales                 | 童话，谎言                          |
+| frustrating                 | 令人沮丧的                          |
+| figure out                  | 弄清，理解，想清                    |
+| futile                      | 傻的，无效的，徒劳的                |
+| format specifier            | 格式限定符                          |
+| font ligature               | 字体连字                            |
+| Finite State Machines (FSM) | 有限状态机                          |
+| feasible                    | 可行的                              |
+| formula                     | 公式，准则                          |
+| FSM                         | finite state machine:有限状态机     |
+| frown                       | 反对                                |
+| flip                        | 快速翻转，交换，改变                |
+| feedforward                 | 前馈                                |
+| feed                        | 提供，喂                            |
+| fluctuations                | 波动                                |
+| facilitate                  | 促进，促使，使便利                  |
+| frequency domain metrics    | 频域度量                            |
+| fact                        | 元素                                |
+| feat                        | 功绩，壮举                          |
+| Flexible Data rate          | 可变数据率，can fd 中对应的 fd 缩写 |
 
 ## G
 
@@ -355,85 +356,89 @@
 | guru       | 大师                                 |
 | genderage  | gender age，性别，年龄，人工智能领域 |
 | gundam     | 高达，机动战士                       |
+| guidance   | 指导                                 |
 
 ## H
 
-| 单词             | 释义                                  |
-| ---------------- | ------------------------------------- |
-| headline         | 标题                                  |
-| hook up          | 连接到                                |
-| handler          | 处理程序                              |
-| herein           | 在此处                                |
-| hence            | 因此                                  |
-| handy            | 方便的                                |
-| Head or Tails    | 正面还是反面                          |
-| hammer           | 敲击                                  |
-| here we go       | 我们开始吧                            |
-| helper functions | 辅助函数                              |
-| hysteresis       | 磁滞，滞后                            |
-| hanging out      | 闲逛                                  |
-| HCDs             | Host Controller Drives 主机控制器驱动 |
-| HNP              |                                       |
-| hypotheses       | 假说                                  |
-| hexagon          | 六边形                                |
+| 单词             | 释义                                                                                                                                                       |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| headline         | 标题                                                                                                                                                       |
+| hook up          | 连接到                                                                                                                                                     |
+| handler          | 处理程序                                                                                                                                                   |
+| herein           | 在此处                                                                                                                                                     |
+| hence            | 因此                                                                                                                                                       |
+| handy            | 方便的                                                                                                                                                     |
+| Head or Tails    | 正面还是反面                                                                                                                                               |
+| hammer           | 敲击                                                                                                                                                       |
+| here we go       | 我们开始吧                                                                                                                                                 |
+| helper functions | 辅助函数                                                                                                                                                   |
+| hysteresis       | 磁滞，滞后                                                                                                                                                 |
+| hanging out      | 闲逛                                                                                                                                                       |
+| HCDs             | Host Controller Drives 主机控制器驱动                                                                                                                      |
+| HNP              |                                                                                                                                                            |
+| hypotheses       | 假说                                                                                                                                                       |
+| hexagon          | 六边形                                                                                                                                                     |
+| Hoh              | Hardware Object Handles (HOH) 硬件对象句柄，发送和接收独立的，即 1路can(tx,rx)对应两个 Hoh,Transmit Hardware Objects (HTH)和Receive Hardware Objects (HRH) |
 
 ## I
 
-| 单词                            | 释义                               |
-| ------------------------------- | ---------------------------------- |
-| implicit                        | 隐含的                             |
-| implicattion                    | 意义                               |
-| involved                        | 涉及                               |
-| infrastructure                  | 基础设施                           |
-| IRC(Internet Relay Chat)        | 网络中继聊天                       |
-| inspect                         | 检查                               |
-| identical                       | 相同                               |
-| investigation                   | 调查                               |
-| impose                          | 强加                               |
-| interchangeably                 | 可互换                             |
-| IPC(interprocess communication) | 进程间通讯                         |
-| intensive                       | 密集型                             |
-| issue                           | 问题                               |
-| indentation                     | 缩进                               |
-| inclusive                       | 包容的                             |
-| insurance                       | 保险                               |
-| involve                         | 涉及                               |
-| incorrupt                       | 廉洁的                             |
-| invalidate                      | 使无效                             |
-| identifier                      | 标识符                             |
-| instructor                      | 讲师                               |
-| impedance                       | 阻抗                               |
-| intercept                       | 侦听                               |
-| idiomatic                       | 惯用的                             |
-| intend                          | 計劃、想要                         |
-| integration time                | 曝光時間，CCD 傳感器相關的一個概念 |
-| intensity                       | 強度                               |
-| inductor                        | 電感                               |
-| interfere                       | 干扰                               |
-| In the meantime                 | 在此期间                           |
-| is even with                    | 和...持平                          |
-| incorporate                     | 包含，组成                         |
-| Impulse-Response                | 冲击响应                           |
-| injection                       | 注入                               |
-| intuitive                       | 直观                               |
-| interspersed                    | 散布，点缀                         |
-| identical                       | 相同                               |
-| in accordance with              | 按照                               |
-| instantiate                     | 实例化                             |
-| inaccurate                      | 不准确                             |
-| integrity                       | 整数检查                           |
-| implicitly exists               | 隐式存在                           |
-| interrogate                     | 询问                               |
-| interchangeably                 | 可互换的                           |
-| IP                              | Internet Protocol                  |
-| TCP                             | Transmission Control Protocol      |
-| UDP                             | User Datagram Protocol             |
-| impulse respon                  | 脉冲响应                           |
-| identified                      | 被识别，确认                       |
-| Inference                       | 推断                               |
-| immutable                       | 不可改变的                         |
-| inhibite                        | 抑制                               |
-| Internal Representation(IR)     | 内部表示,内在表征                  |
+| 单词                                     | 释义                                                         |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| implicit                                 | 隐含的                                                       |
+| implicattion                             | 意义                                                         |
+| involved                                 | 涉及                                                         |
+| infrastructure                           | 基础设施                                                     |
+| IRC(Internet Relay Chat)                 | 网络中继聊天                                                 |
+| inspect                                  | 检查                                                         |
+| identical                                | 相同                                                         |
+| investigation                            | 调查                                                         |
+| impose                                   | 强加                                                         |
+| interchangeably                          | 可互换                                                       |
+| IPC(interprocess communication)          | 进程间通讯                                                   |
+| intensive                                | 密集型                                                       |
+| issue                                    | 问题                                                         |
+| indentation                              | 缩进                                                         |
+| inclusive                                | 包容的                                                       |
+| insurance                                | 保险                                                         |
+| involve                                  | 涉及                                                         |
+| incorrupt                                | 廉洁的                                                       |
+| invalidate                               | 使无效                                                       |
+| identifier                               | 标识符                                                       |
+| instructor                               | 讲师                                                         |
+| impedance                                | 阻抗                                                         |
+| intercept                                | 侦听                                                         |
+| idiomatic                                | 惯用的                                                       |
+| intend                                   | 計劃、想要                                                   |
+| integration time                         | 曝光時間，CCD 傳感器相關的一個概念                           |
+| intensity                                | 強度                                                         |
+| inductor                                 | 電感                                                         |
+| interfere                                | 干扰                                                         |
+| In the meantime                          | 在此期间                                                     |
+| is even with                             | 和...持平                                                    |
+| incorporate                              | 包含，组成                                                   |
+| Impulse-Response                         | 冲击响应                                                     |
+| injection                                | 注入                                                         |
+| intuitive                                | 直观                                                         |
+| interspersed                             | 散布，点缀                                                   |
+| identical                                | 相同                                                         |
+| in accordance with                       | 按照                                                         |
+| instantiate                              | 实例化                                                       |
+| inaccurate                               | 不准确                                                       |
+| integrity                                | 整数检查                                                     |
+| implicitly exists                        | 隐式存在                                                     |
+| interrogate                              | 询问                                                         |
+| interchangeably                          | 可互换的                                                     |
+| IP                                       | Internet Protocol                                            |
+| TCP                                      | Transmission Control Protocol                                |
+| UDP                                      | User Datagram Protocol                                       |
+| impulse respon                           | 脉冲响应                                                     |
+| identified                               | 被识别，确认                                                 |
+| Inference                                | 推断                                                         |
+| immutable                                | 不可改变的                                                   |
+| inhibite                                 | 抑制                                                         |
+| Internal Representation(IR)              | 内部表示,内在表征                                            |
+| ITCM(Instruction Tightly-Coupled Memory) | 指令紧耦合寄存器(存储指令代码、低延迟、0等待周期，可配置ECC) |
+| DTCM(Data Tightly-Coupled Memory)        | 数据紧耦合寄存器(存储数据、0等待周期、低延迟、可配置ECC)     |
 
 ## K
 
