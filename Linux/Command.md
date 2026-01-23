@@ -1787,3 +1787,4 @@ sudo dnf install iwl1000-firmware
 208. [uvx](https://docs.astral.sh/uv/) 是一个用 Rust 编写的极速 Python 包管理器和项目管理工具，由 Astral 开发。它旨在成为 pip、pip-tools、pipx、poetry、pyenv 等工具的现代化替代品，提供统一、快速、可靠的 Python 项目管理体验。
     1. uvx ty # 运行 ty, ty 是一个极其快速的 Python 类型检查器和语言服务器，用 Rust 编写
     2. uvx black xxx.py # 使用 black 格式化 xxx.py
+209. [simplescreenrecorder](https://github.com/MaartenBaert/ssr.git) 录屏工具， X11, dwm 可以用
