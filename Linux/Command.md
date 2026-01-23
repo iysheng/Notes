@@ -946,6 +946,7 @@ xrandr --output 分屏幕 --brightness 0.6
     5. gdb 烧录 flash 的方法，假如需要烧录 a.bin 文件到 flash 的 0x8001000 位置，那么需要将 bin 文件通过 xxx-objcopy 命令转存为 elf 文件，比如 a.elf 文件，再通过 load a.elf 0x8001000 指令将该文件下载到 flash 中。转存的命令为 `arm-none-eabi-objcopy -I binary -O elf32-littlearm -S a.bin a.elf`， 其中 -I 和 -O 选项指定了平台信息，具体查看支持的平台信息请参看 arm-none-eabi-dump -i 查看。
     6. 带有调试参数的命令是 `gdb --args ./test arg0 arg1 arg2 ...` 不能直接 `gdb ./test arg0 arg1 arg2 ...`
     7. ``print *(struct _sys_rt_thread *)0x200391bc`` 指定起始地址，以某种结构体类型打印
+    8. ``p/x abc`` 16 进制打印 abc 变量的值
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串
@@ -1600,6 +1601,7 @@ sudo dnf install iwl1000-firmware
         - 将 gnome3 默认录屏的 webm 格式转化为 mp4 格式：`ffmpeg -i input.webm -vf scale=1920x1080 output.mp4`
         - 将录制的 mp4 格式的视频降低文件大小，可以减低 fps `ffmpeg -i a.mp4 -r 20 b.mp4` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
         - 将 MP3 音频采样率修改为 16000 `fmpeg -i hongdou.mp3 -ar 16000 hongdoulite.mp3`
+        - 将 mkv 转换为 mp4，并截取前 60s 视频 `` ffmpeg -ss 00:00:00 -i input.mkv -t 60 -c:v h264 -c:a aac -movflags +faststart output.mp4`` 或者（nvidia 编码器）``ffmpeg -ss 00:00:00 -i input.mkv -t 60 -c:v h264_nvenc -c:a aac -movflags +faststart outputnnn.mp4``
 172.    nslookup 工具查看指定域名的 ip
         - nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
 
