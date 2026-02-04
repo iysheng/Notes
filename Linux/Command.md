@@ -1093,9 +1093,9 @@ sudo dnf install iwl1000-firmware
         - f: o(octal) x(hex) d(decimal) u(unsigned decimal) t(binary) f(float) a(address) i(instruciton) c(char) s(string)
         - u: b(byte) h(halfword) w(word) g(gaint, 8 bytes)
         - for example: x/256xb addr, x/256xw addr
-    17. ~~break \* main + 10 # 在 main 函数起始 + 10 行位置打断点~~
+    17. ~~``break *main + 10 # 在 main 函数起始 + 10 行位置打断点``~~
     18. set $pc=xxxxx 修改寄存器的数值，需要在寄存器名称前添加 $ 符号
-    19. - 命令， 会到一个跟随现实代码的窗口
+    19. - 命令， 会到一个跟随实现代码的窗口
     20. 可以通过 gdbinit 文件，创建启动脚本，执行 gdb 时候自动执行 .gdbinit 文件定义的命令，配置文件示例:
         ```text
         # 需运行以下命令开启gdbinit安全配置文件
@@ -1112,6 +1112,7 @@ sudo dnf install iwl1000-firmware
         ```
     21. `set mem inaccessible-by-default off` 关闭 gdb 的内存访问限制
     22. `set debug remote 1` 开启 gdb 的调试打印
+    23. ``set *0x8000800`` 在 0x800000 地址处打断点
 77. [Jim-Tcl](http://jim.tcl.tk/index.html/doc/www/www/index.html) 是一个轻量化的命令解释器， 是 tcl 的子集
 78. zip -r a.zip 待壓縮的文件
     - unzip -O 936 指定字符集来解压文件，修复有时候解压文件在 linux 显示乱码问题,或者也可以修改环境变量：UNZIP="-O CP936" 以及 ZIPINFO="-O CP936"

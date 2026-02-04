@@ -17,7 +17,7 @@
 | analogous                                                        | 类似的                            |
 | all over again                                                   | 再来一次                          |
 | abnormal                                                         | 异常的、不正常                    |
-| amend                                                            | 修改                              |
+| amend                                                            | 修改，修正，修订                  |
 | ambiance                                                         | 气氛                              |
 | accustomed                                                       | 习惯的                            |
 | attach                                                           | 附加，和 detach 是反义词          |
@@ -25,7 +25,7 @@
 | angled                                                           | 角度                              |
 | angled brackets                                                  | 尖括号                            |
 | altering                                                         | 改变                              |
-| acronyms                                                         | 缩写                              |
+| acronyms                                                         | 缩写，首字母缩略词                |
 | abbreviation                                                     | 缩写                              |
 | asset，assets                                                    | 财富，资产                        |
 | advisory                                                         | 咨询                              |
@@ -70,6 +70,7 @@
 | as a rule                                                        | 通常情况下                        |
 | artifact                                                         | 手工制品，工艺品                  |
 | aggressive                                                       | 积极的                            |
+| accumulate                                                       | 积累                              |
 
 ## B
 
