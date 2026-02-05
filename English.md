@@ -66,7 +66,7 @@
 | advisable                                                        | 可辅助的                          |
 | assumed                                                          | 假定的                            |
 | assumes                                                          | 假定                              |
-| arbitrary                                                        | 任意的                            |
+| arbitrary                                                        | 任意的，武断的                    |
 | as a rule                                                        | 通常情况下                        |
 | artifact                                                         | 手工制品，工艺品                  |
 | aggressive                                                       | 积极的                            |
@@ -83,7 +83,7 @@
 | binary                | 二元                                                       |
 | binary operator       | 二元运算符                                                 |
 | bloated               | 臃腫的                                                     |
-| buggy                 |                                                            |
+| buggy                 | 童车，小机动车                                             |
 | brace                 | 大括号                                                     |
 | bootstrap             | 引导                                                       |
 | bootstrapping system  | 引导系统                                                   |
@@ -96,11 +96,10 @@
 | blueprint             | 蓝图                                                       |
 | bang                  | 感叹号                                                     |
 | boilerplate           | 样板                                                       |
-| blueprint             | 蓝图                                                       |
 | brackets              | 方括号                                                     |
 | bootstrap             | 引导程序                                                   |
 | Bucket                | 桶                                                         |
-| bounded               | 无界的                                                     |
+| bounded               | 有界的，有限制的                                           |
 | basis                 | 原因，基础                                                 |
 | be proportional to    | 成比例                                                     |
 | Bode Plot             | 波特图                                                     |
