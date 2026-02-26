@@ -1187,3 +1187,7 @@ with open("./aaaa.sh") as f:
 	```
 105. 特殊符号
 	* `//` 整除符号, `12//5=2`
+106. vllm 启动模型
+	* ``vllm serve Qwen/Qwen2.5-1.5B-Instruct --max-model-len=4096 --gpu-memory-utilization 0.7`` serve 后跟随模型目录
+	* ``modelscope download --model Qwen/Qwen2.5-1.5B-Instruct`` 下载模型，存储在 ``~/.cache/modelscope/hub/models`` 目录
+	* ``export HF_ENDPOINT="https://hf-mirror.com";huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct --local-dir abc/`` 使用镜像下载 vllm 的 qwen 模型到 abc 目录

@@ -523,8 +523,9 @@ endwhile
 88. Vim 进行数学运算
     1.  s/123/\=submatch(0)+10/ 会将匹配到的 123 + 10 ，得到的结果是 133
     2.  s/\d\{1,\}/\=submatch(0)+10/ 对匹配的数字都会加 10, 比如 50 转换完后是 60
-    3.  s/\d\{1,\}/\=printf('%02X',str2nr(submatch(0)))/ 将匹配的数字转换为16进制
-    4.  s/\d\{1,\}/\=printf('[%d]', submatch(0)-1)/ 将匹配的数字 - 1，两侧加方括号，针对特殊场合使用 printf 格式化输出
+    3.  ``s/FlsConf_FlsConfigSet_DFlsSector_\zs\d\+/\=submatch(0)+10/g`` **其中 \zs 表示确定开始匹配的位置**
+    4.  s/\d\{1,\}/\=printf('%02X',str2nr(submatch(0)))/ 将匹配的数字转换为16进制
+    5.  s/\d\{1,\}/\=printf('[%d]', submatch(0)-1)/ 将匹配的数字 - 1，两侧加方括号，针对特殊场合使用 printf 格式化输出
 89. ab 替换
     1.  :ab 123 def 在文本编辑器中输入 123 会自动替换为 def
 90. 数字运算

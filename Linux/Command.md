@@ -1603,6 +1603,13 @@ sudo dnf install iwl1000-firmware
         - 将录制的 mp4 格式的视频降低文件大小，可以减低 fps `ffmpeg -i a.mp4 -r 20 b.mp4` 将 a.mp4 的帧率降低到 20fps 另存为 b.mp4
         - 将 MP3 音频采样率修改为 16000 `fmpeg -i hongdou.mp3 -ar 16000 hongdoulite.mp3`
         - 将 mkv 转换为 mp4，并截取前 60s 视频 `` ffmpeg -ss 00:00:00 -i input.mkv -t 60 -c:v h264 -c:a aac -movflags +faststart output.mp4`` 或者（nvidia 编码器）``ffmpeg -ss 00:00:00 -i input.mkv -t 60 -c:v h264_nvenc -c:a aac -movflags +faststart outputnnn.mp4``
+        - ffmpeg 合并多个音频, ``ffmpeg -f concat -safe 0 -i inputs.txt -c copy mls.wav`` ,其中 inputs.txt 内容为:
+            ``` bash
+            file '0.wav'
+            file '1.wav'
+            file '2.wav'
+            file '3.wav'
+            ```
 172.    nslookup 工具查看指定域名的 ip
         - nslookup github.com 223.5.5.5 # 在 (223.5.5.5 这个 dns 域名解析服务器，可以省略)上查找 github.com 的 ip
 
@@ -1749,6 +1756,18 @@ sudo dnf install iwl1000-firmware
         - -F 清空
 
 201.    jq 是一个命令行工具格式化 json 数据格式
+        - 集合 shell 可以生成 json 格式文本
+        ``` bash
+        # 使用jq构建JSON，安全处理特殊字符
+        json=$(jq -n \
+         --arg p1 "$1" \
+         '{
+            "model": "Qwen/Qwen2.5-1.5B-Instruct",
+            "prompt": $p1,
+            "max_tokens": 2048,
+            "temperature": 0
+          }')
+        ```
 202.    命令行转换16进制为 ascii 码显示
         - `echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p | od -c`
         - `echo "d a 2b 53 4f 43 4b 49 4e 44 3a 4f 4e d a d a" | tr -d ' ' | xxd -r -p`
@@ -1789,3 +1808,5 @@ sudo dnf install iwl1000-firmware
     1. uvx ty # 运行 ty, ty 是一个极其快速的 Python 类型检查器和语言服务器，用 Rust 编写
     2. uvx black xxx.py # 使用 black 格式化 xxx.py
 209. [simplescreenrecorder](https://github.com/MaartenBaert/ssr.git) 录屏工具， X11, dwm 可以用
+210. [icdiff](https://github.com/jeffkaufman/icdiff) 命令行对比工具，不是很好用
+211. [difftastic](https://github.com/Wilfred/difftastic) 另一个比较流行的命令行对比工具
