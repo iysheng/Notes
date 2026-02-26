@@ -1810,3 +1810,6 @@ sudo dnf install iwl1000-firmware
 209. [simplescreenrecorder](https://github.com/MaartenBaert/ssr.git) 录屏工具， X11, dwm 可以用
 210. [icdiff](https://github.com/jeffkaufman/icdiff) 命令行对比工具，不是很好用
 211. [difftastic](https://github.com/Wilfred/difftastic) 另一个比较流行的命令行对比工具
+212. [websocat](https://github.com/vi/websocat) websocket 命令行调试工具，安装使用 ``brew install websocat``
+    1. ``websocat -s 1234`` 监听端口作为服务端
+    2. ``websocat ws://127.0.0.1:1234/`` 作为客户端连接
