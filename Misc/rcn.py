@@ -2,6 +2,7 @@
 
 import sys
 import requests
+import click
 from itertools import islice
 from bs4 import BeautifulSoup
 
@@ -22,17 +23,31 @@ def query_bing_dict(word):
         print(ans.get_text())
     ans = soup.find('div', class_='Mean_normal__mkzjn')
 
+    head=False
     if ans is not None and ans.get_text():
     # 跳过第一个对象，第一个对象是标题 释意
         for i, p in enumerate(islice(ans,1, None)):
             for j, l in enumerate(p, 1):
                     text = l.get_text(strip=True)
+                    if head == False and not text.startswith(("adj", 'n', 'v', 'adv', 'prep', 'conj', 'pron', 'num', 'art', 'int', 'aux', 'abbr')):
+                    #  if head == False and not text[0].isalpha():
+                        #  print(f"ignore this {text}")
+                        continue
+                    head = True
                     if text:
                         print(f"{text}")
     else:
         print(f"No found {word}")
 
-if len(sys.argv) > 1:
-    query_bing_dict(sys.argv[1])
-else:
+#  if len(sys.argv) > 1:
+    #  query_bing_dict(sys.argv[1])
+#  else:
+    #  query_bing_dict("red")
+
+@click.command()
+@click.option("--fullmode", fullmode=1, help="Full print mode.")
+def rcn():
     query_bing_dict("red")
+
+if __name__ == '__main__':
+    rcn()

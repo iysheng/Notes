@@ -59,7 +59,7 @@ awk -F args '{print $arg1}' sth # 等价上述内容
 awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
 ```
 
-13. bash 的流控 (return 只能用在函数中,并且返回值只能是正数， exit 用来退出整个 shell 脚本)
+13. bash 的流控 (return 只能用在函数中,并且返回值只能是正数，如果函数想返回数组，可以使用 echo, exit 用来退出整个 shell 脚本)
     1.  if/else # if 只能测试退出的状态值，可以通过 `[ * ]`（等价 test） 或者 `[[*]]`（bash v2.05 版本之前不支持） 来配合 if 判断，在表达式前添加 ! 可以取反，`[ * ]` 和 `[[*]]` 之间可以添加逻辑符号，比如 && 等价 -a，|| 等价 -o
         1. str1 = str2 字符串相等
         2. str1 != str2 字符串不相等
@@ -512,7 +512,8 @@ $ cmp <(prog1) <(prog2)
 
     - -H 将匹配的文件名也打印出来
     - grep "\\\" 匹配的是 \ 符号
-    - grep -o "xxx" filename | wc -l 炒着 "xxx" 在文件 filename 中出现的个数
+    - grep -o "xxx" filename | wc -l 查找 "xxx" 在文件 filename 中出现的个数
+    - grep -Eo "abc|def" filename | wc -l 包含正则表达式的检索出现次数功能，检索 abc 或者 def 在 filename 文件中出现的次数
 
 42. 批量替换 txt 文件名的空格为下划线
 
@@ -701,3 +702,5 @@ esac
 ```
 
 57. 在 /etc/profile.d/ 目录下的所有文件，会在 Bourne 兼容的 shell（比如 bash），会首先执行 /etc/profile 文件，在这个 /etc/profile 文件中一般会有一段代码用来根据字母顺序依次执行 `/etc/profile.d` 目录下的 .sh 脚本,特别地，bash 中有可以使用类似 `if [[ $abc =~ "/usr/local" ]];then dosth fi` 这样的代码通过正则表达式判断 abc 变量是否包含 `/usr/local` 字段。
+58. ``<<< ${abc}`` 将变量 abc 的内容作为标准输入传递，这是 here strings 语法
+    1. `IFS='.' read -ra ADDR <<< "$ip"` 将变量 ip 的内容作为标准输入，以 `.` 为分隔符，拆分到数组 ADDR 中
