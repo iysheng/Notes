@@ -1333,7 +1333,7 @@ sudo dnf install iwl1000-firmware
     - sudo systemctl start ufw # 启动 ufw 服务
     - sudo systemctl stop ufw # 启动 ufw 服务
 97. ss -ntpl # solus 使用 ss 命令替换 netstat 命令
-98. 7zz x 压缩包.7z # 按照路径的信息解压缩 7z 文件
+98. 7zz/7za x 压缩包.7z # 按照路径的信息解压缩 7z 文件
 99. [jless](https://github.com/PaulJuliusMartinez/jless) 一款命令行解析 json 格式数据的工具，具有很好的可视化效果
 100.    **json** 格式的数据语法,映射（就是 key 和 value）, json 没有注释：
         - 并列的数据之间用逗号 `,` 隔开
