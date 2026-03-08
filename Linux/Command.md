@@ -284,6 +284,7 @@
     85. 使用 curl 下载 gihtub 上的某次提交 diff，比如:`curl -LfO https://github.com/libffi/libffi/commit/cbfb9b4.patch`，路径格式是 ` https://github.com/libffi/libffi/commit/commitid.patch`
     86. 还可以下载多次提交之间的所有补丁，和 `git cherrp-pick` 语法有点类似。下载两次提交的补丁，包括首尾:` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c^..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch` ， 下载两次提交之间的所有补丁，不包括首: ` curl -LfO https://github.com/libffi/libffi/compare/170bab47c90626a33cd08f2169034600cfd9589c..2835f72cc7ee57edfc987da4b88b1f4c7c0386c3.patch`， 格式 ` curl -LfO https://github.com/libffi/libffi/compare/commit1^..commitid2.patch`，带有 `^` 表示包含 commit1 和 commit2 在内的所有提交补丁，不带 `^` 表示不包含 commit1 这次提交的补丁
     87. 下载 pr 是类似的操作 `curl -LfO https://github.com/user/repo/pull/123.patch`
+    88. ``git filter-repo --path "tools/Clarence Studio v1.11.20.exe" --invert-paths --force`` 在推送到云端时，如果某些文件超过了配额，比如 100MB,是推送不上去的，但是单纯的删除这个文件历史记录中还是存在有关这个文件的修改，还是提交补上去的，这时候可以使用工具 ``filter-repo`` 通过上面的指令删除有关这个文件的所有历史，其中 ``--force`` 按需使用，使用这个强制一定要注意数据安全，做好备份。``filter-repo``  使用前需要先安装 ``pip install git-filter-repo``。
 
 4. 本地搭建 git 服务器，还可以使用其他第三方服务搭建 git 服务器，比如 [forgejo](https://forgejo.org/)
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
