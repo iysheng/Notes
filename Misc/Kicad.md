@@ -152,6 +152,7 @@ Pin connected to some other pins but no pin to drive it
 38. Kicad 选择一段线,在界面下方会显示这段线的长度(segment length)和这整个 **routed length**,也就是这根线所连的两端之间线的总长度,这个长度在绘制等长线的时候会使用到
 39. Altium Designer 快捷键
 	1. shift + x 查看一段线的信息
+	2. shift + s 单层模式之间显示/退出
 40. PCB 设计中, 孔有四种作用:电气导通,定位,散热,方便分板.孔又分为导通孔(PTH)和非导通孔(NPTH),在一般的设计中,只有 PTH 有孔环, NPTH 是不具备孔环的,在一些特殊的情况, 也会给 NPTH 孔设计孔环(这时候孔起到接地的作用).
 	* PTH 是金属化孔,一般在电路板的 PTH 孔有两种用途:一种是用来焊接 DIP 封装的元器件的管脚用的; 另一种是比较小的 PTH,俗称过孔 via(或者叫导通孔)
 	* NPTH 是非金属化孔,孔内侧没有铜,比如说用来定位的螺丝孔,一般就是 NPTH 的

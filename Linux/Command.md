@@ -1814,3 +1814,7 @@ sudo dnf install iwl1000-firmware
 212. [websocat](https://github.com/vi/websocat) websocket 命令行调试工具，安装使用 ``brew install websocat``
     1. ``websocat -s 1234`` 监听端口作为服务端
     2. ``websocat ws://127.0.0.1:1234/`` 作为客户端连接
+213. [percollate](https://github.com/danburzo/percollate) 拉取指定网址内容下载为 pdf 或者 md
+    1. [sudo npm install percollate -g]()
+    2. 指定使用安装的 chrome 内核浏览器路径 ``export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome``
+    3. 示例： ``percollate pdf --output a.pdf https://www.altium.com/documentation/altium-designer/pcb``

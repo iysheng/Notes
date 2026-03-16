@@ -299,6 +299,7 @@
 | eigenvalues      | 特征值              |
 | extrude          | 挤出                |
 | emit             | 发射、发出          |
+| enthusiast       | 爱好者              |
 
 ## F
 
