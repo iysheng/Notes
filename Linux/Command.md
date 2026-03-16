@@ -1818,3 +1818,5 @@ sudo dnf install iwl1000-firmware
     1. [sudo npm install percollate -g]()
     2. 指定使用安装的 chrome 内核浏览器路径 ``export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome``
     3. 示例： ``percollate pdf --output a.pdf https://www.altium.com/documentation/altium-designer/pcb``
+    4. ``lynx -dump -listonly   "https://www.altium.com/documentation/altium-designer/pcb"   | awk '{print $2}'   | grep '^https://www.altium.com/documentation/altium-designer/pcb'  | sort -u > urls.txt`` 使用 lynx 工具拉取指定页面所有的 url, 然后将地址进行排序，地址写入到 urls.txt 文件
+    5. ``PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome xargs -a urls.txt percollate pdf -o altium-pcb-all.pdf`` 将指定文件中的路径内容逐个拉取合并到一个 pdf 文件
