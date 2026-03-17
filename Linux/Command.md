@@ -1411,7 +1411,7 @@ sudo dnf install iwl1000-firmware
         - ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
 
 114.    通过环境变量 **XDG_SESSION_TYPE** 可以查看系统使用的是 wayland 还是 X11
-115.    mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 memaid 类型的代码块来绘制
+115.    mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 mermaid 类型的代码块来绘制
 116.    weston 知识
         - **WESTON_DATA_DIR** 是定义weston 相关 app 运行资源(一些 png 图片等)的环境变量
 

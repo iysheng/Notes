@@ -1191,3 +1191,5 @@ with open("./aaaa.sh") as f:
 	* ``vllm serve Qwen/Qwen2.5-1.5B-Instruct --max-model-len=4096 --gpu-memory-utilization 0.7`` serve 后跟随模型目录
 	* ``modelscope download --model Qwen/Qwen2.5-1.5B-Instruct`` 下载模型，存储在 ``~/.cache/modelscope/hub/models`` 目录
 	* ``export HF_ENDPOINT="https://hf-mirror.com";huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct --local-dir abc/`` 使用镜像下载 vllm 的 qwen 模型到 abc 目录
+107. 查看指定软件包的依赖
+	* ``python -c "import vllm, importlib.metadata as m; print(vllm.__version__, m.metadata('vllm').get_all('Requires-Dist'))"`` 这里以 vllm 为例
