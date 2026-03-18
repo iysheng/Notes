@@ -765,6 +765,7 @@
 | senior              | 高级的                               |
 | scalar              | 标量的,标量                          |
 | stroke              | 笔画                                 |
+| synopsis            | 概要，大纲，梗概                     |
 
 ## T
 
