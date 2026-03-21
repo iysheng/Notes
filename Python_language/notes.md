@@ -1193,3 +1193,27 @@ with open("./aaaa.sh") as f:
 	* ``export HF_ENDPOINT="https://hf-mirror.com";huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct --local-dir abc/`` 使用镜像下载 vllm 的 qwen 模型到 abc 目录
 107. 查看指定软件包的依赖
 	* ``python -c "import vllm, importlib.metadata as m; print(vllm.__version__, m.metadata('vllm').get_all('Requires-Dist'))"`` 这里以 vllm 为例
+108. [glm-ocr](https://github.com/zai-org/GLM-OCR) 模型本地使用
+	* 启动本地模型的方法参考官方仓库的描述就行，这里特别提到的，我使用官方的 ``pip install "glmocr[selfhosted]"`` 本地使用做推理的时候，使用 ``with GlmOcr(ocr_api_host="localhost", ocr_api_port=8765, model="glm-ocr", mode="selfhosted", log_level="DEBUG") as parser:`` 做推理的时候，服务端总是提示我 default 模型找不到，所以在使用 vllm 启动模型的时候，我强制修改了模型名称为 default 才能正常使用，具体启动的命令是 ``vllm serve ./ZhipuAI/GLM-OCR --speculative-config '{"method": "mtp", "num_speculative_tokens": 1}'  --max-model-len=40960 --gpu-memory-utilization 0.7 --port 8765 --served-model-name default``
+	* 对应的客户端测试用 python 脚本为:
+		``` python
+		#!/usr/bin/env python
+		
+		from glmocr import GlmOcr, parse
+		import sys
+		
+		sfile="t1.png"
+		if len(sys.argv) > 1:
+		    sfile=sys.argv[1]
+		
+		print(f"afile scan:{sfile}")
+		
+		# Class-based API
+		with GlmOcr(ocr_api_host="localhost", ocr_api_port=8765, model="glm-ocr", mode="selfhosted", log_level="DEBUG") as parser:
+		    result = parser.parse(sfile, prompt="识别图中的中文和英文")
+		    print(result.json_result)
+		    print("-------------------------------")
+		    print(result.markdown_result)
+		    result.save(output_dir="./results")
+		    result.save()
+		```
