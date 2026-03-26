@@ -17,6 +17,20 @@ print('a','b',sep='') # ab
 sudo pacman -S python-jed
 # 为了修改 vim 自动将当前路径添加到当前工程还需要修改 .vimrc 的配置
 ```
+	* 添加额外的 python 路径的脚本为，在当前目录下新建文件 ``.ycm_extra_conf.py`` 文件，添加内容如下
+		``` python
+        import os
+        import sys
+        
+        def Settings(**kwargs):
+            return {
+                "sys_path": [
+                    "/home/yjoy/.env/tools/scripts/",
+                    "/home/yjoy/.env/tools/scripts/ebuild",
+                ]
+            }
+		```
+	* 不想每次加载提示询问是否加载的选项是在 ``.vimrc`` 添加 ``let g:ycm_confirm_extra_conf = 0``
 3. **help** 函数可以查看某一个模块的所有信息，比如定义的方法、变量等内容，help(待查询的函数)
 ``` bash
 >>> help(str.join)
