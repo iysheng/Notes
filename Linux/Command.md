@@ -76,7 +76,7 @@
     23. git rm 文件名；删除某一个文件
         1. git rm --cached xxx # 删除对指定文件的跟踪，但是不删除本地文件,并且已经跟踪的文件，是无法被 .gitignore 规则忽略的，删除跟踪后才可以，针对 submodule 情景，不需要使用某个 submodule 时，需要使用这个命令删除指定的目录
     24. git stash；暂存状态快照到“栈”
-        1. git stash show : 显示做了哪些改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
+        1. ``git stash show`` 显示做了哪些改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
 
         ```bash
         ▸ git stash list
@@ -99,7 +99,7 @@
          14 files changed, 19857 insertions(+), 23908 deletions(-)
         ```
 
-        2. git stash show -p : 显示存储的改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
+        2. ``git stash show -p`` 显示存储的改动，默认显示第一个存储，如果需要显示其他的存储，后面需要添加 stash@{$num}，eg:
 
         ```bash
         ▸ git stash show -p stash@{0}
@@ -125,6 +125,7 @@
 
         3. git stash drop stash@{num} : 删除指定的栈
         4. git stash clear : 删除所有缓存的栈
+        5. ``git restore --source=stash@{0} -- a.txt`` # 只恢复 a.txt 文件
 
     25. git stash list；查看当前“栈”的快照
     26. git stash apply；从“栈”顶恢复快照，但不删除“栈”的这个快照
