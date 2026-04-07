@@ -1668,6 +1668,7 @@ sudo dnf install iwl1000-firmware
 193.    **conda** python 虚拟环境管理工具
         1. `conda create -n demo python=3.6` 创建与一个名称是 demo 的虚拟环境
         1. `conda activate demo` 激活这个虚拟环境
+        1. `conda env remove -n demo` 删除 demo 这个虚拟的 python 环境
 194.    flatpak 包管理
         1. `flatpak list --app` 列出安装的 flatpak 包
         2. `flatpak uninstall --delete-data xxx.xxx.xxx` 卸载指定的应用程序
@@ -1821,3 +1822,7 @@ sudo dnf install iwl1000-firmware
     3. 示例： ``percollate pdf --output a.pdf https://www.altium.com/documentation/altium-designer/pcb``
     4. ``lynx -dump -listonly   "https://www.altium.com/documentation/altium-designer/pcb"   | awk '{print $2}'   | grep '^https://www.altium.com/documentation/altium-designer/pcb'  | sort -u > urls.txt`` 使用 lynx 工具拉取指定页面所有的 url, 然后将地址进行排序，地址写入到 urls.txt 文件
     5. ``PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome xargs -a urls.txt percollate pdf -o altium-pcb-all.pdf`` 将指定文件中的路径内容逐个拉取合并到一个 pdf 文件
+214. 当前用户 shell 管理
+    1. ``getent passwd "$USER"`` 查看当前用户 shell
+    2. ``chsh -s /usr/bin/bash`` 修改当前用户 shell 为 bash，路径视具体情况而定，修改之后要重新登录才生效
+215. ``qpdf --empty --pages input.pdf 239-365 -- output.pdf`` 使用 pdf 对指定文档进行分割，截取指定文档 ``input.pdf`` 页码范围 ``239-365`` 之间页面内容生成新文件 ``output.pdf``
