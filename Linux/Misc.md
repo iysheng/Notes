@@ -1145,6 +1145,11 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     # test driver auto load demo modprobe abc
     abc
     ```
+1. 启动时自动加载驱动的方法
+    1. ``echo "can-dev" | sudo tee /etc/modules-load.d/can-dev.conf``
+    2. ``sudo systemctl restart systemd-modules-load`` 测试自动加载
+    3. ``复制额外的驱动到 /lib/modules/$(uname -r)/extra/ 如果这个目录不存在，则新建`` 执行 ``sudo depmod -a``，如果不想使用 extra 目录，也可以使用 ``/lib/modules/$(uname -r)/updates/`` 目录
+    4. ``echo "gs_usb" | sudo tee -a /etc/modules-load.d/can-dev.conf`` 添加额外驱动到配置文件
 
 1.  关闭 selinux 的方法： `sudo setenforce 0`， 有时候 samba 会出现奇怪无法正常读写文件的时候，关闭 selinux 可以解决问题。
 1.  关闭 Gnome [自动休眠的配置](https://forums.fedoraforum.org/showthread.php?330586-Fedora-38-change-Systems-with-Gnome-suspend-after-15-minutes-even-when-plugged-in)

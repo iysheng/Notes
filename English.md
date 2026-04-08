@@ -680,6 +680,7 @@
 | RHS                                       | right-hand side 右边数据       |
 | remedy                                    | 补救                           |
 | retro                                     | 复古                           |
+| respective                                | 各自的                         |
 
 ## S
 
