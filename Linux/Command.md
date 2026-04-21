@@ -1826,3 +1826,6 @@ sudo dnf install iwl1000-firmware
     1. ``getent passwd "$USER"`` 查看当前用户 shell
     2. ``chsh -s /usr/bin/bash`` 修改当前用户 shell 为 bash，路径视具体情况而定，修改之后要重新登录才生效
 215. ``qpdf --empty --pages input.pdf 239-365 -- output.pdf`` 使用 pdf 对指定文档进行分割，截取指定文档 ``input.pdf`` 页码范围 ``239-365`` 之间页面内容生成新文件 ``output.pdf``
+    * ``img2pdf abc.jpg -o abc.pdf`` 将 abc.jpg 转换为 abc.pdf
+    * ``img2pdf a.png b.jpg c.png -o album.pdf`` 将多张图片合并到 album.pdf 文件
+    * ``qpdf --empty --pages a.pdf 1-z b.pdf 1-z -- merged.pdf`` 其中 1-z 表示从第 1 页到最后一页，将 a.pdf 和 b.pdf 合并为 merged.pdf
