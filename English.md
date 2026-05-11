@@ -557,6 +557,7 @@
 | overview                               | 概述，概览             |
 | oriented                               | 定向                   |
 | opaque                                 | 不透明的               |
+| onging                                 | 不间断的               |
 
 ## P
 

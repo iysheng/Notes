@@ -176,7 +176,7 @@ ret = os.system("linux 命令")
 		``` python
 		a = 'abcdef'
 		a[:1] == 'a'
-		a[1:2] == 'bc'
+		a[1:2] == 'b' # 右侧不包含的
 		```
 		* find() 函数可以在字符串中查找指定的字符串
 		* split(sep) 以指定的字符拆分字符串,返回的是 list 类型

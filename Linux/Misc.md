@@ -1208,6 +1208,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1.  visual studio 配置项列表：
     1. 添加头文件路径： `项目->C/C++->常规->附加包含目录`
     1. 添加库路径： `项目->链接器->常规->附加库目录`
+    1. ``format code`` 自带的快捷键 ``Ctrl+K Ctrl+F`` 格式化代码，``Ctrl+K Ctrl+D`` 格式化文档
 1.  在线阅读 Linux 源码的网站（支持跳转）
     1. [https://elixir.bootlin.com/](https://elixir.bootlin.com/)
     2. [https://lxr.missinglinkelectronics.com](https://lxr.missinglinkelectronics.com)
