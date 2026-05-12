@@ -108,163 +108,169 @@
 
 ## C
 
-| 单词                        | 释义                                                                 |
-| --------------------------- | -------------------------------------------------------------------- |
-| closure                     | 信封、关闭、结束、闭路                                               |
-| contrast                    | 对比度                                                               |
-| contributor                 | 贡献者                                                               |
-| copyright                   | 版权                                                                 |
-| consult                     | 咨询                                                                 |
-| compromise                  | 妥协                                                                 |
-| complement                  | 补充，补集                                                           |
-| compact                     | 紧凑的                                                               |
-| coroutines                  | 协程                                                                 |
-| contention                  | 争夺                                                                 |
-| constantly                  | 不断的                                                               |
-| complications               | 并发                                                                 |
-| concurrency control         | 并发控制                                                             |
-| check out                   | 查看                                                                 |
-| clutter                     | 混乱                                                                 |
-| cite                        | 引用                                                                 |
-| caption                     | 标题、字幕                                                           |
-| checkbox                    | 复选框                                                               |
-| collections                 | 集合，馆藏                                                           |
-| content                     | 内容                                                                 |
-| context                     | 上下文                                                               |
-| CDN                         | content delivery network 内容分发网络                                |
-| CDC                         | communication device class -USB 驱动开发中的通信设备类               |
-| corrupt                     | 腐败的                                                               |
-| constrained                 | 约束                                                                 |
-| candidate                   | 候选人                                                               |
-| conventions                 | 习俗                                                                 |
-| comply                      | 遵守                                                                 |
-| cheat                       | 欺骗                                                                 |
-| cheat sheet                 | 備忘單,速查表                                                        |
-| Collections                 | 收藏品                                                               |
-| contest                     | 比赛                                                                 |
-| convince                    | 使确信，使信服                                                       |
-| check it out                | 检查完善                                                             |
-| complementary               | 补充                                                                 |
-| critical                    | 关键的                                                               |
-| saturates                   | 饱和                                                                 |
-| criteria                    | 标准                                                                 |
-| complementary               | 互补的                                                               |
-| cathode                     | 阴极                                                                 |
-| courtyard                   | 庭院，院子                                                           |
-| coefficient                 | 系数                                                                 |
-| clamp diodes                | 钳位二极管                                                           |
-| curve                       | 曲线                                                                 |
-| coordinates                 | 坐标                                                                 |
-| Construction                | 建造                                                                 |
-| clarity                     | 清晰                                                                 |
-| Concatenation               | 串联                                                                 |
-| ceil                        | 天花板                                                               |
-| Compound                    | 复合                                                                 |
-| Congress                    | 国会                                                                 |
-| craft                       | 精心制作                                                             |
-| composition                 | 创作，组成                                                           |
-| coordinate                  | 使协调                                                               |
-| caveat                      | 警告，附加说明                                                       |
-| Cartesian                   | 笛卡尔坐标，传统的 X,Y 轴坐标                                        |
-| concatenated                | 串联                                                                 |
-| complicated                 | 复杂的                                                               |
-| Compensated                 | 补偿                                                                 |
-| concat                      | 合并，合并多个字符串                                                 |
-| colon                       | 冒号                                                                 |
-| consistency                 | 一致性                                                               |
-| cyclic                      | 循环                                                                 |
-| clarity                     | 清晰的                                                               |
-| concise                     | 简明的                                                               |
-| convolutional               | 卷积的                                                               |
-| canvas                      | 画布                                                                 |
-| caveat                      | 警告                                                                 |
-| concurrently                | 同时地                                                               |
-| compositor                  | 合成、渲染                                                           |
-| Collision                   | 冲突                                                                 |
-| caption                     | 字幕                                                                 |
-| CLZ                         | CLZ(Count Leading Zeros) 计算高位 0 的数量，最高位的 1 左边 0 的数量 |
-| comma                       | 逗号                                                                 |
-| compound                    | 复合物                                                               |
-| cube                        | 立方体                                                               |
-| cylinder                    | 圆柱体                                                               |
-| constraints                 | 限制，约束                                                           |
-| comparator                  | 比较器                                                               |
-| charactering                | 塑造                                                                 |
-| complex conjugate           | 复共轭                                                               |
-| clear analogy               | 清晰的类比                                                           |
-| criteria                    | 标准，评判条件                                                       |
-| CIDR                        | Component Identification Registers 组件 ID 寄存器                    |
-| choice                      | 选择，抉择                                                           |
-| comment                     | 评论，表达意见                                                       |
-| csv(Comma-Separated Values) | 逗号分隔的值                                                         |
-| chore                       | 杂务，例行工作                                                       |
-| CFP-FP                      | Celebrities in Frontal-Profile, 名人正面、侧面数据集                 |
-| cluttered                   | 杂乱的                                                               |
+| 单词                            | 释义                                                                 |
+| ------------------------------- | -------------------------------------------------------------------- |
+| closure                         | 信封、关闭、结束、闭路                                               |
+| contrast                        | 对比度                                                               |
+| contributor                     | 贡献者                                                               |
+| copyright                       | 版权                                                                 |
+| consult                         | 咨询                                                                 |
+| compromise                      | 妥协                                                                 |
+| complement                      | 补充，补集                                                           |
+| compact                         | 紧凑的                                                               |
+| coroutines                      | 协程                                                                 |
+| contention                      | 争夺                                                                 |
+| constantly                      | 不断的                                                               |
+| complications                   | 并发                                                                 |
+| concurrency control             | 并发控制                                                             |
+| check out                       | 查看                                                                 |
+| clutter                         | 混乱                                                                 |
+| cite                            | 引用                                                                 |
+| caption                         | 标题、字幕                                                           |
+| checkbox                        | 复选框                                                               |
+| collections                     | 集合，馆藏                                                           |
+| content                         | 内容                                                                 |
+| context                         | 上下文                                                               |
+| CDN                             | content delivery network 内容分发网络                                |
+| CDC                             | communication device class -USB 驱动开发中的通信设备类               |
+| corrupt                         | 腐败的                                                               |
+| constrained                     | 约束                                                                 |
+| candidate                       | 候选人                                                               |
+| conventions                     | 习俗                                                                 |
+| comply                          | 遵守                                                                 |
+| cheat                           | 欺骗                                                                 |
+| cheat sheet                     | 備忘單,速查表                                                        |
+| Collections                     | 收藏品                                                               |
+| contest                         | 比赛                                                                 |
+| convince                        | 使确信，使信服                                                       |
+| check it out                    | 检查完善                                                             |
+| complementary                   | 补充                                                                 |
+| critical                        | 关键的                                                               |
+| saturates                       | 饱和                                                                 |
+| criteria                        | 标准                                                                 |
+| complementary                   | 互补的                                                               |
+| cathode                         | 阴极                                                                 |
+| courtyard                       | 庭院，院子                                                           |
+| coefficient                     | 系数                                                                 |
+| clamp diodes                    | 钳位二极管                                                           |
+| curve                           | 曲线                                                                 |
+| coordinates                     | 坐标                                                                 |
+| Construction                    | 建造                                                                 |
+| clarity                         | 清晰                                                                 |
+| Concatenation                   | 串联                                                                 |
+| ceil                            | 天花板                                                               |
+| Compound                        | 复合                                                                 |
+| Congress                        | 国会                                                                 |
+| craft                           | 精心制作                                                             |
+| composition                     | 创作，组成                                                           |
+| coordinate                      | 使协调                                                               |
+| caveat                          | 警告，附加说明                                                       |
+| Cartesian                       | 笛卡尔坐标，传统的 X,Y 轴坐标                                        |
+| concatenated                    | 串联                                                                 |
+| complicated                     | 复杂的                                                               |
+| Compensated                     | 补偿                                                                 |
+| concat                          | 合并，合并多个字符串                                                 |
+| colon                           | 冒号                                                                 |
+| consistency                     | 一致性                                                               |
+| cyclic                          | 循环                                                                 |
+| clarity                         | 清晰的                                                               |
+| concise                         | 简明的                                                               |
+| convolutional                   | 卷积的                                                               |
+| canvas                          | 画布                                                                 |
+| caveat                          | 警告                                                                 |
+| concurrently                    | 同时地                                                               |
+| compositor                      | 合成、渲染                                                           |
+| Collision                       | 冲突                                                                 |
+| caption                         | 字幕                                                                 |
+| CLZ                             | CLZ(Count Leading Zeros) 计算高位 0 的数量，最高位的 1 左边 0 的数量 |
+| comma                           | 逗号                                                                 |
+| compound                        | 复合物                                                               |
+| cube                            | 立方体                                                               |
+| cylinder                        | 圆柱体                                                               |
+| constraints                     | 限制，约束                                                           |
+| comparator                      | 比较器                                                               |
+| charactering                    | 塑造                                                                 |
+| complex conjugate               | 复共轭                                                               |
+| clear analogy                   | 清晰的类比                                                           |
+| criteria                        | 标准，评判条件                                                       |
+| CIDR                            | Component Identification Registers 组件 ID 寄存器                    |
+| choice                          | 选择，抉择                                                           |
+| comment                         | 评论，表达意见                                                       |
+| csv(Comma-Separated Values)     | 逗号分隔的值                                                         |
+| chore                           | 杂务，例行工作                                                       |
+| CFP-FP                          | Celebrities in Frontal-Profile, 名人正面、侧面数据集                 |
+| cluttered                       | 杂乱的                                                               |
+| CAN PDU(CAN Protocol Data Unit) | 实际 CAN 帧的 8 字节数据                                             |
 
 ## D
 
-| 单词                            | 释义                                                   |
-| ------------------------------- | ------------------------------------------------------ |
-| dispatch                        | 派遣                                                   |
-| deprecated                      | 不推荐使用、抨击                                       |
-| duration                        | 持续时间                                               |
-| datagram-oriented               | 面向数据报                                             |
-| deferred                        | 延期的                                                 |
-| depressed                       | 沮丧的                                                 |
-| dedicated                       | 专用的                                                 |
-| delivery                        | 发出                                                   |
-| dread                           | 恐惧                                                   |
-| dozen                           | 打，一打是 12 个                                       |
-| denote                          | 表示                                                   |
-| donation                        | 捐赠                                                   |
-| detach                          | 分离                                                   |
-| determinstic timing             | 确定性时机                                             |
-| decoration                      | 装饰                                                   |
-| dongle                          | 加密狗                                                 |
-| directive                       | 指令                                                   |
-| dragging                        | 牵引                                                   |
-| dimension                       | 面积                                                   |
-| detach                          | 分离                                                   |
-| discrete time Fourier transform | 离散时间傅立叶变换                                     |
-| distinct                        | 清晰的，有区别的                                       |
-| draft                           | 草案                                                   |
-| delimiters                      | 分隔符                                                 |
-| dimensions                      | 尺寸                                                   |
-| directive                       | 指令                                                   |
-| decorator                       | 装饰器                                                 |
-| dumb                            | 传统的                                                 |
-| de-facto                        | 事实上的                                               |
-| digest                          | 摘要                                                   |
-| distill                         | 提取                                                   |
-| deduced                         | 推断                                                   |
-| Delegating Constructors         | 委托构造函数                                           |
-| DP                              | Debug Port，调试口                                     |
-| DPIDR                           | Debug Port Identification register，调试口的 ID 寄存器 |
-| datagram                        | 电报                                                   |
-| damped                          | 阻尼                                                   |
-| damped sinusoidal signal        | 阻尼正弦信号                                           |
-| diverge                         | 扩散，发散                                             |
-| denominator coefficients        | 分母系数                                               |
-| differential equation           | 微分方程                                               |
-| dominant                        | 主要的                                                 |
-| decay                           | 衰减                                                   |
-| decay rate                      | 衰减率                                                 |
-| decibel                         | 分贝                                                   |
-| deal with                       | 讨论，应对                                             |
-| dissipatable                    | 可消散的                                               |
-| derivative term                 | 微分项，导数项                                         |
-| disposal                        | 排列，布置                                             |
-| DRD                             | Dual-Role-Device USB 的 device 模式下的专业术语        |
-| Drawbacks                       | 缺点                                                   |
-| delegate                        | 委托                                                   |
-| disturbance                     | 干扰                                                   |
-| deputy                          | 代表，副手                                             |
-| DNP                             | do not populate 不用贴片                               |
-| DOM                             | Document Object Model，也可以作为解析 JSON 的一种方法  |
-| SAX                             | Simple API for XML，也可以作为解析 JSON 的一种方法     |
-| dummy                           | 虚假的，仿制的                                         |
-| dash                            | 破折号，-                                              |
-| delegate                        | 代表，委托                                             |
+| 单词                                  | 释义                                                   |
+| ------------------------------------- | ------------------------------------------------------ |
+| dispatch                              | 派遣                                                   |
+| deprecated                            | 不推荐使用、抨击                                       |
+| duration                              | 持续时间                                               |
+| datagram-oriented                     | 面向数据报                                             |
+| deferred                              | 延期的                                                 |
+| depressed                             | 沮丧的                                                 |
+| dedicated                             | 专用的                                                 |
+| delivery                              | 发出                                                   |
+| dread                                 | 恐惧                                                   |
+| dozen                                 | 打，一打是 12 个                                       |
+| denote                                | 表示                                                   |
+| donation                              | 捐赠                                                   |
+| detach                                | 分离                                                   |
+| determinstic timing                   | 确定性时机                                             |
+| decoration                            | 装饰                                                   |
+| dongle                                | 加密狗                                                 |
+| directive                             | 指令                                                   |
+| dragging                              | 牵引                                                   |
+| dimension                             | 面积                                                   |
+| detach                                | 分离                                                   |
+| discrete time Fourier transform       | 离散时间傅立叶变换                                     |
+| distinct                              | 清晰的，有区别的                                       |
+| draft                                 | 草案                                                   |
+| delimiters                            | 分隔符                                                 |
+| dimensions                            | 尺寸                                                   |
+| directive                             | 指令                                                   |
+| decorator                             | 装饰器                                                 |
+| dumb                                  | 传统的                                                 |
+| de-facto                              | 事实上的                                               |
+| digest                                | 摘要                                                   |
+| distill                               | 提取                                                   |
+| deduced                               | 推断                                                   |
+| Delegating Constructors               | 委托构造函数                                           |
+| DP                                    | Debug Port，调试口                                     |
+| DPIDR                                 | Debug Port Identification register，调试口的 ID 寄存器 |
+| datagram                              | 电报                                                   |
+| damped                                | 阻尼                                                   |
+| damped sinusoidal signal              | 阻尼正弦信号                                           |
+| diverge                               | 扩散，发散                                             |
+| denominator coefficients              | 分母系数                                               |
+| differential equation                 | 微分方程                                               |
+| dominant                              | 主要的                                                 |
+| decay                                 | 衰减                                                   |
+| decay rate                            | 衰减率                                                 |
+| decibel                               | 分贝                                                   |
+| deal with                             | 讨论，应对                                             |
+| dissipatable                          | 可消散的                                               |
+| derivative term                       | 微分项，导数项                                         |
+| disposal                              | 排列，布置                                             |
+| DRD                                   | Dual-Role-Device USB 的 device 模式下的专业术语        |
+| Drawbacks                             | 缺点                                                   |
+| delegate                              | 委托                                                   |
+| disturbance                           | 干扰                                                   |
+| deputy                                | 代表，副手                                             |
+| DNP                                   | do not populate 不用贴片                               |
+| DOM                                   | Document Object Model，也可以作为解析 JSON 的一种方法  |
+| SAX                                   | Simple API for XML，也可以作为解析 JSON 的一种方法     |
+| dummy                                 | 虚假的，仿制的                                         |
+| dash                                  | 破折号，-                                              |
+| delegate                              | 代表，委托                                             |
+| DCM(Diagnostic Communication Manager) | 诊断通信管理                                           |
+| DEM(Diagnostic Event Manager)         | 诊断事件管理                                           |
+| DSL(Diagnostic Session Layer)         | 诊断会话层                                             |
+| DSD(Diagnostic Service Dispatcher)    | 诊断服务调度,DSD是DSP和DSL之间的桥梁                   |
+| DSP(Diagnostic Service Processor)     | 诊断服务处理                                           |
 
 ## E
 
@@ -498,20 +504,21 @@
 
 ## N
 
-| 单词                   | 释义                 |
-| ---------------------- | -------------------- |
-| Nick name              | 昵称                 |
-| notion                 | 概念                 |
-| nuances                | 细微差别             |
-| non-trivial            | 不平凡的             |
-| notably                | 明显地               |
-| nightmare              | 噩梦                 |
-| nagging                | 纠缠不休的           |
-| namely                 | 即，也就是，换句话说 |
-| neglect                | 忽略                 |
-| notation               | 符号                 |
-| numerator coefficients | 分子系数             |
-| nibble                 | 半字节               |
+| 单词                            | 释义                                        |
+| ------------------------------- | ------------------------------------------- |
+| Nick name                       | 昵称                                        |
+| notion                          | 概念                                        |
+| nuances                         | 细微差别                                    |
+| non-trivial                     | 不平凡的                                    |
+| notably                         | 明显地                                      |
+| nightmare                       | 噩梦                                        |
+| nagging                         | 纠缠不休的                                  |
+| namely                          | 即，也就是，换句话说                        |
+| neglect                         | 忽略                                        |
+| notation                        | 符号                                        |
+| numerator coefficients          | 分子系数                                    |
+| nibble                          | 半字节                                      |
+| NSDU(Network Service Data Unit) | 网络服务数据单元,上层给的完整消息（未分段） |
 
 ## O
 
@@ -770,61 +777,62 @@
 
 ## T
 
-| 单词                     | 释义                                 |
-| ------------------------ | ------------------------------------ |
-| tile                     | 磁砖，瓦片                           |
-| tiled                    | 平铺                                 |
-| tilde                    | 波浪号                               |
-| trivial                  | 不重要的                             |
-| thrashing                | 颠簸                                 |
-| to conclude              | 总结                                 |
-| territory                | 领域                                 |
-| transcende               | 超越                                 |
-| take off                 | 脱掉                                 |
-| transparency             | 透明度                               |
-| ties                     | 打包                                 |
-| Test Access Ports (TAPs) | JTAG 的核心                          |
-| truncated                | 被截断                               |
-| tantalum                 | 鉭                                   |
-| tantalum capacitor       | 鉭電容                               |
-| then                     | 当时                                 |
-| trimming                 | 修整、切边                           |
-| thereupon                | 因此                                 |
-| traversal                | 遍历                                 |
-| triple quotes            | 三引号                               |
-| threshold                | 阈值                                 |
-| transform                | 变换                                 |
-| transfer function        | 传递函数                             |
-| tuple                    | 元组                                 |
-| Thus far                 | 到目前为止                           |
-| tales                    | 故事                                 |
-| toolkit                  | 工具箱                               |
-| truncation               | 截断                                 |
-| topological information  | 拓扑信息                             |
-| transceiver              | 收发机                               |
-| trimming whitespace      | 删除空格                             |
-| trick                    | 诡计、技巧                           |
-| theory                   | 学说，理论                           |
-| trivial                  | 琐碎的                               |
-| topology                 | 拓扑                                 |
-| texture                  | 纹理                                 |
-| transformations          | 转变                                 |
-| transactionally          | 事务性的                             |
-| turnaround period        | 周转期                               |
-| this way                 | 这样                                 |
-| transient respone        | 瞬态响应                             |
-| throttle                 | 节气门，风门，压制                   |
-| thermal trip             | 热阀门，热力阀门                     |
-| transaction              | 事务                                 |
-| transaction layer        | 事务层                               |
-| tensor                   | 张量，通常是指维度大于等于四维的数据 |
-| transpose                | 转置，矩阵的转置                     |
-| twofold                  | 双重的                               |
-| tricky                   | 棘手，难办的                         |
-| temperature              | 温度                                 |
-| telemetry                | 遥测                                 |
-| TL,DL                    | 太长了，读不下去了                   |
-| tone                     | 音调                                 |
+| 单词                               | 释义                                 |
+| ---------------------------------- | ------------------------------------ |
+| tile                               | 磁砖，瓦片                           |
+| tiled                              | 平铺                                 |
+| tilde                              | 波浪号                               |
+| trivial                            | 不重要的                             |
+| thrashing                          | 颠簸                                 |
+| to conclude                        | 总结                                 |
+| territory                          | 领域                                 |
+| transcende                         | 超越                                 |
+| take off                           | 脱掉                                 |
+| transparency                       | 透明度                               |
+| ties                               | 打包                                 |
+| Test Access Ports (TAPs)           | JTAG 的核心                          |
+| truncated                          | 被截断                               |
+| tantalum                           | 鉭                                   |
+| tantalum capacitor                 | 鉭電容                               |
+| then                               | 当时                                 |
+| trimming                           | 修整、切边                           |
+| thereupon                          | 因此                                 |
+| traversal                          | 遍历                                 |
+| triple quotes                      | 三引号                               |
+| threshold                          | 阈值                                 |
+| transform                          | 变换                                 |
+| transfer function                  | 传递函数                             |
+| tuple                              | 元组                                 |
+| Thus far                           | 到目前为止                           |
+| tales                              | 故事                                 |
+| toolkit                            | 工具箱                               |
+| truncation                         | 截断                                 |
+| topological information            | 拓扑信息                             |
+| transceiver                        | 收发机                               |
+| trimming whitespace                | 删除空格                             |
+| trick                              | 诡计、技巧                           |
+| theory                             | 学说，理论                           |
+| trivial                            | 琐碎的                               |
+| topology                           | 拓扑                                 |
+| texture                            | 纹理                                 |
+| transformations                    | 转变                                 |
+| transactionally                    | 事务性的                             |
+| turnaround period                  | 周转期                               |
+| this way                           | 这样                                 |
+| transient respone                  | 瞬态响应                             |
+| throttle                           | 节气门，风门，压制                   |
+| thermal trip                       | 热阀门，热力阀门                     |
+| transaction                        | 事务                                 |
+| transaction layer                  | 事务层                               |
+| tensor                             | 张量，通常是指维度大于等于四维的数据 |
+| transpose                          | 转置，矩阵的转置                     |
+| twofold                            | 双重的                               |
+| tricky                             | 棘手，难办的                         |
+| temperature                        | 温度                                 |
+| telemetry                          | 遥测                                 |
+| TL,DL                              | 太长了，读不下去了                   |
+| tone                               | 音调                                 |
+| TPDU(Transport Protocol Data Unit) | ISO-TP 分段后的数据单元              |
 
 ## U
 
