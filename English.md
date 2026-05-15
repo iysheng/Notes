@@ -691,89 +691,90 @@
 
 ## S
 
-| 单词                | 释义                                 |
-| ------------------- | ------------------------------------ |
-| spawn               | 派生                                 |
-| scale               | 规模、扩展、标量                     |
-| be supposed to      | 应该                                 |
-| stick to            | 坚持                                 |
-| stall               | 故意拖延，失速                       |
-| subscribe           | 订阅                                 |
-| substitution        | 替代                                 |
-| spam                | 垃圾邮件                             |
-| sympathize          | 同情、体恤                           |
-| semicolons          | 分号                                 |
-| suspend             | 暂停、中止                           |
-| slash               | 斜杠                                 |
-| standstill          | 停顿                                 |
-| subtle              | 微妙的                               |
-| subtle issue        | 细微的问题                           |
-| supplemental        | 补充                                 |
-| synonymously        | 同义                                 |
-| squash              | 镇压                                 |
-| stock               | 股票                                 |
-| specifying          | 指定                                 |
-| solid               | 坚固的                               |
-| synonym             | 代名词                               |
-| session             | 章节                                 |
-| subscript operator  | 下标运算符                           |
-| sibling             | 兄弟姐妹                             |
-| scatter             | 分散                                 |
-| stateless           | 无国际的、无状态的                   |
-| stipulate           | 规定                                 |
-| successive          | 持續的                               |
-| standby             | 备品，备用物品                       |
-| suspicion           | 疑惑，嫌疑                           |
-| simultaneously      | 同时地                               |
-| skillful            | 巧妙地                               |
-| subdivide           | 细分                                 |
-| successor           | 继任者                               |
-| semantic            | 语义的                               |
-| slope               | 斜坡，斜率                           |
-| sketch              | 素描                                 |
-| square brackets     | 方括号                               |
-| skeleton            | 骨架                                 |
-| stipple             | 点画                                 |
-| skim                | 浏览                                 |
-| shebang             | 场所、住所、工作、事件               |
-| standardize         | 标准化                               |
-| scratch             | 划痕                                 |
-| screencast          | 截屏                                 |
-| step-up             | 升压                                 |
-| suffix              | 后缀                                 |
-| summary             | 总结，概要                           |
-| sane                | 健全的                               |
-| sparse              | 稀少的                               |
-| stated goal         | 既定目标                             |
-| signature           | 函数原型，签名                       |
-| scheme              | 方案                                 |
-| semihosting         | 半宿主                               |
-| shader              | 着色器                               |
-| sphere              | 球体                                 |
-| sanity              | 明智的，健全的                       |
-| sanity check        | 健全性检查                           |
-| SWD                 | Serial Wire Debug                    |
-| shorthand           | 速记                                 |
-| specifically        | 明确地                               |
-| steady-state error  | 稳态误差                             |
-| significant         | 重要的                               |
-| settling            | 结束，解决                           |
-| settling time       | 调节时间                             |
-| stale               | 旧的，不新鲜的                       |
-| system requirements | 系统需求                             |
-| symmetric           | 对称                                 |
-| SRP                 |                                      |
-| SOM                 | system on module，嵌入式核心板       |
-| substrate           | 基板                                 |
-| subtract            | 减去                                 |
-| solder              | 焊料                                 |
-| solder mask layer   | 阻焊层，即盖绿油的层，Kicad 中是负片 |
-| strapping pin       | IC 设计时，配置 IC 功能的管脚定义    |
-| stereo              | 立体声，对应的 mono 是单声道         |
-| senior              | 高级的                               |
-| scalar              | 标量的,标量                          |
-| stroke              | 笔画                                 |
-| synopsis            | 概要，大纲，梗概                     |
+| 单词                   | 释义                                                                    |
+| ---------------------- | ----------------------------------------------------------------------- |
+| spawn                  | 派生                                                                    |
+| scale                  | 规模、扩展、标量                                                        |
+| be supposed to         | 应该                                                                    |
+| stick to               | 坚持                                                                    |
+| stall                  | 故意拖延，失速                                                          |
+| subscribe              | 订阅                                                                    |
+| substitution           | 替代                                                                    |
+| spam                   | 垃圾邮件                                                                |
+| sympathize             | 同情、体恤                                                              |
+| semicolons             | 分号                                                                    |
+| suspend                | 暂停、中止                                                              |
+| slash                  | 斜杠                                                                    |
+| standstill             | 停顿                                                                    |
+| subtle                 | 微妙的                                                                  |
+| subtle issue           | 细微的问题                                                              |
+| supplemental           | 补充                                                                    |
+| synonymously           | 同义                                                                    |
+| squash                 | 镇压                                                                    |
+| stock                  | 股票                                                                    |
+| specifying             | 指定                                                                    |
+| solid                  | 坚固的                                                                  |
+| synonym                | 代名词                                                                  |
+| session                | 章节                                                                    |
+| subscript operator     | 下标运算符                                                              |
+| sibling                | 兄弟姐妹                                                                |
+| scatter                | 分散                                                                    |
+| stateless              | 无国际的、无状态的                                                      |
+| stipulate              | 规定                                                                    |
+| successive             | 持續的                                                                  |
+| standby                | 备品，备用物品                                                          |
+| suspicion              | 疑惑，嫌疑                                                              |
+| simultaneously         | 同时地                                                                  |
+| skillful               | 巧妙地                                                                  |
+| subdivide              | 细分                                                                    |
+| successor              | 继任者                                                                  |
+| semantic               | 语义的                                                                  |
+| slope                  | 斜坡，斜率                                                              |
+| sketch                 | 素描                                                                    |
+| square brackets        | 方括号                                                                  |
+| skeleton               | 骨架                                                                    |
+| stipple                | 点画                                                                    |
+| skim                   | 浏览                                                                    |
+| shebang                | 场所、住所、工作、事件                                                  |
+| standardize            | 标准化                                                                  |
+| scratch                | 划痕                                                                    |
+| screencast             | 截屏                                                                    |
+| step-up                | 升压                                                                    |
+| suffix                 | 后缀                                                                    |
+| summary                | 总结，概要                                                              |
+| sane                   | 健全的                                                                  |
+| sparse                 | 稀少的                                                                  |
+| stated goal            | 既定目标                                                                |
+| signature              | 函数原型，签名                                                          |
+| scheme                 | 方案                                                                    |
+| semihosting            | 半宿主                                                                  |
+| shader                 | 着色器                                                                  |
+| sphere                 | 球体                                                                    |
+| sanity                 | 明智的，健全的                                                          |
+| sanity check           | 健全性检查                                                              |
+| SWD                    | Serial Wire Debug                                                       |
+| shorthand              | 速记                                                                    |
+| specifically           | 明确地                                                                  |
+| steady-state error     | 稳态误差                                                                |
+| significant            | 重要的                                                                  |
+| settling               | 结束，解决                                                              |
+| settling time          | 调节时间                                                                |
+| stale                  | 旧的，不新鲜的                                                          |
+| system requirements    | 系统需求                                                                |
+| symmetric              | 对称                                                                    |
+| SRP                    |                                                                         |
+| SOM                    | system on module，嵌入式核心板                                          |
+| substrate              | 基板                                                                    |
+| subtract               | 减去                                                                    |
+| solder                 | 焊料                                                                    |
+| solder mask layer      | 阻焊层，即盖绿油的层，Kicad 中是负片                                    |
+| strapping pin          | IC 设计时，配置 IC 功能的管脚定义                                       |
+| stereo                 | 立体声，对应的 mono 是单声道                                            |
+| senior                 | 高级的                                                                  |
+| scalar                 | 标量的,标量                                                             |
+| stroke                 | 笔画                                                                    |
+| synopsis               | 概要，大纲，梗概                                                        |
+| SDU(Service Data Unit) | 服务数据单元,同一协议层之间传递的用户服务数据（未经本层处理的原始数据） |
 
 ## T
 

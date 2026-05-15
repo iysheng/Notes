@@ -216,6 +216,15 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
     - 编译选项 -w 表示禁止所有的警告信息, -Wunused-parameter 表示对未使用的参数打印出警告信息, -Wno-unused-parameter 表示不对未使用的参数打印警告信息
     - 一个很有用的编译选项 --sysroot=dir 指定编译器的 sysroot 这个很重要，在链接的时候如果提示找不到一些 .o 文件，很有可能是你的 sysroot 参数不对，这时候在链接的时候添加这个选项应该就可以了，找到正确的 sysroot
     - ``-ffunction-sections -fdata-sections  -Wl,--gc-sections`` 分别表示函数分段、数据分段和移除未使用的段
+    - 指定函数不优化的方法，在函数前添加 ``__attribute__((optimize("O0")))``
+    - 指定代码范围内不优化的方法，在代码范围前添加
+        ``` C
+        #pragma GCC push_options
+        #pragma GCC optimize ("O0")
+        ...
+        ...
+        #pragma GCC pop_options
+        ```
 2. Makefile 的条件判断
 
     ```Makefile
