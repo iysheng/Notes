@@ -1830,3 +1830,23 @@ sudo dnf install iwl1000-firmware
     * ``img2pdf abc.jpg -o abc.pdf`` 将 abc.jpg 转换为 abc.pdf
     * ``img2pdf a.png b.jpg c.png -o album.pdf`` 将多张图片合并到 album.pdf 文件
     * ``qpdf --empty --pages a.pdf 1-z b.pdf 1-z -- merged.pdf`` 其中 1-z 表示从第 1 页到最后一页，将 a.pdf 和 b.pdf 合并为 merged.pdf
+1. 在 fedora 上安装 ``.NET`` [Install the .NET SDK or the .NET Runtime on Fedora](https://learn.microsoft.com/en-us/dotnet/core/install/linux-fedora?tabs=dotnet9)
+    1. 一步到位： ``sudo dnf install dotnet-sdk-9.0``
+1. ```rpm2cpio anydesk_6.3.3-1_x86_64.rpm | cpio -idmv``` 解析指定的 rpm 中的文件到当前目录
+1. [fail2ban]() 出问题可以参看解决方法
+    1. [failed-to-start-fail2ban-service](https://discussion.fedoraproject.org/t/failed-to-start-fail2ban-service/141973/8) Error connecting to fail2ban persistent database
+        1. ``sudo chmod 600 /var/lib/fail2ban/fail2ban.sqlite3``
+        1. ``sudo restorecon /var/lib/fail2ban/fail2ban.sqlite3``
+    1. ``sudo fail3ban-client status sshd`` 查看指定服务禁用的 ip
+    1. ``sudo fail2ban-client status`` 查看使用的哪些服务开启了 fail2ban
+1. base64 工具对文件进行 ascii 编码
+    1. ``base64 -w 0 xxx.bin >yyy.bin`` # 如果不加 ``-w 0`` 默认会字节对齐导致生成的文件中多出来额外的 0X0A
+    2. ``base64 -d xxx.txt > yyy.mp3`` # 将 xxx.txt 中存储的 base64 编码文件反解码到 yyy.mp3 文件
+1. [RPM 打包相关](https://fedoraproject.org/wiki/How_to_create_an_RPM_package/zh-cn#%E6%9E%84%E5%BB%BA_RPM_%E5%8C%85)
+    1. rpmlint program.spec # 检查 spec 文件是否合规
+    1. rpmbuild -ba program.spec # 构建这个包
+1. apt 类发行版查找包含指定文件的包名称
+    1. ``sudo apt install apt-file`` ，使用 apt-file 查找
+    2. ``sudo apt update``
+    3. ``apt-file search Xft.h`` ， 感觉并不好用
+1. ``modinfo xxx.ko`` 查看指定驱动的信息，关键的字段有 vemagic 和 depends，其中 vermagic 不一致无法正常加载，depends 列出了相关驱动的依赖。
