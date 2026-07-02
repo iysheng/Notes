@@ -271,6 +271,7 @@
 | DSL(Diagnostic Session Layer)         | 诊断会话层                                             |
 | DSD(Diagnostic Service Dispatcher)    | 诊断服务调度,DSD是DSP和DSL之间的桥梁                   |
 | DSP(Diagnostic Service Processor)     | 诊断服务处理                                           |
+| degraded                              | 降级，退化的                                           |
 
 ## E
 
