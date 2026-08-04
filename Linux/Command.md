@@ -34,6 +34,7 @@
     5. 提前将密码放到 -p 选项地方，其他和一般的 scp 命令一样
     6. sshpass -p "passwdxxx" scp filename username@serverip:/dir
     7. ssh -p xx user@ip ssh -p 参数连接指定的端口 xx
+    2. scp -O filename username@serverip:/dir # 使用传统的 scp 协议发送文件，比如 dropbear 可能不支持 sftp 协议，就要用这种方法
 
 3. git 使用笔记
     1. git log --oneline 每一个 commit 只显示一行
@@ -587,6 +588,7 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
 
         3. 使用 systemd 创建一个服务文件，关键的 `Execstart=wpa_supplicant xxxxx 连接 wifi` 以及 `ExecStartPost=dhclient <接口>` 获取动态 ip
     11. 修改指定网口为 dhcp `nmcli connection modify eth0(网卡设备名) ipv4.method auto` 或者 `nmcli connection modify "Wired connection 1"(链接的名字) ipv4.method auto`
+    12. 如果发现 iw 可以探测到 wifi,但是 ``nmcli device wifi list`` 列不出来 wifi,那么可以试着 ``sudo nmcli radio wifi on`` 重新打开 NM 的 wifi
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
@@ -763,6 +765,9 @@ EndSection
     pkg-config --cflags glib # 列出 glib 第三方库的头文件位置，自动添加了 -I
     pkg-config --libs glib # 列出 glib 第三方库库文件的位置，自动添加了 -L
     pkg-config --list-all # 列出所有可以使用的包
+    pkg-config --variable pc_path pkg-config # 列出 pkg-config 默认的搜索路径
+    pkg-config  --variable=pcfiledir rockchip_mpp # 列出指定包对应的 pc 文件所在目录
+    pkg-config --cflags 为空，可能是对应的 -I 是标准路径，打印的时候系统默认过滤标准路径，所以就不显示了
     ```
 
     - PKG_CONFIG_SYSROOT_DIR 如果为空，系统会自动给交叉编译工具链时添加 sysroot 路径，这时候可以设置 PKG_CONFIG_SYSROOT_DIR=/ 来规避这个问题
@@ -950,6 +955,7 @@ xrandr --output 分屏幕 --brightness 0.6
     6. 带有调试参数的命令是 `gdb --args ./test arg0 arg1 arg2 ...` 不能直接 `gdb ./test arg0 arg1 arg2 ...`
     7. ``print *(struct _sys_rt_thread *)0x200391bc`` 指定起始地址，以某种结构体类型打印
     8. ``p/x abc`` 16 进制打印 abc 变量的值
+    9. ``set substitute-path /home/yjoy/Nfs/luban/mpp /home/cat/nfs/luban/mpp`` 替换源码路径前缀
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串

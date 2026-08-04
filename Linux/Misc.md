@@ -355,11 +355,13 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1.  google search `font name vk.com` 查找字体
 1.  fedora samba 网络端口:
     1. smbd TCP 139 和 445
-    2. nmbd UDP 137 3.关闭防火墙或开放服务
+    2. nmbd UDP 137
+    3.关闭防火墙或开放服务
         ```bash
         systemctl stop firewalld
         sudo firewall-cmd --permanent --add-service=samba
         ```
+1. 查看指定 usb 设备对应设备树寄存器地址的方法，比如查看 usb8 对应的命令 ``readlink -f /sys/bus/usb/devices/usb8`` 的到的结果是 ``/sys/devices/platform/usbdrd3_1/fc400000.usb/xhci-hcd.9.auto/usb8``
 
 ````
 1.配置selinux
