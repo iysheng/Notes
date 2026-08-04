@@ -150,7 +150,7 @@
     44. git commit --amend 文件名；//修改某次提交的日志信息，还可以追加提交的文件
     45. git log --stat ： 查看提交记录，包含每次提交的文件列表
     46. git diff commitid ；// review the files modify detiles this commit
-    47. git show commitid ；// 查看某一次提交修改的代码
+    47. git show commitid -- file ；// 查看某一次提交，指定文件修改的代码
     48. git pull 和 git fetch 的区别
         1. 简单来说， git pull 完成了两部分的动作： git fetch 和 git merge
         2. 一般的操作说明 git pull remote_repo remote_branch
@@ -239,6 +239,7 @@
 
         4. git apply --reverse {patch 文件} ： 取消 patch 的使用，将之前已经打过的 patch 撤销
         5. git apply --reject {patch 文件} ： 强制打 patch，有冲突的内容保存到 rej 文件
+        6. ``git apply --check --verbose  {patch 文件}`` 输出详细提示信息
     61. git log # 显示提交信息
         1. git log --author="red" # 查找某一个作者的提交
         2. git log --after="2021-01-02" # 显示 2021-01-02 日期之后的提交
@@ -1381,6 +1382,8 @@ sudo dnf install iwl1000-firmware
 
 109.    交叉编译工具连查看动态库的依赖信息
         - arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
+        - ``nm -D xxx.so`` 只看动态符号表
+        - ``nm -D --defined-only xxx.so`` 查看指定动态库导出的符号
 
 110.    gzip 文件解压缩
         - gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
@@ -1858,3 +1861,4 @@ sudo dnf install iwl1000-firmware
     2. ``sudo apt update``
     3. ``apt-file search Xft.h`` ， 感觉并不好用
 1. ``modinfo xxx.ko`` 查看指定驱动的信息，关键的字段有 vemagic 和 depends，其中 vermagic 不一致无法正常加载，depends 列出了相关驱动的依赖。
+1. ``nomacs`` linux 下好用的图像查看软件
