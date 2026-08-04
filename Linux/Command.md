@@ -1002,6 +1002,7 @@ xxd -s 0x30 file # 跳过文件的前 0x30 字节内容显示
 xxd -s -0x30 file # 只显示文件的最后 0x30 字节内容
 xxd -i file # 以二进制显示文件，并直接导出到 .c 文件，作为数组的方式
 xxd -r -s count file # 在 file 文件前填充 count 字节的 0
+xxd -i test.bin > test.h # 将指定文件专程数组形式保存到 test.h 头文件
 
 ```
 
