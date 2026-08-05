@@ -83,6 +83,12 @@ void simple_va_fun(int i, ...)
 
     }
     ```
+16. printf macro 示例
+``` c
+#define PRINT(...) printf(__VA_ARGS__)
+#define PRINTLN(fmt, ...) printf(fmt "\n", ##__VA_ARGS__)
+#define DPRINT(fmt, ...) printf("[%s:%d] " fmt " \n", __FILE__, __LINE__, ##__VA_ARGS__)
+```
 
 ### tmux 代码阅读笔记
 
