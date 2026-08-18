@@ -289,6 +289,7 @@
     87. 下载 pr 是类似的操作 `curl -LfO https://github.com/user/repo/pull/123.patch`
     88. ``git filter-repo --path "tools/Clarence Studio v1.11.20.exe" --invert-paths --force`` 在推送到云端时，如果某些文件超过了配额，比如 100MB,是推送不上去的，但是单纯的删除这个文件历史记录中还是存在有关这个文件的修改，还是提交补上去的，这时候可以使用工具 ``filter-repo`` 通过上面的指令删除有关这个文件的所有历史，其中 ``--force`` 按需使用，使用这个强制一定要注意数据安全，做好备份。``filter-repo``  使用前需要先安装 ``pip install git-filter-repo``。
     89. ``git rev-parse --show-toplevel`` 查看当前仓库的顶级目录
+    90. ``git ls-files --others --exclude-standard`` 列出未跟踪的文件，特别地，``--exclude-standard`` 表示排除 `.gitignore` 中忽略的文件
 
 4. 本地搭建 git 服务器，还可以使用其他第三方服务搭建 git 服务器，比如 [forgejo](https://forgejo.org/)
     1. 创建一个 git 用户（为了方便用户提交的时候统一走 git 用户），git 用户的目录权限很重要（权限要正确，否则无法通过阿里云连接）
