@@ -1866,3 +1866,5 @@ sudo dnf install iwl1000-firmware
     3. ``apt-file search Xft.h`` ， 感觉并不好用
 1. ``modinfo xxx.ko`` 查看指定驱动的信息，关键的字段有 vemagic 和 depends，其中 vermagic 不一致无法正常加载，depends 列出了相关驱动的依赖。
 1. ``nomacs`` linux 下好用的图像查看软件
+1. ``curl ip-api.com`` 查看当前设备公网 ip
+1. ``cat /sys/kernel/debug/gpio`` # 查看 gpio 占用
