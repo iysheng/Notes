@@ -1868,3 +1868,8 @@ sudo dnf install iwl1000-firmware
 1. ``nomacs`` linux 下好用的图像查看软件
 1. ``curl ip-api.com`` 查看当前设备公网 ip
 1. ``cat /sys/kernel/debug/gpio`` # 查看 gpio 占用
+1. ``cat /sys/kernel/debug/pinctrl/*/pinmux-pins`` # 查看管脚复用信息
+1. [mpboll](https://github.com/epsilonrt/mbpoll.git) modbus 调试命令行工具，依赖的库[libmodbus](https://github.com/stephane/libmodbus.git)
+    1. ``mbpoll -m tcp -a 1 -t 4 -0 -r 0x21 -1 192.168.100.100 100`` 连接 `192.168.100.100` 从站（默认端口 502）,写寄存器 0X21 （照明控制器广播地址）值为 100
+    1. ``mbpoll -m tcp -a 1 -t 4 -0 -r 0x21 -1 192.168.100.100 0`` 连接 `192.168.100.100` 从站（默认端口 502）,写寄存器 0X21（照明控制器广播地址） 值为 0
+    1. ``mbpoll -m tcp -a 1 -t 4 -r 1 -c 10 192.168.100.100`` 连接 `192.168.100.100` 从站（默认端口 502）,读寄存器 0X1（首地址）连续 10 个寄存器

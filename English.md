@@ -71,6 +71,7 @@
 | artifact                                                         | 手工制品，工艺品                  |
 | aggressive                                                       | 积极的                            |
 | accumulate                                                       | 积累                              |
+| Acceleration                                                     | 加速度                            |
 
 ## B
 
@@ -105,6 +106,7 @@
 | Bode Plot             | 波特图                                                     |
 | bypass                | 绕过，旁路                                                 |
 | backbone              | 主干，基础，算法中，一般指基础网络结构                     |
+| barometer             | 气压计                                                     |
 
 ## C
 
@@ -365,6 +367,7 @@
 | genderage  | gender age，性别，年龄，人工智能领域 |
 | gundam     | 高达，机动战士                       |
 | guidance   | 指导                                 |
+| Gyroscope  | 陀螺仪，回转仪                       |
 
 ## H
 
@@ -503,6 +506,7 @@
 | meta                     | 元（元编程：撰写程序A，A运行后会生成真正实现功能的B，A就是B的元程序，撰写A的过程就是元编程） |
 | megatron                 | 威震天                                                                                       |
 | monolithic               | 完整的，庞大的                                                                               |
+| Magneto                  | 磁发电机, Magneto meter 磁传感器                                                             |
 
 ## N
 
@@ -614,6 +618,7 @@
 | partition line    | 分割线                                        |
 | parallel          | 并行                                          |
 | pikachu           | 皮卡丘                                        |
+| pitch             | 抛，扔 （前后，俯仰）                         |
 
 ## Q
 
@@ -628,6 +633,7 @@
 | qualified opinion            | 保留意见               |
 | question                     | 问号                   |
 | quantization                 | 量子化                 |
+| Quaternion                   | 四维                   |
 
 ## R
 
@@ -691,6 +697,7 @@
 | remedy                                    | 补救                           |
 | retro                                     | 复古                           |
 | respective                                | 各自的                         |
+| roll                                      | 卷（上下，横滚）               |
 
 ## S
 
@@ -892,7 +899,8 @@
 
 ## Y
 
-| 单词        | 释义       |
-| ----------- | ---------- |
-| yield       | 产生，让出 |
-| yak shaving | 瞎忙       |
+| 单词        | 释义         |
+| ----------- | ------------ |
+| yield       | 产生，让出   |
+| yak shaving | 瞎忙         |
+| yaw         | 瞎忙（左右，航向） |
