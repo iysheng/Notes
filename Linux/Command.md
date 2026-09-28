@@ -595,6 +595,13 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
         3. 使用 systemd 创建一个服务文件，关键的 `Execstart=wpa_supplicant xxxxx 连接 wifi` 以及 `ExecStartPost=dhclient <接口>` 获取动态 ip
     11. 修改指定网口为 dhcp `nmcli connection modify eth0(网卡设备名) ipv4.method auto` 或者 `nmcli connection modify "Wired connection 1"(链接的名字) ipv4.method auto`
     12. 如果发现 iw 可以探测到 wifi,但是 ``nmcli device wifi list`` 列不出来 wifi,那么可以试着 ``sudo nmcli radio wifi on`` 重新打开 NM 的 wifi
+    13. nmcli 修改不同网络的路由优先级
+        ```
+        ip route
+        sudo nmcli connection modify USR-G815R-867D_5G ipv4.route-metric 20200 # 修改指定连接的优先级为 20200 （数值越大，优先级越低，连接的名字用 nmcli connection 查看）
+        sudo nmcli connection down USR-G815R-867D_5G
+        sudo nmcli connection up USR-G815R-867D_5G
+        ```
 32. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
     1. dnf install xdm
     2. systemctl enable xdm # 如果之前有其他的 display manager，需要先禁用掉之前的 display manager，比如 xfce 使用的是 lightdm, gnome 使用的是 gdm, 需要通过命令 sudo sytemctl disable gdm 禁用
@@ -962,6 +969,7 @@ xrandr --output 分屏幕 --brightness 0.6
     7. ``print *(struct _sys_rt_thread *)0x200391bc`` 指定起始地址，以某种结构体类型打印
     8. ``p/x abc`` 16 进制打印 abc 变量的值
     9. ``set substitute-path /home/yjoy/Nfs/luban/mpp /home/cat/nfs/luban/mpp`` 替换源码路径前缀
+    10. ``dump binary memory flash.bin 0x08000000 0x08040000`` 读取 flash 数据保存到本地 ``flash.bin``
 60. [python 脚本执行 shell 命令，并且获取字符串格式的打印输出](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
     1. subprocess.check_output("git branch --show-current", shell=True, text=True) # text = True 强制输出为 str 类型，默认是 byte 类型的输出
 61. 使用 sed 修改字符串
