@@ -1442,14 +1442,14 @@ sudo dnf install iwl1000-firmware
 
 117.    newlibc 中的 sbrk 使用链接脚本的 end 标记
 
-        ```C
-        void * __attribute__((weak))
-        _sbrk (ptrdiff_t incr)
-        {
-          extern char   end asm ("end"); /* Defined by the linker. 使用链接脚本定义的 end 标记确定 heap 区 */
-          ...
-        }
-        ```
+    ```c
+    void * __attribute__((weak))
+    _sbrk (ptrdiff_t incr)
+    {
+      extern char   end asm ("end"); /* Defined by the linker. 使用链接脚本定义的 end 标记确定 heap 区 */
+      ...
+    }
+    ```
 
 118.    evtest 测试 /dev/input/eventX 测试对应的输入设备
         - cat /proc/bus/input/devices 查看所有的输入设备
@@ -1457,15 +1457,15 @@ sudo dnf install iwl1000-firmware
 119.    nfs 无法写入的时候，需要在 /etc/exports 文件将这个目录的权限修改,以 /tmp/abc 目录为例 `/tmp/abc *(no_root_squash,rw,sync,no_subtree_check)`, 重点是 **no_root_squash** 这个配置
         - sudo exportfs -v # 可以打印出来 nfs 配置的挂载目录信息（实际的配置在文件 /etc/exports）
         - nfs 挂载不成功的时候，比如说打印: `kernel: svc: failed to register nfsaclv2 RPC service (errno 111)`， 很可能是 /etc/netconfig 文件配置不对，找一个正确的配置就可以
-            ```bash
-            udp6       tpi_clts      v     inet6    udp     -       -
-            tcp6       tpi_cots_ord  v     inet6    tcp     -       -
-            udp        tpi_clts      v     inet     udp     -       -
-            tcp        tpi_cots_ord  v     inet     tcp     -       -
-            rawip      tpi_raw       -     inet      -      -       -
-            local tpi_cots_ord - loopback - - -
-            unix tpi_cots_ord - loopback - - -
-            ```
+        ```bash
+        udp6       tpi_clts      v     inet6    udp     -       -
+        tcp6       tpi_cots_ord  v     inet6    tcp     -       -
+        udp        tpi_clts      v     inet     udp     -       -
+        tcp        tpi_cots_ord  v     inet     tcp     -       -
+        rawip      tpi_raw       -     inet      -      -       -
+        local tpi_cots_ord - loopback - - -
+        unix tpi_cots_ord - loopback - - -
+        ```
         - nfs 挂载不成功的时候，检查下 rpcbind 服务是否正常运行，使用 systenmd 查看状态(systemctl status rpcbind )和 journalctl 查看日志来分析
         - [fedora 40 安装 nfs 服务器指导](https://www.server-world.info/en/note?os=Fedora_40&p=nfs&f=1)
 
@@ -1882,3 +1882,5 @@ sudo dnf install iwl1000-firmware
     1. ``mbpoll -m tcp -a 1 -t 4 -0 -r 0x21 -1 192.168.100.100 100`` 连接 `192.168.100.100` 从站（默认端口 502）,写寄存器 0X21 （照明控制器广播地址）值为 100
     1. ``mbpoll -m tcp -a 1 -t 4 -0 -r 0x21 -1 192.168.100.100 0`` 连接 `192.168.100.100` 从站（默认端口 502）,写寄存器 0X21（照明控制器广播地址） 值为 0
     1. ``mbpoll -m tcp -a 1 -t 4 -r 1 -c 10 192.168.100.100`` 连接 `192.168.100.100` 从站（默认端口 502）,读寄存器 0X1（首地址）连续 10 个寄存器
+1. devblock 命令获取指定 block 的空间大小
+    1.  blockdev --getsize64 /dev/block/mmcblk0p9
