@@ -1271,66 +1271,72 @@ with open("./aaaa.sh") as f:
     ```
 01. 提取文本中的 float 数据,并转存到列表,并且强制精度到小数点后 5 位
 
-````
-``` python
+```python
 #!/bin/python
 with open('/tmp/xxx.txt', 'r') as f:
 	float_list =  [round(float(line.strip()),5) for line in f]
 ```
-````
 
 101. 使用 python 将 excel 转 markdown 代码
 
-````
-``` python
+```python
 import pandas as pd
 df=pd.read_excel('cam_commands.xlsx')
 # markdown_table 是 str 类型的
 markdown_table=df.to_markdown()
 ```
-````
 
 102. [markitdown](https://kkgithub.com/microsoft/markitdown.git) 转文件到 markdown 格式文件，比较合适的解决方法是参考文档，首先使用 `conda 创建虚拟机`，然后 `pip install -e 'packages/markitdown[all]'` 安装工具。接着使用 `markitdown xx.pdf -o xx.md`，将 pdf 文件转换为 md 文件.
 001. 图像处理领域 H，W，C，N 分别表示 height, width, channel, batch（批次）
 001. `enumerate(...)` 函数返回一个枚举类的对象 `[index, value]`
 
-````
 ```python
 abc=[100,200,300]
 for a in enumerate(abc):
 	print(a) # 0 100, 1 200, 2 300
 ```
-````
 
 105. 特殊符号
-     \* `//` 整除符号, `12//5=2`
-001. vllm 启动模型
-     \* `vllm serve Qwen/Qwen2.5-1.5B-Instruct --max-model-len=4096 --gpu-memory-utilization 0.7` serve 后跟随模型目录
-     \* `modelscope download --model Qwen/Qwen2.5-1.5B-Instruct` 下载模型，存储在 `~/.cache/modelscope/hub/models` 目录
-     \* `export HF_ENDPOINT="https://hf-mirror.com";huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct --local-dir abc/` 使用镜像下载 vllm 的 qwen 模型到 abc 目录
-001. 查看指定软件包的依赖
-     \* `python -c "import vllm, importlib.metadata as m; print(vllm.__version__, m.metadata('vllm').get_all('Requires-Dist'))"` 这里以 vllm 为例
-001. [glm-ocr](https://github.com/zai-org/GLM-OCR) 模型本地使用
-     \* 启动本地模型的方法参考官方仓库的描述就行，这里特别提到的，我使用官方的 `pip install "glmocr[selfhosted]"` 本地使用做推理的时候，使用 `with GlmOcr(ocr_api_host="localhost", ocr_api_port=8765, model="glm-ocr", mode="selfhosted", log_level="DEBUG") as parser:` 做推理的时候，服务端总是提示我 default 模型找不到，所以在使用 vllm 启动模型的时候，我强制修改了模型名称为 default 才能正常使用，具体启动的命令是 `vllm serve ./ZhipuAI/GLM-OCR --speculative-config '{"method": "mtp", "num_speculative_tokens": 1}'  --max-model-len=40960 --gpu-memory-utilization 0.7 --port 8765 --served-model-name default`
-     \* 对应的客户端测试用 python 脚本为:
-     ```python
-     #!/usr/bin/env python
 
-     from glmocr import GlmOcr, parse
-     import sys
+- `//` 整除符号, `12//5=2`
 
-     sfile="t1.png"
-     if len(sys.argv) > 1:
-         sfile=sys.argv[1]
+1. vllm 启动模型
 
-     print(f"afile scan:{sfile}")
+- `vllm serve Qwen/Qwen2.5-1.5B-Instruct --max-model-len=4096 --gpu-memory-utilization 0.7` serve 后跟随模型目录
+- `modelscope download --model Qwen/Qwen2.5-1.5B-Instruct` 下载模型，存储在 `~/.cache/modelscope/hub/models` 目录
+- `export HF_ENDPOINT="https://hf-mirror.com";huggingface-cli download Qwen/Qwen2.5-1.5B-Instruct --local-dir abc/` 使用镜像下载 vllm 的 qwen 模型到 abc 目录
 
-     # Class-based API
-     with GlmOcr(ocr_api_host="localhost", ocr_api_port=8765, model="glm-ocr", mode="selfhosted", log_level="DEBUG") as parser:
-         result = parser.parse(sfile, prompt="识别图中的中文和英文")
-         print(result.json_result)
-         print("-------------------------------")
-         print(result.markdown_result)
-         result.save(output_dir="./results")
-         result.save()
-     ```
+1. 查看指定软件包的依赖
+
+- `python -c "import vllm, importlib.metadata as m; print(vllm.__version__, m.metadata('vllm').get_all('Requires-Dist'))"` 这里以 vllm 为例
+
+1. [glm-ocr](https://github.com/zai-org/GLM-OCR) 模型本地使用
+
+- 启动本地模型的方法参考官方仓库的描述就行，这里特别提到的，我使用官方的 `pip install "glmocr[selfhosted]"` 本地使用做推理的时候，使用 `with GlmOcr(ocr_api_host="localhost", ocr_api_port=8765, model="glm-ocr", mode="selfhosted", log_level="DEBUG") as parser:` 做推理的时候，服务端总是提示我 default 模型找不到，所以在使用 vllm 启动模型的时候，我强制修改了模型名称为 default 才能正常使用，具体启动的命令是 `vllm serve ./ZhipuAI/GLM-OCR --speculative-config '{"method": "mtp", "num_speculative_tokens": 1}'  --max-model-len=40960 --gpu-memory-utilization 0.7 --port 8765 --served-model-name default`
+- 对应的客户端测试用 python 脚本为:
+  ```python
+  #!/usr/bin/env python
+
+  from glmocr import GlmOcr, parse
+  import sys
+
+  sfile="t1.png"
+  if len(sys.argv) > 1:
+      sfile=sys.argv[1]
+
+  print(f"afile scan:{sfile}")
+
+  # Class-based API
+  with GlmOcr(ocr_api_host="localhost", ocr_api_port=8765, model="glm-ocr", mode="selfhosted", log_level="DEBUG") as parser:
+      result = parser.parse(sfile, prompt="识别图中的中文和英文")
+      print(result.json_result)
+      print("-------------------------------")
+      print(result.markdown_result)
+      result.save(output_dir="./results")
+      result.save()
+  ```
+
+1. [mdformat](https://github.com/hukkin/mdformat) markdown format 工具
+   1. `mdformat .` 递归对当前目录下的 md 文件格式化
+   1. `mdformat README.md` 对 README.md 文件格式化
+   1. `mdformat --check README.md` 检查是否有对 README.md 文件格式化
