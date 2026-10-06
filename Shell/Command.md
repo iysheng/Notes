@@ -1,10 +1,10 @@
 ### shell 使用教程
 
 1. 截取变量的某些字符串 eg:删除变量名的最后一位 CD=${AB:0:-1}，如果AB=abcd 那么CD=abc
-2. bash 导出环境变量的方法 export CFLAGS=-static
-3. 通过 grub2-mkconfig 更新 grub.cfg 配置文件，自动探测开机启动项，命令见 /etc/default/grub 文件 grub2-mkconfig -o /boot/grub.d/grub.cfg
-4. find 命令，匹配多个类型名的文件 find -name "_.c" -o -name "_.S"
-5. sed 使用教程
+1. bash 导出环境变量的方法 export CFLAGS=-static
+1. 通过 grub2-mkconfig 更新 grub.cfg 配置文件，自动探测开机启动项，命令见 /etc/default/grub 文件 grub2-mkconfig -o /boot/grub.d/grub.cfg
+1. find 命令，匹配多个类型名的文件 find -name "_.c" -o -name "_.S"
+1. sed 使用教程
 
 ```bash
 sed -i "s/^/a&/g" filenmae :在filename的每一行的行首添加字母a
@@ -14,44 +14,46 @@ sed -i.bak -e 's|bac|def|g' /tmp/a.txt  # 将 /tmp/a.txt 备份为 /tmp/a.txt.ba
 ```
 
 6. 保留，在阅读 conda 的 shell 脚本中，`\local \eval \return` 前面的这些 `\` 表示确保这些命令直接调用的 shell 内置命令或函数，而不是可能被用户定义的别名覆盖。
-7. 字符串操作符集合(这里的 word 表示的是内容，并不是一个变量的名字)
-    1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 的内容
-    1. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
-    1. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则打印并且 varname 追加 message 的信息,这个语法用来检测变量是否定义，如果未定义，那么返回错误信息
-    1. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
-    1. ${varname+word} 如果 varname 存在(可以为空)，返回 word 的值，否则返回 null
-    1. ${varname:offset:length} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始，长度为 length 的内容，varname 的第一个字符的偏移是 0
-    1. ${varname:offset} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始到结尾的全部内容
-    1. ${varible#pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
-    1. ${varible##pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
-    1. ${varible%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
-    1. ${varible%%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
-    1. ${varible/pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到第一个最长的内容，pattern 可以是表达式，如果 pattern 带有 # 符号，那么必须是在 varible 的开始处，如果带有 %，那么匹配的是 varible 的结尾处
-    1. ${varible//pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到的所有的内容，然后返回 varible，pattern 可以是表达式
-8. pureline 一款 bash PS1 的优化插件
+1. 字符串操作符集合(这里的 word 表示的是内容，并不是一个变量的名字)
+   1. ${varname:-word} 如果 varname 存在并且不为空，返回 varname 的值，否则返回 word 的内容
+   1. ${varname:=word} 如果 varname 存在并且不为空，返回 varname 的值，否则将 word 赋值给 varname，然后返回 varname 的值
+   1. ${varname:?message} 如果 varname 存在并且不为空，返回 varname 的值，否则打印并且 varname 追加 message 的信息,这个语法用来检测变量是否定义，如果未定义，那么返回错误信息
+   1. ${varname:+word} 如果 varname 存在并且不为空，返回 word 的值，否则返回 null
+   1. ${varname+word} 如果 varname 存在(可以为空)，返回 word 的值，否则返回 null
+   1. ${varname:offset:length} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始，长度为 length 的内容，varname 的第一个字符的偏移是 0
+   1. ${varname:offset} 如果 varname 存在并且不为空，返回 varname 从 offset 偏移处开始到结尾的全部内容
+   1. ${varible#pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
+   1. ${varible##pattern} 如果 varible 存在并且变量开头匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
+   1. ${varible%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最短的内容，然后返回其余部分，pattern 可以是表达式
+   1. ${varible%%pattern} 如果 varible 存在并且变量尾部匹配到了 pattern，删除匹配到最长的内容，然后返回其余部分，pattern 可以是表达式
+   1. ${varible/pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到第一个最长的内容，pattern 可以是表达式，如果 pattern 带有 # 符号，那么必须是在 varible 的开始处，如果带有 %，那么匹配的是 varible 的结尾处
+   1. ${varible//pattern/string} 如果 varible 存在并且匹配到了 pattern，使用 string 替换匹配到的所有的内容，然后返回 varible，pattern 可以是表达式
+1. pureline 一款 bash PS1 的优化插件
 
 ```bash
 git clone https://github.com/chris-marsh/pureline.git
 ```
 
 9. ${# varnamw} 返回 varname 变量字符串的长度
-10. shopt 设置、取消设置 shell 的参数
 
-    ```bash
-    shopt -p 打印 shell 的选项信息
-    shopt -s 设置 shell 的某一个选项
-    shopt -u 取消设置 shell 的某一个选项
-    ```
+1. shopt 设置、取消设置 shell 的参数
 
-    1. 如果 extglob 选项开启，那么可以使能扩展模式匹配，扩展模式的各种模式通过 | 符号隔开
-        1. \*(patternlist) 匹配 >= 0 个匹配列表的内容
-        2. +(patternlist) 匹配 >= 1 个匹配列表的内容
-        3. ?(patternlist) 匹配 0 或者 1 个匹配列表的内容
-        4. @(patternlist) 匹配 1 个匹配列表的内容
-        5. !(patternlist) 匹配除了指定匹配列表的其他内容
+   ```bash
+   shopt -p 打印 shell 的选项信息
+   shopt -s 设置 shell 的某一个选项
+   shopt -u 取消设置 shell 的某一个选项
+   ```
 
-11. $(UNIX command) 将 command 的命令输出作为变量的值赋值给其他变量，和 `UNIX command` （目的是向之前的 shell 兼容，eg: Bourne 和 C shell）类似
-12. cut 命令截取内容，-d 选项指定分割符，默认是 tab
+   1. 如果 extglob 选项开启，那么可以使能扩展模式匹配，扩展模式的各种模式通过 | 符号隔开
+      1. \*(patternlist) 匹配 >= 0 个匹配列表的内容
+      1. +(patternlist) 匹配 >= 1 个匹配列表的内容
+      1. ?(patternlist) 匹配 0 或者 1 个匹配列表的内容
+      1. @(patternlist) 匹配 1 个匹配列表的内容
+      1. !(patternlist) 匹配除了指定匹配列表的其他内容
+
+1. $(UNIX command) 将 command 的命令输出作为变量的值赋值给其他变量，和 `UNIX command` （目的是向之前的 shell 兼容，eg: Bourne 和 C shell）类似
+
+1. cut 命令截取内容，-d 选项指定分割符，默认是 tab
 
 ```bash
 cut -f arg1 -d arg2 sth # 截取变量 sth 的内容，以 arg2 为分隔符，取第 arg1 列内容
@@ -60,34 +62,35 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
 ```
 
 13. bash 的流控 (return 只能用在函数中,并且返回值只能是正数，如果函数想返回数组，可以使用 echo, exit 用来退出整个 shell 脚本)
-    1.  if/else # if 只能测试退出的状态值，可以通过 `[ * ]`（等价 test） 或者 `[[*]]`（bash v2.05 版本之前不支持） 来配合 if 判断，在表达式前添加 ! 可以取反，`[ * ]` 和 `[[*]]` 之间可以添加逻辑符号，比如 && 等价 -a，|| 等价 -o
-        1. str1 = str2 字符串相等
-        2. str1 != str2 字符串不相等
-        3. str1 < str2 str1 比 str2 小
-        4. str1 > str2 str2 比 str1 小
-        5. -n str1 如果 str1 不为 null，并且长度比 0 大
-        6. -z str1 如果 str1 为 null，并且长度为 0
-        7. -a file 如果 file 存在
-        8. -d file 如果 file 存在并且是一个目录
-        9. -e file 如果 file 存在和 -a 等价
-        10. -r file 如果 file 存在并且具有可读权限
-        11. -s file 如果 file 存在并且不为空
-        12. -w file 如果 file 存在并且具有可写权限
-        13. -x file 如果 file 存在并且具有可执行权限或者如果是目录的话，具有搜索权限
-        14. -N file 如果 file 从上一次读之后有修改过
-        15. -O file 如果 file 的所有人是你
-        16. -G file 如果 file 的 Group ID 是你所在的组
-        17. file1 -nt file2 如果 file1 比 file2 新（按照修改时间戳）
-        18. file1 -ot file2 如果 file1 比 file2 旧（按照修改时间戳）
-        19. $a -lt $b 如果 a 比 b 小
-        20. $a -le $b 如果 a 比 b 小或者和 b 一样
-        21. $a -eq $b 如果 a 和 b 一样
-        22. $a -ge $b 如果 a 比 b 大或者一样
-        23. $a -gt $b 如果 a 比 b 大
-        24. $a -ne $b 如果 a 和 b 不相等
-        25. -f file 如果 file 存在，并且是一个常规的文件
-        26. -L file 如果 file 存在并且是一个符号连接
-        27. -h file 如果 file 存在，并且是一个符号链接, -L 类似或者叫等价
+
+    1. if/else # if 只能测试退出的状态值，可以通过 `[ * ]`（等价 test） 或者 `[[*]]`（bash v2.05 版本之前不支持） 来配合 if 判断，在表达式前添加 ! 可以取反，`[ * ]` 和 `[[*]]` 之间可以添加逻辑符号，比如 && 等价 -a，|| 等价 -o
+       1. str1 = str2 字符串相等
+       1. str1 != str2 字符串不相等
+       1. str1 < str2 str1 比 str2 小
+       1. str1 > str2 str2 比 str1 小
+       1. -n str1 如果 str1 不为 null，并且长度比 0 大
+       1. -z str1 如果 str1 为 null，并且长度为 0
+       1. -a file 如果 file 存在
+       1. -d file 如果 file 存在并且是一个目录
+       1. -e file 如果 file 存在和 -a 等价
+       1. -r file 如果 file 存在并且具有可读权限
+       1. -s file 如果 file 存在并且不为空
+       1. -w file 如果 file 存在并且具有可写权限
+       1. -x file 如果 file 存在并且具有可执行权限或者如果是目录的话，具有搜索权限
+       1. -N file 如果 file 从上一次读之后有修改过
+       1. -O file 如果 file 的所有人是你
+       1. -G file 如果 file 的 Group ID 是你所在的组
+       1. file1 -nt file2 如果 file1 比 file2 新（按照修改时间戳）
+       1. file1 -ot file2 如果 file1 比 file2 旧（按照修改时间戳）
+       1. $a -lt $b 如果 a 比 b 小
+       1. $a -le $b 如果 a 比 b 小或者和 b 一样
+       1. $a -eq $b 如果 a 和 b 一样
+       1. $a -ge $b 如果 a 比 b 大或者一样
+       1. $a -gt $b 如果 a 比 b 大
+       1. $a -ne $b 如果 a 和 b 不相等
+       1. -f file 如果 file 存在，并且是一个常规的文件
+       1. -L file 如果 file 存在并且是一个符号连接
+       1. -h file 如果 file 存在，并且是一个符号链接, -L 类似或者叫等价
 
     ```bash
     if condition # 关于 condition 这里，如果是执行一个命令，那么如果命令正常执行，则返回 0, 但是 if 会判断为真！！
@@ -98,7 +101,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     fi
     ```
 
-    2.  for # IFS 变量可以修改 for 指定列表的分割符
+    2. for # IFS 变量可以修改 for 指定列表的分割符
 
     ```bash
     for name [in list]
@@ -108,7 +111,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     done
     ```
 
-    3.  while # condition 和 if 类似
+    3. while # condition 和 if 类似
 
     ```bash
     while condition
@@ -121,7 +124,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     done
     ```
 
-    4.  until # 可以简单认为 until 是 while 的反向，直到成功执行 command 命令才会停止
+    4. until # 可以简单认为 until 是 while 的反向，直到成功执行 command 命令才会停止
 
     ```bash
     until command;
@@ -130,7 +133,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     done
     ```
 
-    5.  case # pattern 可以通过 | 符号分割出来一些匹配列表
+    5. case # pattern 可以通过 | 符号分割出来一些匹配列表
 
     ```bash
     case expression
@@ -145,7 +148,7 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     esac
     ```
 
-    6.  select # 仅在 Korn shell 和 bash（1.14 版本之前的不支持 select） 存在，PS3 是 select 的提示符，修改该值可以修改 select 语句的提示符，select 语句会打印出一个菜单列表，等待用户输入一个数字，保存用户输入的数字到内置变量 REPLY，并且保存对应的条目到 select 指定的变量，然后执行语句，循环直到遇到 break、或者 exit，ctrl-D 也可以直接退出 select 循环
+    6. select # 仅在 Korn shell 和 bash（1.14 版本之前的不支持 select） 存在，PS3 是 select 的提示符，修改该值可以修改 select 语句的提示符，select 语句会打印出一个菜单列表，等待用户输入一个数字，保存用户输入的数字到内置变量 REPLY，并且保存对应的条目到 select 指定的变量，然后执行语句，循环直到遇到 break、或者 exit，ctrl-D 也可以直接退出 select 循环
 
     ```bash
     select name [in list]
@@ -155,8 +158,9 @@ awk -F '分隔符' '{print $(NF)}' # 以分隔符 'xxx' 打印最后一个单词
     done
     ```
 
-14. 位置变量（比如：$1 $2 等）是只读的，不可以对位置变量赋值，但是可以通过 **shift** 移动位置变量的值
-15. 内置命令 getops 可以解析 shell 脚本的参数，如果用户输入了无效的 option， getops 会设置变量值为 ?，同时如果 getops 后跟随的内容没有以 : 开头或者设置环境变量 OPTERR 值为 0，那么还会打印错误信息格式（getops:illegal option -o ），如果一个选项带有参数，那么选项参数会保存到变量 $OPTARG， getops 会保存下一个参数的位置值到 $OPTIND
+01. 位置变量（比如：$1 $2 等）是只读的，不可以对位置变量赋值，但是可以通过 **shift** 移动位置变量的值
+
+01. 内置命令 getops 可以解析 shell 脚本的参数，如果用户输入了无效的 option， getops 会设置变量值为 ?，同时如果 getops 后跟随的内容没有以 : 开头或者设置环境变量 OPTERR 值为 0，那么还会打印错误信息格式（getops:illegal option -o ），如果一个选项带有参数，那么选项参数会保存到变量 $OPTARG， getops 会保存下一个参数的位置值到 $OPTIND
 
 ```bash
 while getopts ":ab:c" opt; do
@@ -175,7 +179,7 @@ normal processing of arguments ...
 
 16. declare 设置变量有效的选项， - 设置选项开启， + 设置选项关闭（-a 和 -F 选项在 bash v2.0 版本之前不支持）
 
----
+______________________________________________________________________
 
 | 选项 | 意义                                   |
 | ---- | -------------------------------------- |
@@ -190,41 +194,41 @@ normal processing of arguments ...
 
 17. `$((...))` 算数表达式，需要在符号包括，括号中使用的变量前不需要 `$` 符号
 
----
+______________________________________________________________________
 
-| 选项 | 意义                                                                                                |
-| ---- | --------------------------------------------------------------------------------------------------- |
-| ++   | 自加                                                                                                |
-| --   | 自减                                                                                                |
-| +    | 加                                                                                                  |
-| -    | 减                                                                                                  |
-| \*   | 乘                                                                                                  |
-| /    | 除                                                                                                  |
-| %    | 余                                                                                                  |
-| \*\* | Expomentiation(求幂)                                                                                |
-| <<   | 左移                                                                                                |
-| >>   | 右移                                                                                                |
-| &    | 位与                                                                                                |
-| \|   | 位或                                                                                                |
-| ~    | 位反                                                                                                |
-| !    | 逻辑反                                                                                              |
-| ^    | 位异或                                                                                              |
-| ,    | 顺序计算                                                                                            |
-| <    | 小                                                                                                  |
-| >    | 大                                                                                                  |
-| <=   | 小等                                                                                                |
-| >=   | 大等                                                                                                |
-| =~   | 字符串满足正则表达式 eg: abc =~ ^[0-9]+$ ，检查 abc 是否全部是数字，这里判断的时候使用 [[xxx]] 符号 |
-| ==   | 等                                                                                                  |
-| !=   | 不等                                                                                                |
-| &&   | 逻辑与                                                                                              |
-| \|\| | 逻辑或                                                                                              |
-| -lt  | 小                                                                                                  |
-| -gt  | 大                                                                                                  |
-| -le  | 小等                                                                                                |
-| -ge  | 大等                                                                                                |
-| -eq  | 等                                                                                                  |
-| -ne  | 不等                                                                                                |
+| 选项 | 意义                                                                                                  |
+| ---- | ----------------------------------------------------------------------------------------------------- |
+| ++   | 自加                                                                                                  |
+| --   | 自减                                                                                                  |
+| +    | 加                                                                                                    |
+| -    | 减                                                                                                    |
+| \*   | 乘                                                                                                    |
+| /    | 除                                                                                                    |
+| %    | 余                                                                                                    |
+| \*\* | Expomentiation(求幂)                                                                                  |
+| \<<  | 左移                                                                                                  |
+| >>   | 右移                                                                                                  |
+| &    | 位与                                                                                                  |
+| \|   | 位或                                                                                                  |
+| ~    | 位反                                                                                                  |
+| !    | 逻辑反                                                                                                |
+| ^    | 位异或                                                                                                |
+| ,    | 顺序计算                                                                                              |
+| \<   | 小                                                                                                    |
+| >    | 大                                                                                                    |
+| \<=  | 小等                                                                                                  |
+| >=   | 大等                                                                                                  |
+| =~   | 字符串满足正则表达式 eg: abc =~ ^[0-9]+$ ，检查 abc 是否全部是数字，这里判断的时候使用 \[[xxx]\] 符号 |
+| ==   | 等                                                                                                    |
+| !=   | 不等                                                                                                  |
+| &&   | 逻辑与                                                                                                |
+| \|\| | 逻辑或                                                                                                |
+| -lt  | 小                                                                                                    |
+| -gt  | 大                                                                                                    |
+| -le  | 小等                                                                                                  |
+| -ge  | 大等                                                                                                  |
+| -eq  | 等                                                                                                    |
+| -ne  | 不等                                                                                                  |
 
 18. let 直接给数值变量赋值
 
@@ -266,24 +270,24 @@ unset array[100] # 删除 array 数组第 101 个元素的赋值
 
 21. IO 重定向
 
----
+______________________________________________________________________
 
-| 符号     | 函数                                            |
-| -------- | ----------------------------------------------- |
-| \|       | 管道                                            |
-| > file   | 重定向标准输出到 file                           |
-| < file   | 重定向标准输入到 file                           |
-| >> file  | 追加重定向标准输出到 file                       |
-| <> file  | 使用 file 作为标准输出和标准输出                |
-| n<> file | 使用 file 作为文件描述符 n 的标准输出和标准输出 |
-| n > file | 重定向文件描述符 n 到 file                      |
-| n < file | 文件 file 作为文件描述符号 n 的源               |
-| n >&     | 复制标准输出到文件描述符 n                      |
-| n <&     | 从文件描述符 n 复制标准输入                     |
-| &> file  | **重定向标准输出和错误输出到 file**             |
-| >& file  | **重定向标准输出和错误输出到 file**             |
-| <&-      | 关闭标准输入                                    |
-| >&-      | 关闭标准输出                                    |
+| 符号      | 函数                                            |
+| --------- | ----------------------------------------------- |
+| \|        | 管道                                            |
+| > file    | 重定向标准输出到 file                           |
+| < file    | 重定向标准输入到 file                           |
+| >> file   | 追加重定向标准输出到 file                       |
+| \<> file  | 使用 file 作为标准输出和标准输出                |
+| n\<> file | 使用 file 作为文件描述符 n 的标准输出和标准输出 |
+| n > file  | 重定向文件描述符 n 到 file                      |
+| n < file  | 文件 file 作为文件描述符号 n 的源               |
+| n >&      | 复制标准输出到文件描述符 n                      |
+| n \<&     | 从文件描述符 n 复制标准输入                     |
+| &> file   | **重定向标准输出和错误输出到 file**             |
+| >& file   | **重定向标准输出和错误输出到 file**             |
+| \<&-      | 关闭标准输入                                    |
+| >&-       | 关闭标准输出                                    |
 
 22. **here-document** # 用来替换标准输入，label 这一段内容临时替换为上一个命令的标准输入，语法
 
@@ -330,9 +334,11 @@ tee logfile # tee 将标准输入复制到标准输出保存到 loggile
 printf format-string [arguments]
 ```
 
-    1. format-string 可以包含三个可选的选项 %flags width.precision format-specifier
+```
+1. format-string 可以包含三个可选的选项 %flags width.precision format-specifier
+```
 
----
+______________________________________________________________________
 
 | flags | 描述           |
 | ----- | -------------- |
@@ -340,9 +346,9 @@ printf format-string [arguments]
 | -     | 左对齐         |
 | +     | 添加数值的正负 |
 
-| format-specifier | 描述                                      |
-| ---------------- | ----------------------------------------- |
-| %b               | 解析 echo -e 格式 \n 等这类特殊符号的风格 |
+| format-specifier | 描述                                       |
+| ---------------- | ------------------------------------------ |
+| %b               | 解析 echo -e 格式 \\n 等这类特殊符号的风格 |
 
 25. read 函数，从终端读取值保存到变量, **IFS 变量一般是 空格、TAB、换行**，如果忽略所有变量，整个输入的一行会保存到变量 _REPLY_
 
@@ -356,21 +362,21 @@ read var1 var2
 | -d   | 定义分割符                           |
 | -n   | 声明多少个字符                       |
 | -p   | 读取之前会打印一段 -p 追加的提示符   |
-| -r   | 保留 \ 开头的转义字符                |
+| -r   | 保留 \\ 开头的转义字符               |
 | -t   | 允许等待指定的时间（单位 s）完成输入 |
 
 26. command blocks # 使用 { 命令 } 符号将命令包括起来，构成一个 command block，表示这里包括起来的命令具有同样的标准输入、输出、错误输出
-27. 命令行处理（shell 查找的顺序：函数 function、内置命令 build-in command、可执行文件 executable file）
-28. 如果不确认使用单引号还是双引号，建议使用单引号，除非明确需要参数、命令或者是算数替换
+01. 命令行处理（shell 查找的顺序：函数 function、内置命令 build-in command、可执行文件 executable file）
+01. 如果不确认使用单引号还是双引号，建议使用单引号，除非明确需要参数、命令或者是算数替换
 
----
+______________________________________________________________________
 
 | 表达式      | 值        |
 | ----------- | --------- |
 | $person     | hatter    |
 | "$person"   | hatter    |
 | '$person'   | $person   |
-| \$person    | $person   |
+| $person     | $person   |
 | "$person"   | hatter    |
 | "'$person'" | 'hatter'  |
 | ~red        | /home/red |
@@ -381,7 +387,7 @@ read var1 var2
     enable 的一些选项，可以开启和禁止内置的 builtin，这些选项在 bash v2.0 之前无效
     |选项|描述|
 
----
+______________________________________________________________________
 
 |-a|显示所有的 builtin，不管是否使能|
 |-d|删除所有使用 -f 添加的 builtin|
@@ -422,20 +428,20 @@ A=${!obj} # A 的值也是 ali
 ```
 
 32. 进程处理
-    1.  job number 是 shell 赋值的
-    2.  process ID 是 系统赋值的
-    3.  job control
-        1. **fg** # 将一个后台 job 拉到前台，这样可以让这个 job 控制你的终端或者窗口，因此可以接收你的输入，如果只有一个后台 job，可以直接 fd 命令不加参数，如果有很多后台 jobs，那么可以通过 fg %job_id 、fg %job_name、fg pid，指定拉回哪一个后台进程到前台；jobs 命令可以列出所有的后台 jobs，jobs -l 还可以列出来 pid，jobs -p 只会列出来 pid，jobs -r 只会列出来那些正在运行的 jobs，-s 只会列出来那些已经停止的 jobs，jobs -x jobsid，可以打印出来 jobsid 对应 job 的 pid
-        2. Ctrl+Z 可以将一个 job 暂停、中止， fg 可以将这个 job 拉回前台
-        3. Ctrl+C 可以将一个 job 终止，这种情况下就不可以使用 fg 将这个 job 拉回前台
-33. 信号， **stty** 命令可以修改控制键值发送不同的命令
+    1. job number 是 shell 赋值的
+    1. process ID 是 系统赋值的
+    1. job control
+       1. **fg** # 将一个后台 job 拉到前台，这样可以让这个 job 控制你的终端或者窗口，因此可以接收你的输入，如果只有一个后台 job，可以直接 fd 命令不加参数，如果有很多后台 jobs，那么可以通过 fg %job_id 、fg %job_name、fg pid，指定拉回哪一个后台进程到前台；jobs 命令可以列出所有的后台 jobs，jobs -l 还可以列出来 pid，jobs -p 只会列出来 pid，jobs -r 只会列出来那些正在运行的 jobs，-s 只会列出来那些已经停止的 jobs，jobs -x jobsid，可以打印出来 jobsid 对应 job 的 pid
+       1. Ctrl+Z 可以将一个 job 暂停、中止， fg 可以将这个 job 拉回前台
+       1. Ctrl+C 可以将一个 job 终止，这种情况下就不可以使用 fg 将这个 job 拉回前台
+01. 信号， **stty** 命令可以修改控制键值发送不同的命令
 
 ```bash
 stty signame char # signame 是信号名字，char 是键值（^ 表示 Ctrl 键）
 stty intr ^X # 修改 ctrl-X 发送 INT 信号
 ```
 
----
+______________________________________________________________________
 
 | 键值   | 信号名             | 信号值 |
 | ------ | ------------------ | ------ |
@@ -455,8 +461,8 @@ trap cmd sig1 sig2 ...
 trap "" sig1 # 忽略指定的信号
 ```
 
-36. **$$** 是当前 shell 的 PID，使用**$$**可以很好的作为临时变量文件到名字，不容易冲突，**$!** 包含了最近执行的后台 job 的 PID
-37. **wait** 等待指定所有的后台进程结束
+36. **$$** 是当前 shell 的 PID，使用\*\*$$**可以很好的作为临时变量文件到名字，不容易冲突，**$!\*\* 包含了最近执行的后台 job 的 PID
+01. **wait** 等待指定所有的后台进程结束
 
 ```bash
 echo "adad" &
@@ -465,23 +471,23 @@ wait # 等待所有后台进程执行完，才会继续执行
 ```
 
 38. 进程可以分为三类 CPU-intensive：CPU 密集型、I/O-intensive：I/O 密集型、interactive 交互行
-39. **subshells**
-    1.  从 parents 继承的
-        - 当前目录
-        - 环境变量
-        - 标准输入、输出、错误输出和其他的打开的文件描述符
-        - 忽略的信号
-    2.  没有从 parents 继承的
-        - shell 变量，除了环境变量和那些定义在 .bashrc 这类环境文件的变量
-        - 没有被忽略的信号，比如说 parents shell 特殊处理的信号
-    3.  将一段 shell 代码，用括号扩起来，就可以让这段代码在 subshell 执行
+01. **subshells**
+    1. 从 parents 继承的
+       - 当前目录
+       - 环境变量
+       - 标准输入、输出、错误输出和其他的打开的文件描述符
+       - 忽略的信号
+    1. 没有从 parents 继承的
+       - shell 变量，除了环境变量和那些定义在 .bashrc 这类环境文件的变量
+       - 没有被忽略的信号，比如说 parents shell 特殊处理的信号
+    1. 将一段 shell 代码，用括号扩起来，就可以让这段代码在 subshell 执行
 
 ```bash
 ( sleep 10 ; echo "sth";ls /tmp) | less # sub shell
 { sleep 10 ; echo "sth";ls /tmp} | less # function block
 ```
 
-40. 命名管道（有名管道）是一个临时的文件，就像一个有名字的管道，格式：关于一个程序的输入 <(list) ， 关于一个程序的输出 >(list)
+40. 命名管道（有名管道）是一个临时的文件，就像一个有名字的管道，格式：关于一个程序的输入 \<(list) ， 关于一个程序的输出 >(list)
 
 ```bash
 $ cmp <(prog1) <(prog2)
@@ -489,6 +495,7 @@ $ cmp <(prog1) <(prog2)
 ```
 
 41. grep，awk 匹配与、或、非
+
     - -E 表示擴展匹配規則
 
     ```bash
@@ -511,11 +518,11 @@ $ cmp <(prog1) <(prog2)
     ```
 
     - -H 将匹配的文件名也打印出来
-    - grep "\\\" 匹配的是 \ 符号
+    - grep "\\" 匹配的是 \\ 符号
     - grep -o "xxx" filename | wc -l 查找 "xxx" 在文件 filename 中出现的个数
     - grep -Eo "abc|def" filename | wc -l 包含正则表达式的检索出现次数功能，检索 abc 或者 def 在 filename 文件中出现的次数
 
-42. 批量替换 txt 文件名的空格为下划线
+01. 批量替换 txt 文件名的空格为下划线
 
 ```bash
 find $1 -name "* *.txt" -type f -print0 | \
@@ -564,7 +571,7 @@ echo -e "\033[文字颜色m字符串\033[0m"
 | 天蓝色   | 36     |
 | 白色     | 37     |
 
----
+______________________________________________________________________
 
 | 背景色 | 颜色码 |
 | ------ | ------ |
@@ -577,7 +584,7 @@ echo -e "\033[文字颜色m字符串\033[0m"
 | 天蓝色 | 46     |
 | 白色   | 47     |
 
----
+______________________________________________________________________
 
 | 显示方式     | 方式码字 |
 | ------------ | -------- |
@@ -593,37 +600,37 @@ echo -e "\033[文字颜色m字符串\033[0m"
     - -H 选项，强制打印文件名称，如果传递的参数本来就是多个文件，那么这个参数可以不加
     - -o 选项,只打印匹配的内容
     - -h 选项,不打印文件名
-47. shell 脚本的参数释义
+01. shell 脚本的参数释义
     - $0 当前脚本的文件名
     - $n 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
     - $# 传递给脚本或函数的参数个数。作用领域在最外层
     - $\* 传递给脚本或函数的所有参数。
     - $@ 传递给脚本或函数的所有参数。
-    - $* 和 $@ 的区别, $* 将其他参数作为一个参数传递，$@将其他参数作为多个参数传递
+    - $\* 和 $@ 的区别, $\* 将其他参数作为一个参数传递，$@将其他参数作为多个参数传递
     - $? 上个命令的退出状态，或函数的返回值。
     - $$ 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
-48. set -e # 表示後續 shell 語句任意一條出錯就會退出腳本執行
+01. set -e # 表示後續 shell 語句任意一條出錯就會退出腳本執行
     - `set --` # 表示清空之前的位置参数，以便从头开始处理新的输入或参数集
     - `set -f` # 用于在 bash 脚本中禁用文件名通配符功能
     - `set +f` # 用于在 bash 脚本中重新启用文件名通配符功能
     - `set -x` # 开启调试打印
     - `set +x` # 关闭调试打印
-49. awk
+01. awk
     - `awk '!a[$0]++'` 可以去除重复值,真牛！！！, $0 表示整行， $1 表示第一列,依次类推
-        ```text 解析过程
-        <1>："!" 即非。
-          <2>：a[$0]，以$0为数据下标，建立数组a
-          <3>：a[$0]++，即给数组a赋值，a[$0]+=1
-          当$0的内容首次出现时，a[$0]将为空（相当于0）
-          此时将先求!a[$0]的值（也是整个式子的值，即为非空 true ,将影响后续动作，执行默认的print)
-          然后对a[$0]进行+1，a[$0] 加1后为1，当下次出现时a[$0]即不为空，表达式结果为非真 false，即不打印
-        ```
+      ```text 解析过程
+      <1>："!" 即非。
+        <2>：a[$0]，以$0为数据下标，建立数组a
+        <3>：a[$0]++，即给数组a赋值，a[$0]+=1
+        当$0的内容首次出现时，a[$0]将为空（相当于0）
+        此时将先求!a[$0]的值（也是整个式子的值，即为非空 true ,将影响后续动作，执行默认的print)
+        然后对a[$0]进行+1，a[$0] 加1后为1，当下次出现时a[$0]即不为空，表达式结果为非真 false，即不打印
+      ```
     - awk -v ABC=123 '{print ABC}' # 通过添加 -v 选项可以传递参数到 awk 中，并且引用这个变量的时候不需要在之前添加 $ 符号
     - awk '{print 'ABC'}' # 或者通过 '' 符号
     - awk '{printf("%x,%s", 10, "abc")}' # 支持 printf 函数格式化打印，可以打印出来 16 进制以及字符串等格式
     - `awk '{printf "[%3d] %s\n", length($0), $0}' file_abc` 打印 file_abc 文件每行和每行的字符长度
     - `awk 'length($0) > 10' file_abc` 过滤 file_abc 文件中超过 10 字符长度的行内容
-50. `ls -l` 以 - 开头的是硬连接,以 l 开头的是软连接
+01. `ls -l` 以 - 开头的是硬连接,以 l 开头的是软连接
 
 ```bash
 ▸ ls -l
@@ -633,7 +640,8 @@ lrwxrwxrwx. red red 3 B Wed Mar  8 10:04:52 2023  abc_soft ⇒ abc 软连接
 ```
 
 51. cat -n # 可以打印出来文件的行号
-52. source 命令的同义词是 . 如果你的脚本中有一些持久化的设置（即脚本退出时仍然希望它有效，那么使用 source 命令或者它的同义词命令 .），举例子，如果有一个脚本 a.sh
+
+01. source 命令的同义词是 . 如果你的脚本中有一些持久化的设置（即脚本退出时仍然希望它有效，那么使用 source 命令或者它的同义词命令 .），举例子，如果有一个脚本 a.sh
 
     ```bash
     #!/bin/sh
@@ -647,18 +655,22 @@ lrwxrwxrwx. red red 3 B Wed Mar  8 10:04:52 2023  abc_soft ⇒ abc 软连接
 
     如果使用命令 `./a.sh`， 那么执行完后再当前 shell 也不会有这个变量 ABC，但是如果你使用 `source a.sh` 或者 `. a.sh`，那么执行完后，当前 shell 就会有 ABC 这个变量了。
 
-53. 大小写转换
-    1.  ${A^^} # 将变量 A 中的所有字符转换为大写
-    1.  ${A^} # 将变量 A 中的首个字符转换为大写
-    1.  ${b,,} # 将变量 b 中的所有字符转换为小写
-    1.  ${b,} # 将变量 b 中的首个字符转换为小写
+01. 大小写转换
 
-54. linux 中初始化环境变量，分为两类：`login shell` 和 `non-login shell`
-    1.  `login shell` 会 source 加载 `/etc/profile`
-    2.  `no-login shell` 会 source 加载 `~/.bashrc`
-    3.  `/etc/profile.d/` 目录下的所有 `.sh` 文件不管是 `login-shell` 和 `nologin-shell` 都会 source 加载
-55. 如果要使用复杂的数学运算可以使用 `bc` 工具： `ABC=$(echo "1 \* 20 / 3" | bc)`
-56. `start-stop-daemon` 管理自启动脚本，主要用来启动和停止守护进程（daemon）。
+    1. ${A^^} # 将变量 A 中的所有字符转换为大写
+    1. ${A^} # 将变量 A 中的首个字符转换为大写
+    1. ${b,,} # 将变量 b 中的所有字符转换为小写
+    1. ${b,} # 将变量 b 中的首个字符转换为小写
+
+01. linux 中初始化环境变量，分为两类：`login shell` 和 `non-login shell`
+
+    1. `login shell` 会 source 加载 `/etc/profile`
+    1. `no-login shell` 会 source 加载 `~/.bashrc`
+    1. `/etc/profile.d/` 目录下的所有 `.sh` 文件不管是 `login-shell` 和 `nologin-shell` 都会 source 加载
+
+01. 如果要使用复杂的数学运算可以使用 `bc` 工具： `ABC=$(echo "1 \* 20 / 3" | bc)`
+
+01. `start-stop-daemon` 管理自启动脚本，主要用来启动和停止守护进程（daemon）。
 
 ```bash
 #!/bin/sh
@@ -702,5 +714,5 @@ esac
 ```
 
 57. 在 /etc/profile.d/ 目录下的所有文件，会在 Bourne 兼容的 shell（比如 bash），会首先执行 /etc/profile 文件，在这个 /etc/profile 文件中一般会有一段代码用来根据字母顺序依次执行 `/etc/profile.d` 目录下的 .sh 脚本,特别地，bash 中有可以使用类似 `if [[ $abc =~ "/usr/local" ]];then dosth fi` 这样的代码通过正则表达式判断 abc 变量是否包含 `/usr/local` 字段。
-58. ``<<< ${abc}`` 将变量 abc 的内容作为标准输入传递，这是 here strings 语法
+01. `<<< ${abc}` 将变量 abc 的内容作为标准输入传递，这是 here strings 语法
     1. `IFS='.' read -ra ADDR <<< "$ip"` 将变量 ip 的内容作为标准输入，以 `.` 为分隔符，拆分到数组 ADDR 中

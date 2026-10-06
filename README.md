@@ -1,74 +1,88 @@
-![LOGO](figures/Notes_title.png)
----
+## ![LOGO](figures/Notes_title.png)
 
 ### 跟踪、记录自己的学习笔记
-#### Linux
-* [命令学习](https://github.com/iysheng/Notes/blob/master/Linux/Command.md)
-* [系统配置](https://github.com/iysheng/Notes/blob/master/Linux/SystemConfig.md)
-* [Misc](https://github.com/iysheng/Notes/blob/master/Linux/Misc.md)
 
----
+#### Linux
+
+- [命令学习](https://github.com/iysheng/Notes/blob/master/Linux/Command.md)
+- [系统配置](https://github.com/iysheng/Notes/blob/master/Linux/SystemConfig.md)
+- [Misc](https://github.com/iysheng/Notes/blob/master/Linux/Misc.md)
+
+______________________________________________________________________
 
 ##### vim
-* [插件管理](https://github.com/iysheng/Notes/blob/master/Vim/PlugInstall.md)
-* [命令学习](https://github.com/iysheng/Notes/blob/master/Vim/Command.md)
 
----
+- [插件管理](https://github.com/iysheng/Notes/blob/master/Vim/PlugInstall.md)
+- [命令学习](https://github.com/iysheng/Notes/blob/master/Vim/Command.md)
+
+______________________________________________________________________
 
 ##### Clanguage
-* [数据结构学习](https://github.com/iysheng/Notes/blob/master/Clanguage/DataStruct.md)
 
----
+- [数据结构学习](https://github.com/iysheng/Notes/blob/master/Clanguage/DataStruct.md)
+
+______________________________________________________________________
 
 ##### Cpplanguage
-* [语法学习](https://github.com/iysheng/Notes/blob/master/Cpplanguage/Notes.md)
 
----
+- [语法学习](https://github.com/iysheng/Notes/blob/master/Cpplanguage/Notes.md)
+
+______________________________________________________________________
 
 ##### Python_language
-* [读书笔记](https://github.com/iysheng/Notes/blob/master/Python_language/notes.md)
 
----
+- [读书笔记](https://github.com/iysheng/Notes/blob/master/Python_language/notes.md)
+
+______________________________________________________________________
 
 ##### Shell
-* [命令学习](https://github.com/iysheng/Notes/blob/master/Shell/Command.md)
 
----
+- [命令学习](https://github.com/iysheng/Notes/blob/master/Shell/Command.md)
+
+______________________________________________________________________
 
 ##### Markdown
-* [语法学习](https://github.com/iysheng/Notes/blob/master/Markdown/Synatax.md)
 
----
+- [语法学习](https://github.com/iysheng/Notes/blob/master/Markdown/Synatax.md)
+
+______________________________________________________________________
 
 ##### Html&Css
-* [Html 语法学习](https://github.com/iysheng/Notes/blob/master/Html/html_css.md)
-* [js 语法学习](https://github.com/iysheng/Notes/blob/master/Html/js.md)
-* [react 语法学习](https://github.com/iysheng/Notes/blob/master/Html/react.md)
 
----
+- [Html 语法学习](https://github.com/iysheng/Notes/blob/master/Html/html_css.md)
+- [js 语法学习](https://github.com/iysheng/Notes/blob/master/Html/js.md)
+- [react 语法学习](https://github.com/iysheng/Notes/blob/master/Html/react.md)
+
+______________________________________________________________________
 
 ##### Books
-* [libevent](https://github.com/iysheng/Notes/blob/master/Linux/doc/LibeventBook.pdf)
-* [The Linux Programming Interface](https://github.com/iysheng/Notes/blob/master/Linux/doc/The%20Linux%20Programming%20Interface.pdf)
-* [Learning the bash Shell](https://github.com/iysheng/Notes/blob/master/Linux/doc/Learning%20the%20bash%20Shell%20-%20Unix%20Shell%20Programming.pdf)
-* [Mastering-Vim-Build-a-softwarve](https://github.com/iysheng/Notes/blob/master/Linux/doc/Mastering-Vim-Build-a-software.pdf)
-* [GNU_coding_standards](https://github.com/iysheng/Notes/blob/master/Linux/doc/GNU_coding_standards.pdf)
-* [GNU_make](https://github.com/iysheng/Notes/blob/master/Linux/doc/make.pdf)
-* [Go_Programming](https://github.com/iysheng/Notes/blob/master/Linux/doc/The_Go_Programming_Language.pdf)
-* [html_css_design_and_build_websites](https://github.com/iysheng/Notes/blob/master/Linux/doc/html_css_design_and_build_websites.pdf)
-* [Hands-onPythonTutorial](https://github.com/iysheng/Notes/blob/master/Linux/doc/Hands-onPythonTutorial.pdf)
-* [scons-user](https://github.com/iysheng/Notes/blob/master/Linux/doc/scons-user.pdf)
-* [computer_science](https://github.com/iysheng/Notes/blob/master/Linux/doc/Computer+System_EN.pdf)
-* [GN](https://github.com/iysheng/Notes/blob/master/Linux/doc/GN_manual.pdf)
-* [Effective-Python](https://github.com/iysheng/Notes/blob/master/Linux/doc/Effective-Python.pdf)
----
+
+- [libevent](https://github.com/iysheng/Notes/blob/master/Linux/doc/LibeventBook.pdf)
+- [The Linux Programming Interface](https://github.com/iysheng/Notes/blob/master/Linux/doc/The%20Linux%20Programming%20Interface.pdf)
+- [Learning the bash Shell](https://github.com/iysheng/Notes/blob/master/Linux/doc/Learning%20the%20bash%20Shell%20-%20Unix%20Shell%20Programming.pdf)
+- [Mastering-Vim-Build-a-softwarve](https://github.com/iysheng/Notes/blob/master/Linux/doc/Mastering-Vim-Build-a-software.pdf)
+- [GNU_coding_standards](https://github.com/iysheng/Notes/blob/master/Linux/doc/GNU_coding_standards.pdf)
+- [GNU_make](https://github.com/iysheng/Notes/blob/master/Linux/doc/make.pdf)
+- [Go_Programming](https://github.com/iysheng/Notes/blob/master/Linux/doc/The_Go_Programming_Language.pdf)
+- [html_css_design_and_build_websites](https://github.com/iysheng/Notes/blob/master/Linux/doc/html_css_design_and_build_websites.pdf)
+- [Hands-onPythonTutorial](https://github.com/iysheng/Notes/blob/master/Linux/doc/Hands-onPythonTutorial.pdf)
+- [scons-user](https://github.com/iysheng/Notes/blob/master/Linux/doc/scons-user.pdf)
+- [computer_science](https://github.com/iysheng/Notes/blob/master/Linux/doc/Computer+System_EN.pdf)
+- [GN](https://github.com/iysheng/Notes/blob/master/Linux/doc/GN_manual.pdf)
+- [Effective-Python](https://github.com/iysheng/Notes/blob/master/Linux/doc/Effective-Python.pdf)
+
+______________________________________________________________________
 
 ##### Dictionary
-* [英文单词](https://github.com/iysheng/Notes/blob/master/English.md)
+
+- [英文单词](https://github.com/iysheng/Notes/blob/master/English.md)
 
 ##### Hardware
-* [Kicad](https://github.com/iysheng/Notes/blob/master/Misc/Kicad.md)
 
----
+- [Kicad](https://github.com/iysheng/Notes/blob/master/Misc/Kicad.md)
+
+______________________________________________________________________
+
 #### If you want to contact me, please scan the wechat QR code as below
+
 ![wechat](figures/Notes_wechat.png)

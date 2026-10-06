@@ -1,13 +1,15 @@
-### NanoGUI 是一个针对 OpenGL 3.x 或者更高，并且跨平台，轻量的 widget library. 
+### NanoGUI 是一个针对 OpenGL 3.x 或者更高，并且跨平台，轻量的 widget library.
 
-####  主要使用了如下组件
+#### 主要使用了如下组件
 
 1. Nanovg
-2. glfw
+1. glfw
 
----
+______________________________________________________________________
+
 #### 初始化流程(以 example1.cpp 为例进行描述)
-``` cpp
+
+```cpp
 nanogui::init()
     glfwInit() // glfw 初始化
     glfwSetTime(0) // 设置当前的 glfw 时间，以 s 为单位,

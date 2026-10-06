@@ -10,5 +10,5 @@ widget
 #### 控件解析
 
 #### PasteComboBox(粘贴式下拉/上拉选择框)
-1. PasteComboBox:PastePopupButton
 
+1. PasteComboBox:PastePopupButton
