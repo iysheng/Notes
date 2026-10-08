@@ -1670,66 +1670,68 @@ sudo dnf install iwl1000-firmware
     - -XX 输出包的头部数据
     - -vvv 打印非常详细的信息 | -vv 打印比 -vvv 稍微不详细的信息 | -v 打印比 -vv 稍微不详细的信息
     - -nn 直接以 IP 和端口号的方式显示，而非主机名和服务名称
-    - 特殊的端口: hostmon (5355)
 
-01. 交叉编译工具连查看动态库的依赖信息
+- -xx 表示 16 进制打印，这个参数会覆盖 -A ascii 打印
+  \- 特殊的端口: hostmon (5355)
 
-    - arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
-    - `nm -D xxx.so` 只看动态符号表
-    - `nm -D --defined-only xxx.so` 查看指定动态库导出的符号
+1. 交叉编译工具连查看动态库的依赖信息
 
-01. gzip 文件解压缩
+   - arm-linux-musleabi-readelf -d xxx.so 查看指定动态库的依赖
+   - `nm -D xxx.so` 只看动态符号表
+   - `nm -D --defined-only xxx.so` 查看指定动态库导出的符号
 
-    - gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
-    - gunzip xxx.gz # 解压 gzip 文件
+1. gzip 文件解压缩
 
-01. [Fedora 部署 nginx 服务](https://fedoraproject.org/wiki/Nginx)
+   - gzip -kd xxx.gz # 解压 gzip 文件，保留原始文件
+   - gunzip xxx.gz # 解压 gzip 文件
 
-    - 如果一直出现 403 Forbidden, 可以按照如下思路排查：
-      1. 确认下根目录是否存在，根目录的 index 文件是否存在
-      1. 关闭 selinux : `setenforce 0`
-      1. 如果外部 ip 无法访问，内部 ip 可以访问，那么将防火墙打开对应的 80 端口，这个端口是 nginx 默认的服务端口,使用 firewall-cmd 打开防火墙端口：`sudo firewall-cmd --add-port=22/tcp`
+1. [Fedora 部署 nginx 服务](https://fedoraproject.org/wiki/Nginx)
 
-01. [GitBlit](http://gitblit.github.io/gitblit/) 快速搭建 git 服务器
+   - 如果一直出现 403 Forbidden, 可以按照如下思路排查：
+     1. 确认下根目录是否存在，根目录的 index 文件是否存在
+     1. 关闭 selinux : `setenforce 0`
+     1. 如果外部 ip 无法访问，内部 ip 可以访问，那么将防火墙打开对应的 80 端口，这个端口是 nginx 默认的服务端口,使用 firewall-cmd 打开防火墙端口：`sudo firewall-cmd --add-port=22/tcp`
 
-    - [无法正常创建 tickets](https://stackoverflow.com/questions/41735685/cant-create-proposal-ticket) 需要添加 `tickets.service = com.gitblit.tickets.BranchTicketService` 到文件 `data/gitblit.properties`
-    - [tickets 的使用方法](http://gitblit.com/tickets_using.html)
-      1. 标准的 tickets 可以通过 web uii 创建，包括:Bug, Enhancement, task 和 Question
-      1. proposal ticket(也就是 pr) 不能通过 web ui 创建，需要使用命令行，向指定的 ref (HEAD:refs/for/new)提交, 提交之后会返回一个 ticketid,如果后续需要追加 commit 到这个 pr,那么需要向 origin 的 ticket/{id} 这个分支提交
-    - 如果发现使用 ssh 生成的 key 无法直接 push 或者 poll，可以参看 [issue](https://github.com/gitblit-org/gitblit/issues/1419) 的处理方法,核心有两点：
-      1. 检查 ssh 的 key 是否匹配
+1. [GitBlit](http://gitblit.github.io/gitblit/) 快速搭建 git 服务器
 
-         ```bash
-         ssh -l yangyongsheng -i ~/.ssh/id_rsa -p 12390 10.20.52.50 keys ls # 检查远端服务器的 key 的 MD5
+   - [无法正常创建 tickets](https://stackoverflow.com/questions/41735685/cant-create-proposal-ticket) 需要添加 `tickets.service = com.gitblit.tickets.BranchTicketService` 到文件 `data/gitblit.properties`
+   - [tickets 的使用方法](http://gitblit.com/tickets_using.html)
+     1. 标准的 tickets 可以通过 web uii 创建，包括:Bug, Enhancement, task 和 Question
+     1. proposal ticket(也就是 pr) 不能通过 web ui 创建，需要使用命令行，向指定的 ref (HEAD:refs/for/new)提交, 提交之后会返回一个 ticketid,如果后续需要追加 commit 到这个 pr,那么需要向 origin 的 ticket/{id} 这个分支提交
+   - 如果发现使用 ssh 生成的 key 无法直接 push 或者 poll，可以参看 [issue](https://github.com/gitblit-org/gitblit/issues/1419) 的处理方法,核心有两点：
+     1. 检查 ssh 的 key 是否匹配
 
-         # 检查本机的 ssh 的 md5 或者 sha256
-         ssh-keygen -l -f ~/.ssh/id_rsa -E md5
-         ssh-keygen -l -f ~/.ssh/id_rsa -E sha256
-         ```
+        ```bash
+        ssh -l yangyongsheng -i ~/.ssh/id_rsa -p 12390 10.20.52.50 keys ls # 检查远端服务器的 key 的 MD5
 
-      1. 如过匹配可能是本机不支持 RSA 的签名算法，需要修改 `/etc/ssh_config`， 添加如下两行的内容
+        # 检查本机的 ssh 的 md5 或者 sha256
+        ssh-keygen -l -f ~/.ssh/id_rsa -E md5
+        ssh-keygen -l -f ~/.ssh/id_rsa -E sha256
+        ```
 
-         ```bash
-         PubkeyAcceptedKeyTypes +ssh-rsa
-         HostKeyAlgorithms +ssh-rsa
-         ```
+     1. 如过匹配可能是本机不支持 RSA 的签名算法，需要修改 `/etc/ssh_config`， 添加如下两行的内容
 
-      1. 特别地，通过 `ssh -v -p 12390  yangyongsheng@10.20.52.50 keys ls` 命令可以看到更多的细节
+        ```bash
+        PubkeyAcceptedKeyTypes +ssh-rsa
+        HostKeyAlgorithms +ssh-rsa
+        ```
 
-01. ethtool 工具查看以及修改网卡参数
+     1. 特别地，通过 `ssh -v -p 12390  yangyongsheng@10.20.52.50 keys ls` 命令可以看到更多的细节
 
-    - ethtool eth1 查看 eth1 网卡参数
-    - ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
+1. ethtool 工具查看以及修改网卡参数
 
-01. 通过环境变量 **XDG_SESSION_TYPE** 可以查看系统使用的是 wayland 还是 X11
+   - ethtool eth1 查看 eth1 网卡参数
+   - ethtool -s eth1 speed 100 duplex full # 修改为百 M 速度
 
-01. mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 mermaid 类型的代码块来绘制
+1. 通过环境变量 **XDG_SESSION_TYPE** 可以查看系统使用的是 wayland 还是 X11
 
-01. weston 知识
+1. mermaid 可以通过语句绘制漂亮的 diagram， typora 可以使用 mermaid 类型的代码块来绘制
 
-    - **WESTON_DATA_DIR** 是定义weston 相关 app 运行资源(一些 png 图片等)的环境变量
+1. weston 知识
 
-01. newlibc 中的 sbrk 使用链接脚本的 end 标记
+   - **WESTON_DATA_DIR** 是定义weston 相关 app 运行资源(一些 png 图片等)的环境变量
+
+1. newlibc 中的 sbrk 使用链接脚本的 end 标记
 
 ````
 ```c
@@ -2311,7 +2313,10 @@ _sbrk (ptrdiff_t incr)
 001. devblock 命令获取指定 block 的空间大小
 
      1. blockdev --getsize64 /dev/block/mmcblk0p9
+
 001. [uncrustify](https://uncrustify.sourceforge.net/) 代码格式化工具
-   1. ``uncrustify -c xx.cfg -f a.c`` 使用 xx.cfg 配置文件，格式化 a.c 文件
+
+001. `uncrustify -c xx.cfg -f a.c` 使用 xx.cfg 配置文件，格式化 a.c 文件
+
 001. `socat` 工具完成端口重映射
-   sudo socat TCP-LISTEN:80,bind=192.168.137.131,fork,reuseaddr TCP:192.168.61.11:80
+     sudo socat TCP-LISTEN:80,bind=192.168.137.131,fork,reuseaddr TCP:192.168.61.11:80
