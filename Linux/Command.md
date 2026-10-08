@@ -2313,3 +2313,5 @@ _sbrk (ptrdiff_t incr)
      1. blockdev --getsize64 /dev/block/mmcblk0p9
 001. [uncrustify](https://uncrustify.sourceforge.net/) 代码格式化工具
    1. ``uncrustify -c xx.cfg -f a.c`` 使用 xx.cfg 配置文件，格式化 a.c 文件
+001. `socat` 工具完成端口重映射
+   sudo socat TCP-LISTEN:80,bind=192.168.137.131,fork,reuseaddr TCP:192.168.61.11:80
