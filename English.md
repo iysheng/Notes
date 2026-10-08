@@ -471,6 +471,7 @@
 | lower limit     | 下限                                           |
 | LHS             | left-hand side，左边数据                       |
 | LFW             | Labelled Fces in the Wild ，野外标记人脸数据集 |
+| laser           | 激光雷达                                       |
 
 ## M
 
@@ -847,24 +848,26 @@
 
 ## U
 
-| 单词            | 释义                                                          |
-| --------------- | ------------------------------------------------------------- |
-| underscore      | 下划线                                                        |
-| underlay        | 底层                                                          |
-| update          | 更新                                                          |
-| upgrade         | 升级                                                          |
-| unary           | 一元的                                                        |
-| unary operator  | 一元运算符                                                    |
-| utilization     | 利用率                                                        |
-| unplug power    | 切断电源                                                      |
-| upside          | 好的一面                                                      |
-| until then      | 在那之前                                                      |
-| underlying      | 底层                                                          |
-| underlying type | 基础类型，隐藏类型                                            |
-| up to the point | 到目前为止                                                    |
-| upper limit     | 上限                                                          |
-| undesirable     | 不可取的，不受欢迎的                                          |
-| UDC             | USB device controller 和之对应的是 UHC（USB host controller） |
+| 单词            | 释义                                                                                         |
+| --------------- | -------------------------------------------------------------------------------------------- |
+| underscore      | 下划线                                                                                       |
+| underlay        | 底层                                                                                         |
+| update          | 更新                                                                                         |
+| upgrade         | 升级                                                                                         |
+| unary           | 一元的                                                                                       |
+| unary operator  | 一元运算符                                                                                   |
+| utilization     | 利用率                                                                                       |
+| unplug power    | 切断电源                                                                                     |
+| upside          | 好的一面                                                                                     |
+| until then      | 在那之前                                                                                     |
+| underlying      | 底层                                                                                         |
+| underlying type | 基础类型，隐藏类型                                                                           |
+| up to the point | 到目前为止                                                                                   |
+| upper limit     | 上限                                                                                         |
+| undesirable     | 不可取的，不受欢迎的                                                                         |
+| UDC             | USB device controller 和之对应的是 UHC（USB host controller）                                |
+| URC             | Unsolicited Result Code ，非请求结果码，无法主机发送AT请求指令，模块主动向主机上报的消息事件 |
+| ultra           | 超声波雷达                                                                                   |
 
 ## V
 

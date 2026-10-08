@@ -2311,3 +2311,5 @@ _sbrk (ptrdiff_t incr)
 001. devblock 命令获取指定 block 的空间大小
 
      1. blockdev --getsize64 /dev/block/mmcblk0p9
+001. [uncrustify](https://uncrustify.sourceforge.net/) 代码格式化工具
+   1. ``uncrustify -c xx.cfg -f a.c`` 使用 xx.cfg 配置文件，格式化 a.c 文件
