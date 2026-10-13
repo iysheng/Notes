@@ -845,6 +845,7 @@
 | TL,DL                              | 太长了，读不下去了                   |
 | tone                               | 音调                                 |
 | TPDU(Transport Protocol Data Unit) | ISO-TP 分段后的数据单元              |
+| Triangle                           | 三角形                               |
 
 ## U
 
