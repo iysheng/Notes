@@ -754,9 +754,11 @@ du -sh * # 查看当前目录所有文件的大小，对目录文件，只显示
 
        ```
        ip route
+       nmcli -g ipv4.route-metric connection show "连接名" # 查看指定链接的 route-metric
        sudo nmcli connection modify USR-G815R-867D_5G ipv4.route-metric 20200 # 修改指定连接的优先级为 20200 （数值越大，优先级越低，连接的名字用 nmcli connection 查看）
        sudo nmcli connection down USR-G815R-867D_5G
        sudo nmcli connection up USR-G815R-867D_5G
+       sudo nmcli connection modify Wired\ connection\ 2 ipv4.method manual ipv4.addresses 192.168.61.233/24
        ```
 
 01. [安装 xdm ，作为 xorg 的显示管理器，引导 dwm 启动](https://wiki.archlinux.org/index.php/XDM#Installation)
