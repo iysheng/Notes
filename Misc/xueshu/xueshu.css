@@ -1,0 +1,135 @@
+/* xueshu.css - 专利审查意见通知书风格 */
+
+@font-face {
+    font-family: 'XBSong';
+    src: local('方正小标宋简体'), url('file:///usr/share/fonts/xueshu/方正小标宋简体.ttf');
+}
+@font-face {
+    font-family: 'XHei';
+    src: local('方正黑体'), url('file:///usr/share/fonts/xueshu/方正黑体.ttf');
+}
+@font-face {
+    font-family: 'XKai';
+    src: local('方正楷体_GBK'), url('file:///usr/share/fonts/xueshu/方正楷体GBK.ttf');
+}
+@font-face {
+    font-family: 'XFangSong';
+    src: local('方正仿宋_GBK'), url('file:///usr/share/fonts/xueshu/方正仿宋GBK.ttf');
+}
+
+body {
+    font-family: 'XFangSong', '仿宋', serif;
+    font-size: 14pt;
+    line-height: 2;
+    color: #000;
+    background: #fff;
+}
+
+#write {
+    max-width: 800px;
+    margin: 0;
+    padding: 40px;
+}
+
+/* 标题 - 左对齐，小标宋 */
+h1, h2, h3, h4, h5, h6 {
+    text-align: left !important;
+    margin: 1em 0 0.5em 0;
+}
+
+h1 {
+    font-family: 'XBSong', '方正小标宋简体', serif !important;
+    font-size: 22pt !important;
+    font-weight: normal !important;
+    letter-spacing: 0.1em;
+}
+
+h2 {
+    font-family: 'XBSong', '方正小标宋简体', serif !important;
+    font-size: 18pt !important;
+    font-weight: normal !important;
+    letter-spacing: 0.1em;
+}
+
+h3 {
+    font-family: 'XHei', '方正黑体', sans-serif !important;
+    font-size: 14pt !important;
+    font-weight: normal !important;
+}
+
+h4 {
+    font-family: 'XKai', '方正楷体_GBK', serif !important;
+    font-size: 14pt !important;
+    font-weight: normal !important;
+}
+
+/* 正文段落 */
+#write p {
+    font-family: 'XFangSong', '仿宋', serif !important;
+    font-size: 14pt !important;
+    text-indent: 2em;
+    text-align: justify;
+    margin: 0.5em 0;
+}
+
+/*
+ * 分隔线后的第一段（申请信息、主送称呼）顶格。
+ * Typora 1.1.5 / Chrome 91 不支持 :has()。
+ * 实况结构是 div.md-hr + p，且「申请号 / 申请人 / 发明名称」
+ * 之间没有空行，合成同一个 p；text-indent 只缩进首行。
+ */
+#write .md-hr + p,
+#write hr + p,
+#write.first-line-indent .md-hr + p,
+#write.first-line-indent hr + p {
+    text-indent: 0 !important;
+}
+
+/* 只拉齐这一段里的加粗标签，避免正文里的强调被撑开 */
+#write .md-hr + p [md-inline="strong"],
+#write .md-hr + p > strong,
+#write hr + p [md-inline="strong"],
+#write hr + p > strong {
+    display: inline-block !important;
+    min-width: 5.5em;
+    vertical-align: baseline;
+    text-align: left;
+}
+
+#write p strong {
+    font-family: 'XHei', '方正黑体', sans-serif !important;
+    font-weight: normal !important;
+}
+
+/* 列表 */
+ol, ul {
+    font-family: 'XFangSong', '仿宋', serif !important;
+    font-size: 14pt !important;
+    line-height: 2;
+    margin: 0.5em 0;
+    padding-left: 2em;
+}
+
+li {
+    margin: 0.3em 0;
+}
+
+/* 表格 */
+table {
+    font-family: 'XFangSong', '仿宋', serif !important;
+    font-size: 12pt !important;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+table th, table td {
+    border: 1px solid #000;
+    padding: 4pt 8pt;
+}
+
+/* 斜体用楷体 */
+em {
+    font-family: 'XKai', '方正楷体_GBK', serif !important;
+    font-style: normal !important;
+}
