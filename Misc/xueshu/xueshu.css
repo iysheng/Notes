@@ -101,17 +101,37 @@ h4 {
     font-weight: normal !important;
 }
 
-/* 列表 */
-ol, ul {
+/*
+ * 列表：Typora 开启首行缩进时会给 li 加 margin-left:2em，
+ * 叠加 ul padding-left:2em，圆点与文字间距过宽 → 各减半。
+ */
+#write ol,
+#write ul {
     font-family: 'XFangSong', '仿宋', serif !important;
     font-size: 14pt !important;
     line-height: 2;
     margin: 0.5em 0;
-    padding-left: 2em;
+    padding-left: 1em;
 }
 
-li {
+#write li {
     margin: 0.3em 0;
+    margin-left: 0 !important;
+}
+
+#write.first-line-indent li {
+    margin-left: 0 !important;
+}
+
+#write li p {
+    text-indent: 0 !important;
+    margin: 0;
+}
+
+#write li > ol,
+#write li > ul {
+    padding-left: 1em;
+    margin: 0;
 }
 
 /* 表格 */
@@ -132,4 +152,55 @@ table th, table td {
 em {
     font-family: 'XKai', '方正楷体_GBK', serif !important;
     font-style: normal !important;
+}
+
+/*
+ * 行内公式：Typora 默认 .md-inline-math { display:inline-block }，
+ * 与正文 text-align:justify 叠加时，公式前会出现明显空白。
+ */
+#write .md-inline-math {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: baseline;
+}
+
+#write .md-inline-math .md-meta {
+    display: none !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#write .md-inline-math-container {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: baseline;
+}
+
+#write .md-inline-math-container mjx-container,
+#write .md-inline-math-container .MathJax {
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: baseline !important;
+}
+
+#write .md-inline-math-container svg {
+    vertical-align: baseline;
+}
+
+/* 围栏代码块（```）— 等宽字体，便于 ASCII 时序图对齐 */
+#write pre.md-fences,
+#write .md-fences,
+#write .md-fences .CodeMirror,
+#write .md-fences .CodeMirror pre,
+#write .md-fences .CodeMirror-line,
+#write .md-fences .CodeMirror-code,
+#write .md-fences .CodeMirror-lines {
+    font-family: 'TX02 Nerd Font Mono', 'TX02NerdFontMono', monospace !important;
+    font-size: 12pt !important;
+    line-height: 1.35 !important;
+    font-variant-ligatures: none;
+    letter-spacing: 0;
 }
