@@ -190,6 +190,19 @@ em {
     vertical-align: baseline;
 }
 
+/* 行内代码（`99000000001`）— 与围栏代码块同一等宽字体 */
+#write code,
+#write .md-inline-code,
+#write tt {
+    font-family: 'TX02 Nerd Font Mono', 'TX02NerdFontMono', monospace !important;
+    font-size: 12pt !important;
+    font-variant-ligatures: none;
+    letter-spacing: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
 /* 围栏代码块（```）— 等宽字体，便于 ASCII 时序图对齐 */
 #write pre.md-fences,
 #write .md-fences,
