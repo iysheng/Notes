@@ -6,7 +6,7 @@
 }
 @font-face {
     font-family: 'XHei';
-    src: local('方正黑体'), url('file:///usr/share/fonts/xueshu/方正黑体.ttf');
+    src: local('方正黑体_GBK'), url('file:///usr/share/fonts/xueshu/方正黑体_GBK.ttf');
 }
 @font-face {
     font-family: 'XKai';
@@ -52,8 +52,8 @@ h2 {
 }
 
 h3 {
-    font-family: 'XHei', '方正黑体', sans-serif !important;
-    font-size: 14pt !important;
+    font-family: 'XHei', '方正黑体_GBK', sans-serif !important;
+    font-size: 16pt !important;
     font-weight: normal !important;
 }
 
