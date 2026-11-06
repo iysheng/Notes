@@ -1551,3 +1551,14 @@ ______________________________________________________________________
 #### 基础知识
 
 #### 约定
+
+______________________________________________________________________
+
+### AI
+
+#### zed 编辑器
+
+##### mcp
+
+*  [drawio-mcp-server](https://github.com/lgazo/drawio-mcp-server) drawio 插件，测试过
+*  [drawio-mcp](https://github.com/jgraph/drawio-mcp) drawio 插件，官方的未测试，根据查询的资料，建议选 drawio-mcp-server
