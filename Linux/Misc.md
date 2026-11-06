@@ -5,19 +5,16 @@
 1. fedora23 xfce 支持 mp3播放 audacious 很重要的一个插件：audacious-plugins-freeworld-mp3
 
 1. rootfs 知识要点
-
    1. 根文件系统要有 /init 否则会报不是根文件系统的错误
    1. busybox 的源码中有 rcS 等配置文件的示例
 
 1. 在 YYfish Board 调试 2018.09 Uboot
-
    1. 添加了deug 的串口打印，直接写寄存器，修改设备树
    1. 初始化SDRAM，修改设备树
    1. 修改MPU相关的设置，修改arch/arm/mach-stm32/soc.c 修改MPU的区域大小为32M，否则重定向到SDRAM的高地址之后，因为没有执行权限，系统就会崩掉
 
 1. ubifs 使用方法
-
-   1. 创建 ubifs 镜像文件 {一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc，关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小，逻辑擦除块大小一般是物理擦出块大小 - 2 * pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录}
+   1. 创建 ubifs 镜像文件 {一般命令：mkfs.ubifs -x none -m 2KiB -e 124KiB -c 64 -o abc.img -d abc，关键的参数 -x:制定压缩算法 -m 执行最小的 io 大小，nand flash 一般是 page 大小；-e 制定逻辑擦除块大小，逻辑擦除块大小一般是物理擦出块大小 - 2 \* pagesize；-c 制定擦除块的个数，这个很关键，这个值要小于为 ubifs 划分的 nand 分区的擦除块的个数，比如，我为 ubifs nand 分区预留了 10MB，擦除块一共有 80 个，这里只填写了 64 个，也就是预留了 16 个 2MB 的空间；-d：制定的文件系统的根目录}
    1. 创建可以烧写到 flash 的镜像文件 {一般命令：ubinize -o abc.raw -m 2048 -p 128KiB -O 2048 abc.ini -v 关键参数 -o：制定生成的文件名字 -m 指定最小的 io，一般是 pagesize；-p 指定物理擦除块大小，这个值就是 nand flash 实际的物理擦除块大小；-O 参考网上的是 pagesize，这个后续还需要和 mkfs.ubifs 的一起分析下；abc.ini 表示产生镜像的配置文件，-v：打印提示信息；abc.ini 文件示例
       ```text
       [rootfs-volume]
@@ -32,13 +29,11 @@
       ```
 
 1. 交叉编译工具链那些事情
-
    1. 交叉编译工具链 --print-sysroot：工具链认为的根目录
    1. 交叉编译工具链 --print-search-dirs：工具链会搜索的目录，包括库文件、可执行文件等等，也就是说工具链会从这些目录中搜索库或者可执行文件
       - tcpdump -n host 10.20.52.91 -i enp0s20f0u3u3 # 过滤来自指定 host 指定网卡的数据包
 
 1. 安裝中文输入法：
-
    1. 安装 fcitx 必要打软件包，参考 arch 的 wiki
       ```bash
       sudo dnf install fcitx fcitx-im fcitx-configtool fcitx-** 拼音相关的软件包
@@ -56,7 +51,6 @@
 1. fzf 模糊搜索开源工具
 
 1. ranger 终端的文件管理器，[ranger](https://github.com/ranger/ranger/wiki/Official-User-Guide) 使用 4 個主要的配置文件
-
    - 全局的 commands.py ， 包含了各種功能實現
    - 全局的 rc.conf ，設置各種配置，以及完成 key 到功能函數的綁定
    - rifle.conf 決定了使用哪個程序打開對應的文件
@@ -73,7 +67,6 @@
 1. linux 通过安装 samba-vfs-glusterfs 可以很方便的通过 xfce 官方的文件管理软件 Thunar 打开远端 samba 共享的目录，格式： smb://192.168.0.5【备注：远端的 ip 地址】
 
 1. dwm 窗口管理器
-
    1. 需要安装 xorg 相关的环境（还有一个 xinit），由于在 Fedora Server 默认启动的窗口管理器是 xdm，man xdm 的过程，实现登录自动到 dwm 的方法是在 home 目录下创建一个 .xsession 脚本，在该脚本中通过 `exec dwm` 启动 dwm 窗口管理器，并且在该脚本执行 `fctix &` 输入法程序
    1. 安装字体 wqy-\*\*\* 中文字体， Cascadia Code 字体，安装符号字体
    1. 中文输入法安装配置比较麻烦，关键在于确认 fctix 要在后台执行，已经通过命令
@@ -94,14 +87,12 @@
       1. alpha ：背景透明，需要依赖渲染器件：比如：compton，这个工具需要提前在后台执行才可以保证正常的半透明效果， st 的透明补丁类似的
 
 1. st 工具配置
-
    1. alpha：半透明化补丁，需要依赖渲染器件
    1. alphaFocusHighlight：基于半透明化补丁，可以突出显示正在选中的窗口
    1. ime：补丁，修复 st 下不能正常切换输入法的补丁，默认官方已经添加了该补丁
    1. scrollback：支持在 st 下实现界面回滚的补丁
 
 1. openocd
-
    1. -s 选项，指定配置文件的搜索路径， -f 选项指定配置文件
    1. flash probe bank_id 探测flash
    1. flash list 列出flash
@@ -114,7 +105,6 @@
    1. 擦写 flash 之前一般需要 halt 住 cpu
 
 1. tmux 一款终端分平软件 (三个基本概念：session、window、panel)
-
    1. [tpm](https://github.com/tmux-plugins/tpm)：tmux 的插件管理器
    1. nord 色彩配置，建议关闭 powerline 的箭头型符号
       ```bash
@@ -158,20 +148,18 @@
 1. gnome 带有一个全屏幕的快捷键，可以去控制中心配置这个快捷键
 
 1. 64 位 Fedora 编译 vim 遇到的问题
-
    1. tgetent()... configure: error: NOT FOUND! 方法：LDFLAGS="$LDFLAGS -fPIC"，[这样可以 configure 配置通过，但是还是无法编译通过！！！](https://github.com/vim/vim/issues/1081)
    1. Unknown type name ‘off64_t’ 方法：CLFAGS="-Doff64_t=\_\_off64_t"
 
 1. Linux 的控制终端由控制码、一个环境变量和一组共称为 terminfo 数据库的特殊文件实现。Linux 将每种终端类型的 terminfo 数据作为一个单独的文件存储在 terminfo 数据库目录。常见的位置是 /usr/share/terminfo/ ；terminfo 的数据格式是二进制的需要使用 infocmp 命令查看
 
 1. onlyoffice 笔记
-
    1. 设置单元格格式为 text, `ctrl+1` 快捷键调出来设置框
    1. 双击列边框和行边框，自动修改列宽或者行宽
 
 1. 在编译的时候，纵使某个库文件存在，但是当前用户如果对这个库文件没有**读权限**，也会导致虽然库文件存在，但是链接的时候也会提示这个库找不到。
 
-______________________________________________________________________
+---
 
 ### zephyr 学习笔记
 
@@ -248,7 +236,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 #### Makefile
 
 1. gcc 通过 -D 选项传递宏字符串时候，需要添加转义字符 "字符串内容"
-
    - -specs=文件 指定了一个可以覆盖 gcc 默认的 specs 的文件，default.specs 文件可以用命令 `gcc -dumpspecs` 查看, specs 文件定义了传递给 cc1 cc1plus as ld 等内容
    - PHONY 是一个抽象的 target, 比如你想执行某些目标但是并不会真正产生一些实质的文件，这时候可以将那个目标做为 .PHONY 的依赖
    - 编译选项 -w 表示禁止所有的警告信息, -Wunused-parameter 表示对未使用的参数打印出警告信息, -Wno-unused-parameter 表示不对未使用的参数打印警告信息
@@ -256,13 +243,13 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    - `-ffunction-sections -fdata-sections  -Wl,--gc-sections` 分别表示函数分段、数据分段和移除未使用的段
    - 指定函数不优化的方法，在函数前添加 `__attribute__((optimize("O0")))`
    - 指定代码范围内不优化的方法，在代码范围前添加
-     ```C
-     #pragma GCC push_options
-     #pragma GCC optimize ("O0")
-     ...
-     ...
-     #pragma GCC pop_options
-     ```
+      ```C
+      #pragma GCC push_options
+      #pragma GCC optimize ("O0")
+      ...
+      ...
+      #pragma GCC pop_options
+      ```
 
 1. Makefile 的条件判断
 
@@ -288,7 +275,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 #### Misc
 
 1. IRC [Beginner’s guide to IRC](https://fedoramagazine.org/beginners-guide-irc/)
-
    1. account 是账户，这个是持久的
    1. nickname 是昵称，被账户所有
    1. identify 意味着登陆你的账户
@@ -297,7 +283,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    1. [注册昵称的过程2](https://www.wikihow.com/Register-a-Nickname-on-Freenode)
 
 1. 安装 dhcp 服务，支持客户端测试 dhcp 获取 IP
-
    1. 配置 /etc/dhcp/dhcpd.conf 文件，如下示例：
 
       ```
@@ -324,7 +309,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    1. systemctl start dhcpd
 
 1. 内核的 spi 驱动框架
-
    1. 关键的几个结构体抽象：
       1. struct spi_master：spi 控制器本身的抽象；
       1. struct spi_device：spi 设备，如果没有外接 spi 设备时，那么就可以认为是 spi 控制器的代理，会通过对应的 spi_driver 即 driver/spi/spidev.c 这个源码注册的 name 是 "spidev" 的驱动完成 probe，就会注册对应的 spi 的字符设备，通过这个字符设备可以直接和 spi 控制器通信，具体的是通过 ioctl 完成数据的收发；
@@ -355,11 +339,9 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    ```
 
 1. sqlite
-
    1. 通过给某一个整形的键值添加 **INTEGER PRIMARY KEY** 或者 **ROWID**，就等价将这个值作为 [rowid](https://www.sqlite.org/autoinc.html#summary)，这个值在数据表中需要是唯一的，并且当没有明确给这个值赋值时，会自动加 1。
 
 1. scons 构建工具，SCons 使用 SConscript 和 SConstruct 文件来组织源码结构，通常来说一个项目只有一 SConstruct，但是会有多个 SConscript。一般情况下，每个存放有源代码的子目录下都会放置一个 SConscript。
-
    1. scons --target=makefile # 构建 Makefile 的编译文件
    1. SConscript 文件可以控制源码文件的加入，并且可以指定文件的 Group。
    1. scons 的环境分为：
@@ -375,11 +357,9 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
       1. print(env['LINKFLAGS']) 可以打印出指定环境的 LINKFLAGS，还有其他的参数也可以用这个方法打印
 
 1. C 语言的一些头文件
-
    1. uint8_t 对应的头文件 \<stdint.h>
 
 1. 在链接库编译时，库文件的位置会影响到是否正常链接成功，库文件的位置必须放在**源文件或者 obj 文件后**
-
    1. arm-none-eabi-gcc -ldemo $(objs) -o $@ // 这个不可以正常连接 libdemo.a
    1. arm-none-eabi-gcc $(objs) -ldemo -o $@ // 这个可以正常连接 libdemo.a
    1. gcc 的一些編譯選項參數
@@ -394,35 +374,30 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
       - -Wl OPTION 传递 OPTION 参数给链接器
 
 1. ar 打包为 .a 静态库的命令参数
-
    1. gcc $(src) -c $(objs) # gcc 编译为 obj 文件
    1. ar -r libdemo.a $(objs) # 将所有的 obj 文件连接为静态库
 
 1. RT-thread 在 Linux 環境使用 pkgs 命令，首次啓動 scons --meunconfig 會自動安裝 env 命令，source ~/.env/env.sh 命令可以導出 pkgs 命令，同時還導出了 env 命令。選中 online 的包後可以使用 pkgs --update 命令下載選中的 online 的軟件包。
-
    1. pkgs --upgrade 用來更新 env 功能腳本本身和軟件包列表
    1. pkgs --update 用來更新軟件包本身
 
 1. Rust 包管理 cargo
-
    - 更换 cargo 的源，创建文件 `~/.cargo/config`
-     ```bash
-     [source.crates-io]
-     registry = "https://github.com/rust-lang/crates.io-index"
-     replace-with = 'hub'
-     #[source.ustc]
-     #registry = "https://mirrors.ustc.edu.cn/crates.io-index"
-     [source.hub]
-     registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
-     ```
+      ```bash
+      [source.crates-io]
+      registry = "https://github.com/rust-lang/crates.io-index"
+      replace-with = 'hub'
+      #[source.ustc]
+      #registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+      [source.hub]
+      registry = "https://hub.fastgit.org/rust-lang/crates.io-index.git"
+      ```
 
 1. google search `font name vk.com` 查找字体
 
 1. fedora samba 网络端口:
-
    1. smbd TCP 139 和 445
-   1. nmbd UDP 137
-      3.关闭防火墙或开放服务
+   1. nmbd UDP 137 3.关闭防火墙或开放服务
       ```bash
       systemctl stop firewalld
       sudo firewall-cmd --permanent --add-service=samba
@@ -440,16 +415,14 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. 護眼色的 rgb 值 #CCE8CF RGB(204, 232, 207) 或者 #C7EDCC RGB(199, 237, 204)
 
 1. ld 的 --wrap 選項參數，可以對制定的符號進行包裹，eg: --wrap,malloc ， 如果當前文件中直接調用 malloc 符號但是卻沒有定義該符號，那麼會嘗試執行 \*\*wrap_malloc 函數，如果執行的是 \*\*real_malloc 那麼會嘗試執行 malloc 函數
-
    - 交叉编译工具链的　crt0 会尝试调用用户自定义的　hardware_init_hook() software_init_hook() 然后再执行　\_\_wrap_main() 函数
 
 1. [gn](http://weharmonyos.com/openharmony/compile/gn/docs/quick_start.html#running-gn) 用来生成 ninja 脚本. [GN 的官方網址](https://gn.googlesource.com/gn/+/main/docs/reference.md)
-
    - BUILD.gn 一般是整个工程的入口， .gni 文件一般用来作为子模块
    - --root 指定 gn 构建的根目录
    - --dotfile 默认会查找 root 目录下的 .gn 文件，如果需要明确指定该文件，那么使用 --dotfile 参数指定
-     - .gn 文件会至少定义 buildconfig 变量，该变量表示的文件会被用来建立 build file 的可执行环境
-     - .gn 文件一般也会定义 root 变量，定义 gn 构建的根目录
+      - .gn 文件会至少定义 buildconfig 变量，该变量表示的文件会被用来建立 build file 的可执行环境
+      - .gn 文件一般也会定义 root 变量，定义 gn 构建的根目录
    - gn args --list 查看有效的參數和他們的默認值
    - gn 文件中的 // 符号表示根目录
    - gn desc \<build_dir> <targetname> # 获取指定目标的信息
@@ -461,32 +434,28 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    - 內置變量 root_build_dir 是 build command 執行的根目錄的絕對路徑
    - 內置變量 root_out_dir 是工具鏈輸出的根目錄的絕對路徑
    - rebase_path(input, new_base=="", current_base=".") # 將 input 表示的內容，可以是 list ,轉換爲以 new_base 爲基礎的路徑描述
-     - new_base 缺省時，轉換路徑以系統絕對路徑
-     - current_base 缺省時，是相對當前路徑
+      - new_base 缺省時，轉換路徑以系統絕對路徑
+      - current_base 缺省時，是相對當前路徑
    - exec_script(......) 函数提供了一种执行 python 脚本的钩子函数，当所执行的脚本返回非0数值时会终止工程构建
-     - exec_script("x.py", ["arg1", "arg2"], "json") # 如果返回值是一个 list 格式，参考[pkg-config.py](https://chromium.googlesource.com/chromium/src/build/config/+/refs/heads/main/linux/pkg-config.py) 并实际测试发现 "json" 格式才可以正常转换为 GN 可以识别的 list 类型, 里面关键的内容是，使用 python3 的 json 包，执行 print(json.dumps([xxx])), 返回 json 格式的 list
+      - exec_script("x.py", ["arg1", "arg2"], "json") # 如果返回值是一个 list 格式，参考[pkg-config.py](https://chromium.googlesource.com/chromium/src/build/config/+/refs/heads/main/linux/pkg-config.py) 并实际测试发现 "json" 格式才可以正常转换为 GN 可以识别的 list 类型, 里面关键的内容是，使用 python3 的 json 包，执行 print(json.dumps([xxx])), 返回 json 格式的 list
    - gn 脚本中不能用 `\t` 即 Tab 键需要使用空格替换，否则会提示 `Tabs are evil`
    - `gn format xxx.gn` 用来格式化 gn 文件，特别地，测试 `.gni` 文件也可以正常 format
 
 1. ninja 替换 make 进行构建
-
    - build.ninja 一般是构建的入口文件，类似 make 的 Makefile
 
 1. ld 连接脚本
-
    - COMMON 表示的是未初始化的全局变量, 不包含静态全局变量
 
 1. [solus](https://getsol.us/home/) 系统安装安装软件的时候，具体的软件名字不确定的时候，可以通过 google 搜索 `关键词 arch`
-
    - eopkg blame 包名称 # 查看包的维护者以及版本信息
    - eopkg info 包名称 # 查看包的详细信息，包括依赖等内容
-     - eopkg info -f 包名称 # 查看包安装了哪些文件
+      - eopkg info -f 包名称 # 查看包安装了哪些文件
    - eopkg install man-pages # 安装 man 帮助信息
    - eopkg list-installed # 列出已经安装的包
    - eopkg search-file # 查找包含指定文件的软件包
 
 1. perl 的包安装工具是 cpan. 直接 `cpan 包名称` 就可以安装了. eg: `cpan Number::Bytes::Human` 或者 `cpan Pango` 等等。但是如果有些包无法安装的时候，还是去对应发行版的仓库中搜索安装了。
-
    - perl 可以通过环境变量 PERL5LIB 来添加 perl 模块/包所在路径
    - 修改 perl 源为[清华源的参考](https://mirrors.tuna.tsinghua.edu.cn/help/CPAN/)
 
@@ -519,7 +488,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    3\. 为了及时更新，添加或者修改了 Icon 后可以使用命令 `sudo update-desktop-database` 强制刷新缓存
 
 1. [TigerVNC](https://tigervnc.org) 是一种高性能、平台无关的 VNC 实现，包含了客户端和服务器端。配置 tigervnc 的步骤：
-
    1. sudo eopkg install tigervnc # 安装 TigerVNC
 
    1. vncpasswd # 创建 vncpasswd，后续使用客户端链接的时候要用到
@@ -601,7 +569,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
       ```
 
       操作 x0vncserver.service 的命令:
-
       1. sudo systemctl daemon-reload
       1. sudo systemctl enable x0vncserver.service # 创建这个服务的软链接
       1. sudo systemctl start x0vncserver
@@ -612,7 +579,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. AppImage 格式文件可以在大部分的 Linux 环境执行运行，区别 deb 是 debian 的软件包格式， rpm 是 redhat 的软件包格式。如果既不支持 deb 也不支持 rpm,那么可以尝试直接下载 AppImage 格式的文件，然后给这个文件添加可执行权限，就可以直接运行了，比如 [drawio](https://github.com/jgraph/drawio-desktop/releases/download/v16.1.2/drawio-x86_64-16.1.2.AppImage)
 
 1. putty 使用密钥连接远程 ssh 服务器教程：
-
    1. 在 putty 客户端创建 ssh 密钥对。
       ![keygen](assets/putty_keygen.png)
    1. 将公钥内容复制到 ssh 服务器的 ~/.ssh/authorized_keys, **重要的一点修改该文件的权限为 400**
@@ -621,13 +587,11 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
       ![conf1](assets/putty_conf1.png)
 
 1. 颜色号:
-
    - 3f9f9f
    - CBE9CF 护眼色
 
 1. sdcc 工具链，在中断函数定义时，需要在包含 main 函数的文件中声明这个中断函数。
    ![sdcc](assets/sdcc_int.png)
-
    - --xram-loc 0x800 定义 xram 的地址起始地址
    - --xram-size 0x100 定义 xram 的大小
    - -Wl-bCSEG=0x100 传递参数给链接脚本，定义 CSEG 的值
@@ -636,19 +600,16 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 
 1. [drawio](https://github.com/jgraph/drawio) 好用的画图软件
    ![short_key](assets/drawio_short_key.png)
-
    - 回车键可以切换当前页面的显示大小, 在 Home 大小和大小之间切换
    - ctrl + shift + p # 切换显示/隐藏 format 面板
    - ctrl + shift + k # 切换显示/隐藏 shape 面板
 
 1. 为了更好的适应屏幕显示，可以手动设置 dpi,前提是要首先计算出来真实的 dpi.
-
    1. xrandr 获取屏幕分辨率和尺寸信息 `xrandr | grep " connected"`，eg: `LVDS-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 174mm` 计算命令是: `echo '1366 / 309 * 25.4'` 结果是 **101.6**，所以可以强制设置 dpi 是 102.
    1. `echo 'Xft.dpi: 102' | xrdb -merge` ，可以将这部分代码添加到全局的启动脚本。
    1. xrdb -get Xft.dpi # 获取当前配置的 dpi 信息
 
 1. ARMv7-A 架构的定义了一些不同的特权执行级别
-
    - 在安全状态，特权指令分为 PL1 和 PL0
    - 在非安全状态，特权指令分为 PL2,PL1 和 PL0
      其中：
@@ -657,7 +618,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    - PL2 是 Hyp MODE， 和虚拟化有关
 
 1. gimp 图像编辑工具
-
    - shift + t 可以对选择的图层进行变换
    - image -> canvas size 修改画布大小
    - image -> scale image 修改图像大小
@@ -668,53 +628,48 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. printf 打印浮点数的时候，栈要保证 8 字节对齐, AAPCS 规则要求堆栈保持 8 字节对齐。如果不对齐，调用一般的函数也是没问题的。但是当调用需要严格遵守 AAPCS 规则的函数时可能会出错。
 
 1. wayland weston
-
    - [校准触摸屏](https://wiki.st.com/stm32mpu/wiki/How_to_calibrate_the_touchscreen)
+      - weston-touch-calibrator 列出来触摸设备
 
-     - weston-touch-calibrator 列出来触摸设备
+      - weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
 
-     - weston-touch-calibrator 指定的触摸设备， 对指定的触摸设备进行校准
+      - 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: `/etc/udev/rules.d/touchscreen.rules`， 该文件的内容是：
 
-     - 如果需要保证下次上电后使用本次的校准数据，参考[Permanent calibration problem on weston](https://community.nxp.com/t5/i-MX-Processors/Permanent-calibration-problem-on-weston/m-p/1264405), 实现的方法是将校准的数据保存到 udev 的 rules 规则配置文件中，具体是保存为文件: `/etc/udev/rules.d/touchscreen.rules`， 该文件的内容是：
+         ```bash
+         SUBSYSTEM=="input", KERNEL=="event[0-9]*",
 
-       ```bash
-       SUBSYSTEM=="input", KERNEL=="event[0-9]*",
+         ENV{ID_INPUT_TOUCHSCREEN}=="1",
 
-       ENV{ID_INPUT_TOUCHSCREEN}=="1",
-
-       ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
-       ```
+         ENV{LIBINPUT_CALIBRATION_MATRIX}="校准的数据信息"
+         ```
 
    - 调试触摸驱动
-
-     1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
-     1. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
+      1. 使用 weston-info 查看 capabilities 属性是否包含 touch, 如果不包含说明驱动或者 libinput 加载有问题，这时候可以查看 weton 启动的打印信息，查看哪里出问题了
+      1. 如果是加载问题，首先通过 cat /proc/bus/input/devices 查看是否包含有 input_dev 设备，如果不包含，检查设备树或者驱动，一般都是设备树问题
 
    - 调试 wayland, 可以放开环境变量 `export WAYLAND_DEBUG=1` 使能 wayland 调试信息
 
 1. 原码、反码和补码
-
    - 原码 ：最高位是符号位，0代表正数，1代表负数，非符号位为该数字绝对值的二进制。
    - 反码：正数的反码与原码一致，负数的反码是对原码按位取反，只是最高位（符号位）不变。
    - 补码：正数的补码与原码一致，负数的补码是对原码按位取反加1，符号位不变。
 
 1. weston 工具在运行时会加载动态库,可以使用 chrpath 工具修改 elf 文件的 rpath 属性。具体指令为：
-
    - chrpath -r <path> 可执行文件
    - 特别注意的是，在加载动态库的时候，可以通过定义环境变量 WESTON_MODULE_MAP 来替换指定库的搜索路径：
-     ```bash
-     export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
-     export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
-     export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
-     export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
-     export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
-     ```
+      ```bash
+      export WESTON_MODULE_MAP=drm-backend.so=/usr/lib/libweston-9/drm-backend.so
+      export WESTON_MODULE_MAP="gl-renderer.so=/usr/lib/libweston-9/gl-renderer.so;$WESTON_MODULE_MAP"
+      export WESTON_MODULE_MAP="desktop-shell.so=/usr/lib/weston/desktop-shell.so;$WESTON_MODULE_MAP"
+      export WESTON_MODULE_MAP="weston-keyboard=/usr/libexec/weston-keyboard;$WESTON_MODULE_MAP"
+      export WESTON_MODULE_MAP="weston-desktop-shell=/usr/libexec/weston-desktop-shell;$WESTON_MODULE_MAP"
+      ```
    - 修改屏幕方向,以旋转 90 为例,name 字段必须要有:
-     ```
-     [output]
-     name=LVDS-1
-     transform=rotate-90
-     ```
+      ```
+      [output]
+      name=LVDS-1
+      transform=rotate-90
+      ```
 
 1. 如果发现在 linux 串口发送数据时，0X0A 被转换成了 0X0D 和 0X0A，那么需要修改 c_oflag &= ~ONLCR
 
@@ -723,14 +678,13 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. gcc 中 `__DATE__` 和 `__TIME__` 分别表示编译的日期和时间
 
 1. fedora nfs 参数配置文件是 **/etc/exports**,
-
    - no_root_squash 参数表示,远端可以正常使用 root 用户挂载,如果没有这个参数,对方使用 root 用户时会变为 nobody 用户
    - async 加快传输,禁止应答
    - sync 是默认的, nfs-server 会对写入的文件发送应答
    - 如果无法写入的时候使用这些模式 (rw,async,no_root_squash,no_subtree_check), 然后修改挂载的目录权限为 777 可以保证普通用户写入文件
-     ```bash
-     /var/lib/nfs  10.20.52.0/255.255.255.0(rw,async)
-     ```
+      ```bash
+      /var/lib/nfs  10.20.52.0/255.255.255.0(rw,async)
+      ```
 
 1. [SWIG](https://www.swig.org/) 是一个软件工具,实现将 C/C++ 的程序和一些更高级的语言联系到一起.支持将 C/C++ 语言和 python.
 
@@ -755,7 +709,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    ```
 
 1. Fedora 调节背光,修改文件 **/sys/class/backlight/intel_backlight/brightness** 一般选取 200 左右
-
    - 关闭 linux 恼人的蜂鸣器报警音,直接卸载对应的蜂鸣器驱动 `sudo modprobe -r -v pcspkr`
 
 1. gnome 默认使用 wayland 作为后端,如果需要改为 X11, 需要修改文件 /etc/gdm/custom.conf, 查看 gnome 的后端命令:`loginctl show-session 2 -p Type`
@@ -785,7 +738,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. signal -s 信号名称/信号值 进程pid # 发送指定信号给指定的进程
 
 1. 线程优先级, 优先级数值约高, 对应的优先级约高. `pthread_setschedparam` 函数可以修改线程的调度策略和优先级
-
    1. SCHED_OTHER 默认的调度策略,创建的所有线程的优先级默认都是0,采用分时调度的策略
    1. SCHED_FIFO (实时线程) 优先级范围是 1 ~ 99
    1. SCHED_RR (实时线程) 优先级范围是 1 ~ 99, 在 SCHED_FIFO 的基础上,添加了一个最大运行时间, SCHED_RR 线程的最大运行时间,可以用函数 `sched_rr_get_interval` 获取, 默认的这个数值为 0.1s, 越高的 nice 等级(对应的 nice 数值本身越小,是负数),这个值越大,越不容易被抢占.相反,越低等级的 nice(nice 数值约大), 这个数值越小,越容易被抢占.
@@ -817,7 +769,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    ```
 
 1. 设备树
-
    1. 节点定义
 
       ```dts
@@ -896,7 +847,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    1. gpiod\_ 这一类函数涉及到的是新版本的基于 gpio 消费者描述符的框架，涉及到的头文件 `linux/gpio/consumer.h` ，需要注意的是设备树定义 gpio 节点的时候，一般的名称规范是 `function-gpios`，这里的 function 对应 gpiod_xxx 类函数定义的名称参数。
 
 1. `fit` 文件定义 FIT 格式包的配置文件，类似 dtb 设备树语法
-
    1. `mkimage -f xxx.its yyy.img` 常规的用法，根据 xxx.its 文件，生成 yyy.img 文件
 
       ```
@@ -966,11 +916,9 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    1. 一般地，生成 yyy.img 文件之后，通过 tftp 到内存，可以通过 bootm 命令启动这个 img
 
 1. [给 Linux 提交 pr 的方法](https://www.cnblogs.com/gmpy/p/12200609.html)
-
    1. clone 源码树， 最好是根据你修改的部分查找对应的仓库路径，可以去 MAINTAINERS 文件中查找，这里以 linus 的仓库为例 eg: git clone git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git
 
    1. 修改，生成补丁文件，假如是单次修改，生成补丁的命令是：`git format-patch --subject-prefix='PATCH' -i HEAD~`, 如果是系列补丁，用下面的命令：`git format-patch --cover-letter --subject-prefix='PATCH' -N #这里的N是你要提取的补丁个数`
-
       1. 其中这个邮件前缀也是有一定的规范的,常见的有 PATCH（常规且正式的补丁）， RFC（不要正式提上去，希望一起讨论这个补丁，用来说明方向，看看意见）， RESEND（邮件发了好久没有回复，希望重新发）
       1. 如果是对补丁有阶段性的修改，比如 v2,那么可以简化执行 `git format-patch -v2 -i HEAD~` 生成补丁文件
 
@@ -990,7 +938,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
       其中，前3个maintainer是需要发送的对象，后三个是邮件列表。它们分别在 `git send-email` 命令使用 -to 选项和 -cc 选项进行发送和抄送。
 
    1. 使用 git send-email 命令发送补丁
-
       1. 首先对 git send-email 进行配置, 以 gmail 邮箱为例
          ```bash
          git config --local sendemail.smtpServer smtp.gmail.com
@@ -1021,7 +968,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
             ```
 
             其中 `/path/to/YOUR_REPLY` 表示发送的消息的文本内容，重点就是这个文本改怎么填呢，这里有多种方法：
-
             1. 使用 b4 工具拉取这个 pr 相关的回复，这时候需要首先使用 `pip install b4` 安装 `b4` 命令，然后使用 `b4 mbox <message id>` 进行拉取，具体如下：
 
                ````
@@ -1236,7 +1182,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
          1. 可以使用 git am xxxx.mbox -i 打补丁（未测试）
 
 1. 吉林大学学生邮箱客户端配置：
-
    1. pop3 协议，服务器地址：mails.jlu.edu.cn 发送和接收均不设置安全类型。其中，发送端口 25,接收端口 110.
 
 1. 修改键盘重映射的方法,需要使用 xmodmap 进行重映射.比如需要将 delete 按键重映射到 backspace. 我们需要知道两个信息.一个是 delete 按键的 keycode 另一个是 delete 按键的 KEYSYMNAME.首先是 keycode 可以通过 xev 工具得到,我得到是 119.然后查看文件 `<X11/keysymdef.h> (without the XK_ prefix)` 找到 backspace 的 KEYSYMNAME 名字为 `BackSpace`.最后执行 xmodmap -e "keycode 119 = BackSpace" 就可以了.如果想让开机自启动,需要使用到 xmodmap 的配置文件, 比如配置文件为 `~/.Xmodmap`
@@ -1256,23 +1201,19 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. `sudo dmidecode` 查看电脑的硬件信息，包括序列号（使用 grep -i serial 进行过滤）
 
 1. dynamic-debug 开启方式
-
    - `echo -n 'module xxx +p' > debugfs>/dynamic_debug/control` 开启指定模块 xxx 的打印
    - `echo -n 'module xxx -p' > debugfs>/dynamic_debug/control` 关闭指定模块 xxx 的打印
 
 1. [LSP(language server protocol) 实现的查询网址](https://microsoft.github.io/language-server-protocol/implementors/servers/)
 
 1. tftp 出现错误，可能是 selinux 导致的权限异常
-
    - ls -laZ 查看文件权限，如果异常使用 restorecon -Rv . 命令对当前文件夹的权限进行修改
 
 1. mount 挂载 img 文件，首先通过 fdisk 命令查看文件的偏移，然后在执行 mount 命令挂载：
-
    - fdisk -l xxxx.img 查看文件偏移
    - sudo mount -o loop,offset=文件偏移 xxxx.img 挂载路径 # 传递进文件的偏移，并挂载到指定的挂载路径
 
 1. 使用 echo 和 xxd 配合创建 16 进制的 bin 文件：
-
    - `echo 0012 | xxd -r -ps > test.bin` # 通过 xxd 进行转存
    - `echo -e -n '\x00\x12' > test.bin` # -e 表示使能反斜杠转义， -n 表示末尾不添加行尾转换标识，直接通过 echo 进行转存
 
@@ -1281,7 +1222,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. tty 设备打开提示权限问题。将用户添加到组： `sudo usermod -a -G dialout <username>`， 然后 logout 再重新登陆
 
 1. inkscape 矢量图编辑器
-
    1. 在画布上右键可以设置画布的大小
    1. 将画布上的多个元素可以组合成 group, 然后对这个 group 进行编辑
    1. ctrl+shift+c 将文本 path 化
@@ -1304,10 +1244,9 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. `nmap -v -snP 192.168.91.100-105` 扫描探测指定地址范围内的设备
 
 1. [qpdf](https://github.com/qpdf/qpdf) 工具用来对 pdf 进行编辑
-
    1. qpdf in.pdf --overlay water_mark.pdf --from= --repeat=1 -- out.pdf # 将 water_mark.pdf 叠加到 in.pdf 生成 out.pdf 输出,切记要添加 `--from= --repeat=1` 才能保证每一页面都有水印
 
-1. [microcom](<>) 串口工具,一般的嵌入式 linux 上链接的 busybox 中有这个命令可以测试串口
+1. [microcom]() 串口工具,一般的嵌入式 linux 上链接的 busybox 中有这个命令可以测试串口
 
 1. modprobe 添加一个 modprobe 的配置文件 `man modprobe.d`, 具体该文件的编写可以参看 man 文档.
 
@@ -1324,7 +1263,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    ```
 
 1. 启动时自动加载驱动的方法
-
    1. `echo "can-dev" | sudo tee /etc/modules-load.d/can-dev.conf`
    1. `sudo systemctl restart systemd-modules-load` 测试自动加载
    1. `复制额外的驱动到 /lib/modules/$(uname -r)/extra/ 如果这个目录不存在，则新建` 执行 `sudo depmod -a`，如果不想使用 extra 目录，也可以使用 `/lib/modules/$(uname -r)/updates/` 目录
@@ -1355,7 +1293,6 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    ```
 
 1. Linux 操作 phy 的描述，Linux 系统的 mac 设备都有一个通用的方法对 phy 寄存器进行读写，方法如下：
-
    1. 找到 phy 设备， ls -l /sys/devices/platform | grep "eth" 列出对应的 mac 设备
    1. 进入到 /sys/devices/platform/xxxxx 对应的 mac 设备目录
    1. 进一步列出来 mdio_bus 目录中的 phy 设备
@@ -1366,43 +1303,35 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
    1. 写 ext 寄存器，写 ext reg x0c 值为 0x80f6：echo 0x1e 0xc > phy_registers && echo 0x1f 0x80f6 > phy_registers
 
 1. dcraw 是一个编码原始图像文件(如RAW格式)的命令行工具。
-
    1. dcraw -o 4 -4 -T abc.dng # 表示将 abc.dng 修改为 ProPhoto 色彩空间, 线性 16bit tiff 文件输出,另存为 abc.tiff
 
 1. 修改本地域名映射文件 **/etc/hosts**
-
    1. `10.20.1.1 giteee.com` 可以将指定的 gitee.com 域名映射到 10.20.1.1 这个 ip
 
 1. visual studio 中如果发现中文字符串编译的时候提示 `error C2001:常量中有换行符` 错误，原因如下：文件中有中文字符，但是文件是utf-8格式的，使用msvc编译器编译时就会产生上述错误；解决方法如下：
-
    1. 将文件格式转换为 GBK 编码
    1. 在项目里设置编译选项，/utf-8， 具体是`项目->右键属性->C/C++ -> 命令行，在下方输入框添加 /utf-8`，就会在编译时采用utf-8编码来编译
 
 1. visual studio 如何[去掉控制台](https://blog.csdn.net/sinat_29158831/article/details/123503032)
-
    1. 链接器->系统->子系统 改为窗口(/SUBSYSTEM:WINDOWS)
    1. 链接器->高级->入口点 改为mainCRTStartup
 
 1. visual studio 如何添加控制台
-
    1. 链接器->系统->子系统 改为窗口(/SUBSYSTEM:CONSOLE)
    1. 链接器->高级->入口点 删除该入口点内容
 
 1. visual studio 配置项列表：
-
    1. 添加头文件路径： `项目->C/C++->常规->附加包含目录`
    1. 添加库路径： `项目->链接器->常规->附加库目录`
    1. `format code` 自带的快捷键 `Ctrl+K Ctrl+F` 格式化代码，`Ctrl+K Ctrl+D` 格式化文档
 
 1. 在线阅读 Linux 源码的网站（支持跳转）
-
    1. [https://elixir.bootlin.com/](https://elixir.bootlin.com/)
    1. [https://lxr.missinglinkelectronics.com](https://lxr.missinglinkelectronics.com)
 
 1. windows 内置工具计算 md5，`certutil -hashfile some_file MD5`
 
 1. [renode](https://github.com/renode/renode) 一个嵌入式开发仿真框架，编译依赖 mono 或者 doenet，下述操作默认 renode 已经正常安装
-
    1. renode --console --hide-log # 启动 renode
    1. mach create # 创建 machine
    1. machine LoadPlatformDescription @platforms/boards/stm32f4_discovery.repl # 加载 machine
@@ -1413,11 +1342,9 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. visual studio 如何[打包工程](https://blog.csdn.net/weixin_48561041/article/details/124070383)
 
 1. [http://www.telegraphics.net/sw/files/ICOFormat-2.1f1-win64.zip](ICOFormat) 解压之后，将文件 ICOFormat.8bi 放到 `Plug-ins\File Formats` 目录下重启 photoshop 就可以另存为 ico 格式文件了。
-
    1. photoshop 复制一个图层，然后高斯模糊，然后新建一个蒙版，实现磨砂玻璃的效果
 
 1. affinity
-
    1. 复制 format ， 粘贴 format，使用侧边栏的 **Style Picker** 工具
 
 1. aplay 和 arecord 可以分别用来测试扬声器和麦克风，可能还要配合 alsamixer 工具选择对应的声卡。
@@ -1429,12 +1356,10 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 1. imhex 工具的 diffing 可以对两个文件进行对比
 
 1. visio 2007 取消连接线的跨线:
-
    1. 文件 -> 页面设置 -> 布局与排列 -> 跨线（修改为无）
    1. visio 2007 画直线时会自动跨线，通过`选中该线 -> 格式 -> 行为 取消跨接`可以实现取消跨接
 
 1. wps 自动给图片编号的方法：
-
    1. 右键图片，选择题注，然后有图类型的时候，选择图类型，然后自动给图片名称编号就可以了， wps 会自动累加图编号
 
 1. `/etc/init.d/Sxxxx` 启动脚本使用 start-stop-daemon 管理示例
@@ -1524,7 +1449,7 @@ CDN是构建在网络之上的内容分发网络，依靠部署在各地的边�
 
 1. 汇编的 blx 跳转指令会根据目标地址自动切换指令集（thumb,arm），一般地用来跳转到 C 函数，如果使用不当，比如在汇编中 blx 一个汇编函数，有概率会导致触发异常（比如这个处理器不支持 arm 指令集，但是跳转地址 lsb 为 0 触发 arm 状态切换就会导致异常）
 
-______________________________________________________________________
+---
 
 ### gobject 学习笔记
 
@@ -1544,7 +1469,7 @@ ______________________________________________________________________
 - g_type_create_instance 创建对象
 - g_type_free_instance 释放对象
 
-______________________________________________________________________
+---
 
 ### 算法学习笔记
 
@@ -1552,7 +1477,7 @@ ______________________________________________________________________
 
 #### 约定
 
-______________________________________________________________________
+---
 
 ### AI
 
@@ -1560,5 +1485,16 @@ ______________________________________________________________________
 
 ##### mcp
 
-*  [drawio-mcp-server](https://github.com/lgazo/drawio-mcp-server) drawio 插件，测试过
-*  [drawio-mcp](https://github.com/jgraph/drawio-mcp) drawio 插件，官方的未测试，根据查询的资料，建议选 drawio-mcp-server
+- [drawio-mcp-server](https://github.com/lgazo/drawio-mcp-server) drawio 插件，测试过，安装方法简单来说就是在 zed 的 settings.json 配置文件，添加一个条目如下所示
+   ```json
+   "context_servers": {
+   "drawio": {
+     "enabled": true,
+     "command": "npx",
+     "args": ["-y", "drawio-mcp-server", "--editor"],
+     "env": {}
+   }
+   },
+   ```
+   安装之后，重启 zed, 一般会自动安装，检查方法是在 zed 的 setting 选项，搜索 mcp 确认对应的 drawio-mcp-server 这个 mcp 是否正常启动，如果不正常启动，可以尝试在 terminal 手动运行 `npx drawio-mcp-server --editor` 手动运行测试是否正常，首次运行时会自动下载相关的依赖文件，可以在首次运行时分析无法正常启动的原因，安装成功之后，重新启动 zed 再去 settings 的 mcp 条目检查对应的 mcp 是否正常启动。
+- [drawio-mcp](https://github.com/jgraph/drawio-mcp) drawio 插件，官方的未测试，根据查询的资料，建议选 drawio-mcp-server
