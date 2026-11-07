@@ -881,19 +881,19 @@
 
 ## W
 
-| 单词                | 释义             |
-| ------------------- | ---------------- |
-| workaround          | 解决方法         |
-| write up            | 记录，（名词）   |
-| work out of the box | 开箱即用         |
-| wild                | 疯狂、无法管教   |
-| wired               | 奇怪的           |
-| wipe                | 擦除             |
-| wrap                | 包裹             |
-| walkthrough         | 演练，走读       |
-| weird               | 不寻常的，奇怪的 |
-| warranty            | 保修             |
-| wrap                | 包裹，包装       |
+| 单词                | 释义              |
+| ------------------- | ----------------- |
+| workaround          | 解决方法,变通方法 |
+| write up            | 记录，（名词）    |
+| work out of the box | 开箱即用          |
+| wild                | 疯狂、无法管教    |
+| wired               | 奇怪的            |
+| wipe                | 擦除              |
+| wrap                | 包裹              |
+| walkthrough         | 演练，走读        |
+| weird               | 不寻常的，奇怪的  |
+| warranty            | 保修              |
+| wrap                | 包裹，包装        |
 
 ## X
 
